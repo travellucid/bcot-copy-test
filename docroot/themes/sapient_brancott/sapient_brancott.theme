@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+function sapient_brancott_preprocess_views_view_fields(&$variables) {
+    
+
+    $view_id = $variables['view']->storage->id();
+    switch ($view_id) {
+	
+	case 'homepage':
+	    if ($variables['view']->current_display == 'our_wines_component') {
+		    $block = \Drupal\block\Entity\Block::load('ourwinescarouselblockhomepage');
+            $block_content = \Drupal::entityManager()
+	        ->getViewBuilder('block')
+	        ->view($block);
+            $our_wine_carousel_block = array('#markup' => drupal_render($block_content));
+            $variables['our_wine_carousel_block'] = $our_wine_carousel_block;
+	    }
+	    break;
+	
+
+	
+
+		
+	
+	
+
+    
+    }
+}

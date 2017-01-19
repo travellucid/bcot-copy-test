@@ -1,0 +1,29 @@
+global-styling:
+  css:
+    theme:
+      css/brancott_css/bootstrap.min.css: {}
+      css/brancott_css/bootstrap-theme.min.css: {}
+      css/brancott-estate.css: {}
+      css/brancott_css/sapient.ver.1.0.0.css: {}
+      css/font-awesome.min.css: {}
+  js:
+     js/js_libs/sapient.libs.js: {}
+     js/brancott_js/sapient.modules.ver.1.0.0.dev.js: {}
+     #Javascript files for leadformance
+     #js/js_libs/agegate.js: {}
+     #js/js_libs/agegate.min.js: {}
+  
+bootstrap-scripts:
+  js:
+    bootstrap/js/affix.js: {}
+    bootstrap/js/alert.js: {}
+    bootstrap/js/button.js: {}
+    bootstrap/js/carousel.js: {}
+    bootstrap/js/collapse.js: {}
+    bootstrap/js/dropdown.js: {}
+    bootstrap/js/modal.js: {}
+    bootstrap/js/tooltip.js: {}
+    bootstrap/js/popover.js: {}
+    bootstrap/js/scrollspy.js: {}
+    bootstrap/js/tab.js: {}
+    bootstrap/js/transition.js: {}

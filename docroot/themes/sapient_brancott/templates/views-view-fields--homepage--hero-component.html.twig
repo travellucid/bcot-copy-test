@@ -1,0 +1,39 @@
+ <div id="hero-component" class="container-fluid  hero-container" >
+    {%- if fields.field_hero_background_image_larg.content -%}
+ 	<img src="{{ fields.field_hero_background_image_larg.content }}" alt="hero component background" class="background-image">
+ 	{%- endif %}
+ 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
+	    {%- if fields.field_hero_headline.content -%}
+ 		<h1 style = "color : {{ fields.field_headline_colour.content }}; text-align : {{ fields.field_hero_headline_position.content }} !important">{{ fields.field_hero_headline.content }}</h1>
+		{%- endif %}
+		{%- if fields.field_hero_cta_first_1.content -%}
+ 		<a href="{{ fields.field_hero_cta_first.content }}" class="cta dark find-out-more">
+ 			{{ fields.field_hero_cta_first_1.content }}
+ 		</a>
+		{%- endif %}
+ 	</div>
+ 	{%- if fields.field_hero_right_side_image.content -%}
+ 	<div class="hidden-sm hidden-xs hero-bottle-wrapper">
+			<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="bottle">
+	</div>
+	{%- endif %}
+	{%- if fields.field_hero_cta_second_1.content or fields.field_hero_cta_thi_1.content -%}
+	<div class="cta-visitus">
+	    {%- if fields.field_hero_cta_second_1.content -%}
+	  	<a href="{{ fields.field_hero_cta_second.content }}" class="cta light visit-all-wine">{{ fields.field_hero_cta_second_1.content }}</a>
+		{%- endif %}
+		{%- if fields.field_hero_cta_thi_1.content -%}
+	  	<a href="{{ fields.field_hero_cta_thi.content }}" class="cta light ">{{ fields.field_hero_cta_thi_1.content }}</a>
+		{%- endif %}
+	</div>
+	{%- endif %}
+	<a href="" class="scroll-down">
+		<span class="circle">
+			<span class="arrow">
+			</span>
+		</span>
+	</a>
+ </div>
+ 
+ 
+ 

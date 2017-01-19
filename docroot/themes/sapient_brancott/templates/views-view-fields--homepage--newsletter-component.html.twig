@@ -1,0 +1,14 @@
+{%- if fields.field_signup_text.content or fields.field_signup.content -%}
+<div class="container-fluid sign-up">
+  
+                <div class="row sign-up-text-wrapper">
+                {%- if fields.field_signup_text.content -%}               
+                <h1 class="sign-up-text header_c">{{ fields.field_signup_text.content }}</h1>
+				{%- endif -%} 
+				                {%- if fields.field_signup.content and fields.field_signup_1.content -%}
+                                <a href="{{ fields.field_signup_1.content }}" class="cta">{{ fields.field_signup.content }}</a>
+                                 {%- endif -%}
+                </div>
+
+</div>
+{%- endif -%}
