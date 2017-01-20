@@ -162,9 +162,18 @@ class VariantRouteFilter implements RouteFilterInterface {
     // Since access checks can throw a context exception, consider that as
     // a disallowed variant.
     catch (ContextException $e) {
+                                
       $access = FALSE;
+      // Sapient Patch added for front page access fixes. admin > config > basic information
+      //mitigation for pathvalidator
+      //if user has access to any link authorise access to this variant
+      $contexts = $variant->getContexts();
+      if (isset($contexts['current_user'])) {
+        $access = $contexts['current_user']->getContextData()->getValue()->hasPermission('link to any page');
+                                $access = $access ? TRUE : FALSE;
+      } 
     }
-
+    //print_r($access);die;
     return $access;
   }
 

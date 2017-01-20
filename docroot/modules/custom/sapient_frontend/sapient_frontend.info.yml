@@ -1,0 +1,5 @@
+name: Sapient frontend
+type: module
+description: This module is only for dev environment to support frontend development.
+core: 8.x
+package: Sapient

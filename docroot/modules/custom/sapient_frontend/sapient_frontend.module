@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * @file
+ * Contains sapient_frontend.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sapient_frontend_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sapient_frontend module.
+    case 'help.page.sapient_frontend':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module is only for dev environment to support frontend development.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ *
+ */
+function sapient_frontend_theme($existing, $type, $theme, $path) {
+  return array(
+    'sapient_frontend' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-1' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-2' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-3' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-4' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-5' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-6' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-7' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-8' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-9' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient_frontend-11' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient-main-header' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient-footer' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+    'sapient-diaporama' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+	 'sapient-brandDNA' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+	 'sapient-competition-events' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+	'sapient-viewOnMap' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+	'sapient-newsPushList' => array(
+      'variables' => array('arguments' => NULL),
+    ),
+  	'sapient-body-product-tile' => array(
+  		'variables' => array('arguments' => NULL),
+  	),
+  	'sapient-body-embed' => array(
+  		'variables' => array('arguments' => NULL),
+  	),
+  	'sapient-body-diaporama' => array(
+  		'variables' => array('arguments' => NULL),
+  	),
+	'sapient-manufacturing' => array(
+  		'variables' => array('arguments' => NULL),
+  	),
+	'sapient-introductiveTitle' => array(
+  		'variables' => array('arguments' => NULL),
+  	),
+	'sapient-sitemap' => array(
+  		'variables' => array('arguments' => NULL),
+  	)
+  );
+
+}
