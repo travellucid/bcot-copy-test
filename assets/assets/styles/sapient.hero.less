@@ -1,0 +1,172 @@
+/* hero component new code*/
+
+#hero-component {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;   
+	position: relative;
+
+	.background-image {
+		height: 98vh;
+		width: 100%;
+	}
+
+	.hero-inner-container {
+		.centerBoth();
+		text-align: center;
+		
+		h1 {
+			color: @dark-gray;
+		}
+
+		.find-out-more {
+			margin: 15px 0 40px;
+		}
+	}
+	
+	.hero-bottle-wrapper {
+		bottom: 0;
+		height: auto;
+		margin-right: 10%;
+		right: 0; 
+		position: absolute;
+		width: 11.25%;
+		z-index: 2;
+		
+		img {
+			width: 100%;
+		}
+	}
+	
+	.cta-visitus {
+		position: absolute;
+		bottom: 80px;
+		left: 50%;
+		.transform (translate(-50%, -50%));
+	}
+
+	.scroll-down {
+		.centerX();
+
+		bottom: -18px;
+		
+		.circle {
+			background-color: @white;
+			border: 1px solid @light-gray;
+			border-radius: 20px;
+			display: block;
+			height: 40px;
+			padding: 7.5px;
+			width: 40px;
+
+			.arrow {
+				.centerX();
+				background-repeat: no-repeat;
+				background-image: url("@{background-icons-path}BE_icon_arrow_down.svg");
+				background-size: 15px;
+				bottom: 0;
+				display: block;
+				height: 15px;
+				top: 50%;
+				width: 15px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: @bp-max-mobile) {
+	#hero-component {	
+		height: 440px;
+
+		.background-image {
+			height: 100%;
+		}
+
+		.cta-visitus {			
+			.centerX();
+			
+			a.cta {
+				display: block;
+			}
+			
+			a.visit-all-wine {
+				margin-bottom: 10px;
+			}
+			width: 65%;
+		}
+
+
+		.hero-inner-container {
+			text-align: center;
+			top: 0;
+			.centerX();
+			
+			h1 {
+				/* font-size: 28px;
+				line-height: 38px; */
+				margin: 40px 25px 0 25px;
+			}
+			
+			.find-out-more {
+				margin-bottom: 40px;
+				width: 87.5%;
+			}
+		}
+	}
+
+}
+
+
+@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+	#hero-component {	
+		height: 440px;
+
+		.background-image {
+			height: 100%;
+		}
+
+		.cta-visitus {			
+			.centerX();
+			
+			a.cta {
+				display: block;
+			}
+			
+			a.visit-all-wine {
+				margin-bottom: 10px;
+			}
+			width: 65%;
+		}
+
+
+		.hero-inner-container {
+			.centerX();
+			text-align: center;
+			top: 0;
+			
+			h1 {
+				/* font-size: 28px;
+				line-height: 38px; */
+				margin: 40px 25px 0 25px;
+			}
+			
+			.find-out-more {
+				margin-bottom: 40px;
+				width: 87.5%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: @bp-max-mobile) {
+	#hero-component {	
+		.hero-inner-container {
+			h1 {
+				/* font-size: 24px;
+				line-height: 35px; */
+			}
+		}
+	}
+}

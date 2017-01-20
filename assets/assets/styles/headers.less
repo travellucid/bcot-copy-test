@@ -1,0 +1,147 @@
+@import "sapient.variables-mixins.less";
+
+.header_a,
+h1 {
+	font-family: "Neutraface Text", sans-serif;
+	font-size: 48px;
+	letter-spacing: 2px;
+	line-height: 58px;
+	margin-top: 0px;
+}
+
+.header_b,
+h2 {
+	font-family: "Neutraface Text", sans-serif;
+	font-size: 28px;
+	letter-spacing: 2px;
+	line-height: 38px;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.header_c,
+h3 {
+	font-family: "Neutraface Text", sans-serif;
+	font-size: 24px;
+	line-height: 34px;
+	margin-top: 0px;
+}
+
+.header_d,
+h4 {
+	font-family: "Neutraface Text", sans-serif;
+	font-size: 18px;
+	line-height: 28px;
+	margin-top: 0px;
+}
+
+.header_e,
+h5 {
+	font-family: "Neutraface Text", sans-serif;
+	font-size: 16px;
+	line-height: 26px;
+	margin-top: 0px;
+}
+.header_f,
+h6 {
+	font-family: "Neutraface Text", sans-serif;
+	font-size: 14px;
+	line-height: 24px;
+	margin-top: 0px;
+}
+
+.header_g,
+h7 {
+	font-family: "Neutraface Text", sans-serif;
+	font-size: 12px;
+	line-height: 22px;
+	margin-top: 0px;
+}
+
+.header_a,
+.header_b,
+.header_c,
+h1,h2,h3,h4,h5,h6,h7 {
+	color: @white;
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+hr {
+	border-top-width: 0;
+	border-color: gray;
+	margin-bottom: 1em;
+	width: 50%;
+}
+
+@media screen and (max-width: @bp-max-mobile){
+	
+	.header_a,
+	h1 {	
+		font-size: 28px;
+		letter-spacing: 2px;
+		line-height: 38px;
+	}
+		
+	.header_b,
+	h2 {
+		font-size: 28px;
+		letter-spacing: 2px;
+		line-height: 38px;
+	}
+	
+	.header_c,
+	h3 {
+		font-size: 24px;
+		line-height: 34px;
+	}
+
+	.header_d,
+	h4 {
+		font-size: 18px;
+		line-height: 28px;
+	}
+	
+	.header_e,
+	h5 {
+		font-size: 16px;
+		line-height: 26px;
+	}
+	
+	.header_f,
+	h6 {
+		font-size: 14px;
+		line-height: 24px;
+	}
+	
+	.header_g,
+	h7 {
+		font-size: 12px;
+		line-height: 22px;
+	}
+}
+
+@media screen and (max-width: @bp-min-mobile){
+	
+	.header_a,
+	h1 {	
+		font-size: 27px;
+		line-height: 32px;
+	}
+		
+	.header_b,
+	h2 {
+		font-size: 21px;
+		line-height: 21px;
+	}
+	
+	.header_c,
+	h3 {
+		font-size: 24px;
+		line-height: 32px;
+	}
+}

@@ -1,0 +1,150 @@
+@import "sapient.variables-mixins.less";
+
+#visit-us {
+	position: relative;
+	.set-max-width(1400px);
+	.top-section {
+		/* margin-left: 6.85%;*/
+		left: 50%;
+		position: relative;
+		.transform (translateX(-50%));
+		width: 73.5%;
+
+		text-align: center;
+
+		h1,h2 {
+			color: @dark-gray;/* 
+			text-align: left; */
+		}
+		
+		p.description-visit-us {
+			font-size: 14px;
+		}
+	}
+	
+	
+
+	a.visit-us-cta {
+		left: 5.85%;
+		/* padding: 20px 15px; */
+		position: absolute;
+		margin-top: -25px;
+		z-index: 1;
+	}
+
+	.tile-container {
+		margin-top: 60px;
+		position: relative;
+		
+		.inner-tile {
+			/* float: left; */
+			overflow: hidden;
+			padding: 0;
+			position: relative;
+			width: 100%;
+			/* 
+			height: 835px; */
+
+			.small {/* 
+				height: 33.33%; */
+				position: relative;
+			}
+			
+			.big {/* 
+				height: 67.67%; */
+				position: relative;
+			}
+		
+			.small, .big {
+				.wrapper {
+					
+					.centerBoth();
+					position: absolute;
+					text-align: center;
+					
+
+					span {
+						color: @white;
+						display: block;
+						margin: 10px 0 15px 0;
+					}
+				}
+					
+				.tile-background {
+					height: 100%;
+					position: relative;
+					.transform (scale(1.05));
+					width: 100%;
+				}
+			}
+
+			.grow {
+				.transition (all .5s ease-in-out);
+			}
+		
+			.grow {
+				&:hover {
+					.transform (scale(1.02));
+				}
+			}
+
+		}
+	}
+}
+
+@media screen and (max-width: @bp-desktop-mlarge) {
+
+	#visit-us {
+		.set-max-width(1170px);
+	}
+}
+
+@media screen and (max-width: @bp-large-mobile-to-table-landscape){		
+	#visit-us {
+		padding: 0;
+		margin: 0;
+		.top-section {
+			margin: 0;
+			padding: 15px;
+			width: 100%; 
+		}
+		.tile-container {
+			a.visit-us-cta {
+				left: 0;
+				width: 95.5%;
+			}
+			
+			.inner-tile {
+				height: auto;
+
+				.small {
+					height: auto;
+				}
+				
+				.big {
+					height: auto;				
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: @bp-max-mobile){		
+	#visit-us {
+		.tile-container {
+			a.visit-us-cta {
+				width: 91.5%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: @bp-min-mobile){
+	#visit-us {
+		.tile-container {
+			a.visit-us-cta {
+				width: 90.5%;
+			}
+		}
+	}
+}

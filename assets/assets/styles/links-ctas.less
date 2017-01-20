@@ -1,0 +1,214 @@
+@import "sapient.variables-mixins.less";
+
+a {	
+	color: @dark-gray;
+}
+
+span,
+button,
+a,
+input[type=submit] {
+	&:focus {
+		box-shadow: 0 0 10px #80b0ff;
+		outline: 0;
+	}
+	
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+
+	// CTA version
+
+	&.cta {
+		margin: 0 15px;
+		-webkit-transition: all .25s ease; /* Safari */
+		transition: all .25s ease;
+		.cta();
+
+		&.light {
+			background-color: @white;
+			border: 2px solid @dark-gray;
+			padding: 10px 60px;
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: @bright-green;
+				color: @white;
+				border: 2px solid @bright-green;
+			}
+		}
+
+		&.dark {
+			background-color: @bright-green;
+			border: 2px solid @bright-green;
+			color: @white;
+			padding: 25px 60px;
+			&:hover,
+			&:focus {
+				background-color: @white;
+				border: 2px solid @dark-gray;
+				color: @dark-gray;
+			}
+		}
+
+
+		&.secondary-dark {
+			background-color: @transparent;
+			border: 2px solid @dark-gray;
+			color: @dark-gray;
+			padding: 25px 60px;
+			&:hover,
+			&:focus {
+				background-color: @dark-gray;
+				border: 2px solid @dark-gray;
+				color: @white;
+			}
+		}
+		
+		&.secondary-green {
+			background-color: @transparent;
+			border: 2px solid @bright-green;
+			color: @bright-green;
+			padding: 25px 60px;
+			&:hover,
+			&:focus {
+				background-color: @bright-green;
+				border: 2px solid @bright-green;
+				color: @white;
+			}
+		}
+
+		&.secondary-light {
+			background-color: @transparent;
+			border: 2px solid @white;
+			color: @white;
+			padding: 10px 50px;
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: @white;
+				color: @bright-green;
+				border: 2px solid @white;
+			}
+		}
+
+		&.icon {
+			padding-left: 35px;
+			position: relative;
+
+			&::before {
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				content: " ";
+				height: 24px;
+				left: 14px;
+				position: absolute;
+				top: 8px;
+				width: 24px;
+			}
+
+			&.play-video {
+				&:hover {
+					border: 2px solid @dark-gray;
+					&::before {
+					background-image: url("@{background-icons-path}icon-play.svg");
+				 } 
+				}
+				&:focus {
+					background-color: @dark-gray;
+					border: 1px solid @dark-gray;
+					color: @white;
+				}
+				&::before {
+					background-image: url("@{background-icons-path}play_video_grey.svg");
+				}
+				
+
+			}
+
+			&.play-threesixty {
+				&:hover,
+				&:focus {
+					border: 1px solid @dark-gray;
+					&::before {
+					background-image: url("@{background-icons-path}icon-360-video-white.svg");
+				 } 
+				}
+				
+				&::before {
+					background-image: url("@{background-icons-path}icon-360-video.svg");
+				}
+				
+
+			}
+
+			&.stop-hpsn-video{
+				margin-left:1em;
+
+				&:hover {
+					border: 1px solid @dark-gray;
+					&::before {
+				/*	background-image: url("@{background-icons-path}icon-play.svg");*/
+				 } 
+				}
+				&:focus {
+					background-color: @dark-gray;
+					border: 1px solid @dark-gray;
+					color: @white;
+				}
+				&::before {
+				/*	background-image: url("@{background-icons-path}play_video_grey.svg");*/
+				}
+			}
+
+		
+		}
+	}
+}
+
+button {
+	&.cta {
+		background-color: white;
+	}
+}
+
+@media screen and (min-width: @bp-desktop-large) {
+	button,
+	a,
+	input[type=submit] {
+
+		&.cta {
+			&.icon {
+				&.add-to-wishlist,
+				&.add-to-cart,
+				&.play-video,
+				&.shop-in-store,
+				&.not-available,
+				&.remove-from-wishlist {
+					width: 16.750em;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: @bp-max-mobile) {
+	button {
+		&.cta {
+			padding: 25px 80px;
+		}
+	}
+	span,
+	button,
+	a,
+	input[type=submit] {
+		&:focus {
+			box-shadow: none;
+			outline: 0;
+		}
+	}
+}
+
+
