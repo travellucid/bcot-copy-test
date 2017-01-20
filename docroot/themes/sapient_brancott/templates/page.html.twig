@@ -71,7 +71,7 @@
       {% if not navbar_attributes.hasClass('container') %}
         <div class="{{ container }}">
       {% endif %}
-      <div class="navbar-header">
+      <!--<div class="navbar-header">-->
         {{ page.navigation }}
         {# .btn-navbar is used as the toggle for collapsed navbar content #}
         {% if page.navigation_collapsible %}
@@ -82,7 +82,7 @@
             <span class="icon-bar"></span>
           </button>
         {% endif %}
-      </div>
+      <!--</div>-->
 
       {# Navigation (collapsible) #}
       {% if page.navigation_collapsible %}
