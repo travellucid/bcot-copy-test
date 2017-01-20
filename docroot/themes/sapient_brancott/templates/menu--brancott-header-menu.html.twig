@@ -60,9 +60,11 @@
 	  {% set dynamic_class =   item.title %}
       <li class="dropdown {{ dynamic_class }}">
 	  {% set title %}
-          {{ item.title }} <span class="caret"></span> 
+	     
+          {{ item.title }} <span class="expand-icon"></span>
+         
         {% endset %}
-        {{ link(title, item.url, { 'class':['dropdown-toggle', item.title], 'data-toggle':['dropdown'], 'role':['button'], 'aria-haspopup':['true']  } ) }}
+        {{ link(title, item.url, { 'class':['dropdown-toggle'], 'data-toggle':['dropdown'], 'role':['button'], 'aria-haspopup':['true']  } ) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
