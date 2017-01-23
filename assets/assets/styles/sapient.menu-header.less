@@ -140,13 +140,30 @@ header {
 @media screen and (max-width: @bp-max-mobile){	
 	header {
 		/* display: none; */
+
+		button.navbar-toggle {
+			background-color: none;
+			border: none;
+			position: fixed;
+			right: 0;
+			z-index: 101;
+			
+			&:hover {
+				background-color: none;
+			}
+
+			span.icon-bar {
+				color: @shed-red;
+			}
+		}
+		
 		#navbar-header {
 			div.logo {
 				a.logo-img {
 					background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
 					background-size: 140px 45px;
 					display: block;
-					height: 70px;
+					height: 45px;
 					top: 15px;
 					width: 140px;
 					
@@ -166,7 +183,7 @@ header {
 				bottom: 0;
 				margin: 0;
 				position: fixed;
-				top: 60px;
+				top: 65px;
 				width: 100%;
 				z-index: 100;
 				left: 0;
