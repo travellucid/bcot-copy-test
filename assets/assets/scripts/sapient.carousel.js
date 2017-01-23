@@ -58,6 +58,6 @@ var carouselObj = (function($, window, sapient) {
 sapient.carousel = carouselObj.getInstance();
 
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
-sapient.carousel.enableTouchCarousel("#carousel-our-wines");
+sapient.carousel.enableTouchCarousel("#carousel-our-wines");/*
 sapient.carousel.toggleCarouselArrow("#carousel-our-story");
-sapient.carousel.toggleCarouselArrow("#carousel-our-wines");
+sapient.carousel.toggleCarouselArrow("#carousel-our-wines");*/
