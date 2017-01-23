@@ -56,10 +56,11 @@
 	
 	
 	{% if menu_level == 0 %}
+	  <li class="menu-heading"></li><!-- reqd by rohit for mob view -->
       {% for item in items %}
 	  {% set dynamic_class =   item.title %}
 	  {% if item.title == 'logo' %}
-	  <li class="hidden-sm {{ dynamic_class }}">
+	  <li class="hidden-sm hidden-xs {{ dynamic_class }}">
 	   {% else %}
       <li class="dropdown {{ dynamic_class }}">
 	   {% endif %}

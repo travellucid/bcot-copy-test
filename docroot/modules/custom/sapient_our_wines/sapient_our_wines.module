@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Theme hook.
+ */
+
+/**
+ *
+ */
+function sapient_our_wines_theme($existing, $type, $theme, $path) {
+  return array(
+    'sapient_our_wines_template' => array(
+      'variables' => array('names' => NULL, 'count' => NULL),
+    ),
+  );
+
+}
+
+function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	
+	if($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form' ){
+		$form['#validate'][] = 'character_limitation_homepage';
+	}
+	if($form_id == 'node_our_story_edit_form' or $form_id == 'node_our_story_form' ){
+		$form['#validate'][] = 'character_limitation_our_story';
+	}
+	if($form_id == 'node_visit_us_edit_form' or $form_id == 'node_visit_us_form' ){
+		$form['#validate'][] = 'character_limitation_visit_us';
+	}
+}
+
+function character_limitation_visit_us($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  
+  $values = $form_state->getValues();
+  $link_visit_us = strlen($values['field_hero_cta_first'][0]['title']);
+  
+  //print_r($link_visit_us);die('sallu');
+   if ($link_visit_us > 15){
+    $form_state->setErrorByName('field_hero_cta_first','Max length for this field is 15 characters.');
+  }
+}
+
+function character_limitation_our_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  $link_our_story = strlen($values['field_hero_cta_first'][0]['title']);
+  
+  
+   if ($link_our_story > 30){
+    $form_state->setErrorByName('field_hero_cta_first','Max length for this field is 30 characters.');
+  }
+}
+
+function character_limitation_homepage($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  $desc_visit_us = strlen($values['field_visit_us_description'][0]['value']);
+  $desc_our_wines = strlen($values['field_our_wine_description'][0]['value']);
+  $cta1_length_promo = strlen($values['field_hero_cta_first'][0]['title']);
+  $cta2_length_promo = strlen($values['field_hero_cta_second'][0]['title']);
+  $cta3_length_promo = strlen($values['field_hero_cta_thi'][0]['title']);
+  $cta_length_signup = strlen($values['field_signup'][0]['title']);
+  $cta_length_visitus = strlen($values['field_visit_us_cta'][0]['title']);
+  $cta_length_wines = strlen($values['field_our_wine_cta'][0]['title']);
+  
+  
+  
+ // print_r($a);die;
+  
+  if ($desc_visit_us > 240){
+    $form_state->setErrorByName('field_visit_us_description','Max length for this field is 240 characters.');
+  }
+  if ($desc_our_wines > 240){
+    $form_state->setErrorByName('field_our_wine_description','Max length for this field is 240 characters.');
+  }
+  if ($cta1_length_promo > 20 ){
+    $form_state->setErrorByName('field_hero_cta_first','Max length for this field is 20 characters.');
+  }
+  if ($cta2_length_promo > 20 ){
+    $form_state->setErrorByName('field_hero_cta_second','Max length for this field is 20 characters.');
+  }
+  if ($cta3_length_promo > 20 ){
+    $form_state->setErrorByName('field_hero_cta_thi','Max length for this field is 20 characters.');
+  }
+  if ($cta_length_signup > 15){
+    $form_state->setErrorByName('field_signup','Max length for this field is 15 characters.');
+  }
+  if ($cta_length_visitus > 30){
+    $form_state->setErrorByName('field_visit_us_cta','Max length for this field is 30 characters.');
+  }
+   if ($cta_length_wines > 30){
+    $form_state->setErrorByName('field_our_wine_cta','Max length for this field is 30 characters.');
+  }
+}
+
+
+
+//function sapient_our_wines_entity_translation_delete(\Drupal\Core\Entity\EntityInterface $translation) {
+  //echo "<pre>";print_r(debug_backtrace());die('test');
+//}
