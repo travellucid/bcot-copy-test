@@ -58,7 +58,11 @@
 	{% if menu_level == 0 %}
       {% for item in items %}
 	  {% set dynamic_class =   item.title %}
+	  {% if item.title == 'logo' %}
+	  <li class="hidden-sm {{ dynamic_class }}">
+	   {% else %}
       <li class="dropdown {{ dynamic_class }}">
+	   {% endif %}
 	  {% set title %}
 	     
           {{ item.title }} <span class="expand-icon"></span>
