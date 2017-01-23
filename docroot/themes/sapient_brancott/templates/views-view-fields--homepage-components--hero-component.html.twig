@@ -1,7 +1,15 @@
  <div id="hero-component" class="container-fluid  hero-container" >
    
- 	<img src="{{ fields.field_hero_background_image_larg.content }}" alt="{{ fields.field_hero_background_image_larg_1.content }}" class="background-image">
- 	
+ 	<!--<img src="{{ fields.field_hero_background_image_larg.content }}" alt="{{ fields.field_hero_background_image_larg_1.content }}" class="background-image">-->
+ 			<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_hero_background_image_larg_2.content }}">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_hero_background_image_larg_2.content }}">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_hero_background_image_larg.content }}">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_hero_background_image_larg.content }}"> 
+				<source  srcset="{{ fields.field_hero_background_image_larg.content }}"> 
+				<!-- img tag for browsers that do not support picture element -->
+				<img src="{{ fields.field_hero_background_image_larg.content }}" alt="{{ fields.field_hero_background_image_larg_1.content }}">  
+            </picture>
  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
 	   
  		<h1 style = "color : {{ fields.field_headline_colour.content }}; text-align : {{ fields.field_hero_headline_position.content }} !important">{{ fields.field_hero_headline.content }}</h1>
@@ -13,7 +21,14 @@
  	</div>
  	
  	<div class="hidden-sm hidden-xs hero-bottle-wrapper">
-			<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}">
+			
+			<source class="hero-bottle" media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}"> 
+			<source class="hero-bottle" media="(max-width: 769px)"  srcset="{{ fields.field_hero_right_side_image.content }}"> 
+				<!-- img tag for browsers that do not support picture element -->
+			<source  class="hero-bottle" srcset="{{ fields.field_hero_right_side_image.content }}"> 
+			<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+			
+			<!--<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}">-->
 	</div>
 	
 	<div class="cta-visitus">
