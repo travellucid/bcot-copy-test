@@ -142,8 +142,8 @@ header {
 		/* display: none; */
 
 		button.navbar-toggle {
-			background-color: none;
-			border: none;
+			background: none !important;
+			border: none !important;
 			position: fixed;
 			right: 0;
 			z-index: 101;
@@ -153,11 +153,17 @@ header {
 			}
 
 			span.icon-bar {
-				color: @shed-red;
+				background-color: #d50032 !important;
 			}
 		}
-		
+
 		#navbar-header {
+
+			&.in {
+				height: 100%;
+				.transition(all 1s ease-in-out);
+			}
+			
 			div.logo {
 				a.logo-img {
 					background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
