@@ -153,8 +153,8 @@ var headerObj = (function($, window, sapient) {
 	function createHeaderInstance() {
 
 		var getMenuHeadingVal = function() {
-			$(document).on("click",".menu > .dropdown .dropdown-toggle", function(e){
-				$(".sub-menu-wrapper .menu-heading").text($(this).text());
+			$(document).on("click",".menu > .dropdown .expand-icon", function(e){
+				$(".sub-menu-wrapper .menu-heading").text($(this).parents(".dropdown-toggle").text());
 			});
 		};
 
