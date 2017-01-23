@@ -8,7 +8,7 @@
 		        </video>
 			
 		{% else %}
-			<img src="{{ fields.field_background_image.content }}" data-mobile-src = "{{ fields.field_background_image_1.content }}" data-desktop-src = "{{ fields.field_background_image.content }}" alt="...">
+			<img src="{{ fields.field_background_image.content }}" data-mobile-src = "{{ fields.field_background_image_1.content }}" data-desktop-src = "{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">
 			<div class="inner-container">
 				<span>{{ fields.field_our_story_subheading.content }}</span>
 				<h1>{{ fields.field_our_story_headline.content }}</h1>
