@@ -31,6 +31,21 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 	if($form_id == 'node_visit_us_edit_form' or $form_id == 'node_visit_us_form' ){
 		$form['#validate'][] = 'character_limitation_visit_us';
 	}
+	if($form_id == 'menu_link_content_menu_link_content_form' ){
+		$form['#validate'][] = 'character_limitation_header_menu';
+	}
+	
+}
+
+function character_limitation_header_menu($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  
+  $values = $form_state->getValues();
+  $link_length = strlen($values['title'][0]['value']);
+  
+  //print_r($link_length);die('sallu');
+   if ($link_length > 20){
+    $form_state->setErrorByName('title','Max length for this field is 20 characters.');
+  }
 }
 
 function character_limitation_visit_us($form, \Drupal\Core\Form\FormStateInterface $form_state) {
