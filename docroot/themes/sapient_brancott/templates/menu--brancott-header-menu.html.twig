@@ -64,9 +64,10 @@
       <li class="dropdown {{ dynamic_class }}">
 	   {% endif %}
 	  {% set title %}
-	     
-          {{ item.title }} <span class="expand-icon"></span>
-         
+          {{ item.title }}
+		  {% if item.below %}
+		  <span class="expand-icon"></span>
+          {% endif %}
         {% endset %}
         {{ link(title, item.url, { 'class':['dropdown-toggle'], 'data-toggle':['dropdown'], 'role':['button'], 'aria-haspopup':['true']  } ) }}
         {% if item.below %}
