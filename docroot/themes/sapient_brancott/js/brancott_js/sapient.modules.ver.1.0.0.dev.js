@@ -119,7 +119,7 @@ var heroObj = (function($, window, sapient) {
 
 		var getHeightHero = function() {
 			$('.scroll-down').click(function() {
-				var heightHero = $("#hero-component").height() + 100;
+				var heightHero = $("#hero-component").height();
 				$('html, body').animate({
 					scrollTop: heightHero
 				}, 1000);
@@ -165,13 +165,17 @@ var headerObj = (function($, window, sapient) {
 					$(this).parents(".menu").removeClass("menu-open");	
 				}
 			});
+		}
+
+		var removeMobileLogoText = function () {
+			$("#navbar-header .logo a").text("");
 		}	
 
 		return {
 			// public + private states and behaviors
 			getMenuHeadingVal: getMenuHeadingVal,
 			animateMobileMenu: animateMobileMenu,
-			removeDdownClass: removeDdownClass
+			removeMobileLogoText: removeMobileLogoText
 		};
 	}
 
@@ -190,6 +194,7 @@ sapient.header = headerObj.getInstance();
 
 sapient.header.getMenuHeadingVal();
 sapient.header.animateMobileMenu();
+sapient.header.removeMobileLogoText();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;

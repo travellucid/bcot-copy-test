@@ -1,267 +1,232 @@
 @import "sapient.variables-mixins.less";
-
 footer {
-	text-align: center;
-	width: 100% !important;
+    position: relative;
+    text-align: center;
+    width: 100% !important;
 
-	div.country-selector-wrapper {
-		background-color: @dark-gray;
-		height: 90px;
-		position: relative;
-		width: 100%;
-
-		.country-selector {
-			max-width: 1400px;
-			margin: 0 auto;
-		}
-
-		div.your-country {
-			color: @white;
-			select {
-				
-			}
-		}		
-
-		.logo-wrapper {
-			background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
-			background-size: 231px 53px;
-			height: 53px;
-			margin-left: 15px;
-			top: 15px;
-			width: 231px;
-
-			.centerY();
-		}
-
-		.lang_dropdown_form {
-			float: right;
-
-			.select-wrapper {
-				right: 215px;
-
-				.centerY();
-
-				select {
-					background-color: @dark-gray;
-					border: 3px solid @white;
-					border-radius: 0;
-					color: @white;
-					width: 270px !important;
-				}
-			}
-		}
-	}
-
-	section.links-contact {
-		margin-bottom: 25px;
-		
-		nav {
-			margin: 0 auto;
-			/* max-width: 60%; */
-			min-width: 44%;
-			width: auto;
-
-			ul {
-				display: inline-block;
-				
-				li {
-					float: left;
-					margin: 0 25px;
-					
-					a {
-						color: @dark-gray;
-						font-size: 12px;
-						padding: 0;
-
-						&:hover {
-							background-color: @white;
-						}
-						&:active,&:focus {
-							background-color: transparent;
-						}
-					}
-
-					&.icon-Wine{					
-						a {
-							&::after {
-								background-image: url("@{background-icons-path}BE_icon_new_window.svg");
-								background-size: 15px;
-								content: "";
-								height: 15px;
-								position: absolute;
-								right: -25px;
-								width: 15px;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	section.social-icons {
-		/* width: 51%; */
-	    margin: 0 auto;
-
-		nav {
-			margin: 0 auto;
-			text-align: center;
-			width: auto;
-			max-width: 55%;
-			min-width: 44%;
-
-			ul {
-				margin: 40px 0;
-				display: inline-block;
-
-				li {
-					background-repeat: no-repeat;
-					float: left;
-					margin-right: 30px;
-					
-					a {
-						&:hover,:active {
-							background-color: transparent;
-						}
-					}
-				}
-				li.icon-facebook {
-					background-image: url("@{background-icons-path}BE_icon_facebook.svg");
-					background-size: 10px 18px;
-					height: 18px;
-					width: 10px;
-				}
-				li.icon-Instagram {
-					background-image: url("@{background-icons-path}BE_icon_instagram.svg");
-					background-size: 17px 18px;
-					height: 17px;
-					width: 17px;
-				}
-				li.icon-Youtube {
-					background-image: url("@{background-icons-path}BE_icon_youtube.svg");
-					background-size: 25px 17px;
-					height: 17px;
-					width: 25px;
-				}
-				li.icon-Twitter {
-					background-image: url("@{background-icons-path}BE_icon_twitter.svg");
-					background-size: 23px 21px;
-					height: 21px;
-					width: 23px;
-				}								
-			}
-		}
-	}
-	
-	.safely-message {
-		color: @dark-gray;
-	}
-
-	.copyright {
-		color: @dark-gray;
-		display: block;
-		margin: 10px 0 95px 0;
-	}
-
+    img.footer-bg-image {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        top: -5px;
+        width: 100%;
+    }
+    
+    div.country-selector-wrapper {
+        background-color: @dark-gray;
+        height: 90px;
+        position: relative;
+        width: 100%;
+        .country-selector {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        div.your-country {
+            color: @white;
+            select {}
+        }
+        .logo-wrapper {
+            background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
+            background-size: 231px 53px;
+            height: 53px;
+            margin-left: 15px;
+            top: 15px;
+            width: 231px;
+            .centerY();
+        }
+        .lang_dropdown_form {
+            float: right;
+            .select-wrapper {
+                right: 215px;
+                .centerY();
+                select {
+                    background-color: @dark-gray;
+                    border: 3px solid @white;
+                    border-radius: 0;
+                    color: @white;
+                    width: 270px !important;
+                }
+            }
+        }
+    }
+    section.links-contact {
+        margin-bottom: 25px;
+        nav {
+            margin: 0 auto;
+            /* max-width: 60%; */
+            min-width: 44%;
+            width: auto;
+            ul {
+                display: inline-block;
+                li {
+                    float: left;
+                    margin: 0 25px;
+                    a {
+                        color: @dark-gray;
+                        font-size: 12px;
+                        padding: 0;
+                        &:hover {
+                            background-color: @white;
+                        }
+                        &:active,
+                        &:focus {
+                            background-color: transparent;
+                        }
+                    }
+                    &.icon-Wine {
+                        a {
+                            &::after {
+                                background-image: url("@{background-icons-path}BE_icon_new_window.svg");
+                                background-size: 15px;
+                                content: "";
+                                height: 15px;
+                                position: absolute;
+                                right: -25px;
+                                width: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section.social-icons {
+        /* width: 51%; */
+        margin: 0 auto;
+        nav {
+            margin: 0 auto;
+            text-align: center;
+            width: auto;
+            max-width: 55%;
+            min-width: 44%;
+            ul {
+                margin: 40px 0;
+                display: inline-block;
+                li {
+                    background-repeat: no-repeat;
+                    float: left;
+                    margin-right: 30px;
+                    a {
+                        &:hover,
+                        :active {
+                            background-color: transparent;
+                        }
+                    }
+                }
+                li.icon-facebook {
+                    background-image: url("@{background-icons-path}BE_icon_facebook.svg");
+                    background-size: 10px 18px;
+                    height: 18px;
+                    width: 10px;
+                }
+                li.icon-Instagram {
+                    background-image: url("@{background-icons-path}BE_icon_instagram.svg");
+                    background-size: 17px 18px;
+                    height: 17px;
+                    width: 17px;
+                }
+                li.icon-Youtube {
+                    background-image: url("@{background-icons-path}BE_icon_youtube.svg");
+                    background-size: 25px 17px;
+                    height: 17px;
+                    width: 25px;
+                }
+                li.icon-Twitter {
+                    background-image: url("@{background-icons-path}BE_icon_twitter.svg");
+                    background-size: 23px 21px;
+                    height: 21px;
+                    width: 23px;
+                }
+            }
+        }
+    }
+    .safely-message {
+        color: @dark-gray;
+    }
+    .copyright {
+        color: @dark-gray;
+        display: block;
+        margin: 10px 0 95px 0;
+    }
 }
 
-@media screen and (max-width: @bp-desktop-mlarge){		
-	footer {
-		div.country-selector-wrapper {
-			.country-selector {
-				max-width: 1170px;
-			}
-		}
-	}
+@media screen and (max-width: @bp-desktop-mlarge) {
+    footer {
+        div.country-selector-wrapper {
+            .country-selector {
+                max-width: 1170px;
+            }
+        }
+    }
 }
 
-@media screen and (max-width: @bp-max-mobile){
-	footer {
-
-		div.country-selector-wrapper {
-			height: 164px;
-
-			div.your-country {
-			    .centerX();
-			}
-
-			.logo-wrapper {
-				top: 0;
-
-				.centerX();
-			}
-
-			.logo-wrapper {
-				background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
-				background-size: 136px 70px;
-				height: 70px;
-				margin-left: 15px;
-				top: 15px;
-				width: 136px;
-
-				.centerX();
-			}
-
-
-			.lang_dropdown_form {
-
-				.select-wrapper {
-					left: 0;
-					right: 0;
-					
-					select {
-						width: 90% !important;
-					    margin: 0 auto;
-					    margin-top: 20px;
-
-						.centerX();
-					}
-				}
-			}
-		}
-
-		section.links-contact {
-		margin-bottom: 10px;
-		
-			nav {
-
-				ul {
-					li {
-						float: none;
-						
-						&.icon-Wine{
-							a {}
-						}
-						a {
-							margin-bottom: 30px;
-						}
-					}
-				}
-			}
-		}
-
-		section.social-icons {
-
-			nav {
-				max-width: 100%;
-
-				ul {
-					margin: 30px 0;
-
-					li {
-						margin-right: 28px;
-					}
-				}
-				
-			}
-		}
-	}
+@media screen and (max-width: @bp-max-mobile) {
+    footer {
+        div.country-selector-wrapper {
+            height: 164px;
+            div.your-country {
+                .centerX();
+            }
+            .logo-wrapper {
+                top: 0;
+                .centerX();
+            }
+            .logo-wrapper {
+                background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
+                background-size: 136px 70px;
+                height: 70px;
+                margin-left: 15px;
+                top: 15px;
+                width: 136px;
+                .centerX();
+            }
+            .lang_dropdown_form {
+                .select-wrapper {
+                    left: 0;
+                    right: 0;
+                    select {
+                        width: 90% !important;
+                        margin: 0 auto;
+                        margin-top: 20px;
+                        .centerX();
+                    }
+                }
+            }
+        }
+        section.links-contact {
+            margin-bottom: 10px;
+            nav {
+                ul {
+                    li {
+                        float: none;
+                        &.icon-Wine {
+                            a {}
+                        }
+                        a {
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        section.social-icons {
+            nav {
+                max-width: 100%;
+                ul {
+                    margin: 30px 0;
+                    li {
+                        margin-right: 28px;
+                    }
+                }
+            }
+        }
+    }
 }
 
-@media screen and (max-width: @bp-min-mobile){
-	footer{
-		section.social-icons {
-			width: 60%;
-		}		
-	}
+@media screen and (max-width: @bp-min-mobile) {
+    footer {
+        section.social-icons {
+            width: 60%;
+        }
+    }
 }

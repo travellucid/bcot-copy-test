@@ -29,7 +29,6 @@ input[type=submit] {
 		&.light {
 			background-color: @white;
 			border: 2px solid @dark-gray;
-			padding: 10px 60px;
 			&:hover,
 			&:focus,
 			&:active {
@@ -57,7 +56,7 @@ input[type=submit] {
 			background-color: @transparent;
 			border: 2px solid @dark-gray;
 			color: @dark-gray;
-			padding: 25px 60px;
+			/* padding: 25px 60px; */
 			&:hover,
 			&:focus {
 				background-color: @dark-gray;
@@ -70,7 +69,7 @@ input[type=submit] {
 			background-color: @white;
 			border: 2px solid @bright-green;
 			color: @bright-green;
-			padding: 25px 60px;
+			/* padding: 25px 60px; */
 			&:hover,
 			&:focus {
 				background-color: @bright-green;
@@ -83,7 +82,7 @@ input[type=submit] {
 			background-color: @transparent;
 			border: 2px solid @white;
 			color: @white;
-			padding: 10px 50px;
+			/* padding: 10px 50px; */
 			&:hover,
 			&:focus,
 			&:active {
@@ -108,61 +107,6 @@ input[type=submit] {
 				top: 8px;
 				width: 24px;
 			}
-
-			&.play-video {
-				&:hover {
-					border: 2px solid @dark-gray;
-					&::before {
-					background-image: url("@{background-icons-path}icon-play.svg");
-				 } 
-				}
-				&:focus {
-					background-color: @dark-gray;
-					border: 1px solid @dark-gray;
-					color: @white;
-				}
-				&::before {
-					background-image: url("@{background-icons-path}play_video_grey.svg");
-				}
-				
-
-			}
-
-			&.play-threesixty {
-				&:hover,
-				&:focus {
-					border: 1px solid @dark-gray;
-					&::before {
-					background-image: url("@{background-icons-path}icon-360-video-white.svg");
-				 } 
-				}
-				
-				&::before {
-					background-image: url("@{background-icons-path}icon-360-video.svg");
-				}
-				
-
-			}
-
-			&.stop-hpsn-video{
-				margin-left:1em;
-
-				&:hover {
-					border: 1px solid @dark-gray;
-					&::before {
-				/*	background-image: url("@{background-icons-path}icon-play.svg");*/
-				 } 
-				}
-				&:focus {
-					background-color: @dark-gray;
-					border: 1px solid @dark-gray;
-					color: @white;
-				}
-				&::before {
-				/*	background-image: url("@{background-icons-path}play_video_grey.svg");*/
-				}
-			}
-
 		
 		}
 	}
@@ -171,6 +115,7 @@ input[type=submit] {
 button {
 	&.cta {
 		background-color: white;
+		padding: 10px 50px;
 	}
 }
 

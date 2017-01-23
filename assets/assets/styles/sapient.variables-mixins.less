@@ -14,6 +14,7 @@
 @dark-gray:									#3e464b;
 @darker-gray:								#4f585d;
 @sky-blue: 									#e2f4fe;
+@light-sky-blue: 							#e2f4fd;
 @white: 									#ffffff;
 @light-gray:								#ececec;
 
@@ -52,6 +53,14 @@
 @bp-min-mobile:								20em; //320
 
 // Mixins
+
+.gradient(@from, @to, @default) {
+	background: @default;
+	background: -webkit-linear-gradient(@from, @to);
+	background: -o-linear-gradient(@from, @to);
+	background: -moz-linear-gradient(@from, @to);
+	background: linear-gradient(@from, @to);
+}
 
 .centerBoth() {
 	position: absolute;

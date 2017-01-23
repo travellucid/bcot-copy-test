@@ -17,13 +17,17 @@ var headerObj = (function($, window, sapient) {
 					$(this).parents(".menu").removeClass("menu-open");	
 				}
 			});
+		}
+
+		var removeMobileLogoText = function () {
+			$("#navbar-header .logo a").text("");
 		}	
 
 		return {
 			// public + private states and behaviors
 			getMenuHeadingVal: getMenuHeadingVal,
 			animateMobileMenu: animateMobileMenu,
-			removeDdownClass: removeDdownClass
+			removeMobileLogoText: removeMobileLogoText
 		};
 	}
 
@@ -42,3 +46,4 @@ sapient.header = headerObj.getInstance();
 
 sapient.header.getMenuHeadingVal();
 sapient.header.animateMobileMenu();
+sapient.header.removeMobileLogoText();

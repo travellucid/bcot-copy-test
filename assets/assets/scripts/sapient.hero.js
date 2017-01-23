@@ -6,7 +6,7 @@ var heroObj = (function($, window, sapient) {
 
 		var getHeightHero = function() {
 			$('.scroll-down').click(function() {
-				var heightHero = $("#hero-component").height() + 100;
+				var heightHero = $("#hero-component").height();
 				$('html, body').animate({
 					scrollTop: heightHero
 				}, 1000);
