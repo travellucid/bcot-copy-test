@@ -21,7 +21,7 @@ function sapient_our_wines_theme($existing, $type, $theme, $path) {
 }
 
 function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
-	
+	//print_r($form_id);die;
 	if($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form' ){
 		$form['#validate'][] = 'character_limitation_homepage';
 	}
@@ -31,6 +31,8 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 	if($form_id == 'node_visit_us_edit_form' or $form_id == 'node_visit_us_form' ){
 		$form['#validate'][] = 'character_limitation_visit_us';
 	}
+	
+	
 }
 
 function character_limitation_visit_us($form, \Drupal\Core\Form\FormStateInterface $form_state) {
