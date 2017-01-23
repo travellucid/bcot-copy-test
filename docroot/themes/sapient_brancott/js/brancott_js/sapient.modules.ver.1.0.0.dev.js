@@ -158,9 +158,20 @@ var headerObj = (function($, window, sapient) {
 			});
 		};
 
+		var animateMobileMenu = function () {
+			$("#navbar-header .menu .dropdown").on("click",function(){
+				if(!$(this).parents(".menu").hasClass("menu-open")){$(this).parents(".menu").addClass("menu-open");}
+				else {
+					$(this).parents(".menu").removeClass("menu-open");	
+				}
+			});
+		}	
+
 		return {
 			// public + private states and behaviors
-			getMenuHeadingVal: getMenuHeadingVal
+			getMenuHeadingVal: getMenuHeadingVal,
+			animateMobileMenu: animateMobileMenu,
+			removeDdownClass: removeDdownClass
 		};
 	}
 
@@ -178,7 +189,7 @@ var headerObj = (function($, window, sapient) {
 sapient.header = headerObj.getInstance();
 
 sapient.header.getMenuHeadingVal();
-
+sapient.header.animateMobileMenu();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
