@@ -29,7 +29,7 @@ header {
 				
 				.centerX();
 
-				li.dropdown {
+				li.menu-item {
 					/* margin: 40px 60px; */
 					a[aria-expanded="true"] {
 							color: @shed-red;
@@ -139,8 +139,28 @@ header {
 
 @media screen and (max-width: @bp-max-mobile){	
 	header {
+		&.navbar {
+			background-color: @white;
+			min-height: 65px;
+		}
 		/* display: none; */
-
+		&::before {
+			background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
+			background-size: 140px 45px;
+			display: block;
+			height: 45px;
+			top: 15px;
+			width: 140px;
+			position: absolute;
+			left: 50%;
+			/* -webkit-transform: translateX(-50%); */
+			-moz-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			/* z-index: 9999; */
+			transform: translateX(-50%);
+			z-index: 101;
+		}
 		button.navbar-toggle {
 			background: none !important;
 			border: none !important;
@@ -158,13 +178,13 @@ header {
 		}
 
 		#navbar-header {
-
+			top: 65px;
 			&.in {
 				height: 100%;
 				.transition(all 1s ease-in-out);
 			}
 			
-			div.logo {
+			/* div.logo {
 				a.logo-img {
 					background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
 					background-size: 140px 45px;
@@ -174,14 +194,14 @@ header {
 					width: 140px;
 					
 					.centerX();
-
+			
 					&:hover,
 					&:active,
 					&:focus {
 						background-color: transparent;
 					}
 				}
-			}	
+			}	 */
 
 			div.menu-container {
 				background-color: #ffffff;
@@ -208,7 +228,7 @@ header {
 						left: -100vw;
 					}
 					
-					li.dropdown {
+					li.menu-item {
 						background-color: @white;
 						border-bottom: 2px solid @light-blue;
 						float: none;
