@@ -12,7 +12,7 @@ header {
 		font-family:  "NeutraText Bold";
 		background-color: @white;
 		border-bottom: 2px solid #e2f4fd;
-		height: 100px;
+		height: 90px;
 		position: fixed;
 		top: 0;
 		width: 100%;
@@ -58,7 +58,7 @@ header {
 							height: 8px;
 							position: absolute;
 							right: 25px;
-							top: 50%;
+							top: 45px;
 							width: 15px;
 
 							.transform(translateX(-50%));
@@ -72,13 +72,14 @@ header {
 					}
 					ul.sub-menu {
 						border-radius: 0;
+						border-top: none;
 						height: 65px;
+						left: 50%;
 						padding: 0;
 						position: fixed;
-						top: 99px;
-
-						left: 50%;
+						top: 90px;
 						width: 100vw;
+
 						.transform(translateX(-50vw));
 
 						div.sub-menu-wrapper {
@@ -109,7 +110,7 @@ header {
 						background-size: 140px 70px;
 						color: @transparent;
 						height: 70px;
-						top: 15px;
+						top: 10px;
 						width: 140px;
 
 						&:hover,
@@ -120,7 +121,7 @@ header {
 							background-size: 140px 70px;
 							color: @transparent;
 							height: 70px;
-							top: 15px;
+							top: 10px;
 							width: 140px;
 						}
 					}
@@ -158,7 +159,7 @@ header {
 			background-size: 140px 45px;
 			display: block;
 			height: 45px;
-			top: 15px;
+			top: 10px;
 			width: 140px;
 			position: absolute;
 			left: 50%;
@@ -218,7 +219,7 @@ header {
 				bottom: 0;
 				margin: 0;
 				position: fixed;
-				top: 65px;
+				top: 63px;
 				width: 100%;
 				z-index: 100;
 				left: 0;
@@ -248,6 +249,17 @@ header {
 						a {
 							padding: 16px 0;
 						}
+						
+						span.expand-icon {
+							background-image: url("@{background-icons-path}BE_icon_arrow_mob_right.svg");
+							background-repeat: no-repeat;
+							background-size: 15px;
+							bottom: 0;
+							display: block;
+							height: 12px;
+							right: 10px;
+							top: 20px;
+						}
 
 						ul.sub-menu {
 							border: none;
@@ -270,8 +282,16 @@ header {
 								z-index: 100;
 
 								.menu-heading {
-									background: #e2f4fd;
-									background: linear-gradient(to right, #e1f3fc , #e2f4fd);
+									background: linear-gradient(to right, #e1f3fc, #e2f4fd);
+									background-image: url(../images/icons/BE_icon_arrow_mob_left.svg);
+									background-repeat: no-repeat;
+									background-size: 15px;
+									bottom: 0;
+									display: block;
+									height: 12px;
+									left: 10px;
+									top: 20px;
+									width: 100%;
 								}
 
 								li {

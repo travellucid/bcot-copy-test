@@ -21,13 +21,21 @@ var headerObj = (function($, window, sapient) {
 
 		var removeMobileLogoText = function () {
 			$("#navbar-header .logo a").text("");
-		}	
+		}
+
+		var collapseMobileMenu = function() {
+			var windowWidth = $(window).width();
+			if(windowWidth < 691) {
+				$("#navbar-header").removeClass("in").addClass('collapse');	
+			}
+		}
 
 		return {
 			// public + private states and behaviors
 			getMenuHeadingVal: getMenuHeadingVal,
 			animateMobileMenu: animateMobileMenu,
-			removeMobileLogoText: removeMobileLogoText
+			removeMobileLogoText: removeMobileLogoText,
+			collapseMobileMenu: collapseMobileMenu
 		};
 	}
 
@@ -47,3 +55,4 @@ sapient.header = headerObj.getInstance();
 sapient.header.getMenuHeadingVal();
 sapient.header.animateMobileMenu();
 sapient.header.removeMobileLogoText();
+sapient.header.collapseMobileMenu();
