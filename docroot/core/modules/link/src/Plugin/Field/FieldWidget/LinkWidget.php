@@ -214,6 +214,7 @@ class LinkWidget extends WidgetBase {
       '#placeholder' => $this->getSetting('placeholder_title'),
       '#default_value' => isset($items[$delta]->title) ? $items[$delta]->title : NULL,
       '#maxlength' => 255,
+	  '#required' => $this->getFieldSetting('title') == DRUPAL_REQUIRED ? TRUE : FALSE,
       '#access' => $this->getFieldSetting('title') != DRUPAL_DISABLED,
     );
     // Post-process the title field to make it conditionally required if URL is
