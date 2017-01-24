@@ -115,7 +115,13 @@ header {
 						&:hover,
 						&:active,
 						&:focus {
-							background-color: transparent;
+							background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
+							background-repeat: no-repeat;
+							background-size: 140px 70px;
+							color: @transparent;
+							height: 70px;
+							top: 15px;
+							width: 140px;
 						}
 					}
 				}	
@@ -138,7 +144,10 @@ header {
  } 
 
 @media screen and (max-width: @bp-max-mobile){	
-	header {
+	header.navbar {
+		position: fixed;
+		width: 100vw;
+
 		&.navbar {
 			background-color: @white;
 			min-height: 65px;
@@ -242,7 +251,6 @@ header {
 
 						ul.sub-menu {
 							border: none;
-							display: block !important;
 							left: 100vw;
 							box-shadow: none;
 							-ms-box-shadow: none;

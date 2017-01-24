@@ -63,6 +63,7 @@
 				background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
 				background-size: 8px;
 				height: 15px;
+				/* opacity: 0; */
 				position: absolute;
 				right: -40px;
 				top: -5px;
@@ -73,6 +74,7 @@
 				background-size: 8px;
 				height: 15px;
 				left: -40px;
+				/* opacity: 0; */
 				position: absolute;
 				top: -5px;
 				width: 8px;
@@ -96,6 +98,14 @@
 					right: 14px;
 					.transition(all 0.5s ease-in-out);
 				}
+				/* .glyphicon-right {
+					opacity: 1;
+					.transition(all 0.5s ease-in-out);
+				}
+				.glyphicon-left {
+					opacity: 1;
+					.transition(all 0.5s ease-in-out);
+				} */
 			}
 		}
 	}
@@ -163,7 +173,7 @@
 }
 
 @media screen and (max-width: @bp-max-mobile) {
-	#carousel-our-wines {
+	#carousel-our-wines,#carousel-our-story {
 		width:100%;
 		margin: 0;
 		padding: 0;

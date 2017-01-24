@@ -154,7 +154,7 @@ var headerObj = (function($, window, sapient) {
 
 		var getMenuHeadingVal = function() {
 			$(document).on("click",".menu > .menu-item .expand-icon", function(e){
-				$(".sub-menu-wrapper .menu-heading").text($(this).parents(".dropdown-toggle").text());
+				$(this).find(".sub-menu-wrapper .menu-heading").text($(this).parents(".dropdown-toggle").text());
 			});
 		};
 
