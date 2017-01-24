@@ -50,26 +50,34 @@
 		{% else %}
 		  <ul class="dropdown-menu sub-menu">
 		  <div class="sub-menu-wrapper">
+		  <li class="menu-heading"></li><!-- reqd by frontend for mob view -->
 		{% endif %}
 		
 		
 		
 		
 		{% if menu_level == 0 %}
-		  <li class="menu-heading"></li><!-- reqd by rohit for mob view -->
+		  
 		  {% for item in items %}
+		  
 		  {% set dynamic_class =   item.title %}
 		  {% if item.title == 'logo' %}
-		  <li class="hidden-sm hidden-xs {{ dynamic_class }}">
+		  <li class="menu-item hidden-sm hidden-xs {{ dynamic_class }}">
 		   {% else %}
-		  <li class="dropdown {{ dynamic_class }}">
+		  
+		    {% if item.below %}
+			<li class="menu-item dropdown {{ dynamic_class }}">
+			{% else %}
+			<li class="menu-item {{ dynamic_class }}">
+			{% endif %}
 		   {% endif %}
+		    
 		  {% set title %}
 			  {{ item.title }}
 			  {% if item.below %}
 			  <span class="expand-icon" data-toggle = "dropdown"></span>
 			  {% endif %}
-			{% endset %}
+		   {% endset %}
 			{{ link(title, item.url, { 'class':['dropdown-toggle'], 'role':['button'], 'aria-haspopup':['true']  } ) }}
 			{% if item.below %}
 			  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
