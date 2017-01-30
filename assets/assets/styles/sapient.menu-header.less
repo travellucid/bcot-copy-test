@@ -10,6 +10,7 @@ header {
 
 	#navbar-header {
 		font-family:  "NeutraText Bold";
+		background: linear-gradient(to top ,rgba(0, 0, 0, 0), #000000);
 		background-color: @white;
 		border-bottom: 2px solid #e2f4fd;
 		height: 90px;
@@ -36,7 +37,8 @@ header {
 						}
 					
 					&>a {
-						padding: 40px 60px; 
+						color: @white;
+						padding: 40px 60px;
 						&:hover,
 						&:active,
 						&:focus {
@@ -71,6 +73,7 @@ header {
 						}
 					}
 					ul.sub-menu {
+						background: linear-gradient(to top, rgba(0,0,0,0), #000000);
 						border-radius: 0;
 						border-top: none;
 						height: 70px;
@@ -83,7 +86,7 @@ header {
 						.transform(translateX(-50vw));
 
 						div.sub-menu-wrapper {
-							background-color: @white;
+							background-color: @transparent;
 							display: inline-table;
 							max-width: 80%; /* not final */
 							width: auto;
@@ -98,6 +101,9 @@ header {
 								float: left;
 								margin: 23px 25px 25px;
 								position: relative;
+								a {
+									color: @white;
+								}
 							}
 						}					
 					}

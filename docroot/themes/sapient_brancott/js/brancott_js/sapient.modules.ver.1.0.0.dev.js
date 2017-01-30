@@ -111,6 +111,30 @@ sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");/*
 sapient.carousel.toggleCarouselArrow("#carousel-our-story");
 sapient.carousel.toggleCarouselArrow("#carousel-our-wines");*/
+
+var clickDelay      = 500,
+    clickDelayTimer = null;
+
+$('.burger-click-region').on('click', function () {
+  
+  if(clickDelayTimer === null) {
+  
+    var $burger = $(this);
+    $burger.toggleClass('active');
+    $burger.parent().toggleClass('is-open');
+
+    if(!$burger.hasClass('active')) {
+      $burger.addClass('closing');
+    }
+
+    clickDelayTimer = setTimeout(function () {
+      $burger.removeClass('closing');
+      clearTimeout(clickDelayTimer);
+      clickDelayTimer = null;
+    }, clickDelay);
+  }
+});
+
 var heroObj = (function($, window, sapient) {
 
 	var heroInstance;

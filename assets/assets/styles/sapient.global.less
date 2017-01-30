@@ -33,7 +33,9 @@ body {
 .display-block {
 	display: block !important;
 }
-
+.carousel-indicators {
+	z-index: 1;
+}
 .main-container {
 	.row {
 		>.col-sm-12 {
@@ -123,3 +125,142 @@ ul.nav-pills {
 @import "sapient.visitus.less";
 @import "sapient.ourwine.less";
 @import "sapient.footer.less";
+
+.burger-menu-wrapper {
+	border: none;
+    position: relative;
+
+    .navbar-toggle {
+    	background: none;
+    	border: none;
+
+    	&:hover,
+    	&:active {
+			background: none;
+    		border: none;
+    	}
+    }
+}
+
+.burger-menu {
+  position: relative;
+  width: 140px;
+  height: 30px;
+  margin: 0 auto;
+  color: #60635E;
+  text-transform: uppercase;
+}
+
+.burger-click-region {
+  cursor: pointer;
+  left: 85px;
+  height: 30px;
+  position: absolute;
+  top: 25px;
+  width: 15px;
+}
+
+.burger-menu-txt {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  cursor: default;
+  transition: opacity 200ms ease-out, transform 200ms cubic-bezier(.34, .55, .25, .83);
+  
+  .is-open & {
+    opacity: 0;
+    transform: translate3d(-50px, 0, 0);
+  }
+}
+
+.burger-menu-piece {
+  display: block;
+  position: absolute;
+  width: 19px;
+  border-top: 1px solid #C2C2C2;
+  transform-origin: 100% 100%;
+  transition: transform 400ms ease-out;
+  
+  &:nth-child(1) {
+    top: 0;
+  }
+  
+  &:nth-child(2) {
+    top: 5px;
+    opacity: 1;
+    transition: transform 400ms ease-out, opacity 0ms linear 400ms / 2;
+  }
+  
+  &:nth-child(3) {
+    top: 10px;
+  }
+  
+  .active & {
+    
+      &:nth-child(1) {
+        animation: burger-open-top 400ms ease-out forwards;
+      }
+    
+      &:nth-child(2) {
+        opacity: 0;
+        transition: transform 400ms ease-out, opacity 0ms linear 400ms / 2;
+      }
+    
+      &:nth-child(3) {
+        animation: burger-open-bot 400ms ease-out forwards;
+      }
+  }
+  
+  .closing & {
+    &:nth-child(1) {
+      animation: burger-close-top 400ms ease-out forwards;
+    }
+    
+    &:nth-child(3) {
+      animation: burger-close-bot 400ms ease-out forwards;
+    }
+  }
+}
+
+@keyframes burger-open-top {
+  50% {
+    transform: translate3d(0, 12px, 0);
+  }
+  100% {
+    transform: translate3d(0, 12px, 0) rotate(45deg);
+  }
+}
+
+@keyframes burger-open-bot {
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+  100% {
+    transform: translate3d(0, -12px, 0) rotate(-45deg);
+  }
+}
+
+@keyframes burger-close-top {
+  0% {
+    transform: translate3d(0, 12px, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate3d(0, 12px, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes burger-close-bot {
+  0% {
+    transform: translate3d(0, -12px, 0) rotate(-45deg);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
