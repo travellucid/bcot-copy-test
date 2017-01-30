@@ -83,7 +83,14 @@ header {
 						.transform(translateX(-50vw));
 
 						div.sub-menu-wrapper {
+							background-color: @white;
 							display: inline-table;
+							max-width: 80%; /* not final */
+							width: auto;
+							.menu-heading {
+								display: none;
+							}
+
 							.centerX();
 
 							li {
@@ -284,15 +291,19 @@ header {
 
 								.menu-heading {
 									background: linear-gradient(to right, #e1f3fc, #e2f4fd);
-									background-image: url(../images/icons/BE_icon_arrow_mob_left.svg);
-									background-repeat: no-repeat;
-									background-size: 15px;
-									bottom: 0;
-									display: block;
-									height: 12px;
-									left: 10px;
+									margin-bottom: 20px;
 									top: 20px;
 									width: 100%;
+									bottom: 0;
+
+									&::before {
+										background-image: url(../images/icons/BE_icon_arrow_mob_left.svg);
+										background-repeat: no-repeat;
+										background-size: 15px;
+										display: block;
+										height: auto;
+										left: 10px;
+									}
 								}
 
 								li {

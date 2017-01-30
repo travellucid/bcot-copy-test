@@ -6,7 +6,9 @@ var headerObj = (function($, window, sapient) {
 
 		var getMenuHeadingVal = function() {
 			$(document).on("click",".menu > .menu-item .expand-icon", function(e){
-				$(this).find(".sub-menu-wrapper .menu-heading").text($(this).parents(".dropdown-toggle").text());
+				console.log($(this).parents("a").text());
+				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));
+				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading").text($(this).parents("a").text());
 			});
 		};
 
@@ -30,12 +32,40 @@ var headerObj = (function($, window, sapient) {
 			}
 		}
 
+		var setMenuBarHeight = function() {
+			var windowWidth = $(window).width();
+
+			/*$("#navbar-header .menu-item").on("click", function() {
+				var subMenuHeight = $(this).find(".sub-menu-wrapper").height();
+				if(windowWidth > 991) {
+					$(this).find(".sub-menu").height(subMenuHeight);
+				}
+			});
+*/
+			$("#navbar-header .menu-item").hover(
+
+				function() {
+					var subMenuHeight = $(this).find(".sub-menu-wrapper").height();
+					if(windowWidth > 991) {
+						$(this).find(".sub-menu").height(subMenuHeight);
+					}
+				},
+				function() {
+					if(windowWidth > 991) {
+						$(this).find(".sub-menu").height(70);
+					}
+					
+				}
+			);
+		}
+
 		return {
 			// public + private states and behaviors
 			getMenuHeadingVal: getMenuHeadingVal,
 			animateMobileMenu: animateMobileMenu,
 			removeMobileLogoText: removeMobileLogoText,
-			collapseMobileMenu: collapseMobileMenu
+			collapseMobileMenu: collapseMobileMenu,
+			setMenuBarHeight: setMenuBarHeight
 		};
 	}
 
@@ -56,3 +86,4 @@ sapient.header.getMenuHeadingVal();
 sapient.header.animateMobileMenu();
 sapient.header.removeMobileLogoText();
 sapient.header.collapseMobileMenu();
+sapient.header.setMenuBarHeight();
