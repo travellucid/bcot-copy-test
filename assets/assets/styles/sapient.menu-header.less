@@ -73,7 +73,7 @@ header {
 					ul.sub-menu {
 						border-radius: 0;
 						border-top: none;
-						height: 65px;
+						height: 70px;
 						left: 50%;
 						padding: 0;
 						position: fixed;
@@ -285,27 +285,35 @@ header {
 								background-color: #ffffff;
 								height: 100vh;
 								left: 0;
-								top: -99px;
+								top: -115px;
 								width: 100vw;
 								z-index: 100;
 
 								.menu-heading {
-									background: linear-gradient(to right, #e1f3fc, #e2f4fd);
+									background: linear-gradient(to right, @white, @light-sky-blue);
+									height: auto;
 									margin-bottom: 20px;
 									top: 20px;
 									width: 100%;
 									bottom: 0;
 
-									&::before {
-										background-image: url(../images/icons/BE_icon_arrow_mob_left.svg);
+									span.logo {
+										background-image: url("@{background-icons-path}BE_icon_arrow_mob_left.svg");
 										background-repeat: no-repeat;
 										background-size: 15px;
 										display: block;
-										height: auto;
+										height: 12px;
 										left: 10px;
+										width: 15px;
+										.centerY();
 									}
-								}
 
+									span.text{
+
+									}
+
+								}
+								
 								li {
 									border-bottom: 2px solid @light-blue;
 									display: block;

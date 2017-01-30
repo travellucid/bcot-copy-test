@@ -8,7 +8,7 @@ var headerObj = (function($, window, sapient) {
 			$(document).on("click",".menu > .menu-item .expand-icon", function(e){
 				console.log($(this).parents("a").text());
 				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));
-				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading").text($(this).parents("a").text());
+				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading span.text").text($(this).parents("a").text());
 			});
 		};
 
