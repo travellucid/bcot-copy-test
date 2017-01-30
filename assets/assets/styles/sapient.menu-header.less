@@ -10,6 +10,8 @@ header {
 
 	#navbar-header {
 		font-family:  "NeutraText Bold";
+		background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
+		background-image: -o-linear-gradient(bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
 		background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
 		/* 
 		background-color: @white; 
@@ -30,7 +32,7 @@ header {
 				min-width: 1200px;
 				
 				.centerX();
-
+	
 				li.menu-item {
 					/* margin: 40px 60px; */
 					a[aria-expanded="true"] {
@@ -49,9 +51,9 @@ header {
 							-o-box-shadow: none;
 							-ms-box-shadow: none;
 							
-
+	
 						}
-
+	
 						span.expand-icon {
 							background-image: url("@{background-icons-path}BE_icon_arrow_down.svg");
 							background-repeat: no-repeat;
@@ -63,18 +65,20 @@ header {
 							right: 25px;
 							top: 45px;
 							width: 15px;
-
+	
 							.transform(translateX(-50%));
 						}
 					}
-
+	
 					&:hover {
 						ul.sub-menu {
 							display: block;
 						}
 					}
 					ul.sub-menu {
-						background: linear-gradient(to top, rgba(0,0,0,0), #000000);
+						background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
+						background-image: -o-linear-gradient(bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
+						background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
 						border-radius: 0;
 						border-top: none;
 						height: 70px;
@@ -83,9 +87,9 @@ header {
 						position: fixed;
 						top: 90px;
 						width: 100vw;
-
+					
 						.transform(translateX(-50vw));
-
+					
 						div.sub-menu-wrapper {
 							background-color: @transparent;
 							display: inline-table;
@@ -94,9 +98,9 @@ header {
 							.menu-heading {
 								display: none;
 							}
-
+					
 							.centerX();
-
+					
 							li {
 								display: inline-block;
 								float: left;
@@ -108,7 +112,7 @@ header {
 							}
 						}					
 					}
-
+	
 					&.open {
 						a {
 							background: none;
@@ -117,7 +121,7 @@ header {
 				}
 				li.logo {
 					margin: 0 55px;
-
+	
 					a {
 						background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
 						background-repeat: no-repeat;
@@ -126,7 +130,7 @@ header {
 						height: 70px;
 						top: 10px;
 						width: 140px;
-
+	
 						&:hover,
 						&:active,
 						&:focus {
@@ -160,15 +164,16 @@ header {
 
 @media screen and (max-width: @bp-max-mobile){	
 	header.navbar {
+		background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.3));
 		position: fixed;
 		width: 100vw;
 
 		&.navbar {
-			background-color: @white;
+			/* background-color: @white; */
 			min-height: 65px;
 		}
 		/* display: none; */
-		&::before {
+		.header-logo {
 			background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
 			background-size: 140px 45px;
 			display: block;
@@ -293,15 +298,15 @@ header {
 								background-color: #ffffff;
 								height: 100vh;
 								left: 0;
-								top: -115px;
+								top: -95px;
 								width: 100vw;
 								z-index: 100;
 
 								.menu-heading {
 									background: linear-gradient(to right, @white, @light-sky-blue);
 									height: auto;
-									margin-bottom: 20px;
-									top: 20px;
+									/* margin-bottom: 20px; */
+									top: 0;
 									width: 100%;
 									bottom: 0;
 
