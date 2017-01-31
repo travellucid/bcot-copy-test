@@ -56,7 +56,7 @@ header {
 						}
 	
 						span.expand-icon {
-							background-image: url("@{background-icons-path}BE_icon_arrow_down.svg");
+							background-image: url("@{background-icons-path}BE_icon_arrow_down_white.svg");
 							background-repeat: no-repeat;
 							background-size: 15px;
 							bottom: 0;
@@ -105,7 +105,9 @@ header {
 								margin: 23px 25px 25px;
 								position: relative;
 								a {
-									color: @shed-red !important;
+									&:hover {
+										color: @shed-red !important;
+										}
 								}
 							}
 						}					
@@ -192,7 +194,7 @@ header {
 
     li.dropdown {
 		.expand-icon {
-			background-image: url("@{background-icons-path}BE_icon_arrow_down.svg");
+			background-image: url("@{background-icons-path}BE_icon_arrow_down_white.svg");
 		}
 		a {
 			color:@white;
