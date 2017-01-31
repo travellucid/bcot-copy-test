@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 	// Custom modules to be added below
 	  jsmodules: {
 		src: [
-			'<%= dirs.jsSource %>brancott.js',
+			'<%= dirs.jsSource %>sapient.js',
 			'<%= dirs.jsSource %>sapient.common.js',
 			'<%= dirs.jsSource %>sapient.carousel.js',
 			'<%= dirs.jsSource %>sapient.hero.js',
