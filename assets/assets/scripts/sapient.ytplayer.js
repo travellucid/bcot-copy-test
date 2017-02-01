@@ -1,1 +1,0 @@
-/* the content of this file have been moved to drupal behavior file. */

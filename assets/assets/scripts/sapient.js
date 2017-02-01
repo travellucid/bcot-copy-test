@@ -10,19 +10,3 @@ if (!$) {
 	var $ = jQuery.noConflict();
 }
 var sapient = sapient || {}; // core sapient
-(function ($, window, sapient) {
-	sapient.initComplete = false;
-	sapient.init = function () {
-		sapient.common.init();
-		
-	};
-	
-	$(document).ready(function () {
-		if (sapient.common) {
-		   
-			sapient.initComplete = true;
-		}
-	sapient.init();	
-	sapient.getHeightHero();
-	});
-}(jQuery, window, sapient));
