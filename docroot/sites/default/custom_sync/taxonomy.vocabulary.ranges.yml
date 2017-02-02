@@ -1,0 +1,9 @@
+uuid: fc2cba6c-85aa-4093-85f8-ba50afa4a311
+langcode: en
+status: true
+dependencies: {  }
+name: Ranges
+vid: ranges
+description: ''
+hierarchy: 0
+weight: 0

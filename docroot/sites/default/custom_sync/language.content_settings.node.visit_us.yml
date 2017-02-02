@@ -1,0 +1,16 @@
+uuid: 6a6b6b29-882e-45fa-b297-de80331935ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.visit_us
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.visit_us
+target_entity_type_id: node
+target_bundle: visit_us
+default_langcode: site_default
+language_alterable: false

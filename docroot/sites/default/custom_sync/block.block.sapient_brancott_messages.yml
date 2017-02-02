@@ -1,0 +1,22 @@
+uuid: 0ad61a36-ff81-42cd-abb4-ebfa87bd47be
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - sapient_brancott
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: sapient_brancott_messages
+theme: sapient_brancott
+region: '-1'
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

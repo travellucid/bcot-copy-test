@@ -1,0 +1,20 @@
+uuid: b4c4b174-335d-4c95-94a4-8960064aff24
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.wine_types
+  module:
+    - text
+id: taxonomy_term.wine_types.description
+field_name: description
+entity_type: taxonomy_term
+bundle: wine_types
+label: Description
+description: 'A description of the term.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

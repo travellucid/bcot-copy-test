@@ -1,0 +1,28 @@
+uuid: d69fcd73-1854-496e-b991-c5ee86fd4a67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_food_matches
+    - node.type.wines
+    - taxonomy.vocabulary.food_matches
+id: node.wines.field_food_matches
+field_name: field_food_matches
+entity_type: node
+bundle: wines
+label: 'Food Matches'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      food_matches: food_matches
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

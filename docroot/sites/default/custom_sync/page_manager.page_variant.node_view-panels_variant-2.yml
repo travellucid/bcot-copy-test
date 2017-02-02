@@ -1,0 +1,83 @@
+uuid: 8ada48db-b241-4eab-a400-214cdf30c07c
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_view
+    - views.view.homepage_components
+    - views.view.social_feed_instagram_component
+  module:
+    - ctools
+    - panels
+    - views
+id: node_view-panels_variant-2
+label: 'Tour and Experience Pages'
+variant: panels_variant
+variant_settings:
+  blocks:
+    c0746b5d-0ca6-408f-b447-5e24b7c4e1c4:
+      id: 'views_block:homepage_components-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 2
+      uuid: c0746b5d-0ca6-408f-b447-5e24b7c4e1c4
+      context_mapping: {  }
+    c73111b6-a255-415e-a7d0-08df7bed02f1:
+      id: 'views_block:homepage_components-common_hero_component'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: -1
+      uuid: c73111b6-a255-415e-a7d0-08df7bed02f1
+      context_mapping: {  }
+    cf3f84d8-7140-49a3-ba1c-37bedfc60b73:
+      id: 'views_block:homepage_components-tour_experience_rezdy'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: cf3f84d8-7140-49a3-ba1c-37bedfc60b73
+      context_mapping: {  }
+    fd6a3341-0a36-495a-aa60-1b95c4684510:
+      id: 'views_block:social_feed_instagram_component-social_feed_instagram_component'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: fd6a3341-0a36-495a-aa60-1b95c4684510
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 288cb9d3-9e49-49b7-a0ba-46a2c7c2fdd1
+  label: null
+  weight: 0
+  layout: onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: node_view-panels_variant-2
+  builder: standard
+page: node_view
+weight: 0
+selection_criteria:
+  -
+    id: 'entity_bundle:node'
+    bundles:
+      tours_and_experiences: tours_and_experiences
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+static_context: {  }

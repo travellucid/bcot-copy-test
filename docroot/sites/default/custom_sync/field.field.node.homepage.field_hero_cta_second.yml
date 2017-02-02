@@ -1,0 +1,23 @@
+uuid: 1354c837-2939-4a9b-a3a6-1a115c379db6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_cta_second
+    - node.type.homepage
+  module:
+    - link
+id: node.homepage.field_hero_cta_second
+field_name: field_hero_cta_second
+entity_type: node
+bundle: homepage
+label: 'Hero CTA second'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

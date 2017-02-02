@@ -1,0 +1,22 @@
+uuid: 8d55abb7-dbb7-4e2e-b86b-c68e5e4838a1
+langcode: en
+status: false
+dependencies:
+  theme:
+    - sapient_brancott
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: sapient_brancott_local_tasks
+theme: sapient_brancott
+region: '-1'
+weight: 1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

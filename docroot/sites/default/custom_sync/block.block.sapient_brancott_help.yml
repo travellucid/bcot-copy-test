@@ -1,0 +1,22 @@
+uuid: 2eb16aa9-4bc9-42e4-9405-c57e10921613
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - sapient_brancott
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: sapient_brancott_help
+theme: sapient_brancott
+region: '-1'
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

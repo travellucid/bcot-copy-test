@@ -1,0 +1,36 @@
+uuid: 60cb2ffd-dd71-4f4c-bb8a-74e61a8385d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_instagram_collection.field_instagram_image
+    - field.field.field_collection_item.field_instagram_collection.field_instagram_link
+    - field_collection.field_collection.field_instagram_collection
+  module:
+    - image
+    - link
+id: field_collection_item.field_instagram_collection.default
+targetEntityType: field_collection_item
+bundle: field_instagram_collection
+mode: default
+content:
+  field_instagram_image:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_instagram_link:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden: {  }

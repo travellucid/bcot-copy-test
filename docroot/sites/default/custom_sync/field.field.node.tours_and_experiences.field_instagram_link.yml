@@ -1,0 +1,23 @@
+uuid: f8aa77ed-3c83-4099-b564-f6102644bd23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instagram_link
+    - node.type.tours_and_experiences
+  module:
+    - link
+id: node.tours_and_experiences.field_instagram_link
+field_name: field_instagram_link
+entity_type: node
+bundle: tours_and_experiences
+label: 'test Instagram Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

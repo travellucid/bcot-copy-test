@@ -1,0 +1,28 @@
+uuid: fa1045d9-1b77-4982-8b1b-f9384a4c5b25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ranges
+    - node.type.wines
+    - taxonomy.vocabulary.ranges
+id: node.wines.field_ranges
+field_name: field_ranges
+entity_type: node
+bundle: wines
+label: Ranges
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ranges: ranges
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

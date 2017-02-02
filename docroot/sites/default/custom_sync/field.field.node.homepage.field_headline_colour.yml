@@ -1,0 +1,19 @@
+uuid: 08b952cb-283f-441e-a7d7-010a2a55068a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline_colour
+    - node.type.homepage
+id: node.homepage.field_headline_colour
+field_name: field_headline_colour
+entity_type: node
+bundle: homepage
+label: 'Headline colour'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

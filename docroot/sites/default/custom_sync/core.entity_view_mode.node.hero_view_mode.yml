@@ -1,0 +1,10 @@
+uuid: cf9d3550-2a2a-434f-804f-7ed09810ec64
+langcode: en-au
+status: true
+dependencies:
+  module:
+    - node
+id: node.hero_view_mode
+label: 'Hero View Mode'
+targetEntityType: node
+cache: true

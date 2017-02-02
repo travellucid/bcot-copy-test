@@ -1,0 +1,20 @@
+uuid: 88c5780f-a1ce-445a-aa55-cfcc21209350
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ranges
+  module:
+    - path
+id: taxonomy_term.ranges.path
+field_name: path
+entity_type: taxonomy_term
+bundle: ranges
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

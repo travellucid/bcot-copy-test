@@ -1,0 +1,22 @@
+uuid: 97aa88f5-d616-45c9-87f4-45caf723cf12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tours_and_experiences
+  module:
+    - text
+id: node.tours_and_experiences.body
+field_name: body
+entity_type: node
+bundle: tours_and_experiences
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

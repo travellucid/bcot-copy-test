@@ -1,0 +1,24 @@
+uuid: 380d48f5-f490-4808-a8d1-3e3f7fd79973
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-social-icons
+  module:
+    - system
+  theme:
+    - sapient_brancott
+id: footersocialicons
+theme: sapient_brancott
+region: footer
+weight: -9
+provider: null
+plugin: 'system_menu_block:footer-social-icons'
+settings:
+  id: 'system_menu_block:footer-social-icons'
+  label: 'Footer Social Icons'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

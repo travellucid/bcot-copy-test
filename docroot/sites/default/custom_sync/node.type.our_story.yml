@@ -1,0 +1,17 @@
+uuid: 53a4ae68-6959-49bf-a6f9-8f6d7e01dfe1
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Our Story'
+type: our_story
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

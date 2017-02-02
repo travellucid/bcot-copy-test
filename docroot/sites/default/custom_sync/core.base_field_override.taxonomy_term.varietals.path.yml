@@ -1,0 +1,20 @@
+uuid: b686cd68-656b-4172-9a80-cf01734c86ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.varietals
+  module:
+    - path
+id: taxonomy_term.varietals.path
+field_name: path
+entity_type: taxonomy_term
+bundle: varietals
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

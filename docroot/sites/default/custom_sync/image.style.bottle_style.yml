@@ -1,0 +1,14 @@
+uuid: 0f36af11-cbb6-44de-b128-57436f615626
+langcode: en
+status: true
+dependencies: {  }
+name: bottle_style
+label: 'Bottle Style'
+effects:
+  8543f37b-b540-4375-b5f2-02e647487d03:
+    uuid: 8543f37b-b540-4375-b5f2-02e647487d03
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 745
+      height: 190

@@ -1,0 +1,18 @@
+uuid: f3745f79-1deb-4887-a781-6f98c697c457
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ranges
+id: taxonomy_term.ranges.name
+field_name: name
+entity_type: taxonomy_term
+bundle: ranges
+label: Name
+description: 'The term name.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,31 @@
+uuid: dee63ca6-1aa5-4875-8f3d-2263ca94c91f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.our_story.body
+    - field.field.node.our_story.field_background_image
+    - field.field.node.our_story.field_our_story_headline
+    - node.type.our_story
+  module:
+    - text
+    - user
+id: node.our_story.teaser
+targetEntityType: node
+bundle: our_story
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  field_background_image: true
+  field_our_story_headline: true
+  langcode: true

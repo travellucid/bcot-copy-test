@@ -1,0 +1,9 @@
+uuid: edec238a-1164-420f-a599-dfb68902f837
+langcode: en
+status: true
+dependencies: {  }
+id: en-gb
+label: 'United Kingdom and Ireland'
+direction: ltr
+weight: 3
+locked: false

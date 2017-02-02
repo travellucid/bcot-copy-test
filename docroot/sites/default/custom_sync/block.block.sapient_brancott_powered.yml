@@ -1,0 +1,22 @@
+uuid: 76afc184-0ce1-46ef-aec5-990b93658564
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - sapient_brancott
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: sapient_brancott_powered
+theme: sapient_brancott
+region: '-1'
+weight: -4
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

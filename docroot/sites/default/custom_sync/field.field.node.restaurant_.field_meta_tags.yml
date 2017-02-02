@@ -1,0 +1,23 @@
+uuid: 3da21da8-0b5b-4634-9ca7-a48561aa87dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.restaurant_
+  module:
+    - metatag
+id: node.restaurant_.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: restaurant_
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

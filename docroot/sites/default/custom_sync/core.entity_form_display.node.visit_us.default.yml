@@ -1,0 +1,92 @@
+uuid: f71e2401-b730-4754-a8c5-4522be1ea82c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.visit_us.field_hero_cta_first
+    - field.field.node.visit_us.field_meta_tags
+    - field.field.node.visit_us.field_tile_mainheadline_visit_us
+    - field.field.node.visit_us.field_visit_us_background_image
+    - image.style.thumbnail
+    - node.type.visit_us
+  module:
+    - image
+    - link
+    - metatag
+    - path
+id: node.visit_us.default
+targetEntityType: node
+bundle: visit_us
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  field_hero_cta_first:
+    weight: 32
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_meta_tags:
+    weight: 33
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+  field_tile_mainheadline_visit_us:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_visit_us_background_image:
+    weight: 36
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

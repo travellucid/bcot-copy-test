@@ -1,0 +1,28 @@
+uuid: 032f484d-ba71-4b1a-97d3-bb93ac503981
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_our_story
+    - node.type.homepage
+    - node.type.our_story
+id: node.homepage.field_our_story
+field_name: field_our_story
+entity_type: node
+bundle: homepage
+label: 'Our Story'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      our_story: our_story
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

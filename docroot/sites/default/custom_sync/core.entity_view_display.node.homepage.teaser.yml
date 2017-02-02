@@ -1,0 +1,70 @@
+uuid: bf168620-c41c-4262-ac2d-351dd0ab4e0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.homepage.field_background_image
+    - field.field.node.homepage.field_headline_colour
+    - field.field.node.homepage.field_hero_background_image_larg
+    - field.field.node.homepage.field_hero_cta_first
+    - field.field.node.homepage.field_hero_cta_second
+    - field.field.node.homepage.field_hero_cta_thi
+    - field.field.node.homepage.field_hero_headline
+    - field.field.node.homepage.field_hero_headline_position
+    - field.field.node.homepage.field_hero_right_side_image
+    - field.field.node.homepage.field_meta_tags
+    - field.field.node.homepage.field_our_perspective_desc
+    - field.field.node.homepage.field_our_perspective_headline
+    - field.field.node.homepage.field_our_perspective_subheading
+    - field.field.node.homepage.field_our_story
+    - field.field.node.homepage.field_our_wine_cta
+    - field.field.node.homepage.field_our_wine_description
+    - field.field.node.homepage.field_our_wine_main_headline
+    - field.field.node.homepage.field_our_wine_photo_title
+    - field.field.node.homepage.field_our_wine_small_heading
+    - field.field.node.homepage.field_signup
+    - field.field.node.homepage.field_signup_text
+    - field.field.node.homepage.field_visit_us
+    - field.field.node.homepage.field_visit_us_description
+    - field.field.node.homepage.field_visit_us_mainheadline
+    - field.field.node.homepage.field_youtube_video
+    - field.field.node.homepage.field_youtube_video_title
+    - node.type.homepage
+  module:
+    - user
+id: node.homepage.teaser
+targetEntityType: node
+bundle: homepage
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_background_image: true
+  field_headline_colour: true
+  field_hero_background_image_larg: true
+  field_hero_cta_first: true
+  field_hero_cta_second: true
+  field_hero_cta_thi: true
+  field_hero_headline: true
+  field_hero_headline_position: true
+  field_hero_right_side_image: true
+  field_meta_tags: true
+  field_our_perspective_desc: true
+  field_our_perspective_headline: true
+  field_our_perspective_subheading: true
+  field_our_story: true
+  field_our_wine_cta: true
+  field_our_wine_description: true
+  field_our_wine_main_headline: true
+  field_our_wine_photo_title: true
+  field_our_wine_small_heading: true
+  field_signup: true
+  field_signup_text: true
+  field_visit_us: true
+  field_visit_us_description: true
+  field_visit_us_mainheadline: true
+  field_youtube_video: true
+  field_youtube_video_title: true
+  langcode: true

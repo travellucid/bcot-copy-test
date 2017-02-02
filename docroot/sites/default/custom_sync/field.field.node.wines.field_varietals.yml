@@ -1,0 +1,28 @@
+uuid: 285b1dfe-4479-4215-a3d2-2bca9a90f2b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_varietals
+    - node.type.wines
+    - taxonomy.vocabulary.varietals
+id: node.wines.field_varietals
+field_name: field_varietals
+entity_type: node
+bundle: wines
+label: Varietals
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      varietals: varietals
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

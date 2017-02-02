@@ -1,0 +1,19 @@
+uuid: e8f54209-3dda-4703-b5fa-e9bddda33ff9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signup_text
+    - node.type.homepage
+id: node.homepage.field_signup_text
+field_name: field_signup_text
+entity_type: node
+bundle: homepage
+label: 'Signup Text'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

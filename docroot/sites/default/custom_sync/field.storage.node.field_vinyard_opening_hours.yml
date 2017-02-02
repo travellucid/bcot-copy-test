@@ -1,0 +1,25 @@
+uuid: f2a76736-2422-49f4-87dc-049d4b44e8d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - office_hours
+id: node.field_vinyard_opening_hours
+field_name: field_vinyard_opening_hours
+entity_type: node
+type: office_hours
+settings:
+  cardinality_per_day: '2'
+  time_type: G
+  increment: '60'
+  valhrs: 0
+  limitstart: ''
+  limitend: ''
+module: office_hours
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

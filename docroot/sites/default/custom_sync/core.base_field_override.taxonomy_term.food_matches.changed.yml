@@ -1,0 +1,18 @@
+uuid: 171f7c83-ca6d-443f-99ef-71d1aed23c1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.food_matches
+id: taxonomy_term.food_matches.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: food_matches
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

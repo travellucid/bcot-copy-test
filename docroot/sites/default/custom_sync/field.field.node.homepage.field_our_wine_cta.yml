@@ -1,0 +1,23 @@
+uuid: c8d1cbfd-6513-41e6-991e-b3f667be49c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_our_wine_cta
+    - node.type.homepage
+  module:
+    - link
+id: node.homepage.field_our_wine_cta
+field_name: field_our_wine_cta
+entity_type: node
+bundle: homepage
+label: 'Our Wine CTA'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

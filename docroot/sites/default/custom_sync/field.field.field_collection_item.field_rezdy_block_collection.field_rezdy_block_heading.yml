@@ -1,0 +1,19 @@
+uuid: 3787f310-f228-41f5-bb0f-3364af828572
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_rezdy_block_heading
+    - field_collection.field_collection.field_rezdy_block_collection
+id: field_collection_item.field_rezdy_block_collection.field_rezdy_block_heading
+field_name: field_rezdy_block_heading
+entity_type: field_collection_item
+bundle: field_rezdy_block_collection
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

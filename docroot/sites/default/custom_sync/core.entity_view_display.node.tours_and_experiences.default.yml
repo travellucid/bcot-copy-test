@@ -1,0 +1,195 @@
+uuid: 97d99301-0236-414e-b5cc-0f99df99cb8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tours_and_experiences.body
+    - field.field.node.tours_and_experiences.field_address
+    - field.field.node.tours_and_experiences.field_background_image
+    - field.field.node.tours_and_experiences.field_closed_on
+    - field.field.node.tours_and_experiences.field_contact_us
+    - field.field.node.tours_and_experiences.field_hero_headline
+    - field.field.node.tours_and_experiences.field_how_to_find_us_addre
+    - field.field.node.tours_and_experiences.field_instagram_collection
+    - field.field.node.tours_and_experiences.field_instagram_hashtag
+    - field.field.node.tours_and_experiences.field_instagram_link
+    - field.field.node.tours_and_experiences.field_instagram_tagline
+    - field.field.node.tours_and_experiences.field_restaurant_opening_hours
+    - field.field.node.tours_and_experiences.field_rezdy_block_collection
+    - field.field.node.tours_and_experiences.field_social_feed_instagram_link
+    - field.field.node.tours_and_experiences.field_vinyard_opening_hours
+    - field.field.node.tours_and_experiences.field_visit_us_description
+    - field.field.node.tours_and_experiences.field_visit_us_small_headline
+    - node.type.tours_and_experiences
+  module:
+    - field_collection
+    - google_map_field
+    - image
+    - link
+    - office_hours
+    - text
+    - user
+id: node.tours_and_experiences.default
+targetEntityType: node
+bundle: tours_and_experiences
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_address:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: google_map_field_default
+  field_background_image:
+    weight: 106
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_closed_on:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_contact_us:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_hero_headline:
+    weight: 107
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_how_to_find_us_addre:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_instagram_collection:
+    weight: 110
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+  field_instagram_hashtag:
+    weight: 114
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_instagram_link:
+    weight: 116
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_instagram_tagline:
+    weight: 115
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_restaurant_opening_hours:
+    weight: 112
+    label: above
+    settings:
+      daysformat: long
+      time_type: G
+      compress: false
+      grouped: false
+      showclosed: all
+      closedformat: Closed
+      separator:
+        days: '<br />'
+        grouped_days: ' - '
+        day_hours: ': '
+        hours_hours: '-'
+        more_hours: ', '
+      current_status:
+        position: hide
+        open_text: 'Currently open!'
+        closed_text: 'Currently closed'
+      timezone_field: ''
+      office_hours_first_day: ''
+    third_party_settings: {  }
+    type: office_hours
+  field_rezdy_block_collection:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+  field_social_feed_instagram_link:
+    weight: 117
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_vinyard_opening_hours:
+    weight: 113
+    label: above
+    settings:
+      daysformat: long
+      time_type: G
+      compress: false
+      grouped: false
+      showclosed: all
+      closedformat: Closed
+      separator:
+        days: '<br />'
+        grouped_days: ' - '
+        day_hours: ': '
+        hours_hours: '-'
+        more_hours: ', '
+      current_status:
+        position: hide
+        open_text: 'Currently open!'
+        closed_text: 'Currently closed'
+      timezone_field: ''
+      office_hours_first_day: ''
+    third_party_settings: {  }
+    type: office_hours
+  field_visit_us_description:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_visit_us_small_headline:
+    weight: 109
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  links:
+    weight: 100
+hidden:
+  langcode: true

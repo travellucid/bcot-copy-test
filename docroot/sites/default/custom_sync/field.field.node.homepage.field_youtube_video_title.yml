@@ -1,0 +1,19 @@
+uuid: 297676be-c3cc-4db1-abbc-68a574b45590
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_youtube_video_title
+    - node.type.homepage
+id: node.homepage.field_youtube_video_title
+field_name: field_youtube_video_title
+entity_type: node
+bundle: homepage
+label: 'YouTube Video Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

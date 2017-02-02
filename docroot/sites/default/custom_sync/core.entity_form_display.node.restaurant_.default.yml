@@ -1,0 +1,196 @@
+uuid: 7d0c0726-3c72-4868-8053-20565cc6f618
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.restaurant_.body
+    - field.field.node.restaurant_.field_address
+    - field.field.node.restaurant_.field_background_image
+    - field.field.node.restaurant_.field_hero_cta_first
+    - field.field.node.restaurant_.field_hero_cta_second
+    - field.field.node.restaurant_.field_hero_cta_thi
+    - field.field.node.restaurant_.field_hero_headline
+    - field.field.node.restaurant_.field_hero_right_side_image
+    - field.field.node.restaurant_.field_image
+    - field.field.node.restaurant_.field_instagram_collection
+    - field.field.node.restaurant_.field_meta_tags
+    - field.field.node.restaurant_.field_our_story_headline
+    - field.field.node.restaurant_.field_our_wine_cta
+    - field.field.node.restaurant_.field_our_wine_description
+    - field.field.node.restaurant_.field_our_wine_small_heading
+    - field.field.node.restaurant_.field_visit_us_description
+    - field.field.node.restaurant_.field_visit_us_mainheadline
+    - image.style.thumbnail
+    - node.type.restaurant_
+  module:
+    - field_collection
+    - google_map_field
+    - image
+    - link
+    - metatag
+    - path
+    - text
+id: node.restaurant_.default
+targetEntityType: node
+bundle: restaurant_
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 31
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  field_address:
+    weight: 45
+    settings: {  }
+    third_party_settings: {  }
+    type: google_map_field_default
+  field_background_image:
+    weight: 32
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  field_hero_cta_first:
+    weight: 35
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_hero_cta_second:
+    weight: 36
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_hero_cta_thi:
+    weight: 38
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_hero_headline:
+    weight: 42
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_hero_right_side_image:
+    weight: 37
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  field_image:
+    weight: 46
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  field_instagram_collection:
+    weight: 44
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+  field_meta_tags:
+    weight: 47
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+  field_our_story_headline:
+    weight: 40
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_our_wine_cta:
+    weight: 39
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_our_wine_description:
+    weight: 41
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_our_wine_small_heading:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_visit_us_description:
+    weight: 43
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_visit_us_mainheadline:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

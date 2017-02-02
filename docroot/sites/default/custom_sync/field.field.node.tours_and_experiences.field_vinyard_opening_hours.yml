@@ -1,0 +1,21 @@
+uuid: 2a0e6fc9-d591-4627-a2c7-7e068e549a62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vinyard_opening_hours
+    - node.type.tours_and_experiences
+  module:
+    - office_hours
+id: node.tours_and_experiences.field_vinyard_opening_hours
+field_name: field_vinyard_opening_hours
+entity_type: node
+bundle: tours_and_experiences
+label: 'Vinyard opening hours'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: office_hours

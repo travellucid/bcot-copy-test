@@ -1,0 +1,9 @@
+uuid: a2b8bbd9-4697-4e29-b097-fa66d1efa134
+langcode: en
+status: true
+dependencies: {  }
+id: en-au
+label: Australia
+direction: ltr
+weight: 1
+locked: false

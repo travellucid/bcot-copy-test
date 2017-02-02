@@ -1,0 +1,22 @@
+uuid: 2ac52fb6-4f8f-47fa-ad3c-7da9d843b83b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.private_events
+  module:
+    - text
+id: node.private_events.body
+field_name: body
+entity_type: node
+bundle: private_events
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

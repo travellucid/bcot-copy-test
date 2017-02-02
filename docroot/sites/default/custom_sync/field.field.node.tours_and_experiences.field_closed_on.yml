@@ -1,0 +1,19 @@
+uuid: 0a41bb94-b5f0-4ab0-83dd-f802d7a3464a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_closed_on
+    - node.type.tours_and_experiences
+id: node.tours_and_experiences.field_closed_on
+field_name: field_closed_on
+entity_type: node
+bundle: tours_and_experiences
+label: 'Closed on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

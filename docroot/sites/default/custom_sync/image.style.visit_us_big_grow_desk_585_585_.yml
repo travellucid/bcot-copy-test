@@ -1,0 +1,14 @@
+uuid: b98fab0b-4ff8-4f77-a3ac-2b859f09d017
+langcode: en
+status: true
+dependencies: {  }
+name: visit_us_big_grow_desk_585_585_
+label: 'Visit us big grow(desk.)(1170*660)'
+effects:
+  df901109-3a03-490a-b62d-d6df2f069703:
+    uuid: df901109-3a03-490a-b62d-d6df2f069703
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1170
+      height: 660

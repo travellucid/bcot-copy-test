@@ -1,0 +1,16 @@
+uuid: 1441cde8-efab-4853-bdc1-39e877ed0111
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.food_matches
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.food_matches
+target_entity_type_id: taxonomy_term
+target_bundle: food_matches
+default_langcode: site_default
+language_alterable: false

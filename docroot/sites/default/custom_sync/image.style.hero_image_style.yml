@@ -1,0 +1,14 @@
+uuid: 44b11147-44ba-4563-b0be-eb9a1967c158
+langcode: en
+status: true
+dependencies: {  }
+name: hero_image_style
+label: 'Hero Image Style(Desk)'
+effects:
+  201bbe3c-99a7-4da7-9163-64ee09d1c0f1:
+    uuid: 201bbe3c-99a7-4da7-9163-64ee09d1c0f1
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 400

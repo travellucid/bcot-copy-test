@@ -1,0 +1,19 @@
+uuid: 940ab904-c879-4dc5-8e7e-f4ac12a2be78
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - link
+id: field_collection_item.field_instagram_link
+field_name: field_instagram_link
+entity_type: field_collection_item
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

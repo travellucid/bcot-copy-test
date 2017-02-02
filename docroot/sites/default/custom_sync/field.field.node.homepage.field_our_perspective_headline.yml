@@ -1,0 +1,19 @@
+uuid: 0c966098-28a3-438a-ab05-6d2d319a63ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_our_perspective_headline
+    - node.type.homepage
+id: node.homepage.field_our_perspective_headline
+field_name: field_our_perspective_headline
+entity_type: node
+bundle: homepage
+label: 'Our Perspective Headline'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

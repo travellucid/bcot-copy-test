@@ -1,0 +1,18 @@
+uuid: 33520681-b248-4789-a643-eff9d7c2004d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.varietals
+id: taxonomy_term.varietals.name
+field_name: name
+entity_type: taxonomy_term
+bundle: varietals
+label: Name
+description: 'The term name.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

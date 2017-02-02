@@ -1,0 +1,26 @@
+uuid: 75e50538-fdce-44a9-840d-00295e034a52
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.visit_us.field_hero_cta_first
+    - field.field.node.visit_us.field_meta_tags
+    - field.field.node.visit_us.field_tile_mainheadline_visit_us
+    - field.field.node.visit_us.field_visit_us_background_image
+    - node.type.visit_us
+  module:
+    - user
+id: node.visit_us.teaser
+targetEntityType: node
+bundle: visit_us
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_hero_cta_first: true
+  field_meta_tags: true
+  field_tile_mainheadline_visit_us: true
+  field_visit_us_background_image: true
+  langcode: true

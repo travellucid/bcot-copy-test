@@ -1,0 +1,25 @@
+uuid: 4677dd74-c352-4de7-8589-590ad47f4113
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:980bdc6d-7e66-49d2-9af7-0fcf6d615864'
+  module:
+    - block_content
+  theme:
+    - sapient_brancott
+id: copyrightblock
+theme: sapient_brancott
+region: footer
+weight: -6
+provider: null
+plugin: 'block_content:980bdc6d-7e66-49d2-9af7-0fcf6d615864'
+settings:
+  id: 'block_content:980bdc6d-7e66-49d2-9af7-0fcf6d615864'
+  label: 'Copyright Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

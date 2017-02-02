@@ -1,0 +1,20 @@
+uuid: 76af3f2c-d7f8-4696-b9c0-9cb8b436afd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.food_matches
+  module:
+    - path
+id: taxonomy_term.food_matches.path
+field_name: path
+entity_type: taxonomy_term
+bundle: food_matches
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

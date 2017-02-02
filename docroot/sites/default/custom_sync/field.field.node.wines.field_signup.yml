@@ -1,0 +1,23 @@
+uuid: a1ba2081-a7be-4996-b88c-7eb3830c066c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signup
+    - node.type.wines
+  module:
+    - link
+id: node.wines.field_signup
+field_name: field_signup
+entity_type: node
+bundle: wines
+label: 'Sign Up'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

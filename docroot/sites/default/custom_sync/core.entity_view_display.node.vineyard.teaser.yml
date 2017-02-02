@@ -1,0 +1,27 @@
+uuid: a3cc4f1c-8156-42c0-add6-58b340346ea8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vineyard.body
+    - node.type.vineyard
+  module:
+    - text
+    - user
+id: node.vineyard.teaser
+targetEntityType: node
+bundle: vineyard
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  langcode: true

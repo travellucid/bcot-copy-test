@@ -1,0 +1,16 @@
+uuid: c2fa0044-15d0-4afb-81bf-48e3718f65f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tours_and_experiences
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.tours_and_experiences
+target_entity_type_id: node
+target_bundle: tours_and_experiences
+default_langcode: site_default
+language_alterable: false

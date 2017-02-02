@@ -1,0 +1,23 @@
+uuid: 409e3ee0-fbca-4ac1-a92c-e135911d9073
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_cta_first
+    - node.type.visit_us
+  module:
+    - link
+id: node.visit_us.field_hero_cta_first
+field_name: field_hero_cta_first
+entity_type: node
+bundle: visit_us
+label: CTA
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

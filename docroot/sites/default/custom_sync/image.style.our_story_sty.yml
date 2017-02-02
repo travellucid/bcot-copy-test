@@ -1,0 +1,14 @@
+uuid: c79f1eb5-33fa-46af-ac2e-3c460d6959a1
+langcode: en
+status: true
+dependencies: {  }
+name: our_story_sty
+label: 'Our Story Style'
+effects:
+  0fb4b01e-499d-4c74-baa1-8271ca02840f:
+    uuid: 0fb4b01e-499d-4c74-baa1-8271ca02840f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1400
+      height: 790

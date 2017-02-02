@@ -1,0 +1,9 @@
+uuid: 37f5042a-37b2-4eae-a621-5f40d462cbe4
+langcode: en
+status: true
+dependencies: {  }
+name: Varietals
+vid: varietals
+description: Varietals
+hierarchy: 0
+weight: 0

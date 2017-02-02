@@ -1,0 +1,20 @@
+uuid: 126c3788-757a-460f-99b1-8c808fb1524d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.food_matches
+  module:
+    - text
+id: taxonomy_term.food_matches.description
+field_name: description
+entity_type: taxonomy_term
+bundle: food_matches
+label: Description
+description: 'A description of the term.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

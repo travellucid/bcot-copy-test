@@ -1,0 +1,21 @@
+uuid: 8c77b950-20ed-4d0a-8969-7733a848b68a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_headline_position
+    - node.type.homepage
+  module:
+    - options
+id: node.homepage.field_hero_headline_position
+field_name: field_hero_headline_position
+entity_type: node
+bundle: homepage
+label: 'Hero Headline Position'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

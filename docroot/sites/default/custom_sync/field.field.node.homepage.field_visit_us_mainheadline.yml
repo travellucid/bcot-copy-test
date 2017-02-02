@@ -1,0 +1,19 @@
+uuid: 9a16ca8a-ed41-4516-891c-2002c68a2171
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visit_us_mainheadline
+    - node.type.homepage
+id: node.homepage.field_visit_us_mainheadline
+field_name: field_visit_us_mainheadline
+entity_type: node
+bundle: homepage
+label: 'Visit Us Main Headline'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

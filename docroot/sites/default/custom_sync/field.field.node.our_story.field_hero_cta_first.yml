@@ -1,0 +1,23 @@
+uuid: 23f732fe-6bc2-4fb6-9ccc-872ee9cca322
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_cta_first
+    - node.type.our_story
+  module:
+    - link
+id: node.our_story.field_hero_cta_first
+field_name: field_hero_cta_first
+entity_type: node
+bundle: our_story
+label: CTA
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

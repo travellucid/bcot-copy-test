@@ -1,0 +1,19 @@
+uuid: 486c4d22-c4d8-4b82-8211-96c6e63c89f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visit_us_description
+    - node.type.restaurant_
+id: node.restaurant_.field_visit_us_description
+field_name: field_visit_us_description
+entity_type: node
+bundle: restaurant_
+label: 'Head Chef Description'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

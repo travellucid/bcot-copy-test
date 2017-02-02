@@ -1,0 +1,19 @@
+uuid: eee428bd-82e3-4c30-964d-98a458b1596f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_headline
+    - node.type.tours_and_experiences
+id: node.tours_and_experiences.field_hero_headline
+field_name: field_hero_headline
+entity_type: node
+bundle: tours_and_experiences
+label: 'Hero Bottom Headline'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

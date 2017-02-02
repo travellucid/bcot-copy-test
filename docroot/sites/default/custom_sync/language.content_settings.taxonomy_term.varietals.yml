@@ -1,0 +1,16 @@
+uuid: 5f1dfe6d-c957-4f52-8e8e-402ef4d4ff59
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.varietals
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.varietals
+target_entity_type_id: taxonomy_term
+target_bundle: varietals
+default_langcode: site_default
+language_alterable: false

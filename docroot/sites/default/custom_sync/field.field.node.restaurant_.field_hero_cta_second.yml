@@ -1,0 +1,23 @@
+uuid: a73bf697-0c86-4f8f-a44c-cf3798863427
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_cta_second
+    - node.type.restaurant_
+  module:
+    - link
+id: node.restaurant_.field_hero_cta_second
+field_name: field_hero_cta_second
+entity_type: node
+bundle: restaurant_
+label: 'How To Find Us'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

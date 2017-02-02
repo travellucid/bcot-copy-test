@@ -1,0 +1,8 @@
+uuid: 036521e2-2888-4803-8a64-3d3e7602a214
+langcode: en
+status: true
+dependencies: {  }
+id: varietals
+label: Varietals
+description: ''
+locked: false

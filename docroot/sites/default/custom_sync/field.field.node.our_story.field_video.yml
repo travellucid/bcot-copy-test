@@ -1,0 +1,27 @@
+uuid: 16d710a4-b71e-4574-ab71-b850939c0846
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.our_story
+  module:
+    - file
+id: node.our_story.field_video
+field_name: field_video
+entity_type: node
+bundle: our_story
+label: Video
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt mp4 ogg'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
