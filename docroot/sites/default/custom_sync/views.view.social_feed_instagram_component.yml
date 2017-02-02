@@ -363,7 +363,7 @@ display:
           type: image_url
           settings:
             url_type: '0'
-            image_style: ''
+            image_style: instagram_320_320
             image_link: ''
           group_column: ''
           group_columns: {  }

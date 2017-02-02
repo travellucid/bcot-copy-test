@@ -24,12 +24,29 @@ dependencies:
     - node.type.restaurant_
   module:
     - field_collection
+    - field_group
     - google_map_field
     - image
     - link
     - metatag
     - path
     - text
+third_party_settings:
+  field_group:
+    group_hero_components:
+      children:
+        - field_background_image
+      parent_name: ''
+      weight: 20
+      format_type: tab
+      format_settings:
+        label: 'Hero Components'
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Hero Components'
 id: node.restaurant_.default
 targetEntityType: node
 bundle: restaurant_
@@ -185,6 +202,8 @@ content:
     third_party_settings: {  }
   translation:
     weight: 10
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 5

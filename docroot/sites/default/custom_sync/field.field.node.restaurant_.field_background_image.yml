@@ -18,7 +18,7 @@ id: node.restaurant_.field_background_image
 field_name: field_background_image
 entity_type: node
 bundle: restaurant_
-label: 'Promo Image'
+label: 'Hero Background Image'
 description: ''
 required: true
 translatable: true
