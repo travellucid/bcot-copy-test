@@ -1,0 +1,19 @@
+uuid: 8d0265bc-428c-4c0a-a7b7-db606f2ee451
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visit_us_mainheadline
+    - node.type.restaurant_
+id: node.restaurant_.field_visit_us_mainheadline
+field_name: field_visit_us_mainheadline
+entity_type: node
+bundle: restaurant_
+label: 'Main headline'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,16 @@
+uuid: 4b7debbe-a0b3-4ec2-aca8-efad267e5614
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.private_events
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.private_events
+target_entity_type_id: node
+target_bundle: private_events
+default_langcode: site_default
+language_alterable: false

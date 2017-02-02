@@ -1,0 +1,19 @@
+uuid: c6470436-74f1-47c0-8533-ce6083f42809
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_headline
+    - node.type.wines
+id: node.wines.field_hero_headline
+field_name: field_hero_headline
+entity_type: node
+bundle: wines
+label: 'Hero Headline'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

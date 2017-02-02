@@ -1,0 +1,8 @@
+uuid: 29175797-3a2d-4dca-98a4-1e50687f80a2
+langcode: en
+status: true
+dependencies: {  }
+id: footer-social-icons
+label: 'Footer Social Icons'
+description: 'Footer Social Icons'
+locked: false

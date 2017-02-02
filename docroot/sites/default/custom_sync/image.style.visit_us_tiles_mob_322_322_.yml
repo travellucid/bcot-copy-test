@@ -1,0 +1,14 @@
+uuid: df9c660c-d6ca-4dec-920a-dd25c411d428
+langcode: en
+status: true
+dependencies: {  }
+name: visit_us_tiles_mob_322_322_
+label: 'Visit Us Tiles(Mob.) (322*322)'
+effects:
+  fc0b0689-d7bc-49d8-9398-3d9c024a373e:
+    uuid: fc0b0689-d7bc-49d8-9398-3d9c024a373e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 322
+      height: 322

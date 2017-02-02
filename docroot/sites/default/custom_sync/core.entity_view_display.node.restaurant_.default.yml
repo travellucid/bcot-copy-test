@@ -1,0 +1,172 @@
+uuid: 723e85f6-faee-4c29-a000-30ae3045c306
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.restaurant_.body
+    - field.field.node.restaurant_.field_address
+    - field.field.node.restaurant_.field_background_image
+    - field.field.node.restaurant_.field_hero_cta_first
+    - field.field.node.restaurant_.field_hero_cta_second
+    - field.field.node.restaurant_.field_hero_cta_thi
+    - field.field.node.restaurant_.field_hero_headline
+    - field.field.node.restaurant_.field_hero_right_side_image
+    - field.field.node.restaurant_.field_image
+    - field.field.node.restaurant_.field_instagram_collection
+    - field.field.node.restaurant_.field_meta_tags
+    - field.field.node.restaurant_.field_our_story_headline
+    - field.field.node.restaurant_.field_our_wine_cta
+    - field.field.node.restaurant_.field_our_wine_description
+    - field.field.node.restaurant_.field_our_wine_small_heading
+    - field.field.node.restaurant_.field_visit_us_description
+    - field.field.node.restaurant_.field_visit_us_mainheadline
+    - node.type.restaurant_
+  module:
+    - field_collection
+    - google_map_field
+    - image
+    - link
+    - metatag
+    - text
+    - user
+id: node.restaurant_.default
+targetEntityType: node
+bundle: restaurant_
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_address:
+    weight: 115
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: google_map_field_default
+  field_background_image:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_hero_cta_first:
+    weight: 105
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_hero_cta_second:
+    weight: 106
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_hero_cta_thi:
+    weight: 108
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_hero_headline:
+    weight: 112
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_hero_right_side_image:
+    weight: 107
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_image:
+    weight: 116
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_instagram_collection:
+    weight: 114
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+  field_meta_tags:
+    weight: 117
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+  field_our_story_headline:
+    weight: 110
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_our_wine_cta:
+    weight: 109
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_our_wine_description:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_our_wine_small_heading:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_visit_us_description:
+    weight: 113
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_visit_us_mainheadline:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  links:
+    weight: 100
+hidden:
+  langcode: true

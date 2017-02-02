@@ -1,0 +1,20 @@
+uuid: 13c77069-dd2b-4f6c-8b3a-170515fe2ca1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_ranges
+field_name: field_ranges
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: a34af0ad-b38e-4d9c-830b-6ad83f3f1421
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visit_us_small_headline
+    - node.type.tours_and_experiences
+id: node.tours_and_experiences.field_visit_us_small_headline
+field_name: field_visit_us_small_headline
+entity_type: node
+bundle: tours_and_experiences
+label: 'Hero Subheading'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

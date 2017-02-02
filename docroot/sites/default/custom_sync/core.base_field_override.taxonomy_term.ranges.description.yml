@@ -1,0 +1,20 @@
+uuid: 97c090b4-cbf6-4720-988f-545abeab8b5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ranges
+  module:
+    - text
+id: taxonomy_term.ranges.description
+field_name: description
+entity_type: taxonomy_term
+bundle: ranges
+label: Description
+description: 'A description of the term.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

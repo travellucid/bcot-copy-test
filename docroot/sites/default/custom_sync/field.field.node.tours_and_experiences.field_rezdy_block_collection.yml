@@ -1,0 +1,22 @@
+uuid: 186c8e61-48ba-4eb4-a3e5-97db5a240e6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rezdy_block_collection
+    - node.type.tours_and_experiences
+  module:
+    - field_collection
+id: node.tours_and_experiences.field_rezdy_block_collection
+field_name: field_rezdy_block_collection
+entity_type: node
+bundle: tours_and_experiences
+label: 'Rezdy Block Collection'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection

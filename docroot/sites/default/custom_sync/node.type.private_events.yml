@@ -1,0 +1,17 @@
+uuid: fb2e363b-be05-45c2-96bd-a049eac7b822
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Private Events'
+type: private_events
+description: 'Private Events'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

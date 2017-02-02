@@ -1,0 +1,16 @@
+uuid: 18891535-ae26-4703-b396-61d891442f9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.restaurant_
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.restaurant_
+target_entity_type_id: node
+target_bundle: restaurant_
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,9 @@
+uuid: 80a1e337-4fdf-41d6-8558-f83a90a02da7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Wine Types'
+vid: wine_types
+description: 'Wine Types'
+hierarchy: 0
+weight: 0

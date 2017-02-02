@@ -1,0 +1,21 @@
+uuid: 87d19698-3d85-4585-8e31-bd30c691e8aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - node.type.restaurant_
+  module:
+    - google_map_field
+id: node.restaurant_.field_address
+field_name: field_address
+entity_type: node
+bundle: restaurant_
+label: Address
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: google_map_field

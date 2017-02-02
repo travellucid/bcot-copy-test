@@ -1,0 +1,21 @@
+uuid: f3c88d72-2f26-423f-8bd8-a60c5dcb8e00
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_visit_us_small_headline
+field_name: field_visit_us_small_headline
+entity_type: node
+type: string
+settings:
+  max_length: 20
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

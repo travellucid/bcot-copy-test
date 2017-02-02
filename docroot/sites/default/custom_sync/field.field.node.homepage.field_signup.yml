@@ -1,0 +1,23 @@
+uuid: b3b995a1-cccd-4904-8807-4e1c7a1e574f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signup
+    - node.type.homepage
+  module:
+    - link
+id: node.homepage.field_signup
+field_name: field_signup
+entity_type: node
+bundle: homepage
+label: Signup
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

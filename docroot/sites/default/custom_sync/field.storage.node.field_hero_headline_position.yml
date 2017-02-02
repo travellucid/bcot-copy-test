@@ -1,0 +1,30 @@
+uuid: 5c0da3b1-c83a-4ef2-908c-f86f64f8377e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_hero_headline_position
+field_name: field_hero_headline_position
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: centre
+      label: Centre
+    -
+      value: left
+      label: Left
+    -
+      value: right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

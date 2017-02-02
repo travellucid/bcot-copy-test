@@ -1,0 +1,22 @@
+uuid: 95f19da6-250f-41c7-85de-4696ae716059
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - sapient_brancott
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: sapient_brancott_breadcrumbs
+theme: sapient_brancott
+region: '-1'
+weight: -9
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 63fc4385-3f2f-49cf-bd60-d330342e24f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_cta_first
+    - node.type.restaurant_
+  module:
+    - link
+id: node.restaurant_.field_hero_cta_first
+field_name: field_hero_cta_first
+entity_type: node
+bundle: restaurant_
+label: 'Book A Table'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

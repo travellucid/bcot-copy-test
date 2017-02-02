@@ -1,0 +1,28 @@
+uuid: 4cbbda05-4ff4-4bfb-bef3-e2e25a51ea90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wine_type
+    - node.type.wines
+    - taxonomy.vocabulary.wine_types
+id: node.wines.field_wine_type
+field_name: field_wine_type
+entity_type: node
+bundle: wines
+label: 'Wine Type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      wine_types: wine_types
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

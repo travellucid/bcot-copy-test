@@ -1,0 +1,19 @@
+uuid: 24b341bf-c90e-4f11-9b49-effa3bfc6ecb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visit_us_small_headline
+    - node.type.homepage
+id: node.homepage.field_visit_us_small_headline
+field_name: field_visit_us_small_headline
+entity_type: node
+bundle: homepage
+label: 'Visit Us Subheading'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

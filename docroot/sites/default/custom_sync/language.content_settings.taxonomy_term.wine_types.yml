@@ -1,0 +1,16 @@
+uuid: 840df260-a352-450c-b069-7b3f0fa7b99f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.wine_types
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.wine_types
+target_entity_type_id: taxonomy_term
+target_bundle: wine_types
+default_langcode: site_default
+language_alterable: false

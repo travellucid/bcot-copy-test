@@ -1,0 +1,20 @@
+uuid: c21f3490-ce3b-466d-a2d9-b588307916de
+langcode: en
+status: false
+dependencies:
+  theme:
+    - sapient_brancott
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: sapient_brancott_local_actions
+theme: sapient_brancott
+region: '-1'
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

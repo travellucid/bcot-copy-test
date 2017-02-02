@@ -1,0 +1,23 @@
+uuid: 535597f5-dc15-4619-95ca-05b57558b291
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_instagram_link
+    - field_collection.field_collection.field_instagram_collection
+  module:
+    - link
+id: field_collection_item.field_instagram_collection.field_instagram_link
+field_name: field_instagram_link
+entity_type: field_collection_item
+bundle: field_instagram_collection
+label: 'Instagram Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

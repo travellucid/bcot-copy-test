@@ -1,0 +1,19 @@
+uuid: 384049f2-cca1-4eab-995c-bf59771bbc4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_rezdy_block_cost
+    - field_collection.field_collection.field_rezdy_block_collection
+id: field_collection_item.field_rezdy_block_collection.field_rezdy_block_cost
+field_name: field_rezdy_block_cost
+entity_type: field_collection_item
+bundle: field_rezdy_block_collection
+label: Cost
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

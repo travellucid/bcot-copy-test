@@ -1,0 +1,73 @@
+uuid: e95fd2f4-add9-4d80-8d5f-c91cd4f96dd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_availability
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_book_now
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_cost
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_description
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_duration
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_heading
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_image
+    - field_collection.field_collection.field_rezdy_block_collection
+  module:
+    - image
+    - link
+id: field_collection_item.field_rezdy_block_collection.default
+targetEntityType: field_collection_item
+bundle: field_rezdy_block_collection
+mode: default
+content:
+  field_rezdy_block_availability:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_rezdy_block_book_now:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_rezdy_block_cost:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_rezdy_block_description:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_rezdy_block_duration:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_rezdy_block_heading:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_rezdy_block_image:
+    weight: 6
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden: {  }

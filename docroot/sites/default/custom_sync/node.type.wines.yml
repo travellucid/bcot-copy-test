@@ -1,0 +1,18 @@
+uuid: 205a36e5-f040-4f29-8ee0-ec28d6b43202
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Wines
+type: wines
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,23 @@
+uuid: 2c875699-4123-4fd2-b920-f3b6be2cb2bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_cta_thi
+    - node.type.restaurant_
+  module:
+    - link
+id: node.restaurant_.field_hero_cta_thi
+field_name: field_hero_cta_thi
+entity_type: node
+bundle: restaurant_
+label: 'Menu Pdf'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,14 @@
+uuid: 6b83e1a1-0f14-443e-8beb-398801fc77cd
+langcode: en
+status: true
+dependencies: {  }
+name: visit_us_small_grow_desk_585_250_
+label: 'Visit us small grow(desk.)(585*250)'
+effects:
+  2786a414-ab34-40b4-83a4-f8263a864f42:
+    uuid: 2786a414-ab34-40b4-83a4-f8263a864f42
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 585
+      height: 250

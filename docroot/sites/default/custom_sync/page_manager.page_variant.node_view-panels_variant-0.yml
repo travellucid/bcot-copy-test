@@ -1,0 +1,82 @@
+uuid: a2223f9c-c577-4b19-bdf4-82dea6bb013d
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_view
+    - views.view.homepage_components
+  module:
+    - ctools
+    - panels
+    - views
+id: node_view-panels_variant-0
+label: Homepage
+variant: panels_variant
+variant_settings:
+  blocks:
+    08e6cb1d-0482-4221-a9d9-885f7b1c8d93:
+      id: 'views_block:homepage_components-hero_component'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: -1
+      uuid: 08e6cb1d-0482-4221-a9d9-885f7b1c8d93
+      context_mapping: {  }
+    3ce44eea-2633-4190-8462-9a1d3d060aee:
+      id: 'views_block:homepage_components-newsletter_component'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 1
+      uuid: 3ce44eea-2633-4190-8462-9a1d3d060aee
+      context_mapping: {  }
+    67e865ab-5028-419d-b032-53c0d1c81aaa:
+      id: 'views_block:homepage_components-our_story_component'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: 67e865ab-5028-419d-b032-53c0d1c81aaa
+      context_mapping: {  }
+    956e498c-563d-4aa0-a672-acf0a968c0b9:
+      id: 'views_block:homepage_components-visit_us_component'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 2
+      uuid: 956e498c-563d-4aa0-a672-acf0a968c0b9
+      context_mapping: {  }
+  id: panels_variant
+  uuid: b6052343-1691-4360-b201-62fade9e5459
+  label: null
+  weight: 0
+  layout: onecol
+  layout_settings: {  }
+  page_title: Homepage
+  storage_type: page_manager
+  storage_id: node_view-panels_variant-0
+  builder: standard
+page: node_view
+weight: 0
+selection_criteria:
+  -
+    id: 'entity_bundle:node'
+    bundles:
+      homepage: homepage
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+static_context: {  }

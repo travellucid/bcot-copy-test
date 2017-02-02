@@ -1,0 +1,25 @@
+uuid: fefd273e-2ad5-413e-8bb4-9a53696eb12f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.private_events.body
+    - node.type.private_events
+  module:
+    - text
+    - user
+id: node.private_events.default
+targetEntityType: node
+bundle: private_events
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  langcode: true

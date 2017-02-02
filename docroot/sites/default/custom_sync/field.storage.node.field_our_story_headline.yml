@@ -1,0 +1,21 @@
+uuid: a07c5736-e8bb-40dd-bdc6-19a977ebe5ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_our_story_headline
+field_name: field_our_story_headline
+entity_type: node
+type: string
+settings:
+  max_length: 30
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

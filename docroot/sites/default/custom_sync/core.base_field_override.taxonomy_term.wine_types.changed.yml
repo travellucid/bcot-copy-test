@@ -1,0 +1,18 @@
+uuid: 0286a498-56fe-4ff7-9294-8f7176f2e998
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.wine_types
+id: taxonomy_term.wine_types.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: wine_types
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

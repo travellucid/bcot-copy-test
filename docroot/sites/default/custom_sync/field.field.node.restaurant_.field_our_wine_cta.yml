@@ -1,0 +1,23 @@
+uuid: 8b693d63-7ad6-4cd7-8b29-4cd75ca9ee51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_our_wine_cta
+    - node.type.restaurant_
+  module:
+    - link
+id: node.restaurant_.field_our_wine_cta
+field_name: field_our_wine_cta
+entity_type: node
+bundle: restaurant_
+label: 'Tasting Plates Pdf '
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

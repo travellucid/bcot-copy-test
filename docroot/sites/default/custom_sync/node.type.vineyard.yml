@@ -1,0 +1,17 @@
+uuid: aa5a41d8-8b08-49df-b8e9-cd1c9d50ba53
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Vineyard
+type: vineyard
+description: Vineyard
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

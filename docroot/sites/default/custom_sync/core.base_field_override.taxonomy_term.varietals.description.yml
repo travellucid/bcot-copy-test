@@ -1,0 +1,20 @@
+uuid: 0be82ca6-5f00-49d1-bb7d-536b73d176f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.varietals
+  module:
+    - text
+id: taxonomy_term.varietals.description
+field_name: description
+entity_type: taxonomy_term
+bundle: varietals
+label: Description
+description: 'A description of the term.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

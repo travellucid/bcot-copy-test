@@ -1,0 +1,21 @@
+uuid: 40a0b0df-1754-4f3c-a3ff-50321a481b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_option
+    - node.type.our_story
+  module:
+    - options
+id: node.our_story.field_video_option
+field_name: field_video_option
+entity_type: node
+bundle: our_story
+label: 'Video Options'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

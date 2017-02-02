@@ -1,0 +1,16 @@
+uuid: 55024a94-a538-4ae4-b268-0d1b10e332df
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ranges
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.ranges
+target_entity_type_id: taxonomy_term
+target_bundle: ranges
+default_langcode: site_default
+language_alterable: false

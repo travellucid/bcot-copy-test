@@ -1,0 +1,22 @@
+uuid: b39510d6-c88e-47bc-b916-3f11649e93ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.vineyard
+  module:
+    - text
+id: node.vineyard.body
+field_name: body
+entity_type: node
+bundle: vineyard
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

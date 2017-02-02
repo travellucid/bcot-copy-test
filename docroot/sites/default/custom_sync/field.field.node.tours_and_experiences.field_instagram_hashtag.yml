@@ -1,0 +1,19 @@
+uuid: 3534b266-7090-4937-8019-8e449c523be3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instagram_hashtag
+    - node.type.tours_and_experiences
+id: node.tours_and_experiences.field_instagram_hashtag
+field_name: field_instagram_hashtag
+entity_type: node
+bundle: tours_and_experiences
+label: 'Instagram Hashtag'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

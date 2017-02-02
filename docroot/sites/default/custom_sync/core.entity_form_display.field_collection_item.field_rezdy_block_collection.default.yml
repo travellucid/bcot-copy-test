@@ -1,0 +1,72 @@
+uuid: 06090531-cc8a-4556-938d-e4e85f831fb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_availability
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_book_now
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_cost
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_description
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_duration
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_heading
+    - field.field.field_collection_item.field_rezdy_block_collection.field_rezdy_block_image
+    - field_collection.field_collection.field_rezdy_block_collection
+    - image.style.thumbnail
+  module:
+    - image
+    - link
+id: field_collection_item.field_rezdy_block_collection.default
+targetEntityType: field_collection_item
+bundle: field_rezdy_block_collection
+mode: default
+content:
+  field_rezdy_block_availability:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_rezdy_block_book_now:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_rezdy_block_cost:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_rezdy_block_description:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_rezdy_block_duration:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_rezdy_block_heading:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_rezdy_block_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+hidden: {  }

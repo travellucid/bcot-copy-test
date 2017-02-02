@@ -1,0 +1,19 @@
+uuid: cc337f5a-31bf-45ad-a045-dd2b055ccaf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signup_text
+    - node.type.wines
+id: node.wines.field_signup_text
+field_name: field_signup_text
+entity_type: node
+bundle: wines
+label: 'Signup Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

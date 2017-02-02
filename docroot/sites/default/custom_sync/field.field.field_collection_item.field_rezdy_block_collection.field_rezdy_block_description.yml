@@ -1,0 +1,19 @@
+uuid: 1f818dbe-0dbe-4a67-855d-b24bff95dffd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_rezdy_block_description
+    - field_collection.field_collection.field_rezdy_block_collection
+id: field_collection_item.field_rezdy_block_collection.field_rezdy_block_description
+field_name: field_rezdy_block_description
+entity_type: field_collection_item
+bundle: field_rezdy_block_collection
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

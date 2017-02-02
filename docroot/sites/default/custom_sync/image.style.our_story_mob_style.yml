@@ -1,0 +1,14 @@
+uuid: f6f8a3ba-4cfb-44ca-9b8d-931f8b29ba5d
+langcode: en
+status: true
+dependencies: {  }
+name: our_story_mob_style
+label: 'Our Story Mob. Style'
+effects:
+  dd71214a-9aae-4de0-b79b-1a38802548dc:
+    uuid: dd71214a-9aae-4de0-b79b-1a38802548dc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 320

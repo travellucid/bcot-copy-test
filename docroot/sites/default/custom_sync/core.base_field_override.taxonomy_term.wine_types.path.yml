@@ -1,0 +1,20 @@
+uuid: 15b91570-12aa-4641-bdb4-067ef15b78d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.wine_types
+  module:
+    - path
+id: taxonomy_term.wine_types.path
+field_name: path
+entity_type: taxonomy_term
+bundle: wine_types
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

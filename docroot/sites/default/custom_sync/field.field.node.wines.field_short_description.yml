@@ -1,0 +1,19 @@
+uuid: b965cb04-02fe-4c42-bb6b-ddf0e6fc92fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_description
+    - node.type.wines
+id: node.wines.field_short_description
+field_name: field_short_description
+entity_type: node
+bundle: wines
+label: 'Short Description'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

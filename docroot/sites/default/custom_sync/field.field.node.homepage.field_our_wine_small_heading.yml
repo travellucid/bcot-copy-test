@@ -1,0 +1,19 @@
+uuid: 53ff7d7a-f5b7-487c-aafc-b17b3833f7c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_our_wine_small_heading
+    - node.type.homepage
+id: node.homepage.field_our_wine_small_heading
+field_name: field_our_wine_small_heading
+entity_type: node
+bundle: homepage
+label: 'Our Wine Subheading'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

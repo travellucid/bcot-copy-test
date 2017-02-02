@@ -1,0 +1,32 @@
+uuid: 35c57778-a54d-45bc-a838-da0362652fb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.wines.field_food_matches
+    - field.field.node.wines.field_ranges
+    - field.field.node.wines.field_short_description
+    - field.field.node.wines.field_thumb
+    - field.field.node.wines.field_thumbnail_background_image
+    - field.field.node.wines.field_varietals
+    - field.field.node.wines.field_wine_type
+    - node.type.wines
+  module:
+    - user
+id: node.wines.teaser
+targetEntityType: node
+bundle: wines
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_food_matches: true
+  field_ranges: true
+  field_short_description: true
+  field_thumb: true
+  field_thumbnail_background_image: true
+  field_varietals: true
+  field_wine_type: true
+  langcode: true

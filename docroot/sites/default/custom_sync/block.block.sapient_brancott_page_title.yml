@@ -1,0 +1,20 @@
+uuid: ea504c2f-f09d-4eb4-b13f-f84fbe309008
+langcode: en
+status: false
+dependencies:
+  theme:
+    - sapient_brancott
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: sapient_brancott_page_title
+theme: sapient_brancott
+region: '-1'
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

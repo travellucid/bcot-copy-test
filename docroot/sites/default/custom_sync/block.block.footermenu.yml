@@ -1,0 +1,24 @@
+uuid: 603d6257-fc93-4bd2-992d-2592570fb4b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu
+  module:
+    - system
+  theme:
+    - sapient_brancott
+id: footermenu
+theme: sapient_brancott
+region: footer
+weight: -8
+provider: null
+plugin: 'system_menu_block:footer-menu'
+settings:
+  id: 'system_menu_block:footer-menu'
+  label: 'Footer Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: c0aef91c-9601-4c3e-847e-1ae0f2eb38c9
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu
+label: 'Footer Menu'
+description: 'Menu for bottom links'
+locked: false

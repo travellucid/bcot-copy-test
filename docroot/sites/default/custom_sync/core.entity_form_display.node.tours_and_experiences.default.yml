@@ -1,0 +1,250 @@
+uuid: 858b8a77-8700-4f08-abc7-da069ecad28f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tours_and_experiences.body
+    - field.field.node.tours_and_experiences.field_address
+    - field.field.node.tours_and_experiences.field_background_image
+    - field.field.node.tours_and_experiences.field_closed_on
+    - field.field.node.tours_and_experiences.field_contact_us
+    - field.field.node.tours_and_experiences.field_hero_headline
+    - field.field.node.tours_and_experiences.field_how_to_find_us_addre
+    - field.field.node.tours_and_experiences.field_instagram_collection
+    - field.field.node.tours_and_experiences.field_instagram_hashtag
+    - field.field.node.tours_and_experiences.field_instagram_link
+    - field.field.node.tours_and_experiences.field_instagram_tagline
+    - field.field.node.tours_and_experiences.field_restaurant_opening_hours
+    - field.field.node.tours_and_experiences.field_rezdy_block_collection
+    - field.field.node.tours_and_experiences.field_social_feed_instagram_link
+    - field.field.node.tours_and_experiences.field_vinyard_opening_hours
+    - field.field.node.tours_and_experiences.field_visit_us_description
+    - field.field.node.tours_and_experiences.field_visit_us_small_headline
+    - image.style.thumbnail
+    - node.type.tours_and_experiences
+  module:
+    - field_collection
+    - field_group
+    - google_map_field
+    - image
+    - link
+    - office_hours
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_hero_components:
+      children:
+        - field_background_image
+        - field_visit_us_small_headline
+        - title
+        - field_hero_headline
+        - field_visit_us_description
+      parent_name: ''
+      weight: 5
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: 'Hero Components'
+    group_how_to_find_us:
+      children:
+        - field_address
+        - field_how_to_find_us_addre
+        - field_contact_us
+        - field_restaurant_opening_hours
+        - field_vinyard_opening_hours
+        - field_closed_on
+      parent_name: ''
+      weight: 7
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: 'How To Find Us'
+    group_instagram_component:
+      children:
+        - field_instagram_collection
+        - field_instagram_hashtag
+        - field_instagram_tagline
+        - field_social_feed_instagram_link
+      parent_name: ''
+      weight: 11
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: 'Instagram Component'
+id: node.tours_and_experiences.default
+targetEntityType: node
+bundle: tours_and_experiences
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 10
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  field_address:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: google_map_field_default
+  field_background_image:
+    weight: 36
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  field_closed_on:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_contact_us:
+    weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_hero_headline:
+    weight: 40
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_how_to_find_us_addre:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_instagram_collection:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+  field_instagram_hashtag:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_instagram_link:
+    weight: 12
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_instagram_tagline:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_restaurant_opening_hours:
+    weight: 10
+    settings:
+      date_element_type: datelist
+    third_party_settings: {  }
+    type: office_hours_default
+  field_rezdy_block_collection:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+  field_social_feed_instagram_link:
+    weight: 12
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_vinyard_opening_hours:
+    weight: 11
+    settings:
+      date_element_type: datelist
+    third_party_settings: {  }
+    type: office_hours_default
+  field_visit_us_description:
+    weight: 41
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_visit_us_small_headline:
+    weight: 37
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  langcode:
+    type: language_select
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 38
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

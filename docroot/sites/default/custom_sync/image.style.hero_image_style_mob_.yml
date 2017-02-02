@@ -1,0 +1,14 @@
+uuid: f7c6809d-12d1-456f-a661-3883f4f1faa3
+langcode: en
+status: true
+dependencies: {  }
+name: hero_image_style_mob_
+label: 'Hero Image Style (Mob.)'
+effects:
+  c4172d7b-e2fa-4737-85e0-2a56522b868d:
+    uuid: c4172d7b-e2fa-4737-85e0-2a56522b868d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 160

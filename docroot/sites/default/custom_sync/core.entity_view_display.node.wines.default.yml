@@ -1,0 +1,114 @@
+uuid: 198c7f67-0010-405a-b88d-6f7374ad78e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wines.field_food_matches
+    - field.field.node.wines.field_hero_headline
+    - field.field.node.wines.field_image
+    - field.field.node.wines.field_ranges
+    - field.field.node.wines.field_short_description
+    - field.field.node.wines.field_signup
+    - field.field.node.wines.field_signup_text
+    - field.field.node.wines.field_thumb
+    - field.field.node.wines.field_thumbnail_background_image
+    - field.field.node.wines.field_varietals
+    - field.field.node.wines.field_wine_type
+    - node.type.wines
+  module:
+    - image
+    - link
+    - user
+id: node.wines.default
+targetEntityType: node
+bundle: wines
+mode: default
+content:
+  field_food_matches:
+    weight: 109
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_hero_headline:
+    weight: 110
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_image:
+    weight: 111
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_ranges:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_short_description:
+    weight: 108
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_signup:
+    weight: 112
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_signup_text:
+    weight: 113
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_thumb:
+    weight: 106
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_thumbnail_background_image:
+    weight: 107
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_varietals:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_wine_type:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  links:
+    weight: 100
+hidden:
+  langcode: true

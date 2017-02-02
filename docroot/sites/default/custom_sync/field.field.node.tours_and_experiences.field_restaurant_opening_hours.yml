@@ -1,0 +1,21 @@
+uuid: 51a98568-ab06-4a4c-b9f3-01a5b418becc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_restaurant_opening_hours
+    - node.type.tours_and_experiences
+  module:
+    - office_hours
+id: node.tours_and_experiences.field_restaurant_opening_hours
+field_name: field_restaurant_opening_hours
+entity_type: node
+bundle: tours_and_experiences
+label: 'Restaurant opening hours'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: office_hours

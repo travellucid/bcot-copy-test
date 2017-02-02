@@ -1,0 +1,27 @@
+uuid: 030d2aae-9113-4fa7-a323-44a880931939
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.private_events.body
+    - node.type.private_events
+  module:
+    - text
+    - user
+id: node.private_events.teaser
+targetEntityType: node
+bundle: private_events
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  langcode: true

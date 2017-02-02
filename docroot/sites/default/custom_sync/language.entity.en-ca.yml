@@ -1,0 +1,9 @@
+uuid: 51f837ad-5544-4e40-bcab-e1550b62edf0
+langcode: en
+status: true
+dependencies: {  }
+id: en-ca
+label: Canada
+direction: ltr
+weight: 2
+locked: false

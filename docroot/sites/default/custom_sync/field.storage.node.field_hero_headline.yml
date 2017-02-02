@@ -1,0 +1,21 @@
+uuid: b7b0594e-c1a7-4e80-81c0-66e12c49eef5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_hero_headline
+field_name: field_hero_headline
+entity_type: node
+type: string
+settings:
+  max_length: 60
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

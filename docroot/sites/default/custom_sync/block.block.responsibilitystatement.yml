@@ -1,0 +1,25 @@
+uuid: 5a7d93b1-1c52-4f38-b01c-2b58f539325b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:dc64a032-8e7e-47f9-ae0b-0b956d1db378'
+  module:
+    - block_content
+  theme:
+    - sapient_brancott
+id: responsibilitystatement
+theme: sapient_brancott
+region: footer
+weight: -7
+provider: null
+plugin: 'block_content:dc64a032-8e7e-47f9-ae0b-0b956d1db378'
+settings:
+  id: 'block_content:dc64a032-8e7e-47f9-ae0b-0b956d1db378'
+  label: 'Responsibility Statement'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

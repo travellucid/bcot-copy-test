@@ -1,0 +1,117 @@
+uuid: f1b1cb90-ef87-45de-bd33-623a367bdcf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_view
+    - views.view.homepage_components
+    - views.view.social_feed_instagram_component
+  module:
+    - ctools
+    - panels
+    - views
+    - webform
+id: node_view-panels_variant-1
+label: 'Restaurant Page'
+variant: panels_variant
+variant_settings:
+  blocks:
+    06b20d33-09dd-4a1b-bcc2-a03a46a6f3a9:
+      id: 'views_block:homepage_components-block_2'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: 06b20d33-09dd-4a1b-bcc2-a03a46a6f3a9
+      context_mapping: {  }
+    af4086f2-0804-41ef-8208-539ed4a0528e:
+      id: 'views_block:homepage_components-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: af4086f2-0804-41ef-8208-539ed4a0528e
+      context_mapping: {  }
+    aa1712e8-09c1-4f22-a8ea-5dfefabef6db:
+      id: 'views_block:homepage_components-block_3'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: aa1712e8-09c1-4f22-a8ea-5dfefabef6db
+      context_mapping: {  }
+    dffd27ec-9472-4cef-a991-b5323ad61bb9:
+      id: 'views_block:homepage_components-block_5'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: dffd27ec-9472-4cef-a991-b5323ad61bb9
+      context_mapping: {  }
+    8e9ec314-09b5-4bed-8bec-995d8b63e4b0:
+      id: webform_block
+      label: Webform
+      provider: webform
+      label_display: visible
+      webform_id: book_a_table
+      default_data: ''
+      region: middle
+      weight: 0
+      uuid: 8e9ec314-09b5-4bed-8bec-995d8b63e4b0
+      context_mapping: {  }
+    e7a965c9-3235-4fc5-9072-7084044755ac:
+      id: 'views_block:social_feed_instagram_component-social_feed_instagram_component'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: e7a965c9-3235-4fc5-9072-7084044755ac
+      context_mapping: {  }
+    01a54457-d70a-459e-a6a1-3ed3e8918d04:
+      id: 'views_block:homepage_components-common_hero_component'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: 01a54457-d70a-459e-a6a1-3ed3e8918d04
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 592f2f14-7d70-4bea-af50-aea78094d201
+  label: null
+  weight: 0
+  layout: onecol
+  layout_settings: {  }
+  page_title: Restaurant
+  storage_type: page_manager
+  storage_id: node_view-panels_variant-1
+  builder: standard
+page: node_view
+weight: 0
+selection_criteria:
+  -
+    id: 'entity_bundle:node'
+    bundles:
+      restaurant_: restaurant_
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+static_context: {  }

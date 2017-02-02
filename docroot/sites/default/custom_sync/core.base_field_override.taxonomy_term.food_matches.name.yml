@@ -1,0 +1,18 @@
+uuid: 6573fd05-4a47-4028-a3f9-5d38e8e9802c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.food_matches
+id: taxonomy_term.food_matches.name
+field_name: name
+entity_type: taxonomy_term
+bundle: food_matches
+label: Name
+description: 'The term name.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

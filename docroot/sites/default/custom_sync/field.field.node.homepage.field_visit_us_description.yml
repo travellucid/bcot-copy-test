@@ -1,0 +1,19 @@
+uuid: c0c1b397-117c-459e-a60a-e691a386548e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visit_us_description
+    - node.type.homepage
+id: node.homepage.field_visit_us_description
+field_name: field_visit_us_description
+entity_type: node
+bundle: homepage
+label: 'Visit Us Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

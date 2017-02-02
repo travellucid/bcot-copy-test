@@ -1,0 +1,27 @@
+uuid: b31d700c-49da-4c2c-810c-6981822fc73b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tours_and_experiences.body
+    - node.type.tours_and_experiences
+  module:
+    - text
+    - user
+id: node.tours_and_experiences.teaser
+targetEntityType: node
+bundle: tours_and_experiences
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  langcode: true

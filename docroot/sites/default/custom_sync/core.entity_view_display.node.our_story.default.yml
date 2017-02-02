@@ -1,0 +1,80 @@
+uuid: e1dd7fd8-bdb0-42d6-ace7-5af0a089be45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.our_story.body
+    - field.field.node.our_story.field_background_image
+    - field.field.node.our_story.field_hero_cta_first
+    - field.field.node.our_story.field_meta_tags
+    - field.field.node.our_story.field_our_story_headline
+    - field.field.node.our_story.field_video
+    - field.field.node.our_story.field_video_option
+    - node.type.our_story
+  module:
+    - file
+    - image
+    - link
+    - metatag
+    - options
+    - text
+    - user
+id: node.our_story.default
+targetEntityType: node
+bundle: our_story
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_background_image:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_hero_cta_first:
+    weight: 110
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_meta_tags:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+  field_our_story_headline:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_video:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+  field_video_option:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  links:
+    weight: 100
+hidden:
+  langcode: true

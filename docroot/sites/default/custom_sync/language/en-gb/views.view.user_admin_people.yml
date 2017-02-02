@@ -1,0 +1,25 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+      fields:
+        status:
+          label: Status
+        roles_target_id:
+          label: Roles
+        operations:
+          label: Operations
+      filters:
+        roles_target_id:
+          expose:
+            label: Role
+        status:
+          group_info:
+            label: Status
+  page_1:
+    display_options:
+      menu:
+        title: List

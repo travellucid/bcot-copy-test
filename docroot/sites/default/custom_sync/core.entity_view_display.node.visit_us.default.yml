@@ -1,0 +1,56 @@
+uuid: 2c583191-ed51-49e5-904c-84a3821081fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.visit_us.field_hero_cta_first
+    - field.field.node.visit_us.field_meta_tags
+    - field.field.node.visit_us.field_tile_mainheadline_visit_us
+    - field.field.node.visit_us.field_visit_us_background_image
+    - node.type.visit_us
+  module:
+    - image
+    - link
+    - metatag
+    - user
+id: node.visit_us.default
+targetEntityType: node
+bundle: visit_us
+mode: default
+content:
+  field_hero_cta_first:
+    weight: 102
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_meta_tags:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+  field_tile_mainheadline_visit_us:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_visit_us_background_image:
+    weight: 106
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  links:
+    weight: 100
+hidden:
+  langcode: true

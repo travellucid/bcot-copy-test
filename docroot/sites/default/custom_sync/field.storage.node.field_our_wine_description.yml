@@ -1,0 +1,19 @@
+uuid: dd0e0714-4a47-4ea5-9b81-95c6b076586a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_our_wine_description
+field_name: field_our_wine_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
