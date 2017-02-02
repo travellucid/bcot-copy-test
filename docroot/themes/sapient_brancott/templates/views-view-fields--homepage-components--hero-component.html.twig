@@ -21,12 +21,14 @@
  	</div>
  	
  	<div class="hidden-sm hidden-xs hero-bottle-wrapper">
-			
-			<source class="hero-bottle" media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}"> 
-			<source class="hero-bottle" media="(max-width: 769px)"  srcset="{{ fields.field_hero_right_side_image.content }}"> 
-				<!-- img tag for browsers that do not support picture element -->
-			<source  class="hero-bottle" srcset="{{ fields.field_hero_right_side_image.content }}"> 
-			<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+			<picture>
+				<source class="hero-bottle" media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}"> 
+				<source class="hero-bottle" media="(max-width: 769px)"  srcset="{{ fields.field_hero_right_side_image.content }}"> 
+					<!-- img tag for browsers that do not support picture element -->
+				<source  class="hero-bottle" srcset="{{ fields.field_hero_right_side_image.content }}"> 
+				<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+				
+			</picture>
 			
 			<!--<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}">-->
 	</div>
