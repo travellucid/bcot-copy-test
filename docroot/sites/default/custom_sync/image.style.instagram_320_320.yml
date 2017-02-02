@@ -1,0 +1,14 @@
+uuid: c8245fd9-b70a-4e00-be47-487b0a595c89
+langcode: en
+status: true
+dependencies: {  }
+name: instagram_320_320
+label: 'Instagram (320*320)'
+effects:
+  05b3af6f-2859-48be-9d62-ef7ccbb67d8d:
+    uuid: 05b3af6f-2859-48be-9d62-ef7ccbb67d8d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 320
