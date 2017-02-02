@@ -26,7 +26,7 @@ var headerObj = (function($, window, sapient) {
 
 		var collapseMobileMenu = function() {
 			var windowWidth = $(window).width();
-			if (windowWidth < 691) {
+			if (windowWidth < 769) {
 				$("#navbar-header").removeClass("in").addClass('collapse');
 			}
 		}
