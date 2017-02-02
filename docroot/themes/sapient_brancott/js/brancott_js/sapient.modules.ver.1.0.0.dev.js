@@ -46,7 +46,7 @@ var commonObj = (function($, window, sapient) {
 
 sapient.common = commonObj.getInstance();
 
-sapient.common.scrollToNext();
+/*sapient.common.scrollToNext();*/
 sapient.common.hideLinkText();
 var carouselObj = (function($, window, sapient) {
 
@@ -175,7 +175,7 @@ var headerObj = (function($, window, sapient) {
 
 		var collapseMobileMenu = function() {
 			var windowWidth = $(window).width();
-			if (windowWidth < 691) {
+			if (windowWidth < 769) {
 				$("#navbar-header").removeClass("in").addClass('collapse');
 			}
 		}
@@ -215,6 +215,8 @@ var headerObj = (function($, window, sapient) {
 
 			$("header").hover(function() {
 					$("#navbar-header").addClass('semi-solid-menu solid-menu');
+
+					$("header").removeClass("white-background");
 				},
 				function(){
 					$("#navbar-header").removeClass('solid-menu');
@@ -232,10 +234,10 @@ var headerObj = (function($, window, sapient) {
 			$('.burger-click-region').on('click', function() {
 
 				if ($("#navbar-header").hasClass("in") && $(window).scrollTop() == 0) {
-					$("header").removeClass("white-background");
+					$("header").removeClass("white-background").css("opacity",.96);
 				}
 				else {
-					$("header").addClass("white-background");
+					$("header").addClass("white-background").css("opacity",1);
 					$("#navbar-header .navbar-nav").removeClass("menu-open");
 				}
 				

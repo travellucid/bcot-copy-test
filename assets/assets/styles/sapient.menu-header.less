@@ -13,6 +13,10 @@ header {
 		background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
 		background-image: -o-linear-gradient(bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
 		background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
+		box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		-o-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 		/* 
 		background-color: @white; 
 		border-bottom: 2px solid #e2f4fd;*/
@@ -36,11 +40,25 @@ header {
 				li.menu-item {
 					/* margin: 40px 60px; */
 					a[aria-expanded="true"] {
-							color: @shed-red;
+						color: @shed-red;
+					}
+					
+					&:first-child {
+						a {
+							padding-left: 0;
 						}
+					}
+
+					&:last-child {
+						a {
+							padding-right: 0;
+						}
+					}
 
 					&>a {
 						color: @white;
+						letter-spacing: 2px;
+						line-height: 24px;
 						padding: 40px 60px;
 						&:hover,
 						&:active,
@@ -64,7 +82,7 @@ header {
 							height: 8px;
 							position: absolute;
 							right: 25px;
-							top: 45px;
+							top: 48px;
 							width: 15px;
 	
 							.transform(translateX(-50%));
@@ -110,7 +128,24 @@ header {
 										}
 								}
 							}
-						}					
+						}	
+
+						&::before {
+										content: "";
+										position: fixed;
+										top: -10px;
+										left: 0;
+										width: 100%;
+										height: 10px;
+									/* 
+										box-shadow: 0px 2px 4px rgba(0,0,0,0.2); */
+										-ms-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);	
+										-o-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);/* 
+										-moz-box-shadow: 0px 2px 4px rgba(0,0,0,0.2); */
+										-webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+									
+										z-index: 100;
+									}	
 					}
 	
 					&.open {
@@ -119,6 +154,7 @@ header {
 						}
 					}
 				}
+
 				li.logo {
 					margin: 0 55px;
 	
@@ -154,8 +190,8 @@ header {
 .semi-solid-menu {
 	background-color: white;
 	background-image: none !important;
-	border-bottom: 2px solid @light-sky-blue;
-	opacity: .9;
+	/* border-bottom: 2px solid @light-sky-blue; */
+	opacity: .96;
 	transition: background-color 0.25s;
 
 	li.dropdown, li.menu-item {
@@ -176,8 +212,7 @@ header {
 			height: 70px;
 			top: 10px;
 			width: 140px;	
-		}
-		
+		}		
 	}
 }
 
@@ -246,9 +281,26 @@ header {
 	}
 	header.navbar {
 		background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.3));
+		box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		-o-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		
 		position: fixed;
 		width: 100vw;
 
+		/* &::before {
+			content: "";
+			position: fixed;
+			top: -10px;
+			left: 0;
+			width: 100%;
+			height: 10px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+			-o-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+			-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		} */
 		&.navbar {
 			/* background-color: @white; */
 			border: none;
@@ -294,6 +346,20 @@ header {
 				height: 100%;
 				.transition(all 1s ease-in-out);
 			}
+			
+			 &::before {
+				content: "";
+				position: absolute;
+				top: -10px;
+				left: 0;
+				width: 100%;
+				height: 10px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+				-o-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+				-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+				-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+				z-index: 101;
+			}
 
 			div.menu-container {
 				background-color: #ffffff;
@@ -302,7 +368,7 @@ header {
 				margin: 0;
 				max-width: none;
 				position: fixed;
-				top: 63px;
+				top: 65px;
 				width: 100%;
 				z-index: 100;
 				left: 0;
@@ -361,7 +427,7 @@ header {
 								background-color: #ffffff;
 								height: 100vh;
 								left: 0;
-								top: -95px;
+								top: -90px;
 								width: 100vw;
 								z-index: 100;
 
@@ -398,14 +464,14 @@ header {
 									padding: 16px 0;
 									position: relative;
 									text-align: center;
-									width: 100%;
+									width: 100vw;
 									a {
 										display: block;
 										color: @dark-gray !important;
 										padding: 8px 0;
 									}
 								}
-							}					
+							}				
 						}
 
 						&.open ul.sub-menu {
