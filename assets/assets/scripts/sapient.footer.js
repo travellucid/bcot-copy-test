@@ -18,7 +18,7 @@ var footerObj = (function($, window, sapient) {
 
 		onResize = function() {
 			$(window).on('resize', function () {
-				debounce(sapient.footer.setFooterDdownPos,100,"testing debounce");
+				debounce(sapient.footer.setFooterDdownPos,500/*,"testing debounce"*/);
 				/*sapient.footer.setFooterDdownPos();*/
 			});
 		};
