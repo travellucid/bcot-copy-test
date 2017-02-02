@@ -45,8 +45,7 @@ var commonObj = (function($, window, sapient) {
 })(jQuery, window, sapient);
 
 sapient.common = commonObj.getInstance();
-
-/*sapient.common.scrollToNext();*/
+/*sapient.common.debounce();*/
 sapient.common.hideLinkText();
 var carouselObj = (function($, window, sapient) {
 
@@ -146,7 +145,7 @@ var heroObj = (function($, window, sapient) {
 
 sapient.hero = heroObj.getInstance();
 
-sapient.hero.getHeightHero();
+/*sapient.hero.getHeightHero();*/
 var headerObj = (function($, window, sapient) {
 
 	var headerInstance;
@@ -300,6 +299,7 @@ var footerObj = (function($, window, sapient) {
 	function createFooterInstance() {
 
 		var setFooterDdownPos = function() {
+			console.log("resixing");
 			var windowWidth = $(window).width();
 			if (windowWidth > 1200 && windowWidth < 1400) {
 				var right = (windowWidth - 1170) / 2;
@@ -312,7 +312,8 @@ var footerObj = (function($, window, sapient) {
 
 		onResize = function() {
 			$(window).on('resize', function () {
-				sapient.footer.setFooterDdownPos();
+				debounce(sapient.footer.setFooterDdownPos,100,"testing debounce");
+				/*sapient.footer.setFooterDdownPos();*/
 			});
 		};
 

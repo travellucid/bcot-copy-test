@@ -32,4 +32,4 @@ var heroObj = (function($, window, sapient) {
 
 sapient.hero = heroObj.getInstance();
 
-sapient.hero.getHeightHero();
+/*sapient.hero.getHeightHero();*/

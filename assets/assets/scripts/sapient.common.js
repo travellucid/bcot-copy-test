@@ -32,6 +32,5 @@ var commonObj = (function($, window, sapient) {
 })(jQuery, window, sapient);
 
 sapient.common = commonObj.getInstance();
-
-/*sapient.common.scrollToNext();*/
+/*sapient.common.debounce();*/
 sapient.common.hideLinkText();
