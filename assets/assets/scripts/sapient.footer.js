@@ -5,7 +5,6 @@ var footerObj = (function($, window, sapient) {
 	function createFooterInstance() {
 
 		var setFooterDdownPos = function() {
-			console.log("resixing");
 			var windowWidth = $(window).width();
 			if (windowWidth > 1200 && windowWidth < 1400) {
 				var right = (windowWidth - 1170) / 2;
@@ -18,7 +17,7 @@ var footerObj = (function($, window, sapient) {
 
 		onResize = function() {
 			$(window).on('resize', function () {
-				debounce(sapient.footer.setFooterDdownPos,500/*,"testing debounce"*/);
+				debounce(sapient.footer.setFooterDdownPos,500,"testing debounce");
 				/*sapient.footer.setFooterDdownPos();*/
 			});
 		};
