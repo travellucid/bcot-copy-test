@@ -76,7 +76,12 @@ body {
 	max-width: none;
 }
 
-
+h6.header-cta-wrapper {
+	display: inline-block;
+	&:hover > a {
+		text-decoration: none;
+	}
+}
 /* burger menu */
 
 .burger-menu-wrapper {
@@ -107,7 +112,7 @@ body {
 
 .white-background {
 	background-image: none !important;
-	background-color: @white;
+	background-color: @dark-gray;
 	/* border-bottom: 1px solid @light-sky-blue; */
 	box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
     -o-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
