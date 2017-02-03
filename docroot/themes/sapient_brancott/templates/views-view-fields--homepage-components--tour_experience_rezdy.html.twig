@@ -1,6 +1,38 @@
- <div>{{ fields.field_rezdy_block_book_now.content }}</div>
- 
  <!-- rezdy component -->
+{% if (fields.field_image_position.content == "right") %}
+ <div class="rezdy-component">
+	<div id="tours-and-experience">
+		<div class="text-component">
+			<h2 class="title header_c">
+				{{ fields.field_field_rezdy_block_heading.content }}
+			</h2>
+			<p>
+				{{ fields.field_rezdy_block_description.content }}
+			</p>
+			<h3>{{ 'Duration'|t }}</h3>
+			<span>{{ fields.field_rezdy_block_duration.content }}</span>
+			<h3>{{ 'Availability'|t }}</h3>
+			<span>{{ fields.field_rezdy_block_availability.content }}</span>
+			<a href="" class="enquire-now"></a>
+
+			<h3>{{ 'Cost'|t }}</h3>
+			<span>{{ fields.field_rezdy_block_cost.content }}</span>
+		</div>
+        <a href="{{ fields.field_rezdy_block_book_now.content }}" class="cta dark ">{{ 'BOOK NOW'|t }}</a>
+		<div class="img-component">
+			<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_rezdy_block_image.content }}" 
+				alt="a cute kitten">
+			</picture>
+		</div>
+	</div>
+</div>
+
+{% else %}
 <div class="rezdy-component">
 	<div id="tours-and-experience">
 		<div class="text-component">
@@ -19,18 +51,19 @@
 			<h3>{{ 'Cost'|t }}</h3>
 			<span>{{ fields.field_rezdy_block_cost.content }}</span>
 		</div>
-
-		h2.title
+        <a href="{{ fields.field_rezdy_block_book_now.content }}" class="cta dark ">{{ 'BOOK NOW'|t }}</a>
 		<div class="img-component">
 			<picture>
-				<source media="(min-width:990px)"
-				srcset="images/kitten-stretching.png">
-				<source media="(min-width: 690px)"
-				srcset="images/kitten-sitting.png">
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image"> 
 				<img src="{{ fields.field_rezdy_block_image.content }}" 
 				alt="a cute kitten">
 			</picture>
 		</div>
 	</div>
 </div>
+
+{% endif %}
  
