@@ -19,6 +19,10 @@
  </div>
  <div>{{ fields.field_hero_headline.content }}</div>
  <div>{{ fields.field_visit_us_description.content }}</div>
+ {% if (fields.field_hero_cta_first.content or field_hero_cta_second) %}
+    <div>{{ fields.field_hero_cta_first.content }}</div>
+	<div>{{ fields.field_hero_cta_second.content }}</div>
+ {% endif %}
 
  
  

@@ -1,11 +1,36 @@
- <img src="{{ fields.field_rezdy_block_image.content }}"> 
- <div>{{ fields.field_field_rezdy_block_heading.content }}</div>
- <div>{{ fields.field_rezdy_block_description.content }}</div>
- <div>{{ 'Duration'|t }}</div>
- <div>{{ fields.field_rezdy_block_duration.content }}</div> 
- <div>{{ 'Availability'|t }}</div>
- <div>{{ fields.field_rezdy_block_availability.content }}</div>
- <div>{{ 'Cost'|t }}</div>
- <div>{{ fields.field_rezdy_block_cost.content }}</div>
  <div>{{ fields.field_rezdy_block_book_now.content }}</div>
+ 
+ <!-- rezdy component -->
+<div class="rezdy-component">
+	<div id="tours-and-experience">
+		<div class="text-component">
+			<h2 class="title header_c">
+				{{ fields.field_field_rezdy_block_heading.content }}
+			</h2>
+			<p>
+				{{ fields.field_rezdy_block_description.content }}
+			</p>
+			<h3>{{ 'Duration'|t }}</h3>
+			<span>{{ fields.field_rezdy_block_duration.content }}</span>
+			<h3>{{ 'Availability'|t }}</h3>
+			<span>{{ fields.field_rezdy_block_availability.content }}</span>
+			<a href="" class="enquire-now"></a>
+
+			<h3>{{ 'Cost'|t }}</h3>
+			<span>{{ fields.field_rezdy_block_cost.content }}</span>
+		</div>
+
+		h2.title
+		<div class="img-component">
+			<picture>
+				<source media="(min-width:990px)"
+				srcset="images/kitten-stretching.png">
+				<source media="(min-width: 690px)"
+				srcset="images/kitten-sitting.png">
+				<img src="{{ fields.field_rezdy_block_image.content }}" 
+				alt="a cute kitten">
+			</picture>
+		</div>
+	</div>
+</div>
  
