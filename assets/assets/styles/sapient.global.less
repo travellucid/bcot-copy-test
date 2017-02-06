@@ -27,6 +27,19 @@ body {
 	.block-views-blockhomepage-components-our-story-component {
 		background-image: @grain-noise-img;
 	}
+	.h1,.h2,.h3,h1,h2,h3 {
+		margin:0;
+	}
+	p {
+		font-size: 18px;
+		line-height: 28px;
+		margin: 0;
+		padding: 0;
+	}
+	.form-group {
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .background-noise {
@@ -51,6 +64,10 @@ body {
 			padding-left: 0;
 		}
 	}
+}
+
+p {
+	letter-spacing: normal;
 }
 
 .container {
@@ -118,7 +135,7 @@ h6.header-cta-wrapper {
 
 .white-background {
 	background-image: none !important;
-	background-color: @dark-gray;
+	background-color: @white;
 	/* border-bottom: 1px solid @light-sky-blue; */
 	box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
     -o-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -255,16 +272,13 @@ h6.header-cta-wrapper {
 		width: 100%;
 	}
 
-	.triangle-right {
-		background-color: white;
-		background-image: @grain-noise-img;
+	img.triangle-right {
 		bottom: 0;
-		clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 100% 100%);
 		height: 145px;
 		left: 0;
-		opacity: 1;
 		position: absolute;
-		width: 100vw;
+		right: 0;
+		width: 100%;
 	}
 }
 @media screen and (max-width: @bp-max-mobile) {
@@ -293,15 +307,10 @@ h6.header-cta-wrapper {
 		position: absolute;
 		width: 100%;
 	}
-	.triangle-right {
-		background-color: white;
-		background-image: @grain-noise-img;
-		bottom: 0;
-		clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 100% 100%);
+	img.triangle-right {
 		height: 30px;
-		left: 0;
 		position: absolute;
-		width: 100vw;
+		width: 100%;
 	}
 }
 }
@@ -332,7 +341,7 @@ ul.nav-pills {
 	position: absolute;
 	right: 0;
 	top: 0;
-	opacity: .4;
+	opacity: .2;
 	z-index: 0;
 }
 
@@ -340,6 +349,7 @@ ul.nav-pills {
 
 /* Custom Global modules */
 
+@import "grain.noise.less";
 @import "headers.less";
 @import "links-ctas.less";
 
@@ -351,4 +361,5 @@ ul.nav-pills {
 @import "sapient.hero.less";
 @import "sapient.visitus.less";
 @import "sapient.ourwine.less";
+@import "sapient.instagram.follow.less";
 @import "sapient.footer.less";

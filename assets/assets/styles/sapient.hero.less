@@ -5,6 +5,7 @@
 		color: white;
 		font-family: "NeutraText Bold";
 	}
+	height: 100vh;
 	margin-left: 0;
 	margin-right: 0;
 	max-width: 100%;
@@ -14,8 +15,8 @@
 	position: relative;
 
 	.background-image {
-		height: 100vh;
-		width: auto;
+		height: auto;
+		width: 100%;
 	}
 
 	.hero-inner-container {
@@ -83,47 +84,6 @@
 
 }
 
-@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
-	#hero-component {
-
-		/* .background-image {
-			left:0;
-			height: 100%;
-		}  */
-
-	/* 	.cta-visitus {			
-		.centerX();
-		
-		a.cta {
-			display: block;
-		}
-		
-		a.visit-all-wine {
-			margin-bottom: 10px;
-		}
-		width: 65%;
-	} */
-
-
-		.hero-inner-container {
-			.centerX();
-			text-align: center;
-			top: 0;
-			
-			h1 {
-				/* font-size: 28px;
-				line-height: 38px; */
-				margin: 40px 25px 0 25px;
-			}
-			
-			.find-out-more {
-				margin-bottom: 40px;
-				width: 87.5%;
-			}
-		}
-	}
-}
-
 @media screen and (max-width: @bp-max-mobile) {
 	#hero-component {
 		height: 100vh;
@@ -133,20 +93,17 @@
 		.cta-visitus {			
 			.centerX();
 			bottom: initial;
-			width: 65%;
+			width: 100%;
 			
 			a.cta {
 				display: block;
-				margin-left: 0;
 			}
 			
 			a.visit-all-wine {
 				margin-bottom: 10px;
-				padding: 8px 38px;
-			}/* 
-			width: 65%; */
+				padding: 8px 48px;
+			}
 		}
-
 
 		.hero-inner-container {
 			margin-top: 65px;
@@ -160,38 +117,35 @@
 			
 			.find-out-more {
 				margin-bottom: 40px;
-				width: 87.5%;
+				width: 100%;
+				/* width: 87.5%; */
 			}
 		}
-/* 		.hero-bottom {
-	img.triangle {
-		bottom: 0;
-		height: 25px;
-		left: 0;
-		position: absolute;
-		width: 100%;
-	}
-
-	.triangle-right {
-		bottom: 0;
-		border-right: 100vw solid #5e6002;
-		border-left: 0 solid transparent;
-		border-top: 30px solid transparent;
-		height: 0;
-		left: 0;
-		opacity: 1;
-		position: absolute;
-	}
-} */
 	}
 }
-
+@media screen and (min-width: 690px) and (max-width: 769px) {
+	#hero-component {
+		 .background-image {
+			height: 100%;
+			width: auto;			
+		}
+		.hero-inner-container {
+			margin-top: 0;
+			
+			.centerBoth();
+		}
+	}
+}
 @media screen and (max-width: @bp-min-mobile) {
 	#hero-component {	
 		.hero-inner-container {			
 			h1 {
 				margin: 5px 25px 10px 25px;
 			}
-		}		
+		}
+
+		.cta-visitus {
+			margin-top: 75px;
+		}
 	}
 }
