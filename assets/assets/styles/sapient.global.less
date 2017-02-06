@@ -27,6 +27,19 @@ body {
 	.block-views-blockhomepage-components-our-story-component {
 		background-image: @grain-noise-img;
 	}
+	.h1,.h2,.h3,h1,h2,h3 {
+		margin:0;
+	}
+	p {
+		font-size: 18px;
+		line-height: 28px;
+		margin: 0;
+		padding: 0;
+	}
+	.form-group {
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .background-noise {
@@ -51,6 +64,10 @@ body {
 			padding-left: 0;
 		}
 	}
+}
+
+p {
+	letter-spacing: normal;
 }
 
 .container {
@@ -118,7 +135,7 @@ h6.header-cta-wrapper {
 
 .white-background {
 	background-image: none !important;
-	background-color: @dark-gray;
+	background-color: @white;
 	/* border-bottom: 1px solid @light-sky-blue; */
 	box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
     -o-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -332,7 +349,7 @@ ul.nav-pills {
 	position: absolute;
 	right: 0;
 	top: 0;
-	opacity: .4;
+	opacity: .2;
 	z-index: 0;
 }
 
@@ -340,6 +357,7 @@ ul.nav-pills {
 
 /* Custom Global modules */
 
+@import "grain.noise.less";
 @import "headers.less";
 @import "links-ctas.less";
 
@@ -351,4 +369,5 @@ ul.nav-pills {
 @import "sapient.hero.less";
 @import "sapient.visitus.less";
 @import "sapient.ourwine.less";
+@import "sapient.instagram.follow.less";
 @import "sapient.footer.less";
