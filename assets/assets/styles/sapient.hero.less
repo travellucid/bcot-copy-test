@@ -24,7 +24,23 @@
 		.centerBoth();
 		text-align: center;
 		
-		h1 {
+		span.temperature {
+			color: @white;
+			font-size: 60px;
+
+			&::before {
+				background-image: url("http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/icons/BE_icon_header_logo_white.svg");
+				background-size: 8px;
+				height: 15px;
+				left: -40px;
+				position: absolute;
+				top: -5px;
+				width: 8px;
+			}
+		}
+
+		h1,
+		p{
 			color: @white;
 		}
 
