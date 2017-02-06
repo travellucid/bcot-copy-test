@@ -32,25 +32,16 @@
  * @ingroup themeable
  */
 #}
+
+Gaurav Pahuja
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title }}
-  {{ title_suffix }}
-
-  {% if header %}
-    <header>
-      {{ header }}
-    </header>
-  {% endif %}
-
-  {{ exposed }}
-  {{ attachment_before }}
   
+  {{ title }}
   
 <div id="carousel-our-story" class="carousel slide container-fluid" data-ride="carousel"  data-interval="false">
     
@@ -63,7 +54,6 @@
 		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}"></li>
 		   {% endif %}
 		{% endfor %}
-    
     </ol> 
  <div class="carousel-inner " role="listbox">
   {{ rows }}
