@@ -1,13 +1,10 @@
 <div id="hero-component" class="container-fluid  hero-container" >
    <div class="grain-noise"></div>
- 	<!--<img src="{{ fields.field_hero_background_image_larg.content }}" alt="{{ fields.field_hero_background_image_larg_1.content }}" class="background-image">-->
  			<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_hero_background_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_hero_background_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_hero_background_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_hero_background_image.content }}" class="background-image"> 
-				<source  srcset="{{ fields.field_hero_background_image.content }}" class="background-image">
-				<!-- img tag for browsers that do not support picture element -->
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_background_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_background_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_background_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_background_image.content }}" class="background-image"> 
 				<img src="{{ fields.field_background_image.content }}" alt="hardcoded" class="background-image">  
             </picture>
  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
