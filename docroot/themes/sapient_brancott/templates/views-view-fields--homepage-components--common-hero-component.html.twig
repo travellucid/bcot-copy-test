@@ -13,19 +13,23 @@
  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
 	   <h2>{{ fields.field_visit_us_small_headline.content }}</h2>
  		<h1>{{ fields.title.content }}</h1>
-		    {% if (fields.field_hero_cta_first.content or field_hero_cta_second) %}
-        <div>{{ fields.field_hero_cta_first.content }}</div>
-	    <div>{{ fields.field_hero_cta_second.content }}</div>
-    {% endif %}
  	</div>
 	<div class="hero-bottom">
         <img src="{{ fields.field_hero_triangle_image.content }}" alt="" class="triangle">
         <img src="/{{ directory }}/css/images/triangle-white.png" alt="" class="triangle-right">
     </div> 	
-	<div>{{ fields.field_hero_bottom_headline.content }}</div>
-    <div>{{ fields.field_visit_us_description.content }}</div>
  </div>
  <div class="hero-details">
- 	<h2>{{ fields.field_hero_headline.content }}</h2>
+ 	<h2>{{ fields.field_hero_bottom_headline.content }}</h2>
 	<p>{{ fields.field_visit_us_description.content }}</p>
+	{% if (fields.field_hero_cta_first.content or field_hero_cta_second) %}
+	  <div class="cta-hero-bottom">
+        <h6 class="header-cta-wrapper">
+	    <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-green visit-all-wine">{{ 'BOOK A TABLE'|t }}</a>
+	    </h6>
+	    <h6 class="header-cta-wrapper">
+	    <a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green light ">{{ 'HOW TO FIND US'|t }}</a>
+	    </h6>
+        </div>
+    {% endif %}	
  </div>
