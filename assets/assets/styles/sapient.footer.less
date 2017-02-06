@@ -1,6 +1,5 @@
 @import "sapient.variables-mixins.less";
 footer {
-	margin-top: 100px !important;
 	position: relative;
 	text-align: center;
 	width: 100% !important;
@@ -206,7 +205,7 @@ footer {
 							a {}
 						}
 						a {
-							margin-bottom: 30px;
+							margin-bottom: 16px;
 						}
 					}
 				}
@@ -219,6 +218,9 @@ footer {
 					margin: 30px 0;
 					li {
 						margin-right: 28px;
+						& : last-child {
+						  margin-right:0;
+						}		
 					}
 				}
 			}
