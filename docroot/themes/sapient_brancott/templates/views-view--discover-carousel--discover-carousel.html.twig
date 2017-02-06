@@ -33,7 +33,6 @@
  */
 #}
 
-Gaurav Pahuja
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
@@ -57,10 +56,8 @@ Gaurav Pahuja
     </ol> 
  <div class="carousel-inner " role="listbox">
   {{ rows }}
-  
   </div>
   <!-- Controls -->
-    
 	<div class="carousel-control-wrapper">
 		<a class="left carousel-control" href="#carousel-our-story" role="button" data-slide="prev">
 		<span class="prev-carousal" aria-hidden="true"><span class="glyphicon glyphicon-left"></span></span>
@@ -73,19 +70,5 @@ Gaurav Pahuja
 		</a>
 	</div>
 </div>  
-
   {{ empty }}
-  {{ pager }}
-
-  {{ attachment_after }}
-  {{ more }}
-
-  {% if footer %}
-    <footer>
-      {{ footer }}
-    </footer>
-  {% endif %}
-
-  {{ feed_icons }}
-
 </div>
