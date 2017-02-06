@@ -1,34 +1,38 @@
- <div id="hero-component" class="container-fluid  hero-container" >
-   <div class="grain-noise"></div>
- 	<!--<img src="{{ fields.field_hero_background_image_larg.content }}" alt="{{ fields.field_hero_background_image_larg_1.content }}" class="background-image">-->
- 			<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_hero_background_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_hero_background_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_hero_background_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_hero_background_image.content }}" class="background-image"> 
-				<source  srcset="{{ fields.field_hero_background_image.content }}" class="background-image">
-				<!-- img tag for browsers that do not support picture element -->
-				<img src="{{ fields.field_background_image.content }}" alt="hardcoded" class="background-image">  
-            </picture>
- 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
-	   <h2>{{ fields.field_visit_us_small_headline.content }}</h2>
- 		<h1>{{ fields.title.content }}</h1>
-		
- 	</div>
- 	
-	<div>{{ fields.field_hero_headline.content }}</div>
-    <div>{{ fields.field_visit_us_description.content }}</div>
-    {% if (fields.field_hero_cta_first.content or field_hero_cta_second) %}
-        <div>{{ fields.field_hero_cta_first.content }}</div>
-	    <div>{{ fields.field_hero_cta_second.content }}</div>
-    {% endif %}
+
+        {% if fields.field_video.content %}
+		   
+		        <video  class="our-story-video {{ fields.field_video_option.content }}" >
+				    <source src="{{ fields.field_video.content }}" type="video/mp4">
+				    <source src="{{ fields.field_video.content }}" type="video/ogg">
+				
+		        </video>
+			
+		{% else %}
+			<!--<img src="{{ fields.field_background_image.content }}" data-mobile-src = "{{ fields.field_background_image_1.content }}" data-desktop-src = "{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">-->
+			<picture>
+            <source  media="(max-width: 321px)" srcset="{{ fields.field_background_image_2.content }}">   
+            <source  media="(max-width: 691px)" srcset="{{ fields.field_background_image_2.content }}">
+            <source  media="(max-width: 769px)" srcset="{{ fields.field_background_image.content }}">  
+            <source  media="(max-width: 1281px)" srcset="{{ fields.field_background_image.content }}"> 
+            <source  srcset="{{ fields.field_background_image.content }}"> 
+            <!-- img tag for browsers that do not support picture element -->
+            <img src="{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">  
+            </picture> 
+			<div class="inner-container">
+				<!--<span>{{ fields.field_our_story_subheading.content }}</span>-->
+				<h2 class= "header_a">{{ fields.field_our_story_headline.content }}</h2>
+				<h6 class="header-cta-wrapper"><a href="{{ fields.field_hero_cta_first_1.content }}" class="cta secondary-light watch-video">{{ fields.field_hero_cta_first.content }}</a></h6>
+			</div>
+			
+		{% endif %}
+
+
+
+
+
+
+
+			
+
 	
-	<div class="hero-bottom">
-        <img src="{{ fields.field_hero_triangle_image.content }}" alt="" class="triangle">
-        <img src="/{{ directory }}/css/images/triangle-white.png" alt="" class="triangle-right">
-    </div>	
- </div>
-
-
- 
- 
+	
