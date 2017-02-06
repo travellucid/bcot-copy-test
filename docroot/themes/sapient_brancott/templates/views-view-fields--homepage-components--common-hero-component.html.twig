@@ -1,4 +1,4 @@
- <div id="hero-component" class="container-fluid  hero-container" >
+<div id="hero-component" class="container-fluid  hero-container" >
    <div class="grain-noise"></div>
  	<!--<img src="{{ fields.field_hero_background_image_larg.content }}" alt="{{ fields.field_hero_background_image_larg_1.content }}" class="background-image">-->
  			<picture>
@@ -16,17 +16,17 @@
 		
  	</div>
  	
-	<div>{{ fields.field_hero_headline.content }}</div>
+	<div>{{ fields.field_hero_bottom_headline.content }}</div>
     <div>{{ fields.field_visit_us_description.content }}</div>
     {% if (fields.field_hero_cta_first.content or field_hero_cta_second) %}
         <div>{{ fields.field_hero_cta_first.content }}</div>
 	    <div>{{ fields.field_hero_cta_second.content }}</div>
     {% endif %}
-	
 	<div class="hero-bottom">
         <img src="{{ fields.field_hero_triangle_image.content }}" alt="" class="triangle">
         <img src="/{{ directory }}/css/images/triangle-white.png" alt="" class="triangle-right">
-    </div>	
+    </div>
+		
  </div>
 
 
