@@ -112,6 +112,7 @@ sapient.carousel = carouselObj.getInstance();
 
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
+sapient.carousel.enableTouchCarousel("#carousel-new-story");
 /*
 sapient.carousel.toggleCarouselArrow("#carousel-our-story");
 sapient.carousel.toggleCarouselArrow("#carousel-our-wines");*/

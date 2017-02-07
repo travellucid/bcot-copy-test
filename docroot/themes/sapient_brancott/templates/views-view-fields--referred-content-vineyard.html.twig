@@ -1,6 +1,6 @@
 {% if (fields.counter.content == "1") %}
-<div class="img-left">
-	<div class="img-component">
+<div class="section-class img-left">
+	<div class="image-wrapper">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
@@ -17,7 +17,7 @@
 </div>
 <div style="clear:both; height: 100px;"></div>
 {% elseif (fields.counter.content == "2") %}
-<div class="img-right">
+<div class="section-class img-right">
 	 <div class="image-wrapper mobile-only">
 	 <picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
@@ -42,9 +42,10 @@
 			</picture>
 	 </div>
 	</div>
+	<div style="clear:both; height: 100px;"></div>
 	{% elseif (fields.counter.content == "3") %}
-<div class="img-left">
-	<div class="img-component">
+<div class="section-class img-left">
+	<div class="image-wrapper">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
@@ -61,7 +62,7 @@
 </div>
 <div style="clear:both; height: 100px;"></div>
 {% elseif (fields.counter.content == "4") %}
-<div class="img-right">
+<div class="section-class img-right">
 	 <div class="image-wrapper mobile-only">
 	 <picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
@@ -87,8 +88,8 @@
 	 </div>
 	</div>
 	{% elseif (fields.counter.content == "5") %}
-	<div class="img-left">
-	<div class="img-component">
+	<div class="section-class img-left">
+	<div class="image-wrapper">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
