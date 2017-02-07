@@ -1,19 +1,20 @@
 @import "sapient.variables-mixins.less";
-#carousel-our-story, #carousel-our-wines {
+#carousel-our-story, #carousel-our-wines, #carousel-new-story {
 	.set-max-width(1170px);
 	.carousel-inner {
+		.views-row {
+			picture {
+				margin-left: 186px;
+			}
+		}
 		.inner-container {
-
+			margin-top: 20px;
 			h1 {
-				color: @white;
+				/*color: @white;*/
 				/* font-size: 48px; */
 			}
-
-			left: 50%;
 			text-align: center;
 			width: 100%;
-			
-			.centerBoth();
 			.watch-video {
 				margin-top: 40px;
 			}
@@ -32,7 +33,7 @@
 			width: auto;
 			background: none;
 			.prev-carousal {
-				left: 0;
+				left: 180px;
 				opacity: 0;
 				border-bottom: 50px solid transparent;
 				border-left: 50px solid white;
@@ -41,7 +42,7 @@
 				.centerY();
 				width: 0;
 				margin: 0;
-				
+				top: 40%;
 
 				&:after {
 					content: "";
@@ -57,7 +58,8 @@
 				.centerY();
 				width: 0;
 				margin: 0;
-				right: 0;
+				right: 180px;
+				top: 40%;
 			}
 			.glyphicon-right {
 				background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
@@ -88,14 +90,14 @@
 			.carousel-control {
 				opacity: 1;
 				.prev-carousal {
-					left: 14px;
+					left: 190px;
 					opacity: 1;
 					.transition(all 0.5s ease-in-out);
 				}
 				
 				.next-carousal {
 					opacity: 1;
-					right: 14px;
+					right: 190px;
 					.transition(all 0.5s ease-in-out);
 				}
 				/* .glyphicon-right {
@@ -174,8 +176,13 @@
 
 
 @media screen and (max-width: @bp-desktop-mlarge) {
-	#carousel-our-story, #carousel-our-wines {
+	#carousel-our-story, #carousel-our-wines,#carousel-new-story {
 		.carousel-inner {
+			.views-row {
+				picture {
+					margin: 0;
+				}
+			}
 			img {
 				height: 100vw;
 				width: 100vw;
@@ -190,7 +197,7 @@
 }
 
 @media screen and (max-width: @bp-max-mobile) {
-	#carousel-our-wines,#carousel-our-story {
+	#carousel-our-wines,#carousel-our-story,#carousel-new-story {
 		width:100%;
 		padding: 0;
 		left: 0;
