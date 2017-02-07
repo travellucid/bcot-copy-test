@@ -10,11 +10,11 @@ class GenericController extends ControllerBase{
   public function content(){
     $lang = 'en';
     $units = 'metric';
-    $owm = new OpenWeatherMap();
-    $key = $owm->getApiKey();
+    $owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
+    //$key = $owm->getApiKey();
       $weather = $owm->getWeather('Australia', $units, $lang);
       print_r($weather);
-      
+      exit;
      /*return array(
         '#markup' => 'Current: '.$weather->temperature->now
       );*/
