@@ -17,6 +17,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 	
 	case 'homepage_components':
 	    if($variables['view']->current_display == 'common_hero_component') {
+			if ($variables['row']->_entity->field_season_description) { 
 			$values = $variables['row']->_entity->field_season_description->getValue();
 			$city = $variables['row']->_entity->field_city->value;
 			
@@ -33,6 +34,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 			$variables['current_temp'] = html_entity_decode($weather->temperature->now);
 			$variables['temp_unit'] = $weather->temperature->getUnit();
 			$variables['current_date'] = date('d M Y / g:ia');
+			}
 		}
 	    break;
     }
