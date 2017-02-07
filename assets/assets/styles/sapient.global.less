@@ -47,10 +47,13 @@ body {
 }
 
 .background-noise {
-	background-image: url("http://www.mightymeta.co.uk/wp-content/uploads/noise.png");
+	background-image: @grain-noise-img;
 	background-repeat: repeat;
 	background-position: top left;
 	background-attachment: fixed;
+}
+.background-noise-section {
+	background-image: @grain-noise-img;
 }
 
 .display-block {
