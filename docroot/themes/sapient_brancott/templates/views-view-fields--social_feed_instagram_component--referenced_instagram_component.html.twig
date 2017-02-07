@@ -1,7 +1,4 @@
-		{% if (fields.counter.content == "1") %}
-		<div class="img-left">
-			<div class="inner-container">
-			<a href="{{ fields.field_instagram_link.content }}" class="image-link">
+<a href="{{ fields.field_instagram_link.content }}" class="image-link">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">   
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">
@@ -10,51 +7,3 @@
 			    <img src="{{ fields.field_instagram_image.content }}" alt="" class="insta-img">
 			</picture>
         </a>
-			{% endif %}
-				
-				
-					{% if (fields.counter.content == "2") %}
-		
-		<a href="{{ fields.field_instagram_link.content }}" class="image-link">
-			<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_instagram_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_instagram_image.content }}" class="background-image"> 
-			    <img src="{{ fields.field_instagram_image.content }}" alt="" class="insta-img">
-			</picture>
-        </a>
-			</div>
-		</div>
-		{% endif %}
-		
-		
-		{% if (fields.counter.content == "3") %}
-		<div class="img-right">
-			<div class="inner-container">
-			<a href="{{ fields.field_instagram_link.content }}" class="image-link">
-			<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_instagram_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_instagram_image.content }}" class="background-image"> 
-			    <img src="{{ fields.field_instagram_image.content }}" alt="" class="insta-img">
-			</picture>
-        </a>
-			{% endif %}
-				
-				
-					{% if (fields.counter.content == "4") %}
-		<a href="{{ fields.field_instagram_link.content }}" class="image-link">
-			<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_instagram_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_instagram_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_instagram_image.content }}" class="background-image"> 
-			    <img src="{{ fields.field_instagram_image.content }}" alt="" class="insta-img">
-			</picture>
-        </a>
-			</div>
-		</div>
-		{% endif %}
-	

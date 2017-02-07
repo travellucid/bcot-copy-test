@@ -11,6 +11,10 @@ var commonObj = (function($, window, sapient) {
 
 		hideLinkText = function() {
 			$("footer section.social-icons nav ul li a").text("")
+		},
+		addBgNoise = function() {
+			var section=$("section .views-element-container");
+			background-noise-section
 		};
 
 		return {
