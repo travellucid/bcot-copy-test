@@ -39,18 +39,31 @@
 
 	.follow-us-text {
 		position: relative;
+		background-color: @fawn;
+		float: left;
+		height: 320px;
+		min-width: 20%;
+		width: ~"calc(100% - 1280px)";
+		
 		.text-wrapper {
 			/* .centerBoth(); */
 			a {
 				display: block;
 				text-align: center;
 			}
+			.centerBoth();
+			.header_c {
+				margin-bottom: 10px;
+			}
 
-			background-color: @fawn;
-			float: left;
-			height: 320px;
-			min-width: 20%;
-			width: ~"calc(100% - 1280px)";
+			.icon-Instagram {
+				background-image: url(../images/icons/BE_icon_instagram.svg);
+				background-size: 23px 23px;
+				height: 23px;
+				left:11.5px;
+				margin-left: 50%;
+				width: 23px;
+			}
 		}		
 	}
 }
@@ -82,9 +95,9 @@
 		}
 
 		.follow-us-text {
-			height: auto;
+			/* height: auto;
 			float: none;
-			width: auto;
+			width: auto; */
 		}
 	}
 }
@@ -136,9 +149,12 @@
 		}
 
 		.follow-us-text {
-			float: left;
-			height: 320px;
-			width: 40%;
+				float: left;
+				height: 460px;
+				width: 40%;
+				top: 0;
+				position: absolute;
+				right: 0;
 		}
 	}
 }
@@ -178,12 +194,13 @@
 				}
 			}
 
-				.follow-us-text {
-				.text-wrapper {
+				.follow-us-text {	
 					float: left;
 					height: 320px;
 					width: 100%;
-				}
+					.text-wrapper {
+					
+					}
 				
 			}
 	}
@@ -193,9 +210,13 @@
 			#follow-us {
 			
 			.follow-us-text {
+				float: left;
+				height: 320px;
+				width: 100%;
+				
 				.text-wrapper {
-					float: left;
-					height: 320px;
+					float: none;
+					height: auto;
 					width: 100%;
 				}
 				
