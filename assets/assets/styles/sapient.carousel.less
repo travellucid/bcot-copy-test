@@ -8,9 +8,8 @@
 			}
 		}
 		.inner-container {
-			margin-top: 20px;
 			h1 {
-				/*color: @white;*/
+				color: @white;
 				/* font-size: 48px; */
 			}
 			text-align: center;
@@ -33,7 +32,7 @@
 			width: auto;
 			background: none;
 			.prev-carousal {
-				left: 180px;
+				left: 0;
 				opacity: 0;
 				border-bottom: 50px solid transparent;
 				border-left: 50px solid white;
@@ -58,7 +57,7 @@
 				.centerY();
 				width: 0;
 				margin: 0;
-				right: 180px;
+				right: 0;
 				top: 40%;
 			}
 			.glyphicon-right {
@@ -90,14 +89,14 @@
 			.carousel-control {
 				opacity: 1;
 				.prev-carousal {
-					left: 190px;
+					left: 14px;
 					opacity: 1;
 					.transition(all 0.5s ease-in-out);
 				}
 				
 				.next-carousal {
 					opacity: 1;
-					right: 190px;
+					right: 14px;
 					.transition(all 0.5s ease-in-out);
 				}
 				/* .glyphicon-right {
@@ -130,11 +129,55 @@
 	}
 }
 #carousel-new-story {
-		.carousel-indicators {
-			bottom:119px;
+	.carousel-control-wrapper {
+			.carousel-control {
+				.prev-carousal {
+					left: 200px !important;
+				}
+				.next-carousal {
+					right: 200px !important;
+				}
+		}
+	/*	&:hover {
+		.carousel-control-wrapper {
+			.carousel-control {
+				.prev-carousal {
+					left: 200px;
+				}
+				.next-carousal {
+					right: 200px;
+				}
+			}
+		}
+	}		*/	
+&:hover {
+	.carousel-control-wrapper {
+			.carousel-control {
+				opacity: 1;
+				.prev-carousal {
+					left: 220px !important;
+					opacity: 1;
+					.transition(all 0.5s ease-in-out);
+				}
+				
+				.next-carousal {
+					opacity: 1;
+					right: 220px !important;
+					.transition(all 0.5s ease-in-out);
+				}
+				/* .glyphicon-right {
+					opacity: 1;
+					.transition(all 0.5s ease-in-out);
+				}
+				.glyphicon-left {
+					opacity: 1;
+					.transition(all 0.5s ease-in-out);
+				} */
+			}
 		}
 	}
-
+	}
+}
 #carousel-our-wines {
 
 	.carousel-indicators {
@@ -215,20 +258,18 @@
 		.carousal-desc-wrapper {
 			text-align: center;
 		}
-		.carousel-control-wrapper{
-			display: none;
-		}
 	}
 	.carousal-top-wrapper{
-		.our-perspective {
-			p {
-				width: auto;
-				padding: 0 15px;
-				.centerX();
-				position: relative;
-			}
+	.our-perspective {
+		p {
+			width: auto;
+			padding: 0 15px;
+			.centerX();
+			position: relative;
 		}
 	}
+}
+
 }
 
 /*@media screen  and (max-width: @bp-large-mobile-to-table-landscape) {
