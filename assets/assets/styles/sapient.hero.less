@@ -1,6 +1,12 @@
 /* hero component new code*/
 
 #hero-component {
+	background-image: @grain-noise-img;
+	span.header_f {
+		color: white;
+		font-family: "NeutraText Bold";
+	}
+	height: 100vh;
 	margin-left: 0;
 	margin-right: 0;
 	max-width: 100%;
@@ -10,16 +16,29 @@
 	position: relative;
 
 	.background-image {
-		height: 100vh;
-		width: auto;
+		height: auto;
+		width: 100%;
 	}
 
 	.hero-inner-container {
 		.centerBoth();
 		text-align: center;
-		
-		h1 {
-			color: @dark-gray;
+		span.temperature {
+			color: @white;
+			font-size: 60px;
+			letter-spacing: 1.2px;
+			position: relative;
+			top: 10px;
+			left: 10px;
+		}
+		img.spring-icon{
+			background-size: 46px 49px;
+			width: 46px;
+			height: 49px;
+		}
+		h1,
+		p{
+			color: @white;
 		}
 
 		.find-out-more {
@@ -78,69 +97,57 @@
 	}
 
 }
+.hero-details {
+	background-image: @grain-noise-img;
+	padding: 100px 0;
 
-@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
-	#hero-component {
-
-		/* .background-image {
-			left:0;
-			height: 100%;
-		}  */
-
-	/* 	.cta-visitus {			
+	h2 {
+		color: @dark-gray;
+		text-align: center;
+		margin-bottom: 22px;
+	}
+	
+	p {
+		color: @dark-gray;
+		text-align: center;
+		margin: 0 auto 42px auto;
+		max-width: 65.98%;
+		width: 65.98%;
+	}
+	.cta-hero-bottom {
 		.centerX();
-		
-		a.cta {
-			display: block;
-		}
-		
-		a.visit-all-wine {
-			margin-bottom: 10px;
-		}
-		width: 65%;
-	} */
-
-
-		.hero-inner-container {
-			.centerX();
-			text-align: center;
-			top: 0;
-			
-			h1 {
-				/* font-size: 28px;
-				line-height: 38px; */
-				margin: 40px 25px 0 25px;
-			}
-			
-			.find-out-more {
-				margin-bottom: 40px;
-				width: 87.5%;
-			}
-		}
 	}
 }
 
 @media screen and (max-width: @bp-max-mobile) {
+	.hero-details {
+		p {
+			margin: 0 15px;
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
 	#hero-component {
 		height: 100vh;
+
 
 		.gradient(@light-sky-blue, @white, @light-sky-blue);
 
 		.cta-visitus {			
 			.centerX();
 			bottom: initial;
-			width: 80%;
+			width: 100%;
 			
 			a.cta {
 				display: block;
 			}
 			
 			a.visit-all-wine {
-				margin-bottom: 10px;
-			}/* 
-			width: 65%; */
+				/*margin-bottom: 10px;*/
+				padding: 8px 48px;
+			}
 		}
-
 
 		.hero-inner-container {
 			margin-top: 65px;
@@ -153,39 +160,37 @@
 			}
 			
 			.find-out-more {
-				margin-bottom: 40px;
-				width: 87.5%;
+				margin:0;
+				width: 100%;
+				/* width: 87.5%; */
 			}
 		}
-/* 		.hero-bottom {
-	img.triangle {
-		bottom: 0;
-		height: 25px;
-		left: 0;
-		position: absolute;
-		width: 100%;
-	}
-
-	.triangle-right {
-		bottom: 0;
-		border-right: 100vw solid #5e6002;
-		border-left: 0 solid transparent;
-		border-top: 30px solid transparent;
-		height: 0;
-		left: 0;
-		opacity: 1;
-		position: absolute;
-	}
-} */
 	}
 }
+@media screen and (min-width: 690px) and (max-width: 768px) {
+	#hero-component {
+		.hero-inner-container {
+			margin-top: 0;
+			.centerBoth();
+		}
 
+		 .background-image {
+			height: 100%;
+			width: auto;
+		}
+	}
+}
 @media screen and (max-width: @bp-min-mobile) {
 	#hero-component {	
-		.hero-inner-container {			
+		.hero-inner-container {	
+			margin-top: 50px;		
 			h1 {
 				margin: 5px 25px 10px 25px;
 			}
-		}		
+		}
+
+		.cta-visitus {
+			margin-top: 75px;
+		}
 	}
 }

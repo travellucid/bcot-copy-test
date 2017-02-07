@@ -1,4 +1,5 @@
  <!-- rezdy component -->
+ <section class="img-left">
  <div class="rezdy-component">
 	<div id="tours-and-experience">
 		<div class="text-component">
@@ -17,7 +18,7 @@
 			<h3>{{ 'Cost'|t }}</h3>
 			<span>{{ fields.field_rezdy_block_cost.content }}</span>
 		</div>
-        <a href="{{ fields.field_rezdy_block_book_now.content }}" class="cta dark ">{{ 'BOOK NOW'|t }}</a>
+        <h6 class="header-cta-wrapper"><a href="{{ fields.field_rezdy_block_book_now.content }}" class="cta dark ">{{ 'BOOK NOW'|t }}</a></h6>
 		<div class="img-component">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
@@ -30,4 +31,5 @@
 		</div>
 	</div>
 </div>
- 
+ </section>
+<div style="clear:both; height: 100px;"></div>

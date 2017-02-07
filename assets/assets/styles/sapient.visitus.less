@@ -2,9 +2,9 @@
 
 #visit-us {
 	position: relative;
-	.set-max-width(1400px);
+	.set-max-width(1170px);
 	.top-section {
-		/* margin-left: 6.85%;*/
+		margin-bottom: 100px;
 		left: 50%;
 		position: relative;
 		.transform (translateX(-50%));
@@ -12,13 +12,13 @@
 
 		text-align: center;
 
-		h1,h2 {
+		h1,h2,h3 {
 			color: @dark-gray;/* 
 			text-align: left; */
 		}
 		
 		p.description-visit-us {
-			font-size: 14px;
+			
 		}
 	}
 	
@@ -33,9 +33,7 @@
 	}
 
 	.tile-container {
-		margin-top: 60px;
 		position: relative;
-		
 		.inner-tile {
 			/* float: left; */
 			overflow: hidden;
@@ -60,8 +58,7 @@
 					
 					.centerBoth();
 					position: absolute;
-					text-align: center;
-					
+					text-align: center;					
 
 					span {
 						color: @white;
@@ -102,9 +99,7 @@
 @media screen and (max-width: @bp-large-mobile-to-table-landscape){		
 	#visit-us {
 		padding: 0;
-		margin: 0;
 		.top-section {
-			margin: 0;
 			padding: 15px;
 			width: 100%; 
 		}

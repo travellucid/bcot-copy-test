@@ -42,6 +42,7 @@ module.exports = function(grunt) {
 			'<%= dirs.jsSource %>sapient.carousel.js',
 			'<%= dirs.jsSource %>sapient.hero.js',
 			'<%= dirs.jsSource %>sapient.header.js',
+			'<%= dirs.jsSource %>sapient.instagram.followus.js',
 			'<%= dirs.jsSource %>sapient.footer.js'
 		],
 		dest: "<%= dirs.jsModulesDest %><%= pkg.name %>.modules.ver.<%= pkg.version %>.dev.js"
