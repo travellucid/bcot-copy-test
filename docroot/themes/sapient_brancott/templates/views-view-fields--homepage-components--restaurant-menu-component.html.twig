@@ -1,5 +1,3 @@
- krishan
- 
  <!-- Menu component -->
  <div class="rezdy-component">
 	<div id="tours-and-experience">
@@ -7,22 +5,21 @@
 			<h2 class="title header_c">
 				{{ fields.title.content }}
 			</h2>
-			<p>
+			<p class="restaurant-description">
 				{{ fields.field_our_wine_description.content }}
 			</p>
-			<h3>{{ 'A la carte'|t }}</h3>
-			<h6 class="header-cta-wrapper"><a href="{{ fields.field_hero_cta_thi.content }}" class="cta dark ">{{ 'DOWNLOAD AS PDF'|t }}</a></h6>
-			<h3>{{ 'Tasting plates'|t }}</h3>
-			<h6 class="header-cta-wrapper"><a href="{{ fields.field_our_wine_cta.content }}" class="cta dark ">{{ 'DOWNLOAD AS PDF'|t }}</a></h6>
+			<label class="la-carte">{{ 'A la carte'|t }}</label>
+			<h6 class="header-cta-wrapper"><a href="{{ fields.field_hero_cta_thi.content }}" cta secondary-green visit-all-wine ">{{ 'DOWNLOAD AS PDF'|t }}</a></h6>
+			<label class="la-carte">{{ 'Tasting plates'|t }}</label>
+			<h6 class="header-cta-wrapper"><a href="{{ fields.field_our_wine_cta.content }}" cta secondary-green visit-all-wine ">{{ 'DOWNLOAD AS PDF'|t }}</a></h6>
 		</div>
 		<div class="img-component">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_hero_right_side_image_1.content }}" class="background-image">   
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_hero_right_side_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_hero_right_side_image.contentt }}" class="background-image">  
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_hero_right_side_image.content }}" class="background-image">  
 				<source  media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}" class="background-image"> 
-				<img src="{{ fields.field_hero_right_side_image.content }}" 
-				alt="a cute kitten">
+				<img src="{{ fields.field_hero_right_side_image.content }}" alt="a cute kitten">
 			</picture>
 		</div>
 	</div>
