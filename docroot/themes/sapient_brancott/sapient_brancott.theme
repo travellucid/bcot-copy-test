@@ -16,25 +16,24 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
     switch ($view_id) {
 	
 	case 'homepage_components':
-	 /*   if($variables['view']->current_display == 'common_hero_component') {
-			//kint($variables['row']->_entity->field_s->getValue()); exit;
-			$values = $variables['row']->_entity->field_s->getValue();
+	    if($variables['view']->current_display == 'common_hero_component') {
+			$values = $variables['row']->_entity->field_season_description->getValue();
+			$city = $variables['row']->_entity->field_city->value;
+			
 			$month = date('n');
-			//print_r($month); exit;
-			//print_r($values[$month]); exit;
 			if (!empty($values[$month - 1])) {
 				$variables['season_desc'] = $values[$month - 1]['value'];
 			} else {
 				$variables['season_desc'] = '';
 			}
-			//print $variables['season_desc']; exit;
 			$owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
-			$weather = $owm->getWeather('los angeles', 'metric');
-			//print_r($weather->temperature->now); exit;
-			$variables['current_temp'] = $weather->temperature->now;
+			$weather = $owm->getWeather($city, 'metric');
+			//print_r($weather->weather->getIconUrl()); exit;
+			$variables['temp_icon'] = $weather->weather->getIconUrl();
+			$variables['current_temp'] = html_entity_decode($weather->temperature->now);
 			$variables['temp_unit'] = $weather->temperature->getUnit();
-			$variables['current_date'] = date('d M Y');
-		} */
+			$variables['current_date'] = date('d M Y / g:ia');
+		}
 	    break;
     }
 }

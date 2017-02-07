@@ -13,9 +13,12 @@
 
  		<!-- generic twig for all hero -->
 		{% if (fields.field_city.content) %}
-		  <h3 class="header_f">{{ field.field_city.content }}, {{ field.field_country.content }}</h3>
+		  <h3 class="header_f">{{ fields.field_city.content }}, {{ fields.field_country.content }}</h3>
 		  <h3 class="header_f">{{ current_date }}</h3>
-		  <span class="temperature">{{ current_temp }}</span>
+		  <div class="temp-wrapper">
+			<img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
+			<span class="temperature">{{ current_temp | e}}</span>
+		</div> 
 		  <p>{{ season_desc }}</p>
 		{% endif %}	
  	</div>
