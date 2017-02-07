@@ -40,14 +40,14 @@
 %}
 <div{{ attributes.addClass(classes) }}>
   {{ title }}
-<div id="carousel-our-story" class="carousel slide container-fluid" data-ride="carousel"  data-interval="false">
+<div id="carousel-new-story" class="carousel slide container-fluid" data-ride="carousel"  data-interval="false">
     <ol class="carousel-indicators">
 
         {% for i in 0..view.total_rows %}
 		   {% if loop.first %}
-		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}" class="active"></li>
+		      <li data-target="#carousel-new-story" data-slide-to="{{ i }}" class="active"></li>
 		   {% elseif not loop.last %}
-		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}"></li>
+		      <li data-target="#carousel-new-story" data-slide-to="{{ i }}"></li>
 		   {% endif %}
 		{% endfor %}
     </ol> 
@@ -56,11 +56,11 @@
   </div>
   <!-- Controls -->
 	<div class="carousel-control-wrapper">
-		<a class="left carousel-control" href="#carousel-our-story" role="button" data-slide="prev">
+		<a class="left carousel-control" href="#carousel-new-story" role="button" data-slide="prev">
 		<span class="prev-carousal" aria-hidden="true"><span class="glyphicon glyphicon-left"></span></span>
 		<span class="sr-only">Previous</span>
 		</a>
-		<a class="right carousel-control" href="#carousel-our-story" role="button" data-slide="next">
+		<a class="right carousel-control" href="#carousel-new-story" role="button" data-slide="next">
 		<span class="next-carousal" aria-hidden="true"><span class="glyphicon glyphicon-right" style=""></span></span>
 		
 		<span class="sr-only">Next</span>
