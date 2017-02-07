@@ -8,8 +8,10 @@
 				<img src="{{ fields.field_background_image.content }}" alt="hardcoded" class="background-image">  
             </picture>
  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
-	   <h2 class="header_f">{{ fields.field_visit_us_small_headline.content }}</h2>
- 		<h1 class="header_a">{{ fields.title.content }}</h1>
+	   {% if (fields.field_visit_us_small_headline.content) %}
+			<h2 class="header_f">{{ fields.field_visit_us_small_headline.content }}</h2>
+	   {% endif %}	
+ 		<h1 class="header_a">{{ fields.field_hero_headline.content }}</h1>
 
  		<!-- generic twig for all hero -->
 		{% if (fields.field_city.content) %}
