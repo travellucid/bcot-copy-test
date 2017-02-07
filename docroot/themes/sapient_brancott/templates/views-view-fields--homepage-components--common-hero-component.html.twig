@@ -1,4 +1,3 @@
-Gaurav {{ current_temp }} Pahuja
 <div id="hero-component" class="container-fluid  hero-container" >
    <div class="grain-noise"></div>
  			<picture>
@@ -13,10 +12,12 @@ Gaurav {{ current_temp }} Pahuja
  		<h1 class="header_a">{{ fields.title.content }}</h1>
 
  		<!-- generic twig for all hero -->
-		<h3 class="header_f">MARLBOROYGH</h3>
-		<h3 class="header_f">21ST MARCH, 2017</h3>
-		<span class="temperature">21 deg C</span>
-		<p>bk;lksalfskdflkjdsalsaflksdfkj</p>
+		{% if (fields.field_city.content) %}
+		  <h3 class="header_f">{{ field.field_city.content }}, {{ field.field_country.content }}</h3>
+		  <h3 class="header_f">{{ current_date }}</h3>
+		  <span class="temperature">{{ current_temp }}</span>
+		  <p>{{ season_desc }}</p>
+		{% endif %}	
  	</div>
 	<div class="hero-bottom">
         <img src="/{{ directory }}/css/images/triange-1.png" alt="" class="triangle">

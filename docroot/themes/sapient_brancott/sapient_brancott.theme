@@ -8,7 +8,7 @@
 
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
-
+require_once('modules/devel/kint/kint/Kint.class.php');
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
     
 
@@ -17,22 +17,24 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 	
 	case 'homepage_components':
 	    if($variables['view']->current_display == 'common_hero_component') {
-			//kint($variables['view']); exit;
+			//kint($variables['row']->_entity->field_s->getValue()); exit;
+			$values = $variables['row']->_entity->field_s->getValue();
+			$month = date('n');
+			//print_r($month); exit;
+			//print_r($values[$month]); exit;
+			if (!empty($values[$month - 1])) {
+				$variables['season_desc'] = $values[$month - 1]['value'];
+			} else {
+				$variables['season_desc'] = '';
+			}
+			//print $variables['season_desc']; exit;
 			$owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
 			$weather = $owm->getWeather('los angeles', 'metric');
 			//print_r($weather->temperature->now); exit;
 			$variables['current_temp'] = $weather->temperature->now;
 			$variables['temp_unit'] = $weather->temperature->getUnit();
+			$variables['current_date'] = date('d M Y');
 		}
 	    break;
-	
-
-	
-
-		
-	
-	
-
-    
     }
 }
