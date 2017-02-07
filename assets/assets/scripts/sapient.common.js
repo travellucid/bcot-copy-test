@@ -14,13 +14,16 @@ var commonObj = (function($, window, sapient) {
 		},
 		addBgNoise = function() {
 			var section=$("section .views-element-container");
-			background-noise-section
+			for (var i=1;i<section.length;i+=2) {
+				$(section[i]).addClass("background-noise-section");
+			}
 		};
 
 		return {
 			// public + private states and behaviors
 			scrollToNext: scrollToNext,
-			hideLinkText: hideLinkText
+			hideLinkText: hideLinkText,
+			addBgNoise: addBgNoise
 		};
 	}
 
@@ -36,5 +39,6 @@ var commonObj = (function($, window, sapient) {
 })(jQuery, window, sapient);
 
 sapient.common = commonObj.getInstance();
-/*sapient.common.debounce();*/
 sapient.common.hideLinkText();
+/*sapient.common.debounce();*/
+sapient.common.addBgNoise();
