@@ -1,9 +1,6 @@
 @import "sapient.variables-mixins.less";
 *{ box-sizing: border-box; }
-body {
-  background-color: #efefef;
-  padding: 10px;
-}
+
 #tours-and-experience {
 	.set-max-width(1170px);
 .header_sect {
@@ -40,7 +37,6 @@ a {
   padding: 50px 0;
   position: relative;
   text-align: center;
-  width: 75%;
   margin: 0 auto;
   table-layout: fixed;
   margin-bottom: 100px;
@@ -48,7 +44,6 @@ a {
     display: table-cell;
     position: relative;
     vertical-align: middle;
-    width: 33%;
 
     img {
       width: 100%;
@@ -81,6 +76,14 @@ a {
     }
   }
 }
+.img-left {
+	margin-left: 15%;
+}
+
+.img-right {
+	margin-right: 15%;
+}
+
 @media screen and (max-width: 468px) {
   a {
     min-width: 170px;
@@ -88,6 +91,16 @@ a {
   }
 }
 @media screen and (max-width: 990px) {
+	.desktop-only {
+	    display: none !important;
+	  }
+	  .img-left {
+			margin-left: 0;
+		}
+
+		.img-right {
+			margin-right: 0;
+		}
   .section-class {
     background-color: transparent;
     display: block;
@@ -132,11 +145,6 @@ a {
 }
 }
 
-@media screen and (max-width: 990px) {
-  .desktop-only {
-    display: none !important;
-  }
-}
 @media screen and (min-width: 991px) {
   .mobile-only {
     display: none !important;
