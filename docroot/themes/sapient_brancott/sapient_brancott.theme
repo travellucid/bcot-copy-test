@@ -8,6 +8,7 @@
 
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
+
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
     
 
@@ -15,7 +16,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
     switch ($view_id) {
 	
 	case 'homepage_components':
-	    if($variables['view']->current_display == 'common_hero_component') {
+	 /*   if($variables['view']->current_display == 'common_hero_component') {
 			//kint($variables['row']->_entity->field_s->getValue()); exit;
 			$values = $variables['row']->_entity->field_s->getValue();
 			$month = date('n');
@@ -33,7 +34,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 			$variables['current_temp'] = $weather->temperature->now;
 			$variables['temp_unit'] = $weather->temperature->getUnit();
 			$variables['current_date'] = date('d M Y');
-		}
+		} */
 	    break;
     }
 }
