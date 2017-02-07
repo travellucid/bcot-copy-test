@@ -1,0 +1,24 @@
+ <!-- vineyard referred content component -->
+ <div class="rezdy-component">
+	<div id="tours-and-experience">
+		<div class="text-component">
+			<h2 class="title header_c">
+				{{ fields.field_heading.content.content }}
+			</h2>
+			<p class="restaurant-description">
+				{{ fields.field_description.content.content }}
+			</p>
+			<h6 class="header-cta-wrapper"><a href="{{ fields.field_find_.content }}" class="cta dark">{{ 'FIND OUT MORE'|t }}</a></h6>
+		</div>
+		<div class="img-component">
+			<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_image.content }}" alt="vineyard">
+			</picture>
+		</div>
+	</div>
+</div>
+
