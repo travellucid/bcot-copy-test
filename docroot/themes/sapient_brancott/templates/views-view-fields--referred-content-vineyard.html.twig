@@ -1,16 +1,6 @@
- <!-- vineyard referred content component -->
- <div class="rezdy-component">
-	<div id="tours-and-experience">
-		<div class="text-component">
-			<h2 class="title header_c">
-				{{ fields.field_heading.content }}
-			</h2>
-			<p class="restaurant-description">
-				{{ fields.field_description.content }}
-			</p>
-			<h6 class="header-cta-wrapper"><a href="{{ fields.field_find_.content }}" class="cta dark">{{ 'FIND OUT MORE'|t }}</a></h6>
-		</div>
-		<div class="img-component">
+{% if (fields.counter.content == "1") %}
+<div class="img-left">
+	<div class="img-component">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
@@ -19,6 +9,99 @@
 				<img src="{{ fields.field_image.content }}" alt="vineyard">
 			</picture>
 		</div>
-	</div>
+	 <div class="content-wrapper">
+	   <h2 class="header_sect">{{ fields.field_heading.content }}</h2>
+	   <p class="tagline">{{ fields.field_description.content }}</p>
+	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
+	 </div>
 </div>
+<div style="clear:both; height: 100px;"></div>
+{% elseif (fields.counter.content == "2") %}
+<div class="img-right">
+	 <div class="image-wrapper mobile-only">
+	 <picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_image.content }}" alt="vineyard">
+			</picture>
+	 </div>
+	 <div class="content-wrapper">
+	   <h1 class="header_sect">{{ fields.field_heading.content }}</h1>
+	   <p class="tagline">{{ fields.field_description.content }}</p>
+	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
+	 </div>
+	 <div class="image-wrapper desktop-only">
+	 <picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_image.content }}" alt="vineyard">
+			</picture>
+	 </div>
+	</div>
+	{% elseif (fields.counter.content == "3") %}
+<div class="img-left">
+	<div class="img-component">
+			<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_image.content }}" alt="vineyard">
+			</picture>
+		</div>
+	 <div class="content-wrapper">
+	   <h2 class="header_sect">{{ fields.field_heading.content }}</h2>
+	   <p class="tagline">{{ fields.field_description.content }}</p>
+	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
+	 </div>
+</div>
+<div style="clear:both; height: 100px;"></div>
+{% elseif (fields.counter.content == "4") %}
+<div class="img-right">
+	 <div class="image-wrapper mobile-only">
+	 <picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_image.content }}" alt="vineyard">
+			</picture>
+	 </div>
+	 <div class="content-wrapper">
+	   <h1 class="header_sect">{{ fields.field_heading.content }}</h1>
+	   <p class="tagline">{{ fields.field_description.content }}</p>
+	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
+	 </div>
+	 <div class="image-wrapper desktop-only">
+	 <picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_image.content }}" alt="vineyard">
+			</picture>
+	 </div>
+	</div>
+	{% elseif (fields.counter.content == "5") %}
+	<div class="img-left">
+	<div class="img-component">
+			<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_image.content }}" alt="vineyard">
+			</picture>
+		</div>
+	 <div class="content-wrapper">
+	   <h2 class="header_sect">{{ fields.field_heading.content }}</h2>
+	   <p class="tagline">{{ fields.field_description.content }}</p>
+	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
+	 </div>
+</div>
+{% endif %}
 
