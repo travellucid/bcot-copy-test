@@ -8,7 +8,6 @@
 
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
-require_once('modules/devel/kint/kint/Kint.class.php');
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
     
 
