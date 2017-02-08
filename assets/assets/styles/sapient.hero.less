@@ -4,10 +4,9 @@
 	background-image: @grain-noise-img;
 	span.header_f {
 		color: white;
-		font-family: "NeutraText Bold";
+		/*font-family: "NeutraText Bold";*/
 	}
 	height: 100vh;
-	margin:0;
 	max-width: 100%;
 	overflow: hidden;
 	padding-left: 0;
@@ -20,10 +19,10 @@
 	}
 
 	.hero-inner-container {
-		/* width: 100%; */
 		.centerBoth();
 		text-align: center;
 		span.temperature {
+			/*font-family: "NeutraText-Demi";*/
 			color: @white;
 			font-size: 60px;
 			letter-spacing: 1.2px;
@@ -40,7 +39,14 @@
 		p{
 			color: @white;
 		}
-
+		/*h1{
+			font-family: NeutraText;
+  			font-weight: bold;
+		}*/
+		h3,
+		/*p{
+			font-family: "NeutraText-Demi";
+		}*/
 		.find-out-more {
 			margin: 15px 0 40px;
 		}
@@ -196,3 +202,13 @@
 		}
 	}
 }
+
+
+#hero-component {
+	&.common-hero {
+		.hero-inner-container {
+			width: 100%;
+		}
+	}
+}
+	
