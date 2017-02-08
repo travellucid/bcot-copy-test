@@ -59,7 +59,7 @@ header {
 						color: @white;
 						letter-spacing: 2px;
 						line-height: 24px;
-						padding: 40px 60px;
+						padding: 32.5px 60px;
 						&:hover,
 						&:active,
 						&:focus {
@@ -80,7 +80,7 @@ header {
 							height: 8px;
 							position: absolute;
 							right: 25px;
-							top: 48px;
+							top: 40px;
 							width: 15px;
 	
 							.transform(translateX(-50%));
@@ -415,7 +415,7 @@ header {
 							bottom: 0;
 							display: block;
 							height: 30px;
-							right: 10px;
+							right: -5px;
 							top: 10px;
 							width: 50px;
 							background-position: right center;
@@ -442,7 +442,7 @@ header {
 								z-index: 100;
 
 								.menu-heading {
-									background: linear-gradient(to right, @white, @light-sky-blue);
+									background-color: @light-sky-blue;
 									height: auto;
 									/* margin-bottom: 20px; */
 									top: 0;
@@ -454,10 +454,11 @@ header {
 										background-repeat: no-repeat;
 										background-size: 15px;
 										display: block;
-										height: 12px;
-										left: 10px;
-										width: 15px;
-										.centerY();
+										height: 50px;
+										position: absolute;
+										top: 0;
+										width: 30px;
+										background-position: right center;
 									}
 
 									span.text{

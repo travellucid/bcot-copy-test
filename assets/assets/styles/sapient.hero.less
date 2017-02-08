@@ -20,7 +20,7 @@
 	}
 
 	.hero-inner-container {
-		width: 100%;
+		/* width: 100%; */
 		.centerBoth();
 		text-align: center;
 		span.temperature {
@@ -99,6 +99,7 @@
 }
 .hero-details {
 	background-image: @grain-noise-img;
+	padding-top: 100px;
 
 	h2 {
 		color: @dark-gray;
@@ -129,9 +130,6 @@
 
 	#hero-component {
 		height: 100vh;
-
-
-		.gradient(@light-sky-blue, @white, @light-sky-blue);
 
 		.cta-visitus {			
 			.centerX();
@@ -179,6 +177,11 @@
 		}
 	}
 }
+
+@media screen and (max-width: 690px) {
+	
+}
+
 @media screen and (max-width: @bp-min-mobile) {
 	#hero-component {	
 		.hero-inner-container {	
