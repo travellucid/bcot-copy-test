@@ -2,7 +2,7 @@
 *{ box-sizing: border-box; }
 
 #tours-and-experience {
-	.set-max-width(1170px);
+	.set-max-width(900px);
 .header_sect {
 	font-family: "NeutraText Book";
 	text-transform: uppercase;
@@ -18,6 +18,7 @@
 a {
 	text-transform: uppercase;
 	margin-top: 20px;
+	padding: 19px 53px;
 }
 .tagline {
 	font-size: 16px;
@@ -44,10 +45,6 @@ a {
     display: table-cell;
     position: relative;
     vertical-align: middle;
-
-    /*img {
-      width: 100%;
-    }*/
   }
   .content-wrapper {
     padding: 0 50px;
@@ -64,49 +61,50 @@ a {
   }
   &.img-left {
   	.content-wrapper {
-    	padding-right: 53px;
+    	/*padding-right: 53px;*/
+    	position: relative;
+    	right: 150px;
     }
     .image-wrapper {
       img {
-        transform: translateX(-50%);
+        transform: translateX(-64%);
       }
     }
   }
   &.img-right {
   	.content-wrapper {
-    	padding-left: 53px;
+    	/*padding-left: 53px;*/
+    	position: relative;
+    	left: 150px;
     }
     .image-wrapper {
+    	/*width: 75%;*/
       img {
-        transform: translateX(50%);
+        transform: translateX(64%);
       }
     }
   }
 }
 .img-left {
-	margin-left: 15%;
+	/*margin-left: 24%;*/
+	left: 145px;
 }
 
 .img-right {
-	margin-right: 15%;
+	/*margin-right: 26%;*/
+	right: 155px;
 }
 
-@media screen and (max-width: 468px) {
-  a {
-    min-width: 170px;
-    padding: 0 0;
-  }
-}
-@media screen and (max-width: 990px) {
+@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
 	.desktop-only {
 	    display: none !important;
 	  }
 	  .img-left {
-			margin-left: 0;
+			left: 0;
 		}
 
 		.img-right {
-			margin-right: 0;
+			right: 0;
 		}
   .section-class {
     background-color: transparent;
@@ -131,6 +129,7 @@ a {
     &.img-left {
     	.content-wrapper {
 	    	padding-right: 3px;
+	    	right: 0;
 	    }
       .image-wrapper {
         img {
@@ -141,6 +140,7 @@ a {
     &.img-right {
     	.content-wrapper {
 	    	padding-left: 3px;
+	    	left: 0;
 	    }
       .image-wrapper {
         img {
@@ -150,6 +150,12 @@ a {
     }
   }
 }
+}
+
+@media screen and (max-width: @bp-max-mobile) {
+  a {
+    min-width: 170px;
+  }
 }
 
 @media screen and (min-width: 991px) {
