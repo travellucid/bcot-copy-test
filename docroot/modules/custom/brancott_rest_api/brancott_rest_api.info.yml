@@ -1,0 +1,8 @@
+name: Brancott Rest API
+description: Brancott Rest API
+core: 8.x
+package: Sapient
+dependencies:
+- node
+- block
+type: module
