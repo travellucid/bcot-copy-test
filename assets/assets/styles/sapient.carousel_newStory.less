@@ -1,17 +1,16 @@
 @import "sapient.variables-mixins.less";
-#carousel-our-story {
-	.set-max-width(1170px);
+ #carousel-new-story {
+	.set-max-width(770px);
 	.carousel-inner {
 		.inner-container {
-			h1 {
-				color: @white;
-			}
-			left: 50%;
 			text-align: center;
 			width: 100%;
-			.centerBoth();
 			.watch-video {
 				margin-top: 40px;
+			}
+			h2 {
+				margin:30px 0 24px;
+				color: @dark-gray;
 			}
 		}
 		span {
@@ -37,10 +36,13 @@
 				.centerY();
 				width: 0;
 				margin: 0;
+				top: 40%;
+
 				&:after {
 					content: "";
 				}
 			}
+
 			.next-carousal {
 				opacity: 0;
 				border-bottom: 50px solid transparent;
@@ -51,6 +53,7 @@
 				width: 0;
 				margin: 0;
 				right: 0;
+				top: 40%;
 			}
 			.glyphicon-right {
 				background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
@@ -73,6 +76,8 @@
 				width: 8px;
 			}
 		}
+
+		
 	}
 	&:hover {
 		.carousel-control-wrapper {
@@ -83,6 +88,7 @@
 					opacity: 1;
 					.transition(all 0.5s ease-in-out);
 				}
+				
 				.next-carousal {
 					opacity: 1;
 					right: 14px;
@@ -93,31 +99,18 @@
 	}
 }
 
-.carousal-top-wrapper {
-	.our-perspective {
-		margin: 0 0 100px 0;
-		min-height: 160px;
-		position: relative;
-		text-align: center;
-		h2,
-		h3,
-		p,
-		{
-			color: @dark-gray;
-		}
-		p {
-			width: 65.98%;
-			.centerX();
-		}
-	}
-}
 
 @media screen and (max-width: @bp-desktop-mlarge) {
-	#carousel-our-story {
+	#carousel-new-story {
 		.carousel-inner {
+			.views-row {
+				picture {
+					margin: 0;
+				}
+			}
 			img {
-				/* height: 100vw;
-				width: 100vw; */
+				height: 100vw;
+				width: 100vw;
 			}
 			.inner-container {
 				h1 {
@@ -129,37 +122,10 @@
 }
 
 @media screen and (max-width: @bp-max-mobile) {
-	#carousel-our-story {
-		width: 100%;
+	#carousel-new-story {
+		width:100%;
 		padding: 0;
 		left: 0;
 		top: 73%;
-
-		.carousel-inner {
-			img {
-				height: auto;
-				width: 100%;
-			}
-			.inner-container {
-				h1 {
-					font-size: 27px;
-				}
-			}
-		}
-
-		.carousal-desc-wrapper {
-			text-align: center;
-		}
-	}
-	.carousal-top-wrapper {
-		.our-perspective {
-			p {
-				width: auto;
-				padding: 0 15px;
-				position: relative;
-
-				.centerX();
-			}
-		}
 	}
 }

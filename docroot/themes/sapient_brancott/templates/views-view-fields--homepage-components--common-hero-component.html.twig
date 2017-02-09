@@ -1,4 +1,4 @@
-<div id="hero-component" class="container-fluid  hero-container" >
+<div id="hero-component" class="container-fluid  hero-container common-hero" >
    <div class="grain-noise"></div>
  			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_background_image_1.content }}" class="background-image">   
@@ -15,7 +15,7 @@
 
  		<!-- generic twig for all hero -->
 		{% if (fields.field_city.content) %}
-		  <h3 class="header_f">{{ fields.field_city.content }}, {{ fields.field_country.content }}</h3>
+		  <h2 class="header_f">{{ fields.field_city.content }}, {{ fields.field_country.content }}</h2>
 		  <h3 class="header_f">{{ current_date }}</h3>
 		  <div class="temp-wrapper">
 			<img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
