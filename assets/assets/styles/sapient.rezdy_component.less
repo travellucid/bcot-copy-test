@@ -2,7 +2,7 @@
 *{ box-sizing: border-box; }
 
 #tours-and-experience {
-	.set-max-width(900px);
+	.set-max-width(870px);
 .header_sect {
 	font-family: "NeutraText Book";
 	text-transform: uppercase;
@@ -14,10 +14,11 @@
     letter-spacing: 2px;
     text-align: center;
     color: #3e464b;
+    width: 470px;
 }
 a {
 	text-transform: uppercase;
-	margin-top: 20px;
+	margin-top: 30px;
 	padding: 19px 53px;
 }
 .tagline {
@@ -30,7 +31,7 @@ a {
     line-height: 1.63;
     letter-spacing: normal;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 .section-class {
   background-color: #ffffff;
@@ -55,7 +56,7 @@ a {
     h3 {
       color: @dark-gray;
       font-size: 14px;
-      margin-top: 30px;
+      margin-top: 10px;
       text-transform: uppercase;
     }
   }
@@ -63,11 +64,11 @@ a {
   	.content-wrapper {
     	/*padding-right: 53px;*/
     	position: relative;
-    	right: 150px;
+    	right: 116px;
     }
     .image-wrapper {
       img {
-        transform: translateX(-64%);
+        transform: translateX(-50%);
       }
     }
   }
@@ -75,24 +76,24 @@ a {
   	.content-wrapper {
     	/*padding-left: 53px;*/
     	position: relative;
-    	left: 150px;
+    	left: 118px;
     }
     .image-wrapper {
     	/*width: 75%;*/
       img {
-        transform: translateX(64%);
+        transform: translateX(50%);
       }
     }
   }
 }
 .img-left {
 	/*margin-left: 24%;*/
-	left: 145px;
+	left: 68px;
 }
 
 .img-right {
 	/*margin-right: 26%;*/
-	right: 155px;
+	right: 167px;
 }
 
 @media screen and (max-width: @bp-large-mobile-to-table-landscape) {
@@ -118,6 +119,10 @@ a {
       img {
         width: 100%;
       }
+    }
+    .header_sect {
+    	padding-top: 15px;
+    	width: 100%;
     }
     .content-wrapper {
       padding: 0;
