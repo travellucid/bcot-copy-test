@@ -376,13 +376,13 @@ var footerObj = (function($, window, sapient) {
 
 		var setFooterDdownPos = function() {
 			var windowWidth = $(window).width();
-			if (windowWidth > 1200 && windowWidth < 1400) {
+			if (windowWidth > 1200 /*&& windowWidth < 1400*/) {
 				var right = (windowWidth - 1170) / 2;
 				$("footer .select-wrapper").css('right', right + 15 + 'px');
-			} else if (windowWidth > 1400) {
+			} /*else if (windowWidth > 1400) {
 				var right = (windowWidth - 1400) / 2;
 				$("footer .select-wrapper").css('right', right + 15 + 'px');
-			}
+			}*/
 		},
 
 		onResize = function() {

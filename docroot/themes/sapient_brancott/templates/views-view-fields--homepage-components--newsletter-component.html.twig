@@ -6,7 +6,7 @@
                 <h3 class="sign-up-text header_c">{{ fields.field_signup_text.content }}</h3>
 				{%- endif -%} 
 				                {%- if fields.field_signup.content and fields.field_signup_1.content -%}
-                                <h6 class="header-cta-wrapper"><a href="{{ fields.field_signup.content }}" class="cta secondary-dark">{{ fields.field_signup_1.content }}</a></h6>
+                                <a href="{{ fields.field_signup.content }}" class="cta secondary-dark">{{ fields.field_signup_1.content }}</a>
                                  {%- endif -%}
                 </div>
 
