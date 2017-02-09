@@ -140,18 +140,21 @@
 	#hero-component {
 		height: 100vh;
 
-		.cta-visitus {			
-			.centerX();
+		.cta-visitus {    
 			bottom: initial;
+			display: block;
+			left: 0;
+			margin-top: 40px;
+			position: relative;
+			transform: none;
 			width: 100%;
 			
-			a.cta {
+			/* a.cta {
 				display: block;
-			}
+			} */
 			
 			a.visit-all-wine {
-				/*margin-bottom: 10px;*/
-				padding: 8px 48px;
+				margin-bottom: 10px;
 			}
 		}
 
@@ -159,10 +162,10 @@
 			margin-top: 65px;
 			text-align: center;
 			top: 0;
-			.centerX();
+			.centerBoth();
 			
 			h1 {
-				margin: 40px 25px 20px 25px;
+				margin: 0 25px 20px 25px;
 			}
 			
 			/* .find-out-more {
@@ -174,12 +177,24 @@
 			.find-out-more {
 				/* margin: 15px 0 40px; */
 				margin: 0 15px;
-				width: 100vw;
+				/* width: 100%; */
 			}
 
 		}
 	}
 }
+
+/* @media screen and (orientation: portrait){
+
+
+	#hero-component {
+	
+		.hero-inner-container {
+			margin-top: 0;
+			text-align: center;
+		}
+	}
+} */
 @media screen and (min-width: 690px) and (max-width: 768px) {
 	#hero-component {
 		.hero-inner-container {
@@ -197,15 +212,15 @@
 @media screen and (max-width: @bp-min-mobile) {
 	#hero-component {	
 		.hero-inner-container {	
-			margin-top: 50px;		
+			margin-top: 0;		
 			h1 {
 				margin: 5px 25px 10px 25px;
 			}
 		}
 
 		.cta-visitus {
-			margin-top: 75px;
-		}
+			margin-top: 40px;
+		} 
 	}
 }
 
