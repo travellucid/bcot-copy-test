@@ -1,13 +1,15 @@
 /* hero component new code*/
 
 #hero-component {
-	background-image: @grain-noise-img;
 	span.header_f {
 		color: white;
 		/*font-family: "NeutraText Bold";*/
 	}
+	
+	background-image: @grain-noise-img;
 	height: 100vh;
 	max-width: 100%;
+	margin-bottom: 0;
 	overflow: hidden;
 	padding-left: 0;
 	padding-right: 0;   
@@ -128,8 +130,9 @@
 @media screen and (max-width: @bp-max-mobile) {
 	.hero-details {
 		p {
-			margin: 0 15px;
+			/* margin: 0 15px; */
 			max-width: 100%;
+			padding: 0 15px 0 15px;
 			width: 100%;
 		}
 	}
@@ -162,11 +165,18 @@
 				margin: 40px 25px 20px 25px;
 			}
 			
-			.find-out-more {
+			/* .find-out-more {
 				margin:0;
 				width: 100%;
-				/* width: 87.5%; */
+				width: 87.5%;
 			}
+			 */
+			.find-out-more {
+				/* margin: 15px 0 40px; */
+				margin: 0 15px;
+				width: 100vw;
+			}
+
 		}
 	}
 }
@@ -182,10 +192,6 @@
 			width: auto;
 		}
 	}
-}
-
-@media screen and (max-width: 690px) {
-	
 }
 
 @media screen and (max-width: @bp-min-mobile) {
