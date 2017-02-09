@@ -1,0 +1,19 @@
+ <div id="hero-component" class="container-fluid  hero-container" >
+   <div class="grain-noise"></div>
+	<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_wine_background_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_wine_background_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_wine_background_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_wine_background_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_wine_background_image.content }}" alt="Wine Background">
+			</picture>
+
+   <div class="hidden-sm hidden-xs hero-bottle-wrapper">
+	<picture>
+		<source class="hero-bottle" media="(max-width: 1281px)" srcset="{{ fields.field_wine_bottle_image.content }}"> 
+		<source class="hero-bottle" media="(max-width: 769px)"  srcset="{{ fields.field_wine_bottle_image.content }}"> 
+		<source  class="hero-bottle" srcset="{{ fields.field_wine_bottle_image.content }}"> 
+		<img class="hero-bottle" src="{{ fields.field_wine_bottle_image.content }}" alt="Bottle"> 
+		</picture>
+   </div>
+</div>

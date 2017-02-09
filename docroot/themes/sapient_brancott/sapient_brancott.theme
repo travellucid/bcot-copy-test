@@ -10,8 +10,6 @@ use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
-    
-
     $view_id = $variables['view']->storage->id();
     switch ($view_id) {
 	
@@ -29,14 +27,16 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 			}
 			$owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
 			$weather = $owm->getWeather($city, 'metric');
-			//print_r($weather->weather->getIconUrl()); exit;
 			$variables['temp_icon'] = $weather->weather->getIconUrl();
 			$variables['current_temp'] = html_entity_decode($weather->temperature->now);
 			$variables['temp_unit'] = $weather->temperature->getUnit();
 			$variables['current_date'] = date('d M Y / g:ia');
 			}
 		}
+	case 'wines_hero_component':
+	    if($variables['view']->current_display == 'wines_hero_component') {
+		
+		}
 	    break;
-		//print_r('test');
     }
 }

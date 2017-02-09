@@ -57,67 +57,67 @@ sapient.common.hideLinkText();
 sapient.common.addBgNoise();
 var carouselObj = (function($, window, sapient) {
 
-    var carouselInstance;
+	var carouselInstance;
 
-    function createCarouselInstance() {
+	function createCarouselInstance() {
 
-        var enableTouchCarousel = function(value) {
-                $(value).on("touchstart", function(event) {
-                    var xClick = event.originalEvent.touches[0].pageX;
-                    $(this).one("touchmove", function(event) {
-                        var xMove = event.originalEvent.touches[0].pageX;
-                        if (Math.floor(xClick - xMove) > 5) {
-                            $(value).carousel('next');
-                        } else if (Math.floor(xClick - xMove) < -5) {
-                            $(value).carousel('prev');
-                        }
-                    });
+		var enableTouchCarousel = function(value) {
+				$(value).on("touchstart", function(event) {
+					var xClick = event.originalEvent.touches[0].pageX;
+					$(this).one("touchmove", function(event) {
+						var xMove = event.originalEvent.touches[0].pageX;
+						if (Math.floor(xClick - xMove) > 5) {
+							$(value).carousel('next');
+						} else if (Math.floor(xClick - xMove) < -5) {
+							$(value).carousel('prev');
+						}
+					});
 
-                    $(value).on("touchend", function() {
-                        $(this).off("touchmove");
-                    });
-                });
-            },
-            resize = function(){
-                $(window).on('resize', function () {
-                    debounce(sapient.carousel.positionCarouselIndicator,500,"resizing carouselIndicator");
-                });
-            },
-            positionCarouselIndicator = function(value) {
-                $("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-20 + "px");
-            },
-            toggleCarouselArrow = function(id) {
-                $(id).hover(
-                    function() {
-                        $(this).find(".carousel-control-wrapper").animate({
-                            opacity: ["1"]
-                        }, 500)
-                    },
-                    function() {
-                        $(this).find(".carousel-control-wrapper").animate({
-                            opacity: ["0"]
-                        }, 500)
-                    }
-                );
-            };
+					$(value).on("touchend", function() {
+						$(this).off("touchmove");
+					});
+				});
+			},
+			resize = function(){
+				$(window).on('resize', function () {
+					debounce(sapient.carousel.positionCarouselIndicator,500,"resizing carouselIndicator");
+				});
+			},
+			positionCarouselIndicator = function() {
+				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-20 + "px");
+			},
+			toggleCarouselArrow = function(id) {
+				$(id).hover(
+					function() {
+						$(this).find(".carousel-control-wrapper").animate({
+							opacity: ["1"]
+						}, 500)
+					},
+					function() {
+						$(this).find(".carousel-control-wrapper").animate({
+							opacity: ["0"]
+						}, 500)
+					}
+				);
+			};
 
-        return {
-            // public + private states and behaviors
-            enableTouchCarousel: enableTouchCarousel,
-            toggleCarouselArrow: toggleCarouselArrow,
-            positionCarouselIndicator:positionCarouselIndicator,
-            resize:resize
-        };
-    }
+		return {
+			// public + private states and behaviors
+			enableTouchCarousel: enableTouchCarousel,
+			toggleCarouselArrow: toggleCarouselArrow,
+			positionCarouselIndicator:positionCarouselIndicator,
+			resize:resize
+		};
+	}
 
-    return {
-        getInstance: function() {
-            if (!carouselInstance) {
-                carouselInstance = createCarouselInstance();
-            }
-            return carouselInstance;
-        }
-    };
+	return {
+		getInstance: function() {
+			if (!carouselInstance) {
+				carouselInstance = createCarouselInstance();
+			}
+			return carouselInstance;
+		}
+	};
 
 })(jQuery, window, sapient);
 
@@ -126,6 +126,7 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
+sapient.carousel.positionCarouselIndicator();
 sapient.carousel.resize();
 /*
 sapient.carousel.toggleCarouselArrow("#carousel-our-story");
@@ -376,13 +377,13 @@ var footerObj = (function($, window, sapient) {
 
 		var setFooterDdownPos = function() {
 			var windowWidth = $(window).width();
-			if (windowWidth > 1200 && windowWidth < 1400) {
+			if (windowWidth > 1200 /*&& windowWidth < 1400*/) {
 				var right = (windowWidth - 1170) / 2;
 				$("footer .select-wrapper").css('right', right + 15 + 'px');
-			} else if (windowWidth > 1400) {
+			} /*else if (windowWidth > 1400) {
 				var right = (windowWidth - 1400) / 2;
 				$("footer .select-wrapper").css('right', right + 15 + 'px');
-			}
+			}*/
 		},
 
 		onResize = function() {

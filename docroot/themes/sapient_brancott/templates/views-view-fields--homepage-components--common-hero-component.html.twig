@@ -16,7 +16,7 @@
  		<!-- generic twig for all hero -->
 		{% if (fields.field_city.content) %}
 		  <h2 class="header_f">{{ fields.field_city.content }}, {{ fields.field_country.content }}</h2>
-		  <h3 class="header_f">{{ current_date }}</h3>
+		  <h3 class="header_d">{{ current_date }}</h3>
 		  <div class="temp-wrapper">
 			<img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
 			<span class="temperature">{{ current_temp | e}}</span>
@@ -34,12 +34,9 @@
 	<p>{{ fields.field_visit_us_description.content }}</p>
 	{% if (fields.field_hero_cta_first.content or field_hero_cta_second) %}
 	  <div class="cta-hero-bottom">
-        <h6 class="header-cta-wrapper">
 	    <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-green visit-all-wine">{{ 'BOOK A TABLE'|t }}</a>
-	    </h6>
 	    <h6 class="header-cta-wrapper">
 	    <a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green light ">{{ 'HOW TO FIND US'|t }}</a>
-	    </h6>
         </div>
     {% endif %}	
  </div>
