@@ -11,8 +11,12 @@
 			<!--<img src="{{ fields.field_background_image.content }}" data-mobile-src = "{{ fields.field_background_image_1.content }}" data-desktop-src = "{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">-->
 			<picture>
             <source  media="(max-width: 321px)" srcset="{{ fields.field_background_image_2.content }}">
+            <source  media="(max-width: 690px)" srcset="{{ fields.field_background_image_2.content}}">   
+            <source  media="(max-width: 769px)" srcset="{{ fields.field_background_image.content }}">
             <source  media="(max-width: 990px)" srcset="{{ fields.field_background_image.content }}">  
             <source  media="(max-width: 1281px)" srcset="{{ fields.field_background_image.content }}"> 
+
+            
             <source  srcset="{{ fields.field_background_image.content }}"> 
             <!-- img tag for browsers that do not support picture element -->
             <img src="{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">  

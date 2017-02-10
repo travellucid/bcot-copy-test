@@ -50,20 +50,24 @@ function character_limitation_vineyard($form, \Drupal\Core\Form\FormStateInterfa
   $ctas = array();
   for ($x = 0; $x <= $referred_comp; $x++) {
     $ctas[] = $values['field_referred_content'][$x]['field_find_'][0]['title'];
-  }
+  
   foreach($ctas as $cta){
 	  if (strlen($cta) > 20){
-    $form_state->setErrorByName('field_referred_content','Max length for this field is 20 characters.');
+    
+    $form_state->setErrorByName('field_referred_content][0][field_find_', 'Max length for this field is 20 characters.');
    }
 
+  }
   }
   $descriptions = array();
   for ($x = 0; $x <= $referred_comp; $x++) {
     $descriptions[] = $values['field_referred_content'][$x]['field_description'][0]['value'];
+
   }
   foreach($descriptions as $description){
 	  if (strlen($description) > 200){
-    $form_state->setErrorByName('field_referred_content','Max length for this field is 200 characters.');
+    $form_state->setErrorByName('field_referred_content][0][field_description', 'Max length for this field is 200 characters.');
+   // $form_state->setErrorByName('field_referred_content','Max length for this field is 200 characters.');
    }
 
   }
@@ -73,7 +77,8 @@ function character_limitation_vineyard($form, \Drupal\Core\Form\FormStateInterfa
   }
   foreach( $discover_subheadings as  $discover_subheading){
 	  if (strlen( $discover_subheading) > 100){
-    $form_state->setErrorByName('field_discover_carausal','Max length for this field is 100 characters.');
+    $form_state->setErrorByName('field_discover_carausal][0][field_carousel_description', 'Max length for this field is 100 characters.');
+    //$form_state->setErrorByName('field_discover_carausal','Max length for this field is 100 characters.');
    }
 
   }
