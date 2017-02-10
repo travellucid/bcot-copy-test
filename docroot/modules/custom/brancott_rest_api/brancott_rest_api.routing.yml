@@ -1,0 +1,7 @@
+products.details:
+  path: '/get-product-details1'
+  defaults:
+    _controller: '\Drupal\brancott_rest_api\Controller\BrancottRestApiController::getProductDetails'
+    _title: 'Get Product Details'
+  requirements:
+    _permission: 'access content'
