@@ -106,42 +106,41 @@ footer {
 			max-width: 55%;
 			min-width: 44%;
 			ul {
-				margin: 40px 0;
+				margin: 30px 0;
 				display: inline-block;
 				li {
-					background-repeat: no-repeat;
 					float: left;
 					margin-right: 30px;
+
+					&:last-child {
+						margin-right: 0;
+					}
+
 					a {
-						&:hover,
-						&:active {
+						background-color: transparent;
+						background-repeat: no-repeat;
+						background-size: 24px 16px;
+						background-position: center left;
+						display: block;
+						height: 16px;
+						width: 24px;
+
+						&:hover,&:focus {
 							background-color: transparent;
 						}
 					}
 				}
-				li.icon-facebook {
+				li.icon-facebook a {
 					background-image: url("@{background-icons-path}BE_icon_facebook.svg");
-					background-size: 8.3px 16px;
-					height: 16px;
-					width: 8.3px;
 				}
-				li.icon-Instagram {
+				li.icon-Instagram a {
 					background-image: url("@{background-icons-path}BE_icon_instagram.svg");
-					background-size: 16px 16px;
-					height: 16px;
-					width: 16px;
 				}
-				li.icon-Youtube {
+				li.icon-Youtube a {
 					background-image: url("@{background-icons-path}BE_icon_youtube.svg");
-					background-size: 22.7px 16px;
-					height: 16px;
-					width: 22.7px;
 				}
-				li.icon-Twitter {
+				li.icon-Twitter a {
 					background-image: url("@{background-icons-path}BE_icon_twitter.svg");
-					background-size: 19.6px 15.9px;
-					height: 15.9px;
-					width: 19.6px;
 				}
 			}
 		}
@@ -217,10 +216,11 @@ footer {
 						a {
 							margin-bottom: 16px;
 						}
-						&.icon-Wine,&.icon-WINE {
+						&.icon-Wine,
+						&.icon-WINE {
 							a {
 								&::after {
-									right: 21px;
+									right: -20px;
 									top: 3px;
 								}
 							}

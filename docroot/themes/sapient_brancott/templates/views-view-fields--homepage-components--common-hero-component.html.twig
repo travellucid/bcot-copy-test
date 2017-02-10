@@ -1,12 +1,10 @@
 <div id="hero-component" class="container-fluid  hero-container common-hero" >
-   <div class="grain-noise"></div>
- 			<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_background_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_background_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_background_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_background_image.content }}" class="background-image"> 
-				<img src="{{ fields.field_background_image.content }}" alt="hardcoded" class="background-image">  
-            </picture>
+	<div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')"></div>
+	<div class="grain-noise"></div>
+	<div class="hero-bottom">
+		<img src="/{{ directory }}/css/images/triange-1.png" alt="" class="triangle">
+		<img src="/{{ directory }}/css/images/noise-triangle.svg" alt="" class="triangle-right">
+	</div>
  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
 	   {% if (fields.field_visit_us_small_headline.content) %}
 			<h2 class="header_f">{{ fields.field_visit_us_small_headline.content }}</h2>
@@ -16,7 +14,7 @@
  		<!-- generic twig for all hero -->
 		{% if (fields.field_city.content) %}
 		  <h2 class="header_f">{{ fields.field_city.content }}, {{ fields.field_country.content }}</h2>
-		  <h3 class="header_f">{{ current_date }}</h3>
+		  <h3 class="header_d">{{ current_date }}</h3>
 		  <div class="temp-wrapper">
 			<img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
 			<span class="temperature">{{ current_temp | e}}</span>
@@ -24,10 +22,6 @@
 		  <p>{{ season_desc }}</p>
 		{% endif %}	
  	</div>
-	<div class="hero-bottom">
-        <img src="/{{ directory }}/css/images/triange-1.png" alt="" class="triangle">
-        <img src="/{{ directory }}/css/images/noise-triangle.svg" alt="" class="triangle-right">
-    </div> 	
  </div>
  <div class="hero-details">
  	<h2>{{ fields.field_hero_bottom_headline.content }}</h2>
