@@ -5,15 +5,18 @@ var followUsObj = (function($, window, sapient) {
 	function createInstagramInstance() {
 
 		var setInstagramDimensions = function() {
-			var instaGallery = $("#follow-us #gallery").height();
+			var instaGallery = $("#follow-us #gallery").innerHeight();
 			if($(window).width() < 768 ) {
 				$("#follow-us #content").innerHeight(instaGallery);
+			}
+			else {
+				$("#follow-us #content").innerHeight('auto');
 			}
 		},
 
 		onResize = function() {
 			$(window).on('resize', function () {
-				debounce(sapient.footer.setInstagramDimensions,500,"resizing instagram");
+				debounce(sapient.followUs.setInstagramDimensions,500,"resizing instagram");
 			});
 		};
 
@@ -36,7 +39,7 @@ var followUsObj = (function($, window, sapient) {
 
 })(jQuery, window, sapient);
 
-sapient.footer = followUsObj.getInstance();
+sapient.followUs = followUsObj.getInstance();
 
-sapient.footer.setInstagramDimensions();
-sapient.footer.onResize();
+sapient.followUs.setInstagramDimensions();
+sapient.followUs.onResize();
