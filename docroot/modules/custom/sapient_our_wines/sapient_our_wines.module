@@ -43,11 +43,13 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 function character_limitation_vineyard($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   
   $values = $form_state->getValues();
-  $link_length = strlen($values['title'][0]['value']);
-  
+  //$link_length = strlen($values['title'][0]['value']);
+  //$a = count($values['field_referred_content']);
+  $link_length = strlen($values['field_referred_content'][0]['field_find_'][0]['title']);
+ 
   //print_r($link_length);die('sallu');
    if ($link_length > 20){
-    $form_state->setErrorByName('title','Max length for this field is 20 characters.');
+    $form_state->setErrorByName(['field_referred_content'][0]['field_find_'][0]['title'],'Max length for this field is 20 characters.');
   }
 }
 
