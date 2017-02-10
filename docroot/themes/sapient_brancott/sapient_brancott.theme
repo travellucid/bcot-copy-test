@@ -38,12 +38,12 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
       }
     case 'wines_hero_component':
       if ($variables['view']->current_display == 'wines_hero_component') {
-        if ($variables['row']->_entity->field_wine_id) {		
-		  $wine_id = $variables['row']->_entity->field_wine_id->value;
+        if ($variables['row']->_entity->field_wine_id) {
+          $wine_id = $variables['row']->_entity->field_wine_id->value;
           $details = braoncott_rest_api_get_results($wine_id);
-		  $variables['hero_title'] = $details->title;
+          $variables['hero_title'] = $details->title;
           //print_r($details); exit;
-	    }
+        }
       }
       break;
   }
