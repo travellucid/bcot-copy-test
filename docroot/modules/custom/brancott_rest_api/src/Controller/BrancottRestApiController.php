@@ -34,7 +34,9 @@ class BrancottRestApiController extends ControllerBase {
     else {
 //      print "here";
 //      exit;
+      //http://brancottvanilla.dev.dd:8083/sample.json
       $response = brancott_rest_api_reponse('http://gateway.pernod-ricard-winemakers.com/v2/brancott%20estate/' . $locale . '/wines/' . $wine_id . '/en');
+      //$response = brancott_rest_api_reponse('http://brancottvanilla.dev.dd:8083/sample.json');
     }
     if ($response) {
 //      print_r($response);
