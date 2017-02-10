@@ -1,0 +1,110 @@
+{
+  "id": 1,
+  "slug": "brancott-estate-marlborough-sauvignon-blanc",
+  "range": "Brancott Estate",
+  "title": "Marlborough Sauvignon Blanc",
+  "wineType": "White",
+  "grapeVariety": "Sauvignon Blanc",
+  "foodMatch": "Fish:Grilled seafood, International cuisine:Mediterranean dishes",
+  "region": "",
+  "description": "We where first to sow Sauvignon Blanc vibes in Martlborough - a varietl that went on to become the world's favourie New Zealand wine style. See why the original is still the best",
+  "colour": "",
+  "aroma": "This wine has a deep, ruby red hue and a fragrant bouquet of strawberry, blackberry and dark cherry overlaid with integrated oak spice.",
+  "taste": "The palate shows ripe, dark berry fruit and cherry flavours with lingering fruit sweetness. Tannins are soft and supple, making the wine immediately approachable.",
+  "complement": "This wine is best enjoyed with succulent red meat dishes, such as spring lamb, duck, veal or game. Dishes featuring mushrooms or red berry fruits will also complement this Pinot Noir beautifully",
+  "displayOrder": "10",
+  "timestamp": "07/02/2017 04:31",
+  "wineVintages": [],
+  "wineAwards": [
+    {
+      "awardId": 15,
+      "vintageId": "139",
+      "vintage": "2013",
+      "year": "2015",
+      "type": "Silver",
+      "awardedClass": "",
+      "awardedAt": "International Wine & Spirit Competition",
+      "title": "",
+         "date": "09/02/2017",
+         "description":"",
+         "otherNote":""
+       }, 
+	   {
+      "awardId": 16,
+      "vintageId": "139",
+      "vintage": "2013",
+      "year": "2015",
+      "type": "Silver",
+      "awardedClass": "",
+      "awardedAt": "International Wine & Spirit Competition",
+      "title": "",
+         "date": "09/02/2017",
+         "description":"",
+         "otherNote":""
+       },
+	   {
+      "awardId": 17,
+      "vintageId": "139",
+      "vintage": "2013",
+      "year": "2015",
+      "type": "Silver",
+      "awardedClass": "",
+      "awardedAt": "International Wine & Spirit Competition",
+      "title": "",
+         "date": "09/02/2017",
+         "description":"",
+         "otherNote":""
+       },
+	   {
+      "awardId": 18,
+      "vintageId": "139",
+      "vintage": "2013",
+      "year": "2015",
+      "type": "Silver",
+      "awardedClass": "",
+      "awardedAt": "International Wine & Spirit Competition",
+      "title": "",
+         "date": "09/02/2017",
+         "description":"",
+         "otherNote":""
+       }
+  ],
+  "wineNutritional": [
+    {
+      "id": 25,
+      "vintage": "2016",
+      "alcohol": "13.5",
+      "calories": "120.9",
+      "fat": "0",
+      "saturates": "0",
+      "carbohydrates": "1.620",
+      "sugars": "0.570",
+      "proteins": "0.015",
+      "timestamp": "11/01/2017 05:01"
+    },
+	{
+      "id": 24,
+      "vintage": "2015",
+      "alcohol": "13.5",
+      "calories": "120.9",
+      "fat": "0",
+      "saturates": "0",
+      "carbohydrates": "1.620",
+      "sugars": "0.570",
+      "proteins": "0.015",
+      "timestamp": "11/01/2017 05:01"
+    },
+	{
+      "id": 23,
+      "vintage": "2014",
+      "alcohol": "13.5",
+      "calories": "120.9",
+      "fat": "0",
+      "saturates": "0",
+      "carbohydrates": "1.620",
+      "sugars": "0.570",
+      "proteins": "0.015",
+      "timestamp": "11/01/2017 05:01"
+    }
+  ]
+}
