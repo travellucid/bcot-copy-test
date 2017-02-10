@@ -74,6 +74,3 @@ setTimeout(function() {
 }, 200);
 
 sapient.carousel.resize();
-/*
-sapient.carousel.toggleCarouselArrow("#carousel-our-story");
-sapient.carousel.toggleCarouselArrow("#carousel-our-wines");*/
