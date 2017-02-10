@@ -1,42 +1,46 @@
 <?php
+
 /**
  * @file
  * Bootstrap sub-theme.
  *
  * Place your custom PHP code in this file.
  */
-
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
-    $view_id = $variables['view']->storage->id();
-    switch ($view_id) {
-	
-	case 'homepage_components':
-	    if($variables['view']->current_display == 'common_hero_component') {
-			if ($variables['row']->_entity->field_season_description) { 
-			$values = $variables['row']->_entity->field_season_description->getValue();
-			$city = $variables['row']->_entity->field_city->value;
-			
-			$month = date('n');
-			if (!empty($values[$month - 1])) {
-				$variables['season_desc'] = $values[$month - 1]['value'];
-			} else {
-				$variables['season_desc'] = '';
-			}
-			$owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
-			$weather = $owm->getWeather($city, 'metric');
-			$variables['temp_icon'] = $weather->weather->getIconUrl();
-			$variables['current_temp'] = html_entity_decode($weather->temperature->now);
-			$variables['temp_unit'] = $weather->temperature->getUnit();
-			$variables['current_date'] = date('d M Y / g:ia');
-			}
-		}
-	case 'wines_hero_component':
-	    if($variables['view']->current_display == 'wines_hero_component') {
-		
-		}
-	    break;
-    }
+  $view_id = $variables['view']->storage->id();
+  switch ($view_id) {
+
+    case 'homepage_components':
+      if ($variables['view']->current_display == 'common_hero_component') {
+        //$details = braoncott_rest_api_get_results(4);
+        //print_r($details); exit;
+        if ($variables['row']->_entity->field_season_description) {
+          $values = $variables['row']->_entity->field_season_description->getValue();
+          $city = $variables['row']->_entity->field_city->value;
+
+          $month = date('n');
+          if (!empty($values[$month - 1])) {
+            $variables['season_desc'] = $values[$month - 1]['value'];
+          }
+          else {
+            $variables['season_desc'] = '';
+          }
+          $owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
+          $weather = $owm->getWeather($city, 'metric');
+          $variables['temp_icon'] = $weather->weather->getIconUrl();
+          $variables['current_temp'] = html_entity_decode($weather->temperature->now);
+          $variables['temp_unit'] = $weather->temperature->getUnit();
+          $variables['current_date'] = date('d M Y / g:ia');
+        }
+      }
+    case 'wines_hero_component':
+      if ($variables['view']->current_display == 'wines_hero_component') {
+        //$details = braoncott_rest_api_get_results(2);
+        //print_r($details); exit;
+      }
+      break;
+  }
 }
