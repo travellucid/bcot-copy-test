@@ -67,6 +67,7 @@ a {
     }
   }
   &.img-left {
+  	left: 68px;
   	.content-wrapper {
     	/*padding-right: 53px;*/
     	position: relative;
@@ -79,6 +80,7 @@ a {
     }
   }
   &.img-right {
+  	right: 167px;
   	.content-wrapper {
     	/*padding-left: 53px;*/
     	position: relative;
@@ -92,17 +94,9 @@ a {
     }
   }
 }
-.img-left {
-	/*margin-left: 24%;*/
-	left: 68px;
-}
-
-.img-right {
-	/*margin-right: 26%;*/
-	right: 167px;
-}
 
 @media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+	#tours-and-experience {
 	.desktop-only {
 	    display: none !important;
 	  }
@@ -165,11 +159,14 @@ a {
   }
 }
 }
+}
 
 @media screen and (max-width: @bp-max-mobile) {
-  a {
-    min-width: 170px;
-  }
+	#tours-and-experience {
+	  a {
+	    min-width: 170px;
+	  }
+	}
 }
 
 @media screen and (min-width: 991px) {
