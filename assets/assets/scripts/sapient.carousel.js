@@ -27,7 +27,7 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 			positionCarouselIndicator = function() {
-				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-20 + "px");
+				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
