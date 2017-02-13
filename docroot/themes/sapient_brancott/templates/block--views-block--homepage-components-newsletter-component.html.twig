@@ -55,7 +55,7 @@
   ]
 %}
 <!-- adding a new unique id for front end functionality -->
-<section id = {{ 'block-' ~ plugin_id }} {{ attributes.addClass(classes) }}>
+<div id = {{ 'block-' ~ plugin_id }} {{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
@@ -65,5 +65,5 @@
   {% block content %}
     {{ content }}
   {% endblock %}
-</section>
+</div>
 
