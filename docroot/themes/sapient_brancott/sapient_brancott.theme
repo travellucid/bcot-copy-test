@@ -58,8 +58,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         if ($variables['row']->_entity->field_wine_id) {
           $wine_id = $variables['row']->_entity->field_wine_id->value;
           $details = braoncott_rest_api_get_results($wine_id);
+		  $variables['wine_award'] = $details->wineAwards;
 		  //print_r($details->wineAwards);exit;
-          $variables['wine_award'] = $details->wineAwards;
         }
       }
       break;
