@@ -5,30 +5,18 @@ var followUsObj = (function($, window, sapient) {
 	function createInstagramInstance() {
 
 		var setInstagramDimensions = function() {
-			var windowWidth = $(window).width();
-			if (windowWidth > 1600) {
-				$(".follow-us-text .text-wrapper").height("auto");
-			}
-			if (windowWidth > 979 && windowWidth < 1600) {
-				var heightImages = $(".inner-wrapper .image-link").height();
-				$(".follow-us-text .text-wrapper").height(heightImages);
-
-				$(".follow-us-text .text-wrapper").height("auto");
-			}
-			else if (windowWidth > 767  && windowWidth < 979) {
-				var heightImages = $(".inner-wrapper .image-link").height();
-				$(".follow-us-text .text-wrapper").height(heightImages*2);
-				$(".follow-us-text .text-wrapper").width(100+'%');
+			var instaGallery = $("#follow-us #gallery").innerHeight();
+			if($(window).width() < 768 ) {
+				$("#follow-us #content").innerHeight(instaGallery);
 			}
 			else {
-				$(".follow-us-text .text-wrapper").height(320);
+				$("#follow-us #content").innerHeight('auto');
 			}
 		},
 
 		onResize = function() {
 			$(window).on('resize', function () {
-				debounce(sapient.footer.setInstagramDimensions,500,"resizing instagram");
-				/*sapient.footer.setFooterDdownPos();*/
+				debounce(sapient.followUs.setInstagramDimensions,500,"resizing instagram");
 			});
 		};
 
@@ -51,7 +39,7 @@ var followUsObj = (function($, window, sapient) {
 
 })(jQuery, window, sapient);
 
-sapient.footer = followUsObj.getInstance();
+sapient.followUs = followUsObj.getInstance();
 
-/*sapient.footer.setInstagramDimensions();
-sapient.footer.onResize();*/
+sapient.followUs.setInstagramDimensions();
+sapient.followUs.onResize();
