@@ -35,7 +35,7 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 		$form['#validate'][] = 'character_limitation_header_menu';
 	}
 	if($form_id == 'node_vineyard_edit_form' or $form_id == 'node_vineyard_form' ){
-		$form['#validate'][] = 'character_limitation_vineyard';
+		$form['#validate'][] = 'character_limitation_vineyard_page';
 	}
 	if($form_id == 'node_tours_and_experiences_edit_form' or $form_id == 'node_tours_and_experiences_form' ){
 		$form['#validate'][] = 'character_limitation_tours_and_experiences';
@@ -58,7 +58,7 @@ function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInter
 }
 
 
-function character_limitation_vineyard($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   
   $values = $form_state->getValues();
   $referred_comp = count($values['field_referred_content']);
