@@ -36,7 +36,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("max-height",maxHeight);
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight);
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -82,5 +82,7 @@ sapient.carousel.enableTouchCarousel("#carousel-new-story");
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
 }, 200);
-sapient.carousel.setHeight();
+setTimeout(function() {
+	sapient.carousel.setHeight();
+}, 200);
 sapient.carousel.resize();
