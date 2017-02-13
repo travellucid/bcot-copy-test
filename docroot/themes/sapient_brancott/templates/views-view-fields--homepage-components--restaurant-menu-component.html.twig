@@ -1,19 +1,29 @@
- <div class="section-class img-left">
-	<div class="image-wrapper">
+ <div class="section-class img-right">
+	<div class="image-wrapper mobile-only">
 			<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_hero_right_side_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_hero_right_side_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_hero_right_side_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}" class="background-image"> 
-				<img src="{{ fields.field_hero_right_side_image.content }}" alt="a cute kitten">
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_menu_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_menu_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_menu_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_menu_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_menu_image.content }}" alt="a cute kitten">
 			</picture>
-		</div>
+	</div>
 	 <div class="content-wrapper">
-	   <h2 class="header_sect">{{ fields.field_our_story_headline.content }}</h2>
-	   <p class="tagline">{{ fields.field_our_wine_description.content }}</p>
-	   <p class="cta-title">{{ 'À la carte'|t }}</p>
-	   <a href="{{ fields.field_menu_pdf_file.content }}" class="cta secondary-green visit-all-wine">{{ 'DOWNLOAD AS PDF'|t }}</a>
-	   <p class="cta-title">{{ 'Tasting plates'|t }}</p>
-	   <a href="{{ fields.field_tasting_pdf.content }}" class="cta secondary-green visit-all-wine">{{ 'DOWNLOAD AS PDF'|t }}</a>
+	   <h2 class="header_sect">{{ fields.field_menu_title.content }}</h2>
+	   <p class="tagline">{{ fields.field_menu_description.content }}</p>
+	   <p class="cta-title">{{ fields.field_menu_pdf_title.content }}</p>
+	   <a href="{{ fields.field_menu_pdf_file.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_menu_cta_text.content }}</a>
+	   <p class="cta-title">{{ fields.field_tasting_pdf_title.content }}</p>
+	   <a href="{{ fields.field_tasting_pdf.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_tasting_pdf_text.content }}</a>
+	 </div>
+	<div class="image-wrapper desktop-only">
+	<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_menu_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_menu_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_menu_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_menu_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_menu_image.content }}" 
+				alt="a cute kitten">
+			</picture>
 	 </div>
 </div>

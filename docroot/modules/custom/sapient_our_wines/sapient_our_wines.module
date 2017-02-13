@@ -21,7 +21,7 @@ function sapient_our_wines_theme($existing, $type, $theme, $path) {
 }
 
 function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
-	
+	//print_r($form_id);die('test1');
 	if($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form' ){
 		$form['#validate'][] = 'character_limitation_homepage';
 	}
@@ -35,14 +35,30 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 		$form['#validate'][] = 'character_limitation_header_menu';
 	}
 	if($form_id == 'node_vineyard_edit_form' or $form_id == 'node_vineyard_form' ){
-		$form['#validate'][] = 'character_limitation_vineyard';
+		$form['#validate'][] = 'character_limitation_vineyard_page';
 	}
 	if($form_id == 'node_tours_and_experiences_edit_form' or $form_id == 'node_tours_and_experiences_form' ){
 		$form['#validate'][] = 'character_limitation_tours_and_experiences';
-	}	
+	}
+	if($form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form' ){
+		
+		$form['#validate'][] = 'character_limitation_restaurant';
+	}
 }
 
-function character_limitation_vineyard($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+ 
+  $values = $form_state->getValues();
+  $menu_description = strlen($values['field_menu_description'][0]['value']);
+  
+  
+   if ($menu_description > 200){
+    $form_state->setErrorByName('field_menu_description','Max length for this field is 200 characters.');
+  }
+}
+
+
+function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   
   $values = $form_state->getValues();
   $referred_comp = count($values['field_referred_content']);
@@ -169,13 +185,25 @@ function character_limitation_tours_and_experiences($form, \Drupal\Core\Form\For
   $rezdy_comp = count($values['field_rezdy_block_collection']);
   for ($x = 0; $x <= $rezdy_comp; $x++) {
     $rezdy_desc[] = $values['field_rezdy_block_collection'][$x]['field_rezdy_block_description'][0]['value'];
-  //print_r($values['field_rezdy_block_collection'][$x]['field_rezdy_block_description'][0]['value']);exit;
+	$rezdy_costs[] = $values['field_rezdy_block_collection'][$x]['field_rezdy_block_cost'][0]['value'];
+	$rezdy_availabilities[] = $values['field_rezdy_block_collection'][$x]['field_rezdy_block_availability'][0]['value'];
   foreach($rezdy_desc as $rezdy_des){
 	  if (strlen($rezdy_des) > 30){
     
     $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_description', 'Max length for this field is 30 characters.');
    }
-
+  }
+  foreach($rezdy_costs as $rezdy_cost){
+	  if (strlen($rezdy_cost) > 30){
+    
+    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_cost', 'Max length for this field is 30 characters.');
+   }
+  }
+  foreach($rezdy_availabilities as $rezdy_availability){
+	  if (strlen($rezdy_availability) > 30){
+    
+    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_availability', 'Max length for this field is 30 characters.');
+   }
   }
   }
 }

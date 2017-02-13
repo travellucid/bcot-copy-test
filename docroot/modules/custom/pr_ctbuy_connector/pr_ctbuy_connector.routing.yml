@@ -1,0 +1,8 @@
+pr_ctbuy_connector.simple_form:
+  path: 'admin/config/prctbuyconnector'
+  defaults:
+    _form:  '\Drupal\pr_ctbuy_connector\Form\SimpleForm'
+    _title: 'Click to Buy Connector - Configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
