@@ -37,7 +37,9 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 	if($form_id == 'node_vineyard_edit_form' or $form_id == 'node_vineyard_form' ){
 		$form['#validate'][] = 'character_limitation_vineyard';
 	}
-	
+	if($form_id == 'node_tours_and_experiences_edit_form' or $form_id == 'node_tours_and_experiences_form' ){
+		$form['#validate'][] = 'character_limitation_tours_and_experiences';
+	}	
 }
 
 function character_limitation_vineyard($form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -161,7 +163,22 @@ function character_limitation_homepage($form, \Drupal\Core\Form\FormStateInterfa
   }
 }
 
+function character_limitation_tours_and_experiences($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
 
+  $rezdy_comp = count($values['field_rezdy_block_collection']);
+  for ($x = 0; $x <= $rezdy_comp; $x++) {
+    $rezdy_desc[] = $values['field_rezdy_block_collection'][$x]['field_rezdy_block_description'][0]['value'];
+  //print_r($values['field_rezdy_block_collection'][$x]['field_rezdy_block_description'][0]['value']);exit;
+  foreach($rezdy_desc as $rezdy_des){
+	  if (strlen($rezdy_des) > 30){
+    
+    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_description', 'Max length for this field is 30 characters.');
+   }
+
+  }
+  }
+}
 
 //function sapient_our_wines_entity_translation_delete(\Drupal\Core\Entity\EntityInterface $translation) {
   //echo "<pre>";print_r(debug_backtrace());die('test');
