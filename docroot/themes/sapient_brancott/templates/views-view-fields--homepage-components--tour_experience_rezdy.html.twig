@@ -1,28 +1,4 @@
 {% if (fields.counter.content == "1") %}
-<div class="section-class img-left">
-	<div class="image-wrapper">
-		<picture>
-				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
-				<source  media="(max-width: 691px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">
-				<source  media="(max-width: 769px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image">  
-				<source  media="(max-width: 1281px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image"> 
-				<img src="{{ fields.field_rezdy_block_image.content }}" 
-				alt="a cute kitten">
-			</picture>
-		</div>
-	 <div class="content-wrapper">
-	   <h2 class="header_sect">{{ fields.field_rezdy_block_heading.content }}</h2>
-	   <p class="tagline">{{ fields.field_rezdy_block_description.content }}</p>
-			<h3>{{ 'Duration'|t }}</h3>
-			<p class="tagline">{{ fields.field_rezdy_block_duration.content }}</p>
-	   <h3>{{ 'Availability'|t }}</h3>
-			<p class="tagline">{{ fields.field_rezdy_block_availability.content }}</p>
-			<h3>{{ 'Cost'|t }}</h3>
-			<p class="tagline">{{ fields.field_rezdy_block_cost.content }}</p>
-	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
-	 </div>
-</div>
-{% elseif (fields.counter.content == "2") %}
 <div class="section-class img-right">
 	 <div class="image-wrapper mobile-only">
 	<picture>
@@ -56,10 +32,10 @@
 			</picture>
 	 </div>
 	</div>
-	{% elseif (fields.counter.content == "3") %}
+{% elseif (fields.counter.content == "2") %}
 <div class="section-class img-left">
 	<div class="image-wrapper">
-			<picture>
+		<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">
 				<source  media="(max-width: 769px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image">  
@@ -71,7 +47,7 @@
 	 <div class="content-wrapper">
 	   <h2 class="header_sect">{{ fields.field_rezdy_block_heading.content }}</h2>
 	   <p class="tagline">{{ fields.field_rezdy_block_description.content }}</p>
-	   <h3>{{ 'Duration'|t }}</h3>
+			<h3>{{ 'Duration'|t }}</h3>
 			<p class="tagline">{{ fields.field_rezdy_block_duration.content }}</p>
 	   <h3>{{ 'Availability'|t }}</h3>
 			<p class="tagline">{{ fields.field_rezdy_block_availability.content }}</p>
@@ -80,7 +56,7 @@
 	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
 	 </div>
 </div>
-{% elseif (fields.counter.content == "4") %}
+	{% elseif (fields.counter.content == "3") %}
 <div class="section-class img-right">
 	 <div class="image-wrapper mobile-only">
 	<picture>
@@ -114,8 +90,9 @@
 			</picture>
 	 </div>
 	</div>
-	{% elseif (fields.counter.content == "5") %}
-	<div class="section-class img-left">
+	
+{% elseif (fields.counter.content == "4") %}
+<div class="section-class img-left">
 	<div class="image-wrapper">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
@@ -131,11 +108,45 @@
 	   <p class="tagline">{{ fields.field_rezdy_block_description.content }}</p>
 	   <h3>{{ 'Duration'|t }}</h3>
 			<p class="tagline">{{ fields.field_rezdy_block_duration.content }}</p>
-			<h3>{{ 'Availability'|t }}</h3>
+	   <h3>{{ 'Availability'|t }}</h3>
 			<p class="tagline">{{ fields.field_rezdy_block_availability.content }}</p>
 			<h3>{{ 'Cost'|t }}</h3>
 			<p class="tagline">{{ fields.field_rezdy_block_cost.content }}</p>
 	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
 	 </div>
 </div>
+	{% elseif (fields.counter.content == "5") %}
+<div class="section-class img-right">
+	 <div class="image-wrapper mobile-only">
+	<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_rezdy_block_image.content }}" 
+				alt="a cute kitten">
+			</picture>
+	 </div>
+	 <div class="content-wrapper">
+	   <h1 class="header_sect">{{ fields.field_rezdy_block_heading.content }}</h1>
+	   <p class="tagline">{{ fields.field_rezdy_block_description.content }}</p>
+	   <h3>{{ 'Duration'|t }}</h3>
+			<p class="tagline">{{ fields.field_rezdy_block_duration.content }}</p>
+	   <h3>{{ 'Availability'|t }}</h3>
+			<p class="tagline">{{ fields.field_rezdy_block_availability.content }}</p>
+			<h3>{{ 'Cost'|t }}</h3>
+			<p class="tagline">{{ fields.field_rezdy_block_cost.content }}</p>
+	   <a href="{{ fields.field_find_.content }}" class="cta dark watch-video">{{ 'FIND OUT MORE'|t }}</a>
+	 </div>
+	 <div class="image-wrapper desktop-only">
+	 <picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_rezdy_block_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_rezdy_block_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_rezdy_block_image.content }}" 
+				alt="a cute kitten">
+			</picture>
+	 </div>
+	</div>
 {% endif %}
