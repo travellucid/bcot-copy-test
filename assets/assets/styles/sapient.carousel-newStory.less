@@ -31,19 +31,19 @@
 			width: auto;
 			background: none;
 			.prev-carousal {
-				left: 0;
+				left: -14px;
 				opacity: 0;
 				border-bottom: 50px solid transparent;
 				border-left: 50px solid white;
 				border-top: 50px solid transparent;
 				height: 0;
-				.centerY();
-				width: 0;
 				margin: 0;
-				top: 40%;
+				top: 40% !important;
+				width: 0;
 				&:after {
 					content: "";
 				}
+				.centerY();
 			}
 
 			.next-carousal {
@@ -52,11 +52,11 @@
 				border-right: 50px solid white;
 				border-top: 50px solid transparent;
 				height: 0;
-				.centerY();
-				width: 0;
 				margin: 0;
-				right: 0;
-				top: 40%;
+				right: -14px;
+				top: 40% !important;
+				width: 0;
+				.centerY();
 			}
 			.glyphicon-right {
 				background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
@@ -85,13 +85,13 @@
 			.carousel-control {
 				opacity: 1;
 				.prev-carousal {
-					left: 14px;
+					left: 0;
 					opacity: 1;
 					.transition(all 0.5s ease-in-out);
 				}
 				.next-carousal {
 					opacity: 1;
-					right: 14px;
+					right: 0;
 					.transition(all 0.5s ease-in-out);
 				}
 			}
