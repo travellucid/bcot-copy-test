@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>13d</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brancott-Weather-Icons" transform="translate(-466.000000, -724.000000)" stroke-linecap="round" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round">
+            <g id="13d" transform="translate(467.000000, 725.000000)">
+                <path d="M20,0 L20,40" id="Stroke-1"></path>
+                <polyline id="Stroke-3" points="25 0 20 6 15 0"></polyline>
+                <polyline id="Stroke-5" points="15 40 20 34 25 40"></polyline>
+                <path d="M40,20 L0,20" id="Stroke-7"></path>
+                <polyline id="Stroke-9" points="40 25 34 20 40 15"></polyline>
+                <polyline id="Stroke-11" points="0 15 6 20 0 25"></polyline>
+                <path d="M34.1,5.9 L5.9,34.1" id="Stroke-13"></path>
+                <polyline id="Stroke-15" points="37.7 9.4 29.9 10.1 30.6 2.3"></polyline>
+                <polyline id="Stroke-17" points="2.3 30.6 10.1 29.9 9.4 37.7"></polyline>
+                <path d="M34.1,34.1 L5.9,5.9" id="Stroke-19"></path>
+                <polyline id="Stroke-21" points="30.6 37.7 29.9 29.9 37.7 30.6"></polyline>
+                <polyline id="Stroke-23" points="9.4 2.3 10.1 10.1 2.3 9.4"></polyline>
+            </g>
+        </g>
+        <g id="Artboard" transform="translate(-667.000000, -1655.000000)"></g>
+    </g>
+</svg>
