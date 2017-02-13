@@ -1,0 +1,19 @@
+<div> {{ fields.field_award_title.content }} </div>
+			<picture>
+				<source  media="(max-width: 321px)" srcset="{{ fields.field_award_image_1.content }}" class="background-image">   
+				<source  media="(max-width: 691px)" srcset="{{ fields.field_award_image_1.content }}" class="background-image">
+				<source  media="(max-width: 769px)" srcset="{{ fields.field_award_image.content }}" class="background-image">  
+				<source  media="(max-width: 1281px)" srcset="{{ fields.field_award_image.content }}" class="background-image"> 
+				<img src="{{ fields.field_award_image.content }}" alt="Award Image">
+			</picture>
+
+{% for items in wine_award %} 
+type: {{ items.type }} <br/>
+awardedAt: {{ items.awardedAt }} <br/>
+year: {{ items.year }} <br/>
+vintage: {{ items.vintage }} <br/>
+   {% for items in items %}
+      year: {{ item.year }}
+   {% endfor %}
+ {% endfor %}
+
