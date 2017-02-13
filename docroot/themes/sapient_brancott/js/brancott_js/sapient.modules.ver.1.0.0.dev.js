@@ -84,7 +84,7 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 			positionCarouselIndicator = function() {
-				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-20 + "px");
+				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -195,7 +195,7 @@ var headerObj = (function($, window, sapient) {
 			$(document).on("click", ".menu > .menu-item .expand-icon", function(e) {
 				console.log($(this).parents("a").text());
 				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));
-				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading span.text").text($(this).parents("a").text());
+				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading span.text").text($(this).parents("a").text().trim());
 			});
 		};
 
