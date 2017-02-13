@@ -185,13 +185,25 @@ function character_limitation_tours_and_experiences($form, \Drupal\Core\Form\For
   $rezdy_comp = count($values['field_rezdy_block_collection']);
   for ($x = 0; $x <= $rezdy_comp; $x++) {
     $rezdy_desc[] = $values['field_rezdy_block_collection'][$x]['field_rezdy_block_description'][0]['value'];
-  //print_r($values['field_rezdy_block_collection'][$x]['field_rezdy_block_description'][0]['value']);exit;
+	$rezdy_costs[] = $values['field_rezdy_block_collection'][$x]['field_rezdy_block_cost'][0]['value'];
+	$rezdy_availabilities[] = $values['field_rezdy_block_collection'][$x]['field_rezdy_block_availability'][0]['value'];
   foreach($rezdy_desc as $rezdy_des){
 	  if (strlen($rezdy_des) > 30){
     
     $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_description', 'Max length for this field is 30 characters.');
    }
-
+  }
+  foreach($rezdy_costs as $rezdy_cost){
+	  if (strlen($rezdy_cost) > 30){
+    
+    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_cost', 'Max length for this field is 30 characters.');
+   }
+  }
+  foreach($rezdy_availabilities as $rezdy_availability){
+	  if (strlen($rezdy_availability) > 30){
+    
+    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_availability', 'Max length for this field is 30 characters.');
+   }
   }
   }
 }
