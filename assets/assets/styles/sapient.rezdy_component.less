@@ -110,6 +110,9 @@ p {
 }
 
 @media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+    .cta {
+      margin-bottom: -40px;
+    }
   .desktop-only {
       display: none !important;
     }
@@ -121,12 +124,26 @@ p {
       right: 0;
     }
   .section-class {
+    margin-left: 15px;
+    margin-right: 15px;
     background-color: transparent;
     display: block;
     padding: 0;
     text-align: center;
     .header-cta-wrapper {
       margin-top: 0;
+    }
+    .tagline {
+      position: relative;
+      top: 10px;
+    }
+    .cta {
+      position: relative;
+      top: 10px;
+    }
+    h3 {
+      position: relative;
+      top: 10px;
     }
     .image-wrapper {
       display: block;
@@ -139,13 +156,14 @@ p {
     .header_sect {
       padding-top: 15px;
       width: 100%;
+      position: relative;
+      top: 15px;
     }
     .content-wrapper {
       padding: 0;
       display: block;
       width: 100%;
       background-color: #ffffff;
-      padding-bottom: 30px;
     }
     &.img-left {
       .content-wrapper {

@@ -83,12 +83,12 @@ footer {
 						a {
 							&::after {
 								background-image: url("@{background-icons-path}BE_icon_new_window.svg");
-								background-size: 15px;
+								background-size: 13px;
 								content: "";
-								height: 15px;
+								height: 13px;
 								position: absolute;
 								right: -25px;
-								width: 15px;
+								width: 13px;
 							}
 						}
 					}
@@ -158,6 +158,9 @@ footer {
 		line-height: 26px;
 		margin: 5px 0 95px 0;
 	}
+}
+li.wine-club {
+	display: none;
 }
 
 @media screen and (max-width: @bp-desktop-mlarge) {
@@ -233,7 +236,7 @@ footer {
 			nav {
 				max-width: 100%;
 				ul {
-					margin: 40px 0;
+					margin: 40px 0 33px;
 					li {
 						margin-right: 28px;
 						&:last-child {
@@ -244,6 +247,22 @@ footer {
 			}
 		}
 	}
+	li.wine-club {
+		display: block;
+		a {
+			&::after {
+				background-image: url("@{background-icons-path}BE_icon_new_window.svg");
+				background-size: 13px;
+				content: "";
+				height: 13px;
+				width: 13px;
+				position: absolute;
+				right: 28%;
+				top: 34%;
+			}
+		}
+	}
+
 }
 
 @media screen and (max-width: @bp-min-mobile) {

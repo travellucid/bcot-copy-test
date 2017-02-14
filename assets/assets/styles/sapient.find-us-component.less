@@ -1,0 +1,101 @@
+@import "sapient.variables-mixins.less";
+*{ box-sizing: border-box; }
+
+#find-us-component {
+	.container{
+	  position: relative;
+	  width: 100%;
+	  margin: 0 auto;
+	}
+	
+	.map{
+	    height: auto;
+	    position: relative;
+	    display: block;
+	}
+	#map-overlay { 
+		padding: 50px 0;
+	    position: relative; 
+	    width: 100%;
+	    margin: 0 auto;
+	    background: white;
+	    display: block;
+	    vertical-align: middle;
+	    margin-bottom: -20px;
+	}
+	h2{
+	  font-family: "NeutraText Bold";
+	  postion: relative;
+	  text-align: center;
+	  text-transform: uppercase;
+	  font-size: 28px;
+	  font-weight: bold;
+	  font-style: normal;
+	  font-stretch: normal;
+	  line-height: 38px;
+	  letter-spacing: normal;
+	  color: #3e464b;
+	  margin-bottom: -10px;
+	}
+	h3{
+	  font-family: "NeutraText Bold";
+	  postion: relative;
+	  text-align: center;
+	  text-transform: uppercase;
+	  font-size: 14px;
+	  font-weight: bold;
+	  font-style: normal;
+	  font-stretch: normal;
+	  line-height: 24px;
+	  letter-spacing: normal;
+	  color: #3e464b;
+	  margin-bottom: 5px;
+	  margin-top: 30px;
+	}
+	p{
+	  postion: relative;
+	  font-family: "NeutraText Book";
+	  font-size: 16px;
+	  font-weight: normal;
+	  font-style: normal;
+	  font-stretch: normal;
+	  line-height: 26px;
+	  letter-spacing: normal;
+	  text-align: center;
+	  color: #3e464b;
+	  margin-bottom: -5px;
+	}
+	.google-map-field {
+		.map-container {
+			width: 100%;
+			min-width: 320px;
+			height: 100%;
+			min-height: 320px;
+		}
+	}
+}
+@media screen and (min-width: 990px) {
+	.google-map-field {
+		.map-container {
+			width: 1600px !important;
+			height: 685px !important;
+		}
+	}
+	.container {
+		display: table;
+		text-align: center;
+	}
+	#find-us-component {
+		#map-overlay { 
+			position: absolute;
+			top: 50%;
+  			transform: translateY(-50%);
+			text-align: center;
+	        left: 50px; 
+	        width: 35%;
+	        height: auto;
+	        z-index: 1;
+	        margin-bottom: 0;
+		}
+	}
+}

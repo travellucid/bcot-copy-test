@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "brancott-estate",
+    "title": "Brancott Estate",
+    "strapline": "Our most popular varieties",
+    "description": "Description",
+    "displayOrder": "1",
+    "timestamp": "07/02/2017 06:14"
+  },
+  {
+    "slug": "flight",
+    "title": "Flight",
+    "strapline": "",
+    "description": "",
+    "displayOrder": "2",
+    "timestamp": "04/01/2017 04:12"
+  },
+  {
+    "slug": "flight-song",
+    "title": "Flight Song",
+    "strapline": "",
+    "description": "",
+    "displayOrder": "3",
+    "timestamp": "04/01/2017 04:12"
+  },
+  {
+    "slug": "living-land-series",
+    "title": "Living Land Series",
+    "strapline": "",
+    "description": "",
+    "displayOrder": "4",
+    "timestamp": "04/01/2017 04:13"
+  },
+  {
+    "slug": "terroir-series",
+    "title": "Terroir Series",
+    "strapline": "",
+    "description": "",
+    "displayOrder": "5",
+    "timestamp": "04/01/2017 04:13"
+  },
+  {
+    "slug": "showcase-series",
+    "title": "Showcase Series",
+    "strapline": "",
+    "description": "",
+    "displayOrder": "6",
+    "timestamp": "04/01/2017 04:13"
+  },
+  {
+    "slug": "letter-series",
+    "title": "Letter Series",
+    "strapline": "",
+    "description": "",
+    "displayOrder": "7",
+    "timestamp": "04/01/2017 04:13"
+  },
+  {
+    "slug": "chosen-rows",
+    "title": "Chosen Rows",
+    "strapline": "",
+    "description": "",
+    "displayOrder": "8",
+    "timestamp": "04/01/2017 04:13"
+  }
+]
