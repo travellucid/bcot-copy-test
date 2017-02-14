@@ -16,6 +16,7 @@ use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Template\TwigEnvironment;
 use Drupal\brancott_rest_api\Controller\BrancottRestApiControllerFilters;
+use Drupal\brancott_rest_api\Controller\BrancottRestApiControllerRanges;
 
 /**
  * Provides a 'filter_block' block.
@@ -38,6 +39,9 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
 			$rest_api = new BrancottRestApiControllerFilters;
             $values = $rest_api->getFilters();
 			//print_r($values);die;
+			$rest_api_ranges = new BrancottRestApiControllerRanges;
+            $values_ranges = $rest_api_ranges->getRanges();
+			//print_r($values_ranges);die('sallu');
 			$ranges = array();
 			$wine_types = array();
 			$varietals = array();
@@ -79,12 +83,23 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
 				}
 			}
 			
+			$range_title = array();
+			$range_strapline = array();
+			$range_description = array();
+			foreach($values_ranges as $values_range){
+				$range_title[] = $values_range->title;
+			    $range_strapline[] = $values_range->strapline;
+			    $range_description[] = $values_range->description;
+			}
 			
+			/*foreach($range_title as $rg_title){
+				
+			}*/
 			/*return array(
                     '#theme' => 'sapient_filter_block_template',
                     '#names' => $new_array,
 					
                     );*/
-			//print_r($new_array);die;
+			//print_r($range_title);die;
     }	 
 }

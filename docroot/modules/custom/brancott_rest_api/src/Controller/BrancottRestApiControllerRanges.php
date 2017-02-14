@@ -34,7 +34,7 @@ class BrancottRestApiControllerRanges extends ControllerBase {
     }
     else {
      
-      $response = brancott_rest_api_reponse('http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sample1.json');
+      $response = brancott_rest_api_reponse('http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sampleranges.json');
     }
     if ($response) {
       //\Drupal::cache()->set($cid, $response);
@@ -48,7 +48,7 @@ class BrancottRestApiControllerRanges extends ControllerBase {
       // display the content in the middle section of the page
       
     }
-	print_r($response);die;
+	//print_r($response);die;
     return $data;
   }
 
