@@ -15,7 +15,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *   label = @Translation("Click to buy Console: CTA "),
  *   module = "pr_ctbuy_connector",
  *   description = @Translation("Create a call to action link based on a remote product on the click to buy console."),
- *   default_widget = "PrCtbuyConnectorWidget",
+ *   default_widget = "PrCtbuyConnectorWidget"
  *   default_formatter = "SimpleTextFormatter",
  * )
  */
