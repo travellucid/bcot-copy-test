@@ -13,7 +13,7 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   module = "pr_ctbuy_connector",
  *   label = @Translation("Default CTA - Click to buy"),
  *   field_types = {
- *     "pr_ctbuy_connector"
+ *     "remote_key"
  *   }
  * )
  */
