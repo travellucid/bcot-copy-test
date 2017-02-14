@@ -16,7 +16,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *   module = "pr_ctbuy_connector",
  *   description = @Translation("Create a call to action link based on a remote product on the click to buy console."),
  *   default_widget = "pr_ctbuy_connector",
- *   default_formatter = "pr_ctbuy_connector_simple_text"
+ *   default_formatter = "SimpleTextFormatter"
  * )
  */
  
