@@ -14,6 +14,7 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   label = @Translation("Default CTA - Click to buy"),
  *   field_types = {
  *     "remote_key"
+ *     "title"
  *   }
  * )
  */
