@@ -101,3 +101,11 @@ function braoncott_rest_api_get_results($wine_id) {
   $value = $rest_api->getProductDetails($wine_id);
   return $value;
 }
+
+
+function braoncott_rest_api_get_ranges() {
+  //print "aaaaaaaa"; exit;
+  $rest_api_ranges = new BrancottRestApiControllerRanges;
+  $value = $rest_api->getRanges();
+  return $value;
+}
