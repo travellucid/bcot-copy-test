@@ -5,3 +5,12 @@ products.details:
     _title: 'Get Product Details'
   requirements:
     _permission: 'access content'
+    
+    
+ranges.details:
+  path: '/get-range-details'
+  defaults:
+    _controller: '\Drupal\brancott_rest_api\Controller\BrancottRestApiControllerNew::getRanges'
+    _title: 'Get Range Details'
+  requirements:
+    _permission: 'access content'
