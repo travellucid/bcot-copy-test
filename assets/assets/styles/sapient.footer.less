@@ -158,9 +158,9 @@ footer {
 		line-height: 26px;
 		margin: 5px 0 95px 0;
 	}
-	.wine-club {
-		display: none;
-	}
+}
+li.wine-club {
+	display: none;
 }
 
 @media screen and (max-width: @bp-desktop-mlarge) {
@@ -247,12 +247,18 @@ footer {
 			}
 		}
 	}
-	.wine-club {
+	li.wine-club {
 		display: block;
 		a {
 			&::after {
-				right: -20px;
-				top: 3px;
+				background-image: url("@{background-icons-path}BE_icon_new_window.svg");
+				background-size: 13px;
+				content: "";
+				height: 13px;
+				width: 13px;
+				position: absolute;
+				right: 28%;
+				top: 34%;
 			}
 		}
 	}
