@@ -73,6 +73,14 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  $variables['tasting_notes_aroma'] = $details->aroma;
 		  $variables['tasting_notes_taste'] = $details->taste;
 		  $variables['tasting_notes_complement'] = $details->complement;
+		  $variables['wine_title'] = $details->title;
+		  $variables['nutritional_info_alcohol'] = $details->wineNutritional[0]->alcohol;
+		  $variables['nutritional_info_calories'] = $details->wineNutritional[0]->calories;
+		  $variables['nutritional_info_fat'] = $details->wineNutritional[0]->fat;
+		  $variables['nutritional_info_saturates'] = $details->wineNutritional[0]->saturates;
+		  $variables['nutritional_info_carbohydrates'] = $details->wineNutritional[0]->carbohydrates;
+		  $variables['nutritional_info_sugars'] = $details->wineNutritional[0]->sugars;
+		  $variables['nutritional_info_proteins'] = $details->wineNutritional[0]->proteins; 
         }
       }
       break;
