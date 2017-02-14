@@ -67,7 +67,7 @@ class RemotekeyAutocompleteController extends ControllerBase {
 
     $endpoint_url .= '/GetListForInstance/?instance=' . $instance . '&search=' . $string;
 
-    if ($string) {
+    if ($string && $use_curl) {
       //print $endpoint_url; exit;
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $endpoint_url);
@@ -84,6 +84,16 @@ class RemotekeyAutocompleteController extends ControllerBase {
       $error = curl_error($ch);
 
       curl_close($ch);
+      $data = json_decode($data);
+      foreach ($data as $key => $value) {
+        //print "aaaaa";
+        
+        $results[] = [
+          'value' => $value,
+          'label' => $key,
+        ];
+      }
+      //print_r($results); exit;
     }
     else {
 //      $options = array(
@@ -109,8 +119,10 @@ class RemotekeyAutocompleteController extends ControllerBase {
     }
     //$data = str_replace("world","Peter","Hello world!");
     //$data[] = ['value' => 'termvalue', 'label' => 'termname'];
-    print_r($data); exit;
-    return JsonResponse::create($data);
+    //print_r($data); exit;
+//    $data = json_decode($data);
+//    return JsonResponse::create($data);
+    return new JsonResponse($results);
   }
 
 }
