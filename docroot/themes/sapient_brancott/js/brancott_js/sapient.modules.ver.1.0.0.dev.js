@@ -93,7 +93,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("height",maxHeight);
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 30 + 'px');
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
