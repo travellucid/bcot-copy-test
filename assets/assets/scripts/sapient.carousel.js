@@ -29,6 +29,15 @@ var carouselObj = (function($, window, sapient) {
 			positionCarouselIndicator = function() {
 				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
+			setHeight =function() {
+				var heightArr = [],
+					maxHeight;
+				$.each($( "#carousel-new-story .carousel-inner .item" ) , function (index){
+				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
+				});
+				maxHeight = Math.max.apply(Math,heightArr);
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight);
+			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
 					function() {
@@ -49,6 +58,7 @@ var carouselObj = (function($, window, sapient) {
 			enableTouchCarousel: enableTouchCarousel,
 			toggleCarouselArrow: toggleCarouselArrow,
 			positionCarouselIndicator:positionCarouselIndicator,
+			setHeight:setHeight,
 			resize:resize
 		};
 	}
@@ -72,5 +82,7 @@ sapient.carousel.enableTouchCarousel("#carousel-new-story");
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
 }, 200);
-
+setTimeout(function() {
+	sapient.carousel.setHeight();
+}, 200);
 sapient.carousel.resize();

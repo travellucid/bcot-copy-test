@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="40px" viewBox="0 0 44 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>09n</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brancott-Weather-Icons" transform="translate(-546.000000, -548.000000)" stroke-linecap="round" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round">
+            <g id="09n" transform="translate(547.000000, 549.000000)">
+                <path d="M30.3,26.6 L26.6,37.1" id="Stroke-1"></path>
+                <path d="M25.3,26.6 L21.6,37.1" id="Stroke-3"></path>
+                <path d="M20.3,26.6 L16.6,37.1" id="Stroke-5"></path>
+                <path d="M15.3,26.6 L11.6,37.1" id="Stroke-7"></path>
+                <path id="Stroke-9"></path>
+                <path d="M32.5,30 C37.7,30 42,25.7 42,20.5 C42,17.3 40.4,14.5 38,12.7 L38,12 C38,5.4 32.6,0 26,0 C19.4,0 14,5.4 14,12 C14,13.2 14.2,14.4 14.5,15.5 C13,14 10.9,13 8.5,13 C3.8,13 0,16.8 0,21.5 C0,26.2 3.8,30 8.5,30" id="Stroke-11"></path>
+            </g>
+        </g>
+        <g id="Artboard" transform="translate(-747.000000, -1479.000000)"></g>
+    </g>
+</svg>
