@@ -7,10 +7,18 @@ products.details:
     _permission: 'access content'
     
     
-ranges.details:
+filter.details:
+  path: '/get-filter-details'
+  defaults:
+    _controller: '\Drupal\brancott_rest_api\Controller\BrancottRestApiControllerFilters::getFilters'
+    _title: 'Get Filter Details'
+  requirements:
+    _permission: 'access content'
+    
+range.details:
   path: '/get-range-details'
   defaults:
-    _controller: '\Drupal\brancott_rest_api\Controller\BrancottRestApiControllerNew::getRanges'
+    _controller: '\Drupal\brancott_rest_api\Controller\BrancottRestApiControllerRanges::getRanges'
     _title: 'Get Range Details'
   requirements:
     _permission: 'access content'
