@@ -158,10 +158,11 @@ footer {
 		line-height: 26px;
 		margin: 5px 0 95px 0;
 	}
+	.wine-club {
+		display: none;
+	}
 }
-.wine-club {
-	display: none;
-}
+
 @media screen and (max-width: @bp-desktop-mlarge) {
 	footer {
 		div.country-selector-wrapper {
@@ -246,15 +247,16 @@ footer {
 			}
 		}
 	}
-}
-.wine-club {
-	display: block;
-	a {
-		&::after {
-			right: -20px;
-			top: 3px;
+	.wine-club {
+		display: block;
+		a {
+			&::after {
+				right: -20px;
+				top: 3px;
+			}
 		}
 	}
+
 }
 
 @media screen and (max-width: @bp-min-mobile) {
