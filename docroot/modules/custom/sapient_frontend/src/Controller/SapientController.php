@@ -172,6 +172,21 @@ class SapientController extends ControllerBase {
         );
   
 }
+
+/**
+   * Dummy12.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function dummy12() {
+ $rendereddata = 'component12';
+        return array(
+          '#theme' => 'sapient_frontend-12',
+          '#arguments' => $rendereddata,
+        );
+  
+}
   /**
    * Main Header.
    *
