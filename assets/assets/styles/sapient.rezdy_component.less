@@ -1,7 +1,7 @@
 @import "sapient.variables-mixins.less";
 *{ box-sizing: border-box; }
 
-#restauran-menu-component {
+#tours-and-experience {
   .set-max-width(870px);
 .header_sect {
   font-family: "NeutraText Book";
@@ -110,6 +110,9 @@ p {
 }
 
 @media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+    .cta {
+      margin-bottom: -40px;
+    }
   .desktop-only {
       display: none !important;
     }
@@ -147,7 +150,6 @@ p {
       display: block;
       width: 100%;
       background-color: #ffffff;
-      padding-bottom: 30px;
     }
     &.img-left {
       .content-wrapper {
@@ -176,7 +178,7 @@ p {
 }
 
 @media screen and (max-width: @bp-max-mobile) {
-  #restauran-menu-component {
+  #tours-and-experience {
     a {
       min-width: 170px;
     }
@@ -184,7 +186,7 @@ p {
 }
 
 @media screen and (min-width: 991px) {
-  #restauran-menu-component {
+  #tours-and-experience {
     .mobile-only {
       display: none !important;
     }
