@@ -15,8 +15,8 @@ use Drupal\Core\TypedData\DataDefinition;
  *   label = @Translation("Click to buy Console: CTA "),
  *   module = "pr_ctbuy_connector",
  *   description = @Translation("Create a call to action link based on a remote product on the click to buy console."),
- *   default_widget = "pr_ctbuy_connector",
- *   default_formatter = "pr_ctbuy_connector_simple_text"
+ *   default_widget = "PrCtbuyConnectorWidget"
+ *   default_formatter = "SimpleTextFormatter",
  * )
  */
  
@@ -25,31 +25,40 @@ use Drupal\Core\TypedData\DataDefinition;
    * {@inheritdoc}
    */
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    return array(
-      'columns' => array(
-        'value' => array(
-          'type' => 'text',
-          'size' => 'tiny',
-          'not null' => FALSE,
-        ),
-      ),
-    );
+    $columns = [];
+    $columns['remote_key'] = [
+      'type' => 'char',
+      'length' => 255,
+    ];
+    $columns['title'] = [
+      'type' => 'char',
+      'length' => 255,
+    ];
+    return [
+      'columns' => $columns,
+      'indexes' => [],
+    ];
   }
 
   /**
    * {@inheritdoc}
    */
   public function isEmpty() {
-    $value = $this->get('value')->getValue();
-    return $value === NULL || $value === '';
+    $isEmpty = 
+      empty($this->get('remote_key')->getValue());
+      empty($this->get('title')->getValue());
+    return $isEmpty;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties['value'] = DataDefinition::create('string')
-      ->setLabel(t('Hex value'));
+    $properties = [];
+    $properties['remote_key'] = DataDefinition::create('string')
+      ->setLabel(t('Remote Key'));
+    $properties['title'] = DataDefinition::create('string')
+      ->setLabel(t('Title'));
 
     return $properties;
   }
