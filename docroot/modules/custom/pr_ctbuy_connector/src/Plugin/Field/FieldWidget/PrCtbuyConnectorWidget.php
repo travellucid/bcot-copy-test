@@ -5,6 +5,7 @@ namespace Drupal\pr_ctbuy_connector\Plugin\Field\FieldWidget;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\ConfigFormBase;
 
 /**
  * Plugin implementation of the 'pr_ctbuy_connector' widget.
@@ -18,38 +19,47 @@ use Drupal\Core\Form\FormStateInterface;
  *   }
  * )
  */
- 
- class PrCtbuyConnectorWidget extends WidgetBase {
+class PrCtbuyConnectorWidget extends WidgetBase {
 
   /**
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $value = isset($items[$delta]->value) ? $items[$delta]->value : '';
+    $endpoint_url = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_endpoint');
+    $api_key = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_key');
+    // Exit if not configured
+    if ($endpoint_url === NULL || $api_key === NULL) {
+      $element['#markup'] = t("The click to buy Module is not properly configured, please check it here: admin/config/prctbuyconnector");
+      return $element;
+    }
+    // Construct the widget
     $element += array(
+      '#type' => 'fieldset',
+    );
+    //$required = $element['#required'];
+
+    $element['remote_key'] = array(
+      '#title' => t('Click to buy Console, Remote Key'),
       '#type' => 'textfield',
-      '#default_value' => $value,
-      '#size' => 7,
-      '#maxlength' => 7,
-      '#element_validate' => array(
-        array($this, 'validate'),
-      ),
+      '#required' => TRUE,
+      //#autocomplete_route_name' => 'pr_ctbuy_connector.remote_key_autocomplete',
+      //'#autocomplete_route_parameters' => array(),
+      // use #default_value to prepopulate the element
+      // with the current saved value
+       '#default_value' => isset($items[$delta]->remote_key) ? $items[$delta]->remote_key : null,
+        //'#default_value' => isset($item['remote_key']) ? $item['remote_key'] : '',
+    );
+
+    $element['title'] = array(
+      '#title' => t('Click to buy Console, text of the CTA'),
+      '#type' => 'textfield',
+      '#required' => TRUE,
+      // use #default_value to prepopulate the element
+      // with the current saved value
+       '#default_value' => isset($items[$delta]->title) ? $items[$delta]->title : null,
+        // '#default_value' => isset($item['title']) ? $item['title'] : '',
     );
     return array('value' => $element);
-  }
-
-  /**
-   * Validate the color text field.
-   */
-  public function validate($element, FormStateInterface $form_state) {
-    $value = $element['#value'];
-    if (strlen($value) == 0) {
-      $form_state->setValueForElement($element, '');
-      return;
-    }
-    if (!preg_match('/^#([a-f0-9]{6})$/iD', strtolower($value))) {
-      $form_state->setError($element, t("Color must be a 6-digit hexadecimal value, suitable for CSS."));
-    }
   }
 
 }

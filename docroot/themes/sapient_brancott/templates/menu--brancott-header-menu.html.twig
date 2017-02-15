@@ -75,7 +75,8 @@
 		  
 		  {% for item in items %}
 		  
-		  {% set dynamic_class =   item.title %}
+		  {% set dynamic_class =   item.title|replace({ ' ' : '-' }) %}
+		  {% set dynamic_class =   dynamic_class|lower %}
 		  {% if item.title == 'logo' %}
 		  <li class="menu-item hidden-sm hidden-xs {{ dynamic_class }}">
 		   {% else %}
