@@ -13,7 +13,8 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   module = "pr_ctbuy_connector",
  *   label = @Translation("Default CTA - Click to buy"),
  *   field_types = {
- *     "pr_ctbuy_connector"
+ *     "remote_key"
+ *     "title"
  *   }
  * )
  */
@@ -27,15 +28,9 @@ class SimpleTextFormatter extends FormatterBase {
 
     foreach ($items as $delta => $item) {
       $elements[$delta] = array(
-        // We create a render array to produce the desired markup,
-        // "<p style="color: #hexcolor">The color code ... #hexcolor</p>".
-        // See theme_html_tag().
         '#type' => 'html_tag',
         '#tag' => 'p',
-        '#attributes' => array(
-          'style' => 'color: ' . $item->value,
-        ),
-        '#value' => $this->t('The color code in this field is @code', array('@code' => $item->value)),
+        '#value' => $this->t('The remote key  in this field is @code and title is @title', array('@code' => $item->remote_key, '@title' => $item->title)),
       );
     }
 

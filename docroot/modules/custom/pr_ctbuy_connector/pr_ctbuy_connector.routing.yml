@@ -5,4 +5,12 @@ pr_ctbuy_connector.simple_form:
     _title: 'Click to Buy Connector - Configuration'
   requirements:
     _permission: 'administer site configuration'
+    
+pr_ctbuy_connector.remote_key_autocomplete:
+  path: 'remote-key/autocomplete'
+  defaults:
+    _controller: '\Drupal\pr_ctbuy_connector\Controller\RemotekeyAutocompleteController::autocomplete'
+    _format: json
+  requirements:
+    _permission: 'access content'
 

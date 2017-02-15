@@ -2,9 +2,9 @@
 
 namespace Drupal\pr_ctbuy_connector\Form;
 
-
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\ConfigFormBase;
 
 /**
  * Implements the SimpleForm form controller.
@@ -15,6 +15,15 @@ use Drupal\Core\Form\FormStateInterface;
  * @see \Drupal\Core\Form\FormBase
  */
 class SimpleForm extends FormBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getEditableConfigNames() {
+    return [
+      'pr_ctbuy_connector.settings',
+    ];
+  }
 
   /**
    * Build the simple form.
@@ -31,46 +40,55 @@ class SimpleForm extends FormBase {
    *   The render array defining the elements of the form.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $vc = $this->config('pr_ctbuy_connector.settings');
+    $form = array();
 
     $form['pr_ctbuy_connector_instance'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Click to buy Console - Instance Code'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_instance'),
       '#description' => $this->t('The code of the instance this website (language sensitive) must connect to.'),
-	  '#required' => TRUE,
+      '#required' => TRUE,
     ];
-	$form['pr_ctbuy_connector_lang'] = [
+    $form['pr_ctbuy_connector_lang'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Click to buy Console - Language'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_lang'),
       '#description' => $this->t('The language code.'),
-	  '#required' => TRUE,
+      '#required' => TRUE,
     ];
-	$form['pr_ctbuy_connector_key'] = [
+    $form['pr_ctbuy_connector_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Click to buy Console - Key'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_key'),
       '#description' => $this->t('The API KEY for connecting to the console.'),
-	  '#required' => TRUE,
+      '#required' => TRUE,
     ];
-	$form['pr_ctbuy_connector_endpoint'] = [
+    $form['pr_ctbuy_connector_endpoint'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Click to buy Console - EndPoint URL'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_endpoint'),
       '#description' => $this->t('The URL of the EndPoint.'),
-	  '#required' => TRUE,
+      '#required' => TRUE,
     ];
-	$form['pr_ctbuy_connector_sdk'] = [
+    $form['pr_ctbuy_connector_sdk'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Click to buy Console - SDK Source URL'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_sdk'),
       '#description' => $this->t('The URL for the JS SDK file. Leave empty if on the Endpoints domain'),
-	  '#required' => FALSE,
+      '#required' => FALSE,
     ];
-	$form['pr_ctbuy_connector_no_geoloc'] = [
+    $form['pr_ctbuy_connector_no_geoloc'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Click to buy Console - Disable Geolocalization'),
       '#description' => $this->t('You can choose to disable GeoIp2 Geolocalization.'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_no_geoloc'),
       '#required' => FALSE,
     ];
-	$form['pr_ctbuy_connector_use_curl'] = [
+    $form['pr_ctbuy_connector_use_curl'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Click to buy Console - Use cURL'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_use_curl'),
       '#description' => $this->t('In some specific cases you may need to use cURL to access the click to buy console.'),
       '#required' => FALSE,
     ];
@@ -134,13 +152,22 @@ class SimpleForm extends FormBase {
    * @param FormStateInterface $form_state
    *   Object describing the current state of the form.
    */
+
+  /**
+   * {@inheritdoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    /*
-     * This would normally be replaced by code that actually does something
-     * with the title.
-     */
-    $instance = $form_state->getValue('pr_ctbuy_connector_instance');
-    drupal_set_message(t('You specified a instance of %instance.', ['%instance' => $instance]));
+    $config = \Drupal::configFactory()->getEditable('pr_ctbuy_connector.settings');
+    $config
+        ->set('pr_ctbuy_connector_instance', $form_state->getValue('pr_ctbuy_connector_instance'))
+        ->set('pr_ctbuy_connector_lang', $form_state->getValue('pr_ctbuy_connector_lang'))
+        ->set('pr_ctbuy_connector_key', $form_state->getValue('pr_ctbuy_connector_key'))
+        ->set('pr_ctbuy_connector_endpoint', $form_state->getValue('pr_ctbuy_connector_endpoint'))
+        ->set('pr_ctbuy_connector_sdk', $form_state->getValue('pr_ctbuy_connector_sdk'))
+        ->set('pr_ctbuy_connector_no_geoloc', $form_state->getValue('pr_ctbuy_connector_no_geoloc'))
+        ->set('pr_ctbuy_connector_use_curl', $form_state->getValue('pr_ctbuy_connector_use_curl'))
+        ->save();
+    drupal_set_message('Settings have been saved.');
   }
 
 }
