@@ -1,7 +1,4 @@
 <div id="hero-component" class="container-fluid  hero-container product-details-hero">
-	<img src="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/homepage_hero_no_grain.jpg" alt="hero component background" class="background-image">
-	<div class="banner-image" style="background-image: url('{{ fields.field_hero_background_image_larg.content }}')"></div>
-	<div class="grain-noise"></div>
 	<div class="hero-bottom">
 		<img src="/{{ directory }}/css/images/triange-1.png" alt="" class="triangle">
 		<img src="/{{ directory }}/css/images/noise-triangle.svg" alt="" class="triangle-right">
@@ -10,7 +7,7 @@
 		<span class="header_f">Brancott Estate</span>
 		<h1>Marlborough Sauvignon Blanc</h1>
 		<span class="header_d hidden-sm hidden-xs">We were first to sow Sauvignon Blanc vines in Marlborough – a varietal that went on to become the world’s favourite New Zealand wine style. See why the original is still the best.</span>
-		<div class="cta-visitus">
+		<div class="cta-visitus hidden-sm hidden-xs">
 			<a href="{{ fields.field_hero_cta_first.content }}" class="cta dark">Buy Now</a>
 		</div>	
 		
@@ -19,21 +16,37 @@
 		<img class="hero-bottle" src="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/hero-bottle.png" alt="bottle">
 	</div>
  </div>
-<div class="carousal-top-wrapper hidden-lg hidden-xs">
-	<div class="our-perspective">
+<div class="product-details-mobile hidden-lg">
+	<div class="product-details-wine">
 		<img class="hero-bottle" src="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/hero-bottle.png" alt="bottle">	
-		<span class="header_d">We were first to sow Sauvignon Blanc vines in Marlborough – a varietal that went on to become the world’s favourite New Zealand wine style. See why the original is still the best.</span>
 	</div>
+	<span class="header_d ">We were first to sow Sauvignon Blanc vines in Marlborough – a varietal that went on to become the world’s favourite New Zealand wine style. See why the original is still the best.</span>
 </div>
-
-
-
-
-
-			
-
-	
-	
-
- 
+<div class="awards-accolades">
+	<div class="heading-image-wrapper">
+		<img  src="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/icons/icn-awards.svg" alt="award-Sign">
+		<div class="award-Sign"></div>
+		<h3>Awards and accolades</h3>
+	</div>
+	<div class="list-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="awards-details-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-4">
+			<div>GOLD</div>
+			<div>New Zealand International Wine Show, 2015</div>
+			<div>VINTAGE: 2015</div>
+		</div>
+		<div class="awards-details-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-4">
+			<div>GOLD</div>
+			<div>New Zealand International Wine Show, 2015</div>
+			<div>VINTAGE: 2015</div>
+		</div>
+		<div class="awards-details-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-4">
+			<div>GOLD</div>
+			<div>New Zealand International Wine Show, 2015</div>
+			<div>VINTAGE: 2015</div>
+		</div>
+	</div>
+	<div class="see-more-btn-wrapper">	
+		<a href="{{ fields.field_hero_cta_first.content }}" class="cta see-more-btn">See 24 more</a>
+	</div>	
+</div>
  
