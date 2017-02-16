@@ -2,6 +2,9 @@
 .product-details-mobile {
 	text-align: center;
 	padding-bottom: 100px;
+	span.header_d {
+		padding: 0 15px;
+	}
 }
 .awards-accolades{
 	background-color: @fawn;
@@ -33,7 +36,19 @@
 			text-align: center;
 			div {
 				margin: 10px 0;
+				&:nth-child(odd) {
+					font-size: 12px;
+  					font-weight: bold;
+  					line-height: 22px;
+  					font-family: "NeutraText Bold";
+				}
+				&:nth-child(even) {
+					font-size: 18px;
+  					line-height: 28px;
+  					font-family: "NeutraText Book";
+				}
 			}
+
 		}
 	}
 	.see-more-btn-wrapper {
