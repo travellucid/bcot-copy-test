@@ -99,7 +99,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("height",maxHeight + 'px');
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 32 + 'px');
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -345,7 +345,24 @@ var headerObj = (function($, window, sapient) {
 					}, clickDelay);
 				}
 			});
-		}
+		},
+		scrollingSubMenu = function() {
+			if( $(window).width() < 991 ) {
+				$(".sub-menu-wrapper").each(function(){
+					$(this).height( $(window).height() - $("header.navbar").height() ).addClass('scrollItBaby');
+				});
+			} else {
+				$(".sub-menu-wrapper").each(function(){
+					$(this).height("").removeClass('scrollItBaby');
+				});
+			}
+		},
+
+		onResize = function() {
+			$(window).on('resize', function () {
+				debounce(sapient.header.scrollingSubMenu,500,"scroll the subnav");
+			});
+		};
 
 		return {
 			// public + private states and behaviors
@@ -356,7 +373,9 @@ var headerObj = (function($, window, sapient) {
 			setMenuBarHeight: setMenuBarHeight,
 			toggleGhostMenu: toggleGhostMenu,
 			menuMobile: menuMobile,
-			accessibleMenu: accessibleMenu
+			accessibleMenu: accessibleMenu,
+			scrollingSubMenu: scrollingSubMenu,
+			onResize: onResize
 		};
 	}
 
@@ -381,6 +400,8 @@ sapient.header.setMenuBarHeight();
 sapient.header.accessibleMenu();
 sapient.header.toggleGhostMenu();
 sapient.header.menuMobile();
+sapient.header.scrollingSubMenu();
+sapient.header.onResize();
 
 var followUsObj = (function($, window, sapient) {
 
