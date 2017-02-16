@@ -93,7 +93,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 35 + 'px');
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 32 + 'px');
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -138,7 +138,7 @@ sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
-}, 200);
+}, 100);
 setTimeout(function() {
 	sapient.carousel.setHeight();
 }, 200);
@@ -209,28 +209,56 @@ var headerObj = (function($, window, sapient) {
 				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));
 				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading span.text").text($(this).parents("a").text().trim());
 			});
-		};
+		},
 
-		var animateMobileMenu = function() {
+		animateMobileMenu = function() {
 			$("#navbar-header .menu .menu-item").on("click", function() {
 				if (!$(this).parents(".menu").hasClass("menu-open")) { $(this).parents(".menu").addClass("menu-open"); } else {
 					$(this).parents(".menu").removeClass("menu-open");
 				}
 			});
-		}
+		},
 
-		var removeMobileLogoText = function() {
+	/*	accessibleMenu = function () {
+			$(".dropdown a").keydown(function(event) {
+				// var self = this;
+
+				var $self= this;
+				if (event.which == 32) {
+					event.preventDefault();
+					if ($self !== this) {
+						//console.log("$self"+$self+"  this" + this)
+				 		$(this).siblings(".sub-menu").hide();
+					}
+					else {
+						$(this).siblings(".sub-menu").toggle();
+					}
+					//$(".dropdown a").siblings(".sub-menu").hide();
+				}
+			});
+		},*/
+
+		accessibleMenu = function () {
+			$(".dropdown a").keydown(function(event) {
+				if (event.which == 32) {
+					event.preventDefault();
+					$(this).siblings(".sub-menu").toggle();					
+				}
+			});
+		},
+
+		removeMobileLogoText = function() {
 			$("#navbar-header .logo a").text("");
-		}
+		},
 
-		var collapseMobileMenu = function() {
+		collapseMobileMenu = function() {
 			var windowWidth = $(window).width();
 			if (windowWidth < 769) {
 				$("#navbar-header").removeClass("in").addClass('collapse');
 			}
-		}
+		},
 
-		var setMenuBarHeight = function() {
+		setMenuBarHeight = function() {
 			var windowWidth = $(window).width();
 
 			$("#navbar-header .menu-item").hover(
@@ -248,9 +276,9 @@ var headerObj = (function($, window, sapient) {
 
 				}
 			);
-		}
+		},
 
-		var toggleGhostMenu = function() {
+		toggleGhostMenu = function() {
 			$(window).on('scroll', function() {
 				if ($(window).scrollTop() !== 0) {
 					$("#navbar-header").addClass('semi-solid-menu');
@@ -275,9 +303,9 @@ var headerObj = (function($, window, sapient) {
 					}
 				}
 			);
-		}
+		},
 
-		var menuMobile = function() {
+		menuMobile = function() {
 			var clickDelay = 500,
 				clickDelayTimer = null;
 
@@ -318,7 +346,8 @@ var headerObj = (function($, window, sapient) {
 			collapseMobileMenu: collapseMobileMenu,
 			setMenuBarHeight: setMenuBarHeight,
 			toggleGhostMenu: toggleGhostMenu,
-			menuMobile: menuMobile
+			menuMobile: menuMobile,
+			accessibleMenu: accessibleMenu
 		};
 	}
 
@@ -340,6 +369,7 @@ sapient.header.animateMobileMenu();
 sapient.header.removeMobileLogoText();
 sapient.header.collapseMobileMenu();
 sapient.header.setMenuBarHeight();
+sapient.header.accessibleMenu();
 sapient.header.toggleGhostMenu();
 sapient.header.menuMobile();
 
@@ -359,9 +389,18 @@ var followUsObj = (function($, window, sapient) {
 			}
 		},
 
+		setContentWidth = function() {
+			if($(window).width() > 1600 ) {
+				$("#follow-us #content").width( $(window).width() - ($("#follow-us #gallery").width() + 10) );
+			} else {
+				$("#follow-us #content").width("");
+			}
+		},
+
 		onResize = function() {
 			$(window).on('resize', function () {
 				debounce(sapient.followUs.setInstagramDimensions,500,"resizing instagram");
+				debounce(sapient.followUs.setContentWidth,100,"resizing instagram content");
 			});
 		};
 
@@ -369,6 +408,7 @@ var followUsObj = (function($, window, sapient) {
 		return {
 			// public + private states and behaviors
 			setInstagramDimensions: setInstagramDimensions,
+			setContentWidth: setContentWidth,
 			onResize: onResize
 		};
 	}
@@ -387,6 +427,7 @@ var followUsObj = (function($, window, sapient) {
 sapient.followUs = followUsObj.getInstance();
 
 sapient.followUs.setInstagramDimensions();
+sapient.followUs.setContentWidth();
 sapient.followUs.onResize();
 var footerObj = (function($, window, sapient) {
 

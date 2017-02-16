@@ -1,0 +1,49 @@
+@import "sapient.variables-mixins.less";
+.product-details-mobile {
+	text-align: center;
+	padding-bottom: 100px;
+}
+.awards-accolades{
+	background-color: @fawn;
+	padding: 100px 0;
+	.heading-image-wrapper {
+		text-align: center;
+		h3{
+			position: relative;
+			color: @black;
+			/*&::before {
+				background-image: url("@{background-icons-path}icn-awards.svg");
+				background-size: 13px;
+				content: "";
+				height: 67.1px;
+				width: 78.13px;
+			}	*/
+		}
+		.award-sign {
+			background-image: url("@{background-icons-path}icn-awards.svg");
+			background-size: 78.1px 67.1px;
+			height: 67.1px;
+			width: 78.13px;
+		}
+	}
+	.list-wrapper {
+		padding: 18px 0 26px;
+		text-align: center;
+		.awards-details-wrapper {
+			text-align: center;
+			div {
+				margin: 10px 0;
+			}
+		}
+	}
+	.see-more-btn-wrapper {
+		text-align: center;
+		a.see-more-btn {
+			border: 2px solid #3e464b;
+		    font-size: 14px;
+		    letter-spacing: 2px;
+		    line-height: 24px;
+		    padding: 18px 58px;
+		}
+	}	
+}
