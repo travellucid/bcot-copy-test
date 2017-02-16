@@ -2,6 +2,7 @@
 .product-details-mobile {
 	text-align: center;
 	padding-bottom: 100px;
+
 	span.header_d {
 		padding: 0 15px;
 	}
@@ -9,31 +10,34 @@
 .awards-accolades{
 	background-color: @fawn;
 	padding: 100px 0;
+
 	.heading-image-wrapper {
 		text-align: center;
-		h3{
+		h2{
 			position: relative;
 			color: @black;
+			margin: 20px 0 40px;
 		}
 	}
 	.list-wrapper {
-		/*.set-max-width(1170px);*/
+		display: block;
+		max-width: 1170px;
+		margin: 0 auto;
 		padding: 18px 0 26px;
 		text-align: center;
+
 		.awards-details-wrapper {
+			display:inline-block;
+			margin: 0 auto;
+			max-width:370px;
 			text-align: center;
-			div {
+			.header_d,
+			.header_g {
+				color: #3e464b;
 				margin: 10px 0;
-				&:nth-child(odd) {
-  					font-family: "NeutraText Bold";
-					font-size: 12px;
-  					line-height: 22px;
-				}
-				&:nth-child(even) {
-  					font-family: "NeutraText Book";
-					font-size: 18px;
-  					line-height: 28px;
-				}
+			}
+			span.header_d {
+				font-family: "NeutraText-Book";
 			}
 
 		}

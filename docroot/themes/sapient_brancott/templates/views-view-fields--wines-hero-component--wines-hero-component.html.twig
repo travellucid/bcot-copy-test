@@ -1,16 +1,10 @@
  <div id="hero-component" class="container-fluid  hero-container product-details-hero" >
+ 	<div class="banner-image" style="background-image: url('{{ fields.field_wine_background_image.content }}')"></div>
    <div class="grain-noise"></div>
-	<picture>
-		<source  media="(max-width: 321px)" srcset="{{ fields.field_wine_background_image_1.content }}" class="background-image">   
-		<source  media="(max-width: 691px)" srcset="{{ fields.field_wine_background_image_1.content }}" class="background-image">
-		<source  media="(max-width: 769px)" srcset="{{ fields.field_wine_background_image.content }}" class="background-image">  
-		<source  media="(max-width: 1281px)" srcset="{{ fields.field_wine_background_image.content }}" class="background-image"> 
-		<img src="{{ fields.field_wine_background_image.content }}" alt="Wine Background">
-	</picture>
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
 	  <span class="header_f">{{ wine_range }}</span>
 	  <h1>{{ wine_title }}</h1>
-	  <p class="header_d hidden-sm hidden-xs">{{ wine_description }}</p>
+	  <p class="hidden-sm hidden-xs">{{ wine_description }}</p>
 	  <div class="cta-visitus hidden-sm hidden-xs">
 	  	<a href="www.google.com" class="cta dark find">BOOK NOW</a>
 	  </div>	
@@ -35,5 +29,5 @@
 		<source  class="hero-bottle" srcset="{{ fields.field_wine_bottle_image.content }}"> 
 		<img class="hero-bottle" src="{{ fields.field_wine_bottle_image.content }}" alt="Bottle"> 
 	</picture>
-	<p class="header_d">{{ wine_description }}</p>
+	<p>{{ wine_description }}</p>
 </div>
