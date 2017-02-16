@@ -81,8 +81,6 @@ sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
-}, 500);
-setTimeout(function() {
 	sapient.carousel.setHeight();
 }, 500);
 sapient.carousel.resize();
