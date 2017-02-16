@@ -83,6 +83,6 @@ sapient.carousel.enableTouchCarousel("#carousel-new-story");
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
     sapient.carousel.setHeight();
-}, 500);
+}, 1000);
 
 sapient.carousel.resize();
