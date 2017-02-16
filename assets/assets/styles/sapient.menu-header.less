@@ -431,6 +431,7 @@ header {
 							.transition(all 0.5s ease-in-out);
 
 							div.sub-menu-wrapper {
+								display: block;
 								.transform(translateX(0));
 								background-color: #ffffff;
 								height: 100vh;
@@ -438,6 +439,12 @@ header {
 								top: -90px;
 								width: 100vw;
 								z-index: 100;
+
+								&.scrollItBaby {
+									overflow-y: scroll;
+									display: block;
+									max-width: 100%;
+								}
 
 								.menu-heading {
 									background-color: @light-sky-blue;
