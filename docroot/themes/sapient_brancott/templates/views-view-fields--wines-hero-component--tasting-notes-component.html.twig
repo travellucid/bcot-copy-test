@@ -1,5 +1,5 @@
 {% if (tasting_notes_aroma or tasting_notes_taste or tasting_notes_complement) %}
-    <div> {{ fields.field_tasting_notes_title.content }} </div>
+    <h2> {{ fields.field_tasting_notes_title.content }} </h2>
 {% endif %}
 
 {% if (tasting_notes_aroma or tasting_notes_taste) %}
@@ -12,15 +12,15 @@
              alt="Aroma">
     </picture>
     <img class="hero-bottle" src="{{ fields.field_aroma_and_palate_image.content }}" alt="Aroma"> 
-    <div> {{ fields.field_aroma_and_palate_subtitle.content }} </div>
+    <h3> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
 {% endif %}
 
 {% if (tasting_notes_aroma) %}
-    <div> {{ tasting_notes_aroma }} </div>
+    <p> {{ tasting_notes_aroma }} </p>
 {% endif %}
 
 {% if (tasting_notes_taste) %}
-    <div> {{ tasting_notes_taste }} </div>
+    <p> {{ tasting_notes_taste }} </p>
 {% endif %}
 
 {% if (tasting_notes_complement) %}
@@ -32,56 +32,13 @@
         <img src="{{ fields.field_enjoy_with_image.content }}" 
              alt="Enjoy">
     </picture>
-    <div> {{ fields.field_enjoy_with_subtitle.content }} </div>
+    <h3> {{ fields.field_enjoy_with_subtitle.content }} </h3>
 {% endif %}
 
 {% if (tasting_notes_complement) %}
-    <div> {{ tasting_notes_complement }} </div>
+    <p> {{ tasting_notes_complement }} </p>
 {% endif %}
 
-<div> {{ fields.field_nutritional_info_title.content }} </div>
-<div>
-    {{ wine_title }} 
-    {{ nutritional_info_alcohol }}V/V
-</div>
-<div>
-    <div>
-        PER 10GR OF ALCOHOL
-    </div>
-    <div>
-        PER 150ML SERVING
-    </div>
-</div>
-<div>
-    <p>Alcohol (g) </p>
-    {{ nutritional_info_alcohol }}g  
-</div>
-<div>
-    <p>Calories (Kcal) </p>
-    {{ nutritional_info_calories }}g 
-</div>
-<div>
-    <p>Fat (g) </p>
-    {{ nutritional_info_fat }}g   
-</div>
-<div>
-    <p>Saturates (g)</p>
-    {{ nutritional_info_saturates }} 
-</div>
-<div>
-    <p>Carbohydrates (g) </p>
-    {{ nutritional_info_carbohydrates }}g   
-</div>
-<div>
-    <p>Suger (g) </p>
-    {{ nutritional_info_sugars }}g   
-</div>
-<div>
-    <p>Proteins (mg) </p>
-    {{ nutritional_info_proteins }}g   
-</div>
-<div> {{ fields.field_nutritional_info_note1.content }} </div>
-<div> {{ fields.field_nutritional_info_note12.content }} </div>
-<a href="{{ fields.field_nutritional_info_cta1.content }}" class="">{{ fields.field_nutritional_info_cta1_1.content }}</a>
-<a href="{{ fields.field_nutritional_info_cta2.content }}" class="">{{ fields.field_nutritional_info_cta2_1.content }}</a>
+<a href="{{ fields.field_nutritional_info_cta1.content }}" class="cta dark watch-video"> NUTRITIONAL INFO </a>
+<a href="{{ fields.field_nutritional_info_cta2.content }}" class="cta dark watch-video"> BUY NOW </a>
 
