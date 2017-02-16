@@ -136,12 +136,12 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
+
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
-}, 200);
-setTimeout(function() {
-	sapient.carousel.setHeight();
-}, 200);
+    sapient.carousel.setHeight();
+}, 500);
+
 sapient.carousel.resize();
 
 var heroObj = (function($, window, sapient) {
