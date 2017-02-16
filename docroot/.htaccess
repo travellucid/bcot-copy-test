@@ -11,6 +11,11 @@
     Order allow,deny
   </IfModule>
 </FilesMatch>
+<FilesMatch "\.(ttf|otf|woff)$">
+	<IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+	</IfModule>
+</FilesMatch>
 
 # Don't show directory listings for URLs which map to a directory.
 Options -Indexes
