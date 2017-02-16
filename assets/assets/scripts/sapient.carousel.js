@@ -36,7 +36,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 35 + 'px');
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 32 + 'px');
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -79,10 +79,10 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
+
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
-}, 200);
-setTimeout(function() {
-	sapient.carousel.setHeight();
-}, 200);
+    sapient.carousel.setHeight();
+}, 500);
+
 sapient.carousel.resize();
