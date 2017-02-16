@@ -31,6 +31,9 @@ var carouselObj = (function($, window, sapient) {
 			},
 			positionController = function() {
 				console.log($("#carousel-new-story .carousel-inner .item").height())
+				var x = $("#carousel-new-story .carousel-inner .item").height();
+				console.log(x);
+				$( "#carousel-new-story .carousel-control-wrapper .left .prev-carousal").css("bottom", (433-100)/2);
 			},
 			setHeight =function() {
 				var heightArr = [],
@@ -83,11 +86,12 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
-
+/* not working will pick later
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
     sapient.carousel.setHeight();
-    sapient.carousel.positionController();
-}, 1000);
-
+}, 1000);*/
+$(window).trigger('resize');
 sapient.carousel.resize();
+
+

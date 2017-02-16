@@ -36,7 +36,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
     public function build() 
     {
 			
-			/*$rest_api = new BrancottRestApiControllerFilters;
+			$rest_api = new BrancottRestApiControllerFilters;
             $values = $rest_api->getFilters();
 			
 			$rest_api_ranges = new BrancottRestApiControllerRanges;
@@ -103,7 +103,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
 			$display_id = 'wine_id';
 			$views_wine_image = views_get_view_result('wines_hero_component', 'wine_id', 9);
 			//$args = [$tid];*/
-			/*$ids = array();
+			$ids = array();
             foreach($arr_title as $ar_title){
 				foreach($ar_title as $key => $value){
 					$ids[$key] = \Drupal::entityQuery('node')
@@ -126,12 +126,11 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
 			    $path[] = $file->getFileUri();
 					
 				}
-				print_r('test' );die('sallu');
-			    //$url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($file->getFileUri());
 				
-			}*/
+			    //$url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($file->getFileUri());
+			}
 			
-            print_r('test');
+    print_r('test' );
 	                
 			
     }	 
