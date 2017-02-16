@@ -29,6 +29,9 @@ var carouselObj = (function($, window, sapient) {
 			positionCarouselIndicator = function() {
 				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
+			positionController = function() {
+				console.log($("#carousel-new-story .carousel-inner .item").height())
+			},
 			setHeight =function() {
 				var heightArr = [],
 					maxHeight;
@@ -59,6 +62,7 @@ var carouselObj = (function($, window, sapient) {
 			toggleCarouselArrow: toggleCarouselArrow,
 			positionCarouselIndicator:positionCarouselIndicator,
 			setHeight:setHeight,
+			positionController:positionController,
 			resize:resize
 		};
 	}
@@ -83,6 +87,7 @@ sapient.carousel.enableTouchCarousel("#carousel-new-story");
 setTimeout(function() {
 	sapient.carousel.positionCarouselIndicator();
     sapient.carousel.setHeight();
+    sapient.carousel.positionController();
 }, 1000);
 
 sapient.carousel.resize();
