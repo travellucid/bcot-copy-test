@@ -15,7 +15,11 @@ var followUsObj = (function($, window, sapient) {
 		},
 
 		setContentWidth = function() {
-			$("#follow-us #content").width( $(window).width() - ($("#follow-us #gallery").width() + 10) );
+			if($(window).width() > 1600 ) {
+				$("#follow-us #content").width( $(window).width() - ($("#follow-us #gallery").width() + 10) );
+			} else {
+				$("#follow-us #content").width("");
+			}
 		},
 
 		onResize = function() {

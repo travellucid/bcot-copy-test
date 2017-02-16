@@ -35,13 +35,13 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
    */
     public function build() 
     {
-			//print_r('test');die('salman');
+			
 			$rest_api = new BrancottRestApiControllerFilters;
             $values = $rest_api->getFilters();
-			//print_r($values);die;
+			
 			$rest_api_ranges = new BrancottRestApiControllerRanges;
             $values_ranges = $rest_api_ranges->getRanges();
-			//print_r($values_ranges);die('sallu');
+			
 			$ranges = array();
 			$wine_types = array();
 			$varietals = array();
@@ -86,20 +86,52 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
 			$range_title = array();
 			$range_strapline = array();
 			$range_description = array();
+			$arr_title = array();
 			foreach($values_ranges as $values_range){
 				$range_title[] = $values_range->title;
 			    $range_strapline[] = $values_range->strapline;
 			    $range_description[] = $values_range->description;
+				foreach($values as $value){
+				if($value->range == $values_range->title){
+					$arr_title[$values_range->title][$value->id] = $value->title;
+				}
+			}
+			//$theme_var[] = theme(arr_title, range_strapline, range_description);
+			}
+			//print_r($arr_title);die('sallu');
+			/*$name = 'wines_hero_component';
+			$display_id = 'wine_id';
+			$views_wine_image = views_get_view_result('wines_hero_component', 'wine_id', 9);
+			//$args = [$tid];*/
+			$ids = array();
+            foreach($arr_title as $ar_title){
+				foreach($ar_title as $key => $value){
+					$ids[$key] = \Drupal::entityQuery('node')
+                   ->condition('status', 1)
+                   ->condition('field_wine_id', $key)
+                   ->execute();
+				}
+				
+			}
+			$result_fids = array_filter($ids);  
+			    $path = array();
+			foreach($result_fids as $result_fid){
+				//print_r($value);die('sallu');	
+                foreach($result_fid as $res_fid){	
+               					
+				$node = \Drupal\node\Entity\Node::load($res_fid);
+			    $target_id = $node->field_wine_bottle_image->target_id;
+			    
+			    $file = \Drupal\file\Entity\File::load($target_id);
+			    $path[] = $file->getFileUri();
+					
+				}
+				//print_r($path );die('sallu');
+			    //$url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($file->getFileUri());
 			}
 			
-			/*foreach($range_title as $rg_title){
-				
-			}*/
-			/*return array(
-                    '#theme' => 'sapient_filter_block_template',
-                    '#names' => $new_array,
-					
-                    );*/
-			//print_r($range_title);die;
+    
+	                
+			
     }	 
 }
