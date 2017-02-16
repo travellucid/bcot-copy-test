@@ -14,22 +14,10 @@
 		h3{
 			position: relative;
 			color: @black;
-			/*&::before {
-				background-image: url("@{background-icons-path}icn-awards.svg");
-				background-size: 13px;
-				content: "";
-				height: 67.1px;
-				width: 78.13px;
-			}	*/
-		}
-		.award-sign {
-			background-image: url("@{background-icons-path}icn-awards.svg");
-			background-size: 78.1px 67.1px;
-			height: 67.1px;
-			width: 78.13px;
 		}
 	}
 	.list-wrapper {
+		/*.set-max-width(1170px);*/
 		padding: 18px 0 26px;
 		text-align: center;
 		.awards-details-wrapper {
@@ -37,14 +25,14 @@
 			div {
 				margin: 10px 0;
 				&:nth-child(odd) {
+  					font-family: "NeutraText Bold";
 					font-size: 12px;
   					line-height: 22px;
-  					font-family: "NeutraText Bold";
 				}
 				&:nth-child(even) {
+  					font-family: "NeutraText Book";
 					font-size: 18px;
   					line-height: 28px;
-  					font-family: "NeutraText Book";
 				}
 			}
 
@@ -54,13 +42,21 @@
 		text-align: center;
 		a.see-more-btn {
 			border: 2px solid #3e464b;
-		    font-size: 14px;
+		    font-size: 12px;
 		    letter-spacing: 2px;
-		    line-height: 24px;
-		    padding: 18px 58px;
-
+		    line-height: 22px;
+		    position: relative;
 		    &:hover {
 		    	color:#3e464b;
+		    }
+		    .btn-img {
+	    		background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg") !important;
+	    		background-size: 7px 15px;
+			    height: 15px;
+			    margin-left: 11px;
+			    position: absolute;
+			    top: 13px;
+			    width: 7px;
 		    }
 		}
 	}	
