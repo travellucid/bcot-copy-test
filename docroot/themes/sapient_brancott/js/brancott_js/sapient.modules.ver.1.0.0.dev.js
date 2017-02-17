@@ -84,7 +84,7 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 			positionCarouselIndicator = function() {
-				console.log(($("#carousel-new-story .carousel-inner  picture img")[0]).height());
+				//console.log(($("#carousel-new-story .carousel-inner  picture img")[0]).height());
 				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
 			setHeight =function() {
@@ -141,9 +141,12 @@ sapient.carousel.enableTouchCarousel("#carousel-new-story");
 setTimeout(function() {
 	/*sapient.carousel.positionCarouselIndicator();*/
     sapient.carousel.setHeight();
+	$(window).trigger('resize');
 }, 1000);
-$(window).trigger('resize');
 sapient.carousel.resize();
+setTimeout(function() {    
+	$(window).trigger('resize');
+}, 5000);
 
 
 
