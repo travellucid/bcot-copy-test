@@ -5,9 +5,21 @@ var headerObj = (function($, window, sapient) {
 	function createHeaderInstance() {
 
 		var getMenuHeadingVal = function() {
-			$(document).on("click", ".menu > .menu-item .expand-icon", function(e) {
-				console.log($(this).parents("a").text());
-				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));
+			$windowWidth = $(window).width();
+ 			var allowSubmit = false;
+			$(document).on("click", "#navbar-header .menu > .dropdown" , function(e) {				
+				if($windowWidth < 990 && !allowSubmit)  {
+					e.preventDefault();
+					e.stopPropagation();
+					$(this).find(".sub-menu-wrapper .menu-heading span.text").text($(this).children("a").text().trim());	
+					allowSubmit= true;
+				}
+				allowSubmit= false;
+			});
+			$(document).on("click", "#navbar-header .sub-menu .sub-menu-wrapper .sub-menu-link ", function(e) {
+				allowSubmit= true;	
+			});
+			$(document).on("click", "#navbar-header .menu > .dropdown  .expand-icon ", function(e) {
 				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading span.text").text($(this).parents("a").text().trim());
 			});
 		},

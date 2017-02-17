@@ -39,6 +39,72 @@
     <p class="desc-2"> {{ tasting_notes_complement }} </p>
 {% endif %}
 
-<a href="{{ fields.field_nutritional_info_cta1.content }}" class="cta dark watch-video"> NUTRITIONAL INFO </a>
-<a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_1.content }}</a>
+<a href="{{ fields.field_nutritional_info_cta1.content }}" class="cta dark watch-video" data-toggle="modal" data-target="#nutritional-info-component"> NUTRITIONAL INFO </a>
+<a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">BUY NOW</a>
 
+<!-- Modal -->
+<div id="nutritional-info-component" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="wrapper-head modal-header">
+        <a class="close-btn" data-dismiss="modal"></a>
+        <h2>NUTRITIONAL INFO</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Marlborough Sauvignon Blanc 13.1% V/V</h3>
+            <table>
+                <thead>
+                    <th>PER 10GR OF ALCOHOL (89ML)</th>
+                    <th>PER 10GR OF ALCOHOL (89ML)</th>
+                    <th>Per 150ml serving</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alcohol (g)</td>
+                        <td>74g</td>
+                        <td>124g</td>
+                    </tr>
+                    <tr>
+                        <td>Alcohol (g)</td>
+                        <td>74g</td>
+                        <td>124g</td>
+                    </tr>
+                    <tr>
+                        <td>Alcohol (g)</td>
+                        <td>74g</td>
+                        <td>124g</td>
+                    </tr>
+                    <tr>
+                        <td>Alcohol (g)</td>
+                        <td>74g</td>
+                        <td>124g</td>
+                    </tr>
+                    <tr>
+                        <td>Alcohol (g)</td>
+                        <td>74g</td>
+                        <td>124g</td>
+                    </tr>
+                    <tr>
+                        <td>Alcohol (g)</td>
+                        <td>74g</td>
+                        <td>124g</td>
+                    </tr>
+                    <tr>
+                        <td>Alcohol (g)</td>
+                        <td>74g</td>
+                        <td>124g</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>* These calculations are based on the wine produced under this label in the current vintage. Variances of +/-10% might occur between vintages and market variants.</p>
+            <p>For more information on responsible drinking and nutritional values visit:
+<a href="#">www.wise-drinking.com</a>
+<a href="#">www.wineinmoderation.com</a></p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
