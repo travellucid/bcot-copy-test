@@ -12,15 +12,12 @@
  *
  */
 function sapient_our_wines_theme($existing, $type, $theme, $path) {
-  /*return array(
-    'sapient_our_wines_template' => array(
-      'variables' => array('names' => NULL, 'count' => NULL),
-    ),
-  );*/
+  
   return array(
-    'sapient_filter_block_template' => array(
-      'variables' => array('names' => NULL,),
+    'sapient_our_wines_block' => array(
+      'variables' => array('final_array' => NULL),
     ),
+	
   );
 
 }
