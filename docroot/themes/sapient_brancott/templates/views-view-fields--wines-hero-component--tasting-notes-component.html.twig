@@ -16,11 +16,11 @@
 {% endif %}
 
 {% if (tasting_notes_aroma) %}
-    <p> {{ tasting_notes_aroma }} </p>
+    <p class="desc-1"> {{ tasting_notes_aroma }} </p>
 {% endif %}
 
 {% if (tasting_notes_taste) %}
-    <p> {{ tasting_notes_taste }} </p>
+    <p class="desc-1"> {{ tasting_notes_taste }} </p>
 {% endif %}
 
 {% if (tasting_notes_complement) %}
@@ -36,9 +36,9 @@
 {% endif %}
 
 {% if (tasting_notes_complement) %}
-    <p> {{ tasting_notes_complement }} </p>
+    <p class="desc-2"> {{ tasting_notes_complement }} </p>
 {% endif %}
 
 <a href="{{ fields.field_nutritional_info_cta1.content }}" class="cta dark watch-video"> NUTRITIONAL INFO </a>
-<a href="{{ fields.field_nutritional_info_cta2.content }}" class="cta dark watch-video"> BUY NOW </a>
+<a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video"> BUY NOW </a>
 

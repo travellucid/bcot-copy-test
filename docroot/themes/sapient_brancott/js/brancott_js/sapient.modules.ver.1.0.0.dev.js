@@ -84,13 +84,8 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 			positionCarouselIndicator = function() {
+				console.log(($("#carousel-new-story .carousel-inner  picture img")[0]).height());
 				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
-			},
-			positionController = function() {
-				console.log($("#carousel-new-story .carousel-inner .item").height())
-				var x = $("#carousel-new-story .carousel-inner .item").height();
-				console.log(x);
-				$( "#carousel-new-story .carousel-control-wrapper .left .prev-carousal").css("bottom", (433-100)/2);
 			},
 			setHeight =function() {
 				var heightArr = [],
@@ -99,7 +94,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 32 + 'px');
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight);
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -122,7 +117,6 @@ var carouselObj = (function($, window, sapient) {
 			toggleCarouselArrow: toggleCarouselArrow,
 			positionCarouselIndicator:positionCarouselIndicator,
 			setHeight:setHeight,
-			positionController:positionController,
 			resize:resize
 		};
 	}
@@ -143,11 +137,11 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
-/* not working will pick later
+/*not working will pick later*/
 setTimeout(function() {
-	sapient.carousel.positionCarouselIndicator();
+	/*sapient.carousel.positionCarouselIndicator();*/
     sapient.carousel.setHeight();
-}, 1000);*/
+}, 1000);
 $(window).trigger('resize');
 sapient.carousel.resize();
 
@@ -213,10 +207,22 @@ var headerObj = (function($, window, sapient) {
 	function createHeaderInstance() {
 
 		var getMenuHeadingVal = function() {
-			$(document).on("click", ".menu > .menu-item .expand-icon", function(e) {
-				console.log($(this).parents("a").text());
-				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));
-				$(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading span.text").text($(this).parents("a").text().trim());
+			$windowWidth = $(window).width();
+
+			$(document).on("click", ".menu > .dropdown", function(e) {
+				/*console.log($(this).parents("a").text());
+				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));*/
+				
+				if($windowWidth < 990) {
+					e.preventDefault();
+					e.stopPropagation();
+					console.log($(this).children("a").text().trim());
+					$(this).find(".sub-menu-wrapper .menu-heading span.text").text($(this).children("a").text().trim());	
+				}
+				else {
+					return true;
+				}
+				
 			});
 		},
 
@@ -409,17 +415,7 @@ var followUsObj = (function($, window, sapient) {
 
 	function createInstagramInstance() {
 
-		var setInstagramDimensions = function() {
-			var instaGallery = $("#follow-us #gallery").innerHeight();
-			if($(window).width() < 768 ) {
-				$("#follow-us #content").innerHeight(instaGallery);
-			}
-			else {
-				$("#follow-us #content").innerHeight('auto');
-			}
-		},
-
-		setContentWidth = function() {
+		var setContentWidth = function() {
 			if($(window).width() > 1600 ) {
 				$("#follow-us #content").width( $(window).width() - ($("#follow-us #gallery").width() + 10) );
 			} else {
@@ -429,7 +425,6 @@ var followUsObj = (function($, window, sapient) {
 
 		onResize = function() {
 			$(window).on('resize', function () {
-				debounce(sapient.followUs.setInstagramDimensions,500,"resizing instagram");
 				debounce(sapient.followUs.setContentWidth,100,"resizing instagram content");
 			});
 		};
@@ -437,7 +432,6 @@ var followUsObj = (function($, window, sapient) {
 
 		return {
 			// public + private states and behaviors
-			setInstagramDimensions: setInstagramDimensions,
 			setContentWidth: setContentWidth,
 			onResize: onResize
 		};
@@ -456,7 +450,6 @@ var followUsObj = (function($, window, sapient) {
 
 sapient.followUs = followUsObj.getInstance();
 
-sapient.followUs.setInstagramDimensions();
 sapient.followUs.setContentWidth();
 sapient.followUs.onResize();
 var footerObj = (function($, window, sapient) {

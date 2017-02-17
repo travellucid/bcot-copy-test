@@ -1,7 +1,11 @@
-type: module
 name: Pernod Ricard Click to buy Console Connector for Drupal 8
-description: 'This Module simplify integration between Drupal and the Click to Buy Console.'
+description: This Module simplify integration between Drupal and the Click to Buy Console.
+
+# The type must be 'module' and the package must be 'Field types'
+type: module
 package: Pernod-Ricard
-core: '8.x'
-project: 'pr_ctbuy_connector'
-datestamp: 1471724835
+core: 8.x
+
+# The list of dependencies must contains the 'field' value
+dependencies:
+  - field
