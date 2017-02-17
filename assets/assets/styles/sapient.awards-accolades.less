@@ -15,7 +15,7 @@
 		text-align: center;
 		h2{
 			position: relative;
-			color: #3e464b;
+			color: @dark-gray;
 			margin: 20px 0 40px;
 		}
 	}
@@ -33,7 +33,7 @@
 			text-align: center;
 			.header_d,
 			.header_g {
-				color: #3e464b;
+				color: @dark-gray;
 				margin: 10px 0;
 			}
 			span.header_d {
@@ -41,17 +41,21 @@
 			}
 
 		}
+		.hidden-details-wrapper {
+			display: none;
+		}
 	}
 	.see-more-btn-wrapper {
 		text-align: center;
-		a.see-more-btn {
-			border: 2px solid #3e464b;
+		button.see-more-btn {
+			background: transparent;
+			border: 2px solid @dark-gray;
 		    font-size: 12px;
 		    letter-spacing: 2px;
 		    line-height: 22px;
 		    position: relative;
 		    &:hover {
-		    	color:#3e464b;
+		    	color:@dark-gray;
 		    }
 		    .btn-img {
 	    		background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg") !important;
@@ -83,6 +87,11 @@
 					display: block;
 				}
 			}
+		}
+	}
+	.see-more-btn-wrapper {
+		button.see-more-btn {
+			padding:8px 48px;
 		}
 	}	
 }

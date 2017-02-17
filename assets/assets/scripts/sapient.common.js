@@ -14,7 +14,8 @@ var commonObj = (function($, window, sapient) {
 		},
 		toggleAwardsDetails = function() {
 			$(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
-				$(".awards-accolades .list-wrapper .awards-details-wrapper").toggleClass( "");
+				$(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
+				$(this).hide();
 			});
 		},
 		addBgNoise = function() {
