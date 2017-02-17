@@ -1,32 +1,24 @@
-
 <section id="product-grid">
     
         
-    
+    {% for key,arg in arguments %}
 	<div class="category-header">
-		<p class="title-tag">FLIGHT</p>
-		<h2>Naturally full of taste and lighter in alcohol</h2>
-		<p>As pioneers of the original Marlborough Sauvignon Blanc, our expertise allows our winemakers to select and harvest grapes earlier than usual to craft full-flavoured wine that is naturally lighter in alcohol.</p>
+		<p class="title-tag">{{ arg.title }}</p>
+		<h2>{{ arg.strapline }}</h2>
+		<p>{{ arg.description }}</p>
 	</div>
 	<div class="category-grid">
-		
-		
-    
-
-		
+		{% for tile in arg.associated_wines %}
 		<div class="product-tile">
 			<div class="product-shot">
-				<img src="https://www.cellarmasters.com.au/Content/ProductImages/W5261_670.png" />
+				<img src="{{ tile.url }}" />
 				<div class="product-bg"></div>
 			</div>
-			<h3>Brancott Estate</h3>
-			<p>Marlborough Sauvignon Blanc</p>
+			<h3>{{ tile.range }}</h3>
+			<p>{{ tile.title }}</p>
 		</div>
-		
-		
-		
-		
+		{% endfor %}
 	</div>
-	
+	{% endfor %}
 	
 </section>

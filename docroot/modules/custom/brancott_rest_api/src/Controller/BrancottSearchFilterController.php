@@ -46,8 +46,9 @@ class BrancottSearchFilterController extends ControllerBase {
 	  //print_r('test');die;
       $range = $this->request->getCurrentRequest()->get('range');
       $wine_type = $this->request->getCurrentRequest()->get('wine_type');
+	  $varietals = $this->request->getCurrentRequest()->get('varietals');
       	  
-      //print_r($wine_type);die;
+      //print_r($varietals);die;
 	  $rest_api = new BrancottRestApiControllerFilters;
             $values = $rest_api->getFilters();
 			//print_r($values);die;
@@ -61,15 +62,20 @@ class BrancottSearchFilterController extends ControllerBase {
 				if($wine_type && $value->wineType != $wine_type) {
 					continue;
 				}
+				if($varietals && $value->grapeVariety != $varietals) {
+					continue;
+				}
 				$food_matches[] = $value->foodMatch;
 				$final_array['filters'] = array();
-				$wine_details[$value->range][$value->id]['title'] = $value->title;
-				$wine_details[$value->range][$value->id]['range'] = $value->range;
+				
+				$wine_details[$value->id]['title'] = $value->title;
+				$wine_details[$value->id]['range'] = $value->range;
 				$ids = \Drupal::entityQuery('node')
                    ->condition('status', 1)
                    ->condition('field_wine_id', $value->id)
                    ->execute();
 				   $wine_image_url = '';
+				 
 				if(count($ids)) {  
 					$related_nodes = array_filter($ids);
 					$related_wine_nid = reset($related_nodes);
@@ -78,15 +84,16 @@ class BrancottSearchFilterController extends ControllerBase {
 					$wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
 					$wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
 				}
-				$wine_details[$value->range][$value->id]['url'] = $wine_image_url;  
-				$range_details = $this->getRangeDetails($value->range);
-				$range_details['associated_wines'] = $wine_details[$value->range];
-				$final_array['range_details'][$value->range] = $range_details;
+				$wine_details[$value->id]['url'] = $wine_image_url;  
+				//$range_details = $this->getRangeDetails($value->range);
+				//$range_details['associated_wines'] = $wine_details;
+				//$final_array['range_details'] = $range_details;
 				//new code
+				
 				$final_array_ranges = $final_array['range_details'][$value->range]['associated_wines'];
 				//new code terminated
 			}
-			//print_r($final_array); die;;
+			//print_r($wine_details); die;;
 			return array(
                     '#theme' => 'search_results_template',
                     '#search_array' => $final_array_ranges,

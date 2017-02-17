@@ -81,15 +81,16 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
 			$foodMatch = $this->getFoodMatchesFilter($food_matches);
 			
 			$final_array['filters']['food_matches'] = $foodMatch;
-			 $unique_range = array_unique($ranges);
-			 $unique_wine_types = array_unique($wine_types);
-			 $unique_varietals = array_unique($varietals);
-			 $unique_food_matches = array_unique($food_matches);
 			
-			//print_r($final_array);die('salman');
+			
+			$range_details = $final_array['range_details'];
+			print_r(array_values($range_details));die('sat2');
+			$indexed_range_details = array_values($range_details);
+			
 			return array(
                     '#theme' => 'sapient_our_wines_block',
-                    '#final_array' => $final_array,
+                    '#arguments' => $indexed_range_details,
+					
 					);       
 			
     }	 
