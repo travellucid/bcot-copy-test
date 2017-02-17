@@ -93,7 +93,7 @@ module.exports = function(grunt) {
 		options: {
 			compress: {
 				drop_debugger: true,
-				drop_console: false
+				drop_console: true
 			},
 			mangle: false
 		},
