@@ -14,7 +14,6 @@
         {% if (total_count > 3) %}
             {%set pending_count =  (total_count - 3) %}
         {% endif %}
-        {{ pending_count }}
         {% for key, items in wine_award|slice(0, 3) %} 
             <div class="awards-details-wrapper">
                 <h3 class="header_g">{{ items.type }}</h3>
