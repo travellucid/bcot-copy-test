@@ -211,8 +211,8 @@ var headerObj = (function($, window, sapient) {
 		var getMenuHeadingVal = function() {
 			$windowWidth = $(window).width();
 
-			$(document).on("click", ".menu > .dropdown", function(e) {
-				/*console.log($(this).parents("a").text());
+			$(document).on("click", ".menu > .dropdown ", function(e) {
+				/*console.log($(this).parents("a").text()); :not(.sub-menu .sub-menu-wrapper .menu-heading)
 				console.log($(this).parents(".menu-item").find(".sub-menu-wrapper .menu-heading"));*/
 				
 				if($windowWidth < 990) {
