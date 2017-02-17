@@ -27,6 +27,7 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 			positionCarouselIndicator = function() {
+				console.log(($("#carousel-new-story .carousel-inner  picture img")[0]).height());
 				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
 			setHeight =function() {
@@ -36,7 +37,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("height",maxHeight + 'px');
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 32 + 'px');
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -79,10 +80,12 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
-
+/*not working will pick later*/
 setTimeout(function() {
-	sapient.carousel.positionCarouselIndicator();
+	/*sapient.carousel.positionCarouselIndicator();*/
     sapient.carousel.setHeight();
 }, 1000);
-
+$(window).trigger('resize');
 sapient.carousel.resize();
+
+

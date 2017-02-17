@@ -139,7 +139,7 @@
 		text-align: center;
 		margin: 0 auto;
 		max-width: 770px;
-		width: 48.25%;
+		/* width: 48.25%; */
 	}
 	.cta-hero-bottom {
 		margin: 15px 0 0;
@@ -164,12 +164,12 @@
 #hero-component {
 	&.product-details-hero {
 		.hero-inner-container {
-			left: 30%;
-			text-align: -webkit-auto;
+			left: 36%;
+			text-align: left;
 			h1 {
 				width: 75%;
 			}
-			span.header_d {
+			p.header_d {
 				color: @white;
 			}
 			a.cta {
@@ -253,13 +253,18 @@
 				}
 				a.cta {
 					margin: 35px 0 0;
-				}
+				}	
 			}
 		}
 	}
-	.product-details-wine{
+	.product-details-mobile{
+		p.header_d {
+			padding: 0 15px;
+		}
+	}	
+	/*.product-details-wine{
 		color:@white;
-	}
+	}*/
 }
 
 /* @media screen and (orientation: portrait){
