@@ -1,14 +1,13 @@
 @import "sapient.variables-mixins.less";
 #nutritional-info-component {
   position: relative;
-  overflow: hidden;
-    .wrapper-div{
-  border: 1px solid #999;
-  position: relative;
-  width: 30%;
+  width: 100%;
+  max-width: 320px;
   margin: 0 auto;
-  margin-bottom: 40px;
-}
+  .wrapper-div{
+    position: relative;
+    margin: 0 auto;
+  }
 
   .wrapper-head{
       background-color: #3e464b;
@@ -22,7 +21,7 @@
     padding: 15px;
   }
   a {
-    text-align: center;
+    text-align: left;
   }
   h2{
     font-size: 16px;
@@ -42,8 +41,9 @@
     font-stretch: normal;
     line-height: 1.71;
     letter-spacing: 2px;
-    margin-bottom: 40px;
-    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    text-align: left;
   }
   p{
     color: #3e464b;
@@ -53,11 +53,14 @@
     font-stretch: normal;
     line-height: 1.63;
     letter-spacing: normal;
-    margin-bottom: 40px;
-    text-align: center;
+    margin-top: 40px;
+    text-align: left;
   }
   tr {
       border-bottom: 1px solid #fff;
+  }
+  span {
+    display: block;
   }
   tbody {
       text-align: left;
@@ -73,7 +76,7 @@
       font-stretch: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      padding: 0 10px;
+      padding: 5px;
   }
   tr td:first-child {
     color: #3e464b;
@@ -98,7 +101,7 @@
       font-stretch: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      padding: 0 10px;
+      padding: 5px;
       text-align: left;
       width: 32%;  
   }
@@ -111,7 +114,6 @@
       position: relative;
       text-align: center;
       width: 100%;
-      margin-bottom: 40px;
   }
 }
 
