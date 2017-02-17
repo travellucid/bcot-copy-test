@@ -23,17 +23,18 @@
 		display: block;
 		max-width: 1170px;
 		margin: 0 auto;
-		padding: 18px 0 26px;
+		padding: 18px 0;
 		text-align: center;
 
 		.awards-details-wrapper {
 			display:inline-block;
-			margin: 0 15px;
+			margin: 0 15px 18px;
 			max-width:370px;
 			text-align: center;
 			.header_d,
 			.header_g {
 				color: @dark-gray;
+				display: block;
 				margin: 10px 0;
 			}
 			span.header_d {
@@ -95,10 +96,21 @@
 		}
 	}	
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: @bp-desktop-mlarge) {
 	.awards-accolades {
 		.list-wrapper {
 			max-width: none;
 		}
 	}
 }	
+@media screen and (min-width: @bp-desktop-exlarge) {
+	.awards-accolades {
+		.list-wrapper {
+			max-width: none;
+			.awards-details-wrapper {
+				max-width: none;
+				width: 25%;
+			}
+		}
+	}
+}
