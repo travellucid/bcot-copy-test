@@ -84,6 +84,7 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 			positionCarouselIndicator = function() {
+				console.log(($("#carousel-new-story .carousel-inner  picture img")[0]).height());
 				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
 			setHeight =function() {
@@ -93,7 +94,7 @@ var carouselObj = (function($, window, sapient) {
 				  heightArr.push($($( "#carousel-new-story .carousel-inner .item" )[index]).height()); 
 				});
 				maxHeight = Math.max.apply(Math,heightArr);
-				$( "#carousel-new-story .carousel-inner").css("height",maxHeight + 'px');
+				$( "#carousel-new-story .carousel-inner").css("height",maxHeight - 32 + 'px');
 			},
 			toggleCarouselArrow = function(id) {
 				$(id).hover(
@@ -136,13 +137,15 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
-
+/*not working will pick later*/
 setTimeout(function() {
-	sapient.carousel.positionCarouselIndicator();
+	/*sapient.carousel.positionCarouselIndicator();*/
     sapient.carousel.setHeight();
 }, 1000);
-
+$(window).trigger('resize');
 sapient.carousel.resize();
+
+
 
 var heroObj = (function($, window, sapient) {
 
@@ -336,7 +339,24 @@ var headerObj = (function($, window, sapient) {
 					}, clickDelay);
 				}
 			});
-		}
+		},
+		scrollingSubMenu = function() {
+			if( $(window).width() < 991 ) {
+				$(".sub-menu-wrapper").each(function(){
+					$(this).height( $(window).height() - $("header.navbar").height() ).addClass('scrollItBaby');
+				});
+			} else {
+				$(".sub-menu-wrapper").each(function(){
+					$(this).height("").removeClass('scrollItBaby');
+				});
+			}
+		},
+
+		onResize = function() {
+			$(window).on('resize', function () {
+				debounce(sapient.header.scrollingSubMenu,500,"scroll the subnav");
+			});
+		};
 
 		return {
 			// public + private states and behaviors
@@ -347,7 +367,9 @@ var headerObj = (function($, window, sapient) {
 			setMenuBarHeight: setMenuBarHeight,
 			toggleGhostMenu: toggleGhostMenu,
 			menuMobile: menuMobile,
-			accessibleMenu: accessibleMenu
+			accessibleMenu: accessibleMenu,
+			scrollingSubMenu: scrollingSubMenu,
+			onResize: onResize
 		};
 	}
 
@@ -372,6 +394,8 @@ sapient.header.setMenuBarHeight();
 sapient.header.accessibleMenu();
 sapient.header.toggleGhostMenu();
 sapient.header.menuMobile();
+sapient.header.scrollingSubMenu();
+sapient.header.onResize();
 
 var followUsObj = (function($, window, sapient) {
 
@@ -379,17 +403,7 @@ var followUsObj = (function($, window, sapient) {
 
 	function createInstagramInstance() {
 
-		var setInstagramDimensions = function() {
-			var instaGallery = $("#follow-us #gallery").innerHeight();
-			if($(window).width() < 768 ) {
-				$("#follow-us #content").innerHeight(instaGallery);
-			}
-			else {
-				$("#follow-us #content").innerHeight('auto');
-			}
-		},
-
-		setContentWidth = function() {
+		var setContentWidth = function() {
 			if($(window).width() > 1600 ) {
 				$("#follow-us #content").width( $(window).width() - ($("#follow-us #gallery").width() + 10) );
 			} else {
@@ -399,7 +413,6 @@ var followUsObj = (function($, window, sapient) {
 
 		onResize = function() {
 			$(window).on('resize', function () {
-				debounce(sapient.followUs.setInstagramDimensions,500,"resizing instagram");
 				debounce(sapient.followUs.setContentWidth,100,"resizing instagram content");
 			});
 		};
@@ -407,7 +420,6 @@ var followUsObj = (function($, window, sapient) {
 
 		return {
 			// public + private states and behaviors
-			setInstagramDimensions: setInstagramDimensions,
 			setContentWidth: setContentWidth,
 			onResize: onResize
 		};
@@ -426,7 +438,6 @@ var followUsObj = (function($, window, sapient) {
 
 sapient.followUs = followUsObj.getInstance();
 
-sapient.followUs.setInstagramDimensions();
 sapient.followUs.setContentWidth();
 sapient.followUs.onResize();
 var footerObj = (function($, window, sapient) {
