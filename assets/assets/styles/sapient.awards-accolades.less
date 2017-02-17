@@ -15,7 +15,7 @@
 		text-align: center;
 		h2{
 			position: relative;
-			color: @black;
+			color: #3e464b;
 			margin: 20px 0 40px;
 		}
 	}
@@ -62,6 +62,27 @@
 			    top: 13px;
 			    width: 7px;
 		    }
+		}
+	}	
+}
+
+@media screen and (max-width: @bp-max-mobile) {
+	.awards-accolades {
+		.heading-image-wrapper {
+			h2{
+				font-size: 28px;
+				line-height: 38px;	
+			}
+		}
+		.list-wrapper {
+			.awards-details-wrapper {
+				max-width:290px;
+				margin: 0 auto;
+				.header_d,
+				.header_g {
+					display: block;
+				}
+			}
 		}
 	}	
 }

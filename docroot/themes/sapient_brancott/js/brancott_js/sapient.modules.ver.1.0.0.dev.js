@@ -84,6 +84,7 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 			positionCarouselIndicator = function() {
+				console.log(($("#carousel-new-story .carousel-inner  picture img")[0]).height());
 				$("#carousel-new-story .carousel-indicators").css("top",$($("#carousel-new-story .carousel-inner  picture img")[0]).height()-36 + "px");
 			},
 			setHeight =function() {
