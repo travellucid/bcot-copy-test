@@ -1,0 +1,124 @@
+@import "sapient.variables-mixins.less";
+#nutritional-info-component {
+  position: relative;
+  overflow: hidden;
+    .wrapper-div{
+  border: 1px solid #999;
+  position: relative;
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+  .wrapper-head{
+      background-color: #3e464b;
+      height: auto;
+      overflow: hidden;
+      padding: 10px 0;
+      position: relative;
+      display: block;
+  }
+  .body-style {
+    padding: 15px;
+  }
+  a {
+    text-align: center;
+  }
+  h2{
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #ffffff;
+  }
+  h3{
+    color: #3e464b;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  p{
+    color: #3e464b;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.63;
+    letter-spacing: normal;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  tr {
+      border-bottom: 1px solid #fff;
+  }
+  tbody {
+      text-align: left;
+  }
+  tr td {
+      color: #3e464b;
+      display: table-cell;
+      border-right: 1px solid #fff;
+      font-family: NeutraText-Book;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      padding: 0 10px;
+  }
+  tr td:first-child {
+    color: #3e464b;
+    font-family: NeutraText;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: normal; 
+  }
+  tr td:last-child {
+    border: none;
+  }
+  th {
+      border-right: 1px solid #fff;
+      color: #3e464b;
+      font-family: NeutraText;
+      font-size: 12px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      padding: 0 10px;
+      text-align: left;
+      width: 32%;  
+  }
+  th:last-child {
+    border: none;
+  }
+  table {
+      background-color: #f1f1de;
+      border-collapse: collapse;
+      position: relative;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+    #nutritional-info-component {
+      .wrapper-div {
+        width: 100%;
+      }
+    }
+}
