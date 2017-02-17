@@ -101,8 +101,11 @@
 		  </li>
 		{% endfor %}
 		{% else %}
+                    <li class = "hidden-md hidden-lg">
+                      <a href="{{ path('entity.node.canonical', {'node': 61}) }}">{{ 'Our Wines '|t }}</a>  
+                    </li>
 		  {% for item in items %}
-		  <li >
+		  <li class = "sub-menu-link">
 			{{ link(item.title, item.url) }}
 			{% if item.below %}
 			  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
