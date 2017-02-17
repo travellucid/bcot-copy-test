@@ -9,10 +9,15 @@ global-styling:
   js:
      js/js_libs/sapient.libs.js: {}
      js/brancott_js/sapient.modules.ver.1.0.0.dev.js: {}
+
      #Javascript files for leadformance
      #js/js_libs/agegate.js: {}
      #js/js_libs/agegate.min.js: {}
   
+pr-ctbuy-connector:
+  js:
+     js/brancott_js/pr_ctbuy_connector.js: {}
+
 bootstrap-scripts:
   js:
     bootstrap/js/affix.js: {}

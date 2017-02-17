@@ -85,12 +85,13 @@ class RemotekeyAutocompleteController extends ControllerBase {
 
       curl_close($ch);
       $data = json_decode($data);
+      //print_r($data); exit;
       foreach ($data as $key => $value) {
         //print "aaaaa";
         
         $results[] = [
-          'value' => $value,
-          'label' => $key,
+          'value' => $key,
+          'label' => $value,
         ];
       }
       //print_r($results); exit;

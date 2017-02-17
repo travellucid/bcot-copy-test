@@ -126,11 +126,11 @@ class FilterBlock extends BlockBase implements BlockPluginInterface
 			    $path[] = $file->getFileUri();
 					
 				}
-				//print_r($path );die('sallu');
+				
 			    //$url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($file->getFileUri());
 			}
 			
-    
+    print_r('test' );
 	                
 			
     }	 
