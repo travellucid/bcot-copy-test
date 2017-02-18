@@ -1,0 +1,24 @@
+<section id="product-grid">
+    
+        
+    {% for key,arg in arguments %}
+	<div class="category-header">
+		<p class="title-tag">{{ arg.title }}</p>
+		<h2>{{ arg.strapline }}</h2>
+		<p>{{ arg.description }}</p>
+	</div>
+	<div class="category-grid">
+		{% for tile in arg.associated_wines %}
+		<div class="product-tile">
+			<div class="product-shot">
+				<img src="{{ tile.url }}" />
+				<div class="product-bg"></div>
+			</div>
+			<h3>{{ tile.range }}</h3>
+			<p>{{ tile.title }}</p>
+		</div>
+		{% endfor %}
+	</div>
+	{% endfor %}
+	
+</section>

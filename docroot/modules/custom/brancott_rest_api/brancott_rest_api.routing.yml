@@ -22,3 +22,12 @@ range.details:
     _title: 'Get Range Details'
   requirements:
     _permission: 'access content'
+    
+    
+search_results.details:
+  path: '/search-page'
+  defaults:
+    _controller: '\Drupal\brancott_rest_api\Controller\BrancottSearchFilterController::getSearchResults'
+    _title: 'Get Products'
+  requirements:
+    _permission: 'access content'

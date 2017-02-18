@@ -12,6 +12,12 @@ var commonObj = (function($, window, sapient) {
 		hideLinkText = function() {
 			$("footer section.social-icons nav ul li a").text("")
 		},
+		toggleAwardsDetails = function() {
+			$(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
+				$(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
+				$(this).hide();
+			});
+		},
 		addBgNoise = function() {
 			var section=$("section .views-element-container");
 			for (var i=1;i<section.length;i+=2) {
@@ -23,6 +29,7 @@ var commonObj = (function($, window, sapient) {
 			// public + private states and behaviors
 			scrollToNext: scrollToNext,
 			hideLinkText: hideLinkText,
+			toggleAwardsDetails: toggleAwardsDetails,
 			addBgNoise: addBgNoise
 		};
 	}
@@ -42,3 +49,4 @@ sapient.common = commonObj.getInstance();
 sapient.common.hideLinkText();
 /*sapient.common.debounce();*/
 sapient.common.addBgNoise();
+sapient.common.toggleAwardsDetails();
