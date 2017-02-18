@@ -59,6 +59,7 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
       '#default_value' => isset($items[$delta]->title) ? 
           $items[$delta]->title : null,
       '#empty_value' => '',
+      '#maxlength' => '20',
       '#placeholder' => t('Title'),
     ];
 
