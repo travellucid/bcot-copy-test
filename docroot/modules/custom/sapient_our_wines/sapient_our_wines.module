@@ -269,6 +269,17 @@ function character_limitation_wines_page($form, \Drupal\Core\Form\FormStateInter
    if ($nutritional_info_cta2 > 20){
     $form_state->setErrorByName('field_nutritional_info_cta2','Max length for this field is 20 characters.');
   }
+  
+  
+  $click_to_buy_hero = strlen($values['field_click_to_buy_hero_cta'][0]['title']);
+  $click_to_buy = strlen($values['field_click'][0]['title']);
+  
+   if ($click_to_buy_hero > 20){
+    $form_state->setErrorByName('field_click_to_buy_hero_cta','Max length for this field is 20 characters.');
+  }
+   if ($click_to_buy > 20){
+    $form_state->setErrorByName('field_click','Max length for this field is 20 characters.');
+  }
 
 }
 
