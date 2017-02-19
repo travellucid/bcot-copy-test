@@ -52,7 +52,8 @@ class BrancottSearchFilterController extends ControllerBase {
 
     $rest_api = new BrancottRestApiControllerFilters;
     $values = $rest_api->getFilters();
-    $final_array = array();
+    //print_r($values); exit;
+    $wine_details = array();
     foreach ($values as $value) {
       if ($range && $value->range != $range) {
         continue;
@@ -73,7 +74,7 @@ class BrancottSearchFilterController extends ControllerBase {
           ->condition('field_wine_id', $value->id)
           ->execute();
       $wine_image_url = '';
-
+      
       if (count($ids)) {
         $related_nodes = array_filter($ids);
         $related_wine_nid = reset($related_nodes);
@@ -84,12 +85,12 @@ class BrancottSearchFilterController extends ControllerBase {
       }
       $wine_details[$value->id]['url'] = $wine_image_url;
     
-      $final_array_ranges = $final_array['range_details'][$value->range]['associated_wines'];
+      $final_array = $wine_details;
       //new code terminated
     }
     $table =  array(
       '#theme' => 'search_results_template',
-      '#search_array' => $final_array_ranges,
+      '#search_array' => $wine_details,
     );
     $markup = drupal_render($table);
     
