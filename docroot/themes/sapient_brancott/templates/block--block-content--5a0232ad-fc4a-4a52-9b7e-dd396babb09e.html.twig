@@ -7,6 +7,7 @@
 	'scroll-to'
   ]
 %}
+
 <!-- adding a new unique id for front end functionality -->
 <div id = {{ 'block-' ~ plugin_id }} {{ attributes.addClass(classes) }}>
     {{ title_prefix }}
@@ -21,8 +22,8 @@
                 {%- if content.field_signup_text.0 -%}               
                 <h3 class="sign-up-text header_c">{{ content.field_signup_text.0 }}</h3>
                 {%- endif -%} 
-                {%- if content.field_signup.0.url -%}
-                <a href="{{ content.field_signup.0.url }}" class="cta secondary-dark">{{ content.field_signup.0.label }}</a>
+                {%- if content.field_signup.0['#url'] -%}
+                <a href="{{ content.field_signup.0['#url'] }}" class="cta secondary-dark">{{ content.field_signup.0['#title'] }}</a>
                 {%- endif -%}
             </div>
         </div>
