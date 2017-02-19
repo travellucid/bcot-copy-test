@@ -21,8 +21,8 @@
                 {%- if content.field_signup_text.0 -%}               
                 <h3 class="sign-up-text header_c">{{ content.field_signup_text.0 }}</h3>
                 {%- endif -%} 
-                {%- if content.field_signup.0 and content.field_signup.1 -%}
-                <a href="{{ content.field_signup.0 }}" class="cta secondary-dark">{{ content.field_signup.1 }}</a>
+                {%- if content.field_signup.0.url -%}
+                <a href="{{ content.field_signup.0.url }}" class="cta secondary-dark">{{ content.field_signup.0.label }}</a>
                 {%- endif -%}
             </div>
         </div>
