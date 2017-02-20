@@ -49,22 +49,10 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 		
 		$form['#validate'][] = 'character_limitation_restaurant';
 	}
-	if($form_id == 'block_content_sign_up_block_edit_form' ){
-		
-		$form['#validate'][] = 'character_limitation_signup_block';
-	}
+	
 }
 
-function character_limitation_signup_block($form, \Drupal\Core\Form\FormStateInterface $form_state) {
- 
-  $values = $form_state->getValues();
-  $signup_text = strlen($values['field_signup_text'][0]['value']);
-  
-  
-   if ($signup_text > 80){
-    $form_state->setErrorByName('field_signup_text','Max length for this field is 80 characters.');
-  }
-}
+
 
 function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInterface $form_state) {
  
