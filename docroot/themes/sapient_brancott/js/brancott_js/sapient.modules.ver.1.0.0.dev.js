@@ -173,53 +173,6 @@ sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
 sapient.carousel.positionCarousel();
 sapient.carousel.resize();
-
-/*setTimeout(function() {
-	sapient.carousel.positionCarouselIndicator();
-	sapient.carousel.setHeight();
-	$(window).trigger('resize');
-}, 1000);*/
-
-
-
-/*setInterval(function(){
-	if($($( "#carousel-new-story .carousel-inner .item" )[0]).height()==0){
-		sapient.carousel.positionCarouselIndicator();		
-	}
-	else {
-		clearInterval();
-	}
-}, 1000);*/
-/*(function() {
-	console.log("fu");
-	if ($($("#carousel-new-story .carousel-inner  picture img")[0]).height() === 0) {
-
-		interval = setInterval(function() {
-			$(window).trigger('resize');
-			console.log($($("#carousel-new-story .carousel-inner .item")[0]).height() + ":fsd");
-			sapient.carousel.positionCarouselIndicator();
-		}, 200);
-
-		setTimeout(function() {
-			clearInterval(interval);
-		}, 6000);
-	} else {
-		console.log($($("#carousel-new-story .carousel-inner  picture img")[0]).height() + "else");
-		clearInterval(interval);
-		sapient.carousel.positionCarouselIndicator();
-	}
-
-
-})()*/
-
-
-/*
-*/
-
-/*setTimeout(function() {    
-	$(window).trigger('resize');
-}, 5000);*/
-
 var heroObj = (function($, window, sapient) {
 
 	var heroInstance;
@@ -525,6 +478,55 @@ sapient.followUs = followUsObj.getInstance();
 
 sapient.followUs.setContentWidth();
 sapient.followUs.onResize();
+var ourWines = (function($, window, sapient) {
+
+	var filterWinesCollection;
+
+	function createFilterWinesCollection() {
+		var filterWines = function() {
+			var allProductsGrid = $("#response-wrapper").html();
+			$(".filter-item").on("click",function(e){
+				e.preventDefault();
+
+				if($(this).data("categoryFilter") === "all-data") {
+
+					$("#response-wrapper").html(allProductsGrid);
+
+				} else {
+
+					var wineType = $(this).data("categoryFilter");
+					$.ajax({
+						url: "/search-page?range=" + wineType,
+						type: "GET",
+						success: function (data) {
+							$("#response-wrapper").html(data);
+						}
+					});
+				}
+			});
+		};
+
+
+		return {
+			// public + private states and behaviors
+			filterWines: filterWines
+		};
+	}
+
+	return {
+		getInstance: function() {
+			if (!filterWinesCollection) {
+				filterWinesCollection = createFilterWinesCollection();
+			}
+			return filterWinesCollection;
+		}
+	};
+
+})(jQuery, window, sapient);
+
+sapient.winesFilter = ourWines.getInstance();
+
+sapient.winesFilter.filterWines();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
