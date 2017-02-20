@@ -176,11 +176,10 @@
 #hero-component {
 	&.product-details-hero {
 		.hero-inner-container {
-			left: 36%;
+			.centerY();
+			left: 8%;
+			max-width: 570px;
 			text-align: left;
-			h1 {
-				width: 75%;
-			}
 			p.header_d {
 				color: @white;
 			}
@@ -262,7 +261,7 @@
 		}
 		&.product-details-hero {
 			.hero-inner-container {
-				left: 50%;
+				.centerBoth();
 				text-align: center;
 				h1 {
 					width: 100%;
@@ -277,6 +276,9 @@
 	.product-details-mobile{
 		margin-top: -50%;
 		position: relative;
+		img {
+			width: 34.375%;
+		}
 		p.header_d {
 			padding: 0 15px;
 		}
