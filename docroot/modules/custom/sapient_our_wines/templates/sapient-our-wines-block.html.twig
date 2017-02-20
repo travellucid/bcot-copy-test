@@ -1,34 +1,29 @@
 <nav id="navbar-header" class="">
-	<div class="navbar-collapse menu-container" aria-expanded="false" style="/* margin: 0 auto; *//* text-align: center; */">
-	<div class="logo hidden-md hidden-lg ">
-		<a href="http://brancottvanilla.dev.dd:8083/en" class="logo-img"></a>
-	</div>
-	      
-		  <ul class="nav navbar-nav menu">
-						  		{% for key, filter in filters %}  		  
-		    			<li class="menu-item dropdown our-wines">
-					   		    
-		  			<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ key }} <span class="expand-icon" data-toggle="dropdown"></span>
-			  		   </a>
-						  	  	  				  <ul class="dropdown-menu sub-menu" style="height: 71px;">
-		  <div class="sub-menu-wrapper">
-		  {% for subfilter_key, subfilter in filter %}
-		 <li class="sub-menu-link">
-			<a href="#" data-category-filter="{{ subfilter_key }}" class="filter-item" style="color: white;"> {{ subfilter_key }}</a>
-					  </li>
-		{% endfor %}		
-				  </div>
-				</ul>
-					  </li>	 
-					  {% endfor %}
-				</ul>
-					</div><!--/.nav-collapse -->
+    <div class="navbar-collapse menu-container" aria-expanded="false" style="/* margin: 0 auto; *//* text-align: center; */">
+        <div class="logo hidden-md hidden-lg ">
+            <a href="http://brancottvanilla.dev.dd:8083/en" class="logo-img"></a>
+        </div>
 
+        <ul class="nav navbar-nav menu">
+            {% for key, filter in filters %}  		  
+                <li class="menu-item dropdown our-wines">
+
+                    <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ key }} <span class="expand-icon" data-toggle="dropdown"></span>
+                    </a>
+                    <ul class="dropdown-menu sub-menu" style="height: 71px;">
+                        <div class="sub-menu-wrapper">
+                            {% for subfilter_key, subfilter in filter %}
+                                <li class="sub-menu-link">
+                                    <a href="#" data-category-filter="{{ subfilter_key }}" class="filter-item" style="color: white;"> {{ subfilter_key }}</a>
+                                </li>
+                            {% endfor %}		
+                        </div>
+                    </ul>
+                </li>	 
+            {% endfor %}
+        </ul>
+    </div><!--/.nav-collapse -->
 </nav>
-
-
-
-
 
 
 
@@ -36,31 +31,31 @@
     <a href="#" data-category-filter="all-data" class="filter-item" style="color: white;">All data</a>
     <a href="#" data-category-filter="Brancott Estate" class="filter-item" style="color: white;">Brancott Estate</a>
     <a href="#" data-category-filter="Flight" class="filter-item" style="color: white;">Flight</a>
-	<a href="#" data-category-filter="Flight" class="filter-item" style="color: white;">Flight</a>
-	<a href="#" data-category-filter="Flight" class="filter-item" style="color: white;">Flight</a>
+    <a href="#" data-category-filter="Flight" class="filter-item" style="color: white;">Flight</a>
+    <a href="#" data-category-filter="Flight" class="filter-item" style="color: white;">Flight</a>
 </div>
 <section id="product-grid">
     <div id="response-wrapper">
         {% for key,arg in arguments %}
-        <div class="category-wrapper">
-            <div class="category-header">
-                <p class="title-tag">{{ arg.title }}</p>
-                <h2>{{ arg.strapline }}</h2>
-                <p>{{ arg.description }}</p>
-            </div>
-            <div class="category-grid">
-                {% for tile in arg.associated_wines %}
-                    <div class="product-tile">
-                        <div class="product-shot">
-                            <img src="{{ tile.url }}" />
-                            <div class="product-bg" style="background-color:  ;"></div>
+            <div class="category-wrapper">
+                <div class="category-header">
+                    <p class="title-tag">{{ arg.title }}</p>
+                    <h2>{{ arg.strapline }}</h2>
+                    <p>{{ arg.description }}</p>
+                </div>
+                <div class="category-grid">
+                    {% for tile in arg.associated_wines %}
+                        <div class="product-tile">
+                            <div class="product-shot">
+                                <img src="{{ tile.url }}" />
+                                <div class="product-bg" style="background-color:  ;"></div>
+                            </div>
+                            <h3>{{ tile.range }}</h3>
+                            <p>{{ tile.title }}</p>
                         </div>
-                        <h3>{{ tile.range }}</h3>
-                        <p>{{ tile.title }}</p>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </section>
