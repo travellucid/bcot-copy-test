@@ -9,14 +9,14 @@
 }
 .awards-accolades{
 	background-color: @fawn;
-	padding: 90px 0 100px;
+	padding: 90px 15px 100px;
 
 	.heading-image-wrapper {
 		text-align: center;
 		
 		h2{
 			color: @dark-gray;
-			margin: 20px 0 15px;
+			margin: 11px 0 9px;
 			position: relative;
 		}
 	}
@@ -24,13 +24,13 @@
 	.list-wrapper {
 		display: block;
 		max-width: 1170px;
-		margin: 0 auto;
+		margin: 24px auto 0;
 		padding-bottom: 6px;
 		text-align: center;
 
 		.awards-details-wrapper {
 			display:inline-block;
-			margin: 0 15px 18px;
+			margin: 0 15px 28px;
 			max-width:370px;
 			text-align: center;
 			
@@ -59,7 +59,8 @@
 			border: 2px solid @dark-gray;
 		    font-size: 12px;
 		    letter-spacing: 2px;
-		    line-height: 22px;
+		    line-height: 22px; 
+   			padding: 8px 68px 8px 48px;
 		    position: relative;
 		   
 		    &:hover {
@@ -70,7 +71,7 @@
 	    		background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg") !important;
 	    		background-size: 15px;
 				height: 7px;
-			    margin-left: 11px;
+			    margin-left: 8px;
 			    position: absolute;
 			    top: 16px;
 			    width: 15px;    
@@ -81,6 +82,8 @@
 
 @media screen and (max-width: @bp-max-mobile) {
 	.awards-accolades {
+		padding: 100px 15px;
+
 		.heading-image-wrapper {
 			
 			h2{
@@ -90,11 +93,10 @@
 		}
 		
 		.list-wrapper {
-			padding-bottom: 23px;
-			
+
 			.awards-details-wrapper {
 				max-width:290px;
-				margin: 0 auto;
+				margin: 16px auto 30px;
 				.header_d,
 				.header_g {
 					display: block;
@@ -112,13 +114,17 @@
 	.awards-accolades {
 		.list-wrapper {
 			max-width: none;
+
+			.awards-details-wrapper {
+				max-width: none;
+			}
 		}
 	}
 }	
 @media screen and (min-width: @bp-desktop-exlarge) {
 	.awards-accolades {
 		.list-wrapper {
-			max-width: none;
+			max-width: none;	
 			
 			.awards-details-wrapper {
 				max-width: none;
