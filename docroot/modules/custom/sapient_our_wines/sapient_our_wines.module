@@ -297,6 +297,4 @@ function character_limitation_wines_page($form, \Drupal\Core\Form\FormStateInter
 
 }
 
-//function sapient_our_wines_entity_translation_delete(\Drupal\Core\Entity\EntityInterface $translation) {
-  //echo "<pre>";print_r(debug_backtrace());die('test');
-//}
+
