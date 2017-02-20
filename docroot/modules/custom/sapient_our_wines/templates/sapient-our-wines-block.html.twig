@@ -14,6 +14,8 @@
                     {% set newkey = 'Varietals' %}
                 {% elseif key == 'food_mathces' %}
                     {% set newkey = 'Food Matches' %}
+                {% else %}
+                    {% set newkey = key %}
                 {% endif %}
                 <li class="menu-item dropdown our-wines">
                     <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey }} <span class="expand-icon" data-toggle="dropdown"></span>
@@ -23,7 +25,7 @@
                             {% for subfilter_key, subfilter in filter %}
                                 <li class="sub-menu-link">
                                     <a href="#" data-category=" {{ key }}"
-data-category-filter="{{ subfilter_key }}" class="filter-item" style="color: white;"> {{ subfilter_key }}</a>
+                                       data-category-filter="{{ subfilter_key }}" class="filter-item" style="color: white;"> {{ subfilter_key }}</a>
                                 </li>
                             {% endfor %}		
                         </div>
