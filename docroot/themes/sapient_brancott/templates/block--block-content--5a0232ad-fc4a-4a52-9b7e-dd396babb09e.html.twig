@@ -1,0 +1,32 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'clearfix',
+	'scroll-to'
+  ]
+%}
+
+<!-- adding a new unique id for front end functionality -->
+<div id = {{ 'block-' ~ plugin_id }} {{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {% if label %}
+        <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% block content %}
+        <div class="sign-up">
+            <div class="row sign-up-text-wrapper">
+                {%- if content.field_signup_text.0 -%}               
+                <h3 class="sign-up-text header_c">{{ content.field_signup_text.0 }}</h3>
+                {%- endif -%} 
+                {%- if content.field_signup.0['#url'] -%}
+                <a href="{{ content.field_signup.0['#url'] }}" class="cta secondary-dark">{{ content.field_signup.0['#title'] }}</a>
+                {%- endif -%}
+            </div>
+        </div>
+    {% endblock %}
+</div>
+

@@ -1,8 +1,8 @@
 <section id="visit-us" class="container-fluid">
-    {%- if fields.field_visit_us_small_headline.content or fields.field_visit_us_mainheadline.content or fields.field_visit_us_description.content -%}
+    {%- if fields.field_visit_us_subheading.content or fields.field_visit_us_main_headline.content or fields.field_visit_us_description.content -%}
 	<div class="top-section" >
-		<h2 class="header_f">{{ fields.field_visit_us_small_headline.content }}</h2>
-		<h3  class="header_a">{{ fields.field_visit_us_mainheadline.content }}</h3>
+		<h2 class="header_f">{{ fields.field_visit_us_subheading.content }}</h2>
+		<h3  class="header_a">{{ fields.field_visit_us_main_headline.content }}</h3>
 		<p class="description-visit-us">{{ fields.field_visit_us_description.content }}</p>
 	</div>
     {%- endif -%}

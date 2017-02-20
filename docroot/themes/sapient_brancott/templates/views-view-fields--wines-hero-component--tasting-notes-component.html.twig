@@ -9,9 +9,8 @@
         <source  media="(max-width: 769px)" srcset="{{ fields.field_aroma_and_palate_image.conten }}" class="">  
         <source  media="(max-width: 1281px)" srcset="{{ fields.field_aroma_and_palate_image.conten }}" class=""> 
         <img src="{{ fields.field_aroma_and_palate_image.content }}" 
-             alt="Aroma">
-    </picture>
-    <img class="hero-bottle" src="{{ fields.field_aroma_and_palate_image.content }}" alt="Aroma"> 
+             alt="{{ fields.field_aroma_and_palate_image_1.content }}">
+    </picture> 
     <h3> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
 {% endif %}
 
@@ -30,7 +29,7 @@
         <source  media="(max-width: 769px)" srcset="{{ fields.field_enjoy_with_image.content }}" class="">  
         <source  media="(max-width: 1281px)" srcset="{{ fields.field_enjoy_with_image.content }}" class=""> 
         <img src="{{ fields.field_enjoy_with_image.content }}" 
-             alt="Enjoy">
+             alt="{{ fields.field_enjoy_with_image_1.content }}">
     </picture>
     <h3> {{ fields.field_enjoy_with_subtitle.content }} </h3>
 {% endif %}
@@ -40,7 +39,7 @@
 {% endif %}
 
 <a href="{{ fields.field_nutritional_info_cta1.content }}" class="cta dark watch-video" data-toggle="modal" data-target="#nutritional-info-component"> NUTRITIONAL INFO </a>
-<a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_1.content }}</a>
+<a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">BUY NOW</a>
 
 <!-- Modal -->
 <div id="nutritional-info-component" class="modal fade" role="dialog">
