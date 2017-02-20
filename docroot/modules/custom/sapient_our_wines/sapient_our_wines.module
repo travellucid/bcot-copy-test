@@ -76,35 +76,35 @@ function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateIn
   //
   
    if (strlen($values['field_referred_content'][0]['field_find_'][0]['value']) > 20){
-    $form_state->setErrorByName('field_discover_carausal][0][field_find_', 'Max length for this field is 20 characters.');
+    $form_state->setErrorByName('field_referred_content][0][field_find_', 'Max length for this field is 20 characters.');
    }
    if (strlen($values['field_referred_content'][1]['field_find_'][0]['value']) > 20){
-    $form_state->setErrorByName('field_discover_carausal][1][field_find_', 'Max length for this field is 20 characters.');
+    $form_state->setErrorByName('field_referred_content][1][field_find_', 'Max length for this field is 20 characters.');
    }
    if (strlen($values['field_referred_content'][2]['field_find_'][0]['value']) > 20){
-    $form_state->setErrorByName('field_discover_carausal][2][field_find_', 'Max length for this field is 20 characters.');
+    $form_state->setErrorByName('field_referred_content][2][field_find_', 'Max length for this field is 20 characters.');
    }
    if (strlen($values['field_referred_content'][3]['field_find_'][0]['value']) > 20){
-    $form_state->setErrorByName('field_discover_carausal][3][field_find_', 'Max length for this field is 20 characters.');
+    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
    }
    if (strlen($values['field_referred_content'][4]['field_find_'][0]['value']) > 20){
-    $form_state->setErrorByName('field_discover_carausal][3][field_find_', 'Max length for this field is 20 characters.');
+    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
    }
 
    if (strlen($values['field_referred_content'][0]['field_description'][0]['value']) > 200){
-    $form_state->setErrorByName('field_discover_carausal][0][field_description', 'Max length for this field is 200 characters.');
+    $form_state->setErrorByName('field_referred_content][0][field_description', 'Max length for this field is 200 characters.');
    }
    if (strlen($values['field_referred_content'][1]['field_description'][0]['value']) > 200){
-    $form_state->setErrorByName('field_discover_carausal][1][field_description', 'Max length for this field is 200 characters.');
+    $form_state->setErrorByName('field_referred_content][1][field_description', 'Max length for this field is 200 characters.');
    }
    if (strlen($values['field_referred_content'][2]['field_description'][0]['value']) > 200){
-    $form_state->setErrorByName('field_discover_carausal][2][field_description', 'Max length for this field is 200 characters.');
+    $form_state->setErrorByName('field_referred_content][2][field_description', 'Max length for this field is 200 characters.');
    }
    if (strlen($values['field_referred_content'][3]['field_description'][0]['value']) > 200){
-    $form_state->setErrorByName('field_discover_carausal][3][field_description', 'Max length for this field is 200 characters.');
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
    }
    if (strlen($values['field_referred_content'][4]['field_description'][0]['value']) > 200){
-    $form_state->setErrorByName('field_discover_carausal][3][field_description', 'Max length for this field is 200 characters.');
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
    }
   
   
@@ -297,6 +297,4 @@ function character_limitation_wines_page($form, \Drupal\Core\Form\FormStateInter
 
 }
 
-//function sapient_our_wines_entity_translation_delete(\Drupal\Core\Entity\EntityInterface $translation) {
-  //echo "<pre>";print_r(debug_backtrace());die('test');
-//}
+

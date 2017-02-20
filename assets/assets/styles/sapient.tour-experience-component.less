@@ -3,6 +3,7 @@
 
 #tour-experience-component {
   .set-max-width(870px);
+
 .header_sect {
     color: #3e464b;
     text-transform: uppercase;
@@ -14,7 +15,15 @@
     text-align: left; 
     width: 470px;
 }
+
+.cta {
+  &:hover {
+    border: 2px solid @bright-green;
+  }
+}
+
 a {
+  margin: 0;
   margin-bottom: 40px;
   padding: 19px 53px;
 }
@@ -32,8 +41,9 @@ a {
     margin-bottom: 35px;
     text-align: left;
 }
+
 .img-left {
-  left: 93px;
+  left: 97px;
 }
 
 .section-class {
@@ -69,11 +79,12 @@ a {
     .content-wrapper {
       /*padding-right: 53px;*/
       position: relative;
-      right: 120px;
+      right: 145px;
     }
+
     .image-wrapper {
       img {
-        transform: translateX(-50%);
+        transform: translateX(-53%);
       }
     }
   }
@@ -83,6 +94,7 @@ a {
   .desktop-only {
       display: none !important;
     }
+
     .img-left {
       left: 0;
     }
@@ -98,6 +110,7 @@ a {
     .header-cta-wrapper {
       margin-top: 0;
     }
+
     .image-wrapper {
       display: block;
       width: 100%;
@@ -106,10 +119,17 @@ a {
         width: 100%;
       }
     }
+
     .header_sect {
       padding-top: 50px;
       width: 100%;
+      text-align: center;
     }
+
+    .tagline {
+      text-align: center;
+    }
+
     .content-wrapper {
       display: block;
       width: 100%;
@@ -117,6 +137,7 @@ a {
       padding: 0;
       padding-bottom: 30px;
     }
+
     &.img-left {
       .content-wrapper {
         padding-right: 3px;
