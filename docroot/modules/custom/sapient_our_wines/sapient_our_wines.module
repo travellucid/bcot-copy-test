@@ -125,8 +125,8 @@ function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateIn
     $form_state->setErrorByName('field_discover_carausal][3][field_carousel_description', 'Max length for this field is 500 characters.');
    }
 
-    if ($hero_bottom_desc > 300){
-    $form_state->setErrorByName('field_hero_bottom_description','Max length for this field is 300 characters.');
+    if ($hero_bottom_desc > 500){
+    $form_state->setErrorByName('field_hero_bottom_description','Max length for this field is 500 characters.');
    }
    if ($sign_up_text > 20){
     $form_state->setErrorByName('field_signup','Max length for this field is 20 characters.');
