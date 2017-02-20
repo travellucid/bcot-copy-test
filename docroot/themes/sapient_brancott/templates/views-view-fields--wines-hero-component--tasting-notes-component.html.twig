@@ -1,5 +1,5 @@
 {% if (tasting_notes_aroma or tasting_notes_taste or tasting_notes_complement) %}
-    <h2> {{ fields.field_tasting_notes_title.content }} </h2>
+    <h2 class="header_b"> {{ fields.field_tasting_notes_title.content }} </h2>
 {% endif %}
 
 {% if (tasting_notes_aroma or tasting_notes_taste) %}
@@ -11,7 +11,7 @@
         <img src="{{ fields.field_aroma_and_palate_image.content }}" 
              alt="{{ fields.field_aroma_and_palate_image_1.content }}">
     </picture> 
-    <h3> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
+    <h3 class="header_f"> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
 {% endif %}
 
 {% if (tasting_notes_aroma) %}

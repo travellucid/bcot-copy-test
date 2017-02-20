@@ -6,7 +6,7 @@
 
         <ul class="nav navbar-nav menu">
             {% for key, filter in filters %}  		
-                {% if key == 'ranges' %}
+                {% if key == 'range' %}
                     {% set newkey = 'Ranges' %}
                 {% elseif key == 'wine_type' %}
                     {% set newkey = 'Wine Types' %}
