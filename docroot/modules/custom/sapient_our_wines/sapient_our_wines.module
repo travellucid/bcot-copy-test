@@ -74,7 +74,8 @@ function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateIn
   $hero_bottom_desc = strlen($values['field_hero_bottom_description'][0]['value']);
   $sign_up_text = strlen($values['field_signup'][0]['title']);
   //
-  
+  $a = strlen($values['field_discover_carausal'][0]['field_carousel_description'][0]['value']);
+  print_r($a);die('test');
    if (strlen($values['field_referred_content'][0]['field_find_'][0]['value']) > 20){
     $form_state->setErrorByName('field_referred_content][0][field_find_', 'Max length for this field is 20 characters.');
    }
