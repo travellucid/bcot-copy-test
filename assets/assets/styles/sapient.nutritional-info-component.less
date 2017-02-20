@@ -29,7 +29,6 @@
   }
 
   .close-btn {
-    position: absolute;
     right: 5px;
     width: 32px;
     height: 32px;
@@ -40,11 +39,13 @@
       opacity: 1;
     }
     &:before, &:after {
-      left: 15px;
+      background-color: @white;
       content: ' ';
       height: 20px;
+      position: absolute;
+      right: 18px;
+      top: 20px;
       width: 2px;
-      background-color: #fff;
     }
     &:before {
       transform: rotate(45deg);
@@ -67,6 +68,7 @@
 
   h2{
     color: @white;
+    font-size: 22px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
