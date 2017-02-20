@@ -50,8 +50,8 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       $all_level = array();
 
       $food_matches[] = $value->foodMatch;
-      $final_array['filters']['ranges'][$value->range] = $value->range;
-      $final_array['filters']['wine_types'][$value->wineType] = $value->wineType;
+      $final_array['filters']['range'][$value->range] = $value->range;
+      $final_array['filters']['wine_type'][$value->wineType] = $value->wineType;
       $final_array['filters']['varietals'][$value->grapeVariety] = $value->grapeVariety;
       $final_array['filters']['food_matches'][$value->foodMatch] = $new_array;
       $wine_details[$value->range][$value->id]['title'] = $value->title;
