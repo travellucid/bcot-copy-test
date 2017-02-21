@@ -36,8 +36,9 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $basepath = base_path() . $variables['directory'];
 
           $variables['temp_icon'] = $base_url . $basepath . '/css/images\season_icons/' . $icon_id . '.svg';
-          $variables['current_temp'] = html_entity_decode($weather->temperature->now);
-          $variables['temp_unit'] = $weather->temperature->getUnit();
+          $variables['current_temp'] = round(html_entity_decode($weather->temperature->now));
+          $variables['temp_unit'] = html_entity_decode($weather->temperature->getUnit());
+		  //print_r($variables['current_temp']);echo"test";print_r($variables['temp_unit']);exit;
           $variables['current_date'] = date('d M Y / g:ia');
         }
       }
