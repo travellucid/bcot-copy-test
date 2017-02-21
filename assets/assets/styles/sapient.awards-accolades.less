@@ -1,12 +1,4 @@
 @import "sapient.variables-mixins.less";
-.product-details-mobile {
-	padding-bottom: 100px;
-	text-align: center;
-
-	span.header_d {
-		padding: 0 15px;
-	}
-}
 .awards-accolades{
 	background-color: @fawn;
 	padding: 90px 15px 100px;
@@ -113,23 +105,11 @@
 @media screen and (min-width: @bp-desktop-mlarge) {
 	.awards-accolades {
 		.list-wrapper {
-			max-width: none;
-
+			
 			.awards-details-wrapper {
 				max-width: none;
+				width: 30%;
 			}
 		}
 	}
 }	
-@media screen and (min-width: @bp-desktop-exlarge) {
-	.awards-accolades {
-		.list-wrapper {
-			max-width: none;	
-			
-			.awards-details-wrapper {
-				max-width: none;
-				width: 25%;
-			}
-		}
-	}
-}
