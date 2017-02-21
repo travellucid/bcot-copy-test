@@ -4,17 +4,188 @@
 
 	.form-details {
 		text-align: center;
-	}
-	form {
-		label {
-			display: none;
+		color: @dark-gray;
+
+		h2 {
+			color: @black;
+			padding-top: 100px;
 		}
-		input,
-		select {
-			width: 100%;
-		    border: none;
-		    border-bottom: 1px solid black;
-		    outline: none;
-		}    
+		.form-info {
+			padding: 25px 0;
+		}
+		.form-guidelines {
+			display: block;
+			font-family: "NeutraText-Demi";
+			padding-bottom: 40px;
+		}
+	}
+
+	select {
+		border: none;
+		border-bottom: 2px solid  @black;
+		outline: none;
+		padding: 10px 10px 5px 0;
+		width: 100%;
+	} 
+
+	.group {
+		position: relative;
+		margin-bottom: 15px;
+	}
+
+	input {
+		font-size: 18px;
+		padding: 10px 10px 5px;
+		display: block;
+		width: 100%;
+		border: none;
+		border-bottom: 2px solid  @black;
+	}
+
+	
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: transparent;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	   color: transparent;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	   color: transparent;
+	}
+
+
+	input:focus {
+		outline: none;
+		border-bottom: 4px solid  @black;
+	}
+
+	/* LABEL ======================================= */
+	
+	label {
+		color: @black;
+		position: absolute;
+		pointer-events: none;
+		top: 5px;
+		transition: 0.2s ease all;
+		-moz-transition: 0.2s ease all;
+		-webkit-transition: 0.2s ease all;
+	}
+	
+	/* active state */
+	input:focus ~ label,
+	input:valid ~ label {
+		top: -10px;
+		/*font-size: 14px;
+		color: @dark-gray;*/
+	}
+	
+	/* BOTTOM BARS ================================= */
+	
+	.bar {
+		position: relative;
+		display: block;
+		/*width: 300px;*/
+	}
+	
+	/*.bar:before,
+	.bar:after {
+		content: '';
+		height: 2px;
+		width: 0;
+		bottom: 1px;
+		position: absolute;
+		background: @dark-gray;
+		transition: 0.2s ease all;
+		-moz-transition: 0.2s ease all;
+		-webkit-transition: 0.2s ease all;
+	}*/
+	
+	/*.bar:before {
+		left: 50%;
+	}
+	
+	.bar:after {
+		right: 50%;
+	}*/
+	
+	/* active state */
+	
+	input:focus ~ .bar:before,
+	input:focus ~ .bar:after {
+		width: 50%;
+	}
+	
+	/* HIGHLIGHTER ================================== */
+	
+	.highlight {
+		position: absolute;
+		height: 60%;
+		width: 100px;
+		top: 25%;
+		left: 0;
+		pointer-events: none;
+		opacity: 0.5;
+	}
+	
+	/* active state */
+	
+	input:focus ~ .highlight {
+		-webkit-animation: inputHighlighter 0.3s ease;
+		-moz-animation: inputHighlighter 0.3s ease;
+		animation: inputHighlighter 0.3s ease;
+	}
+	
+	/* ANIMATIONS ================ */
+	
+	@-webkit-keyframes inputHighlighter {
+		from {
+			background: @dark-gray;
+		}
+		to {
+			width: 0;
+			background: transparent;
+		}
+	}
+	
+	@-moz-keyframes inputHighlighter {
+		from {
+			background: @dark-gray;
+		}
+		to {
+			width: 0;
+			background: transparent;
+		}
+	}
+	
+	@keyframes inputHighlighter {
+		from {
+			background: @dark-gray;
+		}
+		to {
+			width: 0;
+			background: transparent;
+		}
+	}
+}
+
+@media screen and (max-width: @bp-max-mobile) {
+	.enquire-form  {	  
+		
+		label {
+			top: -7px;
+		}
+
+		input {
+			padding: 10px 10px 5px 0;
+		}
+		::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: @dark-gray;
+		}
+		::-moz-placeholder { /* Firefox 19+ */
+			color: @dark-gray;
+		}
+		:-ms-input-placeholder { /* IE 10+ */
+			color: @dark-gray;
+		}
 	}
 }
