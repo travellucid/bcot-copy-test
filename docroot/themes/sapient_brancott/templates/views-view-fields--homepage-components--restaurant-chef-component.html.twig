@@ -5,11 +5,11 @@
 				<source  media="(max-width: 691px)" srcset="{{ fields.field_image_1.content }}" class="background-image">
 				<source  media="(max-width: 769px)" srcset="{{ fields.field_image.content }}" class="background-image">  
 				<source  media="(max-width: 1281px)" srcset="{{ fields.field_image.content }}" class="background-image"> 
-				<img src="{{ fields.field_image.content }}" alt="Restuarant Chef">
+				<img src="{{ fields.field_image.content }}" alt="{{ fields.field_image_2.content }}">
 			</picture>
 		</div>
 	 <div class="content-wrapper">
-	   <h2 class="header_sect">{{ fields.field_head_chef_headline.content }}</h2>
+	   <h2 class="header_sect">{{ fields.field_head_chef_headline.content |upper |raw }}</h2>
 	   <p class="tagline">{{ fields.field_head_chef_description.content }}</p>
 	 </div>
 </div>
