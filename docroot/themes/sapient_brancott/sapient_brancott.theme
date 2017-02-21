@@ -58,6 +58,21 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $details = braoncott_rest_api_get_results($wine_id);
           $variables['wine_title'] = $details->title;
           $variables['wine_range'] = $details->range;
+		  //$variables['wine_range_bkg_color'] = $details->range;
+		  $ids = \Drupal::entityQuery('node')
+		  ->condition('title', $details->range)
+          ->condition('status', 1)
+          //->condition('field_wine_id', $value->id)
+          ->execute(); 
+		  
+		  $array_nid = array_values($ids);
+		  $nid = $array_nid[0];
+		  if($nid){
+		  $bkg_color = \Drupal\node\Entity\Node::load($nid);
+		  $bkg_color =  $bkg_color->field_ranges_background_color->value;
+		  $variables['range_bkg_color'] = $bkg_color;
+		  }
+          //print_r($bkg_color);die('test2');
         }
       }
       if ($variables['view']->current_display == 'awards_and_accolades') {
