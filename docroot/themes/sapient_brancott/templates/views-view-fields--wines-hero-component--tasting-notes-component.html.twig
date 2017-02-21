@@ -4,10 +4,10 @@
 
 {% if (tasting_notes_aroma or tasting_notes_taste) %}
     <picture>
-        <source  media="(max-width: 321px)" srcset="{{ fields.field_aroma_and_palate_image.conten }}" class="">   
-        <source  media="(max-width: 691px)" srcset="{{ fields.field_aroma_and_palate_image.conten }}" class="">
-        <source  media="(max-width: 769px)" srcset="{{ fields.field_aroma_and_palate_image.conten }}" class="">  
-        <source  media="(max-width: 1281px)" srcset="{{ fields.field_aroma_and_palate_image.conten }}" class=""> 
+        <source  media="(max-width: 321px)" srcset="{{ fields.field_aroma_and_palate_image.content }}" class="">   
+        <source  media="(max-width: 691px)" srcset="{{ fields.field_aroma_and_palate_image.content }}" class="">
+        <source  media="(max-width: 769px)" srcset="{{ fields.field_aroma_and_palate_image.content }}" class="">  
+        <source  media="(max-width: 1281px)" srcset="{{ fields.field_aroma_and_palate_image.content }}" class=""> 
         <img src="{{ fields.field_aroma_and_palate_image.content }}" 
              alt="{{ fields.field_aroma_and_palate_image_1.content }}">
     </picture> 
