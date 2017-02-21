@@ -6,43 +6,54 @@
 	</div>	
 		
 	<form>
-		<div class="col-md-12 col-xs-12 col-sm-12">
-			<label for="name">Email:</label>
-      		<input type="text" class="" id="name" placeholder="NAME">
+		<div class="col-md-12 col-xs-12 col-sm-12 group">
+			<input type="text" class="" id="name" placeholder="Firstname Surname" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label for="name" class="header_f">NAME*</label>
 		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12">
-			<label for="phone">Email:</label>
-      		<input type="tel" class="" id="phone" placeholder="Phone number">
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			<input type="tel" class="" id="phone" placeholder="Firstname Surname" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label for="phone" class="header_f">PHONE NUMBER</label>
 		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12">
-			<label for="email">Email:</label>
-      		<input type="email" class="" id="email" placeholder="Email Address*">
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			<input type="tel" class="" id="email"  placeholder="Firstname Surname" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label for="email" class="header_f">Email Address*</label>
 		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12">
-			<label for="email">Email:</label>
-      		<input type="email" class="" id="email" placeholder="Email Address*">
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			<select required>
+				<option value="volvo">Party</option>
+				<option value="saab">Cocktail Party</option>
+				<option value="mercedes">Cocktail Party</option>
+				<option value="audi">Cocktail Party</option>
+			</select>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label for="email"></label>
 		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12">
-			<label for="email">Email:</label>
-      		<input type="email" class="" id="email" placeholder="Email Address*">
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12">
-			<label for="email">Type of function*</label>
-      		<select>
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			<select required>
 				<option value="volvo">Cocktail Party</option>
 				<option value="saab">Cocktail Party</option>
 				<option value="mercedes">Cocktail Party</option>
 				<option value="audi">Cocktail Party</option>
 			</select>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label for="email"></label>
 		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12">
-			<label for="email">Number of people*</label>
-      		<select>
-				<option value="volvo">Cocktail Party</option>
-				<option value="saab">Cocktail Party</option>
-				<option value="mercedes">Cocktail Party</option>
-				<option value="audi">Cocktail Party</option>
-			</select>
+		<div class="col-md-12 col-xs-12 col-sm-12 group">
+			<input type="text" class="" id="info" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label for="info" class="header_f">Any other information</label>
+		</div>
+		<div class="submit-info">
+			<label><input type="checkbox" required/> Label text</label>
 		</div>
 	</form>
 </div>
