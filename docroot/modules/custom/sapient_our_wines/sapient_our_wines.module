@@ -74,7 +74,8 @@ function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateIn
   $hero_bottom_desc = strlen($values['field_hero_bottom_description'][0]['value']);
   $sign_up_text = strlen($values['field_signup'][0]['title']);
   //
-  
+  $a = strlen($values['field_discover_carausal'][0]['field_carousel_description'][0]['value']);
+  //print_r($a);die('test');
    if (strlen($values['field_referred_content'][0]['field_find_'][0]['value']) > 20){
     $form_state->setErrorByName('field_referred_content][0][field_find_', 'Max length for this field is 20 characters.');
    }
@@ -124,8 +125,8 @@ function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateIn
     $form_state->setErrorByName('field_discover_carausal][3][field_carousel_description', 'Max length for this field is 500 characters.');
    }
 
-    if ($hero_bottom_desc > 300){
-    $form_state->setErrorByName('field_hero_bottom_description','Max length for this field is 300 characters.');
+    if ($hero_bottom_desc > 500){
+    $form_state->setErrorByName('field_hero_bottom_description','Max length for this field is 500 characters.');
    }
    if ($sign_up_text > 20){
     $form_state->setErrorByName('field_signup','Max length for this field is 20 characters.');
@@ -276,14 +277,16 @@ function character_limitation_wines_page($form, \Drupal\Core\Form\FormStateInter
   $values = $form_state->getValues();
   $nutritional_info_cta1 = strlen($values['field_nutritional_info_cta1'][0]['title']);
   $nutritional_info_cta2 = strlen($values['field_nutritional_info_cta2'][0]['title']);
-  
+  $nutritional_info_cta = strlen($values['field_nutritional_info_cta'][0]['title']);
    if ($nutritional_info_cta1 > 20){
     $form_state->setErrorByName('field_nutritional_info_cta1','Max length for this field is 20 characters.');
   }
    if ($nutritional_info_cta2 > 20){
     $form_state->setErrorByName('field_nutritional_info_cta2','Max length for this field is 20 characters.');
   }
-  
+  if ($nutritional_info_cta > 20){
+    $form_state->setErrorByName('field_nutritional_info_cta','Max length for this field is 20 characters.');
+  }
   
   $click_to_buy_hero = strlen($values['field_click_to_buy_hero_cta'][0]['title']);
   $click_to_buy = strlen($values['field_click'][0]['title']);
