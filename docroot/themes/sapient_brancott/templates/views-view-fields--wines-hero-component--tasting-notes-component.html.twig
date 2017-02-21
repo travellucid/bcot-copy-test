@@ -52,7 +52,7 @@
         <h2 class="header_e">NUTRITIONAL INFO</h2>
       </div>
       <div class="modal-body">
-        <h3 class="header_f">Marlborough Sauvignon Blanc 13.1% V/V </h3>
+        <h3 class="header_f">{{ wine_title }}  {{ nutritional_info_alcohol }} V/V </h3>
             <table>
                 <thead>
                     <th>PER 10GR OF ALCOHOL (89ML)</th>
@@ -62,45 +62,45 @@
                 <tbody>
                     <tr>
                         <td>Alcohol (g)</td>
-                        <td>74g</td>
+                        <td>{{ nutritional_info_alcohol }}g</td>
                         <td>124g</td>
                     </tr>
                     <tr>
-                        <td>Alcohol (g)</td>
-                        <td>74g</td>
+                        <td>Calories (Kcal)</td>
+                        <td>{{ nutritional_info_calories }}g</td>
                         <td>124g</td>
                     </tr>
                     <tr>
-                        <td>Alcohol (g)</td>
-                        <td>74g</td>
+                        <td>Fat (g)</td>
+                        <td>{{ nutritional_info_fat }}g</td>
                         <td>124g</td>
                     </tr>
                     <tr>
-                        <td>Alcohol (g)</td>
-                        <td>74g</td>
+                        <td>Saturates (g)</td>
+                        <td>{{ nutritional_info_saturates }}</td>
                         <td>124g</td>
                     </tr>
                     <tr>
-                        <td>Alcohol (g)</td>
-                        <td>74g</td>
+                        <td>Carbohydrates (g)</td>
+                        <td>{{ nutritional_info_carbohydrates }}g</td>
                         <td>124g</td>
                     </tr>
                     <tr>
-                        <td>Alcohol (g)</td>
-                        <td>74g</td>
+                        <td>Suger (g)</td>
+                        <td>{{ nutritional_info_sugars }}g</td>
                         <td>124g</td>
                     </tr>
                     <tr>
-                        <td>Alcohol (g)</td>
-                        <td>74g</td>
+                        <td>Proteins (mg)</td>
+                        <td>{{ nutritional_info_proteins }}g</td>
                         <td>124g</td>
                     </tr>
                 </tbody>
             </table>
-            <p>* These calculations are based on the wine produced under this label in the current vintage. Variances of +/-10% might occur between vintages and market variants.</p>
-            <p>For more information on responsible drinking and nutritional values visit:
-<a href="#">www.wise-drinking.com</a>
-<a href="#">www.wineinmoderation.com</a></p>
+            <p>{{ fields.field_nutritional_info_note1.content }}</p>
+            <p>{{ fields.field_nutritional_info_note12.content }}
+<a href="{{ fields.field_nutritional_info_cta1.content }}">{{ fields.field_nutritional_info_cta1_1.content }}</a>
+<a href="{{ fields.field_nutritional_info_cta2.content }}">{{ fields.field_nutritional_info_cta2_1.content }}</a></p>
       </div>
       
     </div>
