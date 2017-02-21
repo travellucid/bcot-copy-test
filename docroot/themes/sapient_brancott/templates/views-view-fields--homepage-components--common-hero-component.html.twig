@@ -2,14 +2,14 @@
 	<div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')" alt = "{{ fields.field_background_image_1.content }}"></div>
 	<div class="grain-noise"></div>
 	<div class="hero-bottom">
-		<img src="/{{ directory }}/css/images/triange-1.png" alt="" class="triangle">
-		<img src="/{{ directory }}/css/images/noise-triangle.svg" alt="" class="triangle-right">
+		<img src="/{{ directory }}/css/images/triange-1.png" alt="triangle image" class="triangle">
+		<img src="/{{ directory }}/css/images/noise-triangle.svg" alt="noise triangle image" class="triangle-right">
 	</div>
  	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
 	   {% if (fields.field_visit_us_small_headline.content) %}
-			<span class="header_f">{{ fields.field_visit_us_small_headline.content }}</span>
+			<span class="header_f">{{ fields.field_visit_us_small_headline.content |capitalize }}</span>
 	   {% endif %}	
- 		<h1 class="header_a">{{ fields.field_hero_headline.content }}</h1>
+ 		<h1 class="header_a">{{ fields.field_hero_headline.content |capitalize }}</h1>
 
  		<!-- generic twig for all hero -->
 		{% if (fields.field_city.content) %}
@@ -24,7 +24,7 @@
  	</div>
  </div>
  <div class="hero-details">
- 	<h2>{{ fields.field_hero_bottom_headline.content }}</h2>
+ 	<h2>{{ fields.field_hero_bottom_headline.content |capitalize }}</h2>
 	<p>{{ fields.field_hero_bottom_description.content }}</p>
 	{% if (fields.field_hero_cta_first.content or field_hero_cta_second) %}
 	  <div class="cta-hero-bottom">
