@@ -1,54 +1,6 @@
-<!--{% if (fields.counter.content == "1") %}
-	<div class="inner-tile col-md-6 col-sm-12 col-xs-12">
-		<div class="big">
-			<img class= "tile-background grow grow" src="{{fields.field_visit_us_background_image.content }}" data-mobile-src = "{{ fields.field_visit_us_background_image.content }}" data-desktop-src = "{{ fields.field_visit_us_background_image.content }}" alt="visitus1">
-		</div>
-{% elseif (fields.counter.content == "2") %}
-		<div class="big">
-			<img class= "tile-background grow" src="{{ fields.field_visit_us_background_image.content }}" data-mobile-src = "{{ fields.field_visit_us_background_image.content }}" data-desktop-src = "{{ fields.field_visit_us_background_image.content }}" alt="visitus2">
-			<div class="wrapper">
-				<h3 class="header_b">{{fields.field_tile_mainheadline_visit_us.content }}</h3>
-				<span>{{fields.field_tile_subheading_visit_us.content }}</span>
-				<a href="{{fields.field_hero_cta_first.content }}" class="cta secondary-light">{{fields.field_hero_cta_first_1.content }}</a>		
-			</div>
-		</div>
-		
-		</div>
-			{% endif %}
-			
-            {% if (fields.counter.content == "3") %}
-			<div class="inner-tile col-md-6 col-sm-12 col-xs-12">
-			<div class="big">
-				<img class= "tile-background grow" src="{{ fields.field_visit_us_background_image.content }}" data-mobile-src = "{{ fields.field_visit_us_background_image.content }}" data-desktop-src = "{{ fields.field_visit_us_background_image.content }}" alt="visitus3">
-				<div class="wrapper">
-					<h3 class="header_b">{{fields.field_tile_mainheadline_visit_us.content }}</h3>
-					<span>{{fields.field_tile_subheading_visit_us.content }}</span>
-					<a href="{{fields.field_hero_cta_first.content }}" class="cta secondary-light">{{fields.field_hero_cta_first_1.content }}</a>
-				</div>
-			</div>
-			{% elseif (fields.counter.content == "4") %}
-			<div class="big">
-				<img class= "tile-background grow" src="{{ fields.field_visit_us_background_image.content }}" data-mobile-src = "{{ fields.field_visit_us_background_image.content }}" data-desktop-src = "{{ fields.field_visit_us_background_image.content }}" alt="visitus4">	
-				<div class="wrapper">
-					<h3 class="header_b">{{fields.field_tile_mainheadline_visit_us.content }}</h3>
-					<span>{{fields.field_tile_subheading_visit_us.content }}</span>
-					<a href="{{fields.field_hero_cta_first.content }}" class="cta secondary-light">{{fields.field_hero_cta_first_1.content }}</a>
-				</div>
-			</div>
-			
-			</div>
-			{% endif %}-->
-
-			
-           
-
-	<div class="inner-tile col-md-6 col-sm-12 col-xs-12">
-		
-
-		<div class="big">
-			<!--<img class= "tile-background grow" src="{{ fields.field_visit_us_background_image.content }}" data-mobile-src = "{{ fields.field_visit_us_background_image.content }}" data-desktop-src = "{{ fields.field_visit_us_background_image.content }}" alt="{{ fields.field_visit_us_background_image_1.content }}">-->
-			<picture>
-            
+<div class="inner-tile col-md-6 col-sm-12 col-xs-12">
+    <div class="big">
+        <picture>
             <source class= "tile-background grow" media="(max-width: 321px)" srcset="{{ fields.field_background_image_2.content }}">   
             <source class= "tile-background grow" media="(max-width: 691px)" srcset="{{ fields.field_background_image_2.content }}">
             <source class= "tile-background grow" media="(max-width: 769px)" srcset="{{ fields.field_background_image.content }}">  
@@ -56,13 +8,10 @@
             <source class= "tile-background grow" srcset="{{ fields.field_background_image.content }}">
             <!-- img tag for browsers that do not support picture element -->
             <img  class= "tile-background grow" src="{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">  
-            </picture> 
-			<div class="wrapper">
-				<h3 class="header_a">{{fields.title.content }}</h3>
-				<!--<span>{{fields.field_tile_subheading_visit_us.content }}</span>-->
-				<a href="{{fields.path.content }}" class="cta secondary-light">{{'FIND OUT MORE' |t }}</a>
-			</div>
-		</div>
-		
-	</div>
-           
+        </picture> 
+        <div class="wrapper">
+            <h3 class="header_a">{{fields.title.content }}</h3>
+            <a href="{{fields.path.content }}" class="cta secondary-light">{{'FIND OUT MORE' |t }}</a>
+        </div>
+    </div>
+</div>
