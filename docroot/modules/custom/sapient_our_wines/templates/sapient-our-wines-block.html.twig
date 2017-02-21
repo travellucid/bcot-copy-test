@@ -38,6 +38,58 @@
 
 
 
+
+
+
+
+
+
+
+
+<button id="open-filters">FILTERS</button>
+
+<div id="mobile-filters" class="mobile-only">
+	<button id="close-filters">&#10005;</button>
+  <h2>FILTERS</h2>
+	<div id="mobile-filters-scroll-wrapper">
+		<ul class="categories nav">
+		      {% for key, filter in filters %}  		
+                {% if key == 'range' %}
+                    {% set newkey = 'Ranges' %}
+                {% elseif key == 'wine_type' %}
+                    {% set newkey = 'Wine Types' %}
+                {% elseif key == 'varietals' %}
+                    {% set newkey = 'Varietals' %}
+                {% elseif key == 'food_mathces' %}
+                    {% set newkey = 'Food Matches' %}
+                {% else %}
+                    {% set newkey = key %}
+                {% endif %}
+			<li><a href="#" class="category">{{ newkey }} &#10230;</a>
+				<ul class="sub-categories">
+				    {% for subfilter_key, subfilter in filter %}
+					<li><a href="#" class="sub-nav-return">&#10229; RANGES</a></li>
+					{% endfor %}	
+				</ul>
+			</li>
+			 {% endfor %}
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="background-color: #1e7266; text-align: center;">
     <a href="#" data-category-filter="all-data" class="filter-item" style="color: white;">All data</a>
     <a href="#" data-category-filter="Brancott Estate" class="filter-item" style="color: white;">Brancott Estate</a>
