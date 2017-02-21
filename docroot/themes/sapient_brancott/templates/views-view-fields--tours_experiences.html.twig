@@ -9,7 +9,7 @@
 			</picture>
 		</div>
 	<div class="content-wrapper">
-	  <h2 class="header_b header_sect">{{ fields.field_title.content |capitalize }}</h2>
+	  <h2 class="header_b header_sect">{{ fields.field_title.content |capitalize |raw }}</h2>
 	  <p class="tagline">{{ fields.field_description.content }}</p>
 	  <a href="{{ fields.field_rezdy_block_book_now.content }}" class="cta dark watch-video">{{ fields.field_rezdy_block_book_now_1.content }}</a>
 	</div>
