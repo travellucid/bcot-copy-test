@@ -11,7 +11,7 @@ global-styling:
      js/brancott_js/sapient.modules.ver.1.0.0.dev.js: {}
 
      #Javascript files for leadformance
-     #js/js_libs/agegate.js: {}
+     js/js_libs/agegate.js: {}
      #js/js_libs/agegate.min.js: {}
   
 pr-ctbuy-connector:

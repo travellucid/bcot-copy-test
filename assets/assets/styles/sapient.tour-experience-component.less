@@ -2,7 +2,7 @@
 *{ box-sizing: border-box; }
 
 #tour-experience-component {
-  .set-max-width(870px);
+  .set-max-width(1170px);
 
 .header_sect {
     color: @dark-gray;
@@ -42,12 +42,11 @@ a {
     letter-spacing: normal;
     margin-top: -10px;
     margin-bottom: 35px;
+    min-width: 722px;
+    padding-right: 10px;
     text-align: left;
 }
 
-.img-left {
-  left: 147px;
-}
 
 .section-class {
   background-color: @white;
@@ -82,12 +81,13 @@ a {
     .content-wrapper {
       /*padding-right: 53px;*/
       position: relative;
-      right: 255px;
+      padding-left: 40px;
+      min-width: 800px;
     }
 
     .image-wrapper {
       img {
-        transform: translateX(-80%);
+        transform: translateX(0);
       }
     }
   }
@@ -96,10 +96,6 @@ a {
 @media screen and (max-width: @bp-large-mobile-to-table-landscape) {
   .desktop-only {
       display: none !important;
-    }
-
-    .img-left {
-      left: 0;
     }
 
   .section-class { 
@@ -130,6 +126,8 @@ a {
     }
 
     .tagline {
+      min-width: 0;
+      padding-right: 0;
       text-align: center;
     }
 
@@ -143,8 +141,10 @@ a {
 
     &.img-left {
       .content-wrapper {
+        min-width: 0;
         padding-right: 3px;
-        right: 0;
+        padding: 0 10px;
+        width: 100%;
       }
       .image-wrapper {
         img {
