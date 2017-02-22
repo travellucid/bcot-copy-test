@@ -3,19 +3,24 @@
   width: 100%;
   margin: 0 auto;
 
-  .wrapper-head{
-      background-color: @dark-gray;
+  .wrapper-head {
+      background-color: @bright-green;
       height: auto;
       padding: 16px 0;
       position: relative;
       display: block;
   }
-
-  .modal-dialog {
-    max-width: 320px;
+  
+  .modal-body {
+    margin: 15px 30px;
   }
   
+  .modal-dialog {
+    width: 660px;
+  }
+
   .modal-content {
+    border: none;
     border-radius: 0;
   }
 
@@ -85,7 +90,7 @@
     line-height: 1.71;
     margin-top: 20px;
     margin-bottom: 35px;
-    text-align: left;
+    text-align: center;
   }
 
   p{
@@ -126,6 +131,7 @@
       line-height: 1.5;
       letter-spacing: normal;
       padding: 5px;
+      padding-left: 15px;
 
       &:first-child {
         font-family: "NeutraText Bold";
@@ -171,6 +177,7 @@
       line-height: 1.5;
       letter-spacing: normal;
       padding: 5px;
+      padding-left: 15px;
       text-align: left;
       width: 32%; 
 
@@ -191,10 +198,19 @@
   }
 }
 
-@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+@media screen and (max-width: 468px) {
     #nutritional-info-component {
-      .wrapper-div {
-        width: 100%;
+      .modal-dialog {
+        margin: 10px auto;
+        width: 320px;
+      }
+
+      .modal-body {
+        margin: 0;
+      }
+
+      h3 {
+        text-align: left;
       }
     }
 }

@@ -1,4 +1,24 @@
-<div>{{ fields.field_our_wine_small_heading.content }} </div>
-<div>{{ fields.field_our_wine_main_headline.content }} </div>
-<div>{{ fields.field_our_wine_description.content }} </div>
+<section id="product-grid" class="you-may-like">   
+    <div class="category-grid">
+{% for detail in range_details %}
+<div class="product-tile">
+    <div class="product-shot">
+        <img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
+        <div class="product-bg" style="background-color: {{ detail.bkg_colr }} ;"></div>
+    </div>
+        <h3>{{ detail.title }}</h3>
+		{% if detail.desc %}
+        <p>{{ detail.desc }}</p>
+		{% endif %}
+</div>
+{% endfor %}  
+</div>
+</section> 
+
+               
+                
+        
+    
+
+
 

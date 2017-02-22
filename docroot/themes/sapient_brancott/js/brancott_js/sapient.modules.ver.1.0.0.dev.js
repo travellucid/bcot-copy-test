@@ -174,59 +174,7 @@ sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
 sapient.carousel.positionCarousel();
 sapient.carousel.resize();
-var heroObj = (function($, window, sapient) {
 
-	var heroInstance;
-
-	function createHeroInstance() {
-
-		var getHeightHero = function() {
-			$('.scroll-down').click(function() {
-				var heightHero = $("#hero-component").height();
-				$('html, body').animate({
-					scrollTop: heightHero
-				}, 1000);
-			});
-		},
-		disableHeroHeightChangeonMobile = function() {
-			var windowHeight = $(window).height();
-			if (windowWidth > 1200 /*&& windowWidth < 1400*/) {
-				var right = (windowWidth - 1170) / 2;
-				$("footer .select-wrapper").css('right', right + 15 + 'px');
-			} /*else if (windowWidth > 1400) {
-				var right = (windowWidth - 1400) / 2;
-				$("footer .select-wrapper").css('right', right + 15 + 'px');
-			}*/
-		},
-
-		onResize = function() {
-			$(window).on('resize', function () {
-				debounce(sapient.hero.disableHeroHeightChangeonMobile,500,"testing HeroHeightChangeonMobile");
-				/*sapient.footer.setFooterDdownPos();*/
-			});
-		};
-
-		return {
-			// public + private states and behaviors
-			getHeightHero: getHeightHero,
-			disableHeroHeightChangeonMobile: disableHeroHeightChangeonMobile
-		};
-	}
-
-	return {
-		getInstance: function() {
-			if (!heroInstance) {
-				heroInstance = createHeroInstance();
-			}
-			return heroInstance;
-		}
-	};
-
-})(jQuery, window, sapient);
-
-sapient.hero = heroObj.getInstance();
-
-/*sapient.hero.getHeightHero();*/
 var headerObj = (function($, window, sapient) {
 
 	var headerInstance;
@@ -308,12 +256,14 @@ var headerObj = (function($, window, sapient) {
 				function() {
 					var subMenuHeight = $(this).find(".sub-menu-wrapper").height();
 					if (windowWidth > 991) {
-						$(this).find(".sub-menu").height(subMenuHeight);
+						$(this).find(".sub-menu").show();
+						//$(this).find(".sub-menu").height(subMenuHeight);
 					}
 				},
-				function() {
+				function() {					
 					if (windowWidth > 991) {
-						$(this).find(".sub-menu").height(70);
+						$(this).find(".sub-menu").hide();
+						//$(this).find(".sub-menu").height(70);
 					}
 
 				}
@@ -540,7 +490,7 @@ var footerObj = (function($, window, sapient) {
 			var windowWidth = $(window).width();
 			if (windowWidth > 1200 /*&& windowWidth < 1400*/) {
 				var right = (windowWidth - 1170) / 2;
-				$("footer .select-wrapper").css('right', right + 15 + 'px');
+				$("footer .select-wrapper").css('right', right + 'px');
 			} /*else if (windowWidth > 1400) {
 				var right = (windowWidth - 1400) / 2;
 				$("footer .select-wrapper").css('right', right + 15 + 'px');

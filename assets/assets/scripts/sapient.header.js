@@ -79,12 +79,14 @@ var headerObj = (function($, window, sapient) {
 				function() {
 					var subMenuHeight = $(this).find(".sub-menu-wrapper").height();
 					if (windowWidth > 991) {
-						$(this).find(".sub-menu").height(subMenuHeight);
+						$(this).find(".sub-menu").show();
+						//$(this).find(".sub-menu").height(subMenuHeight);
 					}
 				},
-				function() {
+				function() {					
 					if (windowWidth > 991) {
-						$(this).find(".sub-menu").height(70);
+						$(this).find(".sub-menu").hide();
+						//$(this).find(".sub-menu").height(70);
 					}
 
 				}

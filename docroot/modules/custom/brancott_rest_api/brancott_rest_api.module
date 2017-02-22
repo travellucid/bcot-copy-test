@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\brancott_rest_api\Controller\BrancottRestApiController;
+use Drupal\brancott_rest_api\Controller\BrancottSearchFilterController;
+use Drupal\brancott_rest_api\Controller\BrancottRestApiControllerRanges;
 
 /**
  * @file
@@ -99,7 +101,6 @@ function brancott_rest_api_theme($existing, $type, $theme, $path) {
 }
 
 function braoncott_rest_api_get_results($wine_id) {
-  //print "aaaaaaaa"; exit;
   $rest_api = new BrancottRestApiController;
   $value = $rest_api->getProductDetails($wine_id);
   return $value;
@@ -107,14 +108,23 @@ function braoncott_rest_api_get_results($wine_id) {
 
 
 function braoncott_rest_api_get_filters() {
-  //print "aaaaaaaa"; exit;
   $rest_api_filters = new BrancottRestApiControllerFilters;
   $value = $rest_api_filters->getFilters();
   return $value;
 }
 function braoncott_rest_api_get_ranges() {
-  //print "aaaaaaaa"; exit;
   $rest_api_ranges = new BrancottRestApiControllerRanges;
-  $value = $rest_api->getRanges();
+  $value = $rest_api_ranges->getRanges();
   return $value;
 }
+function braoncott_rest_api_get_ranges_details() {
+  $value = getRangeDetails();
+  return $value;
+}
+
+
+function getRangeDetailsFiltered() {
+    $rest_api_ranges = new BrancottRestApiControllerRanges;
+    $values_ranges = $rest_api_ranges->getRanges();	
+	return $values_ranges;
+  }
