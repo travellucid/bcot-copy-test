@@ -1,0 +1,34 @@
+<section id="product-grid" class="you-may-like">   
+    <div class="category-grid">
+{% for detail in range_details %}
+<div class="product-tile">
+    <div class="product-shot">
+        <img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
+        <div class="product-bg" style="background-color: {{ detail.bkg_colr }} ;"></div>
+    </div>
+        <h3>{{ detail.title }}</h3>
+		
+        <p>{{ detail.desc }}</p>
+		
+</div>
+{% endfor %}  
+<div class="product-tile">
+    <div class="product-shot">
+        <img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
+        <div class="product-bg" style="background-color: {{ detail.bkg_colr }} ;"></div>
+    </div>
+        <h3>SEE ALL WINES</h3>
+		
+        
+		
+</div>
+</div>
+</section> 
+
+               
+                
+        
+    
+
+
+

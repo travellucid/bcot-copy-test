@@ -18,10 +18,19 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
     case 'our_wines':
 	
       if ($variables['view']->current_display == 'block_1') {
-		
+		$values = $variables['row']->_entity->field_ranges->getValue();
 		$details = getRangeDetailsFiltered();
-		$detail_array = array();
-		foreach($details as $key => $detail){
+		 $nids_array = array();
+		 foreach($values as $value){
+			 $nids_array[] = $value['target_id'];
+		 }
+		 foreach($nids_array as $nid){
+			 
+			 $nid_title= \Drupal\node\Entity\Node::load($nid);
+			 $nid_title =  $nid_title->title->value;
+			 //print_r($nid_title);die;
+			 foreach($details as $key => $detail){
+				 if($nid_title == $detail->title){
 			$detail_array[$key]['title'] = $detail->title;
 			$detail_array[$key]['desc'] = $detail->description;
 			$ids = \Drupal::entityQuery('node')
@@ -42,8 +51,12 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  $detail_array[$key]['bkg_colr'] = $bkg_color;
 		  $detail_array[$key]['range_image'] = $range_image_url;
 		 
-        		  
+			 }	  
 		}
+		 }
+		 
+		 
+		
 		$variables['range_details'] = $detail_array;
 		//print_r($detail_array);die;
       }
