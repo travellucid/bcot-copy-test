@@ -50,6 +50,7 @@ var ourWines = (function($, window, sapient) {
 					$("#mobile-filters").removeClass("filters-active");
 					$("a.category").removeClass("iamalive");
 					$("ul.nav.categories").css("left", "");
+					$("#mobile-filters-scroll-wrapper").removeAttr("style");
 					$("#open-filters").removeClass("filters-activated");
 				});
 
