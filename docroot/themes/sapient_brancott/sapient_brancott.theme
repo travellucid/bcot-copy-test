@@ -15,7 +15,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   $view_id = $variables['view']->storage->id();
   
   switch ($view_id) {
-    /*case 'our_wines':
+    case 'our_wines':
 	
       if ($variables['view']->current_display == 'block_1') {
 		$values = $variables['row']->_entity->field_ranges->getValue();
@@ -59,7 +59,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		
 		$variables['range_details'] = $detail_array;
 		//print_r($detail_array);die;
-      }*/
+      }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
 
