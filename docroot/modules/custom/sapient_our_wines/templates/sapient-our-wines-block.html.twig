@@ -32,32 +32,16 @@
 				<ul class="dropdown-menu sub-menu">
 					<div class="sub-menu-wrapper">
 						{% for subfilter_key, subfilter in filter %}
-						<li>
+						<li class="sub-category-wrapper">
 							<p>{{ subfilter_key }}</p>
 							{% for foodmatchkey, foodmatchvalue in subfilter %}
-							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a>
+							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item sub-nav-item">{{ foodmatchvalue }}</a>
 							{% endfor %}	
 						</li>
 						{% endfor %}		
 					</div>
 				</ul>
 			</li>
-             
-             <!-- <li><a href="#" class="category">{{ newkey }}</a>
-					<ul class="sub-categories">
-						<li><a href="#" class="sub-nav-return">{{ newkey }}</a></li>
-						{% for subfilter_key, subfilter in filter %}
-						<li>
-							<p>{{ subfilter_key }}</p>
-							{% for foodmatchkey, foodmatchvalue in subfilter %}
-							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a>
-							{% endfor %}	
-						</li>
-						{% endfor %}		
-												
-													
-					</ul>
-				</li> -->
               {% endif %}			 
 			{% endfor %}
 		</ul>
@@ -132,7 +116,7 @@
 						<div class="product-tile">
 							<div class="product-shot">
 								<img src="{{ tile.url }}" />
-								<div class="product-bg" style="background-color:  ;"></div>
+								<div class="product-bg" style="background-color: #cbd879;"></div>
 							</div>
 							<h3>{{ tile.range }}</h3>
 							<p>{{ tile.title }}</p>
