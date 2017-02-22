@@ -39,11 +39,11 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			mobileFiltersMenu = function() {
-				var navTop = $("#mobile-filters h2").outerHeight();
-
 				$("#open-filters").on("click", function() {
 					$("#mobile-filters").addClass("filters-active");
 					$(this).addClass("filters-activated");
+					var navTop = $("#mobile-filters h2").outerHeight();
+					$("#mobile-filters-scroll-wrapper").css({ "height": $(window).height() - navTop });
 				});
 
 				$("#close-filters").on("click", function() {
@@ -52,8 +52,6 @@ var ourWines = (function($, window, sapient) {
 					$("ul.nav.categories").css("left", "");
 					$("#open-filters").removeClass("filters-activated");
 				});
-
-				$("#mobile-filters-scroll-wrapper").css({ "height": $(window).height() - navTop });
 
 				$("a.category").on("click", function(e) {
 					e.preventDefault();
