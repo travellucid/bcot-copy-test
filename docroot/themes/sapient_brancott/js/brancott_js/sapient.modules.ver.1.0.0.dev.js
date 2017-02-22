@@ -203,9 +203,15 @@ var headerObj = (function($, window, sapient) {
 
 		animateMobileMenu = function() {
 			$("#navbar-header .menu .menu-item").on("click", function() {
-				if (!$(this).parents(".menu").hasClass("menu-open")) { $(this).parents(".menu").addClass("menu-open"); } else {
+				
+				if (!$(this).parents(".menu").hasClass("menu-open")) {
+					$(this).parents(".menu").addClass("menu-open");
+				}
+
+				else {
 					$(this).parents(".menu").removeClass("menu-open");
 				}
+
 			});
 		},
 
