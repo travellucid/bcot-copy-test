@@ -43,67 +43,65 @@
 
 <!-- Modal -->
 <div id="nutritional-info-component" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-   
-    <div class="modal-content">
-      <div class="wrapper-head modal-header">
-        <a class="close-btn" data-dismiss="modal"></a>
-        <h2 class="header_e">NUTRITIONAL INFO</h2>
-      </div>
-      <div class="modal-body">
-        <h3 class="header_f">{{ wine_title }}  {{ nutritional_info_alcohol }} V/V </h3>
-            <table>
-                <thead>
+    <div class="modal-dialog">
+        <div class="modal-content background-noise-section">
+            <div class="wrapper-head modal-header">
+                <a class="close-btn" data-dismiss="modal"></a>
+                <h2 class="header_e">NUTRITIONAL INFO</h2>
+            </div>
+            <div class="modal-body">
+                <h3 class="header_f">{{ wine_title }}  {{ nutritional_info_alcohol }} V/V </h3>
+                <table>
+                    <thead>
                     <th>PER 10GR OF ALCOHOL (89ML)</th>
                     <th>PER 10GR OF ALCOHOL (89ML)</th>
                     <th>Per 150ml serving</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Alcohol (g)</td>
-                        <td>124g</td>
-                        <td>{{ nutritional_info_alcohol }}g</td>
-                    </tr>
-                    <tr>
-                        <td>Calories (Kcal)</td>
-                        <td>24g</td>
-                        <td>{{ nutritional_info_calories }}g</td>
-                    </tr>
-                    <tr>
-                        <td>Fat (g)</td>
-                        <td>24g</td>
-                        <td>{{ nutritional_info_fat }}g</td>
-                    </tr>
-                    <tr>
-                        <td>Saturates (g)</td>
-                        <td>124g</td>
-                        <td>{{ nutritional_info_saturates }}g</td>
-                    </tr>
-                    <tr>
-                        <td>Carbohydrates (g)</td>
-                        <td>124g</td>
-                        <td>{{ nutritional_info_carbohydrates }}g</td>
-                    </tr>
-                    <tr>
-                        <td>Suger (g)</td>
-                        <td>124g</td>
-                        <td>{{ nutritional_info_sugars }}g</td>
-                    </tr>
-                    <tr>
-                        <td>Proteins (mg)</td>
-                        <td>124g</td>
-                        <td>{{ nutritional_info_proteins }}g</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>{{ fields.field_nutritional_info_note1.content }}</p>
-            <p>{{ fields.field_nutritional_info_note12.content }}
-<a href="{{ fields.field_nutritional_info_cta1.content }}">{{ fields.field_nutritional_info_cta1_1.content }}</a>
-<a href="{{ fields.field_nutritional_info_cta2.content }}">{{ fields.field_nutritional_info_cta2_1.content }}</a></p>
-      </div>
-      
-    </div>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alcohol (g)</td>
+                            <td>{{ nutritional_alcohol_cal }}g</td>
+                            <td>{{ nutritional_info_alcohol }}g</td>
+                        </tr>
+                        <tr>
+                            <td>Calories (Kcal)</td>
+                            <td>{{ nutritional_calories }}g</td>
+                            <td>{{ nutritional_info_calories }}g</td>
+                        </tr>
+                        <tr>
+                            <td>Fat (g)</td>
+                            <td>{{ nutritional_fat }}g</td>
+                            <td>{{ nutritional_info_fat }}g</td>
+                        </tr>
+                        <tr>
+                            <td>Saturates (g)</td>
+                            <td>{{ nutritional_saturates }}g</td>
+                            <td>{{ nutritional_info_saturates }}g</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohydrates (g)</td>
+                            <td>{{ nutritional_carbohydrates }}g</td>
+                            <td>{{ nutritional_info_carbohydrates }}g</td>
+                        </tr>
+                        <tr>
+                            <td>Suger (g)</td>
+                            <td>{{ nutritional_sugars }}g</td>
+                            <td>{{ nutritional_info_sugars }}g</td>
+                        </tr>
+                        <tr>
+                            <td>Proteins (mg)</td>
+                            <td>{{ nutritional_proteins }}g</td>
+                            <td>{{ nutritional_info_proteins }}g</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>{{ fields.field_nutritional_info_note1.content }}</p>
+                <p>{{ fields.field_nutritional_info_note12.content }}</p>
+                <a href="{{ fields.field_nutritional_info_cta1.content }}">{{ fields.field_nutritional_info_cta1_1.content }}</a>
+                <a href="{{ fields.field_nutritional_info_cta2.content }}">{{ fields.field_nutritional_info_cta2_1.content }}</a>
+            </div>
 
-  </div>
+        </div>
+
+    </div>
 </div>

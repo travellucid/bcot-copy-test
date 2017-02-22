@@ -12,7 +12,13 @@
   }
   
   .modal-body {
-    margin: 15px 30px;
+    margin: 5px 15px;
+    padding-bottom: 30px;
+
+    a {
+      display: block;
+      margin-top: 0;
+    }
   }
   
   .modal-dialog {
@@ -34,12 +40,15 @@
   }
 
   .close-btn {
-    right: 5px;
-    width: 32px;
     height: 32px;
     margin: 0;
     opacity: 0.3;
     cursor: pointer;
+    position: absolute;
+    right: 5px;
+    width: 32px;
+    
+    
     &:hover {
       opacity: 1;
     }
@@ -49,7 +58,7 @@
       height: 20px;
       position: absolute;
       right: 18px;
-      top: 20px;
+      top: 5px;
       width: 2px;
     }
     &:before {
@@ -88,8 +97,8 @@
     font-style: normal;
     font-stretch: normal;
     line-height: 1.71;
-    margin-top: 20px;
-    margin-bottom: 35px;
+    margin-top: 0;
+    margin-bottom: 20px;
     text-align: center;
   }
 
@@ -101,17 +110,14 @@
     font-stretch: normal;
     line-height: 1.63;
     letter-spacing: normal;
-    margin-top: 35px;
+    margin-top: 25px;
+    margin-bottom: 0;
     padding: 0;
     text-align: left;
   }
 
   tr {
       border-bottom: 1px solid #fff;
-  }
-
-  span {
-    display: block;
   }
 
   tbody {
@@ -198,7 +204,7 @@
   }
 }
 
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 767px) {
     #nutritional-info-component {
       .modal-dialog {
         margin: 10px auto;
