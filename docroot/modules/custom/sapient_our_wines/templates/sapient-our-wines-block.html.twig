@@ -35,11 +35,11 @@
 					<ul class="sub-categories">
 						<li><a href="#" class="sub-nav-return">{{ newkey }}</a></li>
 						{% for subfilter_key, subfilter in filter %}
-												<li>
-													<p>{{ subfilter_key }}</p>
-													{% for foodmatchkey, foodmatchvalue in subfilter %}
-													<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a>
-													{% endfor %}	
+						<li>
+							<p>{{ subfilter_key }}</p>
+							{% for foodmatchkey, foodmatchvalue in subfilter %}
+							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a>
+							{% endfor %}	
 						</li>
 						{% endfor %}		
 												
@@ -74,29 +74,26 @@
 						{% set newkey = key %}
 					{% endif %}
 				{% if key != 'food_matches' %}
-				<li><a href="#" class="category">{{ newkey }} &#10230;</a>
+				<li><a href="#" class="category">{{ newkey }} <img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_right.svg"></a>
 					<ul class="sub-categories">
-						<li><a href="#" class="sub-nav-return">&#10229; {{ newkey }}</a></li>
+						<li><a href="#" class="sub-nav-return"><img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg"> {{ newkey }}</a></li>
 						{% for subfilter_key, subfilter in filter %}
-						<li><a href="#" data-category="{{ key }}"
-										   data-category-filter="{{ subfilter_key }}" class="filter-item">{{ subfilter_key }}</a></li>
+						<li><a href="#" data-category="{{ key }}" data-category-filter="{{ subfilter_key }}" class="filter-item">{{ subfilter_key }}</a></li>
 						{% endfor %}	
 					</ul>
 				</li>
 				{% else %}
-				<li><a href="#" class="category">{{ newkey }}</a>
+				<li><a href="#" class="category">{{ newkey }} <img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_right.svg"></a>
 					<ul class="sub-categories">
-						<li><a href="#" class="sub-nav-return">{{ newkey }}</a></li>
+						<li><a href="#" class="sub-nav-return"><img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg"> {{ newkey }}</a></li>
 						{% for subfilter_key, subfilter in filter %}
-												<li>
-													<p>{{ subfilter_key }}</p>
-													{% for foodmatchkey, foodmatchvalue in subfilter %}
-													<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a>
-													{% endfor %}	
+						<li>
+							<p>{{ subfilter_key }}</p>
+							{% for foodmatchkey, foodmatchvalue in subfilter %}
+							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item sub-nav-item">{{ foodmatchvalue }}</a>
+							{% endfor %}
 						</li>
-						{% endfor %}		
-												
-													
+						{% endfor %}
 					</ul>
 				</li>
 				{% endif %}

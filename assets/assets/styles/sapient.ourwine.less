@@ -231,6 +231,7 @@
 	position: fixed;
 	right: 0;
 	text-align: center;
+	text-transform: uppercase;
 	top: 0;
 	width: 100%;
 	z-index: 100;
@@ -240,7 +241,8 @@
 	#close-filters {
 		background-color: transparent;
 		border: 0 none;
-		color: white;
+		color: #ffffff;
+		font-size: 16px;
 		float: right;
 		height: 24px;
 		right: 10px;
@@ -286,13 +288,33 @@
 			a {
 				color: #3e464b;
 				display: block;
-				padding: 15px 0;
+				height: 60px;
+				padding: 20px 0;
 				text-decoration: none;
+
+				img {
+					position: relative;
+					top: 4px;
+					width: 14px;
+				}
+
+				&.category {
+					img {
+						float: right;
+						right: 15px;
+					}
+				}
 
 				&.sub-nav-return {
 					background-color: #e2f4fd;
 					font-size: 12px;
-					padding: 8px 0;
+					height: 40px;
+					padding: 12px 0;
+
+					img {
+						float: left;
+						left: 15px;
+					}
 				}
 			}
 			& > a.iamalive + ul.sub-categories {
@@ -310,15 +332,21 @@
 					list-style: none;
 					margin: 0;
 					padding: 0;
+
+					p {
+						font-size: 12px;
+						text-transform: none;
+					}
+
+					a.sub-nav-item {
+						border-bottom: solid 1px #e2f4fd;
+
+						&:last-child {
+							border-bottom: 0 none;
+						}
+					}
 				}
 			}
 		}
-	}
-}
-
-
-html[lang="en"] {
-	.categories.nav {
-		text-transform: uppercase;
 	}
 }
