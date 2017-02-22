@@ -1,9 +1,5 @@
 <nav id="wine-filters" class="hidden-xs hidden-sm">
 	<div class="navbar-collapse menu-container" aria-expanded="false">
-		<div class="logo hidden-md hidden-lg ">
-			<a href="http://brancottvanilla.dev.dd:8083/en" class="logo-img"></a>
-		</div>
-
 		<ul class="nav navbar-nav menu">
 			<li class="menu-item dropdown our-wines"><a href="#" data-category-filter="all-data" class="filter-item">All data</a></li>
 			{% for key, filter in filters %}  		
@@ -29,9 +25,25 @@
 					</div>
 				</ul>
 			</li>
-			{% else %}	
+			{% else %}
+
+			<li class="menu-item dropdown our-wines">
+				<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey }} <span class="expand-icon" data-toggle="dropdown"></span></a>
+				<ul class="dropdown-menu sub-menu">
+					<div class="sub-menu-wrapper">
+						{% for subfilter_key, subfilter in filter %}
+						<li>
+							<p>{{ subfilter_key }}</p>
+							{% for foodmatchkey, foodmatchvalue in subfilter %}
+							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a>
+							{% endfor %}	
+						</li>
+						{% endfor %}		
+					</div>
+				</ul>
+			</li>
              
-             <li><a href="#" class="category">{{ newkey }}</a>
+             <!-- <li><a href="#" class="category">{{ newkey }}</a>
 					<ul class="sub-categories">
 						<li><a href="#" class="sub-nav-return">{{ newkey }}</a></li>
 						{% for subfilter_key, subfilter in filter %}
@@ -45,7 +57,7 @@
 												
 													
 					</ul>
-				</li>
+				</li> -->
               {% endif %}			 
 			{% endfor %}
 		</ul>
