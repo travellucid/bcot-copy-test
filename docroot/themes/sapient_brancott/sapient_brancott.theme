@@ -130,18 +130,27 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
             $alcohol_info_cal = round((($alcohol_cal) / 150) * 89);
             $variables['nutritional_alcohol_cal'] = $alcohol_info_cal;
           }
-          
+          else {
+            $variables['nutritional_alcohol'] = '0';
+            $variables['nutritional_alcohol_cal'] = '0';
+          }          
           $variables['nutritional_info_calories'] = $details->wineNutritional[0]->calories;
           $calories = $details->wineNutritional[0]->calories;
           if ($calories) {
             $calories_cal = round((($calories) / 150) * 89);
             $variables['nutritional_calories'] = $calories_cal;
           }
+          else {
+            $variables['nutritional_calories'] = '0';
+          }
           $variables['nutritional_info_fat'] = $details->wineNutritional[0]->fat;
           $fat = $details->wineNutritional[0]->fat;
           if ($fat) {
             $fat_cal = round((($fat) / 150) * 89);
-            $variables['nutritional_fat'] = $fat_cal;
+            $variables['nutritional_fat'] = $fat_cal;            
+          }
+          else {
+            $variables['nutritional_fat'] = '0';
           }
           $variables['nutritional_info_saturates'] = $details->wineNutritional[0]->saturates;
           $saturates = $details->wineNutritional[0]->saturates;
@@ -149,11 +158,17 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
             $saturates_cal = round((($saturates) / 150) * 89);
             $variables['nutritional_saturates'] = $saturates_cal;
           }
+          else {
+            $variables['nutritional_saturates'] = '0';
+          }
           $variables['nutritional_info_carbohydrates'] = $details->wineNutritional[0]->carbohydrates;
           $carbohydrates = $details->wineNutritional[0]->carbohydrates;
           if ($carbohydrates) {
             $carbohydrates_cal = number_format(((($carbohydrates) / 150) * 89),3);
             $variables['nutritional_carbohydrates'] = $carbohydrates_cal;
+          }
+          else {
+            $variables['nutritional_carbohydrates'] = '0';
           }
           $variables['nutritional_info_sugars'] = $details->wineNutritional[0]->sugars;
           $sugars = $details->wineNutritional[0]->sugars;
@@ -161,11 +176,17 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
             $sugars_cal = number_format(((($sugars) / 150) * 89),3);
             $variables['nutritional_sugars'] = $sugars_cal;
           }
+          else {
+            $variables['nutritional_sugars'] = '0';
+          }
           $variables['nutritional_info_proteins'] = $details->wineNutritional[0]->proteins;
           $proteins = $details->wineNutritional[0]->proteins;
           if ($proteins) {
             $proteins_cal = round((($proteins) / 150) * 89);
             $variables['nutritional_proteins'] = $proteins_cal;
+          }
+          else {
+            $variables['nutritional_proteins'] = '0';
           }
         }
       }
