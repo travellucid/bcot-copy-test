@@ -1,3 +1,21 @@
+#navbar-product-filters {
+	.cfix();
+	background-color: @bright-green;
+	display: table;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+
+	.menu-container {
+		margin: 0 auto;
+		max-width: 1170px;
+	}
+
+	.navbar-nav>li>a {
+		padding: 10px 25px;
+	}
+}
+
 #product-grid {
 	text-align: center;
 	.category-wrapper {
@@ -73,6 +91,30 @@
 
 			p {
 				font-family: "NeutraText Book";
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	#product-grid {
+		.category-grid {
+			margin: 0 75px;
+
+			.product-tile {
+				max-width: none;
+				width: 31%;
+
+				&:first-child,
+				&:nth-child(3n+1) {
+					margin-left: 0;
+				}
+
+				&:last-child,
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+
 			}
 		}
 	}
