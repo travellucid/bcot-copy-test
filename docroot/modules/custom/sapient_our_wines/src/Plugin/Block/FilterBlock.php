@@ -50,8 +50,8 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       $all_level = array();
 
       $food_matches[] = $value->foodMatch;
-      $final_array['filters']['ranges'][$value->range] = $value->range;
-      $final_array['filters']['wine_types'][$value->wineType] = $value->wineType;
+      $final_array['filters']['range'][$value->range] = $value->range;
+      $final_array['filters']['wine_type'][$value->wineType] = $value->wineType;
       $final_array['filters']['varietals'][$value->grapeVariety] = $value->grapeVariety;
       $final_array['filters']['food_matches'][$value->foodMatch] = $new_array;
       $wine_details[$value->range][$value->id]['title'] = $value->title;
@@ -82,11 +82,14 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $range_details = $final_array['range_details'];
     //print_r(array_values($range_details));
     //die('sat2');
+	//print_r($final_array['filters']);exit;
     $indexed_range_details = array_values($range_details);
+	$filters = $final_array['filters'];
 
     return array(
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $indexed_range_details,
+	  '#filters' => $filters,
     );
   }
 

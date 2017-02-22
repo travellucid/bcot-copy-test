@@ -13,8 +13,40 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   global $base_url;
 
   $view_id = $variables['view']->storage->id();
+  
   switch ($view_id) {
-
+    case 'our_wines':
+	
+      if ($variables['view']->current_display == 'block_1') {
+		
+		$details = getRangeDetailsFiltered();
+		$detail_array = array();
+		foreach($details as $key => $detail){
+			$detail_array[$key]['title'] = $detail->title;
+			$detail_array[$key]['desc'] = $detail->description;
+			$ids = \Drupal::entityQuery('node')
+		  ->condition('title', $detail->title)
+          ->condition('status', 1)
+          ->execute();
+		  $array_nid = array_values($ids);
+		 $nid = $array_nid[0];
+		 
+		  
+		  $node_load = \Drupal\node\Entity\Node::load($nid);
+		  $bkg_color =  $node_load->field_ranges_background_color->value;
+		  $range_image_target = $node_load->field_ranges_image->target_id;
+		  $range_image_file = \Drupal\file\Entity\File::load($range_image_target);
+		  if($range_image_file){
+          $range_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($range_image_file->getFileUri());
+		  }
+		  $detail_array[$key]['bkg_colr'] = $bkg_color;
+		  $detail_array[$key]['range_image'] = $range_image_url;
+		 
+        		  
+		}
+		$variables['range_details'] = $detail_array;
+		//print_r($detail_array);die;
+      }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
 
@@ -36,8 +68,9 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $basepath = base_path() . $variables['directory'];
 
           $variables['temp_icon'] = $base_url . $basepath . '/css/images\season_icons/' . $icon_id . '.svg';
-          $variables['current_temp'] = html_entity_decode($weather->temperature->now);
-          $variables['temp_unit'] = $weather->temperature->getUnit();
+          $variables['current_temp'] = round(html_entity_decode($weather->temperature->now));
+          $variables['temp_unit'] = html_entity_decode($weather->temperature->getUnit());
+		  //print_r($variables['current_temp']);echo"test";print_r($variables['temp_unit']);exit;
           $variables['current_date'] = date('d M Y / g:ia');
         }
       }
@@ -46,8 +79,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         if ($variables['row']->_entity->field_wine_id) {
           $wine_id = $variables['row']->_entity->field_wine_id->value;
           $details = braoncott_rest_api_get_results($wine_id);
-          $variables['wine_title'] = $details->title;
-          $variables['wine_range'] = $details->range;
+          $variables['wine_title'] = strtoupper($details->title);
+          $variables['wine_range'] = strtoupper($details->range);
           $variables['wine_description'] = $details->description;
         }
       }
@@ -57,6 +90,21 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $details = braoncott_rest_api_get_results($wine_id);
           $variables['wine_title'] = $details->title;
           $variables['wine_range'] = $details->range;
+		  //$variables['wine_range_bkg_color'] = $details->range;
+		  $ids = \Drupal::entityQuery('node')
+		  ->condition('title', $details->range)
+          ->condition('status', 1)
+          //->condition('field_wine_id', $value->id)
+          ->execute(); 
+		  
+		  $array_nid = array_values($ids);
+		  $nid = $array_nid[0];
+		  if($nid){
+		  $bkg_color = \Drupal\node\Entity\Node::load($nid);
+		  $bkg_color =  $bkg_color->field_ranges_background_color->value;
+		  $variables['range_bkg_color'] = $bkg_color;
+		  }
+          //print_r($bkg_color);die('test2');
         }
       }
       if ($variables['view']->current_display == 'awards_and_accolades') {

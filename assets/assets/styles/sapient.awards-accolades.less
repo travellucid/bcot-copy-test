@@ -1,68 +1,69 @@
 @import "sapient.variables-mixins.less";
-.product-details-mobile {
-	padding-bottom: 100px;
-	text-align: center;
-
-	span.header_d {
-		padding: 0 15px;
-	}
-}
 .awards-accolades{
 	background-color: @fawn;
-	padding: 100px 0;
-	
+	padding: 90px 15px 100px;
+
 	.heading-image-wrapper {
 		text-align: center;
+		
 		h2{
 			color: @dark-gray;
-			margin: 20px 0 40px;
+			margin: 11px 0 9px;
 			position: relative;
 		}
 	}
+	
 	.list-wrapper {
 		display: block;
 		max-width: 1170px;
-		margin: 0 auto;
-		padding: 18px 0;
+		margin: 24px auto 0;
+		padding-bottom: 6px;
 		text-align: center;
 
 		.awards-details-wrapper {
 			display:inline-block;
-			margin: 0 15px 18px;
+			padding: 0 15px 28px;
 			max-width:370px;
 			text-align: center;
+			
 			.header_d,
 			.header_g {
 				color: @dark-gray;
 				display: block;
-				margin: 10px 0;
 			}
+			
 			span.header_d {
-				font-family: "NeutraText-Book";
+				font-family: "NeutraText Book";
 			}
 
 		}
+		
 		.hidden-details-wrapper {
 			display: none;
 		}
 	}
+	
 	.see-more-btn-wrapper {
 		text-align: center;
+		
 		button.see-more-btn {
 			background: transparent;
 			border: 2px solid @dark-gray;
 		    font-size: 12px;
 		    letter-spacing: 2px;
-		    line-height: 22px;
+		    line-height: 22px; 
+   			padding: 8px 68px 8px 48px;
 		    position: relative;
+		   
 		    &:hover {
 		    	color:@dark-gray;
 		    }
-		    .btn-img {
+		   
+		   .btn-img {
 	    		background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg") !important;
 	    		background-size: 15px;
 				height: 7px;
-			    margin-left: 11px;
+			    margin-left: 8px;
 			    position: absolute;
 			    top: 16px;
 			    width: 15px;    
@@ -73,16 +74,21 @@
 
 @media screen and (max-width: @bp-max-mobile) {
 	.awards-accolades {
+		padding: 100px 15px;
+
 		.heading-image-wrapper {
+			
 			h2{
 				font-size: 28px;
 				line-height: 38px;	
 			}
 		}
+		
 		.list-wrapper {
+
 			.awards-details-wrapper {
 				max-width:290px;
-				margin: 0 auto;
+				margin: 16px auto 30px;
 				.header_d,
 				.header_g {
 					display: block;
@@ -96,21 +102,13 @@
 		}
 	}	
 }
-@media screen and (min-width: @bp-desktop-mlarge) {
+/*@media screen and (min-width: @bp-desktop-large) {
 	.awards-accolades {
 		.list-wrapper {
-			max-width: none;
-		}
-	}
-}	
-@media screen and (min-width: @bp-desktop-exlarge) {
-	.awards-accolades {
-		.list-wrapper {
-			max-width: none;
+			
 			.awards-details-wrapper {
-				max-width: none;
-				width: 25%;
+				width: 30%;
 			}
 		}
 	}
-}
+}	*/

@@ -32,12 +32,12 @@ var carouselObj = (function($, window, sapient) {
 			resize = function() {
 				
 				$(window).on('resize', function() {
-					debounce(sapient.carousel.positionCarouselIndicator, 500, "resizing carouselIndicator");
+					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
 				});
 
 			},
 
-			positionCarouselIndicator = function() {
+			positionCarousel = function() {
 				var	heightArr = [],
 					maxHeight,
 					interval = setInterval(function() {
@@ -45,18 +45,15 @@ var carouselObj = (function($, window, sapient) {
 					var $heightImg = $($("#carousel-new-story .carousel-inner  picture img")[0]).height();
 						
 					if ($heightImg > 0 ){
-						console.log(">0");
 						$("#carousel-new-story .carousel-indicators").css("top", $heightImg - 36 + "px");
 
 						$.each($("#carousel-new-story .carousel-inner .item"), function(index) {
 							var $heightCarousal = $($("#carousel-new-story .carousel-inner .item")[index]).height();
 								heightArr.push($heightCarousal);
 								maxHeight = Math.max.apply(Math, heightArr);
-								console.log("maxHeight "+maxHeight);
 								$("#carousel-new-story .carousel-inner").css("height", maxHeight);
 						});
 
-						
 						clearInterval(interval);
 					}
 
@@ -88,7 +85,7 @@ var carouselObj = (function($, window, sapient) {
 			// public + private states and behaviors
 			enableTouchCarousel: enableTouchCarousel,
 			toggleCarouselArrow: toggleCarouselArrow,
-			positionCarouselIndicator: positionCarouselIndicator,
+			positionCarousel: positionCarousel,
 			resize: resize
 		};
 	}
@@ -109,52 +106,5 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
-sapient.carousel.positionCarouselIndicator();
+sapient.carousel.positionCarousel();
 sapient.carousel.resize();
-
-/*not working will pick later*/
-/*setTimeout(function() {
-	sapient.carousel.positionCarouselIndicator();
-	sapient.carousel.setHeight();
-	$(window).trigger('resize');
-}, 1000);*/
-
-
-
-/*setInterval(function(){
-	if($($( "#carousel-new-story .carousel-inner .item" )[0]).height()==0){
-		sapient.carousel.positionCarouselIndicator();		
-	}
-	else {
-		clearInterval();
-	}
-}, 1000);*/
-/*(function() {
-	console.log("fu");
-	if ($($("#carousel-new-story .carousel-inner  picture img")[0]).height() === 0) {
-
-		interval = setInterval(function() {
-			$(window).trigger('resize');
-			console.log($($("#carousel-new-story .carousel-inner .item")[0]).height() + ":fsd");
-			sapient.carousel.positionCarouselIndicator();
-		}, 200);
-
-		setTimeout(function() {
-			clearInterval(interval);
-		}, 6000);
-	} else {
-		console.log($($("#carousel-new-story .carousel-inner  picture img")[0]).height() + "else");
-		clearInterval(interval);
-		sapient.carousel.positionCarouselIndicator();
-	}
-
-
-})()*/
-
-
-/*
-*/
-
-/*setTimeout(function() {    
-	$(window).trigger('resize');
-}, 5000);*/

@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
 		<span class="header_f">{{ fields.field_hero_subheading.content }}</span>
-		<h1 style = "color : {{ fields.field_headline_colour.content }}; text-align : {{ fields.field_hero_headline_position.content }} !important;">{{ fields.field_hero_headline.content }}</h1>
+		<h1 style = "color : {{ fields.field_headline_colour.content }}; text-align : {{ fields.field_hero_headline_position.content }} !important;">{{ fields.field_hero_headline.content |upper |raw }}</h1>
 		<a href="{{ fields.field_hero_cta_first.content }}" class="cta dark find-out-more">{{ fields.field_hero_cta_first_1.content }}</a>
 		<div class="cta-visitus">
 			<a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_hero_cta_second_1.content }}</a>

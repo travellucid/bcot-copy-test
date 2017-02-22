@@ -19,7 +19,12 @@ var google_map_field_map;
           zoom: zoom,
           center: latlng,
           streetViewControl: false,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          scrollwheel: false,
+          navigationControl:false,
+          mapTypeControl:false,
+          scaleControl:false,
+          draggable:false
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
 

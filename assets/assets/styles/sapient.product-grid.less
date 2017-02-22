@@ -1,0 +1,158 @@
+#navbar-product-filters {
+	.cfix();
+	background-color: @bright-green;
+	display: table;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+
+	.menu-container {
+		margin: 0 auto;
+		max-width: 1170px;
+	}
+
+	.navbar-nav>li>a {
+		padding: 10px 25px;
+	}
+}
+
+#product-grid {
+	text-align: center;
+	.category-wrapper {
+		padding: 100px 0;
+
+		&:nth-child(odd) {
+			background-image: @grain-noise-img;
+		}
+	}
+
+	.category-header {
+		margin: 0 auto 40px;
+		max-width: 770px;
+
+		.title-tag {
+			font-size: 12px;
+		}
+		h2 {
+			color: @dark-gray;
+			font-family: "NeutraText Bold";
+			margin-bottom: 20px;
+			text-transform: uppercase;
+		}
+	}
+
+	.category-grid {
+		margin: 0 auto;
+		max-width: 1170px;
+		font-size: 0;
+
+		.product-tile {
+			display: inline-block;
+			margin: 0 1%;
+			width: 23%;
+
+			&:first-child,
+			&:nth-child(4n+1) {
+				margin-left: 0;
+			}
+
+			&:last-child,
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
+
+			.product-shot {
+				padding: 20px 10px;
+				position: relative;
+				margin-bottom: 24px;
+				img {
+					max-width: 110px;
+					position: relative;
+					width: 100%;
+					z-index: 1;
+				}
+				.product-bg {
+					background-color: #cbd879;
+					bottom: 0;
+					left: 0;
+					position: absolute;
+					right: 0;
+					top: 30%;
+				}
+			}
+
+			h3 {
+				color: @dark-gray;
+				font-family: "NeutraText Bold";
+				font-size: 12px;
+				line-height: 1;
+				margin-bottom: 10px;
+			}
+
+			p {
+				font-family: "NeutraText Book";
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	#product-grid {
+		.category-grid {
+			margin: 0 75px;
+
+			.product-tile {
+				max-width: none;
+				width: 31%;
+
+				&:first-child,
+				&:nth-child(3n+1) {
+					margin-left: 0;
+				}
+
+				&:last-child,
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 990px) {
+	#product-grid {
+		.category-grid {
+			.product-tile {
+				width: 48%;
+
+				&:first-child,
+				&:nth-child(2n+1) {
+					margin-left: 0;
+				}
+
+				&:last-child,
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
+
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 690px) {
+	#product-grid {
+		.category-header,
+		.category-grid {
+			margin: 0 25px;
+		}
+		.category-grid {
+			.product-tile {
+				width: 100%;
+				margin: 0 !important;
+			}
+		}
+	}
+}

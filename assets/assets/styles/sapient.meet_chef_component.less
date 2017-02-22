@@ -3,6 +3,9 @@
 
 #meet-our-chef {
   .set-max-width(870px);
+  margin-top: 100px;
+  margin-bottom: 50px;
+
 .header_sect {
     font-family: "NeutraText Bold";
     text-transform: uppercase;
@@ -13,13 +16,14 @@
     line-height: 1.36;
     letter-spacing: 2px;
     text-align: center;
-    color: #3e464b;
+    color: @dark-gray;
     width: 470px;
     margin-bottom: 35px;
 }
+
 a {
   text-transform: uppercase;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 19px 53px;
 }
 
@@ -36,6 +40,7 @@ a {
     margin-top: -10px;
     margin-bottom: 35px;
 }
+
 .img-left {
   left: 93px;
 }
@@ -43,8 +48,9 @@ a {
 .img-right {
   right: 167px;
 }
+
 .section-class {
-  background-color: #ffffff;
+  background-color: @white;
   display: table;
   /*padding: 50px 0;*/
   position: relative;
@@ -57,9 +63,11 @@ a {
     position: relative;
     vertical-align: middle;
   }
+  
   .header-cta-wrapper {
     margin-top: -10px;
   }
+  
   .content-wrapper {
     /*padding: 0 50px;*/
     display: table-cell;
@@ -73,6 +81,7 @@ a {
       text-transform: uppercase;
     }
   }
+  
   &.img-left {
     .content-wrapper {
       /*padding-right: 53px;*/
@@ -82,19 +91,6 @@ a {
     .image-wrapper {
       img {
         transform: translateX(-50%);
-      }
-    }
-  }
-  &.img-right {
-    .content-wrapper {
-      /*padding-left: 53px;*/
-      position: relative;
-      left: 118px;
-    }
-    .image-wrapper {
-      /*width: 75%;*/
-      img {
-        transform: translateX(50%);
       }
     }
   }
@@ -108,9 +104,6 @@ a {
       left: 0;
     }
 
-    .img-right {
-      right: 0;
-    }
   .section-class {
     margin-left: 15px;
     margin-right: 15px;
@@ -122,6 +115,7 @@ a {
     .header-cta-wrapper {
       margin-top: 0;
     }
+    
     .image-wrapper {
       display: block;
       width: 100%;
@@ -130,33 +124,26 @@ a {
         width: 100%;
       }
     }
+    
     .header_sect {
       padding-top: 50px;
       width: 100%;
     }
+    
     .content-wrapper {
       padding: 0;
       display: block;
       width: 100%;
-      background-color: #ffffff;
-      padding-bottom: 30px;
+      background-color: @white;
+      padding-bottom: 10px;
     }
+    
     &.img-left {
       .content-wrapper {
         padding-right: 3px;
         right: 0;
       }
-      .image-wrapper {
-        img {
-          transform: none;
-        }
-      }
-    }
-    &.img-right {
-      .content-wrapper {
-        padding-left: 3px;
-        left: 0;
-      }
+
       .image-wrapper {
         img {
           transform: none;

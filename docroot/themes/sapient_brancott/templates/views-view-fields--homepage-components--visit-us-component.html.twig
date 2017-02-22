@@ -1,22 +1,21 @@
 <section id="visit-us" class="container-fluid">
     {%- if fields.field_visit_us_subheading.content or fields.field_visit_us_main_headline.content or fields.field_visit_us_description.content -%}
-	<div class="top-section" >
-		<h2 class="header_f">{{ fields.field_visit_us_subheading.content }}</h2>
-		<h3  class="header_a">{{ fields.field_visit_us_main_headline.content }}</h3>
-		<p class="description-visit-us">{{ fields.field_visit_us_description.content }}</p>
-	</div>
+    <div class="top-section" >
+        <h2 class="header_f">{{ fields.field_visit_us_subheading.content |upper |raw }}</h2>
+        <h3  class="header_a">{{ fields.field_visit_us_main_headline.content |upper |raw }}</h3>
+        <p class="description-visit-us">{{ fields.field_visit_us_description.content }}</p>
+    </div>
     {%- endif -%}
-	{%- if fields.view.content -%}
-	<div class="tile-container">
-		<!--<a href="{{ fields.field_visit_us_cta.content }}" class="cta dark visit-us-cta hidden-lg hidden-md" title="visit us">{{ fields.field_visit_us_cta_1.content }}</a>-->
-		{{ fields.view.content }}
-		
-	</div>
-	{%- endif -%}
+    {%- if fields.view.content -%}
+    <div class="tile-container">
+        {{ fields.view.content }}
+
+    </div>
+    {%- endif -%}
 
 </section>
 
-        
+
 
 
 
