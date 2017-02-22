@@ -1,3 +1,5 @@
+<section id="product-grid" class="you-may-like">   
+    <div class="category-grid">
 {% for detail in range_details %}
 <div class="product-tile">
     <div class="product-shot">
@@ -5,9 +7,15 @@
         <div class="product-bg" style="background-color: {{ detail.bkg_colr }} ;"></div>
     </div>
         <h3>{{ detail.title }}</h3>
+		{% if detail.desc %}
         <p>{{ detail.desc }}</p>
+		{% endif %}
 </div>
-{% endfor %}                   
+{% endfor %}  
+</div>
+</section> 
+
+               
                 
         
     
