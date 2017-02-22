@@ -495,9 +495,11 @@ var ourWines = (function($, window, sapient) {
 
 				} else {
 
-					var wineType = $(this).data("categoryFilter");
+					var wineCategory = $(this).data("category"),
+						wineCategoryFilter = $(this).data("categoryFilter");
+
 					$.ajax({
-						url: "/search-page?range=" + wineType,
+						url: "/search-page?" + wineCategory +"=" + wineCategoryFilter,
 						type: "GET",
 						success: function (data) {
 							$("#response-wrapper").html(data);
