@@ -26,7 +26,7 @@
  <div class="hero-details">
  	<h2>{{ fields.field_hero_bottom_headline.content |upper |raw }}</h2>
 	<p>{{ fields.field_hero_bottom_description.content }}</p>
-            {% if (fields.field_hero_cta_first.content or field_hero_cta_second) %} 
+            {% if (fields.field_hero_cta_second.content) %} 
 	  <div class="cta-hero-bottom">
 	    <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-green visit-all-wine">{{ 'BOOK A TABLE'|t }}</a>
 	    <a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green light ">{{ 'HOW TO FIND US'|t }}</a>
