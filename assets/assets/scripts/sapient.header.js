@@ -80,19 +80,25 @@ var headerObj = (function($, window, sapient) {
 		setMenuBarHeight = function() {
 			var windowWidth = $(window).width();
 
-			$("#navbar-header .menu-item").hover(
+			$("#navbar-header .menu-item, #wine-filters .menu-item").hover(
 
 				function() {
-					var subMenuHeight = $(this).find(".sub-menu-wrapper").height();
+
 					if (windowWidth > 991) {
-						$(this).find(".sub-menu").show();
-						//$(this).find(".sub-menu").height(subMenuHeight);
+						$(this).find(">a").css("color", "#d50032");
+						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
+						$(this).find(".sub-menu .sub-menu-wrapper").show();
+						$(this).find(".sub-menu ").height(subMenuHeight);
+						$(".where-to-buy").text(subMenuHeight);
 					}
 				},
 				function() {					
 					if (windowWidth > 991) {
-						$(this).find(".sub-menu").hide();
-						//$(this).find(".sub-menu").height(70);
+						$(this).find(">a").css("color", "white");
+						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
+						$(this).find(".sub-menu .sub-menu-wrapper").hide();
+						$(this).find(".sub-menu ").height(subMenuHeight);
+						$(".where-to-buy").text(subMenuHeight);
 					}
 
 				}
