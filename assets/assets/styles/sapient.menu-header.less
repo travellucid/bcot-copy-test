@@ -60,7 +60,7 @@ header {
 						height: 8px;
 						position: absolute;
 						right: 30px;
-						top: 40px;
+						top: 40.5px;
 						width: 15px;
 						.transform(translateX(-50%));
 					}
@@ -169,13 +169,29 @@ header {
 #wine-filters {
 	background-color: @bright-green;
 	background-image: none;
+	height: 58px;
 	position: relative;
 	z-index: 2;
+
 	div.menu-container {
 		ul.menu {
 			li.menu-item {
+				a {
+					padding: 17.5px 60px;
+				}
+				ul.sub-menu {
+					top: 58px;
+				}
+				span.expand-icon {
+					background-image: url("@{background-icons-path}BE_icon_arrow_down_white.svg");
+					top: 25.5px !important;
+				}
+
 				&:hover {
 					background-color: @white;
+					span.expand-icon {
+						background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
+					}
 				}
 				&:first-child {
 					a {
@@ -187,9 +203,7 @@ header {
 						padding-right: 60px;
 					}
 				}
-				.expand-icon {
-					background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg") !important;
-				}
+				
 			}
 		}
 	}
