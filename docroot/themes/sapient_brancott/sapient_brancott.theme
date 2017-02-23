@@ -140,7 +140,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['nutritional_info_alcohol'] = $details->wineNutritional[0]->alcohol;
           $alcohol = $details->wineNutritional[0]->alcohol;
           if ($alcohol) {
-            $alcohol_cal = round(1000 / (((($alcohol) / 100) * 1000 * 0.789) / 10));
+            $alcohol_cal = round((((($alcohol) / 100) * 1000 * 0.789) / 10));
             $variables['nutritional_alcohol'] = $alcohol_cal;
             $alcohol_info_cal = round((($alcohol_cal) / 150) * 89);
             $variables['nutritional_alcohol_cal'] = $alcohol_info_cal;
