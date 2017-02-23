@@ -89,7 +89,6 @@ var headerObj = (function($, window, sapient) {
 						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
 						$(this).find(".sub-menu .sub-menu-wrapper").show();
 						$(this).find(".sub-menu ").height(subMenuHeight);
-						$(".where-to-buy").text(subMenuHeight);
 					}
 				},
 				function() {					
@@ -98,7 +97,6 @@ var headerObj = (function($, window, sapient) {
 						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
 						$(this).find(".sub-menu .sub-menu-wrapper").hide();
 						$(this).find(".sub-menu ").height(subMenuHeight);
-						$(".where-to-buy").text(subMenuHeight);
 					}
 
 				}
