@@ -176,11 +176,20 @@ header {
 	div.menu-container {
 		ul.menu {
 			li.menu-item {
-				a {
+				>a {
 					padding: 17.5px 60px;
 				}
 				ul.sub-menu {
 					top: 58px;
+
+					.sub-menu-wrapper {
+						max-width: 1170px;
+						.sub-menu-link {
+							a {
+								padding: 17.5px 0;
+							}
+						}
+					}
 				}
 				span.expand-icon {
 					background-image: url("@{background-icons-path}BE_icon_arrow_down_white.svg");
