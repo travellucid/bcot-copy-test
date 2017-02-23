@@ -113,14 +113,14 @@
 				</div>
 				<div class="category-grid">
 					{% for tile in arg.associated_wines %}
-						<div  class="product-tile">
+						<a href="#" class="product-tile">
 							<div class="product-shot">
 								<img src="{{ tile.url }}" />
 								<div class="product-bg" style="background-color: #cbd879;"></div>
 							</div>
 							<h3>{{ tile.range |upper }}</h3>
 							<p>{{ tile.title }}</p>
-						</div>
+						</a>
 					{% endfor %}
 				</div>
 			</div>
