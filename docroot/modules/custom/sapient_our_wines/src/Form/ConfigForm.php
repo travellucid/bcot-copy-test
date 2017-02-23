@@ -50,11 +50,43 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('Open weather API Key'),
       '#required' => TRUE,
     ];
-    $form['dch_endpoint_url'] = [
+    $form['dch_wine_url'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('DCH endpoint URL'),
-      '#default_value' => $vc->get('dch_endpoint_url'),
-      '#description' => $this->t('DCH endpoint URL'),
+      '#title' => $this->t('DCH Wines URL'),
+      '#default_value' => $vc->get('dch_wine_url'),
+      '#description' => $this->t('DCH Wines URL'),
+      '#required' => TRUE,
+    ];
+	
+	$form['dch_ranges_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('DCH Ranges URL'),
+      '#default_value' => $vc->get('dch_ranges_url'),
+      '#description' => $this->t('DCH Ranges URL'),
+      '#required' => TRUE,
+    ];
+	
+	$form['dch_all_wines_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('DCH All Wines URL'),
+      '#default_value' => $vc->get('dch_all_wines_url'),
+      '#description' => $this->t('DCH All Wines URL'),
+      '#required' => TRUE,
+    ];
+	
+	$form['dch_pp_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('DCH Privacy Policy URL'),
+      '#default_value' => $vc->get('dch_pp_url'),
+      '#description' => $this->t('DCH Privacy Policy URL'),
+      '#required' => TRUE,
+    ];
+	
+	$form['dch_tu_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('DCH Term of Use URL'),
+      '#default_value' => $vc->get('dch_tu_url'),
+      '#description' => $this->t('DCH Term of Use URL'),
       '#required' => TRUE,
     ];
     
@@ -109,8 +141,12 @@ class ConfigForm extends FormBase {
     $config = \Drupal::configFactory()->getEditable('sapient_our_wines.settings');
     $config
         ->set('openweatherapi_key', $form_state->getValue('openweatherapi_key'))
-        ->set('dch_endpoint_url', $form_state->getValue('dch_endpoint_url'))
-        ->save();
+        ->set('dch_wine_url', $form_state->getValue('dch_wine_url'))
+		->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
+        ->set('dch_all_wines_url', $form_state->getValue('dch_all_wines_url'))
+		->set('dch_pp_url', $form_state->getValue('dch_pp_url'))
+		>set('dch_tu_url', $form_state->getValue('dch_tu_url'))
+		->save();
     drupal_set_message('Settings have been saved.');
   }
 
