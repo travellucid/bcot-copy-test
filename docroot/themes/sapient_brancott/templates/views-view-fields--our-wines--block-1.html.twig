@@ -11,7 +11,7 @@
         <img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
         <div class="product-bg" style="background-color: {{ detail.bkg_colr }} ;"></div>
     </div>
-        <h3>{{ detail.title }}</h3>
+        <h3>{{ detail.title |upper }}</h3>
 		
         <p>{{ detail.desc }}</p>
 		
@@ -19,14 +19,17 @@
 {% endfor %}  
 <div class="product-tile">
     <div class="product-shot">
-        <a href="{{ fields.field_see_all_wines_1.content }}" class="">{{ fields.field_see_all_wines.content }}</a>
+        <a href="{{ fields.field_see_all_wines.content }}" class="">{{ fields.field_see_all_wines_1.content }}</a> 
     </div>
-	
+        
+		
 </div>
+        
+    
 </div>
 </section> 
 
-               
+              
                 
         
     
