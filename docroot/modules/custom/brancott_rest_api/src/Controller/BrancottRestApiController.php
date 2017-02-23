@@ -30,8 +30,11 @@ class BrancottRestApiController extends ControllerBase {
       return $result;
     }
     else {
-     $response = brancott_rest_api_reponse('http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sample.json');
+	$response = brancott_rest_api_reponse('http://gateway.pernod-ricard-winemakers.com/v2/brancott%20estate/'.$locale.'/wines/'.$wine_id.'/en');
+     //$response = brancott_rest_api_reponse('http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sample.json');
+	 //print_r($response);exit;
     }
+	
     if ($response) {
       \Drupal::cache()->set($cid, $response);
       $result = json_decode($response);
