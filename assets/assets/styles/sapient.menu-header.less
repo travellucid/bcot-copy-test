@@ -164,6 +164,11 @@ header {
 
 .common-small-height-hero {
 	max-height: 400px;
+	.hero-inner-container {
+		h1 {
+			margin: 0 !important;
+		}		
+	}
 }
 
 #wine-filters {
@@ -278,6 +283,10 @@ header {
 }
 
 @media screen and (max-width: @bp-max-mobile) {
+	.common-small-height-hero {
+		max-height: 200px;		
+	}
+
 	.solid-menu {
 		opacity: 1;
 		li.dropdown,
