@@ -30,6 +30,7 @@ module.exports = function(grunt) {
 			'<%= dirs.jsSource %>jquery.mobile-1.4.5.min.js',*/
 			'<%= dirs.jsSource %>debounce.js',
 			'<%= dirs.jsSource %>jquery-ui.min.js',
+			'<%= dirs.jsSource %>jquery.validate.js',
 			'<%= dirs.jsSourceBootstrap %>bootstrap.min.js'
 		],
 		dest: "<%= dirs.jsLibsDest %><%= pkg.name %>.libs.js"
@@ -45,7 +46,8 @@ module.exports = function(grunt) {
 			'<%= dirs.jsSource %>sapient.header.js',
 			'<%= dirs.jsSource %>sapient.instagram.followus.js',
 			'<%= dirs.jsSource %>sapient.our.wines.js',
-			'<%= dirs.jsSource %>sapient.footer.js'
+			'<%= dirs.jsSource %>sapient.footer.js',
+			'<%= dirs.jsSource %>sapient.validation.js'
 		],
 		dest: "<%= dirs.jsModulesDest %><%= pkg.name %>.modules.ver.<%= pkg.version %>.dev.js"
 	  }

@@ -138,7 +138,7 @@ var carouselObj = (function($, window, sapient) {
 						clearInterval(interval);
 					}
 
-				}, 200);
+				}, 200);					
 			},
 
 			toggleCarouselArrow = function(id) {
@@ -272,27 +272,21 @@ var headerObj = (function($, window, sapient) {
 		setMenuBarHeight = function() {
 			var windowWidth = $(window).width();
 
-			$("#navbar-header .menu-item, #wine-filters .menu-item").hover(
-
-				function() {
-
-					if (windowWidth > 991) {
+			if (windowWidth > 990) {
+				$("#navbar-header .menu-item, #wine-filters .menu-item").hover(
+					function() {
 						$(this).find(">a").css("color", "#d50032");
-						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
 						$(this).find(".sub-menu .sub-menu-wrapper").show();
-						$(this).find(".sub-menu ").height(subMenuHeight);
-					}
-				},
-				function() {					
-					if (windowWidth > 991) {
-						$(this).find(">a").css("color", "white");
 						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
-						$(this).find(".sub-menu .sub-menu-wrapper").hide();
 						$(this).find(".sub-menu ").height(subMenuHeight);
+					},
+					function() {
+						$(this).find(">a").css("color", "white");
+						$(this).find(".sub-menu .sub-menu-wrapper").hide();
+						$(this).find(".sub-menu ").removeAttr("style");
 					}
-
-				}
-			);
+				);
+			}
 		},
 
 		toggleGhostMenu = function() {
@@ -598,3 +592,85 @@ sapient.footer = footerObj.getInstance();
 
 sapient.footer.setFooterDdownPos();
 sapient.footer.onResize();
+var validationObj = (function($, window, sapient) {
+
+	var validationInstance;
+
+	function createValidtaionInstance() {
+
+		var validate = function() {
+				var $input = $(".enquire-form form .group input"),
+					$select = $(".enquire-form form .group select");
+				$(".enquire-form .submit-info .submit-btn").click(function() {
+					var checked = $('#check').is(':checked')
+						inputflag = 0,
+						inputarr =[]
+						selectflag = 0,
+						selectarr=[];
+					$.each($input,function(index){
+						
+						if($($input[index]).val().length == 0) {
+							$($(".enquire-form form .group label")[index]).addClass("error");
+							$($input[index]).addClass("error-border");
+							
+						}
+						else {
+							$($(".enquire-form form .group label")[index]).removeClass("error");
+							$($input[index]).removeClass("error-border");
+						}
+						inputarr.push($($input[index]).val().length);
+
+					})
+	
+					$.each($select,function(index){
+						if($select[index].value == "") {
+							$($select[index]).addClass("error-border");
+						}
+						else {
+							$($select[index]).removeClass("error-border");
+						}
+
+						selectarr.push($select[index].value);
+					})
+					$.each(inputarr,function(index){
+						if(inputarr[index]===0){
+							inputflag = 0;
+							console.log("false input")
+						}
+					})
+					
+					$.each(selectarr,function(index){
+						if(selectarr[index] == ""){
+							selectflag = 0;
+							console.log("false select")
+						}
+					})
+					if(!checked){
+						console.log("return false")
+					}
+					else {
+						console.log("submit")
+					}
+
+				});
+			}
+		return {
+			// public + private states and behaviors
+			validate: validate
+		};
+	}
+
+	return {
+		getInstance: function() {
+			if (!validationInstance) {
+				validationInstance = createValidtaionInstance();
+			}
+			return validationInstance;
+		}
+	};
+	
+
+})(jQuery, window, sapient);
+
+sapient.validation = validationObj.getInstance();
+sapient.validation.validate();
