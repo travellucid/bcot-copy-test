@@ -53,7 +53,7 @@
 <section id="mobile-filters-wrapper" class="hidden-md hidden-lg">
 	<button id="open-filters">FILTERS</button>
 	<div id="mobile-filters" class="mobile-only">
-		<button id="close-filters">&#10005;</button>
+		<button id="close-filters"></button>
 	  <h2>FILTERS</h2>
 		<div id="mobile-filters-scroll-wrapper">
 			<ul class="categories nav">
@@ -113,14 +113,14 @@
 				</div>
 				<div class="category-grid">
 					{% for tile in arg.associated_wines %}
-						<a href ="#" class="product-tile">
+						<div  class="product-tile">
 							<div class="product-shot">
 								<img src="{{ tile.url }}" />
 								<div class="product-bg" style="background-color: #cbd879;"></div>
 							</div>
 							<h3>{{ tile.range |upper }}</h3>
 							<p>{{ tile.title }}</p>
-						</a>
+						</div>
 					{% endfor %}
 				</div>
 			</div>
