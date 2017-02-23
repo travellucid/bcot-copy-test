@@ -272,27 +272,21 @@ var headerObj = (function($, window, sapient) {
 		setMenuBarHeight = function() {
 			var windowWidth = $(window).width();
 
-			$("#navbar-header .menu-item, #wine-filters .menu-item").hover(
-
-				function() {
-
-					if (windowWidth > 991) {
+			if (windowWidth > 990) {
+				$("#navbar-header .menu-item, #wine-filters .menu-item").hover(
+					function() {
 						$(this).find(">a").css("color", "#d50032");
-						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
 						$(this).find(".sub-menu .sub-menu-wrapper").show();
-						$(this).find(".sub-menu ").height(subMenuHeight);
-					}
-				},
-				function() {					
-					if (windowWidth > 991) {
-						$(this).find(">a").css("color", "white");
 						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
-						$(this).find(".sub-menu .sub-menu-wrapper").hide();
 						$(this).find(".sub-menu ").height(subMenuHeight);
+					},
+					function() {
+						$(this).find(">a").css("color", "white");
+						$(this).find(".sub-menu .sub-menu-wrapper").hide();
+						$(this).find(".sub-menu ").removeAttr("style");
 					}
-
-				}
-			);
+				);
+			}
 		},
 
 		toggleGhostMenu = function() {

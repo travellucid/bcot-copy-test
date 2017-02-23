@@ -2,7 +2,6 @@
 header {
 	position: fixed;
 	z-index: 11;
-
 	&.navbar {
 		min-height: 0;
 	}
@@ -30,25 +29,21 @@ header {
 				a[aria-expanded="true"] {
 					color: @shed-red;
 				}
-
 				&:first-child {
 					a {
 						padding-left: 0;
 					}
 				}
-
 				&:last-child {
 					a {
 						padding-right: 0;
 					}
 				}
-
 				&>a {
 					color: @white;
 					letter-spacing: 2px;
 					line-height: 24px;
-					padding: 32.5px 60px;
-
+					padding: 33px 60px;
 					&:hover,
 					&:active,
 					&:focus {
@@ -56,7 +51,6 @@ header {
 						color: @shed-red !important;
 						box-shadow: none;
 					}
-
 					span.expand-icon {
 						background-image: url("@{background-icons-path}BE_icon_arrow_down_white.svg");
 						background-repeat: no-repeat;
@@ -69,16 +63,13 @@ header {
 						top: 40px;
 						width: 15px;
 						.transform(translateX(-50%));
-
 					}
 				}
-
 				&:hover {
-					 ul.sub-menu {
+					ul.sub-menu {
 						display: block;
-					} 
+					}
 				}
-
 				ul.sub-menu {
 					background-color: @white;
 					border-radius: 0;
@@ -91,49 +82,44 @@ header {
 					top: 90px;
 					width: 100vw;
 					.transform(translateX(-50vw));
-
 					div.sub-menu-wrapper {
 						display: inline-table;
 						max-width: 80%;
 						/* not final */
 						width: auto;
-
 						.menu-heading {
 							display: none;
 						}
-
 						.centerX();
-
 						li {
 							display: inline-block;
 							margin: 23px 25px 25px;
 							position: relative;
-
 							&.sub-category-wrapper {
 								margin: 23px 25px 0;
 								vertical-align: top;
 								width: 25%;
 							}
-
 							a {
 								&:hover {
 									color: @shed-red !important;
 								}
-
 								&.sub-nav-item {
-									font-family: "NeutraText Book";
 									display: block;
 									padding: 5px 0;
 								}
 							}
+							&.sub-category-wrapper {
+								p {
+									font-family: "NeutraText Book";
+								}
+							}
 						}
 					}
-
 					&::before {
 						@media screen and (min-width: 991px) {
 							content: "";
 						}
-
 						position: fixed;
 						top: -10px;
 						left: 0;
@@ -143,17 +129,14 @@ header {
 						z-index: 100;
 					}
 				}
-
 				&.open {
 					a {
 						background: none;
 					}
-				}				
+				}
 			}
-
 			li.logo {
 				margin: 0 55px;
-
 				a {
 					background-image: url("@{background-icons-path}BE_icon_header_logo_white.svg");
 					background-repeat: no-repeat;
@@ -162,7 +145,6 @@ header {
 					height: 70px;
 					top: 10px;
 					width: 140px;
-
 					&:hover,
 					&:active,
 					&:focus {
@@ -180,7 +162,7 @@ header {
 	}
 }
 
-.our-wines {
+.common-small-height-hero {
 	max-height: 400px;
 }
 
@@ -188,33 +170,26 @@ header {
 	background-color: @bright-green;
 	background-image: none;
 	position: relative;
-	z-index: 1;
-	
+	z-index: 2;
 	div.menu-container {
 		ul.menu {
 			li.menu-item {
 				&:hover {
 					background-color: @white;
 				}
-
-			&:first-child {
-				a {
-					padding-left: 60px;
+				&:first-child {
+					a {
+						padding-left: 60px;
+					}
 				}
-			}
-
-			&:last-child {
-				a {
-					padding-right: 60px;
+				&:last-child {
+					a {
+						padding-right: 60px;
+					}
 				}
-			}
-
-		.expand-icon {
-			background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg") !important;
-		}
-
-		
-
+				.expand-icon {
+					background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg") !important;
+				}
 			}
 		}
 	}
@@ -226,7 +201,6 @@ header {
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
 	opacity: .96;
 	transition: background-color 0.25s;
-
 	li.dropdown,
 	li.menu-item {
 		.expand-icon {
@@ -235,9 +209,7 @@ header {
 		a {
 			color: @dark-gray !important;
 		}
-
 	}
-
 	li.logo {
 		a {
 			background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg") !important;
@@ -261,7 +233,6 @@ header {
 	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
 	background-color: @transparent;
 	transition: background-color 0.25s;
-
 	li.dropdown {
 		.expand-icon {
 			background-image: url("@{background-icons-path}BE_icon_arrow_down_white.svg");
@@ -270,7 +241,6 @@ header {
 			color: @white;
 		}
 	}
-
 	li.logo {
 		background-image: url("@{background-icons-path}BE_icon_header_logo_white.svg");
 	}
@@ -281,7 +251,7 @@ header {
 		div.menu-container {
 			max-width: 1170px;
 		}
-	}	
+	}
 }
 
 @media screen and (max-width: @bp-max-mobile) {
@@ -480,5 +450,12 @@ header {
 		background-color: @white !important;
 		background-image: none;
 		border-bottom: 2px solid blue;
+	}
+}
+
+#wine-filters {
+	text-transform: uppercase;
+	.sub-category-wrapper p {
+		text-transform: none;
 	}
 }
