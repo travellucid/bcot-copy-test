@@ -103,6 +103,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 			$wine_id = $variables['row']->_entity->field_wine_id->getValue();
 			$wine_id = $wine_id[0]['value'];
 			$details = braoncott_rest_api_get_results($wine_id);
+			print_r($details);die;
             $variables['wine_title'] = $details->title;
             $variables['wine_range'] = $details->range;
 			$ids = \Drupal::entityQuery('node')

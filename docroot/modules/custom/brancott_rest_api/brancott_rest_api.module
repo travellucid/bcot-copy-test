@@ -101,6 +101,7 @@ function brancott_rest_api_theme($existing, $type, $theme, $path) {
 }
 
 function braoncott_rest_api_get_results($wine_id) {
+	//print_r('test');die;
   $rest_api = new BrancottRestApiController;
   $value = $rest_api->getProductDetails($wine_id);
   return $value;
