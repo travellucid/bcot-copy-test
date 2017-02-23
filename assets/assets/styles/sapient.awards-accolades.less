@@ -69,7 +69,8 @@
 			    width: 15px;    
 		    }
 		}
-	}	
+	}
+	
 }
 
 @media screen and (max-width: @bp-max-mobile) {
@@ -89,6 +90,7 @@
 			.awards-details-wrapper {
 				max-width:290px;
 				margin: 16px auto 30px;
+				padding: 0;
 				.header_d,
 				.header_g {
 					display: block;
@@ -102,13 +104,12 @@
 		}
 	}	
 }
-/*@media screen and (min-width: @bp-desktop-large) {
+@media screen and (min-width: @bp-tablet) {
 	.awards-accolades {
 		.list-wrapper {
-			
 			.awards-details-wrapper {
-				width: 30%;
+				max-width:315px;
 			}
 		}
 	}
-}	*/
+}

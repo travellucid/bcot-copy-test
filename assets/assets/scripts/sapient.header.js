@@ -26,9 +26,15 @@ var headerObj = (function($, window, sapient) {
 
 		animateMobileMenu = function() {
 			$("#navbar-header .menu .menu-item").on("click", function() {
-				if (!$(this).parents(".menu").hasClass("menu-open")) { $(this).parents(".menu").addClass("menu-open"); } else {
+				
+				if (!$(this).parents(".menu").hasClass("menu-open")) {
+					$(this).parents(".menu").addClass("menu-open");
+				}
+
+				else {
 					$(this).parents(".menu").removeClass("menu-open");
 				}
+
 			});
 		},
 
@@ -74,21 +80,21 @@ var headerObj = (function($, window, sapient) {
 		setMenuBarHeight = function() {
 			var windowWidth = $(window).width();
 
-			$("#navbar-header .menu-item").hover(
-
-				function() {
-					var subMenuHeight = $(this).find(".sub-menu-wrapper").height();
-					if (windowWidth > 991) {
-						$(this).find(".sub-menu").height(subMenuHeight);
+			if (windowWidth > 990) {
+				$("#navbar-header .menu-item, #wine-filters .menu-item").hover(
+					function() {
+						$(this).find(">a").css("color", "#d50032");
+						$(this).find(".sub-menu .sub-menu-wrapper").show();
+						var subMenuHeight = $(this).find(".sub-menu .sub-menu-wrapper").height();
+						$(this).find(".sub-menu ").height(subMenuHeight);
+					},
+					function() {
+						$(this).find(">a").css("color", "white");
+						$(this).find(".sub-menu .sub-menu-wrapper").hide();
+						$(this).find(".sub-menu ").removeAttr("style");
 					}
-				},
-				function() {
-					if (windowWidth > 991) {
-						$(this).find(".sub-menu").height(70);
-					}
-
-				}
-			);
+				);
+			}
 		},
 
 		toggleGhostMenu = function() {

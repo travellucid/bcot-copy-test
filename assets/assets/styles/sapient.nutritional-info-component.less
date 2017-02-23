@@ -3,19 +3,30 @@
   width: 100%;
   margin: 0 auto;
 
-  .wrapper-head{
-      background-color: @dark-gray;
+  .wrapper-head {
+      background-color: @bright-green;
       height: auto;
       padding: 16px 0;
       position: relative;
       display: block;
   }
+  
+  .modal-body {
+    margin: 5px 15px;
+    padding-bottom: 30px;
 
-  .modal-dialog {
-    max-width: 320px;
+    a {
+      display: block;
+      margin-top: 0;
+    }
   }
   
+  .modal-dialog {
+    width: 660px;
+  }
+
   .modal-content {
+    border: none;
     border-radius: 0;
   }
 
@@ -29,12 +40,15 @@
   }
 
   .close-btn {
-    right: 5px;
-    width: 32px;
     height: 32px;
     margin: 0;
     opacity: 0.3;
     cursor: pointer;
+    position: absolute;
+    right: 5px;
+    width: 32px;
+    
+    
     &:hover {
       opacity: 1;
     }
@@ -44,7 +58,7 @@
       height: 20px;
       position: absolute;
       right: 18px;
-      top: 20px;
+      top: 5px;
       width: 2px;
     }
     &:before {
@@ -83,9 +97,9 @@
     font-style: normal;
     font-stretch: normal;
     line-height: 1.71;
-    margin-top: 20px;
-    margin-bottom: 35px;
-    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   p{
@@ -96,17 +110,14 @@
     font-stretch: normal;
     line-height: 1.63;
     letter-spacing: normal;
-    margin-top: 35px;
+    margin-top: 25px;
+    margin-bottom: 0;
     padding: 0;
     text-align: left;
   }
 
   tr {
       border-bottom: 1px solid #fff;
-  }
-
-  span {
-    display: block;
   }
 
   tbody {
@@ -126,6 +137,7 @@
       line-height: 1.5;
       letter-spacing: normal;
       padding: 5px;
+      padding-left: 15px;
 
       &:first-child {
         font-family: "NeutraText Bold";
@@ -171,6 +183,7 @@
       line-height: 1.5;
       letter-spacing: normal;
       padding: 5px;
+      padding-left: 15px;
       text-align: left;
       width: 32%; 
 
@@ -191,10 +204,19 @@
   }
 }
 
-@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+@media screen and (max-width: 767px) {
     #nutritional-info-component {
-      .wrapper-div {
-        width: 100%;
+      .modal-dialog {
+        margin: 10px auto;
+        width: 320px;
+      }
+
+      .modal-body {
+        margin: 0;
+      }
+
+      h3 {
+        text-align: left;
       }
     }
 }
