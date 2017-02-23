@@ -49,19 +49,23 @@ class BrancottSearchFilterController extends ControllerBase {
     $range = $this->request->getCurrentRequest()->get('range');
     $wine_type = $this->request->getCurrentRequest()->get('wine_type');
     $varietals = $this->request->getCurrentRequest()->get('varietals');
+	$foodfilter = $this->request->getCurrentRequest()->get('food_matches');
 
     $rest_api = new BrancottRestApiControllerFilters;
     $values = $rest_api->getFilters();
     //print_r($values); exit;
     $wine_details = array();
     foreach ($values as $value) {
-      if ($range && $value->range != $range) {
+      if ($range && strpos($value->range, $range)=== false ) {
         continue;
       }
-      if ($wine_type && $value->wineType != $wine_type) {
+      if ($wine_type && strpos($value->wineType, $wine_type) === false) {
         continue;
       }
-      if ($varietals && $value->grapeVariety != $varietals) {
+      if ($varietals && strpos($value->grapeVariety, $varietals) === false ) {
+        continue;
+      }
+	  if ($foodfilter && strpos($value->foodMatch, $foodfilter) === false ) {
         continue;
       }
       $food_matches[] = $value->foodMatch;
