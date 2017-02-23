@@ -57,7 +57,7 @@ var carouselObj = (function($, window, sapient) {
 						clearInterval(interval);
 					}
 
-				}, 200);
+				}, 200);					
 			},
 
 			toggleCarouselArrow = function(id) {
