@@ -1,83 +1,5 @@
-<<<<<<< HEAD
-<nav id="wine-filters" class="">
-    <div class="navbar-collapse menu-container" aria-expanded="false" style="/* margin: 0 auto; *//* text-align: center; */">
-        <div class="logo hidden-md hidden-lg ">
-            <a href="http://brancottvanilla.dev.dd:8083/en" class="logo-img"></a>
-        </div>
-
-        <ul class="nav navbar-nav menu">
-            {% for key, filter in filters %}  		
-                {% if key == 'range' %}
-                    {% set newkey = 'Ranges' %}
-                {% elseif key == 'wine_type' %}
-                    {% set newkey = 'Wine Types' %}
-                {% elseif key == 'varietals' %}
-                    {% set newkey = 'Varietals' %}
-                {% elseif key == 'food_mathces' %}
-                    {% set newkey = 'Food Matches' %}
-                {% else %}
-                    {% set newkey = key %}
-                {% endif %}
-                <li class="menu-item dropdown our-wines">
-                    <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey }} <span class="expand-icon" data-toggle="dropdown"></span>
-                    </a>
-                    <ul class="dropdown-menu sub-menu" style="height: 71px;">
-                        <div class="sub-menu-wrapper">
-                            {% for subfilter_key, subfilter in filter %}
-                                <li class="sub-menu-link">
-                                    <a href="#" data-category="{{ key }}"
-                                       data-category-filter="{{ subfilter_key }}" class="filter-item" > {{ subfilter_key }}</a>
-                                </li>
-                            {% endfor %}		
-                        </div>
-                    </ul>
-                </li>	 
-            {% endfor %}
-        </ul>
-    </div><!--/.nav-collapse -->
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-<button id="open-filters">FILTERS</button>
-
-<div id="mobile-filters" class="mobile-only">
-	<button id="close-filters">&#10005;</button>
-  <h2>FILTERS</h2>
-	<div id="mobile-filters-scroll-wrapper">
-		<ul class="categories nav">
-		      {% for key, filter in filters %}  		
-                {% if key == 'range' %}
-                    {% set newkey = 'Ranges' %}
-                {% elseif key == 'wine_type' %}
-                    {% set newkey = 'Wine Types' %}
-                {% elseif key == 'varietals' %}
-                    {% set newkey = 'Varietals' %}
-                {% elseif key == 'food_mathces' %}
-                    {% set newkey = 'Food Matches' %}
-                {% else %}
-                    {% set newkey = key %}
-                {% endif %}
-			<li><a href="#" class="category">{{ newkey }} &#10230;</a>
-				<ul class="sub-categories">
-				    {% for subfilter_key, subfilter in filter %}
-					<li><a href="#" class="sub-nav-return">&#10229; RANGES</a></li>
-					{% endfor %}	
-=======
 <nav id="wine-filters" class="hidden-xs hidden-sm">
 	<div class="navbar-collapse menu-container" aria-expanded="false">
-		<div class="logo hidden-md hidden-lg ">
-			<a href="http://brancottvanilla.dev.dd:8083/en" class="logo-img"></a>
-		</div>
-
 		<ul class="nav navbar-nav menu">
 			<li class="menu-item dropdown our-wines"><a href="#" data-category-filter="all-data" class="filter-item">All data</a></li>
 			{% for key, filter in filters %}  		
@@ -101,30 +23,25 @@
 						<li class="sub-menu-link"><a href="#" data-category="{{ key }}" data-category-filter="{{ subfilter_key }}" class="filter-item"> {{ subfilter_key }}</a></li>
 						{% endfor %}		
 					</div>
->>>>>>> 834baa8dd9827d9eff3dc4e9f0b725e35ee65ab8
 				</ul>
 			</li>
-			{% else %}	
-             
-             <li><a href="#" class="category">{{ newkey }}</a>
-					<ul class="sub-categories">
-						<li><a href="#" class="sub-nav-return">{{ newkey }}</a></li>
-						
-												<li>
-													<p>Cheese or on it's own</p>
-													<a href="#" data-category="food_matches" data-category-filter="Apertif" class="filter-item">Apertif</a>
-													<a href="#" data-category="food_matches" data-category-filter="Mild Cheese" class="filter-item">Mild Cheese</a>
-													<a href="#" data-category="food_matches" data-category-filter="Strong Cheese" class="filter-item">Strong Cheese</a>
+			{% else %}
+
+			<li class="menu-item dropdown our-wines">
+				<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey }} <span class="expand-icon" data-toggle="dropdown"></span></a>
+				<ul class="dropdown-menu sub-menu">
+					<div class="sub-menu-wrapper">
+						{% for subfilter_key, subfilter in filter %}
+						<li class="sub-category-wrapper">
+							<p>{{ subfilter_key }}</p>
+							{% for foodmatchkey, foodmatchvalue in subfilter %}
+							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item sub-nav-item">{{ foodmatchvalue }}</a>
+							{% endfor %}	
 						</li>
-												<li>
-													<p>Fish</p>
-													<a href="#" data-category="food_matches" data-category-filter="Grilled Seafood" class="filter-item">Grilled Seafood</a>
-													<a href="#" data-category="food_matches" data-category-filter="Salmon" class="filter-item">Salmon</a>
-													<a href="#" data-category="food_matches" data-category-filter="Shellfish" class="filter-item">Shellfish</a>
-						</li>
-													
-					</ul>
-				</li>
+						{% endfor %}		
+					</div>
+				</ul>
+			</li>
               {% endif %}			 
 			{% endfor %}
 		</ul>
@@ -152,15 +69,30 @@
 					{% else %}
 						{% set newkey = key %}
 					{% endif %}
-				<li><a href="#" class="category">{{ newkey }} &#10230;</a>
+				{% if key != 'food_matches' %}
+				<li><a href="#" class="category">{{ newkey }} <img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_right.svg"></a>
 					<ul class="sub-categories">
-						<li><a href="#" class="sub-nav-return">&#10229; {{ newkey }}</a></li>
+						<li><a href="#" class="sub-nav-return"><img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg"> {{ newkey }}</a></li>
 						{% for subfilter_key, subfilter in filter %}
-						<li><a href="#" data-category="{{ key }}"
-										   data-category-filter="{{ subfilter_key }}" class="filter-item">{{ subfilter_key }}</a></li>
+						<li><a href="#" data-category="{{ key }}" data-category-filter="{{ subfilter_key }}" class="filter-item">{{ subfilter_key }}</a></li>
 						{% endfor %}	
 					</ul>
 				</li>
+				{% else %}
+				<li><a href="#" class="category">{{ newkey }} <img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_right.svg"></a>
+					<ul class="sub-categories">
+						<li><a href="#" class="sub-nav-return"><img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg"> {{ newkey }}</a></li>
+						{% for subfilter_key, subfilter in filter %}
+						<li>
+							<p>{{ subfilter_key }}</p>
+							{% for foodmatchkey, foodmatchvalue in subfilter %}
+							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item sub-nav-item">{{ foodmatchvalue }}</a>
+							{% endfor %}
+						</li>
+						{% endfor %}
+					</ul>
+				</li>
+				{% endif %}
 				 {% endfor %}
 				 <li><a href="#" data-category-filter="all-data" class="filter-item">ALL WINES</a></li>
 			</ul>
@@ -184,7 +116,7 @@
 						<div class="product-tile">
 							<div class="product-shot">
 								<img src="{{ tile.url }}" />
-								<div class="product-bg" style="background-color:  ;"></div>
+								<div class="product-bg" style="background-color: #cbd879;"></div>
 							</div>
 							<h3>{{ tile.range }}</h3>
 							<p>{{ tile.title }}</p>

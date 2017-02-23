@@ -1,0 +1,35 @@
+<section id="product-grid" class="you-may-like"> 
+<div class="top-section">
+        <h2 class="header_f">{{ fields.field_our_wine_heading.content }}</h2>
+        <h3 class="header_a">{{ fields.field_our_wine_title.content }}</h3>
+        <p class="description-visit-us">{{ fields.field_our_wine_description.content }}</p>
+    </div>  
+    <div class="category-grid">
+{% for detail in range_details %}
+<div class="product-tile">
+    <div class="product-shot">
+        <img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
+        <div class="product-bg" style="background-color: {{ detail.bkg_colr }} ;"></div>
+    </div>
+        <h3>{{ detail.title |upper }}</h3>
+		
+        <p>{{ detail.desc }}</p>
+		
+</div>
+{% endfor %}  
+<div class="product-tile">
+    <div class="product-shot">
+        <a href="{{ fields.field_see_all_wines_1.content }}" class="">{{ fields.field_see_all_wines.content }}</a>
+    </div>
+	
+</div>
+</div>
+</section> 
+
+               
+                
+        
+    
+
+
+

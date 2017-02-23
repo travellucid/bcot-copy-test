@@ -10,6 +10,17 @@ var commonObj = (function($, window, sapient) {
             },
 
             hideLinkText = function() {
+                $( "#datepicker" ).datepicker({
+                    inline: true,
+                    //nextText: '&rarr;',
+                    //prevText: '&larr;',
+                    showOtherMonths: true,
+                    //dateFormat: 'dd MM yy',
+                    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    //showOn: "button",
+                    //buttonImage: "img/calendar-blue.png",
+                    //buttonImageOnly: true,
+                });
                 $("footer section.social-icons nav ul li a").text("")
             },
             toggleAwardsDetails = function() {
@@ -50,3 +61,8 @@ sapient.common.hideLinkText();
 /*sapient.common.debounce();*/
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
+
+
+/*$( function() {
+    $( "#datepicker" ).datepicker();
+  } );*/
