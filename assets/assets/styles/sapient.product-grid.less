@@ -36,17 +36,17 @@
 			margin: 0 1%;
 			vertical-align: top;
 			width: 23%;
+			@media screen and (min-width: 1025px) {
+				&:first-child,
+				&:nth-child(4n+1) {
+					margin-left: 0;
+				}
 
-			&:first-child,
-			&:nth-child(4n+1) {
-				margin-left: 0;
+				&:last-child,
+				&:nth-child(4n) {
+					margin-right: 0;
+				}
 			}
-
-			&:last-child,
-			&:nth-child(4n) {
-				margin-right: 0;
-			}
-
 			.product-shot {
 				padding: 60px 0 0;
 				position: relative;
@@ -93,7 +93,7 @@
 	}
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 991px) and (max-width: 1024px) {
 	#product-grid {
 		.category-grid {
 			margin: 0 75px;
@@ -124,12 +124,12 @@
 				width: 48%;
 
 				&:first-child,
-				&:nth-child(2n+1) {
+				&:nth-child(odd) {
 					margin-left: 0;
 				}
 
 				&:last-child,
-				&:nth-child(2n) {
+				&:nth-child(even) {
 					margin-right: 0;
 				}
 
