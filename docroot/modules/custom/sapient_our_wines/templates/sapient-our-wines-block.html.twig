@@ -115,7 +115,11 @@
 					{% for tile in arg.associated_wines %}
 						<a href="#" class="product-tile">
 							<div class="product-shot">
-								<img src="{{ tile.url }}" />
+								{% if tile.url %}
+									<img src="{{ tile.url }}" />
+								{% else %}
+									<img src="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/medium/public/2017-02/Brancott-Estate_Sauv_Blanc_2.png" />
+								{% endif %}
 								<div class="product-bg" style="background-color: #cbd879;"></div>
 							</div>
 							<h3>{{ tile.range |upper }}</h3>

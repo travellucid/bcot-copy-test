@@ -25,7 +25,7 @@
 			<label for="email" class="header_f">Email Address*</label>
 		</div>
 		<div class="col-md-6 col-xs-12 col-sm-12 group">
-			<select required>
+			<select required class="header_f">
 				<option value="">TYPE OF FUNCTION</option>
 				<option value="volvo">volvo</option>
 				<option value="saab">saab</option>
@@ -35,7 +35,7 @@
 			<span class="highlight"></span>
 		</div>
 		<div class="col-md-6 col-xs-12 col-sm-12 group">
-			<select required>
+			<select required class="header_f">
 				<option value="">Number OF people*</option>
 				<option value="volvo">volvo</option>
 				<option value="saab">saab</option>
@@ -50,12 +50,13 @@
 			<label for="info" class="header_f">Any other information</label>
 		</div>
 		<div class="col-md-6 col-xs-12 col-sm-12 group date-time">
-			<input type="text" id="datepicker" required>
+			<input type="text" id="datepicker" class = "date" required>
+			<span class="calender-icon"></span>
 			<label for="datepicker" class="header_f">Date*</label>
 		</div>
 	</form>
 	<div class="submit-info col-md-12 col-xs-12 col-sm-12">
-		<input type="checkbox" id="check" required/>
+		<input type="checkbox" id="check" class="sr-only"  required/>
 		<label for="check" class="header_g">Yes, sign me up to receive exclusive news, events and offers</label>
 		<div class="cta-visitus">
 			<button type="submit" class="cta dark submit-btn">Submit</button>

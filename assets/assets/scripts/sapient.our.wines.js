@@ -9,13 +9,15 @@ var ourWines = (function($, window, sapient) {
 					e.preventDefault();
 
 					if ($(this).data("categoryFilter") === "all-data") {
-
 						$("#response-wrapper").html(allProductsGrid);
+						$(".filter-item").removeClass('active-filter');
 
 					} else {
-
 						var wineCategory = $(this).data("category"),
 							wineCategoryFilter = $(this).data("categoryFilter");
+
+							$(".filter-item").removeClass('active-filter');
+							$(this).addClass('active-filter');
 
 						$.ajax({
 							url: "/search-page?" + wineCategory + "=" + wineCategoryFilter,

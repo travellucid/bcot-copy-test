@@ -29,7 +29,8 @@
 		.msg {
 			display: block;
 		}
-	}	
+	}
+
 	select {
 		border: none;
 		border-bottom: 2px solid  @black;
@@ -43,16 +44,7 @@
 		margin-bottom: 35px;
 	}
 
-	input {
-		border: none;
-		border-bottom: 2px solid  @black;
-		display: block;
-		font-size: 18px;
-		padding: 10px 10px 5px 0;
-		width: 100%;
-	}
-
-	
+		
 	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	  color: transparent;
 	}
@@ -64,18 +56,12 @@
 	}
 
 
-	input:focus {
-		outline: none;
-		border-bottom: 4px solid  @black;
-		margin: -1px;
-	}
-
+	
 	/* LABEL */
 	
 	label {
 		color: @dark-gray;
 		position: absolute;
-		pointer-events: none;
 		top: 5px;
 		transition: 0.2s ease all;
 		-moz-transition: 0.2s ease all;
@@ -83,14 +69,39 @@
 	}
 	
 	/* active state */
-	input:focus ~ label,
-	input:valid ~ label, {
-		top: -10px;
+	input {
+		
+		border: none;
+		border-bottom: 2px solid  @black;
+		display: block;
+		font-size: 18px;
+		padding: 10px 10px 5px 0;
+		width: 100%;
+
+		&:focus {
+			outline: none;
+			border-bottom: 4px solid  @black;
+			margin: -1px;
+		}
+
+		&:focus ~ label,
+		&:valid ~ label{
+			top: -10px ;
+			font-size: 12px;
+			line-height: 22px;
+		}
+
+		&:focus ~ .highlight {
+			-webkit-animation: inputHighlighter 0.3s ease;
+			-moz-animation: inputHighlighter 0.3s ease;
+			animation: inputHighlighter 0.3s ease;
+		}		
+	}
+	.text-entered {
+		top: -10px ;
 		font-size: 12px;
 		line-height: 22px;
-		/*color: @dark-gray;*/
 	}
-
 	/*input:invalid ~ label{
     	color: @shed-red;
     }*/	
@@ -145,15 +156,10 @@
 	
 	/* active state */
 	
-	input:focus ~ .highlight {
-		-webkit-animation: inputHighlighter 0.3s ease;
-		-moz-animation: inputHighlighter 0.3s ease;
-		animation: inputHighlighter 0.3s ease;
-	}
 	
 	/* ANIMATIONS */
 	
-	@-webkit-keyframes inputHighlighter {
+	/*@-webkit-keyframes inputHighlighter {
 		from {
 			background: @dark-gray;
 		}
@@ -181,7 +187,7 @@
 			width: 0;
 			background: transparent;
 		}
-	}
+	}*/
 	
 	.submit-info {
 		padding: 0 15px;
@@ -193,17 +199,32 @@
 		}
 	
 		input[type=checkbox] {
-			height: 24px;
-	    	width: 24px;
+			height: 0;
+			& + label:before {
+				content: '';
+			    border: 2px solid @black;
+			    display: inline-block;
+			    vertical-align: middle;
+			    width: 20px;
+			    height: 20px;
+			    margin-right: 10px;
+			    text-align: center;	
+			}
 
+			& :checked + label:before {
+				content: '';
+				border: 2px solid red;
+			}
+
+			& + label {
+				cursor: pointer;
+		    	display: inline;
+		    	margin:0;
+		    	vertical-align: middle;
+			}
 		}
-		input[type=checkbox],
-		label {
-			cursor: pointer;
-	    	display: inline;
-	    	margin:0;
-	    	vertical-align: middle;
-		}
+
+		
 
 		.cta-visitus {
 			text-align: center;
@@ -218,6 +239,16 @@
 			}
 		}
 
+	}
+
+	.calender-icon{
+		background-image: url("@{background-icons-path}icon_calendar.svg");
+		background-size: 12px;
+		bottom: 10px;
+		height: 12px;
+		width: 12px;
+		position: absolute;
+		right: 20px;
 	}
 
 }
