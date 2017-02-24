@@ -10,33 +10,41 @@ var validationObj = (function($, window, sapient) {
 
 
 			$( "#datepicker" ).datepicker({
-                inline: true,
-                //nextText: '&rarr;',
-                //prevText: '&larr;',
-                showOtherMonths: true,
-                //dateFormat: 'dd MM yy',
-                dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','sun'],
-                //showOn: "button",
-                //buttonImage: "img/calendar-blue.png",
-                //buttonImageOnly: true,
-            });	
+				inline: true,
+				//nextText: '&rarr;',
+				//prevText: '&larr;',
+				showOtherMonths: true,
+				//dateFormat: 'dd MM yy',
+				dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','sun'],
+				//showOn: "button",
+				//buttonImage: "img/calendar-blue.png",
+				//buttonImageOnly: true,
+			});
+
+			$(".calender-icon").on('click',function(){
+				$("#datepicker").focus()     /*enable bootstarp calendar*/
+			}); 
 
 			$input.focusout(function(){
 				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {
-					$(this).siblings('label').addClass("text-entered")
+					
+					$(this).siblings('label').addClass("text-entered");
 				}
-				else{
-					$(this).siblings('label').removeClass("text-entered")
+				else {
+					
+					$(this).siblings('label').removeClass("text-entered");
 				}
 			})
 			
 			$(".enquire-form .submit-info .submit-btn").click(function() {
+				
 				$("#errMsg .messages").html("");
-				var checked = $('#check').is(':checked')
-				inputflag = 0,
-					inputarr = []
-				selectflag = 0,
+
+				var checked = $('#check').is(':checked'),
+					inputflag = 0,
+					inputarr = [],
+					selectflag = 0,
 					selectarr = [],
 					msgarr = [];
 
@@ -48,46 +56,46 @@ var validationObj = (function($, window, sapient) {
 						$($input[index]).addClass("error-border");
 						msgarr.push($($(".enquire-form form .group label")[index]).html());
 
-					} else {
-
+					} 
+					else {
+						
 						$($(".enquire-form form .group label")[index]).removeClass("error");
 						$($input[index]).removeClass("error-border");
 					}
+
 					inputarr.push($($input[index]).val().length);
 
-				})
+				});
 
 				$.each($select, function(index) {
 
 					if ($select[index].value == "") {
-
 						$($select[index]).addClass("error-border");
 						msgarr.push($($(".enquire-form form .group select option[value='']")[index]).text());
-					} else {
+					} 
 
+					else {
 						$($select[index]).removeClass("error-border");
 					}
 
 					selectarr.push($select[index].value);
-				})
+				});
 
-				if (msgarr.length != 0) {
+				if (msgarr.length !== 0) {
 
 					$("#errMsg").addClass("error");
 					$("#errMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
-
 						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
-					})
+					});
 				}
 
 				$.each(inputarr, function(index) {
 
 					if (inputarr[index] === 0) {
-
 						inputflag = 0;
-						console.log("false input")
+						//console.log("false input")
 						return false;
 					}
 				})
@@ -96,19 +104,17 @@ var validationObj = (function($, window, sapient) {
 
 					if (selectarr[index] == "") {
 						selectflag = 0;
-						console.log("false select")
+						//console.log("false select")
 						return false;
 					}
 				})
 
 				if (!checked) {
-					console.log("return false")
+					//console.log("return false")
 					return false;
-				} else {
-					console.log("submit")
-					return true;
-				}
-
+				} 
+				//console.log("submit")
+				return true;			
 			});
 		}
 		return {

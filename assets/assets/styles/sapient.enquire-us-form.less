@@ -10,9 +10,11 @@
 			color: @black;
 			padding-top: 100px;
 		}
+
 		.form-info {
 			padding: 25px 15px;
 		}
+
 		.form-guidelines {
 			display: block;
 			font-family: "NeutraText-Demi";
@@ -23,6 +25,7 @@
 	.error-msg {
 		display: none;
 		text-align: center;
+
 		.header_e {
 			font-family: "NeutraText Book";
 		}
@@ -86,9 +89,9 @@
 
 		&:focus ~ label,
 		&:valid ~ label{
-			top: -10px ;
 			font-size: 12px;
 			line-height: 22px;
+			top: -10px ;
 		}
 
 		&:focus ~ .highlight {
@@ -97,50 +100,15 @@
 			animation: inputHighlighter 0.3s ease;
 		}		
 	}
+	
 	.text-entered {
 		font-size: 12px;
 		line-height: 22px;
 		top: -10px ;
 	}
-	/*input:invalid ~ label{
-    	color: @shed-red;
-    }*/	
-	
-	/* BOTTOM BARS */
-	
-	/*.bar {
-		position: relative;
-		display: block;
-		width: 300px;
+	#datepicker {
+		pointer-events: none;
 	}
-	
-	.bar:before,
-	.bar:after {
-		content: '';
-		height: 2px;
-		width: 0;
-		bottom: 1px;
-		position: absolute;
-		background: @dark-gray;
-		transition: 0.2s ease all;
-		-moz-transition: 0.2s ease all;
-		-webkit-transition: 0.2s ease all;
-	}
-	
-	.bar:before {
-		left: 50%;
-	}
-	
-	.bar:after {
-		right: 50%;
-	}*/
-	
-	/* active state */
-	
-	/*input:focus ~ .bar:before,
-	input:focus ~ .bar:after {
-		width: 50%;
-	}*/
 	
 	/* HIGHLIGHTER */
 	
@@ -156,39 +124,6 @@
 	
 	/* active state */
 	
-	
-	/* ANIMATIONS */
-	
-	/*@-webkit-keyframes inputHighlighter {
-		from {
-			background: @dark-gray;
-		}
-		to {
-			width: 0;
-			background: transparent;
-		}
-	}
-	
-	@-moz-keyframes inputHighlighter {
-		from {
-			background: @dark-gray;
-		}
-		to {
-			width: 0;
-			background: transparent;
-		}
-	}
-	
-	@keyframes inputHighlighter {
-		from {
-			background: @dark-gray;
-		}
-		to {
-			width: 0;
-			background: transparent;
-		}
-	}*/
-	
 	.submit-info {
 		padding: 0 15px 100px;
 		text-align: center;
@@ -197,10 +132,9 @@
 			position: static;
 		}
 	
-		input[type=checkbox] {
-			height: 0;
-			& + label:before {
-			    border: 2px solid @black;
+		input[type=checkbox] + label {
+			&:before {
+				border: 2px solid @black;
 				content: '';
 			    display: inline-block;
 			    height: 20px;
@@ -209,30 +143,13 @@
 			    vertical-align: middle;
 			    width: 20px;
 			}
-
-			& :checked + label,
-			&:checked + label:before {
-				border: 2px solid red;
-			}
-
-			&:checked + label:before {
-				content: '';
-			}
-			
-			& + label {
-				cursor: pointer;
-		    	display: inline;
-		    	margin:0;
-		    	vertical-align: middle;
-			}
 		}
-
-		input[type=checkbox] :checked + label:before {
-			
-			content: '';
-			border: 2px solid red;
+		input[type=checkbox] + label  {
+			cursor: pointer;
+		    display: inline;
+		    margin:0;
+		    vertical-align: middle;
 		}
-		
 
 		.cta-visitus {
 			text-align: center;
@@ -249,10 +166,16 @@
 
 	}
 
+	input[type=checkbox]:checked + label:before{
+		content: '';
+		border: 2px solid red;
+	}
+
 	.calender-icon{
 		background-image: url("@{background-icons-path}icon_calendar.svg");
 		background-size: 12px;
 		bottom: 10px;
+		cursor: pointer;
 		height: 12px;
 		width: 12px;
 		position: absolute;
