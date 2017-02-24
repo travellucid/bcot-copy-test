@@ -10,26 +10,18 @@ var commonObj = (function($, window, sapient) {
             },
 
             hideLinkText = function() {
-                $( "#datepicker" ).datepicker({
-                    inline: true,
-                    //nextText: '&rarr;',
-                    //prevText: '&larr;',
-                    showOtherMonths: true,
-                    //dateFormat: 'dd MM yy',
-                    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                    //showOn: "button",
-                    //buttonImage: "img/calendar-blue.png",
-                    //buttonImageOnly: true,
-                });
                 $("footer section.social-icons nav ul li a").text("")
             },
+
             toggleAwardsDetails = function() {
                 $(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
                     $(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
                     $(this).hide();
                 });
             },
+            
             addBgNoise = function() {
+
                 var section = $("section .views-element-container");
                 for (var i = 1; i < section.length; i += 2) {
                     $(section[i]).addClass("background-noise-section");

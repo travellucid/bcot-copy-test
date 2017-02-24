@@ -1,0 +1,21 @@
+<div id="hero-component" class="container-fluid  hero-container">
+	<div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')"></div>
+	<div class="hero-bottom">
+		<img src="/{{ directory }}/css/images/triange-1.png" alt="" class="triangle">
+		<img src="/{{ directory }}/css/images/noise-triangle.svg" alt="" class="triangle-right">
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
+		<h1>{{ fields.field_hero_headline.content |upper |raw }}</h1>
+                {% if (fields.field_where_to_buy_cta_link.content == 0) or (fields.field_where_to_buy_cta_link.content == 1) %}
+        <div class="cta-visitus hidden-sm hidden-xs">
+        {% if fields.field_where_to_buy_cta_link.content == 0 %}
+          <a href="{{ fields.field_click_to_buy_hero_cta.content }}" class="cta dark find-out-more">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
+        {% endif %}
+        {% if fields.field_where_to_buy_cta_link.content == 1 %}
+          <a href="{{ fields.field_buy_now_external_url.content }}" class="cta dark find-out-more">{{ fields.field_buy_now_external_url_1.content }}</a>
+        {% endif %}
+    </div>
+    {% endif %}
+	</div>
+ </div>
+{{ attach_library('sapient_brancott/pr-ctbuy-connector') }}
