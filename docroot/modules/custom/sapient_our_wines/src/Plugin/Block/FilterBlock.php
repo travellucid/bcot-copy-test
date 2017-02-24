@@ -69,8 +69,10 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
         $wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
+		
       }
       $wine_details[$value->range][$value->id]['url'] = $wine_image_url;
+	  $wine_details[$value->range][$value->id]['nid'] = $related_wine_nid;
       $range_details = $this->getRangeDetails($value->range);
       $range_details['associated_wines'] = $wine_details[$value->range];
       $final_array['range_details'][$value->range] = $range_details;
