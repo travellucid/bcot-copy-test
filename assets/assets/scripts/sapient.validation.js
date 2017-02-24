@@ -8,6 +8,19 @@ var validationObj = (function($, window, sapient) {
 			var $input = $(".enquire-form form .group input"),
 				$select = $(".enquire-form form .group select");
 
+
+			$( "#datepicker" ).datepicker({
+                inline: true,
+                //nextText: '&rarr;',
+                //prevText: '&larr;',
+                showOtherMonths: true,
+                //dateFormat: 'dd MM yy',
+                dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','sun'],
+                //showOn: "button",
+                //buttonImage: "img/calendar-blue.png",
+                //buttonImageOnly: true,
+            });	
+
 			$input.focusout(function(){
 				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {

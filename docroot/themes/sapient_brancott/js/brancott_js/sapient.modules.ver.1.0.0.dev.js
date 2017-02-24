@@ -23,17 +23,6 @@ var commonObj = (function($, window, sapient) {
             },
 
             hideLinkText = function() {
-                $( "#datepicker" ).datepicker({
-                    inline: true,
-                    //nextText: '&rarr;',
-                    //prevText: '&larr;',
-                    showOtherMonths: true,
-                    //dateFormat: 'dd MM yy',
-                    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                    //showOn: "button",
-                    //buttonImage: "img/calendar-blue.png",
-                    //buttonImageOnly: true,
-                });
                 $("footer section.social-icons nav ul li a").text("")
             },
             toggleAwardsDetails = function() {
@@ -601,6 +590,19 @@ var validationObj = (function($, window, sapient) {
 		var validate = function() {
 			var $input = $(".enquire-form form .group input"),
 				$select = $(".enquire-form form .group select");
+
+
+			$( "#datepicker" ).datepicker({
+                inline: true,
+                //nextText: '&rarr;',
+                //prevText: '&larr;',
+                showOtherMonths: true,
+                //dateFormat: 'dd MM yy',
+                dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','sun'],
+                //showOn: "button",
+                //buttonImage: "img/calendar-blue.png",
+                //buttonImageOnly: true,
+            });	
 
 			$input.focusout(function(){
 				//console.log($(this).siblings('label'));

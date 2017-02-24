@@ -30,6 +30,7 @@ module.exports = function(grunt) {
 			'<%= dirs.jsSource %>jquery.mobile-1.4.5.min.js',*/
 			'<%= dirs.jsSource %>debounce.js',
 			'<%= dirs.jsSource %>jquery-ui.min.js',
+			'<%= dirs.jsSource %>moment.js',
 			'<%= dirs.jsSourceBootstrap %>bootstrap.min.js'
 		],
 		dest: "<%= dirs.jsLibsDest %><%= pkg.name %>.libs.js"
