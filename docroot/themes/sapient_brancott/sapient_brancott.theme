@@ -215,3 +215,14 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
       break;
   }
 }
+
+
+function sapient_brancott_theme() {
+  return array(
+    'webform_submission_enquire_form_form' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'enquire-form',
+      'render element' => 'form'
+    ),
+  );
+}
