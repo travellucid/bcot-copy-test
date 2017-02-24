@@ -9,10 +9,10 @@
         <h1 class="header_a">{{ fields.field_hero_headline.content |upper |raw }}</h1>
     </div>
     <div class="cta-visitus hidden-sm hidden-xs">
-        if {% if fields.field_click_to_buy_hero_cta.content %}
+        {% if fields.field_click_to_buy_hero_cta.content %}
           <a data-ctbuy-key="{{ fields.field_click_to_buy_hero_cta.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
         {% endif %}
-        if {% if fields.field_buy_now_external_url.content %}
+        {% if fields.field_buy_now_external_url.content %}
           <a data-ctbuy-key="{{ fields.field_buy_now_external_url.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more">{{ fields.field_buy_now_external_url_1.content }}</a>
         {% endif %}
     </div>	
