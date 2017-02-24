@@ -11,6 +11,60 @@ if (!$) {
 }
 var sapient = sapient || {}; // core sapient
 
+ $(function () {
+   var bindDatePicker = function() {
+		$(".date").datetimepicker({
+    	maxDate:'2020/01/01',
+        format:'YYYY-MM-DD',
+			icons: {
+				time: "fa fa-clock-o",
+				date: "fa fa-calendar",
+				up: "fa fa-arrow-up",
+				down: "fa fa-arrow-down"
+			}
+		}).find('input:first').on("blur",function () {
+			// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+			// update the format if it's yyyy-mm-dd
+			var date = parseDate($(this).val());
+
+			if (! isValidDate(date)) {
+				//create date based on momentjs (we have that)
+				date = moment().format('YYYY-MM-DD');
+			}
+
+			$(this).val(date);
+		});
+		
+		$(".fa-clock-o").closest(".picker-switch").hide();
+		$(".table-condensed .next").html("");
+		$(".table-condensed .prev").html("");
+
+		$(".calender-icon").on('click',function(){
+			$("#datepicker").focus();     /*enable bootstarp calendar*/
+		});
+	}
+   var isValidDate = function(value, format) {
+		format = format || false;
+		// lets parse the date to the best of our knowledge
+		if (format) {
+			value = parseDate(value);
+		}
+
+		var timestamp = Date.parse(value);
+
+		return isNaN(timestamp) == false;
+   }
+   
+   var parseDate = function(value) {
+		var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+		if (m)
+			value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+		return value;
+   }
+   
+   bindDatePicker();
+ });
 var commonObj = (function($, window, sapient) {
 
     var commonInstance;
@@ -25,13 +79,16 @@ var commonObj = (function($, window, sapient) {
             hideLinkText = function() {
                 $("footer section.social-icons nav ul li a").text("")
             },
+
             toggleAwardsDetails = function() {
                 $(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
                     $(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
                     $(this).hide();
                 });
             },
+            
             addBgNoise = function() {
+
                 var section = $("section .views-element-container");
                 for (var i = 1; i < section.length; i += 2) {
                     $(section[i]).addClass("background-noise-section");

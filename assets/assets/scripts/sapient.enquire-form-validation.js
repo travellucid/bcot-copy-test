@@ -9,22 +9,6 @@ var validationObj = (function($, window, sapient) {
 				$select = $(".enquire-form form .group select");
 
 
-			$( "#datepicker" ).datepicker({
-				inline: true,
-				//nextText: '&rarr;',
-				//prevText: '&larr;',
-				showOtherMonths: true,
-				//dateFormat: 'dd MM yy',
-				dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','sun'],
-				//showOn: "button",
-				//buttonImage: "img/calendar-blue.png",
-				//buttonImageOnly: true,
-			});
-
-			$(".calender-icon").on('click',function(){
-				$("#datepicker").focus()     /*enable bootstarp calendar*/
-			}); 
-
 			$input.focusout(function(){
 				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {
@@ -35,7 +19,7 @@ var validationObj = (function($, window, sapient) {
 					
 					$(this).siblings('label').removeClass("text-entered");
 				}
-			})
+			});
 			
 			$(".enquire-form .submit-info .submit-btn").click(function() {
 				
@@ -116,7 +100,8 @@ var validationObj = (function($, window, sapient) {
 				//console.log("submit")
 				return true;			
 			});
-		}
+		};
+		
 		return {
 			// public + private states and behaviors
 			validate: validate

@@ -35,6 +35,7 @@
 	}
 
 	select {
+		
 		border: none;
 		border-bottom: 2px solid  @black;
 		outline: none;
@@ -43,8 +44,8 @@
 	} 
 
 	.group {
-		position: relative;
 		margin-bottom: 35px;
+		position: relative;
 	}
 
 		
@@ -106,10 +107,10 @@
 		line-height: 22px;
 		top: -10px ;
 	}
+	
 	#datepicker {
 		pointer-events: none;
 	}
-	
 	/* HIGHLIGHTER */
 	
 	.highlight {
@@ -171,7 +172,7 @@
 		border: 2px solid red;
 	}
 
-	.calender-icon{
+	.calender-icon {
 		background-image: url("@{background-icons-path}icon_calendar.svg");
 		background-size: 12px;
 		bottom: 10px;
@@ -183,6 +184,67 @@
 	}
 
 }
+
+.bootstrap-datetimepicker-widget {
+	
+	font-family: "NeutraText Book";
+
+	.old {
+		pointer-events: none;
+	}
+	
+	.table-condensed {
+		.active {
+			background: @bright-green !important;
+		}
+	}
+		
+	.picker-switch {
+		pointer-events: none;
+
+		a.btn {
+			.fa-clock-o{
+				display: none;
+			}	
+		}	
+	}
+	.table-condensed {
+		
+		.next,
+		.prev {
+			background-repeat: no-repeat;
+		    position: absolute;
+		    top: 12px;
+
+		    &:hover {
+		    	background-repeat: no-repeat;
+		    	position: absolute;
+		    	top: 12px;
+		    }
+		}
+
+		.next {
+			background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
+
+			&:hover {
+				background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
+			}	
+			
+		}
+		
+		.prev {
+			background-image: url("@{background-icons-path}BE_icon_arrow_left.svg");
+			left: 20px;
+
+			&:hover{
+
+				background-image: url("@{background-icons-path}BE_icon_arrow_left.svg");
+				left: 20px;
+			}
+		}
+	}
+
+}	
 
 @media screen and (max-width: @bp-max-mobile) {
 	.enquire-form  {	  
