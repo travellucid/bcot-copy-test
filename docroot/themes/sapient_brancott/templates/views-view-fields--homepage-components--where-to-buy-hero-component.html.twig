@@ -1,6 +1,5 @@
 <div id="hero-component" class="container-fluid  hero-container common-hero" >
     <div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')" alt = "{{ fields.field_background_image_1.content }}"></div>
-    <div class="grain-noise"></div>
     <div class="hero-bottom">
         <img src="/{{ directory }}/css/images/triange-1.png" alt="triangle image" class="triangle">
         <img src="/{{ directory }}/css/images/noise-triangle.svg" alt="noise triangle image" class="triangle-right">
@@ -8,8 +7,15 @@
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
         <h1 class="header_a">{{ fields.field_hero_headline.content |upper |raw }}</h1>
     </div>
-    <div class="cta-visitus hidden-sm hidden-xs">
-        <a data-ctbuy-key="{{ fields.field_click_to_buy_hero_cta.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
-    </div>	
+    {% if (fields.field_where_to_buy_cta_link.content == 0) or (fields.field_where_to_buy_cta_link.content == 1) %}
+        <div class="cta-visitus hidden-sm hidden-xs">
+        {% if fields.field_where_to_buy_cta_link.content == 0 %}
+          <a data-ctbuy-key="{{ fields.field_click_to_buy_hero_cta.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
+        {% endif %}
+        {% if fields.field_where_to_buy_cta_link.content == 1 %}
+          <a data-ctbuy-key="{{ fields.field_buy_now_external_url.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more">{{ fields.field_buy_now_external_url_1.content }}</a>
+        {% endif %}
+    </div>
+    {% endif %}
 </div> 
 {{ attach_library('sapient_brancott/pr-ctbuy-connector') }}
