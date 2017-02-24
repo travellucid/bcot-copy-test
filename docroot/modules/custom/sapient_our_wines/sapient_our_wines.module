@@ -46,8 +46,11 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 		$form['#validate'][] = 'character_limitation_wines_page';
 	}
 	if($form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form' ){
-		
 		$form['#validate'][] = 'character_limitation_restaurant';
+	}
+  if($form_id == 'taxonomy_term_our_wines_form'){
+    //print_r($form_state);exit;
+		$form['#validate'][] = 'character_limitation_taxonomy_term_our_wines_form';
 	}
 }
 
@@ -153,6 +156,16 @@ function character_limitation_visit_us($form, \Drupal\Core\Form\FormStateInterfa
    if ($link_visit_us > 15){
     $form_state->setErrorByName('field_hero_cta_first','Max length for this field is 15 characters.');
   }
+}
+
+function character_limitation_taxonomy_term_our_wines_form($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  if ($values['tid'] == '106') {
+    if (strlen($values['name'][0]['value']) > 60){
+    $form_state->setErrorByName('name', 'Max length for this field is 60 characters.');
+   }
+  }
+    
 }
 
 function character_limitation_our_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
