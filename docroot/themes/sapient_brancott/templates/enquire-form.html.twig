@@ -1,0 +1,41 @@
+<div class="enquire-form">
+	<div class="form-details">
+		<h2>Enquire</h2>
+		<p class="form-info">We’d love to tailor a package for you and your guests. Get in touch using the form below and we’ll get back to you as soon as possible.</p>
+		<span class="form-guidelines">All fields marked * are required.</span>
+	</div>	
+	<div class="error-msg" id="errMsg">
+		<div class="header_e">One or more required fields were not filled out correctly:</div>
+		<div class="messages header_g"></div>
+	</div>	
+	<form name="enquire" action="" id="enquireUs">
+		<div class="col-md-12 col-xs-12 col-sm-12 group">
+			{{ form.elements.name }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			{{ form.elements.phone_number }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			{{ form.elements.email_address }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			{{ form.elements.type_of_function }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			{{ form.elements.no_of_people }}
+			<span class="highlight"></span>
+		</div>
+		<div class="col-md-12 col-xs-12 col-sm-12 group">
+			{{ form.elements.preferred_date }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group date-time">
+			{{ form.elements.preferred_time }}
+		</div>
+	</form>
+	<div class="submit-info col-md-12 col-xs-12 col-sm-12">
+		{{ form.elements.yes_sign_me_up_to_exclusive_news_events_offers_ }}
+		<div class="cta-visitus">
+			<button type="submit" class="cta dark submit-btn">Submit</button>
+		</div>	
+	</div>
+</div>
