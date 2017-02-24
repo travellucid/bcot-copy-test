@@ -46,10 +46,14 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 		$form['#validate'][] = 'character_limitation_wines_page';
 	}
 	if($form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form' ){
-		
 		$form['#validate'][] = 'character_limitation_restaurant';
 	}
-	
+  if($form_id == 'taxonomy_term_our_wines_form'){
+		$form['#validate'][] = 'character_limitation_taxonomy_term_our_wines_form';
+	}
+  if($form_id == 'taxonomy_term_contact_us_vocabulary_form'){
+		$form['#validate'][] = 'character_limitation_taxonomy_term_contact_us_form';
+	}
 }
 
 
@@ -153,6 +157,24 @@ function character_limitation_visit_us($form, \Drupal\Core\Form\FormStateInterfa
   //print_r($link_visit_us);die('sallu');
    if ($link_visit_us > 15){
     $form_state->setErrorByName('field_hero_cta_first','Max length for this field is 15 characters.');
+  }
+}
+
+function character_limitation_taxonomy_term_our_wines_form($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  if ($values['tid'] == '106') {
+    if (strlen($values['name'][0]['value']) > 60){
+    $form_state->setErrorByName('name', 'Max length for this field is 60 characters.');
+   }
+  }
+}
+
+function character_limitation_taxonomy_term_contact_us_form($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  if ($values['tid'] == '111') {
+    if (strlen($values['name'][0]['value']) > 30){
+    $form_state->setErrorByName('name', 'Max length for this field is 30 characters.');
+   }
   }
 }
 
@@ -278,11 +300,19 @@ function character_limitation_wines_page($form, \Drupal\Core\Form\FormStateInter
   $nutritional_info_cta1 = strlen($values['field_nutritional_info_cta1'][0]['title']);
   $nutritional_info_cta2 = strlen($values['field_nutritional_info_cta2'][0]['title']);
   $nutritional_info_cta = strlen($values['field_nutritional_info_cta'][0]['title']);
-   if ($nutritional_info_cta1 > 20){
-    $form_state->setErrorByName('field_nutritional_info_cta1','Max length for this field is 20 characters.');
+  $nutritional_info_cta1_uri = strlen($values['field_nutritional_info_cta1'][0]['uri']);
+  $nutritional_info_cta2_uri = strlen($values['field_nutritional_info_cta2'][0]['uri']);
+   if ($nutritional_info_cta1 > 40){
+    $form_state->setErrorByName('field_nutritional_info_cta1','Max length for this field is 40 characters.');
   }
-   if ($nutritional_info_cta2 > 20){
-    $form_state->setErrorByName('field_nutritional_info_cta2','Max length for this field is 20 characters.');
+   if ($nutritional_info_cta2 > 40){
+    $form_state->setErrorByName('field_nutritional_info_cta2','Max length for this field is 40 characters.');
+  }
+  if ($nutritional_info_cta1_uri > 100){
+    $form_state->setErrorByName('field_nutritional_info_cta1','Max length for this field is 100 characters.');
+  }
+   if ($nutritional_info_cta2_uri > 100){
+    $form_state->setErrorByName('field_nutritional_info_cta2','Max length for this field is 100 characters.');
   }
   if ($nutritional_info_cta > 20){
     $form_state->setErrorByName('field_nutritional_info_cta','Max length for this field is 20 characters.');

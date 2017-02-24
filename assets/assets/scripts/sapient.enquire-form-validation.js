@@ -9,6 +9,10 @@ var validationObj = (function($, window, sapient) {
 				$select = $(".enquire-form form .group select");
 
 
+			$(".fa-clock-o").closest(".picker-switch").hide();
+			$(".table-condensed .next").html("");
+			$(".table-condensed .prev").html("");
+			
 			$input.focusout(function(){
 				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {
@@ -101,7 +105,7 @@ var validationObj = (function($, window, sapient) {
 				return true;			
 			});
 		};
-		
+
 		return {
 			// public + private states and behaviors
 			validate: validate

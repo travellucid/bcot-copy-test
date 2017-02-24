@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 			'<%= dirs.jsSource %>sapient.instagram.followus.js',
 			'<%= dirs.jsSource %>sapient.our.wines.js',
 			'<%= dirs.jsSource %>sapient.footer.js',
-			'<%= dirs.jsSource %>sapient.emquire-form-validation.js'
+			'<%= dirs.jsSource %>sapient.enquire-form-validation.js'
 		],
 		dest: "<%= dirs.jsModulesDest %><%= pkg.name %>.modules.ver.<%= pkg.version %>.dev.js"
 	  }
