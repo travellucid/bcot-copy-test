@@ -1,6 +1,7 @@
  $(function () {
    var bindDatePicker = function() {
 		$(".date").datetimepicker({
+    	maxDate:'2020/01/01',
         format:'YYYY-MM-DD',
 			icons: {
 				time: "fa fa-clock-o",
@@ -20,8 +21,15 @@
 
 			$(this).val(date);
 		});
+		
+		$(".fa-clock-o").closest(".picker-switch").hide();
+		$(".table-condensed .next").html("");
+		$(".table-condensed .prev").html("");
+
+		$(".calender-icon").on('click',function(){
+			$("#datepicker").focus();     /*enable bootstarp calendar*/
+		});
 	}
-   
    var isValidDate = function(value, format) {
 		format = format || false;
 		// lets parse the date to the best of our knowledge

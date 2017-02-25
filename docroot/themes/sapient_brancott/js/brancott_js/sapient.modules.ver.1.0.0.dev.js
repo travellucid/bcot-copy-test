@@ -14,6 +14,7 @@ var sapient = sapient || {}; // core sapient
  $(function () {
    var bindDatePicker = function() {
 		$(".date").datetimepicker({
+    	maxDate:'2020/01/01',
         format:'YYYY-MM-DD',
 			icons: {
 				time: "fa fa-clock-o",
@@ -33,8 +34,15 @@ var sapient = sapient || {}; // core sapient
 
 			$(this).val(date);
 		});
+		
+		$(".fa-clock-o").closest(".picker-switch").hide();
+		$(".table-condensed .next").html("");
+		$(".table-condensed .prev").html("");
+
+		$(".calender-icon").on('click',function(){
+			$("#datepicker").focus();     /*enable bootstarp calendar*/
+		});
 	}
-   
    var isValidDate = function(value, format) {
 		format = format || false;
 		// lets parse the date to the best of our knowledge
@@ -643,22 +651,31 @@ var validationObj = (function($, window, sapient) {
 			var $input = $(".enquire-form form .group input"),
 				$select = $(".enquire-form form .group select");
 
+
+			$(".fa-clock-o").closest(".picker-switch").hide();
+			$(".table-condensed .next").html("");
+			$(".table-condensed .prev").html("");
+			
 			$input.focusout(function(){
 				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {
-					$(this).siblings('label').addClass("text-entered")
+					
+					$(this).siblings('label').addClass("text-entered");
 				}
-				else{
-					$(this).siblings('label').removeClass("text-entered")
+				else {
+					
+					$(this).siblings('label').removeClass("text-entered");
 				}
-			})
+			});
 			
 			$(".enquire-form .submit-info .submit-btn").click(function() {
+				
 				$("#errMsg .messages").html("");
-				var checked = $('#check').is(':checked')
-				inputflag = 0,
-					inputarr = []
-				selectflag = 0,
+
+				var checked = $('#check').is(':checked'),
+					inputflag = 0,
+					inputarr = [],
+					selectflag = 0,
 					selectarr = [],
 					msgarr = [];
 
@@ -670,46 +687,46 @@ var validationObj = (function($, window, sapient) {
 						$($input[index]).addClass("error-border");
 						msgarr.push($($(".enquire-form form .group label")[index]).html());
 
-					} else {
-
+					} 
+					else {
+						
 						$($(".enquire-form form .group label")[index]).removeClass("error");
 						$($input[index]).removeClass("error-border");
 					}
+
 					inputarr.push($($input[index]).val().length);
 
-				})
+				});
 
 				$.each($select, function(index) {
 
 					if ($select[index].value == "") {
-
 						$($select[index]).addClass("error-border");
 						msgarr.push($($(".enquire-form form .group select option[value='']")[index]).text());
-					} else {
+					} 
 
+					else {
 						$($select[index]).removeClass("error-border");
 					}
 
 					selectarr.push($select[index].value);
-				})
+				});
 
-				if (msgarr.length != 0) {
+				if (msgarr.length !== 0) {
 
 					$("#errMsg").addClass("error");
 					$("#errMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
-
 						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
-					})
+					});
 				}
 
 				$.each(inputarr, function(index) {
 
 					if (inputarr[index] === 0) {
-
 						inputflag = 0;
-						console.log("false input")
+						//console.log("false input")
 						return false;
 					}
 				})
@@ -718,21 +735,20 @@ var validationObj = (function($, window, sapient) {
 
 					if (selectarr[index] == "") {
 						selectflag = 0;
-						console.log("false select")
+						//console.log("false select")
 						return false;
 					}
 				})
 
 				if (!checked) {
-					console.log("return false")
+					//console.log("return false")
 					return false;
-				} else {
-					console.log("submit")
-					return true;
-				}
-
+				} 
+				//console.log("submit")
+				return true;			
 			});
-		}
+		};
+
 		return {
 			// public + private states and behaviors
 			validate: validate
