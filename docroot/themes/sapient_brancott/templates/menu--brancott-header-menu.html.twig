@@ -27,107 +27,109 @@
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-header" aria-expanded="false" aria-controls="navbar-header">
-	<span class="sr-only">Toggle navigation</span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
 </button>
- -->
+-->
 <div class="burger-menu-wrapper">
-  <div class="burger-menu navbar-toggle collapsed"  data-toggle="collapse" data-target="#navbar-header" aria-expanded="false" aria-controls="navbar-header">
-  <span class="sr-only">Toggle navigation</span>
-    <div class="burger-click-region">
-      <span class="burger-menu-piece"></span>
-      <span class="burger-menu-piece"></span>
-      <span class="burger-menu-piece"></span>
+    <div class="burger-menu navbar-toggle collapsed"  data-toggle="collapse" data-target="#navbar-header" aria-expanded="false" aria-controls="navbar-header">
+        <span class="sr-only">Toggle navigation</span>
+        <div class="burger-click-region">
+            <span class="burger-menu-piece"></span>
+            <span class="burger-menu-piece"></span>
+            <span class="burger-menu-piece"></span>
+        </div>
     </div>
-  </div>
 </div>
 
 <nav id ="navbar-header" class="">
-	
-
-	<div class="navbar-collapse menu-container" aria-expanded="false" style="/* margin: 0 auto; *//* text-align: center; */">
-					
-					
-	{{ menus.menu_links(items, attributes, 0) }}				
-	{% macro menu_links(items, attributes, menu_level) %}
-	  {% import _self as menus %}
-	  {% if items %}
-		{% if menu_level == 0 %}
-		<div class="logo hidden-md hidden-lg ">
-		<a href="{{ url('<front>') }}" class="logo-img">BRANCOTT ESTATE</a>
-	</div>
-		  <ul class="nav navbar-nav menu">
-		{% else %}
-		  <ul class="dropdown-menu sub-menu">
-		  <div class="sub-menu-wrapper">
-		  <li class="menu-heading hidden-md hidden-lg">
-            <span class="logo"></span>  
-            <span class="text"></span>
-        </li><!-- reqd by frontend for mob view -->
-		{% endif %}
-		
-		
-		
-		
-		{% if menu_level == 0 %}
-		  
-		  {% for item in items %}
-		  
-		  {% set dynamic_class =   item.title|replace({ ' ' : '-' }) %}
-		  {% set dynamic_class =   dynamic_class|lower %}
-		  {% if item.title == 'logo' %}
-		  <li class="menu-item hidden-sm hidden-xs {{ dynamic_class }}">
-		   {% else %}
-		  
-		    {% if item.below %}
-			<li class="menu-item dropdown {{ dynamic_class }}">
-			{% else %}
-			<li class="menu-item {{ dynamic_class }}">
-			{% endif %}
-		   {% endif %}
-		    
-		  {% set title %}
-			  {{ item.title }}
-			  {% if item.below %}
-			  <span class="expand-icon" data-toggle = "dropdown"></span>
-			  {% endif %}
-		   {% endset %}
-			{{ link(title, item.url, { 'class':['dropdown-toggle'], 'role':['button'], 'aria-haspopup':['true']  } ) }}
-			{% if item.below %}
-			  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-			{% endif %}
-		  </li>
-		{% endfor %}
-		{% else %}
-                    <li class = "sub-menu-link hidden-md hidden-lg">
-                      <a href="{{ path('entity.node.canonical', {'node': 61}) }}">{{ 'Our Wines '|t }}</a>  
-                    </li>
-		  {% for item in items %}
-		  <li class = "sub-menu-link">
-			{{ link(item.title, item.url) }}
-			{% if item.below %}
-			  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-			{% endif %}
-		  </li>
-		{% endfor %}
-		{% endif %}
-		
-		
-		
-		
-		
-		{% if menu_level == 0 %} 
-		{% else %}
-		  </div>
-		{% endif %}
-		</ul>
-	  {% endif %}
-	{% endmacro %}
 
 
-					</div><!--/.nav-collapse -->
+    <div class="navbar-collapse menu-container" aria-expanded="false" style="/* margin: 0 auto; *//* text-align: center; */">
+
+
+        {{ menus.menu_links(items, attributes, 0) }}				
+        {% macro menu_links(items, attributes, menu_level) %}
+            {% import _self as menus %}
+            {% if items %}
+                {% if menu_level == 0 %}
+                    <div class="logo hidden-md hidden-lg ">
+                        <a href="{{ url('<front>') }}" class="logo-img">BRANCOTT ESTATE</a>
+                    </div>
+                    <ul class="nav navbar-nav menu">
+                    {% else %}
+                        <ul class="dropdown-menu sub-menu">
+                            <div class="sub-menu-wrapper">
+                                <li class="menu-heading hidden-md hidden-lg">
+                                    <span class="logo"></span>  
+                                    <span class="text"></span>
+                                </li><!-- reqd by frontend for mob view -->
+                            {% endif %}
+
+
+
+
+                            {% if menu_level == 0 %}
+
+                                {% for item in items %}
+
+                                    {% set dynamic_class =   item.title|replace({ ' ' : '-' }) %}
+                                    {% set dynamic_class =   dynamic_class|lower %}
+                                    {% if item.title == 'logo' %}
+                                        <li class="menu-item hidden-sm hidden-xs {{ dynamic_class }}">
+                                        {% else %}
+
+                                            {% if item.below %}
+                                            <li class="menu-item dropdown {{ dynamic_class }}">
+                                            {% else %}
+                                            <li class="menu-item {{ dynamic_class }}">
+                                            {% endif %}
+                                        {% endif %}
+
+                                        {% set title %}
+                                            {{ item.title }}
+                                            {% if item.below %}
+                                                <span class="expand-icon" data-toggle = "dropdown"></span>
+                                            {% endif %}
+                                        {% endset %}
+                                        {{ link(title, item.url, { 'class':['dropdown-toggle'], 'role':['button'], 'aria-haspopup':['true']  } ) }}
+                                        {% if item.below %}
+                                            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                {% for item in items %}
+                                    {% if loop.index == 1 %}
+                                        <li class = "sub-menu-link hidden-md hidden-lg">
+                                            {{ link(item.title, item.url) }}
+                                            {% if item.below %}
+                                                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                                            {% endif %}
+                                        </li>
+                                    {% else %}
+                                        <li class = "sub-menu-link">
+                                            {{ link(item.title, item.url) }}
+                                            {% if item.below %}
+                                                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+
+                                {% endfor %}
+                            {% endif %}
+                            {% if menu_level == 0 %} 
+                            {% else %}
+                            </div>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            {% endmacro %}
+
+
+    </div><!--/.nav-collapse -->
 
 </nav>
 <!-- header -->
