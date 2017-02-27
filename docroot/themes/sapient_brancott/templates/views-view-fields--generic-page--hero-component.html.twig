@@ -4,7 +4,11 @@
         <h1>{{ fields.field_hero_headline.content |upper |raw }}</span>
     </div>
     <div>
+        {% if (fields.body.content) %}
         {{ fields.body.content }}
+        {% else %}
+        {{ generic_body_dch }} 
+        {% endif %}
     </div>
 </div>
 
