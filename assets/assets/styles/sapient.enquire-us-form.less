@@ -1,7 +1,6 @@
 @import "sapient.variables-mixins.less";
 .enquire-form {
 	.set-max-width(770px);
-
 	.form-details {
 		text-align: center;
 		color: @dark-gray;
@@ -97,6 +96,7 @@
 		line-height: 22px;
 		top: -10px ;
 	}
+
 
 	input:focus ~ .highlight {
 		-webkit-animation: inputHighlighter 0.3s ease;
@@ -234,21 +234,32 @@
 
 		.next {
 			background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
+			height: 20px;
+			width: 20px;
 
 			&:hover {
+				background:none;
 				background-image: url("@{background-icons-path}BE_icon_arrow_right.svg");
+				background-repeat: no-repeat;
+				height: 20px;
+				width: 20px;
 			}	
 			
 		}
 		
 		.prev {
 			background-image: url("@{background-icons-path}BE_icon_arrow_left.svg");
+			height: 20px;
+			width: 20px;
 			left: 20px;
 
 			&:hover{
-
+				background:none;
 				background-image: url("@{background-icons-path}BE_icon_arrow_left.svg");
+				background-repeat: no-repeat;
+				height: 20px;
 				left: 20px;
+				width: 20px;
 			}
 		}
 	}
