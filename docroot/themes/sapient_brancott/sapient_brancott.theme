@@ -212,7 +212,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           }
         }
       }
-      case 'generic_page':
+      /*case 'generic_page':
         if ($variables['view']->current_display == 'hero_component') {
           if ($variables['row']->_entity->field_generic_page_dch_api_url->getValue()[0][uri]) {
             $generic_dch_url = $variables['row']->_entity->field_generic_page_dch_api_url->getValue()[0][uri];
@@ -222,7 +222,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
             $variables['generic_body_dch'] = $generic_body;
           }
         }
-      break;
+      break;*/
   }
 }
 
