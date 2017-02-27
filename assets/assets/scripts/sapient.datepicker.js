@@ -2,6 +2,8 @@
    var bindDatePicker = function() {
 		$(".date").datetimepicker({
         format:'YYYY-MM-DD',
+        startDate: '-2m',
+    	endDate: '+2d',
 			icons: {
 				time: "fa fa-clock-o",
 				date: "fa fa-calendar",
