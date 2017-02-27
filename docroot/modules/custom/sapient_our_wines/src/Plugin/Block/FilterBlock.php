@@ -33,7 +33,8 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
-
+    $path = \Drupal::request()->getpathInfo();
+    $arg = explode('/', $path);
     $rest_api = new BrancottRestApiControllerFilters;
     $values = $rest_api->getFilters();
 
@@ -45,7 +46,12 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $all_level = array();
     $new_array = array();
     $final_array = array();
+    $range_name = $arg[2];
+    
     foreach ($values as $value) {
+      
+      
+      //print $value->range; exit; 
       $first_level = array();
       $all_level = array();
 
@@ -53,7 +59,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       $final_array['filters']['range'][$value->range] = $value->range;
       $final_array['filters']['wine_type'][$value->wineType] = $value->wineType;
       $final_array['filters']['varietals'][$value->grapeVariety] = $value->grapeVariety;
-	  
+
       $final_array['filters']['food_matches'][$value->foodMatch] = $new_array;
       $wine_details[$value->range][$value->id]['title'] = $value->title;
       $wine_details[$value->range][$value->id]['range'] = $value->range;
@@ -69,53 +75,58 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
         $wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
-		
       }
       $wine_details[$value->range][$value->id]['url'] = $wine_image_url;
-	  $wine_details[$value->range][$value->id]['nid'] = $related_wine_nid;
+      $wine_details[$value->range][$value->id]['nid'] = $related_wine_nid;
       $range_details = $this->getRangeDetails($value->range);
-      $range_details['associated_wines'] = $wine_details[$value->range];
+      if (!empty($range_name) && strtolower($range_name) != strtolower($value->range)) {
+        //$range_details['associated_wines'] = $wine_details[$value->range];
+        continue;
+      } else {
+        $range_details['associated_wines'] = $wine_details[$value->range];
+      }
+      
       $final_array['range_details'][$value->range] = $range_details;
     }
-	
-	foreach($final_array['filters']['varietals'] as $varietal){
-		$final_array_varietals[] = explode(", ", $varietal);
-	}
-	
-	$newvarietals = array();
-    foreach($final_array_varietals as $varietals) {
-            foreach ($varietals as $key=>$value) {
-                     $newvarietals[$value] = $value;
-            }
+
+    foreach ($final_array['filters']['varietals'] as $varietal) {
+      $final_array_varietals[] = explode(", ", $varietal);
     }
-	
-	foreach($final_array['filters']['wine_type'] as $winetype){
-		$final_array_winetypes[] = explode(", ", $winetype);
-	}
-	
-	$newwinetypes = array();
-    foreach($final_array_winetypes as $type) {
-            foreach ($type as $key=>$value) {
-                     $newwinetypes[$value] = $value;
-            }
+
+    $newvarietals = array();
+    foreach ($final_array_varietals as $varietals) {
+      foreach ($varietals as $key => $value) {
+        $newvarietals[$value] = $value;
+      }
+    }
+
+    foreach ($final_array['filters']['wine_type'] as $winetype) {
+      $final_array_winetypes[] = explode(", ", $winetype);
+    }
+
+    $newwinetypes = array();
+    foreach ($final_array_winetypes as $type) {
+      foreach ($type as $key => $value) {
+        $newwinetypes[$value] = $value;
+      }
     }
     $final_array['filters']['wine_type'] = $newwinetypes;
-	$final_array['filters']['varietals'] = $newvarietals;
+    $final_array['filters']['varietals'] = $newvarietals;
     $foodMatch = $this->getFoodMatchesFilter($food_matches);
-    
+
     $final_array['filters']['food_matches'] = $foodMatch;
 
 
     $range_details = $final_array['range_details'];
-   
+
     $indexed_range_details = array_values($range_details);
-	$filters = $final_array['filters'];
-	//print_r($indexed_range_details);exit;
-    
+    $filters = $final_array['filters'];
+    //print_r($indexed_range_details);exit;
+
     return array(
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $indexed_range_details,
-	  '#filters' => $filters,
+      '#filters' => $filters,
     );
   }
 
