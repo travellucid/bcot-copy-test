@@ -7,31 +7,35 @@
 	<div id="product-grid-carousal" class="carousel slide" data-ride="carousel" data-interval="false">
 		<div class="category-grid carousel-inner" role="listbox">
 			{% for detail in range_details %}
-			<div class="product-tile item" href="#">
+			<a class="product-tile item" href="#">
 				<div class="product-shot">
 					<img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
 					<div class="product-bg" style="background-color: {{ detail.bkg_colr }};"></div>
 				</div>
 				<h3>{{ detail.title | upper }}</h3>
 				<p>{{ detail.desc }}</p>
-				<a href="#" class="cta secondary-green">VIEW RANGE</a>
-			</div>
+				<span  class="cta secondary-green hidden-md hidden-lg">VIEW RANGE</span>
+			</a>
 			{% endfor %}  
-			<a class="product-tile see-all-link hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a>   
+			<a class="product-tile see-all-link hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}
+				<div class="product-shot">
+					<img src="https://placeholdit.imgix.net/~text?txtsize=20&txt=59%C3%97220&w=59&h=220" />
+					<div class="product-bg" style="background-color: #1e7266;"></div>
+				</div></a>   
 		</div>
-		<!-- Controls -->
-		<!-- <a class="left carousel-control" href="#product-grid-carousal" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="right carousel-control" href="#product-grid-carousal" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a> -->
+
+		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-our-story" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel-our-story" data-slide-to="1"></li>
+			<li data-target="#carousel-our-story" data-slide-to="2"></li>
+			<li data-target="#carousel-our-story" data-slide-to="3"></li>
+			<li data-target="#carousel-our-story" data-slide-to="4"></li>
+			<li data-target="#carousel-our-story" data-slide-to="5"></li>
+			<li data-target="#carousel-our-story" data-slide-to="6"></li>
 		</ol>
+		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
+
 	</div>
 	<a class="cta dark see-all-link hidden-md hidden-lg" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a> 
 </section>
