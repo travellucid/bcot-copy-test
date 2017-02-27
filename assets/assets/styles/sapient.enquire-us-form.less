@@ -88,20 +88,23 @@
 			margin: -1px;
 		}
 
-		&:focus ~ label,
-		&:valid ~ label{
-			font-size: 12px;
-			line-height: 22px;
-			top: -10px ;
-		}
-
-		&:focus ~ .highlight {
-			-webkit-animation: inputHighlighter 0.3s ease;
-			-moz-animation: inputHighlighter 0.3s ease;
-			animation: inputHighlighter 0.3s ease;
-		}		
+		
 	}
 	
+	input:focus ~ label,
+	input:valid ~ label{
+		font-size: 12px;
+		line-height: 22px;
+		top: -10px ;
+	}
+
+	input:focus ~ .highlight {
+		-webkit-animation: inputHighlighter 0.3s ease;
+		-moz-animation: inputHighlighter 0.3s ease;
+		animation: inputHighlighter 0.3s ease;
+	}		
+
+
 	.text-entered {
 		font-size: 12px;
 		line-height: 22px;
