@@ -70,7 +70,7 @@
     description_display == 'invisible' ? 'visually-hidden',
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
+<!--<div{{ attributes.addClass(classes) }}>-->
   {% if label_display in ['before', 'invisible'] %}
     {{ label }}
   {% endif %}
@@ -84,7 +84,10 @@
   {{ children }}
 
   {% if label_display == 'after' %}
-  <span class="highlight"></span>
+  <div class="wrapper">
+     <span class="highlight1"></span>
+    <span class="highlight2"></span>
+  </div>
     {{ label }}
   {% endif %}
 
@@ -99,4 +102,4 @@
       {{ description.content }}
     </div>
   {% endif %}
-</div>
+<!--</div>-->
