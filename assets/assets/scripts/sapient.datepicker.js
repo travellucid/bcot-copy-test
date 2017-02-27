@@ -1,4 +1,4 @@
- var datePickerObj = (function($, window, sapient) {
+var datePickerObj = (function($, window, sapient) {
 
  	var datetimepickerInstance;
 	function createDatePickerInstance() {
@@ -79,5 +79,5 @@
 })(jQuery, window, sapient);
 
 
- sapient.datepicker = datePickerObj.getInstance();
- sapient.datepicker.bindDatePicker();
+sapient.datepicker = datePickerObj.getInstance();
+sapient.datepicker.bindDatePicker();

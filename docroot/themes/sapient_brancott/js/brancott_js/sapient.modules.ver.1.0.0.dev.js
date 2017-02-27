@@ -11,7 +11,7 @@ if (!$) {
 }
 var sapient = sapient || {}; // core sapient
 
- var datePickerObj = (function($, window, sapient) {
+var datePickerObj = (function($, window, sapient) {
 
  	var datetimepickerInstance;
 	function createDatePickerInstance() {
@@ -92,8 +92,8 @@ var sapient = sapient || {}; // core sapient
 })(jQuery, window, sapient);
 
 
- sapient.datepicker = datePickerObj.getInstance();
- sapient.datepicker.bindDatePicker();
+sapient.datepicker = datePickerObj.getInstance();
+sapient.datepicker.bindDatePicker();
 
 var commonObj = (function($, window, sapient) {
 
