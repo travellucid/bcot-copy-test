@@ -3,6 +3,7 @@
 use Drupal\brancott_rest_api\Controller\BrancottRestApiController;
 use Drupal\brancott_rest_api\Controller\BrancottSearchFilterController;
 use Drupal\brancott_rest_api\Controller\BrancottRestApiControllerRanges;
+use Drupal\brancott_rest_api\Controller\BrancottRestApiControllerGenericPage;
 
 /**
  * @file
@@ -129,3 +130,9 @@ function getRangeDetailsFiltered() {
     $values_ranges = $rest_api_ranges->getRanges();	
 	return $values_ranges;
   }
+  
+function braoncott_rest_api_get_generic_url($generic_dch_url) {
+  $rest_api_generic_page = new BrancottRestApiControllerGenericPage;
+  $value = $rest_api_generic_page->getGenericPage($generic_dch_url);
+  return $value;
+}
