@@ -49,6 +49,18 @@ var datePickerObj = (function($, window, sapient) {
 
 				},50); */
 			});
+
+			$(".enquire-form input .highlight").on('focus',function() {
+				$(".wrapper .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
+				$(".wrapper .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
+
+			}); 
+			
+			$(".enquire-form input .highlight").focusout(function(){
+			  $(".wrapper .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+			  $(".wrapper .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+			});
+ 
 		},
 
 	   	isValidDate = function(value, format) {

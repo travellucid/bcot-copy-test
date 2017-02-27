@@ -9,15 +9,15 @@
 		<div class="messages header_g"></div>
 	</div>	
 	<form name="enquire" action="" id="enquireUs">
-		<div class="col-md-12 col-xs-12 col-sm-12 group">
+		<div class="col-md-12 col-xs-12 col-sm-12 group highlight">
 			<input type="text" class="" id="name" placeholder="Firstname Surname" required/>
 			<label for="name" class="header_f">NAME*</label>
 		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group">
+		<div class="col-md-6 col-xs-12 col-sm-12 group highlight">
 			<input type="number" class="" id="phone" placeholder="Firstname Surname" required/>
 			<label for="phone" class="header_f">PHONE NUMBER</label>
 		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group">
+		<div class="col-md-6 col-xs-12 col-sm-12 group highlight">
 			<input type="email" class="" id="email"  placeholder="Firstname Surname" required />
 			<label for="email" class="header_f">Email Address*</label>
 		</div>
@@ -41,7 +41,7 @@
 			</select>
 			<span class="highlight"></span>
 		</div>
-		<div class="col-md-12 col-xs-12 col-sm-12 group">
+		<div class="col-md-12 col-xs-12 col-sm-12 group highlight">
 			<input type="text" class="" id="info" required />
 			<label for="info" class="header_f label">Any other information</label>
 		</div>
@@ -51,16 +51,17 @@
 			<label  class="header_f">Date*</label>
 		</div> -->
 		<div class='col-md-6 col-xs-12 col-sm-12 group' id='datetimepicker1'>
-            <input type='text' class="date" id="datepicker" required />
+            <input type='text' class="date highlight" id="datepicker" required />
            	<span class="calender-icon"></span>
             <label class="header_f">Date*</label>
         </div>
+        <div class="submit-info col-md-12 col-xs-12 col-sm-12">
+			<input type="checkbox" id="check" class="sr-only"  required/>
+			<label for="check" class="header_g">Yes, sign me up to receive exclusive news, events and offers</label>
+			<div class="cta-visitus">
+				<button type="submit" class="cta dark submit-btn">Submit</button>
+			</div>	
+		</div>
 	</form>
-	<div class="submit-info col-md-12 col-xs-12 col-sm-12">
-		<input type="checkbox" id="check" class="sr-only"  required/>
-		<label for="check" class="header_g">Yes, sign me up to receive exclusive news, events and offers</label>
-		<div class="cta-visitus">
-			<button type="submit" class="cta dark submit-btn">Submit</button>
-		</div>	
-	</div>
+	
 </div>

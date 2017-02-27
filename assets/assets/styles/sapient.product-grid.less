@@ -31,10 +31,10 @@
 			color: @dark-gray;
 			font-family: "NeutraText Bold";
 			margin-bottom: 20px;
-			text-transform: uppercase;
 		}
 	}
 }
+
 #response-wrapper {
 	.category-grid {
 		margin: 0 auto;
@@ -95,6 +95,12 @@
 
 			&:hover,
 			&:focus {
+				color: @bright-green;
+
+				h3 {
+					color: @bright-green;
+				}
+
 				.product-shot {
 					img {
 						transform: scale(1.0);
@@ -159,6 +165,7 @@
 		.category-grid {
 			.product-tile {
 				margin: 0 !important;
+				width: 100%;
 			}
 		}
 	}
