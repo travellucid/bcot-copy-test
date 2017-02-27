@@ -29,7 +29,7 @@ var validationObj = (function($, window, sapient) {
 				
 				$("#errMsg .messages").html("");
 
-				var checked = $('#check').is(':checked'),
+				var checked = $('.enquire-form  #check').is(':checked'),
 					inputflag = 0,
 					inputarr = [],
 					selectflag = 0,
@@ -98,10 +98,9 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				if (!checked) {
-					//console.log("return false")
+					$(".enquire-form input[type=checkbox] + label").addClass("change")
 					return false;
 				} 
-				//console.log("submit")
 				return true;			
 			});
 		};

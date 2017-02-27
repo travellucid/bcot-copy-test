@@ -11,109 +11,149 @@ if (!$) {
 }
 var sapient = sapient || {}; // core sapient
 
- $(function () {
-   var bindDatePicker = function() {
-		$(".date").datetimepicker({
-    	maxDate:'2020/01/01',
-        format:'YYYY-MM-DD',
-        startDate: '-2m',
-    	endDate: '+2d',
-			icons: {
-				time: "fa fa-clock-o",
-				date: "fa fa-calendar",
-				up: "fa fa-arrow-up",
-				down: "fa fa-arrow-down"
+var datePickerObj = (function($, window, sapient) {
+
+ 	var datetimepickerInstance;
+	function createDatePickerInstance() {
+		var bindDatePicker = function() {
+			$(".date").datetimepicker({
+	    		maxDate:'2020/01/01',
+	        	format:'YYYY-MM-DD',
+				icons: {
+					time: "fa fa-clock-o",
+					date: "fa fa-calendar",
+					up: "fa fa-arrow-up",
+					down: "fa fa-arrow-down"
+				}
+
+			}).find('input:first').on("blur",function () {
+				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+				// update the format if it's yyyy-mm-dd
+				var date = sapient.datepicker.parseDate($(this).val());
+
+				if (! sapient.datepicker.sValidDate(date)) {
+					//create date based on momentjs (we have that)
+					date = moment().format('YYYY-MM-DD');
+				}
+
+				$(this).val(date);
+			});
+			
+			
+			$(".calender-icon").on('click',function(){
+				$("#datepicker").focus();  
+				/*var interval = setInterval(function() {
+					if($(".bootstrap-datetimepicker-widget").css('display') === "block"){
+						console.log("done");
+					}
+
+				},50); */
+			});
+
+			$(".enquire-form input .highlight").on('focus',function() {
+				$(".wrapper .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
+				$(".wrapper .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
+
+			}); 
+			
+			$(".enquire-form input .highlight").focusout(function(){
+			  $(".wrapper .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+			  $(".wrapper .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+			});
+ 
+		},
+
+	   	isValidDate = function(value, format) {
+			format = format || false;
+			// lets parse the date to the best of our knowledge
+			if (format) {
+				value = sapient.datepicker.parseDate(value);
 			}
-		}).find('input:first').on("blur",function () {
-			// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
-			// update the format if it's yyyy-mm-dd
-			var date = parseDate($(this).val());
 
-			if (! isValidDate(date)) {
-				//create date based on momentjs (we have that)
-				date = moment().format('YYYY-MM-DD');
-			}
+			var timestamp = Date.parse(value);
 
-			$(this).val(date);
-		});
-		
-		$(".fa-clock-o").closest(".picker-switch").hide();
-		$(".table-condensed .next").html("");
-		$(".table-condensed .prev").html("");
+			return isNaN(timestamp) == false;
+	   	},
+   
+	   	parseDate = function(value) {
+			var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+			if (m)
+				value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
 
-		$(".calender-icon").on('click',function(){
-			$("#datepicker").focus();     /*enable bootstarp calendar*/
-		});
+			return value;
+	   	};
+
+		 return {
+			 // public + private states and behaviors
+			 bindDatePicker: bindDatePicker,
+			 isValidDate:isValidDate,
+			 parseDate:parseDate
+
+		 };
 	}
-   var isValidDate = function(value, format) {
-		format = format || false;
-		// lets parse the date to the best of our knowledge
-		if (format) {
-			value = parseDate(value);
+
+	return {
+		getInstance: function() {
+			if (!datetimepickerInstance) {
+				datetimepickerInstance = createDatePickerInstance();
+			}
+			return datetimepickerInstance;
 		}
+	};
 
-		var timestamp = Date.parse(value);
+})(jQuery, window, sapient);
 
-		return isNaN(timestamp) == false;
-   }
-   
-   var parseDate = function(value) {
-		var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-		if (m)
-			value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
 
-		return value;
-   }
-   
-   bindDatePicker();
- });
+sapient.datepicker = datePickerObj.getInstance();
+sapient.datepicker.bindDatePicker();
+
 var commonObj = (function($, window, sapient) {
 
-    var commonInstance;
+	var commonInstance;
 
-    function createInstance() {
+	function createInstance() {
 
-        var scrollToNext = function() {
-                var hrefLink = $($(".scroll-to")[1]).attr('id');
-                $(".scroll-down").attr('href', "#" + hrefLink);
-            },
+		var scrollToNext = function() {
+				var hrefLink = $($(".scroll-to")[1]).attr('id');
+				$(".scroll-down").attr('href', "#" + hrefLink);
+			},
 
-            hideLinkText = function() {
-                $("footer section.social-icons nav ul li a").text("")
-            },
+			hideLinkText = function() {
+				$("footer section.social-icons nav ul li a").text("")
+			},
 
-            toggleAwardsDetails = function() {
-                $(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
-                    $(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
-                    $(this).hide();
-                });
-            },
-            
-            addBgNoise = function() {
+			toggleAwardsDetails = function() {
+				$(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
+					$(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
+					$(this).hide();
+				});
+			},
+			
+			addBgNoise = function() {
 
-                var section = $("section .views-element-container");
-                for (var i = 1; i < section.length; i += 2) {
-                    $(section[i]).addClass("background-noise-section");
-                }
-            };
+				var section = $("section .views-element-container");
+				for (var i = 1; i < section.length; i += 2) {
+					$(section[i]).addClass("background-noise-section");
+				}
+			};
 
-        return {
-            // public + private states and behaviors
-            scrollToNext: scrollToNext,
-            hideLinkText: hideLinkText,
-            toggleAwardsDetails: toggleAwardsDetails,
-            addBgNoise: addBgNoise
-        };
-    }
+		return {
+			// public + private states and behaviors
+			scrollToNext: scrollToNext,
+			hideLinkText: hideLinkText,
+			toggleAwardsDetails: toggleAwardsDetails,
+			addBgNoise: addBgNoise
+		};
+	}
 
-    return {
-        getInstance: function() {
-            if (!commonInstance) {
-                commonInstance = createInstance();
-            }
-            return commonInstance;
-        }
-    };
+	return {
+		getInstance: function() {
+			if (!commonInstance) {
+				commonInstance = createInstance();
+			}
+			return commonInstance;
+		}
+	};
 
 })(jQuery, window, sapient);
 
@@ -124,8 +164,10 @@ sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 
 
+
+
 /*$( function() {
-    $( "#datepicker" ).datepicker();
+	$( "#datepicker" ).datepicker();
   } );*/
 var carouselObj = (function($, window, sapient) {
 
@@ -674,7 +716,7 @@ var validationObj = (function($, window, sapient) {
 				
 				$("#errMsg .messages").html("");
 
-				var checked = $('#check').is(':checked'),
+				var checked = $('.enquire-form  #check').is(':checked'),
 					inputflag = 0,
 					inputarr = [],
 					selectflag = 0,
@@ -743,10 +785,9 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				if (!checked) {
-					//console.log("return false")
+					$(".enquire-form input[type=checkbox] + label").addClass("change")
 					return false;
 				} 
-				//console.log("submit")
 				return true;			
 			});
 		};

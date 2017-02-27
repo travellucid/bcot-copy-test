@@ -1,0 +1,61 @@
+@import "sapient.variables-mixins.less";
+
+#contact-us-component {
+	padding: 90px 0;
+	position: relative;
+	text-align: center;
+
+	a {
+		color: @bright-green;
+		font-family: "NeutraText Bold";
+		font-size: 12px;
+		font-weight: bold;
+		margin-bottom: 80px;
+
+		&[href^="tel"]{
+		    color:@dark-gray;
+		    font-family: "NeutraText Book";
+		    font-size: 16px;
+		    font-weight: normal;
+		}
+	}
+
+	span {
+		display: block;
+	}
+
+	h2 {
+		color: @dark-gray;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: 1.36;
+		margin: 0 15px;
+		text-align: center;
+	}
+
+	.header_f {
+		margin-bottom: 5px;
+	}
+
+	.wrapper-contactus {
+		margin: 85px 15px 0 15px;
+	}
+
+	.body-contactus {
+		color: @dark-gray;
+		font-family: "NeutraText Book";
+		letter-spacing: normal;
+		margin-bottom: 5px;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+	#contact-us-component {
+		a {
+			&[href^="tel"]{
+				color: @bright-green;
+			}
+		}
+	}
+}
