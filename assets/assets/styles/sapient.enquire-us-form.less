@@ -136,21 +136,16 @@
 		top: -10px ;
 	}
 	
+	
 	.date {
 		pointer-events: none;
 	}
-	/* HIGHLIGHTER */
 	
-	.highlight {
-		height: 60%;
-		left: 0;
-		opacity: 0.5;
-		pointer-events: none;
-		position: absolute;
-		top: 25%;
-		width: 100px;
+	.time {
+		label {
+			top: 0;
+		}
 	}
-	
 	/* active state */
 	
 	.submit-info {
@@ -180,6 +175,9 @@
 		}
 		
 		input[type=checkbox]:checked + label{
+			
+			font-size: 14px;
+			line-height: 24px;
 
 			&:before {
 				content: url("@{background-icons-path}icon_tick.svg");
