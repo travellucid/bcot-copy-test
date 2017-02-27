@@ -22,13 +22,23 @@
 			$(this).val(date);
 		});
 		
+		
+		$(".calender-icon").on('click',function(){
+			var top = $(this).offset().top,
+				left = $(this).offset().left;
+			
+			
+			$(".date").focus();  
+			$(".bootstrap-datetimepicker-widget").offset({ top: $(this).offset().top + 10 , left: $(this).offset().left -100})
+
+		});
+
+
+
+
 		$(".fa-clock-o").closest(".picker-switch").hide();
 		$(".table-condensed .next").html("");
 		$(".table-condensed .prev").html("");
-
-		$(".calender-icon").on('click',function(){
-			$("#datepicker").focus();     /*enable bootstarp calendar*/
-		});
 	}
    var isValidDate = function(value, format) {
 		format = format || false;
