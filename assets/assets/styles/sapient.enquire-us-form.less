@@ -83,7 +83,6 @@
 
 		&:focus {
 			outline: none;
-			border-bottom: 4px solid  @black;
 			margin: -1px;
 		}
 
@@ -104,6 +103,31 @@
 		animation: inputHighlighter 0.3s ease;
 	}		
 
+	.wrapper {
+		position : relative;
+
+		.highlight1,
+		.highlight2  {
+
+			background-color: @black;
+			display: block;
+			float:left;
+			position:absolute;
+
+		}
+		  
+		.highlight1 {
+			left:0;
+			width:0; 
+			height: 2px;
+		}
+
+		.highlight2 {
+			left:50%;
+			height: 2px;
+			width:0;
+		}  
+	}
 
 	.text-entered {
 		font-size: 12px;
@@ -138,19 +162,19 @@
 	
 		input[type=checkbox] + label {
 			cursor: pointer;
-		    display: inline;
-		    margin:0;
-		    vertical-align: middle;
+			display: inline;
+			margin:0;
+			vertical-align: middle;
 
 			&:before {
 				border: 2px solid @black;
 				content: '';
-			    display: inline-block;
-			    height: 20px;
-			    margin-right: 10px;
-			    text-align: center;	
-			    vertical-align: middle;
-			    width: 20px;
+				display: inline-block;
+				height: 20px;
+				margin-right: 10px;
+				text-align: center;	
+				vertical-align: middle;
+				width: 20px;
 			}
 		}
 		
@@ -222,14 +246,14 @@
 		.next,
 		.prev {
 			background-repeat: no-repeat;
-		    position: absolute;
-		    top: 12px;
+			position: absolute;
+			top: 12px;
 
-		    &:hover {
-		    	background-repeat: no-repeat;
-		    	position: absolute;
-		    	top: 12px;
-		    }
+			&:hover {
+				background-repeat: no-repeat;
+				position: absolute;
+				top: 12px;
+			}
 		}
 
 		.next {
