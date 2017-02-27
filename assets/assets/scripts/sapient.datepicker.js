@@ -3,6 +3,8 @@
 		$(".date").datetimepicker({
     	maxDate:'2020/01/01',
         format:'YYYY-MM-DD',
+        startDate: '-2m',
+    	endDate: '+2d',
 			icons: {
 				time: "fa fa-clock-o",
 				date: "fa fa-calendar",
