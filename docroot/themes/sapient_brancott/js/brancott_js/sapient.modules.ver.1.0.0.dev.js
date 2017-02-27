@@ -34,7 +34,7 @@ var datePickerObj = (function($, window, sapient) {
 			
 			
 			$(".calender-icon").on('click',function(){
-				$("#datepicker").focus(); 
+				$("#edit-preferred-date").focus(); 
 				if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
 					$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
 				}
@@ -42,14 +42,15 @@ var datePickerObj = (function($, window, sapient) {
 		
 
 			$(".enquire-form :text").on('focus',function() {
-				$(this).siblings(".highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
-				$(this).siblings(".highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
+
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
 
 			}); 
 			
 			$(".enquire-form :text").focusout(function(){
-			  $(this).siblings(".wrapper .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-			  $(this).siblings(".wrapper .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+			 $(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 			});
  
 		},
@@ -683,16 +684,15 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
-			var $input = $(".enquire-form form .group input"),
-				$select = $(".enquire-form form .group select");
+			var $input = $(".enquire-form  .group input"),
+				$select = $(".enquire-form .group select");
 
 
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
-			
+			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
 			$input.focusout(function(){
-				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {
 					
 					$(this).siblings('label').addClass("text-entered");
@@ -718,14 +718,14 @@ var validationObj = (function($, window, sapient) {
 
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form form .group label")[index]).addClass("error");
+						$($(".enquire-form .group label")[index]).addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form form .group label")[index]).html());
+						msgarr.push($($(".enquire-form .group label")[index]).html());
 
 					} 
 					else {
 						
-						$($(".enquire-form form .group label")[index]).removeClass("error");
+						$($(".enquire-form .group label")[index]).removeClass("error");
 						$($input[index]).removeClass("error-border");
 					}
 
@@ -737,7 +737,7 @@ var validationObj = (function($, window, sapient) {
 
 					if ($select[index].value == "") {
 						$($select[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form form .group select option[value='']")[index]).text());
+						msgarr.push($($(".enquire-form .group select option[value='']")[index]).text());
 					} 
 
 					else {

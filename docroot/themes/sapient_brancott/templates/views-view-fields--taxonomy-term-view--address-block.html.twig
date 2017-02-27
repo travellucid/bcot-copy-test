@@ -1,21 +1,9 @@
-<section id="contact-us-component">
-    <h2 class="header_b">Contact Brancott Estate </h2>
-    <div class="wrapper">
-        <span class="header_f"> Customer Service </span>
-        <p class="body">Phone: <a href="tel:+61 1300 363 153">+61 1300 363 153</a></p>
-        <a href="#">Email us</a>
+    <h2 class="header_b">{{ fields.field_address_heading.content }}</h2>
+	<div class="wrapper-contactus">
+        <span class="header_f"> {{ fields.field_address_title.content }} </span>
+        <address class="body-contactus">{{ fields.field_address_line_1.content }}<br>
+        {{ fields.field_address_line_2.content }}<br>
+        {{ fields.field_address_line_3.content }}</address>
+        <p class="body">{{ fields.field_phone_.content }} <a href="{{ fields.field_phone_number.content }}">{{ fields.field_phone_number.content }}</a></p>
+        <a href="#">{{ fields.field_email_text.content }}</a>
     </div>
-    <div class="wrapper">
-        <span class="header_f"> Cellar Door </span>
-        <address class="body">Brancott Estate Heritage Centre<br>
-        180 Brancott Road, R.D.2<br>
-        BLENHEIM</address>
-        <p class="body">Phone: <a href="tel:+64 03 520 6975">+64 03 520 6975</a></p>
-        <a href="#">Email us</a>
-    </div>
-    <div class="wrapper">
-        <span class="header_f"> General Enquiries </span>
-        <p class="address-body">Phone: <a href="tel:+64 9 336 8300">+64 9 336 8300</a></p>
-        <a href="#">Email us</a>
-    </div>
-</section>

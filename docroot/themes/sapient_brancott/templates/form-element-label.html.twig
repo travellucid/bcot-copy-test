@@ -27,7 +27,9 @@
     required ? 'js-form-required',
     required ? 'form-required',
   ]
+
 -%}
+
 {% if title is not empty and title_display == 'invisible' and (is_checkbox or is_radio) -%}
   {#
   Clear but preserve label text as attribute (e.g. for screen readers) for
@@ -47,3 +49,4 @@ always to be rendered regardless of whether they have a title or not.
     {%- endif -%}
   </label>
 {%- endif -%}
+

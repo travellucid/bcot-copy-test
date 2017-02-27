@@ -21,7 +21,7 @@ var datePickerObj = (function($, window, sapient) {
 			
 			
 			$(".calender-icon").on('click',function(){
-				$("#datepicker").focus(); 
+				$("#edit-preferred-date").focus(); 
 				if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
 					$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
 				}
@@ -29,14 +29,15 @@ var datePickerObj = (function($, window, sapient) {
 		
 
 			$(".enquire-form :text").on('focus',function() {
-				$(this).siblings(".highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
-				$(this).siblings(".highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
+
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
 
 			}); 
 			
 			$(".enquire-form :text").focusout(function(){
-			  $(this).siblings(".wrapper .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-			  $(this).siblings(".wrapper .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+			 $(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 			});
  
 		},
