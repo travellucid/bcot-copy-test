@@ -78,6 +78,11 @@ var validationObj = (function($, window, sapient) {
 						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
 					});
 				}
+				else{
+
+					$("#errMsg").css('display', 'none');
+					
+				}
 
 				$.each(inputarr, function(index) {
 
