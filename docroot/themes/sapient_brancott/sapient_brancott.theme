@@ -230,7 +230,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 function sapient_brancott_theme() {
   return array(
     'webform_submission_enquire_form_form' => array(
-      'arguments' => array('form' => NULL),
+      'arguments' => array('form' => NULL,'test' => 'sallu'),
       'template' => 'enquire-form',
       'render element' => 'form'
     ),
