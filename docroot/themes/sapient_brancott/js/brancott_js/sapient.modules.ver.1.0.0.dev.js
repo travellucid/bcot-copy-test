@@ -52,14 +52,15 @@ var datePickerObj = (function($, window, sapient) {
 			
 			$(".enquire-form input.brancott-form").on('focusout',function(){
 			 
-			 $(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+			 $(this).siblings().find(" .highlight1").css({"left":"0","width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 			});
  
 		},
 
 		positionCalender = function() {
-			$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
+			var calPos = $(".calender-icon").offset();
+			$(".bootstrap-datetimepicker-widget ").css("left", $(calPos).left);
 		},
 
 	   	isValidDate = function(value, format) {
