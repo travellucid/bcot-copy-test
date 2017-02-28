@@ -45,9 +45,11 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  $bkg_color =  $node_load->field_ranges_background_color->value;
 		  $range_image_target = $node_load->field_ranges_image->target_id;
 		  $range_image_file = \Drupal\file\Entity\File::load($range_image_target);
+		  
 		  if($range_image_file){
-          $range_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($range_image_file->getFileUri());
+          $range_image_url = file_create_url($range_image_file->getFileUri());
 		  }
+		  
 		  $detail_array[$key]['bkg_colr'] = $bkg_color;
 		  $detail_array[$key]['range_image'] = $range_image_url;
 		 
@@ -62,17 +64,47 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
       }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
-
-        if ($variables['row']->_entity->field_season_description) {
-          $values = $variables['row']->_entity->field_season_description->getValue();
+        if ($variables['row']->_entity->field_city) {
           $city = $variables['row']->_entity->field_city->value;
-
           $month = date('n');
-          if (!empty($values[$month - 1])) {
-            $variables['season_desc'] = $values[$month - 1]['value'];
+          if (!empty($month == 1)) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_jan->getValue()[0]['value'];
+          }
+          elseif (!empty($month == 2)) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_feb->getValue()[0]['value'];
+          }
+          elseif (!empty($month == 3)) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_march->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 4])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_april  ->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 5])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_may->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 6])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_june->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 7])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_july->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 8])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_aug->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 9])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_sep->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 10])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_oct->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 11])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_nov->getValue()[0]['value'];
+          }
+          elseif (!empty($values[$month == 12])) {
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_dec->getValue()[0]['value'];
           }
           else {
-            $variables['season_desc'] = '';
+            $variables['climate_desc'] = '';
           }
           $owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
           $weather = $owm->getWeather($city, 'metric');
@@ -83,7 +115,6 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['temp_icon'] = $base_url . $basepath . '/css/images\season_icons/' . $icon_id . '.svg';
           $variables['current_temp'] = round(html_entity_decode($weather->temperature->now));
           $variables['temp_unit'] = html_entity_decode($weather->temperature->getUnit());
-		  //print_r($variables['current_temp']);echo"test";print_r($variables['temp_unit']);exit;
           $variables['current_date'] = date('d M Y / g:ia');
         }
       }
