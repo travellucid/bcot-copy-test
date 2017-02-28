@@ -62,8 +62,7 @@
 	
 	/* LABEL */
 	
-	label,
-	.text-not-entered {
+	label {
 		color: @dark-gray;
 		position: absolute;
 		top: 5px;
@@ -136,12 +135,15 @@
 		top: -10px ;
 	}
 	
-	
-	.date {
-		pointer-events: none;
+	.date-wrapper {
+
+		label,
+		input.date {
+			pointer-events: none;
+		}
 	}
-	
-	.time {
+
+	.time-wrapper {
 		label {
 			top: 0;
 		}
