@@ -50,7 +50,7 @@ var datePickerObj = (function($, window, sapient) {
 			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
 				
 				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
-			}			
+			}
 		},
 
 		isValidDate = function(value, format) {
