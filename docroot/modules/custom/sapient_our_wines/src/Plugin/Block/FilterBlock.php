@@ -47,11 +47,11 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $new_array = array();
     $final_array = array();
     $range_name = $arg[2];
-    
+     //print_r($values); exit; 
     foreach ($values as $value) {
       
       
-      //print $value->range; exit; 
+     
       $first_level = array();
       $all_level = array();
 
@@ -67,23 +67,44 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
           ->condition('status', 1)
           ->condition('field_wine_id', $value->id)
           ->execute();
+	  $array_nids = array_values($ids);
+	  $new_nid = $array_nids[0];
+	  //print_r($new_nid);die;
+	  //new code for bkg colr
+	  $ids_bkg = \Drupal::entityQuery('node')
+          ->condition('status', 1)
+          ->condition('title', $value->range)
+          ->execute();
+	  $bkg_array_nids = array_values($ids_bkg);
+	  $bkg_nid = $bkg_array_nids[0];
+		if($bkg_nid){
+		        $bkg_color = \Drupal\node\Entity\Node::load($bkg_nid);
+		        $bkg_color =  $bkg_color->field_ranges_background_color->value;
+		        
+		}
+	  //new code for bkg colr terminated
+		  //print_r($bkg_color);die;
       $wine_image_url = '';
-      if (count($ids)) {
-        $related_nodes = array_filter($ids);
-        $related_wine_nid = reset($related_nodes);
-        $wine_node_details = \Drupal\node\Entity\Node::load($related_wine_nid);
+      if ($new_nid) {
+        $wine_node_details = \Drupal\node\Entity\Node::load($new_nid);
         $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
+		//print_r($wine_file_id);die;
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
-        $wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
+		if($wine_image_file){
+          $wine_image_url = file_create_url($wine_image_file->getFileUri());
+		  }
+        //$wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
       }
       $wine_details[$value->range][$value->id]['url'] = $wine_image_url;
-      $wine_details[$value->range][$value->id]['nid'] = $related_wine_nid;
+	  $wine_details[$value->range][$value->id]['bkg_colr'] = $bkg_color;
+      $wine_details[$value->range][$value->id]['nid'] = $new_nid;
       $range_details = $this->getRangeDetails($value->range);
       if (!empty($range_name) && strtolower($range_name) != strtolower($value->range)) {
         //$range_details['associated_wines'] = $wine_details[$value->range];
         continue;
       } else {
         $range_details['associated_wines'] = $wine_details[$value->range];
+		//$range_details['associated_wines'][$bkg_color] = $bkg_color;
       }
       
       $final_array['range_details'][$value->range] = $range_details;
