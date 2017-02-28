@@ -51,9 +51,10 @@ var datePickerObj = (function($, window, sapient) {
 			}); 
 			
 			$(".enquire-form input.brancott-form").on('focusout',function(){
-			 
+
 				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+
 			});
  
 		},
@@ -64,6 +65,7 @@ var datePickerObj = (function($, window, sapient) {
 				
 				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
 			}
+
 		},
 
 		isValidDate = function(value, format) {
