@@ -1,16 +1,15 @@
 <div id="hero-component" class="container-fluid  hero-container common-small-height-hero">
-    <div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')"></div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
-        <h1>{{ fields.field_hero_headline.content |upper |raw }}</span>
-    </div>
-    <div>
-        {% if (generic_body_dch) %}
-        {{ generic_body_dch |raw }}
-        {% else %}
-        {{ fields.body.content }} 
-        {% endif %}
-    </div>
+	<div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')"></div>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
+		<h1>{{ fields.field_hero_headline.content | raw }}</span>
+	</div>
 </div>
-
-
-
+<section id="generic-pages">
+	<div id="generic-pages-body">
+		{% if (generic_body_dch) %}
+			{{ generic_body_dch |raw }}
+		{% else %}
+			{{ fields.body.content }} 
+		{% endif %}
+	</div>
+</section>
