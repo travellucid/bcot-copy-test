@@ -36,11 +36,13 @@ var datePickerObj = (function($, window, sapient) {
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
 				if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
-					$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
+					sapient.datepicker.positionCalender();
 				}
 			}); 
 		
-
+			$(window).on('resize', function() {
+					debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");
+			});
 			$(".enquire-form input.brancott-form").on('focus',function() {
 				
 				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
@@ -54,6 +56,10 @@ var datePickerObj = (function($, window, sapient) {
 			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 			});
  
+		},
+
+		positionCalender = function() {
+			$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
 		},
 
 	   	isValidDate = function(value, format) {
@@ -79,6 +85,7 @@ var datePickerObj = (function($, window, sapient) {
 		 return {
 			 // public + private states and behaviors
 			 bindDatePicker: bindDatePicker,
+			 positionCalender:positionCalender,
 			 isValidDate:isValidDate,
 			 parseDate:parseDate
 

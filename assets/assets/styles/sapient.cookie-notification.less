@@ -1,0 +1,35 @@
+.cookie-notification-wrapper {
+	background-color: @bright-green;
+
+	.content-wrapper {
+		color: @white;
+		max-width: 770px;
+		margin: 0 auto;
+		padding: 24px 0;
+		text-align: center;
+	}
+
+	.close-btn {
+	  	position: absolute;
+	  	right: 20%;
+	  	top: 20%;
+	  
+	  	&:before,
+		&:after {
+			content: ' ';
+			background-color:@white;
+			height: 15px;
+			position: absolute;
+			width: 2px;
+		}
+
+		&:before {
+	  		transform: rotate(45deg);
+		}
+		
+		&:after {
+	  		transform: rotate(-45deg);
+		} 
+	}	 
+
+}
