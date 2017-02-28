@@ -217,9 +217,9 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           if ($variables['row']->_entity->field_generic_page_dch_api_url) {
             $generic_dch_url = $variables['row']->_entity->field_generic_page_dch_api_url->getValue()[0][uri];
             $details = braoncott_rest_api_get_generic_url($generic_dch_url);
-            $generic_body = $variables['row']->_entity->body;
-            $generic_body = $details;
-            $variables['generic_body_dch'] = $generic_body;
+            //$generic_body = $variables['row']->_entity->body;
+            //$generic_body = $details;
+            $variables['generic_body_dch'] = $details;
           }
         }
       break;
