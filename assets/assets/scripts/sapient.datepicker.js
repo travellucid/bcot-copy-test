@@ -1,12 +1,12 @@
 var datePickerObj = (function($, window, sapient) {
 
- 	var datetimepickerInstance;
+	var datetimepickerInstance;
 	function createDatePickerInstance() {
 		var bindDatePicker = function() {
 			$(".date").datetimepicker({
-	    		maxDate:'2020/01/01',
-	        	format:'YYYY-MM-DD'
-	        }).find('input:first').on("blur",function () {
+				maxDate:'2020/01/01',
+				format:'YYYY-MM-DD'
+			}).find('input:first').on("blur",function () {
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
 				var date = sapient.datepicker.parseDate($(this).val());
@@ -22,14 +22,14 @@ var datePickerObj = (function($, window, sapient) {
 			
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
-				if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
-					sapient.datepicker.positionCalender();
-				}
+				sapient.datepicker.positionCalender();
+				
 			}); 
 		
 			$(window).on('resize', function() {
-					debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");
+				debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");
 			});
+			
 			$(".enquire-form input.brancott-form").on('focus',function() {
 				
 				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
@@ -38,18 +38,24 @@ var datePickerObj = (function($, window, sapient) {
 			}); 
 			
 			$(".enquire-form input.brancott-form").on('focusout',function(){
-			 
-			 $(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+
+				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+
 			});
  
 		},
 
 		positionCalender = function() {
-			$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
+			
+			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+				
+				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
+			}
+
 		},
 
-	   	isValidDate = function(value, format) {
+		isValidDate = function(value, format) {
 			format = format || false;
 			// lets parse the date to the best of our knowledge
 			if (format) {
@@ -59,15 +65,15 @@ var datePickerObj = (function($, window, sapient) {
 			var timestamp = Date.parse(value);
 
 			return isNaN(timestamp) == false;
-	   	},
+		},
    
-	   	parseDate = function(value) {
+		parseDate = function(value) {
 			var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
 			if (m)
 				value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
 
 			return value;
-	   	};
+		};
 
 		 return {
 			 // public + private states and behaviors
