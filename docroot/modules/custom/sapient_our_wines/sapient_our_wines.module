@@ -333,8 +333,8 @@ function character_limitation_homepage($form, \Drupal\Core\Form\FormStateInterfa
   $visit_us_desc = strlen($values['field_visit_us_description'][0]['value']);
 
 
-  if ($desc_our_wines > 240) {
-    $form_state->setErrorByName('field_our_wine_description', 'Max length for this field is 240 characters.');
+  if ($desc_our_wines > 500) {
+    $form_state->setErrorByName('field_our_wine_description', 'Max length for this field is 500 characters.');
   }
   if ($cta1_length_promo > 20) {
     $form_state->setErrorByName('field_hero_cta_first', 'Max length for this field is 20 characters.');
