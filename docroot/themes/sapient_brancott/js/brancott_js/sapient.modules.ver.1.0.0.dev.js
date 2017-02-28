@@ -18,15 +18,8 @@ var datePickerObj = (function($, window, sapient) {
 		var bindDatePicker = function() {
 			$(".date").datetimepicker({
 	    		maxDate:'2020/01/01',
-	        	format:'YYYY-MM-DD',
-				icons: {
-					time: "fa fa-clock-o",
-					date: "fa fa-calendar",
-					up: "fa fa-arrow-up",
-					down: "fa fa-arrow-down"
-				}
-
-			}).find('input:first').on("blur",function () {
+	        	format:'YYYY-MM-DD'
+	        }).find('input:first').on("blur",function () {
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
 				var date = sapient.datepicker.parseDate($(this).val());
@@ -41,24 +34,23 @@ var datePickerObj = (function($, window, sapient) {
 			
 			
 			$(".calender-icon").on('click',function(){
-				$("#datepicker").focus();  
-				/*var interval = setInterval(function() {
-					if($(".bootstrap-datetimepicker-widget").css('display') === "block"){
-						console.log("done");
-					}
+				$("#edit-preferred-date").focus(); 
+				if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+					$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
+				}
+			}); 
+		
 
-				},50); */
-			});
+			$(".enquire-form :text").on('focus',function() {
 
-			$(".enquire-form input .highlight").on('focus',function() {
-				$(".wrapper .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
-				$(".wrapper .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
 
 			}); 
 			
-			$(".enquire-form input .highlight").focusout(function(){
-			  $(".wrapper .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-			  $(".wrapper .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+			$(".enquire-form :text").focusout(function(){
+			 $(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 			});
  
 		},
@@ -692,16 +684,15 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
-			var $input = $(".enquire-form form .group input"),
-				$select = $(".enquire-form form .group select");
+			var $input = $(".enquire-form  .group input"),
+				$select = $(".enquire-form .group select");
 
 
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
-			
+			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
 			$input.focusout(function(){
-				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {
 					
 					$(this).siblings('label').addClass("text-entered");
@@ -727,14 +718,14 @@ var validationObj = (function($, window, sapient) {
 
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form form .group label")[index]).addClass("error");
+						$($(".enquire-form .group label")[index]).addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form form .group label")[index]).html());
+						msgarr.push($($(".enquire-form .group label")[index]).html());
 
 					} 
 					else {
 						
-						$($(".enquire-form form .group label")[index]).removeClass("error");
+						$($(".enquire-form .group label")[index]).removeClass("error");
 						$($input[index]).removeClass("error-border");
 					}
 
@@ -746,7 +737,7 @@ var validationObj = (function($, window, sapient) {
 
 					if ($select[index].value == "") {
 						$($select[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form form .group select option[value='']")[index]).text());
+						msgarr.push($($(".enquire-form .group select option[value='']")[index]).text());
 					} 
 
 					else {

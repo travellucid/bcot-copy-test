@@ -5,16 +5,15 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
-			var $input = $(".enquire-form form .group input"),
-				$select = $(".enquire-form form .group select");
+			var $input = $(".enquire-form  .group input"),
+				$select = $(".enquire-form .group select");
 
 
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
-			
+			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
 			$input.focusout(function(){
-				//console.log($(this).siblings('label'));
 				if($(this).val().length !== 0) {
 					
 					$(this).siblings('label').addClass("text-entered");
@@ -40,14 +39,14 @@ var validationObj = (function($, window, sapient) {
 
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form form .group label")[index]).addClass("error");
+						$($(".enquire-form .group label")[index]).addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form form .group label")[index]).html());
+						msgarr.push($($(".enquire-form .group label")[index]).html());
 
 					} 
 					else {
 						
-						$($(".enquire-form form .group label")[index]).removeClass("error");
+						$($(".enquire-form .group label")[index]).removeClass("error");
 						$($input[index]).removeClass("error-border");
 					}
 
@@ -59,7 +58,7 @@ var validationObj = (function($, window, sapient) {
 
 					if ($select[index].value == "") {
 						$($select[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form form .group select option[value='']")[index]).text());
+						msgarr.push($($(".enquire-form .group select option[value='']")[index]).text());
 					} 
 
 					else {

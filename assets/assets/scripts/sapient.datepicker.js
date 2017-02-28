@@ -5,15 +5,8 @@ var datePickerObj = (function($, window, sapient) {
 		var bindDatePicker = function() {
 			$(".date").datetimepicker({
 	    		maxDate:'2020/01/01',
-	        	format:'YYYY-MM-DD',
-				icons: {
-					time: "fa fa-clock-o",
-					date: "fa fa-calendar",
-					up: "fa fa-arrow-up",
-					down: "fa fa-arrow-down"
-				}
-
-			}).find('input:first').on("blur",function () {
+	        	format:'YYYY-MM-DD'
+	        }).find('input:first').on("blur",function () {
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
 				var date = sapient.datepicker.parseDate($(this).val());
@@ -28,24 +21,23 @@ var datePickerObj = (function($, window, sapient) {
 			
 			
 			$(".calender-icon").on('click',function(){
-				$("#datepicker").focus();  
-				/*var interval = setInterval(function() {
-					if($(".bootstrap-datetimepicker-widget").css('display') === "block"){
-						console.log("done");
-					}
+				$("#edit-preferred-date").focus(); 
+				if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+					$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
+				}
+			}); 
+		
 
-				},50); */
-			});
+			$(".enquire-form :text").on('focus',function() {
 
-			$(".enquire-form input .highlight").on('focus',function() {
-				$(".wrapper .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
-				$(".wrapper .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
 
 			}); 
 			
-			$(".enquire-form input .highlight").focusout(function(){
-			  $(".wrapper .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-			  $(".wrapper .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+			$(".enquire-form :text").focusout(function(){
+			 $(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 			});
  
 		},

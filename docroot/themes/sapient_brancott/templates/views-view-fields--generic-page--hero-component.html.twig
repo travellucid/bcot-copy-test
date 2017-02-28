@@ -5,7 +5,7 @@
     </div>
     <div>
         {% if (generic_body_dch) %}
-        {{ generic_body_dch }}
+        {{ generic_body_dch |raw }}
         {% else %}
         {{ fields.body.content }} 
         {% endif %}
