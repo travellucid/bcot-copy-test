@@ -1,4 +1,4 @@
-<div id="hero-component" class="container-fluid  hero-container common-hero" >
+    <div id="hero-component" class="container-fluid  hero-container common-hero" >
 	<div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')" alt = "{{ fields.field_background_image_1.content }}"></div>
 	<div class="hero-bottom">
 		<img src="{{ fields.field_hero_left_triangle_image.content }}" alt="triangle image" class="triangle">
@@ -18,7 +18,7 @@
 			<img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
 			<span class="temperature">{{ current_temp | e}}{{ temp_unit }}</span>
 		</div> 
-		  <p>{{ season_desc }}</p>
+		  <p>{{ climate_desc }}</p>
 		{% endif %}	
  	</div>
  </div>
