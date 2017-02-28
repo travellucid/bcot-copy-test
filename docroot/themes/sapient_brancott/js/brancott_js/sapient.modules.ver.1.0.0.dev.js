@@ -41,14 +41,15 @@ var datePickerObj = (function($, window, sapient) {
 			}); 
 		
 
-			$(".enquire-form :text").on('focus',function() {
-
-				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0"}).animate({"left":"0%","width":"50%"}, "slow");
-				$(this).siblings().find(" .highlight2").css({"width":"0"}).animate({"width":"50%"}, "slow");  
+			$(".enquire-form .brancott-form").on('focus',function() {
+				
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow");  
 
 			}); 
 			
-			$(".enquire-form :text").focusout(function(){
+			$(".enquire-form .brancott-form").on('focusout',function(){
+			 
 			 $(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 			 $(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 			});
@@ -708,7 +709,7 @@ var validationObj = (function($, window, sapient) {
 				
 				$("#errMsg .messages").html("");
 
-				var checked = $('.enquire-form  #check').is(':checked'),
+				var checked = $('.enquire-form  .subscription-checkbox').is(':checked'),
 					inputflag = 0,
 					inputarr = [],
 					selectflag = 0,
@@ -757,12 +758,15 @@ var validationObj = (function($, window, sapient) {
 						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
 					});
 				}
+				else{
+					$("#errMsg").css('display', 'none');
+
+				}
 
 				$.each(inputarr, function(index) {
 
 					if (inputarr[index] === 0) {
 						inputflag = 0;
-						//console.log("false input")
 						return false;
 					}
 				})
@@ -771,14 +775,13 @@ var validationObj = (function($, window, sapient) {
 
 					if (selectarr[index] == "") {
 						selectflag = 0;
-						//console.log("false select")
 						return false;
 					}
 				})
 
 				if (!checked) {
-					$(".enquire-form input[type=checkbox] + label").addClass("change")
-					return false;
+					console.log("inn")
+					$(".enquire-form input[type=checkbox] + label").addClass("change");
 				} 
 				return true;			
 			});
