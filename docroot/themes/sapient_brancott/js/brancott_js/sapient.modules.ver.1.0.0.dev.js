@@ -692,6 +692,7 @@ var validationObj = (function($, window, sapient) {
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
 			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
+			
 			$input.focusout(function(){
 				if($(this).val().length !== 0) {
 					
