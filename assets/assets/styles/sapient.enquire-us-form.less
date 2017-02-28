@@ -94,14 +94,7 @@
 		font-size: 12px;
 		line-height: 22px;
 		top: -10px ;
-	}
-
-
-	input:focus ~ .highlight {
-		-webkit-animation: inputHighlighter 0.3s ease;
-		-moz-animation: inputHighlighter 0.3s ease;
-		animation: inputHighlighter 0.3s ease;
-	}		
+	}	
 
 	.wrapper {
 		position : relative;
@@ -141,6 +134,17 @@
 		input.date {
 			pointer-events: none;
 		}
+
+		.calender-icon {
+			background-image: url("@{background-icons-path}icon_calendar.svg");
+			background-size: 12px;
+			bottom: 10px;
+			cursor: pointer;
+			height: 12px;
+			width: 12px;
+			position: absolute;
+			right: 20px;
+		}
 	}
 
 	.time-wrapper {
@@ -148,7 +152,6 @@
 			top: 0;
 		}
 	}
-	/* active state */
 	
 	.submit-info {
 		padding: 0 15px 100px;
@@ -161,6 +164,8 @@
 		input[type=checkbox] + label {
 			cursor: pointer;
 			display: inline;
+			font-size: 14px;
+			line-height: 24px;
 			margin:0;
 			vertical-align: middle;
 
@@ -177,9 +182,6 @@
 		}
 		
 		input[type=checkbox]:checked + label{
-			
-			font-size: 14px;
-			line-height: 24px;
 
 			&:before {
 				background-image: url("@{background-icons-path}icon_tick.svg");
@@ -195,30 +197,16 @@
 			border: 2px solid @wrong-way-red !important;
 		}
 		
-		.cta-visitus {
-			text-align: center;
+		.submit-btn {
+			display: block;
+			margin: 35px auto 0;
+			padding: 8px 48px;
 
-			.submit-btn {
-				margin-top: 35px;
-				padding: 8px 48px;
-
-				&:hover {
-					border:2px solid @bright-green;
-				}
+			&:hover {
+				border:2px solid @bright-green;
 			}
-		}
+		}		
 
-	}
-
-	.calender-icon {
-		background-image: url("@{background-icons-path}icon_calendar.svg");
-		background-size: 12px;
-		bottom: 10px;
-		cursor: pointer;
-		height: 12px;
-		width: 12px;
-		position: absolute;
-		right: 20px;
 	}
 
 }

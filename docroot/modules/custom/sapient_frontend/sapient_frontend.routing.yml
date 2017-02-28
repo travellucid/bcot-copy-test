@@ -229,6 +229,23 @@ sapient_frontend.sapient_controller_dummy13:
   requirements:
     _permission: 'access content'
 
+# In order to to create pages it is necessary to define routes for them.
+# A route maps a URL path to a controller. It defines what function
+# or method will be called when a URL is accessed.
+# If the user accesses http://drupal8.dev/dummy10, the routing
+# system will look for a route with that path. In this case it will find a
+# match, and execute the _controller callback. In this case the callback is
+# defined as a classname
+# ("\Drupal\sapient_frontend\Controller\SapientController")
+# and a method ("dummy10").
+sapient_frontend.sapient_controller_dummy14:
+  path: 'dummy14'
+  defaults:
+    _controller: '\Drupal\sapient_frontend\Controller\SapientController::dummy14'
+    _title: 'SapeintFrontend14'
+  requirements:
+    _permission: 'access content'    
+
 
     
 sapient_frontend.sapient_controller_mainHeader:
