@@ -14,6 +14,7 @@ var validationObj = (function($, window, sapient) {
 			$(".table-condensed .prev").html("");
 			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
 			
+
 			$input.focusout(function(){
 				if($(this).val().length !== 0) {
 					
@@ -78,7 +79,7 @@ var validationObj = (function($, window, sapient) {
 						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
 					});
 				}
-				else{
+				else {
 					$("#errMsg").css('display', 'none');
 
 				}
@@ -100,7 +101,6 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				if (!checked) {
-					console.log("inn")
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
 				} 
 				return true;			

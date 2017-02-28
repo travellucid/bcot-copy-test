@@ -45,9 +45,11 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  $bkg_color =  $node_load->field_ranges_background_color->value;
 		  $range_image_target = $node_load->field_ranges_image->target_id;
 		  $range_image_file = \Drupal\file\Entity\File::load($range_image_target);
+		  
 		  if($range_image_file){
-          $range_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($range_image_file->getFileUri());
+          $range_image_url = file_create_url($range_image_file->getFileUri());
 		  }
+		  
 		  $detail_array[$key]['bkg_colr'] = $bkg_color;
 		  $detail_array[$key]['range_image'] = $range_image_url;
 		 
