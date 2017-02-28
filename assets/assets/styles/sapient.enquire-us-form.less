@@ -62,7 +62,8 @@
 	
 	/* LABEL */
 	
-	label {
+	label,
+	.text-not-entered {
 		color: @dark-gray;
 		position: absolute;
 		top: 5px;
@@ -90,8 +91,7 @@
 		
 	}
 	
-	input:focus ~ label,
-	input:valid ~ label{
+	input:focus ~ label {
 		font-size: 12px;
 		line-height: 22px;
 		top: -10px ;
