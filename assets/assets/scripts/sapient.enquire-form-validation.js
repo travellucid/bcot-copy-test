@@ -81,7 +81,7 @@ var validationObj = (function($, window, sapient) {
 					$("#errMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
-						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
+						$("#errMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
 					});
 				}
 				else {
@@ -107,6 +107,7 @@ var validationObj = (function($, window, sapient) {
 
 				if (!checked) {
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
+					$(".enquire-form input[type=checkbox] + label").addClass("error");
 				} 
 				return true;			
 			});

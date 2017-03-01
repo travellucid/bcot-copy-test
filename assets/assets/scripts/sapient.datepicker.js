@@ -47,10 +47,11 @@ var datePickerObj = (function($, window, sapient) {
 		},
 
 		positionCalender = function() {
+			var iconPos = $(".calender-icon").offset();
 			
 			if(($(".bootstrap-datetimepicker-widget ").css("display") === "block") && ($windowWidth > 1281)) {
 				
-				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left );
+				$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
 			}
 			
 			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
