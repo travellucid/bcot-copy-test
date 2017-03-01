@@ -241,7 +241,6 @@ var carouselObj = (function($, window, sapient) {
 
 			bindSlideEvent = function(id) {
 				$(id).on('slid.bs.carousel', function (e) {
-					console.log("#carousel-our-story");
 					sapient.carousel.playPauseVideo();
 				});
 			},
