@@ -93,6 +93,10 @@
 		margin-top: 115px;
 		width: 100%;
 		.centerX(); */
+
+		a.visit-all-wine {
+			margin-bottom: 10px;
+		}
 	}
 
 	.scroll-down {
@@ -270,7 +274,6 @@
 		}
 		&.product-details-hero {
 			.hero-inner-container {
-				.centerBoth();
 				margin-left: 0;
 				text-align: center;
 				h1 {
@@ -361,24 +364,44 @@
 	#hero-component {
 		&.product-details-hero {
 			.hero-inner-container {
-				.centerBoth();
 				 max-width: 660px;
+				 margin-top: 271px;
+				 top: 0;
 
 				 p.hidden-sm,
-				.cta-visitus {
+				 a.hidden-sm {
 					display: block !important;
+				}
+
+				p.hidden-sm {
+					margin-top: 25px;
 				}
 			}
 		}
 	}
 	.product-details-mobile {
-		margin-top: -23%;
 
 		img {
 			width: 16.725%;
 		}
 		p {
 			display: none;
+		}
+	}
+
+}
+
+@media screen and (min-width: 991px) and (max-width: 1062px) {
+
+	#hero-component {
+		.hero-inner-container {
+			.cta-visitus {
+				display: table;
+
+				a.visit-all-wine {
+					display: table-cell;
+				}
+			}
 		}
 	}
 

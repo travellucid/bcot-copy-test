@@ -3,15 +3,27 @@
 
 	.content-wrapper {
 		color: @white;
+		font-size: 16px;
 		max-width: 770px;
 		margin: 0 auto;
 		padding: 24px 0;
 		text-align: center;
+
+		a {
+			color: @white;
+			cursor: pointer;
+			text-decoration: underline;
+
+			&:hover {
+				color:@white;
+			}
+		}
 	}
 
 	.close-btn {
+		cursor: pointer;
 	  	position: absolute;
-	  	right: 20%;
+	  	right: 17%;
 	  	top: 20%;
 	  
 	  	&:before,
