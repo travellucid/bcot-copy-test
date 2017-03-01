@@ -29,6 +29,12 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 
+			enableVidControlsAndroid = function() {
+				if (navigator.userAgent.indexOf('Android') >=0) {
+					$(".carousel-inner video").controls = true;
+				}
+			},
+
 			onResize = function() {
 				
 				$(window).on('resize', function() {
@@ -42,22 +48,25 @@ var carouselObj = (function($, window, sapient) {
 						vidPos = vid.offset();
 
 					if(vid.length === 0) {
+						$(this).siblings().find(".fallback-image").show();
 						return false;
 					}
 
 					if($(window).scrollTop() > (vidPos.top - vid.height()) && $(window).scrollTop() < (vidPos.top + vid.height())){
-					
-						if(vid.parents(".item").hasClass("active")) {
-							vid.get(0).play();
-							vid.on("timeupdate", function () {
-								if(this.currentTime >= vid.get(0).duration) {
-									this.currentTime = 0.0;
-								}
-							});
-						}
-						else {
+						if(!vid.parents(".item").hasClass("active")){
 							vid.get(0).pause();
+							return false;
 						}
+
+						vid.get(0).play();
+						vid.on("timeupdate", function () {
+							if(this.currentTime >= vid.get(0).duration) {
+								this.currentTime = 0.0;
+							}
+						});
+						/*else {
+							vid.get(0).pause();
+						}*/
 					}
 					else{
 						vid.get(0).pause();
@@ -128,7 +137,8 @@ var carouselObj = (function($, window, sapient) {
 			onResize: onResize,
 			onScroll: onScroll,
 			playPauseVideo: playPauseVideo,
-			bindSlideEvent: bindSlideEvent
+			bindSlideEvent: bindSlideEvent,
+			enableVidControlsAndroid: enableVidControlsAndroid
 		};
 	}
 
@@ -157,3 +167,4 @@ sapient.carousel.positionCarousel();
 sapient.carousel.onResize();
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
+sapient.carousel.enableVidControlsAndroid();
