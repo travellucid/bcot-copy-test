@@ -48,11 +48,15 @@ var datePickerObj = (function($, window, sapient) {
 
 		positionCalender = function() {
 			
-			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+			if(($(".bootstrap-datetimepicker-widget ").css("display") === "block") && ($windowWidth > 1281)) {
 				
-				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left);
+				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left );
 			}
-
+			
+			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
+				
+				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left - 250);
+			}*/
 		},
 
 		isValidDate = function(value, format) {
