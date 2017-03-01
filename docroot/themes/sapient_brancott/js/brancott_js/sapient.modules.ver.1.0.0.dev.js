@@ -422,8 +422,14 @@ var carouselObj = (function($, window, sapient) {
 			},
 
 			playPauseVideo = function() {	
-					var vid = $(".carousel-inner video");
-					if(vid && $(window).scrollTop() > (vid.offset().top-vid.height()) && $(window).scrollTop() < (vid.offset().top+vid.height())){
+					var vid = $(".carousel-inner video"),
+						vidPos = vid.offset();
+
+					if(vid.length === 0) {
+						return false;
+					}
+
+					if($(window).scrollTop() > (vidPos.top - vid.height()) && $(window).scrollTop() < (vidPos.top + vid.height())){
 					
 						if(vid.parents(".item").hasClass("active")) {
 							vid.get(0).play();
