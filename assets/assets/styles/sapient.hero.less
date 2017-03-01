@@ -93,6 +93,10 @@
 		margin-top: 115px;
 		width: 100%;
 		.centerX(); */
+
+		a.visit-all-wine {
+			margin-bottom: 10px;
+		}
 	}
 
 	.scroll-down {
@@ -365,9 +369,12 @@
 				 top: 0;
 
 				 p.hidden-sm,
-				.cta-visitus {
+				 a.hidden-sm {
 					display: block !important;
-					margin-top: 0;
+				}
+
+				p.hidden-sm {
+					margin-top: 25px;
 				}
 			}
 		}
@@ -379,6 +386,22 @@
 		}
 		p {
 			display: none;
+		}
+	}
+
+}
+
+@media screen and (min-width: 991px) and (max-width: 1062px) {
+
+	#hero-component {
+		.hero-inner-container {
+			.cta-visitus {
+				display: table;
+
+				a.visit-all-wine {
+					display: table-cell;
+				}
+			}
 		}
 	}
 
