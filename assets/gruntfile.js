@@ -42,6 +42,7 @@ module.exports = function(grunt) {
 	  jsmodules: {
 		src: [
 			'<%= dirs.jsSource %>sapient.js',
+			'<%= dirs.jsSource %>sapient.menu-accessible.js',
 			'<%= dirs.jsSource %>sapient.datepicker.js',
 			'<%= dirs.jsSource %>sapient.common.js',
 			'<%= dirs.jsSource %>sapient.carousel.js',
