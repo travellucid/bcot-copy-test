@@ -1,135 +1,44 @@
-{#
-/**
- * @file
- * Default theme implementation to display a menu.
- *
- * Available variables:
- * - menu_name: The machine name of the menu.
- * - items: A nested list of menu items. Each menu item contains:
- *   - attributes: HTML attributes for the menu item.
- *   - below: The menu item child items.
- *   - title: The menu link title.
- *   - url: The menu link url, instance of \Drupal\Core\Url
- *   - localized_options: Menu link localized options.
- *   - is_expanded: TRUE if the link has visible children within the current
- *     menu tree.
- *   - is_collapsed: TRUE if the link has children within the current menu tree
- *     that are not currently visible.
- *   - in_active_trail: TRUE if the link is in the active trail.
- *
- * @ingroup themeable
- */
-#}
-{% import _self as menus %}
+{# All menu and submenu items #}
+<nav class="menu" id="a11y-menu" role="navigation" aria-label="Main menu">
+  
+    
+    
+      {% import _self as menus %}
+      {#
+        We call a macro which calls itself to render the full tree.
+        @see http://twig.sensiolabs.org/doc/tags/macro.html
+      #}
+      {{ menus.menu_links(items, attributes, 0) }}
 
-{#
-  We call a macro which calls itself to render the full tree.
-  @see http://twig.sensiolabs.org/doc/tags/macro.html
-#}
-<!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-header" aria-expanded="false" aria-controls="navbar-header">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-</button>
--->
-<div class="burger-menu-wrapper">
-    <div class="burger-menu navbar-toggle collapsed"  data-toggle="collapse" data-target="#navbar-header" aria-expanded="false" aria-controls="navbar-header">
-        <span class="sr-only">Toggle navigation</span>
-        <div class="burger-click-region">
-            <span class="burger-menu-piece"></span>
-            <span class="burger-menu-piece"></span>
-            <span class="burger-menu-piece"></span>
-        </div>
-    </div>
-</div>
+      {% macro menu_links(items, attributes, menu_level) %}
+        {% import _self as menus %}
+        {% if items %}
+          {% if menu_level == 0 %}
+            <ul class="nav level-1 list-reset" role="menubar" aria-hidden="false">
+          {% else %}
+            <ul class="level-2 list-reset" data-test="true" aria-hidden="true" role="menu">
+          {% endif %}
+          {% for item in items %}
+            {% if item.below %}
+              {% if menu_level == 0 %}
+                <li role="menuitem" aria-haspopup="true">
+                  <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>
+                  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                </li>
+              {% else %}
+                <li role="menuitem">
+                  <a href="{{ item.url }}">{{ item.title }}</a>
+                  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                </li>
+              {% endif %}
+            {% else %}
+              <li role="menuitem" {{ item.attributes }}>{{ link(item.title, item.url) }}</li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endmacro %}
 
-<nav id ="navbar-header" class="">
-
-
-    <div class="navbar-collapse menu-container" aria-expanded="false" style="/* margin: 0 auto; *//* text-align: center; */">
-
-
-        {{ menus.menu_links(items, attributes, 0) }}				
-        {% macro menu_links(items, attributes, menu_level) %}
-            {% import _self as menus %}
-            {% if items %}
-                {% if menu_level == 0 %}
-                    <div class="logo hidden-md hidden-lg ">
-                        <a href="{{ url('<front>') }}" class="logo-img">BRANCOTT ESTATE</a>
-                    </div>
-                    <ul class="nav navbar-nav menu">
-                    {% else %}
-                        <ul class="dropdown-menu sub-menu">
-                            <div class="sub-menu-wrapper">
-                                <li class="menu-heading hidden-md hidden-lg">
-                                    <span class="logo"></span>  
-                                    <span class="text"></span>
-                                </li><!-- reqd by frontend for mob view -->
-                            {% endif %}
-
-
-
-
-                            {% if menu_level == 0 %}
-
-                                {% for item in items %}
-
-                                    {% set dynamic_class =   item.title|replace({ ' ' : '-' }) %}
-                                    {% set dynamic_class =   dynamic_class|lower %}
-                                    {% if item.title == 'logo' %}
-                                        <li class="menu-item hidden-sm hidden-xs {{ dynamic_class }}">
-                                        {% else %}
-
-                                            {% if item.below %}
-                                            <li class="menu-item dropdown {{ dynamic_class }}">
-                                            {% else %}
-                                            <li class="menu-item {{ dynamic_class }}">
-                                            {% endif %}
-                                        {% endif %}
-
-                                        {% set title %}
-                                            {{ item.title }}
-                                            {% if item.below %}
-                                                <span class="expand-icon" data-toggle = "dropdown"></span>
-                                            {% endif %}
-                                        {% endset %}
-                                        {{ link(title, item.url, { 'class':['dropdown-toggle'], 'role':['button'], 'aria-haspopup':['true']  } ) }}
-                                        {% if item.below %}
-                                            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                                        {% endif %}
-                                    </li>
-                                {% endfor %}
-                            {% else %}
-                                {% for item in items %}
-                                    {% if loop.index == 1 %}
-                                        <li class = "sub-menu-link hidden-md hidden-lg">
-                                            {{ link(item.title, item.url) }}
-                                            {% if item.below %}
-                                                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                                            {% endif %}
-                                        </li>
-                                    {% else %}
-                                        <li class = "sub-menu-link">
-                                            {{ link(item.title, item.url) }}
-                                            {% if item.below %}
-                                                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                                            {% endif %}
-                                        </li>
-                                    {% endif %}
-
-                                {% endfor %}
-                            {% endif %}
-                            {% if menu_level == 0 %} 
-                            {% else %}
-                            </div>
-                        {% endif %}
-                    </ul>
-                {% endif %}
-            {% endmacro %}
-
-
-    </div><!--/.nav-collapse -->
-
+   
+ 
 </nav>
-<!-- header -->

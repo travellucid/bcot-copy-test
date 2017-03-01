@@ -1,7 +1,7 @@
-<nav id="wine-filters" class="hidden-xs hidden-sm">
-	<div class="navbar-collapse menu-container" aria-expanded="false">
-		<ul class="nav navbar-nav menu">
-			<li class="menu-item dropdown our-wines"><a href="#" data-category-filter="all-data" class="filter-item">ALL WINES</a></li>
+<nav class="menu" id="a11y-menu" role="navigation" aria-label="Main menu">
+	
+		<ul class="nav level-1 list-reset" role="menubar" aria-hidden="false">
+			<li role="menuitem" aria-haspopup="true"><a href="#" data-category-filter="all-data" class="filter-item">ALL WINES</a></li>
 			{% for key, filter in filters %}  		
 			{% if key == 'range' %}
 				{% set newkey = 'Ranges' %}
@@ -15,24 +15,24 @@
 				{% set newkey = key %}
 			{% endif %}
 			{% if key != 'food_matches' %}
-			<li class="menu-item dropdown our-wines">
+			<li role="menuitem" aria-haspopup="true">
 				<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey |upper }} <span class="expand-icon" data-toggle="dropdown"></span></a>
-				<ul class="dropdown-menu sub-menu">
-					<div class="sub-menu-wrapper">
+				<ul class="level-2 list-reset" data-test="true" aria-hidden="true" role="menu">
+					<div>
 						{% for subfilter_key, subfilter in filter %}
-						<li class="sub-menu-link"><a href="#" data-category="{{ key }}" data-category-filter="{{ subfilter_key }}" class="filter-item"> {{ subfilter_key |upper }}</a></li>
+						<li role="menuitem"><a href="#" data-category="{{ key }}" data-category-filter="{{ subfilter_key }}" class="filter-item"> {{ subfilter_key |upper }}</a></li>
 						{% endfor %}		
 					</div>
 				</ul>
 			</li>
 			{% else %}
 
-			<li class="menu-item dropdown our-wines">
+			<li role="menuitem" aria-haspopup="true">
 				<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey |upper}} <span class="expand-icon" data-toggle="dropdown"></span></a>
-				<ul class="dropdown-menu sub-menu">
-					<div class="sub-menu-wrapper">
+				<ul class="level-2 list-reset" data-test="true" aria-hidden="true" role="menu">
+					<div>
 						{% for subfilter_key, subfilter in filter %}
-						<li class="sub-category-wrapper">
+						<li role="menuitem">
 							<p>{{ subfilter_key }}</p>
 							{% for foodmatchkey, foodmatchvalue in subfilter %}
 							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item sub-nav-item">{{ foodmatchvalue |upper }}</a>
@@ -45,7 +45,7 @@
               {% endif %}			 
 			{% endfor %}
 		</ul>
-	</div><!--/.nav-collapse -->
+	
 </nav>
 
 
