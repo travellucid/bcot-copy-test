@@ -1,34 +1,39 @@
-    <div id="hero-component" class="container-fluid  hero-container common-hero" >
-	<div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')" alt = "{{ fields.field_background_image_1.content }}"></div>
-	<div class="hero-bottom">
-		<img src="{{ fields.field_hero_left_triangle_image.content }}" alt="triangle image" class="triangle">
-		<img src="{{ fields.field_hero_right_triangle_image.content }}" alt="noise triangle image" class="triangle-right">
-	</div>
- 	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 hero-inner-container">
-	   {% if (fields.field_visit_us_small_headline.content) %}
-			<span class="header_f">{{ fields.field_visit_us_small_headline.content }}</span>
-	   {% endif %}	
-           <h1 class="header_a">{{ fields.field_hero_headline.content |upper |raw }}</h1>
+<div id="hero-component" class="container-fluid  hero-container common-hero" >
+    <div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')" alt = "{{ fields.field_background_image_1.content }}"></div>
+    <div class="hero-bottom">
+        <img src="{{ fields.field_hero_left_triangle_image.content }}" alt="triangle image" class="triangle">
+        <img src="{{ fields.field_hero_right_triangle_image.content }}" alt="noise triangle image" class="triangle-right">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 hero-inner-container">
+        {% if (fields.field_visit_us_small_headline.content) %}
+            <span class="header_f">{{ fields.field_visit_us_small_headline.content }}</span>
+        {% endif %}	
+        <h1 class="header_a">{{ fields.field_hero_headline.content |upper |raw }}</h1>
 
- 		<!-- generic twig for all hero -->
-		{% if (fields.field_city.content) %}
-		  <h2 class="header_f">{{ fields.field_city.content |upper |raw}}, {{ fields.field_country.content |upper |raw}}</h2>
-		  <h3 class="header_d">{{ current_date }}</h3>
-		  <div class="temp-wrapper">
-			<img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
-			<span class="temperature">{{ current_temp | e}}{{ temp_unit }}</span>
-		</div> 
-		  <p>{{ climate_desc }}</p>
-		{% endif %}	
- 	</div>
- </div>
- <div class="hero-details">
- 	<h2>{{ fields.field_hero_bottom_headline.content |upper |raw }}</h2>
-	<p>{{ fields.field_hero_bottom_description.content }}</p>
-            {% if (fields.field_hero_cta_second.content) %} 
-	  <div class="cta-hero-bottom">
-	    <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-green visit-all-wine">{{ 'BOOK A TABLE'|t }}</a>
-	    <a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green light ">{{ 'HOW TO FIND US'|t }}</a>
+        <!-- generic twig for all hero -->
+        {% if (fields.field_city.content) %}
+            <h2 class="header_f">{{ fields.field_city.content |upper |raw}}, {{ fields.field_country.content |upper |raw}}</h2>
+            <h3 class="header_d">{{ current_date }}</h3>
+            <div class="temp-wrapper">
+                <img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
+                <span class="temperature">{{ current_temp | e}}{{ temp_unit }}</span>
+            </div> 
+            <p>{{ climate_desc }}</p>
+        {% endif %}	
+    </div>
+</div>
+<div class="hero-details">
+    <h2>{{ fields.field_hero_bottom_headline.content |upper |raw }}</h2>
+    <p>{{ fields.field_hero_bottom_description.content }}</p>
+    {% if (fields.field_hero_cta_second.content) %} 
+        <div class="cta-hero-bottom">
+            <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-green visit-all-wine">{{ 'BOOK A TABLE'|t }}</a>
+            <a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green light ">{{ 'HOW TO FIND US'|t }}</a>
         </div>
     {% endif %}	
- </div>
+</div>
+{% if (fields.field_video_youtube_link.content) %}
+    <div>
+        {{ fields.field_video_youtube_link.content }}
+    </div>
+{% endif %}
