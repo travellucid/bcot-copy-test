@@ -240,21 +240,31 @@
 					}
 				}
 
-				&.see-all-link {
-					background-color: #1e7266;
-					color: white;
-					display: inline-block;
-					height: 270px;
-					line-height: 270px;
-					//position: relative;
-					text-align: center;
-					top: 110px;
-					vertical-align: bottom;
+				&.see-all-wines {
+					.product-shot {
+						span {
+							color: white;
+							position: absolute;
+							z-index: 1;
+							width: 100%;
+							display: inline-block;
+							text-align: center;
+							bottom: 33%;
+							left: 0;
+							right: 0;
+						}
+						img {
+							opacity: 0;
+							visibility: hidden;
+						}
+						.product-bg {
+							background-color: #1e7266 !important;
+						}
+					}
 				}
 			}
 		}
-		.carousel-indicators,
-		.carousel-control {
+		.carousel-indicators {
 			display: none;
 		}
 	}

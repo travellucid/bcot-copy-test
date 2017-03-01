@@ -17,7 +17,14 @@
 				<span  class="cta secondary-green hidden-md hidden-lg">VIEW RANGE</span>
 			</a>
 			{% endfor %}  
-			<a class="product-tile see-all-link hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a>   
+			<!--a class="product-tile see-all-link hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a-->
+			<a class="product-tile see-all-wines hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">
+				<div class="product-shot">
+					<span>{{ fields.field_see_all_wines_1.content }}</span>
+					<img src="https://placeholdit.imgix.net/~text?w=261&h=770" />
+					<div class="product-bg"></div>
+				</div>
+			</a>
 		</div>
 
 		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
