@@ -210,18 +210,17 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 
-			resize = function() {
+			onResize = function() {
 				
 				$(window).on('resize', function() {
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
 				});
 
 			},
-			playVideo = function() {
 
-				$(window).scroll(function(){
+			playPauseVideo = function() {	
 					var vid = $(".carousel-inner video");
-					if($(window).scrollTop() > (vid.offset().top-vid.height()) && $(window).scrollTop() < (vid.offset().top>vid.height())){
+					if($(window).scrollTop() > (vid.offset().top-vid.height()) && $(window).scrollTop() < (vid.offset().top+vid.height())){
 					
 						if(vid.parents(".item").hasClass("active")) {
 							vid.get(0).play();
@@ -231,11 +230,25 @@ var carouselObj = (function($, window, sapient) {
 								}
 							});
 						}
+						else {
+							vid.get(0).pause();
+						}
 					}
 					else{
-					vid.get(0).stop();
-					}
-				});			
+						vid.get(0).pause();
+					}	
+			},
+
+			bindSlideEvent = function(id) {
+				$(id).on('slid.bs.carousel', function (e) {
+					sapient.carousel.playPauseVideo();
+				});
+			},
+
+			onScroll = function() {
+				$(window).scroll(function(){
+					debounce(sapient.carousel.playPauseVideo, 200, "playPauseVideo on scroll");
+				});	
 			},
 
 			positionCarousel = function() {
@@ -287,8 +300,10 @@ var carouselObj = (function($, window, sapient) {
 			enableTouchCarousel: enableTouchCarousel,
 			toggleCarouselArrow: toggleCarouselArrow,
 			positionCarousel: positionCarousel,
-			resize: resize,
-			playVideo: playVideo
+			onResize: onResize,
+			onScroll: onScroll,
+			playPauseVideo: playPauseVideo,
+			bindSlideEvent: bindSlideEvent
 		};
 	}
 
@@ -309,9 +324,14 @@ sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
 sapient.carousel.enableTouchCarousel("#product-grid-carousal"); 
+
+sapient.carousel.bindSlideEvent("#carousel-our-story");
+sapient.carousel.bindSlideEvent("#carousel-our-wines");
+sapient.carousel.bindSlideEvent("#carousel-new-story");
 sapient.carousel.positionCarousel();
-sapient.carousel.resize();/*
-sapient.carousel.playVideo();*/
+sapient.carousel.onResize();
+sapient.carousel.onScroll();
+sapient.carousel.playPauseVideo();
 
 var headerObj = (function($, window, sapient) {
 
@@ -745,9 +765,9 @@ var validationObj = (function($, window, sapient) {
 				}
 			});
 			
-			$(document).ready(function() {
+			/*$(document).ready(function() {
 				$(".time-wrapper input").mask('00:00:00');
-			});
+			});*/
 
 			
 			$(".enquire-form .submit-info .submit-btn").click(function() {

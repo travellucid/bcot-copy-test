@@ -26,9 +26,9 @@ var validationObj = (function($, window, sapient) {
 				}
 			});
 			
-			$(document).ready(function() {
+			/*$(document).ready(function() {
 				$(".time-wrapper input").mask('00:00:00');
-			});
+			});*/
 
 			
 			$(".enquire-form .submit-info .submit-btn").click(function() {

@@ -43,10 +43,12 @@
 
 		.product-tile {
 			display: inline-block;
+			font-size: 0;
 			margin: 0 1%;
 			max-width: 270px;
 			vertical-align: top;
-			width: 23%;
+			width: 25%;
+
 			@media screen and (min-width: 1025px) {
 				&:first-child,
 				&:nth-child(4n+1) {
@@ -69,6 +71,17 @@
 					transform: scale(.95);
 					width: 100%;
 					z-index: 1;
+
+					&.primary {
+						left: -10%;
+						z-index: 2;
+					}
+					&.secondary {
+						left: 40%;
+						position: absolute;
+						transform: scale(.8);
+						z-index: 1;
+					}
 				}
 				.product-bg {
 					background-color: #cbd879;
@@ -104,6 +117,10 @@
 				.product-shot {
 					img {
 						transform: scale(1.0);
+
+						&.secondary {
+							transform: scale(0.85);
+						}
 					}	
 				}
 			}
@@ -171,10 +188,17 @@
 	}
 }
 
+
+
+
+/* product grid for home page */
+
+
 @media screen and (min-width: 990px){
 	#product-grid-carousal {
 		.category-grid {
 			.cfix();
+			font-size: 0;
 			margin: 0 auto;
 			max-width: 1170px;
 
@@ -184,7 +208,7 @@
 				max-width: 270px;
 				position: static;
 				vertical-align: top;
-				width: 23%;
+				width: 25%;
 
 				&:first-child,
 				&:nth-child(4n+1) {
@@ -207,6 +231,17 @@
 						transform: scale(.95);
 						width: 100%;
 						z-index: 1;
+
+						&.primary {
+							left: -10%;
+							z-index: 2;
+						}
+						&.secondary {
+							left: 40%;
+							position: absolute;
+							transform: scale(.8);
+							z-index: 1;
+						}
 					}
 					.product-bg {
 						background-color: #cbd879;
@@ -236,11 +271,17 @@
 					.product-shot {
 						img {
 							transform: scale(1.0);
+
+							&.secondary {
+								transform: scale(0.85);
+							}
 						}	
 					}
 				}
 
 				&.see-all-wines {
+					font-family: "NeutraText Bold";
+					font-size: 14px;
 					.product-shot {
 						span {
 							color: white;
@@ -259,6 +300,17 @@
 						}
 						.product-bg {
 							background-color: #1e7266 !important;
+						}
+					}
+
+					&:hover,
+					&:focus {
+						span {
+							color: #1e7266;
+						}
+						.product-bg {
+							background-color: #fff !important;
+							box-shadow: inset 2px 2px 0 #1e7266;
 						}
 					}
 				}
@@ -298,6 +350,17 @@
 						transition: all .25s;
 						width: 100%;
 						z-index: 1;
+
+						&.primary {
+							left: 0%;
+							z-index: 2;
+						}
+						&.secondary {
+							left: 50%;
+							position: absolute;
+							transform: scale(.8);
+							z-index: 1;
+						}
 					}
 					.product-bg {
 						background-color: #cbd879;
