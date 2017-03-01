@@ -36,6 +36,26 @@ var carouselObj = (function($, window, sapient) {
 				});
 
 			},
+			playVideo = function() {
+
+				$(window).scroll(function(){
+					var vid = $(".carousel-inner video");
+					if($(window).scrollTop() > (vid.offset().top-vid.height()) && $(window).scrollTop() < (vid.offset().top>vid.height())){
+					
+						if(vid.parents(".item").hasClass("active")) {
+							vid.get(0).play();
+							vid.on("timeupdate", function () {
+								if(this.currentTime >= vid.get(0).duration) {
+									this.currentTime = 0.0;
+								}
+							});
+						}
+					}
+					else{
+					vid.get(0).stop();
+					}
+				});			
+			},
 
 			positionCarousel = function() {
 				var	heightArr = [],
@@ -86,7 +106,8 @@ var carouselObj = (function($, window, sapient) {
 			enableTouchCarousel: enableTouchCarousel,
 			toggleCarouselArrow: toggleCarouselArrow,
 			positionCarousel: positionCarousel,
-			resize: resize
+			resize: resize,
+			playVideo: playVideo
 		};
 	}
 
@@ -108,4 +129,5 @@ sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
 sapient.carousel.enableTouchCarousel("#product-grid-carousal"); 
 sapient.carousel.positionCarousel();
-sapient.carousel.resize();
+sapient.carousel.resize();/*
+sapient.carousel.playVideo();*/
