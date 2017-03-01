@@ -9,19 +9,18 @@
 			{% for detail in range_details %}
 			<a class="product-tile item" href="#">
 				<div class="product-shot">
-					<img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
+					<img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="primary" /><img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="secondary" />
 					<div class="product-bg" style="background-color: {{ detail.bkg_colr }};"></div>
 				</div>
 				<h3>{{ detail.title | upper }}</h3>
 				<p>{{ detail.desc }}</p>
 				<span  class="cta secondary-green hidden-md hidden-lg">VIEW RANGE</span>
 			</a>
-			{% endfor %}  
-			<!--a class="product-tile see-all-link hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a-->
+			{% endfor %}
 			<a class="product-tile see-all-wines hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">
 				<div class="product-shot">
 					<span>{{ fields.field_see_all_wines_1.content }}</span>
-					<img src="https://placeholdit.imgix.net/~text?w=261&h=770" />
+					<img src="https://placeholdit.imgix.net/~text?w=248&h=770" />
 					<div class="product-bg"></div>
 				</div>
 			</a>
