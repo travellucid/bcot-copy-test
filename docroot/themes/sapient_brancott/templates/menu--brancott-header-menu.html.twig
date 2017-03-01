@@ -1,5 +1,5 @@
 {# All menu and submenu items #}
-<nav class="menu" id="a11y-menu" role="navigation" aria-label="Main menu">
+<nav class="menu" role="navigation" aria-label="Main menu" class=" hidden-xs hidden-sm">
 	{% import _self as menus %}
 	{#
 		We call a macro which calls itself to render the full tree.
@@ -19,13 +19,11 @@
 				{% if item.below %}
 					{% if menu_level == 0 %}
 						<li role="menuitem" aria-haspopup="true">
-							<a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>
-							{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+							<a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 						</li>
 					{% else %}
 						<li role="menuitem">
-							<a href="{{ item.url }}">{{ item.title }}</a>
-							{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+							<a href="{{ item.url }}">{{ item.title }}</a>{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 						</li>
 					{% endif %}
 				{% else %}
@@ -40,11 +38,11 @@
 
 <section id="mobile-navigation-wrapper" class="hidden-md hidden-lg">
 <button id="open-navigation">NAVIGATION</button>
-<div id="mobile-navigation">
-<button id="close-navigation">&#10005;</button>
-<h2>NAVIGATION</h2>
-<div id="mobile-navigation-scroll-wrapper">
-{% import _self as menus %}
+	<div id="mobile-navigation">
+		<button id="close-navigation">&#10005;</button>
+		<h2>NAVIGATION</h2>
+		<div id="mobile-navigation-scroll-wrapper">
+			{% import _self as menus %}
 			{#
 				We call a macro which calls itself to render the full tree.
 				@see http://twig.sensiolabs.org/doc/tags/macro.html
@@ -80,5 +78,5 @@
 				{% endif %}
 			{% endmacro %}
 		</div>
-		</div>
+	</div>
 </section>
