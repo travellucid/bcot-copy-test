@@ -1,114 +1,118 @@
+header.navbar {
+	border-radius: 0;
+	position: fixed;
+	width: 100%;
+
+	&:hover {
+		background-color: #fff;
+	}
+
+	&.white-background {
+		nav[role="navigation"] {
+			.nav {
+				a {
+					color: #3e464b;
+				}
+			}
+		}
+	}
+}
+
 nav[role="navigation"] {
-  background-color: gray;
-  box-shadow: 2px 2px 4px #cccccc;
-  position: relative;
-
-  /* Top level nav */
-  .nav {
-    .cfix();
-    background-color: pink;
-  	margin: 0 auto !important;
-    max-width: 1170px;
-    text-align: center;
-    width: 100%;
-    
-    a {
-      color: #3e464b;
-      font-size: 14px;
-      
-      &:hover {
-        color: #d50032;
-      }
-    }
-  }
-
-  /* Dropdowns */
-  .nav ul {
-    background-color: white;
-  	position: absolute;
-  	top: 60px;
-  	left: -9999px;
-  	opacity: 0;
-  	transition: 0.1s linear opacity;
-  	min-width: 150px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .nav li {
-  	float: left;
-    position: static;
-    text-align: center;
-    width: 25%;
-  }
-
-  /* Top level nav items */
-  .nav li > a {
-  	display: block;
-  	padding: 20px 15px;
-  	text-decoration: none;
-  }
-
-  /* Top level hover state, preserve hover state when hovering dropdown  */
-  .nav li > a:hover,
-  .nav li > a:focus,
-  .nav li:focus > a,
-  .nav li:hover > a {
-  	background: #EFEFEF;
-  	outline: 0;
-  }
-
-  .nav li:hover ul,
-  .nav li:focus ul,
-  ul.show-menu {
-    background-color: #008B8B;
-    box-shadow: 2px 2px 4px #cccccc;
-  	left: 0;
-    opacity: 1;
-    
-    & > div {
-      background-color: #FFFAF0;
-      display: inline-block;
-      max-width: 1170px;
-      width: 100%;
-    }
-  }
-
-  .nav ul li {
-  	float: none;
-  	position: static;
-    width: 100%;
-    
-    float: none;
-    position: static;
-    display: inline-block;
-    font-size: 0;
-    width: 30%;
-  }
-
-  .nav ul a {
-  	float: none;
-  	display: block;
-  	font-size: 16px;
-    padding: 15px;
-  	text-shadow: none;
-  	transition: 0.1s linear all;
-  }
-
-  .nav ul a:hover,
-  .nav ul a:focus {
-  	text-shadow: none;
-  }
-
-
-  /*==================================================
-    $Helpers
-    ==================================================*/
-
-  .list-reset {  
-  	margin: 0;
-  	padding: 0;
-  	list-style: none;
-  }
-
+	font-family: "NeutraText Bold", sans-serif;
+	font-size: 14px;
+	position: relative;
+	/* Top level nav */
+	.nav {
+		.cfix();
+		margin: 0 auto !important;
+		max-width: 1170px;
+		text-align: center;
+		width: 100%;
+		a {
+			color: #ffffff;
+			font-size: 14px;
+			&:hover,
+			&:focus {
+				background-color: transparent;
+				color: #d50032;
+			}
+		}
+	}
+	/* Dropdowns */
+	.nav ul {
+		position: absolute;
+		top: 60px;
+		left: -9999px;
+		opacity: 0;
+		transition: 0.1s linear opacity;
+		min-width: 150px;
+		margin: 0 auto;
+		width: 100%;
+	}
+	.nav li {
+		float: left;
+		position: static;
+		text-align: center;
+		width: 20%;
+	}
+	/* Top level nav items */
+	.nav li > a {
+		color: #3e464b;
+		display: block;
+		padding: 20px 15px;
+		text-decoration: none;
+	}
+	/* Top level hover state, preserve hover state when hovering dropdown  */
+	.nav li > a:hover,
+	.nav li > a:focus,
+	.nav li:focus > a,
+	.nav li:hover > a {
+		outline: 0;
+	}
+	.nav li:hover ul,
+	.nav li:focus ul,
+	ul.show-menu {
+		background-color: #ffffff;
+		box-shadow: 2px 2px 4px #cccccc;
+		left: 0;
+		opacity: 1;
+		& > div {
+			background-color: #ffffff;
+			display: inline-block;
+			max-width: 1170px;
+			padding: 40px 0;
+			width: 100%;
+		}
+	}
+	.nav ul li {
+		float: none;
+		position: static;
+		width: 100%;
+		float: none;
+		position: static;
+		display: inline-block;
+		font-size: 0;
+		width: 30%;
+	}
+	.nav ul a {
+		float: none;
+		display: block;
+		font-size: 16px;
+		padding: 15px;
+		text-shadow: none;
+		transition: 0.1s linear all;
+	}
+	.nav ul a:hover,
+	.nav ul a:focus {
+		text-shadow: none;
+	}
+	/*==================================================
+	$Helpers
+	==================================================*/
+	.list-reset {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
 }
