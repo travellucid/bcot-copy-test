@@ -31,7 +31,7 @@ var carouselObj = (function($, window, sapient) {
 
 			enableVidControlsAndroid = function() {
 				if (navigator.userAgent.indexOf('Android') >=0) {
-					$(".carousel-inner video").controls = true;
+					$(".carousel-inner video").attr("controls","");
 				}
 			},
 
