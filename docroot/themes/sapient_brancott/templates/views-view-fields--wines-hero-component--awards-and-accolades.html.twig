@@ -31,10 +31,12 @@
             {% endfor %}
         {% endif %}
     </div>
-    <div class="see-more-btn-wrapper">	
-        <button class="cta see-more-btn">
-            See {{ pending_count }} more
-            <span class ="btn-img"></span>
-        </button>
-    </div>	
+    {% if (total_count > 3) %}
+        <div class="see-more-btn-wrapper">	
+            <button class="cta see-more-btn">
+                See {{ pending_count }} more
+                <span class ="btn-img"></span>
+            </button>
+        </div>
+    {% endif %}   
 </div>
