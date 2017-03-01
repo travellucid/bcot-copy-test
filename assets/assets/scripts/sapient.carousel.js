@@ -165,6 +165,7 @@ sapient.carousel.bindSlideEvent("#carousel-our-wines");
 sapient.carousel.bindSlideEvent("#carousel-new-story");
 sapient.carousel.positionCarousel();
 sapient.carousel.onResize();
+
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
 sapient.carousel.enableVidControlsAndroid();
