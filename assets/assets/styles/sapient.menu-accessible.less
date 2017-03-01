@@ -1,12 +1,16 @@
+header.navbar {
+  position: fixed;
+  width: 100%;
+}
+
 nav[role="navigation"] {
-  background-color: gray;
-  box-shadow: 2px 2px 4px #cccccc;
+  font-family: "NeutraText Bold", sans-serif;
+  font-size: 14px;
   position: relative;
 
   /* Top level nav */
   .nav {
     .cfix();
-    background-color: pink;
   	margin: 0 auto !important;
     max-width: 1170px;
     text-align: center;
@@ -24,7 +28,6 @@ nav[role="navigation"] {
 
   /* Dropdowns */
   .nav ul {
-    background-color: white;
   	position: absolute;
   	top: 60px;
   	left: -9999px;
@@ -39,7 +42,7 @@ nav[role="navigation"] {
   	float: left;
     position: static;
     text-align: center;
-    width: 25%;
+    width: 20%;
   }
 
   /* Top level nav items */
@@ -54,22 +57,22 @@ nav[role="navigation"] {
   .nav li > a:focus,
   .nav li:focus > a,
   .nav li:hover > a {
-  	background: #EFEFEF;
   	outline: 0;
   }
 
   .nav li:hover ul,
   .nav li:focus ul,
   ul.show-menu {
-    background-color: #008B8B;
+    background-color: #ffffff;
     box-shadow: 2px 2px 4px #cccccc;
   	left: 0;
     opacity: 1;
     
     & > div {
-      background-color: #FFFAF0;
+      background-color: #ffffff;
       display: inline-block;
       max-width: 1170px;
+      padding: 40px 0;
       width: 100%;
     }
   }
