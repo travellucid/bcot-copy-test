@@ -9,13 +9,24 @@ var validationObj = (function($, window, sapient) {
 				$select = $(".enquire-form .group select");
 
 
-			$(".fa-clock-o").closest(".picker-switch").hide();
-			$(".table-condensed .next").html("");
-			$(".table-condensed .prev").html("");
 			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
+			$(".enquire-form .other-information textarea").removeClass().addClass("detail-info header_e")
 			
+			$(".enquire-form input.brancott-form").on('focus',function() {
 
-			$input.focusout(function(){
+				$(this).removeClass("error-border");
+				$(this).siblings('label').removeClass("error");
+				
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow");  
+
+			}); 
+			
+			$(".enquire-form input.brancott-form").on('focusout',function(){
+
+				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+
 				if($(this).val().length !== 0) {
 					
 					$(this).siblings('label').addClass("text-entered");
@@ -24,7 +35,15 @@ var validationObj = (function($, window, sapient) {
 					
 					$(this).siblings('label').removeClass("text-entered");
 				}
+
 			});
+
+
+			
+			/*$(document).ready(function() {
+				$(".time-wrapper input").mask('00:00:00');
+			});*/
+
 			
 			$(".enquire-form .submit-info .submit-btn").click(function() {
 				
@@ -56,6 +75,7 @@ var validationObj = (function($, window, sapient) {
 
 				});
 
+
 				$.each($select, function(index) {
 
 					if ($select[index].value == "") {
@@ -76,7 +96,7 @@ var validationObj = (function($, window, sapient) {
 					$("#errMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
-						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
+						$("#errMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
 					});
 				}
 				else {
@@ -102,6 +122,7 @@ var validationObj = (function($, window, sapient) {
 
 				if (!checked) {
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
+					$(".enquire-form input[type=checkbox] + label").addClass("error");
 				} 
 				return true;			
 			});

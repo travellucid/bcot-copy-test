@@ -6,7 +6,7 @@
 				    <!--<source src="{{ fields.field_video.content }}" type="video/ogg">-->
 				
 		        </video>
-				<picture  class="fallback-image">
+				<picture>
             <source  media="(max-width: 321px)" srcset="{{ fields.field_background_image_2.content }}">
             <source  media="(max-width: 690px)" srcset="{{ fields.field_background_image_2.content}}">   
             <source  media="(max-width: 769px)" srcset="{{ fields.field_background_image.content }}">
@@ -16,7 +16,7 @@
             
             <source  srcset="{{ fields.field_background_image.content }}"> 
             <!-- img tag for browsers that do not support picture element -->
-            <img  src="{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">  
+            <img class ="fallback-image" src="{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">  
             </picture>
 			
 		{% else %}
