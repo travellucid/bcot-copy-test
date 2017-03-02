@@ -3,6 +3,7 @@ header.navbar {
 	background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
 	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
 	border-radius: 0;
+	height: 90px;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -14,7 +15,13 @@ header.navbar {
 
 	&:hover,
 	&.white-background {
+		background-image: none;
 		box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+		opacity: .96;
+
+		&:hover {
+			opacity: 1;
+		}
 
 		nav[role="navigation"] {
 			.nav {
@@ -25,6 +32,13 @@ header.navbar {
 					&:hover,
 					&:focus {
 						color: #d50032;
+					}
+				}
+				li {
+					&.logo {
+						a {
+							background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
+						}
 					}
 				}
 			}
@@ -45,6 +59,7 @@ nav[role="navigation"] {
 		width: 100%;
 		a {
 			color: #ffffff;
+			display: inline-block;
 			font-size: 14px;
 			text-shadow: 0 1px 0 rgba(255,255,255,.25);
 			&:hover,
@@ -70,12 +85,30 @@ nav[role="navigation"] {
 		position: static;
 		text-align: center;
 		width: 20%;
+		&.logo {
+			a {
+				background-image: url("@{background-icons-path}BE_icon_header_logo_white.svg");
+				background-repeat: no-repeat;
+				background-size: 140px 70px;
+				color: @transparent;
+				height: 70px;
+				margin: 0 auto;
+				text-indent: -99999px;
+				top: 10px;
+				width: 140px;
+				&:hover,
+				&:active,
+				&:focus {
+					background-image: url("@{background-icons-path}BE_icon_header_logo_colour.svg");
+				}
+			}
+		}
 	}
 	/* Top level nav items */
 	.nav li > a {
 		color: #ffffff;
 		display: block;
-		padding: 20px 15px;
+		padding: 33px 0;
 		text-decoration: none;
 	}
 	/* Top level hover state, preserve hover state when hovering dropdown  */
@@ -89,7 +122,7 @@ nav[role="navigation"] {
 	.nav li:focus ul,
 	ul.show-menu {
 		background-color: #ffffff;
-		box-shadow: 2px 2px 4px #cccccc;
+		box-shadow: 0 8px 16px -8px rgba(0,0,0,0.15) inset, 0 6px 12px rgba(0,0,0,.175);
 		left: 0;
 		opacity: 1;
 		padding: 0;
@@ -99,10 +132,8 @@ nav[role="navigation"] {
 		}
 
 		& > div {
-			background-color: #ffffff;
-			display: inline-block;
+			margin: 0 auto;
 			max-width: 1170px;
-			padding: 40px 0;
 			width: 100%;
 		}
 	}

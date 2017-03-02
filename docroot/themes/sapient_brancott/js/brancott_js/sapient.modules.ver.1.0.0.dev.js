@@ -214,7 +214,7 @@ $.fn.setup_navigation = function(settings) {
 		}
 	});
 
-  $(document).click(function(){ $('.'+settings.menuHoverClass).attr('aria-hidden', 'true').removeClass(settings.menuHoverClass).find('a').attr('tabIndex',-1); });
+  //$(document).click(function(){ $('.'+settings.menuHoverClass).attr('aria-hidden', 'true').removeClass(settings.menuHoverClass).find('a').attr('tabIndex',-1); });
 	
 	$(this).click(function(e){
 		e.stopPropagation();
