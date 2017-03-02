@@ -6,11 +6,12 @@ var google_map_field_map;
   Drupal.behaviors.google_map_field_renderer = {
     attach: function (context) {
 
-      $('.google-map-field .map-container').each(function(index, item) {
+      $('.google-map-field .map-container').each(function (index, item) {
 
         // Get the settings for the map from the Drupal.settings object.
         var lat = $(this).attr('data-lat');
         var lon = $(this).attr('data-lon');
+        var label = $(this).attr('data-label');
         var zoom = parseInt($(this).attr('data-zoom'));
 
         // Create the map coords and map options.
@@ -21,21 +22,36 @@ var google_map_field_map;
           streetViewControl: false,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           scrollwheel: false,
-          navigationControl:false,
-          mapTypeControl:false,
-          scaleControl:false,
-          draggable:false
+          navigationControl: false,
+          mapTypeControl: false,
+          scaleControl: false,
+          draggable: false
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
 
         google.maps.event.trigger(google_map_field_map, 'resize')
-
+        google_map_field_map.panBy(-200, 100);
+        var markerIcon = {
+          //url: 'http://image.flaticon.com/icons/svg/252/252025.svg',
+          scaledSize: new google.maps.Size(80, 80),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(32, 65),
+          labelOrigin: new google.maps.Point(40, 35)
+        };
         // Drop a marker at the specified position.
         marker = new google.maps.Marker({
+          map: google_map_field_map,
           position: latlng,
+          animation: google.maps.Animation.DROP,
           optimized: false,
-		  label: "Gaurav Pahuja",
-          map: google_map_field_map
+          icon: markerIcon,
+          label: {
+            text: label,
+            color: "#eb3a44",
+            fontSize: "12px",
+            //fontWeight: "bold"
+          }
+
         });
 
       });
