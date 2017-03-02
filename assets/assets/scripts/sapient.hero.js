@@ -5,13 +5,27 @@ var heroObj = (function($, window, sapient) {
 	function createHeroInstance() {
 
 		var setLocalTime = function() {
-			var time = new Date(),
-			hours = time.getHours()-12,
-			mins = time.getMinutes(),
-			secs = time.getSeconds(),
-			dateTimeHeading = $("#hero-component date-time");
+
+			var m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"),
+				time = new Date(),
+				curr_year = time.getFullYear(),
+				curr_month = time.getMonth(),
+				curr_date = time.getDate(),
+				hours = time.getHours()-12,
+				mins = time.getMinutes(),
+				timeStr = "";
+				console.log(curr_date + " " + m_names[curr_month] + " " + curr_year);
+				
+				if(hours < 12) {
+					amPm = "pm";
+				}
+				else {
+					amPm = "am";
+				}
+				timeStr = curr_date  + " " + m_names[curr_month] + " " + curr_year + " / " + hours + ":" +mins +""+ amPm;
+			var	dateTimeHeading = $("#hero-component .date-time");
 			if(dateTimeHeading.length > 0) {
-				$("#hero-component date-time").text(time);				
+				$("#hero-component .date-time").text(timeStr);				
 			}
 		};
 /*function updateTime(){
