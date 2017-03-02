@@ -238,7 +238,7 @@ var datePickerObj = (function($, window, sapient) {
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
-			
+
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
 				sapient.datepicker.positionCalender();
@@ -260,9 +260,13 @@ var datePickerObj = (function($, window, sapient) {
 		positionCalender = function() {
 			var iconPos = $(".calender-icon").offset();
 			
-			if(($(".bootstrap-datetimepicker-widget ").css("display") === "block") && ($windowWidth > 1281)) {
-				
-				$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
+			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+
+				$(this).blur();
+
+				if($windowWidth > 1281) {
+					$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
+				}
 			}
 			
 			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
