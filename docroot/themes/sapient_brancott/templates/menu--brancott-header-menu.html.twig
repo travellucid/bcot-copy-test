@@ -14,11 +14,14 @@
 				<ul class="nav level-1 list-reset" role="menubar" aria-hidden="false">
 			{% else %}
 				<ul class="level-2 list-reset" data-test="true" aria-hidden="true" role="menu">
-				<div class ="brancott">
+				<div>
 			{% endif %}
 			{% for item in items %}
 			    {% set dynamic_class =   item.title|replace({ ' ' : '-' }) %}
                     {% set dynamic_class =   dynamic_class|lower %}
+				{% if item.title == 'logo' %}
+				<li class="menu-item hidden-sm hidden-xs {{ dynamic_class }}"><img src="" >
+				{% else %}
 				{% if item.below %}
 					{% if menu_level == 0 %}
 						<li role="menuitem" aria-haspopup="true" class = "{{ dynamic_class }}">
@@ -29,8 +32,10 @@
 							<a href="{{ item.url }}">{{ item.title }}</a>{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 						</li>
 					{% endif %}
+				
 				{% else %}
 					<li role="menuitem" class = "{{ dynamic_class }}" {{ item.attributes }}>{{ link(item.title, item.url) }}</li>
+				{% endif %}
 				{% endif %}
 			{% endfor %}
 			</div>
