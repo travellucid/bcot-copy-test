@@ -1,5 +1,4 @@
-<nav class="menu hidden-xs hidden-sm" role="navigation" aria-label="Main menu">
-	
+<nav class="menu hidden-xs hidden-sm wine-filters-desktop" role="navigation" aria-label="Main menu">
 		<ul class="nav level-1 list-reset" role="menubar" aria-hidden="false">
 			<li role="menuitem" aria-haspopup="true"><a href="#" data-category-filter="all-data" class="filter-item">ALL WINES</a></li>
 			{% for key, filter in filters %}  		
@@ -21,12 +20,11 @@
 					<div>
 						{% for subfilter_key, subfilter in filter %}
 						<li role="menuitem"><a href="#" data-category="{{ key }}" data-category-filter="{{ subfilter_key }}" class="filter-item"> {{ subfilter_key |upper }}</a></li>
-						{% endfor %}		
+						{% endfor %}
 					</div>
 				</ul>
 			</li>
 			{% else %}
-
 			<li role="menuitem" aria-haspopup="true">
 				<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey |upper}} <span class="expand-icon" data-toggle="dropdown"></span></a>
 				<ul class="level-2 list-reset" data-test="true" aria-hidden="true" role="menu">
@@ -36,21 +34,20 @@
 							<p>{{ subfilter_key }}</p>
 							{% for foodmatchkey, foodmatchvalue in subfilter %}
 							<a href="#" data-category="food_matches" data-category-filter="{{ foodmatchvalue }}" class="filter-item sub-nav-item">{{ foodmatchvalue |upper }}</a>
-							{% endfor %}	
+							{% endfor %}
 						</li>
-						{% endfor %}		
+						{% endfor %}
 					</div>
 				</ul>
 			</li>
-              {% endif %}			 
+			  {% endif %}
 			{% endfor %}
 		</ul>
-	
 </nav>
 
 
 
-<section id="mobile-filters-wrapper" class="hidden-md hidden-lg">
+{#<section id="mobile-filters-wrapper" class="hidden-md hidden-lg">
 	<button id="open-filters">FILTERS</button>
 	<div id="mobile-filters">
 		<button id="close-filters">close filters</button>
@@ -99,7 +96,82 @@
 		</div>
 	</div>
 </section>
+#}
 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+<section id="mobile-filters-wrapper" class="hidden-md hidden-lg">
+    <button id="open-filters">FILTERS</button>
+    <div id="mobile-filters" class="mobile-only">
+        <button id="close-filters">Close filters</button>
+        <h2>FILTERS</h2>
+        <div id="mobile-filters-scroll-wrapper">
+            <ul class="categories nav">
+                {% for key, filter in filters %}
+                    {% if key == 'range' %}
+                        {% set newkey = 'Ranges' %}
+                    {% elseif key == 'wine_type' %}
+                        {% set newkey = 'Wine Types' %}
+                    {% elseif key == 'varietals' %}
+                        {% set newkey = 'Varietals' %}
+                    {% elseif key == 'food_mathces' %}
+                        {% set newkey = 'Food Matches' %}
+                    {% else %}
+                        {% set newkey = key %}
+                    {% endif %}
+                    {% if key != 'food_matches' %}
+                        <li><a href="#" class="category" data-level="1">{{ newkey |upper}}</a>
+                            <ul class="sub-categories">
+                                <li><a href="#" class="sub-nav-return" data-level="1">{{ newkey |upper}}</a></li>
+                                    {% for subfilter_key, subfilter in filter %}
+                                    <li><a href="#" data-category="{{ key }}" data-category-filter="{{ subfilter_key }}" class="filter-item">{{ subfilter_key }}</a></li>
+                                   
+                                    {% endfor %}
+                            </ul>
+                        </li>
+
+                    {% else %}
+
+                        <li><a href="#" class="category" data-level="1">{{ newkey |upper }}</a>
+                            <ul class="sub-categories">
+                                <li><a href="#" class="sub-nav-return" data-level="1">{{ newkey |upper }}</a></li>
+                                {% for subfilter_key, subfilter in filter %}
+                                <li>
+                                    <a href="#" class="category" data-level="2">{{ subfilter_key }}</a>
+                                    <ul class="sub-categories">
+                                        <li><a href="#" class="sub-nav-return" data-level="2">{{ subfilter_key }}</a></li>
+                                        <li>
+                                            <a href="#" class="category" data-level="3">{{ subfilter_key }}</a>
+                                            <ul class="sub-categories">
+                                                <li><a href="#" class="sub-nav-return" data-level="3">{{ subfilter_key }}</a></li>
+                                                {% for foodmatchkey, foodmatchvalue in subfilter %}
+                                                
+                                                <li><a href="#" data-category="{{ key }}" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a></li>
+                                                
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                 {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                <li><a href="#" data-category-filter="all-data" class="filter-item">ALL WINES</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
 
 
 <section id="product-grid">
@@ -131,3 +203,10 @@
 		{% endfor %}
 	</div>
 </section>
+        
+        
+        
+        
+        
+        
+        
