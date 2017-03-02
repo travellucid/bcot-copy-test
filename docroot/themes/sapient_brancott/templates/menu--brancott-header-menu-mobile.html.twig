@@ -36,7 +36,17 @@
                                         </li>
                                     {% endif %}
                                 {% else %}
-                                    <li>{{ link(item.title, item.url) }}</li>
+                                     {% if menu_level == 0 %}
+                                         <li>{{ link(item.title, item.url) }}</li>
+                                         {% else %}
+                                         {% if loop.first %}
+                                            <li><a class="sub-nav-return" data-level="1" href="#">{{ item.title }}</a></li>
+                                            <li>{{ link(item.title, item.url) }}</li>
+                                            {% else %}
+                                            <li>{{ link(item.title, item.url) }}</li>
+                                          {% endif %}
+                                         {% endif %}
+                                    
                                     {% endif %}
                                 {% endfor %}
                         </ul>
