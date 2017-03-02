@@ -1,0 +1,51 @@
+<div class="enquire-form">
+	<div class="form-details">
+		<h2>Book a table</h2>
+		<p class="form-info">We’d love to tailor a package for you and your guests. Please get in touch using the form below and we’ll get back to you as soon as possible.</p>
+		<span class="form-guidelines header_e">All fields marked * are required.</span>
+	</div>	
+	<div class="error-msg" id="errMsg">
+		<div class="header_e">One or more required fields were not filled out correctly:</div>
+		<ol class="messages header_g"></ol>
+	</div>	
+	<form {{form.attributes }}>
+	      {{ form.form_build_id }}
+                    {{ form.form_token }}
+                    {{ form.form_id }}
+                    {{ form.subject }}
+                    {{ form.message }}
+		<div class="col-md-12 col-xs-12 col-sm-12 group ">
+			{{ form.elements.name }}
+			
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group ">
+			{{ form.elements.phone_number }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group ">
+			{{ form.elements.email_address }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			{{ form.elements.type_of_function }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
+			{{ form.elements.no_of_people }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group date-wrapper">
+			{{ form.elements.preferred_date }}
+			<span class="calender-icon"></span>
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group time-wrapper">
+			{{ form.elements.preferred_time }}
+		</div>
+		<div class="col-md-12 col-xs-12 col-sm-12 group other-information">
+			{{ form.elements.any_other_information }}
+		</div>
+		<div class="submit-info col-md-12 col-xs-12 col-sm-12  ">
+		{{ form.elements.yes_sign_me_up_to_exclusive_news_events_offers_ }}
+		
+			{{ form.actions.submit }}
+		
+	    </div>
+	</form>
+	
+</div>
