@@ -14,6 +14,9 @@ var sapient = sapient || {}; // core sapient
 $(document).ready(function() {
   // Setup the a11y nav
 	$('.nav').setup_navigation();
+
+	$('li.logo').prevAll().addClass("previous");
+	$('li.logo').nextAll().addClass("next");
   
   // RWD Nav Pattern
   $('body').addClass('js');
@@ -214,7 +217,7 @@ $.fn.setup_navigation = function(settings) {
 		}
 	});
 
-  //$(document).click(function(){ $('.'+settings.menuHoverClass).attr('aria-hidden', 'true').removeClass(settings.menuHoverClass).find('a').attr('tabIndex',-1); });
+  $(document).click(function(){ $('.'+settings.menuHoverClass).attr('aria-hidden', 'true').removeClass(settings.menuHoverClass).find('a').attr('tabIndex',-1); });
 	
 	$(this).click(function(e){
 		e.stopPropagation();

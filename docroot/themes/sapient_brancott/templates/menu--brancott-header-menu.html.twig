@@ -25,7 +25,7 @@
 				{% if item.below %}
 					{% if menu_level == 0 %}
 						<li role="menuitem" aria-haspopup="true" class = "{{ dynamic_class }}">
-							<a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+							<a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.title }} <span class="expand-icon"></span></a>{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 						</li>
 					{% else %}
 						<li role="menuitem" class = "{{ dynamic_class }}">
