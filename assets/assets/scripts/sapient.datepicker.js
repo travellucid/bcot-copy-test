@@ -46,7 +46,7 @@ var datePickerObj = (function($, window, sapient) {
 			
 			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
 
-				$(this).trigger('blur');
+				$(this).blur();
 
 				if($windowWidth > 1281) {
 					$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
