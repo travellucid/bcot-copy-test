@@ -414,9 +414,9 @@ var carouselObj = (function($, window, sapient) {
 			},
 
 			enableVidControlsAndroid = function() {
-				if (navigator.userAgent.indexOf('Android') >=0) {
+				/*if (navigator.userAgent.indexOf('Android') >=0) {
 					$(".carousel-inner video").attr("controls","");
-				}
+				}*/
 			},
 
 			onResize = function() {
@@ -435,26 +435,32 @@ var carouselObj = (function($, window, sapient) {
 						$(this).siblings().find(".fallback-image").show();
 						return false;
 					}
-
-					if($(window).scrollTop() > (vidPos.top - vid.height()) && $(window).scrollTop() < (vidPos.top + vid.height())){
-						if(!vid.parents(".item").hasClass("active")){
-							vid.get(0).pause();
-							return false;
-						}
-
-						vid.get(0).play();
-						vid.on("timeupdate", function () {
-							if(this.currentTime >= vid.get(0).duration) {
-								this.currentTime = 0.0;
+					
+					try {
+							if($(window).scrollTop() > (vidPos.top - vid.height()) && $(window).scrollTop() < (vidPos.top + vid.height())){
+							if(!vid.parents(".item").hasClass("active")){
+								vid.get(0).pause();
+								return false;
 							}
-						});
-						/*else {
+
+							vid.get(0).play();
+							vid.on("timeupdate", function () {
+								if(this.currentTime >= vid.get(0).duration) {
+									this.currentTime = 0.0;
+								}
+							});
+							/*else {
+								vid.get(0).pause();
+							}*/
+						}
+						else{
 							vid.get(0).pause();
-						}*/
+						}	
 					}
-					else{
-						vid.get(0).pause();
-					}	
+					catch(err) {
+						$(this).siblings().find(".fallback-image").show();
+					}
+					
 			},
 
 			bindSlideEvent = function(id) {
