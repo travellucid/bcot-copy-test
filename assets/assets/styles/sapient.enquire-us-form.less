@@ -58,6 +58,7 @@
 	} 
 
 	.group {
+		height: 42px;
 		margin-bottom: 40px;
 		position: relative;
 	}
@@ -176,6 +177,26 @@
 		}
 	}
 	
+	.other-information {
+		margin-bottom: 30px;
+		span.header_g {
+			color: @dark-gray;
+			display: block;
+		}
+
+		.detail-info {
+			font-family: "NeutraText Book";
+			border: none;
+			border-bottom: 2px solid @dark-gray;
+			resize: vertical;
+			width: 100%;
+
+			&:focus {
+				outline:none;
+			}
+		}
+	}
+
 	.submit-info {
 		padding: 0 15px 100px;
 		text-align: center;
