@@ -109,7 +109,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
          
 		  
 		  //$botl_images[] = $range_titles;
-		  //print_r($botl_images);die;
+		 
+		  
       }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
