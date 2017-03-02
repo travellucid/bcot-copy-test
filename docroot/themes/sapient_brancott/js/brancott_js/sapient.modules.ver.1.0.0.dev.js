@@ -972,6 +972,7 @@ var validationObj = (function($, window, sapient) {
 
 
 			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
+			$(".enquire-form .other-information textarea").removeClass().addClass("detail-info header_e")
 			
 			$(".enquire-form input.brancott-form").on('focus',function() {
 
