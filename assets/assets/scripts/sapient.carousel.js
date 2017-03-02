@@ -43,7 +43,8 @@ var carouselObj = (function($, window, sapient) {
 
 			},
 
-			playPauseVideo = function() {	
+			playPauseVideo = function() {
+		
 					var vid = $(".carousel-inner video"),
 						vidPos = vid.offset();
 
@@ -52,8 +53,7 @@ var carouselObj = (function($, window, sapient) {
 						return false;
 					}
 					
-					try {
-							if($(window).scrollTop() > (vidPos.top - vid.height()) && $(window).scrollTop() < (vidPos.top + vid.height())){
+					if($(window).scrollTop() > (vidPos.top - vid.height()) && $(window).scrollTop() < (vidPos.top + vid.height())){
 							if(!vid.parents(".item").hasClass("active")){
 								vid.get(0).pause();
 								return false;
@@ -72,10 +72,7 @@ var carouselObj = (function($, window, sapient) {
 						else{
 							vid.get(0).pause();
 						}	
-					}
-					catch(err) {
-						$(this).siblings().find(".fallback-image").show();
-					}
+				
 					
 			},
 
@@ -175,3 +172,24 @@ sapient.carousel.onResize();
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
 sapient.carousel.enableVidControlsAndroid();
+function failed(e) {
+		// video playback failed - show a message saying why
+		switch (e.target.error.code) {
+		    case e.target.error.MEDIA_ERR_ABORTED:
+		        alert('You aborted the video playback.');
+		        break;
+		    case e.target.error.MEDIA_ERR_NETWORK:
+		        alert('A network error caused the video download to fail part-way.');
+		        break;
+		    case e.target.error.MEDIA_ERR_DECODE:
+		        alert('The video playback was aborted due to a corruption problem or because the video used features your browser did not support.');
+		        break;
+		    case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+		        alert('The video could not be loaded, either because the server or network failed or because the format is not supported.');
+		        break;
+		    default:
+		        alert('An unknown error occurred.');
+		        break;
+		}
+
+		}
