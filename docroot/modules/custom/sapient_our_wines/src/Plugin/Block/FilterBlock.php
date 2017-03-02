@@ -142,7 +142,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
 
     $indexed_range_details = array_values($range_details);
     $filters = $final_array['filters'];
-    //print_r($indexed_range_details);exit;
+    print_r($indexed_range_details);exit;
 
     return array(
       '#theme' => 'sapient_our_wines_block',
