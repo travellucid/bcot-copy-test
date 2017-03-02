@@ -53,7 +53,7 @@
             <h3 class="header_d date-time">{{ current_date }}</h3>
             <div class="temp-wrapper">
                 <img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
-                <span class="temperature">{{ current_temp | e}}{{ temp_unit }}</span>
+                <span class="temperature">{{ current_temp | e}}{{ temp_unit | lower}}</span>
             </div> 
             <p>{{ climate_desc }}</p>
         {% endif %}	
