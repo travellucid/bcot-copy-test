@@ -1,17 +1,31 @@
 header.navbar {
+	background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
 	border-radius: 0;
 	position: fixed;
+	top: 0;
 	width: 100%;
+	z-index: 100;
 
 	&:hover {
 		background-color: #fff;
 	}
 
+	&:hover,
 	&.white-background {
+		box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+
 		nav[role="navigation"] {
 			.nav {
 				a {
 					color: #3e464b;
+					padding: 33px 0;
+
+					&:hover,
+					&:focus {
+						color: #d50032;
+					}
 				}
 			}
 		}
@@ -32,6 +46,7 @@ nav[role="navigation"] {
 		a {
 			color: #ffffff;
 			font-size: 14px;
+			text-shadow: 0 1px 0 rgba(255,255,255,.25);
 			&:hover,
 			&:focus {
 				background-color: transparent;
@@ -42,7 +57,7 @@ nav[role="navigation"] {
 	/* Dropdowns */
 	.nav ul {
 		position: absolute;
-		top: 60px;
+		top: 86px;
 		left: -9999px;
 		opacity: 0;
 		transition: 0.1s linear opacity;
@@ -58,7 +73,7 @@ nav[role="navigation"] {
 	}
 	/* Top level nav items */
 	.nav li > a {
-		color: #3e464b;
+		color: #ffffff;
 		display: block;
 		padding: 20px 15px;
 		text-decoration: none;
@@ -77,6 +92,12 @@ nav[role="navigation"] {
 		box-shadow: 2px 2px 4px #cccccc;
 		left: 0;
 		opacity: 1;
+		padding: 0;
+
+		a {
+			color: #3e464b;
+		}
+
 		& > div {
 			background-color: #ffffff;
 			display: inline-block;

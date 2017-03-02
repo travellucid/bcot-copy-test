@@ -113,7 +113,7 @@ var headerObj = (function($, window, sapient) {
 			$("header").hover(function() {
 					$("#navbar-header").addClass('semi-solid-menu solid-menu');
 
-					$("header").removeClass("white-background");
+					//$("header").removeClass("white-background");
 				},
 				function(){
 					$("#navbar-header").removeClass('solid-menu');
