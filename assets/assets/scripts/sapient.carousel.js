@@ -33,7 +33,9 @@ var carouselObj = (function($, window, sapient) {
 				/*if (navigator.userAgent.indexOf('Android') >=0) {
 					$(".carousel-inner video").attr("controls","");
 				}*/
-				if($(window).width() < 990) {
+				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+					isAndroid =navigator.userAgent.indexOf('Android') >=0
+				if(isIOS || isAndroid) {
 					$(".fallback-image").show();
 					$(".our-story-video").hide();					
 				}
