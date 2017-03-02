@@ -37,6 +37,7 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   }
   if ($form_id == 'node_tours_and_experiences_edit_form' or $form_id == 'node_tours_and_experiences_form') {
     $form['#validate'][] = 'character_limitation_tours_and_experiences';
+		
   }
   if ($form_id == 'node_wines_edit_form' or $form_id == 'node_wines_form') {
     $form['#validate'][] = 'character_limitation_wines_page';
@@ -202,6 +203,7 @@ function _menu_item_limitation_get_item_count($menu_name) {
   }
 }
 
+
 function character_limitation_vineyard_page($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
   $values = $form_state->getValues();
@@ -366,7 +368,8 @@ function character_limitation_homepage($form, \Drupal\Core\Form\FormStateInterfa
 
 function character_limitation_tours_and_experiences($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
-
+  
+  
   if (strlen($values['field_rezdy_block_collection'][0]['field_rezdy_block_description'][0]['value']) > 500) {
     $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_description', 'Max length for this field is 30 characters.');
   }
