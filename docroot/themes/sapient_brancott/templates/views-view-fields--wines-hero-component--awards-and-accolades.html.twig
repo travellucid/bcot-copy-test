@@ -1,3 +1,5 @@
+{%set total_count =  wine_award|length %}
+{% if (total_count > 0) %}
 <div class="awards-accolades">
     <div class="heading-image-wrapper">
         <picture>
@@ -10,7 +12,6 @@
         <h2 class="header_b">{{ fields.field_award_title.content }}</h2>
     </div>
     <div class="list-wrapper">
-        {%set total_count =  wine_award|length %}
         {% if (total_count > 3) %}
             {%set pending_count =  (total_count - 3) %}
         {% endif %}
@@ -40,3 +41,4 @@
     </div>
         {% endif %}    
 </div>
+{% endif %}

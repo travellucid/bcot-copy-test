@@ -14,6 +14,9 @@ var sapient = sapient || {}; // core sapient
 $(document).ready(function() {
   // Setup the a11y nav
 	$('.nav').setup_navigation();
+
+	$('li.logo').prevAll().addClass("previous");
+	$('li.logo').nextAll().addClass("next");
   
   // RWD Nav Pattern
   $('body').addClass('js');
@@ -65,6 +68,12 @@ $.fn.setup_navigation = function(settings) {
 		$(this).next('ul')
 			.attr('aria-hidden', 'false')
 			.addClass(settings.menuHoverClass)
+			.find('a').attr('tabIndex',0);
+	},
+	function(){
+		$(this).next('ul')
+			.attr('aria-hidden', 'true')
+			.removeClass(settings.menuHoverClass)
 			.find('a').attr('tabIndex',0);
 	});
 
@@ -221,7 +230,7 @@ var datePickerObj = (function($, window, sapient) {
 		var bindDatePicker = function() {
 			$(".date").datetimepicker({
 				maxDate:'2020/01/01',
-				format:'YYYY-MM-DD'
+				format:'DD-MM-YYYY'
 			}).find('input:first').on("blur",function () {
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
@@ -235,7 +244,10 @@ var datePickerObj = (function($, window, sapient) {
 				$(this).val(date);
 			});
 			
-			
+			$(".fa-clock-o").closest(".picker-switch").hide();
+			$(".table-condensed .next").html("");
+			$(".table-condensed .prev").html("");
+
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
 				sapient.datepicker.positionCalender();
@@ -246,27 +258,24 @@ var datePickerObj = (function($, window, sapient) {
 				debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");
 			});
 			
-			$(".enquire-form input.brancott-form").on('focus',function() {
-				
-				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
-				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow");  
 
-			}); 
-			
-			$(".enquire-form input.brancott-form").on('focusout',function(){
-
-				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
-
+			$(".enquire-form .date-wrapper .date").on("change", function() {
+				$(" .bootstrap-datetimepicker-widget").hide();
 			});
+
  
 		},
 
 		positionCalender = function() {
+			var iconPos = $(".calender-icon").offset();
 			
-			if(($(".bootstrap-datetimepicker-widget ").css("display") === "block") && ($windowWidth > 1281)) {
-				
-				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left );
+			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+
+				$(this).blur();
+
+				if($windowWidth > 1281) {
+					$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
+				}
 			}
 			
 			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
@@ -692,7 +701,7 @@ var headerObj = (function($, window, sapient) {
 			$("header").hover(function() {
 					$("#navbar-header").addClass('semi-solid-menu solid-menu');
 
-					$("header").removeClass("white-background");
+					//$("header").removeClass("white-background");
 				},
 				function(){
 					$("#navbar-header").removeClass('solid-menu');
@@ -877,6 +886,22 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			mobileFiltersMenu = function() {
+
+				$("#open-navigation").on("click", function() {
+					$("#mobile-navigation").addClass("navigation-active");
+					$(this).addClass("navigation-activated");
+					var navTop = $("#mobile-navigation h2").outerHeight();
+					$("#mobile-navigation-scroll-wrapper").css({ "height": $(window).height() - navTop });
+				});
+
+				$("#close-navigation").on("click", function() {
+					$("#mobile-navigation").removeClass("navigation-active");
+					$(".iamalive").removeClass("iamalive");
+					$("ul.nav.categories").css("left", "");
+					$("#mobile-navigation-scroll-wrapper").removeAttr("style");
+					$("#open-navigation").removeClass("navigation-activated");
+				});
+
 				$("#open-filters").on("click", function() {
 					$("#mobile-filters").addClass("filters-active");
 					$(this).addClass("filters-activated");
@@ -992,13 +1017,30 @@ var validationObj = (function($, window, sapient) {
 				$select = $(".enquire-form .group select");
 
 
-			$(".fa-clock-o").closest(".picker-switch").hide();
-			$(".table-condensed .next").html("");
-			$(".table-condensed .prev").html("");
 			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
+			$(".enquire-form .other-information textarea").removeClass().addClass("detail-info header_e")
 			
+			$(".enquire-form input.brancott-form").on('focus',function() {
 
-			$input.focusout(function(){
+				$(this).removeClass("error-border");
+				$(this).siblings('label').removeClass("error");
+				
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow");  
+
+			}); 
+			
+			$(".enquire-form input.brancott-form").on('focusout',function(){
+
+				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+
+				
+
+			});
+
+			$input.each(function() {
+
 				if($(this).val().length !== 0) {
 					
 					$(this).siblings('label').addClass("text-entered");
@@ -1007,8 +1049,9 @@ var validationObj = (function($, window, sapient) {
 					
 					$(this).siblings('label').removeClass("text-entered");
 				}
-			});
+			})
 			
+						
 			$(".enquire-form .submit-info .submit-btn").click(function() {
 				
 				$("#errMsg .messages").html("");
@@ -1039,6 +1082,7 @@ var validationObj = (function($, window, sapient) {
 
 				});
 
+
 				$.each($select, function(index) {
 
 					if ($select[index].value == "") {
@@ -1051,6 +1095,7 @@ var validationObj = (function($, window, sapient) {
 					}
 
 					selectarr.push($select[index].value);
+
 				});
 
 				if (msgarr.length !== 0) {
@@ -1059,10 +1104,12 @@ var validationObj = (function($, window, sapient) {
 					$("#errMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
-						$("#errMsg .messages").append('<span class="msg">' + msgarr[index] + '</span>');
+						$("#errMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
 					});
+
 				}
 				else {
+
 					$("#errMsg").css('display', 'none');
 
 				}
@@ -1084,8 +1131,18 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				if (!checked) {
+
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
+					$(".enquire-form input[type=checkbox] + label").addClass("error");
+					return false;
+
 				} 
+				else {
+
+					$(".enquire-form input[type=checkbox] + label").removeClass("change");
+					$(".enquire-form input[type=checkbox] + label").removeClass("error");
+
+				}
 				return true;			
 			});
 		};

@@ -1,6 +1,9 @@
 $(document).ready(function() {
   // Setup the a11y nav
 	$('.nav').setup_navigation();
+
+	$('li.logo').prevAll().addClass("previous");
+	$('li.logo').nextAll().addClass("next");
   
   // RWD Nav Pattern
   $('body').addClass('js');
@@ -52,6 +55,12 @@ $.fn.setup_navigation = function(settings) {
 		$(this).next('ul')
 			.attr('aria-hidden', 'false')
 			.addClass(settings.menuHoverClass)
+			.find('a').attr('tabIndex',0);
+	},
+	function(){
+		$(this).next('ul')
+			.attr('aria-hidden', 'true')
+			.removeClass(settings.menuHoverClass)
 			.find('a').attr('tabIndex',0);
 	});
 
