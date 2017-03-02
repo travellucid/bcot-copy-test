@@ -34,11 +34,11 @@ var carouselObj = (function($, window, sapient) {
 					$(".carousel-inner video").attr("controls","");
 				}*/
 				if($(window).width() < 990) {
-					$(".fallback-gif").show();
+					$(".fallback-image").show();
 					$(".our-story-video").hide();					
 				}
 				else {
-					$(".fallback-gif").hide();
+					$(".fallback-image").hide();
 					$(".our-story-video").show();
 				}
 			},
