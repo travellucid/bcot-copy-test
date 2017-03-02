@@ -165,7 +165,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['temp_icon'] = $base_url . $basepath . '/css/images\season_icons/' . $icon_id . '.svg';
           $variables['current_temp'] = round(html_entity_decode($weather->temperature->now));
           $variables['temp_unit'] = html_entity_decode($weather->temperature->getUnit());
-          $variables['current_date'] = date('d M Y / g:ia');
+          $variables['current_date'] = date('j M Y / g:ia');
         }
       }
     case 'wines_hero_component':

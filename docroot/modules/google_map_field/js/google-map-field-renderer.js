@@ -25,18 +25,35 @@ var google_map_field_map;
           navigationControl: false,
           mapTypeControl: false,
           scaleControl: false,
-          draggable: false
+          draggable: false,
+          style: [
+             {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
 
         google.maps.event.trigger(google_map_field_map, 'resize')
         google_map_field_map.panBy(-200, 100);
         var markerIcon = {
-          //url: 'http://image.flaticon.com/icons/svg/252/252025.svg',
-          scaledSize: new google.maps.Size(80, 80),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(32, 65),
-          labelOrigin: new google.maps.Point(40, 35)
+          url: 'http://image.flaticon.com/icons/svg/252/252025.svg',
+          scaledSize: new google.maps.Size(40, 40),
+          //origin: new google.maps.Point(0, 0),
+          //anchor: new google.maps.Point(32, 65),
+          labelOrigin: new google.maps.Point(40, 45)
         };
         // Drop a marker at the specified position.
         marker = new google.maps.Marker({

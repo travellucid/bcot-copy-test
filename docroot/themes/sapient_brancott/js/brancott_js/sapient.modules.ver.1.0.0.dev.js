@@ -247,12 +247,14 @@ var datePickerObj = (function($, window, sapient) {
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
+			$(".enquire-form .date-wrapper input").attr('readonly','readonly');
 
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
 				sapient.datepicker.positionCalender();
 				
 			}); 
+
 		
 			$(window).on('resize', function() {
 				debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");

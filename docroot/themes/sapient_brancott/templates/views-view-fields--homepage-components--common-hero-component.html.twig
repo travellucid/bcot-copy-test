@@ -16,23 +16,23 @@
        </picture> -->
 
         <picture>
-          <source  class="triangle-right" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
+            <source  class="triangle-right" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
 
-          <source class="triangle-right" media="(max-width: 691px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
-          
-          <source class="triangle-right" media="(max-width: 991px)" srcset="{{ fields.field_hero_left_triangle_image.content }}">
-          
-          <source class="triangle-right" media="(max-width: 1401px)" srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
-          <img src="{{ fields.field_hero_left_triangle_image.content }}" alt="triangle image" class="triangle">
+            <source class="triangle-right" media="(max-width: 691px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
+
+            <source class="triangle-right" media="(max-width: 991px)" srcset="{{ fields.field_hero_left_triangle_image.content }}">
+
+            <source class="triangle-right" media="(max-width: 1401px)" srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
+            <img src="{{ fields.field_hero_left_triangle_image.content }}" alt="triangle image" class="triangle">
         </picture>
 
         <picture>
             <source  class="triangle-right" media="(max-width: 321px)"  srcset="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/_1x_grain-triangle-320.png"> 
-            
+
             <source class="triangle-right" media="(max-width: 691px)"  srcset="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/_1x_grain-triangle-691.png"> 
-            
+
             <source class="triangle-right" media="(max-width: 991px)" srcset="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/_1x_grain-triangle-991.png">
-            
+
             <source class="triangle-right" media="(max-width: 1401px)" srcset="http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/_1x_grain-triangle-1400.png"> 
 
 
@@ -53,7 +53,7 @@
             <h3 class="header_d date-time">{{ current_date }}</h3>
             <div class="temp-wrapper">
                 <img src="{{ temp_icon }}" alt ="" class="spring-icon"></img>
-                <span class="temperature">{{ current_temp | e}}{{ temp_unit }}</span>
+                <span class="temperature">{{ current_temp | e}}{{ temp_unit | lower}}</span>
             </div> 
             <p>{{ climate_desc }}</p>
         {% endif %}	
@@ -71,6 +71,6 @@
 </div>
 {% if (fields.field_video_youtube_link.content) %}
     <div>
-       {{ fields.field_video_youtube_link.content }}
+        {{ fields.field_video_youtube_link.content }}
     </div>
 {% endif %}
