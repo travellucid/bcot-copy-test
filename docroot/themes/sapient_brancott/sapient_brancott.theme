@@ -62,6 +62,56 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		$variables['range_details'] = $detail_array;
 		//print_r($detail_array);die;
       }
+	  case 'our_wines':
+	
+      if ($variables['view']->current_display == 'block_2') {
+		  $details = getRangeDetailsFiltered();
+		 // print_r($details);die;
+          
+		  $field_collection = $variables['row']->_entity->field_range_selection->getValue();
+		  $field_collection_ids= array();
+		  foreach($field_collection as $collection){
+          //$field_collection_ids[] = $collection['value'];
+		  $fc = \Drupal\field_collection\Entity\FieldCollectionItem::load($collection['value']);
+          $range_id =  $fc->field_range->getValue();
+		  $range_id = $range_id[0]['target_id'];
+		  $node_load_range = \Drupal\node\Entity\Node::load($range_id);
+		  $bkg_color =  $node_load_range->field_ranges_background_color->value;
+		  $range_title =  $node_load_range->title->value;
+		  foreach($details as $key => $detail){
+				 if($range_title == $detail->title){
+					 $range_title_api = $detail->title;
+					 $range_desc_api = $detail->description;
+				 }
+		  }
+		  //print_r($botl_images);die;
+		  $wine_ids =  $fc->field_wines->getValue();
+		           foreach($wine_ids as $wine_id){
+					   $wine_id_new = $wine_id['target_id'];
+					   $node_load_wine = \Drupal\node\Entity\Node::load($wine_id_new);
+		  
+		               $wine_image_target = $node_load_wine->field_wine_bottle_image->target_id;
+		               $wine_image_file = \Drupal\file\Entity\File::load($wine_image_target);
+		               if($wine_image_file){
+                       $wine_image_url = file_create_url($wine_image_file->getFileUri());
+		               $botl_images[$collection['value']]['wine_img'][] = $wine_image_url;
+					   //$botl_images['range_bkg'][] = $bkg_color;
+		            }
+		           }
+				   $botl_images[$collection['value']]['wine_bkg_colr'] = $bkg_color;
+				   $botl_images[$collection['value']]['range_title'] = $range_title_api;
+				   $botl_images[$collection['value']]['range_desc']= $range_desc_api;
+		  
+          }
+		  $variables['wine_details'] = $botl_images;
+		// print_r(array_values($botl_images));die;
+		  
+         
+		  
+		  //$botl_images[] = $range_titles;
+		 
+		  
+      }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
         if ($variables['row']->_entity->field_city) {
