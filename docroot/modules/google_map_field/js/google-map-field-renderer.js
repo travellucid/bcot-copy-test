@@ -17,7 +17,7 @@ var google_map_field_map;
         var latlng = new google.maps.LatLng(lat, lon);
         var mapOptions = {
           zoom: zoom,
-          center: latlng+200,
+          center: latlng,
           streetViewControl: false,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           scrollwheel: false,
