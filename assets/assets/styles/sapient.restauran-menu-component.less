@@ -5,17 +5,17 @@
   .set-max-width(870px);
 
 .header_sect {
-    text-align: center;
-    color: @dark-gray;
-    width: 470px;
-    margin-bottom: 35px;
+	text-align: center;
+	color: @dark-gray;
+	width: 470px;
+	margin-bottom: 35px;
 }
 a {
   text-transform: uppercase;
 }
 .cta {
   &:hover {
-    border: 2px solid @bright-green;
+	border: 2px solid @bright-green;
   }
 }
 p {
@@ -29,11 +29,11 @@ p {
   text-align: center;
 }
 .cta-title {
-    margin-top: 30px;
-    margin-bottom: 10px;
+	margin-top: 30px;
+	margin-bottom: 10px;
 }
 .tagline {
-    margin-top: -10px;
+	margin-top: -10px;
 }
 
 .img-right {
@@ -49,115 +49,135 @@ p {
   table-layout: fixed;
   margin-bottom: 100px;
   .image-wrapper {
-    display: table-cell;
-    position: relative;
-    vertical-align: middle;
+	display: table-cell;
+	position: relative;
+	vertical-align: middle;
   }
   .header-cta-wrapper {
-    margin-top: -10px;
+	margin-top: -10px;
   }
   .content-wrapper {
-    /*padding: 0 50px;*/
-    display: table-cell;
-    vertical-align: middle;
-    width: 66%;
+	/*padding: 0 50px;*/
+	display: table-cell;
+	vertical-align: middle;
+	width: 66%;
 
-    h3 {
-      color: @dark-gray;
-      font-size: 14px;
-      margin-top: -15px;
-      text-transform: uppercase;
-    }
+	h3 {
+	  color: @dark-gray;
+	  font-size: 14px;
+	  margin-top: -15px;
+	  text-transform: uppercase;
+	}
   }
   
   &.img-right {
-    .content-wrapper {
-      /*padding-left: 53px;*/
-      position: relative;
-      left: 118px;
-    }
-    .image-wrapper {
-      /*width: 75%;*/
-      img {
-        transform: translateX(50%);
-      }
-    }
+	.content-wrapper {
+	  /*padding-left: 53px;*/
+	  position: relative;
+	  left: 118px;
+	}
+	.image-wrapper {
+	  /*width: 75%;*/
+	  img {
+		transform: translateX(50%);
+	  }
+	}
   }
 }
 
 @media screen and (max-width: @bp-large-mobile-to-table-landscape) {
   .desktop-only {
-      display: none !important;
-    }
+	  display: none !important;
+	}
 
-    .img-right {
-      right: 0;
-    }
+	.img-right {
+	  right: 0;
+	}
 
   .section-class {
-    margin-left: 15px;
-    margin-right: 15px;
-    background-color: transparent;
-    display: block;
-    padding: 0;
-    text-align: center;
-    .header-cta-wrapper {
-      margin-top: 0;
-    }
+	margin-left: 15px;
+	margin-right: 15px;
+	background-color: transparent;
+	display: block;
+	padding: 0;
+	text-align: center;
+	.header-cta-wrapper {
+	  margin-top: 0;
+	}
 
-    .tagline {
-      padding: 0 10px;
-    }
+	.tagline {
+	  padding: 0 10px;
+	}
 
-    .image-wrapper {
-      display: block;
-      width: 100%;
+	.image-wrapper {
+	  display: block;
+	  width: 100%;
 
-      img {
-        width: 100%;
-      }
-    }
+	  img {
+		width: 100%;
+	  }
+	}
 
-    .header_sect {
-      padding-top: 50px;
-      width: 100%;
-    }
+	.header_sect {
+	  padding-top: 50px;
+	  width: 100%;
+	}
 
-    .content-wrapper {
-      padding: 0;
-      display: block;
-      width: 100%;
-      background-color: #ffffff;
-      padding-bottom: 30px;
-    }
+	.content-wrapper {
+	  padding: 0;
+	  display: block;
+	  width: 100%;
+	  background-color: #ffffff;
+	  padding-bottom: 30px;
+	}
 
-    &.img-right {
-      .content-wrapper {
-        padding-left: 3px;
-        left: 0;
-      }
-      .image-wrapper {
-        img {
-          transform: none;
-        }
-      }
-    }
+	&.img-right {
+	  .content-wrapper {
+		padding-left: 3px;
+		left: 0;
+	  }
+	  .image-wrapper {
+		img {
+		  transform: none;
+		}
+	  }
+	}
   }
 }
 }
 
 @media screen and (max-width: @bp-max-mobile) {
   #restauran-menu-component {
-    a {
-      min-width: 170px;
-    }
+	a {
+	  min-width: 170px;
+	}
   }
 }
 
 @media screen and (min-width: 991px) {
   #restauran-menu-component {
-    .mobile-only {
-      display: none !important;
-    }
+	.mobile-only {
+	  display: none !important;
+	}
   }
+}
+
+@media screen and (min-width: 980px) and (max-width: 1200px) {
+	
+	#restauran-menu-component {
+	  	.section-class {
+			&.img-right {
+			    .image-wrapper {
+					img {
+				  		transform: translateX(24%);
+					}
+					&.mobile-only {
+						display: none !important;
+					}
+			    }
+
+			}
+		}
+	}
+
 }
