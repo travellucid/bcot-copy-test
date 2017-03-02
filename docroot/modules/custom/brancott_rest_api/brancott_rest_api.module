@@ -121,6 +121,7 @@ function braoncott_rest_api_get_ranges() {
 }
 function braoncott_rest_api_get_ranges_details() {
   $value = getRangeDetails();
+  //print_r($value);die;
   return $value;
 }
 
