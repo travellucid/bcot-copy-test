@@ -33,12 +33,14 @@ var carouselObj = (function($, window, sapient) {
 				/*if (navigator.userAgent.indexOf('Android') >=0) {
 					$(".carousel-inner video").attr("controls","");
 				}*/
-				if($(window).width() < 990) {
-					$(".fallback-gif").show();
+				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+					isAndroid =navigator.userAgent.indexOf('Android') >=0
+				if(isIOS || isAndroid) {
+					$(".fallback-image").show();
 					$(".our-story-video").hide();					
 				}
 				else {
-					$(".fallback-gif").hide();
+					$(".fallback-image").hide();
 					$(".our-story-video").show();
 				}
 			},
@@ -70,7 +72,7 @@ var carouselObj = (function($, window, sapient) {
 
 							vid.get(0).play();
 							vid.on("timeupdate", function () {
-								if(this.currentTime >= vid.get(0).duration) {
+								if(this.currentTime >= Math.floor(vid.get(0).duration)) {
 									this.currentTime = 0.0;
 								}
 							});
