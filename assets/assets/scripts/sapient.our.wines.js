@@ -41,6 +41,22 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			mobileFiltersMenu = function() {
+
+				$("#open-navigation").on("click", function() {
+					$("#mobile-navigation").addClass("navigation-active");
+					$(this).addClass("navigation-activated");
+					var navTop = $("#mobile-navigation h2").outerHeight();
+					$("#mobile-navigation-scroll-wrapper").css({ "height": $(window).height() - navTop });
+				});
+
+				$("#close-navigation").on("click", function() {
+					$("#mobile-navigation").removeClass("navigation-active");
+					$(".iamalive").removeClass("iamalive");
+					$("ul.nav.categories").css("left", "");
+					$("#mobile-navigation-scroll-wrapper").removeAttr("style");
+					$("#open-navigation").removeClass("navigation-activated");
+				});
+
 				$("#open-filters").on("click", function() {
 					$("#mobile-filters").addClass("filters-active");
 					$(this).addClass("filters-activated");
