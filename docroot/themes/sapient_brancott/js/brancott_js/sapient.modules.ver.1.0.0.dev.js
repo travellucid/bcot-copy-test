@@ -426,12 +426,21 @@ var carouselObj = (function($, window, sapient) {
 				/*if (navigator.userAgent.indexOf('Android') >=0) {
 					$(".carousel-inner video").attr("controls","");
 				}*/
+				if($(window).width() < 990) {
+					$(".fallback-gif").show();
+					$(".our-story-video").hide();					
+				}
+				else {
+					$(".fallback-gif").hide();
+					$(".our-story-video").show();
+				}
 			},
 
 			onResize = function() {
 				
 				$(window).on('resize', function() {
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
+					debounce(sapient.carousel.enableVidControlsAndroid, 500, "resizing carouselIndicator");
 				});
 
 			},
