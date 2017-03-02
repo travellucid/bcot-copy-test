@@ -126,6 +126,7 @@ var validationObj = (function($, window, sapient) {
 
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
 					$(".enquire-form input[type=checkbox] + label").addClass("error");
+					return false;
 
 				} 
 				else {
