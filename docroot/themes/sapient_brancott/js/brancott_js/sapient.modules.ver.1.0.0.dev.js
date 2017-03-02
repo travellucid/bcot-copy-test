@@ -467,7 +467,7 @@ var carouselObj = (function($, window, sapient) {
 
 							vid.get(0).play();
 							vid.on("timeupdate", function () {
-								if(this.currentTime >= vid.get(0).duration) {
+								if(this.currentTime >= vid.get(0).duration - .3) {
 									this.currentTime = 0.0;
 								}
 							});
