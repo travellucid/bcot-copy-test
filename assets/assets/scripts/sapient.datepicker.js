@@ -22,7 +22,7 @@ var datePickerObj = (function($, window, sapient) {
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
-			$(".enquire-form .date-warpper input").attr('readonly','readonly');
+			$(".enquire-form .date-wrapper input").attr('readonly','readonly');
 
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
