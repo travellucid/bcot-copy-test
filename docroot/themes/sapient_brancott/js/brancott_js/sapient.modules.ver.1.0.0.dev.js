@@ -238,7 +238,7 @@ var datePickerObj = (function($, window, sapient) {
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
-			
+
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
 				sapient.datepicker.positionCalender();
@@ -260,9 +260,13 @@ var datePickerObj = (function($, window, sapient) {
 		positionCalender = function() {
 			var iconPos = $(".calender-icon").offset();
 			
-			if(($(".bootstrap-datetimepicker-widget ").css("display") === "block") && ($windowWidth > 1281)) {
-				
-				$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
+			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+
+				$(this).blur();
+
+				if($windowWidth > 1281) {
+					$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
+				}
 			}
 			
 			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
@@ -1005,6 +1009,12 @@ var validationObj = (function($, window, sapient) {
 				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 
+				
+
+			});
+
+			$input.each(function() {
+
 				if($(this).val().length !== 0) {
 					
 					$(this).siblings('label').addClass("text-entered");
@@ -1013,16 +1023,9 @@ var validationObj = (function($, window, sapient) {
 					
 					$(this).siblings('label').removeClass("text-entered");
 				}
-
-			});
-
-
+			})
 			
-			/*$(document).ready(function() {
-				$(".time-wrapper input").mask('00:00:00');
-			});*/
-
-			
+						
 			$(".enquire-form .submit-info .submit-btn").click(function() {
 				
 				$("#errMsg .messages").html("");
@@ -1066,6 +1069,7 @@ var validationObj = (function($, window, sapient) {
 					}
 
 					selectarr.push($select[index].value);
+
 				});
 
 				if (msgarr.length !== 0) {
@@ -1076,8 +1080,10 @@ var validationObj = (function($, window, sapient) {
 					$.each(msgarr, function(index) {
 						$("#errMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
 					});
+
 				}
 				else {
+
 					$("#errMsg").css('display', 'none');
 
 				}
@@ -1099,9 +1105,18 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				if (!checked) {
+
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
 					$(".enquire-form input[type=checkbox] + label").addClass("error");
+					return false;
+
 				} 
+				else {
+
+					$(".enquire-form input[type=checkbox] + label").removeClass("change");
+					$(".enquire-form input[type=checkbox] + label").removeClass("error");
+
+				}
 				return true;			
 			});
 		};

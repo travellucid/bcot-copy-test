@@ -24,11 +24,13 @@
 
 	.error-msg {
 		display: none;
-		padding-bottom: 27px;
+		padding-bottom: 35px;
 		text-align: center;
 
 		ol.messages {
+
 			list-style-type: none;
+			padding: 0;
 
 			li {
 
@@ -90,7 +92,7 @@
 	label {
 		color: @dark-gray;
 		position: absolute;
-		top: -6px;
+		top: -9px;
 		transition: 0.2s ease all;
 		-moz-transition: 0.2s ease all;
 		-webkit-transition: 0.2s ease all;
@@ -117,8 +119,9 @@
 	input:focus ~ label {
 		font-size: 12px;
 		line-height: 22px;
-		top: -16px ;
-	}	
+		top: -19px ;
+	}
+
 
 	.wrapper {
 		position : relative;
@@ -189,6 +192,7 @@
 			border: none;
 			border-bottom: 2px solid @dark-gray;
 			height: inherit;
+			overflow-y: hidden;
 			resize: vertical;
 			width: 100%;
 
@@ -208,10 +212,9 @@
 	
 		input[type=checkbox] + label {
 			cursor: pointer;
-			display: inline;
 			font-size: 14px;
 			line-height: 24px;
-			margin:0;
+			margin: -6px;
 			vertical-align: middle;
 
 			&:before {
@@ -332,7 +335,7 @@
 @media screen and (max-width: @bp-max-mobile) {
 	.enquire-form  {	  
 		label {
-			top: -7px;
+			top: -14px;
 			font-size: 12px;
 		}
 	}

@@ -13,6 +13,7 @@
 			<a href="{{ fields.field_hero_cta_thi.content }}" class="cta secondary-green light ">{{ fields.field_hero_cta_thi_1.content }}</a>
 		</div>
 	</div>
+	{%- if fields.field_hero_right_side_image.content -%}
  	<div class="hidden-sm hidden-xs hero-bottle-wrapper">
 		<picture>
 			<source class="hero-bottle" media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}"> 
@@ -21,6 +22,7 @@
 			<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
 		</picture>
 	</div>
+	{%- endif -%}
  </div>
  
  
