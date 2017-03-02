@@ -34,6 +34,7 @@ var google_map_field_map;
         marker = new google.maps.Marker({
           position: latlng,
           optimized: false,
+		  label: "Gaurav Pahuja",
           map: google_map_field_map
         });
 
