@@ -1,4 +1,5 @@
 <div class="section-class img-left">
+    <h2>{{ fields.field__tours_and_experience_main.content }}</h2>
 	<div class="image-wrapper">
 			<picture>
 				<source  media="(max-width: 321px)" srcset="{{ fields.field_image_1.content }}" class="background-image">   
@@ -9,7 +10,7 @@
 			</picture>
 		</div>
 	<div class="content-wrapper">
-	  <h2 class="header_b header_sect">{{ fields.field_title.content |capitalize |raw }}</h2>
+	  <h3 class="header_b header_sect">{{ fields.field_title.content }}</h3>
 	  <p class="tagline">{{ fields.field_description.content }}</p>
 	  <a href="{{ fields.field_rezdy_block_book_now.content }}" class="cta dark watch-video">{{ fields.field_rezdy_block_book_now_1.content }}</a>
 	</div>
