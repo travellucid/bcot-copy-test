@@ -5,7 +5,7 @@ var datePickerObj = (function($, window, sapient) {
 		var bindDatePicker = function() {
 			$(".date").datetimepicker({
 				maxDate:'2020/01/01',
-				format:'YYYY-MM-DD'
+				format:'DD-MM-YYYY'
 			}).find('input:first').on("blur",function () {
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
@@ -19,6 +19,9 @@ var datePickerObj = (function($, window, sapient) {
 				$(this).val(date);
 			});
 			
+			$(".fa-clock-o").closest(".picker-switch").hide();
+			$(".table-condensed .next").html("");
+			$(".table-condensed .prev").html("");
 			
 			$(".calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
@@ -30,27 +33,20 @@ var datePickerObj = (function($, window, sapient) {
 				debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");
 			});
 			
-			$(".enquire-form input.brancott-form").on('focus',function() {
-				
-				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
-				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow");  
 
-			}); 
-			
-			$(".enquire-form input.brancott-form").on('focusout',function(){
-
-				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
-
+			$(".enquire-form .date-wrapper .date").on("change", function() {
+				$(" .bootstrap-datetimepicker-widget").hide();
 			});
+
  
 		},
 
 		positionCalender = function() {
+			var iconPos = $(".calender-icon").offset();
 			
 			if(($(".bootstrap-datetimepicker-widget ").css("display") === "block") && ($windowWidth > 1281)) {
 				
-				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left );
+				$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
 			}
 			
 			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
