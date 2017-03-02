@@ -49,7 +49,7 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
 
       '#empty_value' => '',
       '#placeholder' => t('Remote Key'),
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     // title
@@ -58,11 +58,11 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
       '#type' => 'textfield',
       '#title' => t('Click to buy Console, text of the CTA'),
       '#default_value' => isset($items[$delta]->title) ? 
-          $items[$delta]->title : null,
+          $items[$delta]->title : 'BUY NOW',
       '#empty_value' => '',
       '#maxlength' => '20',
       '#placeholder' => t('Title'),
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#description' => t('Maximum character limit : 20'),
     ];
 
