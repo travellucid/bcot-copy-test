@@ -16,25 +16,27 @@
         {% endif %}
         {% for key, items in wine_award|slice(0, 3) %} 
             <div class="awards-details-wrapper">
-                <h3 class="header_g">{{ items.type }}</h3>
-                <span class="header_d">{{ items.awardedAt }} </span>
+                <h3 class="header_g">{{ items.awardTypes }}</h3>
+                <span class="header_d">{{ items.awardName }} </span>
                 <span class="header_g">VINTAGE: {{ items.vintage }} </span>
             </div>
         {% endfor %}
         {% if (total_count > 3) %}
             {% for key, items in wine_award|slice(3, pending_count) %} 
                 <div class="awards-details-wrapper hidden-details-wrapper">
-                    <h3 class="header_g">{{ items.type }}</h3>
-                    <span class="header_d">{{ items.awardedAt }} </span>
+                    <h3 class="header_g">{{ items.awardTypes }}</h3>
+                    <span class="header_d">{{ items.awardName }} </span>
                     <span class="header_g">VINTAGE: {{ items.vintage }} </span>
                 </div>
             {% endfor %}
         {% endif %}
     </div>
+    {% if (total_count > 3) %}
     <div class="see-more-btn-wrapper">	
         <button class="cta see-more-btn">
             See {{ pending_count }} more
             <span class ="btn-img"></span>
         </button>
-    </div>	
+    </div>
+        {% endif %}    
 </div>
