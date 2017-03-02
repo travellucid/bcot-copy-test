@@ -312,12 +312,18 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 function sapient_brancott_theme() {
   return array(
     'webform_submission_enquire_form_form' => array(
-	
-      'arguments' => array('test' => 'sanju','form' => NULL,),
+      'arguments' => array('form' => NULL,),
       'template' => 'enquire-form',
 	  //'variables' => array('form' => NULL,'test' => 'sanju', ),
       'render element' => 'form'
     ),
+	
+    'webform_submission_book_a_table_form' => array(
+      'template' => 'book-table-form',
+	  //'variables' => array('form' => NULL,'test' => 'sanju', ),
+      'render element' => 'form'
+    ),
+	
   );
 }
 

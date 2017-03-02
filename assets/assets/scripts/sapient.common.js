@@ -10,7 +10,7 @@ var commonObj = (function($, window, sapient) {
 			},
 
 			hideLinkText = function() {
-				$("footer section.social-icons nav ul li a").text("")
+				$("footer section.social-icons nav ul li a").text("");
 			},
 
 			toggleAwardsDetails = function() {
