@@ -41,8 +41,6 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			mobileFiltersMenu = function() {
-
-
 				$("#open-navigation").on("click", function() {
 					$("#mobile-navigation").addClass("navigation-active");
 					$(this).addClass("navigation-activated");
@@ -92,13 +90,26 @@ var ourWines = (function($, window, sapient) {
 						parentHider = null;
 					},500);
 				});
+			},
+			closeMobileNavs = function(){
+				if($(window).width() > 990) {
+					$("#close-navigation").trigger('click');
+					$("#close-filters").trigger('click')
+				}
+			},
+			onResize = function() {
+				$(window).on('resize', function () {
+					debounce(sapient.winesFilter.closeMobileNavs,100,"close Mobile Navs");
+				});
 			};
 
 
 		return {
 			// public + private states and behaviors
 			filterWines: filterWines,
-			mobileFiltersMenu: mobileFiltersMenu
+			mobileFiltersMenu: mobileFiltersMenu,
+			closeMobileNavs: closeMobileNavs,
+			onResize: onResize
 		};
 	}
 
@@ -117,3 +128,4 @@ sapient.winesFilter = ourWines.getInstance();
 
 sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
+sapient.winesFilter.onResize();

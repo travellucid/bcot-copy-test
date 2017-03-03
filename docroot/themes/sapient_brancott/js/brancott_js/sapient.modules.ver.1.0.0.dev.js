@@ -14,9 +14,6 @@ var sapient = sapient || {}; // core sapient
 $(document).ready(function() {
   // Setup the a11y nav
 	$('.nav').setup_navigation();
-
-	$('li.logo').prevAll().addClass("previous");
-	$('li.logo').nextAll().addClass("next");
   
   // RWD Nav Pattern
   $('body').addClass('js');
@@ -359,6 +356,14 @@ var commonObj = (function($, window, sapient) {
 				for (var i = 1; i < section.length; i += 2) {
 					$(section[i]).addClass("background-noise-section");
 				}
+			},
+			assignTouchDeviceClass = function(){
+				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+					isAndroid =navigator.userAgent.indexOf('Android') >=0;
+
+				if(isIOS || isAndroid) {
+					$("body").addClass('touch-device');
+				}
 			};
 
 		return {
@@ -366,7 +371,8 @@ var commonObj = (function($, window, sapient) {
 			scrollToNext: scrollToNext,
 			hideLinkText: hideLinkText,
 			toggleAwardsDetails: toggleAwardsDetails,
-			addBgNoise: addBgNoise
+			addBgNoise: addBgNoise,
+			assignTouchDeviceClass: assignTouchDeviceClass
 		};
 	}
 
@@ -386,6 +392,7 @@ sapient.common.hideLinkText();
 /*sapient.common.debounce();*/
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
+sapient.common.assignTouchDeviceClass();
 
 
 
@@ -431,11 +438,11 @@ var carouselObj = (function($, window, sapient) {
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 					isAndroid =navigator.userAgent.indexOf('Android') >=0
 				if(isIOS || isAndroid) {
-					$(".fallback-image").show();
+					$(".fallback-gif").show();
 					$(".our-story-video").hide();					
 				}
 				else {
-					$(".fallback-image").hide();
+					$(".fallback-gif").hide();
 					$(".our-story-video").show();
 				}
 			},
@@ -965,7 +972,6 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			mobileFiltersMenu = function() {
-
 				$("#open-navigation").on("click", function() {
 					$("#mobile-navigation").addClass("navigation-active");
 					$(this).addClass("navigation-activated");
@@ -1015,13 +1021,26 @@ var ourWines = (function($, window, sapient) {
 						parentHider = null;
 					},500);
 				});
+			},
+			closeMobileNavs = function(){
+				if($(window).width() > 990) {
+					$("#close-navigation").trigger('click');
+					$("#close-filters").trigger('click')
+				}
+			},
+			onResize = function() {
+				$(window).on('resize', function () {
+					debounce(sapient.winesFilter.closeMobileNavs,100,"close Mobile Navs");
+				});
 			};
 
 
 		return {
 			// public + private states and behaviors
 			filterWines: filterWines,
-			mobileFiltersMenu: mobileFiltersMenu
+			mobileFiltersMenu: mobileFiltersMenu,
+			closeMobileNavs: closeMobileNavs,
+			onResize: onResize
 		};
 	}
 
@@ -1040,7 +1059,7 @@ sapient.winesFilter = ourWines.getInstance();
 
 sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
-
+sapient.winesFilter.onResize();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
@@ -1149,9 +1168,9 @@ var validationObj = (function($, window, sapient) {
 
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form .group label")[index]).addClass("error");
+						$($(".enquire-form .group input ~ label")[index]).addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group label")[index]).html());
+						msgarr.push($($(".enquire-form .group input ~ label")[index]).html());
 
 					} 
 					else {
@@ -1163,7 +1182,6 @@ var validationObj = (function($, window, sapient) {
 					inputarr.push($($input[index]).val().length);
 
 				});
-
 
 				$.each($select, function(index) {
 
@@ -1179,7 +1197,6 @@ var validationObj = (function($, window, sapient) {
 					selectarr.push($select[index].value);
 
 				});
-
 				if (msgarr.length !== 0) {
 
 					$("#errMsg").addClass("error");

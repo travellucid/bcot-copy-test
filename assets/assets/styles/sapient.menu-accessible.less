@@ -51,7 +51,7 @@ header.navbar {
 		-webkit-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
 		transform: translateX(-50%);
-		z-index: 101;
+		z-index: 10;
 	}
 }
 
@@ -267,6 +267,24 @@ header.navbar {
 	}
 }
 
+@media screen and (min-width: 991px) and (max-width: 1280px) {
+	.touch-device {
+		nav[role="navigation"] {
+			.nav li {
+				&.logo {
+					a {
+						background-size: 140px 50px;
+						height: 50px;
+					}
+				}
+			}
+			.nav li > a {
+				padding: 25px 0;
+			}
+		}
+	}
+}
+
 #open-navigation {
 	background-color: transparent;
 	border: 1px solid #ffffff;
@@ -302,7 +320,7 @@ header.navbar {
 	text-align: center;
 	top: 0;
 	width: 100%;
-	z-index: 100;
+	z-index: 102;
 	&.navigation-active {
 		display: block;
 	}
@@ -314,11 +332,11 @@ header.navbar {
 		cursor: pointer;
 		float: right;
 		height: 20px;
-		margin: 20px 15px 0 0;
+		margin: 25px 15px 0 0;
 		position: relative;
 		text-indent: -999999px;
 		width: 20px;
-		z-index: 1;
+		z-index: 103;
 
 		&::after,
 		&::before {
@@ -340,9 +358,21 @@ header.navbar {
 		}
 	}
 	h2 {
+    	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 		margin: 0;
-		min-height: 65px;
+		min-height: 60px;
+    	position: relative;
 		width: 100%;
+    	z-index: 102;
+
+		a {
+			background-image: url(../images/icons/BE_icon_header_logo_colour.svg);
+			background-size: 100px 45px;
+			display: block;
+			height: 45px;
+			margin: 10px auto 0;
+			width: 100px;
+		}
 	}
 	&.not-active {
 		display: none;
@@ -364,15 +394,25 @@ header.navbar {
 		li {
 			background-color: #fff;
 			border-bottom: solid 2px #e2f4fd;
+			position: static;
+			
 			a {
 				color: #3e464b;
 				display: block;
+				font-family: "NeutraText Bold", sans-serif;
+				font-size: 16px;
 				padding: 15px;
 				text-decoration: none;
+				text-transform: uppercase;
+				img {
+					position: absolute;
+					right: 10px;
+					top: 20px;
+				}
 				&.sub-nav-return {
 					background-color: #e2f4fd;
 					font-size: 12px;
-					padding: 8px 0;
+					padding: 8px 15px;
 				}
 			}
 			ul.sub-categories {
@@ -387,6 +427,13 @@ header.navbar {
 					list-style: none;
 					margin: 0;
 					padding: 0;
+					a.sub-nav-return {
+						img {
+							left: 10px;
+							right: auto;
+							top: 10px;
+						}
+					}
 					p {
 						text-transform: none;
 					}
