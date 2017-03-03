@@ -42,6 +42,7 @@ var ourWines = (function($, window, sapient) {
 			},
 			mobileFiltersMenu = function() {
 
+
 				$("#open-navigation").on("click", function() {
 					$("#mobile-navigation").addClass("navigation-active");
 					$(this).addClass("navigation-activated");
@@ -66,27 +67,30 @@ var ourWines = (function($, window, sapient) {
 
 				$("#close-filters").on("click", function() {
 					$("#mobile-filters").removeClass("filters-active");
-					$("a.category").removeClass("iamalive");
+					$(".iamalive").removeClass("iamalive");
 					$("ul.nav.categories").css("left", "");
 					$("#mobile-filters-scroll-wrapper").removeAttr("style");
 					$("#open-filters").removeClass("filters-activated");
 				});
 
-				$("a.category").on("click", function(e) {
-					e.preventDefault();
-					$("a.category").removeClass("iamalive");
-					$(this).addClass("iamalive");
-					$("ul.nav.categories").animate({
-						left: "-100%"
-					}, 350, "linear");
+				$("a.category").on("click",function(e){
+				  e.preventDefault();
+				  $(this).addClass("iamalive");
+				  $("ul.nav.categories").animate({
+				    left: "-" + $(this).data("level") * 100 + "%"
+				  },350, "linear");
 				});
 
-				$("a.sub-nav-return").on("click", function(e) {
-					e.preventDefault();
-					$(this).parent("li").find("iamalive").removeClass("iamalive");
-					$("ul.nav.categories").animate({
-						left: "0"
-					}, 350, "linear");
+				$("a.sub-nav-return").on("click",function(e){
+				  e.preventDefault();
+					var parentHider = $(this).closest(".sub-categories").prev(".category.iamalive");
+				  $("ul.nav.categories").animate({
+				    left: "-" + ($(this).data("level") - 1) * 100 + "%"
+				  },350, "linear");
+					setTimeout(function(){
+						$(parentHider).removeClass("iamalive");
+						parentHider = null;
+					},500);
 				});
 			};
 

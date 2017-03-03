@@ -25,17 +25,28 @@
                                 {% if item.below %}
                                     {% if menu_level == 0 %}
                                         <li>
-                                            <a href="{{ item.url }}" class="category">{{ item.title }} <span class="caret"></span></a>
+                                            <a href="{{ item.url }}" class="category" data-level="1">{{ item.title }} <span class="caret"></span></a>
                                                 {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
                                         </li>
                                     {% else %}
                                         <li>
-                                            <a class="sub-nav-return" href="{{ item.url }}">{{ item.title }}</a>
+                                            {#<a class="sub-nav-return" data-level="1" href="{{ item.url }}">{{ item.title }}</a>#}
+                                            <a class="sub-nav-return" data-level="1" href="#">{{ item.title }}</a>
                                             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
                                         </li>
                                     {% endif %}
                                 {% else %}
-                                    <li>{{ link(item.title, item.url) }}</li>
+                                     {% if menu_level == 0 %}
+                                         <li>{{ link(item.title, item.url) }}</li>
+                                         {% else %}
+                                         {% if loop.first %}
+                                            <li><a class="sub-nav-return" data-level="1" href="#">{{ item.title }}</a></li>
+                                            <li>{{ link(item.title, item.url) }}</li>
+                                            {% else %}
+                                            <li>{{ link(item.title, item.url) }}</li>
+                                          {% endif %}
+                                         {% endif %}
+                                    
                                     {% endif %}
                                 {% endfor %}
                         </ul>
@@ -43,6 +54,5 @@
                 {% endmacro %}     
         </div>
     </div>
-                    
 </section>
 
