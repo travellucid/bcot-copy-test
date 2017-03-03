@@ -1,6 +1,15 @@
 /* hero component new code*/
 
 #hero-component {
+	
+	.common-small-height-hero {
+		max-height: 400px;
+		.hero-inner-container {
+			h1 {
+				margin: 0 !important;
+			}		
+		}
+	}
 	span.header_f {
 		color: @white;
 		/*font-family: "NeutraText Bold";*/
@@ -205,6 +214,10 @@
 
 	
 @media screen and (max-width: @bp-max-mobile) {
+	.common-small-height-hero {
+		max-height: 200px;		
+	}
+
 	.hero-details {
 		padding: 80px 0;
 		h2 {
