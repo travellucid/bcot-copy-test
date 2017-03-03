@@ -1,4 +1,4 @@
-<section id="product-grid" class="you-may-like">
+<section id="our-wines-homepage" class="you-may-like">
 	<div class="top-section">
 		<p class="header_f">{{ fields.field_our_wine_heading.content }}</p>
 		<h2 class="header_a">{{ fields.field_our_wine_title.content }}</h2>
@@ -22,7 +22,7 @@
 				<span  class="cta secondary-green hidden-md hidden-lg">VIEW RANGE</span>
 			</a>
 			{% endfor %}
-			<a class="product-tile see-all-wines hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">
+			<a class="product-tile see-all-wines grid-view" href="{{ fields.field_see_all_wines.content }}">
 				<div class="product-shot">
 					<span>{{ fields.field_see_all_wines_1.content }}</span>
 					<img src="https://placeholdit.imgix.net/~text?w=248&h=770" />
@@ -44,5 +44,5 @@
 		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
 
 	</div>
-	<a class="cta dark see-all-link hidden-md hidden-lg" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a> 
+	<a class="cta dark see-all-link carousel-view" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a> 
 </section>
