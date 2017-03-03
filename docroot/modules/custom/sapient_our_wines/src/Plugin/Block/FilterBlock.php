@@ -37,7 +37,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $arg = explode('/', $path);
     $rest_api = new BrancottRestApiControllerFilters;
     $values = $rest_api->getFilters();
-    
+
     $ranges = array();
     $wine_types = array();
     $varietals = array();
@@ -46,13 +46,14 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $all_level = array();
     $new_array = array();
     $final_array = array();
-	if($arg[2] == 'our-wines') {
-		$range_name = $arg[3];
-	} elseif($arg[1] == 'our-wines') {
-		$range_name = $arg[2];
-	}
-    
-    foreach ($values as $value) {   
+    if ($arg[2] == 'our-wines') {
+      $range_name = $arg[3];
+    }
+    elseif ($arg[1] == 'our-wines') {
+      $range_name = $arg[2];
+    }
+
+    foreach ($values as $value) {
       $first_level = array();
       $all_level = array();
       $food_matches[] = $value->foodMatch;
@@ -61,59 +62,53 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       $final_array['filters']['varietals'][$value->grapeVariety] = $value->grapeVariety;
 
       $final_array['filters']['food_matches'][$value->foodMatch] = $new_array;
-      
+
       $ids = \Drupal::entityQuery('node')
           ->condition('status', 1)
           ->condition('field_wine_id', $value->id)
           ->execute();
-	  $array_nids = array_values($ids);
-	  $new_nid = $array_nids[0];
-	  $ids_bkg = \Drupal::entityQuery('node')
+      $array_nids = array_values($ids);
+      $new_nid = $array_nids[0];
+      $ids_bkg = \Drupal::entityQuery('node')
           ->condition('status', 1)
           ->condition('title', $value->range)
           ->execute();
-	  $bkg_array_nids = array_values($ids_bkg);
-	  $bkg_nid = $bkg_array_nids[0];
-		if($bkg_nid){
-		        $bkg_color = \Drupal\node\Entity\Node::load($bkg_nid);
-		        $bkg_color =  $bkg_color->field_ranges_background_color->value;
-		        
-		}
+      $bkg_array_nids = array_values($ids_bkg);
+      $bkg_nid = $bkg_array_nids[0];
+      if ($bkg_nid) {
+        $bkg_color = \Drupal\node\Entity\Node::load($bkg_nid);
+        $bkg_color = $bkg_color->field_ranges_background_color->value;
+      }
       $wine_image_url = '';
       if ($new_nid) {
-		$wine_node_details = \Drupal\node\Entity\Node::load($new_nid);
+        $wine_node_details = \Drupal\node\Entity\Node::load($new_nid);
         $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
-		
+
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
-		if($wine_image_file){
+        if ($wine_image_file) {
           $wine_image_url = file_create_url($wine_image_file->getFileUri());
-		 
-		  }
-        
+        }
       }
-	  if($wine_image_url){
-      $wine_details[$value->range][$value->id]['url'] = $wine_image_url;//url
-	  $wine_details[$value->range][$value->id]['bkg_colr'] = $bkg_color;//bkgcolr
-      $wine_details[$value->range][$value->id]['nid'] = $new_nid;//nid
-	  $wine_details[$value->range][$value->id]['title'] = $value->title;//title
-      $wine_details[$value->range][$value->id]['range'] = $value->range;//range
-	}
-	  //print_r($wine_details[$value->range][$value->id]['url']);die;
-	  
+      if ($wine_image_url) {
+        $wine_details[$value->range][$value->id]['url'] = $wine_image_url; //url
+        $wine_details[$value->range][$value->id]['bkg_colr'] = $bkg_color; //bkgcolr
+        $wine_details[$value->range][$value->id]['nid'] = $new_nid; //nid
+        $wine_details[$value->range][$value->id]['title'] = $value->title; //title
+        $wine_details[$value->range][$value->id]['range'] = $value->range; //range
+      }
+      //print_r($wine_details[$value->range][$value->id]['url']);die;
+
       $range_details = $this->getRangeDetails($value->range);
       if (!empty($range_name) && strtolower($range_name) != strtolower($value->range)) {
-		continue;
-      } else {
-		     
-		$range_details['associated_wines'] = $wine_details[$value->range];
-	         
-             
-		
+        continue;
       }
-     
-	  $final_array['range_details'][$value->range] = $range_details;
+      else {
+        $range_details['associated_wines'] = $wine_details[$value->range];
+      }
+
+      $final_array['range_details'][$value->range] = $range_details;
     }
-     
+
     foreach ($final_array['filters']['varietals'] as $varietal) {
       $final_array_varietals[] = explode(", ", $varietal);
     }
@@ -142,16 +137,16 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $final_array['filters']['food_matches'] = $foodMatch;
 
 
-     $range_details = $final_array['range_details'];
-     $indexed_range_details = array_values($range_details);
+    $range_details = $final_array['range_details'];
+    $indexed_range_details = array_values($range_details);
     $filters = $final_array['filters'];
-    foreach($indexed_range_details as $indexed_range_detail){
-		//print_r($indexed_range_detail['associated_wines']);die;
-		if($indexed_range_detail['associated_wines'] != ''){
-		$index_details[] = $indexed_range_detail;
-		}
-	}
-	//print_r($index_details);die;
+    foreach ($indexed_range_details as $indexed_range_detail) {
+      //print_r($indexed_range_detail['associated_wines']);die;
+      if ($indexed_range_detail['associated_wines'] != '') {
+        $index_details[] = $indexed_range_detail;
+      }
+    }
+    //print_r($index_details);die;
     return array(
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $index_details,
@@ -167,7 +162,15 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       if ($range_title == $values_range->title) {
         $range_details['title'] = $values_range->title;
         $range_details['strapline'] = $values_range->strapline;
-        $range_details['description'] = $values_range->description;
+        if (strlen($values_range->description) > 40) {
+          $first = substr($values_range->description, 0, 40);
+          $second = substr($values_range->description, 40);
+          $range_details['description'] = '<p>' . $first . '</p><a href="#" class="see-more">See More</a><p class="extra-text">' . $second . '</p><a href="#" class="see-less">See Less</a>';
+        }
+        else {
+          $range_details['description'] = '<p>' . $values_range->description . '</p>';
+        }
+
         break;
       }
     }
