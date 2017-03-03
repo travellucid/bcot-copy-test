@@ -1024,7 +1024,9 @@ var ourWines = (function($, window, sapient) {
 
 	function createFilterWinesCollection() {
 		var filterWines = function() {
-				var allProductsGrid = $("#response-wrapper").html();
+				var allProductsGrid = $("#response-wrapper").html(),
+					filtersTop = $("#block-Filter_block_our_wines").offset();
+					
 				$(".filter-item").on("click", function(e) {
 					e.preventDefault();
 
@@ -1048,6 +1050,10 @@ var ourWines = (function($, window, sapient) {
 							}
 						});
 					}
+
+					$("body, html").animate({
+						scrollTop: filtersTop.top
+					}, 'slow');
 
 					if($(window).width() < 990) {
 
