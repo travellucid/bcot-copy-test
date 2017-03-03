@@ -205,7 +205,7 @@ class SapientController extends ControllerBase {
 
 
 /**
-   * Dummy13.
+   * Dummy14.
    *
    * @return string
    *   Return Hello string.
@@ -214,6 +214,21 @@ class SapientController extends ControllerBase {
  $rendereddata = 'component14';
         return array(
           '#theme' => 'sapient_frontend-14',
+          '#arguments' => $rendereddata,
+        );
+  
+}
+
+/**
+   * Dummy15.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function dummy15() {
+ $rendereddata = 'component15';
+        return array(
+          '#theme' => 'sapient_frontend-15',
           '#arguments' => $rendereddata,
         );
   
