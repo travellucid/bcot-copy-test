@@ -1,17 +1,15 @@
 <div class="category-wrapper">
 	<div class="category-grid">
 		{% for search_result in search_array %}
-		<a href="#" class="product-tile">
+		<a href="/node/{{ search_result.nid }}" class="product-tile">
 			<div class="product-shot">
-				{% if search_result.url %}
+				
 				<img src="{{ search_result.url }}" />
-				{% else %}
-				<img src="http://brancottvanillaxjhdrqa7rm.devcloud.acquia-sites.com/sites/default/files/2017-03/bottle-not-final-showcase-series.png" />
-				{% endif %}
+				
 				<div class="product-bg"></div>
 			</div>
-			<h3>{{search_result.title }}</h3>
-			<p>{{search_result.range }}</p>
+			<h3>{{search_result.range |upper }}</h3>
+			<p>{{search_result.title }}</p>
 		</a>
 		{% endfor %}
 	</div>

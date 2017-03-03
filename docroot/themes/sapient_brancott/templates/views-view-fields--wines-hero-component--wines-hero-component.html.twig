@@ -17,8 +17,27 @@
         </picture>
     </div>
     <div class="hero-bottom">
-        <img src="{{ fields.field_hero_left_triangle_image.content }}" alt="" class="triangle">
-        <img src="{{ fields.field_hero_right_triangle_image.content }}" alt="" class="triangle-right">
+        <picture>
+            <source  class="triangle" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
+
+            <source class="triangle" media="(max-width: 691px)"  srcset="{{ fields.field_hero_left_triangle_image_s.content }}"> 
+
+            <source class="triangle" media="(max-width: 991px)" srcset="{{ fields.field_hero_left_triangle_image_t.content }}">
+
+            <source class="triangle" media="(max-width: 1401px)" srcset="{{ fields.field_hero_left_triangle_img_f.content }}"> 
+            <img src="{{ fields.field_hero_left_triangle_img_f.content }}" alt="triangle image" class="triangle">
+        </picture>
+        <picture>
+            <source  class="triangle-right" media="(max-width: 321px)"  srcset="{{ fields.field_hero_right_triangle_image.content }}"> 
+
+            <source class="triangle-right" media="(max-width: 691px)"  srcset="{{ fields.field_hero_right_triangle_img_s.content }}"> 
+
+            <source class="triangle-right" media="(max-width: 991px)" srcset="{{ fields.field_hero_right_triangle_img_t.content }}">
+
+            <source class="triangle-right" media="(max-width: 1401px)" srcset="{{ fields.field_hero_right_triangle_img_f.content }}"> 
+
+            <img class="triangle-right" src="{{ fields.field_hero_right_triangle_img_f.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+        </picture>
     </div>
 </div>
 <div id="product-detail-hero-mobile" class="product-details-mobile hidden-md hidden-lg">

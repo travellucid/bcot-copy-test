@@ -84,16 +84,25 @@ class BrancottSearchFilterController extends ControllerBase {
 		$related_nodes = array_filter($ids);
         $related_wine_nid = reset($related_nodes);
         $wine_node_details = \Drupal\node\Entity\Node::load($related_wine_nid);
+		
         $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
-        $wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
-		$wine_details[$value->id]['url'] = $wine_image_url;
+		if($wine_image_file){
+                       $wine_image_url = file_create_url($wine_image_file->getFileUri());
+		               $wine_details[$value->id]['url'] = $wine_image_url;
+					   $wine_details[$value->id]['nid'] = $related_wine_nid;
+					   //$botl_images['range_bkg'][] = $bkg_color;
+		            }
+        //$wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
+		//$wine_details[$value->id]['url'] = $wine_image_url;
       }
       
     
       $final_array = $wine_details;
       //new code terminated
     }
+	
+	//echo "<pre>";print_r($wine_details);die;
     $table =  array(
       '#theme' => 'search_results_template',
       '#search_array' => $wine_details,

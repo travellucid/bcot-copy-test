@@ -10,6 +10,7 @@ use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
+  
   global $base_url;
 
   $view_id = $variables['view']->storage->id();
@@ -87,6 +88,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  //print_r($botl_images);die;
 		  $wine_ids =  $fc->field_wines->getValue();
 		           foreach($wine_ids as $wine_id){
+					   
 					   $wine_id_new = $wine_id['target_id'];
 					   $node_load_wine = \Drupal\node\Entity\Node::load($wine_id_new);
 		  
@@ -179,6 +181,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         }
       }
       if ($variables['view']->current_display == 'related_wines') {
+		  
+		  //print_r($language);die;
         if ($variables['row']->_entity->field_wine_id) {
 			//kint($variables['row']);die;
 			$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
@@ -338,3 +342,11 @@ function sapient_brancott_theme() {
   );
 }
 
+function sapient_brancott_preprocess_block(&$variables) {
+	if ($variables['plugin_id'] == 'block_content:6302c677-689c-4557-ae88-15e9570b93d2') {
+    $language_name =  \Drupal::languageManager()->getCurrentLanguage()->getName();
+	$variables['selected_language'] = $language_name;
+	
+    }
+	
+}
