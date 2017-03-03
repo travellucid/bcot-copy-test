@@ -35,9 +35,7 @@ var carouselObj = (function($, window, sapient) {
 				}*/
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
-					if () {
-
-					}
+					
 				if(isIOS || isAndroid) {
 					if ($(".carousel-inner  .fallback-gif").length > 0) {
 						$(".carousel-inner  .fallback-gif").show();

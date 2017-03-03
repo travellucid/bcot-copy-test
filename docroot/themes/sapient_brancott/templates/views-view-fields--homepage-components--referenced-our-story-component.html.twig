@@ -1,27 +1,28 @@
 
         {% if fields.field_video.content %}
 		   
-		        <video  class="our-story-video {{ fields.field_video_option.content }}" >
-				    <source src="{{ fields.field_video.content }}" type="video/mp4">
-				    <!--<source src="{{ fields.field_video.content }}" type="video/ogg">-->
-				
-		        </video>
+	        <video  class="our-story-video {{ fields.field_video_option.content }}" >
+			    <source src="{{ fields.field_video.content }}" type="video/mp4">
+	        </video>
+			<div class="inner-container">
+				<!--<span>{{ fields.field_our_story_subheading.content }}</span>-->
+				<h2 class= "header_a">{{ fields.field_our_story_headline.content |upper |raw }}</h2>
+				<a href="{{ fields.field_hero_cta_first_1.content }}" class="cta secondary-light watch-video">{{ fields.field_hero_cta_first.content }}</a>
+			</div>
 			<picture class="fallback-image">
-				            <source  media="(max-width: 321px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">
-				            <source  media="(max-width: 690px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">   
-				            <source  media="(max-width: 769px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">
-				            <source  media="(max-width: 990px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">  
-				            <source  media="(max-width: 1281px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES"> 
-			
-				            
-				            <source  srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES"> 
-				            img tag for browsers that do not support picture element
-				            <img class ="" src="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES" alt="{{ fields.field_background_image_1.content }}">  
-			            </picture> 
+	            <source  media="(max-width: 321px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">
+	            <source  media="(max-width: 690px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">   
+	            <source  media="(max-width: 769px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">
+	            <source  media="(max-width: 990px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">  
+	            <source  media="(max-width: 1281px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES"> 
+
+	            
+	            <source  srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES"> 
+	            img tag for browsers that do not support picture element
+	            <img class ="" src="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES" alt="{{ fields.field_background_image_1.content }}">  
+            </picture> 
             
-			
-				        
-	            			           
+			<img class="fallback-gif" src="https://media.giphy.com/media/l2JHRhAtnJSDNJ2py/giphy.gif">			           
 			
 		{% else %}
 			<!--<img src="{{ fields.field_background_image.content }}" data-mobile-src = "{{ fields.field_background_image_1.content }}" data-desktop-src = "{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">-->

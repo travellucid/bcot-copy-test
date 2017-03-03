@@ -436,14 +436,21 @@ var carouselObj = (function($, window, sapient) {
 					$(".carousel-inner video").attr("controls","");
 				}*/
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
-					isAndroid =navigator.userAgent.indexOf('Android') >=0
+					isAndroid =navigator.userAgent.indexOf('Android') >=0;
+					
 				if(isIOS || isAndroid) {
-					$(".fallback-gif").show();
-					$(".our-story-video").hide();					
+					if ($(".carousel-inner  .fallback-gif").length > 0) {
+						$(".carousel-inner  .fallback-gif").show();
+						$(".carousel-inner  .our-story-video").hide();
+					}
+					else {
+						$(".carousel-inner  .fallback-image").show();
+					}
+										
 				}
 				else {
-					$(".fallback-gif").hide();
-					$(".our-story-video").show();
+					$(".carousel-inner  .fallback-gif").hide();
+					$(".carousel-inner .our-story-video").show();
 				}
 			},
 
