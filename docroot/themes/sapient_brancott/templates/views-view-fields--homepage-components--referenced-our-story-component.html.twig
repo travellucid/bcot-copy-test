@@ -10,19 +10,16 @@
 				<a href="{{ fields.field_hero_cta_first_1.content }}" class="cta secondary-light watch-video">{{ fields.field_hero_cta_first.content }}</a>
 			</div>
 			<picture class="fallback-image">
-	            <source  media="(max-width: 321px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">
-	            <source  media="(max-width: 690px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">   
-	            <source  media="(max-width: 769px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">
-	            <source  media="(max-width: 990px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES">  
-	            <source  media="(max-width: 1281px)" srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES"> 
-
-	            
-	            <source  srcset="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES"> 
-	            img tag for browsers that do not support picture element
-	            <img class ="" src="http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sites/default/files/styles/our_story_sty/public/2017-02/homepage_hero_no_grain_3.jpg?itok=xm-hUBES" alt="{{ fields.field_background_image_1.content }}">  
+	            <source  media="(max-width: 321px)" srcset="{{ fields.field_our_story_fallback_image.content }}">
+	            <source  media="(max-width: 690px)" srcset="{{ fields.field_our_story_fallback_image.content }}">   
+	            <source  media="(max-width: 769px)" srcset="{{ fields.field_our_story_fallback_image.content }}">
+	            <source  media="(max-width: 990px)" srcset="{{ fields.field_our_story_fallback_image.content }}">  
+	            <source  media="(max-width: 1281px)" srcset="{{ fields.field_our_story_fallback_image.content }}"> 
+	            <source  srcset="{{ fields.field_our_story_fallback_image.content }}"> 
+	            <img class ="" src="{{ fields.field_our_story_fallback_image.content }}" alt="{{ fields.field_our_story_fallback_image_1.content }}">  
             </picture> 
             
-			<img class="fallback-gif" src="https://media.giphy.com/media/l2JHRhAtnJSDNJ2py/giphy.gif">			           
+			<img class="fallback-gif" src="{{ fields.field_our_story_fallback_gif.content }}">			           
 			
 		{% else %}
 			<!--<img src="{{ fields.field_background_image.content }}" data-mobile-src = "{{ fields.field_background_image_1.content }}" data-desktop-src = "{{ fields.field_background_image.content }}" alt="{{ fields.field_background_image_1.content }}">-->
