@@ -68,7 +68,7 @@
       ]
         %}
         <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-            <a href="{{ url('<front>') }}" class="logo-img header-logo hidden-md"></a>
+            <a href="{{ url('<front>') }}" class="logo-img header-logo hidden-md hidden-lg"></a>
             {% if not navbar_attributes.hasClass('container') %}
                 <div class="{{ container }}">
                 {% endif %}
