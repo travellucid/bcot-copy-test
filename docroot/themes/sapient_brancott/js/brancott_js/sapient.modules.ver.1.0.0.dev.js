@@ -341,6 +341,8 @@ var commonObj = (function($, window, sapient) {
 
 			hideLinkText = function() {
 				$("footer section.social-icons nav ul li a").text("");
+
+				
 			},
 
 			toggleAwardsDetails = function() {
@@ -357,6 +359,17 @@ var commonObj = (function($, window, sapient) {
 					$(section[i]).addClass("background-noise-section");
 				}
 			},
+
+			emptyform = function() {
+				var cacheChecker = document.getElementById("cacheTest");
+				if (cacheChecker) {
+					if (cacheChecker.value.length) {
+						document.location.reload();
+					}
+					cacheChecker.value = "cacheTest";
+				}
+			},
+
 			assignTouchDeviceClass = function(){
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
@@ -372,6 +385,7 @@ var commonObj = (function($, window, sapient) {
 			hideLinkText: hideLinkText,
 			toggleAwardsDetails: toggleAwardsDetails,
 			addBgNoise: addBgNoise,
+			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass
 		};
 	}
@@ -393,6 +407,7 @@ sapient.common.hideLinkText();
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
+sapient.common.emptyform();
 
 
 
