@@ -369,7 +369,7 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
-			/*emptyform = function() {
+			emptyform = function() {
 				var cacheChecker = document.getElementById("cacheTest");
 				if (cacheChecker) {
 					if (cacheChecker.value.length) {
@@ -377,7 +377,7 @@ var commonObj = (function($, window, sapient) {
 					}
 					cacheChecker.value = "cacheTest";
 				}
-			},*/
+			},
 
 			assignTouchDeviceClass = function(){
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
@@ -403,7 +403,7 @@ var commonObj = (function($, window, sapient) {
 			hideLinkText: hideLinkText,
 			toggleAwardsDetails: toggleAwardsDetails,
 			addBgNoise: addBgNoise,
-			/*emptyform:emptyform,*/
+			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
 			killHash: killHash
 		};
@@ -427,6 +427,7 @@ sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
+sapient.common.emptyform();
 
 
 
