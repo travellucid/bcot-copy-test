@@ -109,6 +109,15 @@ nav[role="navigation"] {
 		text-align: center;
 		width: 20%;
 
+		&.hovered {
+			& > a {
+				color: #d50032 !important;
+				span.expand-icon {
+					background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
+				}
+			}
+		}
+
 		&.logo {
 			a {
 				background-image: url("@{background-icons-path}BE_icon_header_logo_white.svg");
@@ -206,6 +215,19 @@ nav[role="navigation"] {
 		background-color: #1e7266;
 		height: 58px;
 		z-index: 5;
+
+		.nav li {
+			&.hovered {
+				& > a {
+					background-color: #ffffff;
+					color: #d50032 !important;
+					span.expand-icon {
+						background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
+					}
+				}
+			}
+		}
+
 		/* Top level nav items */
 		.nav li > a {
 			padding: 19px 0 !important;
