@@ -26,6 +26,14 @@ var commonObj = (function($, window, sapient) {
 				for (var i = 1; i < section.length; i += 2) {
 					$(section[i]).addClass("background-noise-section");
 				}
+			},
+			assignTouchDeviceClass = function(){
+				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+					isAndroid =navigator.userAgent.indexOf('Android') >=0;
+
+				if(isIOS || isAndroid) {
+					$("body").addClass('touch-device');
+				}
 			};
 
 		return {
@@ -33,7 +41,8 @@ var commonObj = (function($, window, sapient) {
 			scrollToNext: scrollToNext,
 			hideLinkText: hideLinkText,
 			toggleAwardsDetails: toggleAwardsDetails,
-			addBgNoise: addBgNoise
+			addBgNoise: addBgNoise,
+			assignTouchDeviceClass: assignTouchDeviceClass
 		};
 	}
 
@@ -53,6 +62,7 @@ sapient.common.hideLinkText();
 /*sapient.common.debounce();*/
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
+sapient.common.assignTouchDeviceClass();
 
 
 
