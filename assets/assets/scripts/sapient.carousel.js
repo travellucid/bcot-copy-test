@@ -36,7 +36,7 @@ var carouselObj = (function($, window, sapient) {
 
 			togggleCarouselView = function(id) {
 				
-				if($(window).width() < 991) {
+				if($(window).width() < 690) {
 					sapient.carousel.enableTouchCarousel("#product-grid-carousal");
 					$(id).addClass("slide");
 				}
