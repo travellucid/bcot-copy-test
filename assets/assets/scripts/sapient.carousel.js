@@ -36,11 +36,11 @@ var carouselObj = (function($, window, sapient) {
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 					isAndroid =navigator.userAgent.indexOf('Android') >=0
 				if(isIOS || isAndroid) {
-					$(".fallback-image").show();
+					$(".fallback-gif").show();
 					$(".our-story-video").hide();					
 				}
 				else {
-					$(".fallback-image").hide();
+					$(".fallback-gif").hide();
 					$(".our-story-video").show();
 				}
 			},
