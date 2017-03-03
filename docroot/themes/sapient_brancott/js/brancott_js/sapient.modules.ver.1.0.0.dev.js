@@ -466,6 +466,23 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 
+			disableTouchCarousel = function(value) {
+
+				
+			},
+
+			togggleCarouselView = function(id) {
+				
+				if($(window).width() < 991) {
+					sapient.carousel.enableTouchCarousel("#product-grid-carousal");
+					$(id).addClass("slide");
+				}
+				
+				else {
+					$(id).removeClass("slide");
+				}
+			},
+
 			findCarousalItems = function (id) {
 				// body...
 				$(id).find(".carousel-inner .item").each(function(){
@@ -509,7 +526,7 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 
-			disableVidControlsSmallDevices = function() {
+			disableArrowsControlsSmallDevices = function() {
 				/*if (navigator.userAgent.indexOf('Android') >=0) {
 					$(".carousel-inner video").attr("controls","");
 				}*/
@@ -517,26 +534,20 @@ var carouselObj = (function($, window, sapient) {
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
 					
 				if(isIOS || isAndroid) {
-					if ($(".carousel-inner  .fallback-gif").length > 0) {
-						$(".carousel-inner  .fallback-gif").show();
-						$(".carousel-inner  .our-story-video").hide();
-					}
-					else {
-						$(".carousel-inner  .fallback-image").show();
-					}
-										
+					$(".carousel-control-wrapper").hide();
 				}
 				else {
-					$(".carousel-inner  .fallback-gif").hide();
-					$(".carousel-inner .our-story-video").show();
+					$(".carousel-control-wrapper").hide();
 				}
 			},
 
 			onResize = function() {
 				
 				$(window).on('resize', function() {
+					sapient.carousel.togggleCarouselView("#product-grid-carousal");
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
-					debounce(sapient.carousel.disableVidControlsSmallDevices, 500, "resizing carouselIndicator");
+					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
+					debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
 				});
 
 			},
@@ -639,8 +650,10 @@ var carouselObj = (function($, window, sapient) {
 			onScroll: onScroll,
 			playPauseVideo: playPauseVideo,
 			bindSlideEvent: bindSlideEvent,
-			disableVidControlsSmallDevices: disableVidControlsSmallDevices,
-			findCarousalItems: findCarousalItems
+			disableArrowsControlsSmallDevices: disableArrowsControlsSmallDevices,
+			findCarousalItems: findCarousalItems,
+			togggleCarouselView: togggleCarouselView,
+			disableTouchCarousel: disableTouchCarousel
 		};
 	}
 
@@ -660,22 +673,21 @@ sapient.carousel = carouselObj.getInstance();
 sapient.carousel.enableTouchCarousel("#carousel-our-story");
 sapient.carousel.enableTouchCarousel("#carousel-our-wines");
 sapient.carousel.enableTouchCarousel("#carousel-new-story");
-sapient.carousel.enableTouchCarousel("#product-grid-carousal"); 
 
 sapient.carousel.bindSlideEvent("#carousel-our-story");
 sapient.carousel.bindSlideEvent("#carousel-our-wines");
 sapient.carousel.bindSlideEvent("#carousel-new-story");
 sapient.carousel.positionCarousel();
 sapient.carousel.onResize();
-
+sapient.carousel.togggleCarouselView("#product-grid-carousal");
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
-/*sapient.carousel.disableVidControlsSmallDevices();*/
+sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
 
 
-function failed(e) {
+/*function failed(e) {
 		// video playback failed - show a message saying why
 		switch (e.target.error.code) {
 		    case e.target.error.MEDIA_ERR_ABORTED:
@@ -695,7 +707,7 @@ function failed(e) {
 		        break;
 		}
 
-		}
+		}*/
 var heroObj = (function($, window, sapient) {
 
 	var heroInstance;
