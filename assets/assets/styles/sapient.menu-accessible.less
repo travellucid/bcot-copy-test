@@ -109,6 +109,15 @@ nav[role="navigation"] {
 		text-align: center;
 		width: 20%;
 
+		&.hovered {
+			& > a {
+				color: #d50032 !important;
+				span.expand-icon {
+					background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
+				}
+			}
+		}
+
 		&.logo {
 			a {
 				background-image: url("@{background-icons-path}BE_icon_header_logo_white.svg");
@@ -206,6 +215,19 @@ nav[role="navigation"] {
 		background-color: #1e7266;
 		height: 58px;
 		z-index: 5;
+
+		.nav li {
+			&.hovered {
+				& > a {
+					background-color: #ffffff;
+					color: #d50032 !important;
+					span.expand-icon {
+						background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
+					}
+				}
+			}
+		}
+
 		/* Top level nav items */
 		.nav li > a {
 			padding: 19px 0 !important;
@@ -254,7 +276,7 @@ nav[role="navigation"] {
 					vertical-align: top;
 					width: 33%;
 					a {
-						padding: 10px 0;
+						padding: 10px 0 !important;
 					}
 				}
 			}
@@ -290,6 +312,9 @@ header.navbar {
 			}
 		}
 		nav[role="navigation"] {
+			.nav ul {
+				top: 70px;
+			}
 			.nav li {
 				&.logo {
 					a {
@@ -300,6 +325,12 @@ header.navbar {
 			}
 			.nav li > a {
 				padding: 25px 0;
+			}
+
+			&.wine-filters-desktop {
+				.nav ul {
+					top: 58px;
+				}
 			}
 		}
 	}
@@ -332,17 +363,25 @@ header.navbar {
 	background-color: #ffffff;
 	bottom: 0;
 	height: 100vh;
-	display: none;
+	font-family: "NeutraText Bold",sans-serif;
+	font-size: 16px;
 	letter-spacing: 2px;
-	overflow-y: auto;
+	left: -99999px;
 	position: fixed;
 	right: 0;
 	text-align: center;
+	text-transform: uppercase;
 	top: 0;
 	width: 100%;
-	z-index: 102;
+	z-index: -1;
 	&.navigation-active {
-		display: block;
+		left: 0;
+		z-index: 102;
+	    -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+	       -moz-animation: fadein .5s; /* Firefox < 16 */
+	        -ms-animation: fadein .5s; /* Internet Explorer */
+	         -o-animation: fadein .5s; /* Opera < 12.1 */
+	            animation: fadein .5s;
 	}
 
 	#close-navigation {

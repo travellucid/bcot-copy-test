@@ -53,8 +53,17 @@ $.fn.setup_navigation = function(settings) {
 		if($(this).next('ul').length > 0)
 			$(this).parent('li').attr('aria-haspopup', 'true');
 	});
-	
+
+	$(top_level_links).parent("li").hover(
+		function(){
+			$(this).addClass('hovered');
+	},
+		function(){
+			$(this).removeClass('hovered');
+	});
+
 	$(top_level_links).hover(function(){
+		$(this).parent("li").addClass('hovered');
 		$(this).closest('ul') 
 			.attr('aria-hidden', 'false')
 			.find('.'+settings.menuHoverClass)
@@ -395,7 +404,8 @@ var commonObj = (function($, window, sapient) {
 			toggleAwardsDetails: toggleAwardsDetails,
 			addBgNoise: addBgNoise,
 			/*emptyform:emptyform,*/
-			assignTouchDeviceClass: assignTouchDeviceClass
+			assignTouchDeviceClass: assignTouchDeviceClass,
+			killHash: killHash
 		};
 	}
 
@@ -416,7 +426,7 @@ sapient.common.hideLinkText();
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
-/*sapient.common.emptyform();*/
+sapient.common.killHash();
 
 
 
@@ -455,7 +465,50 @@ var carouselObj = (function($, window, sapient) {
 				});
 			},
 
-			enableVidControlsAndroid = function() {
+			findCarousalItems = function (id) {
+				// body...
+				$(id).find(".carousel-inner .item").each(function(){
+					//console.log($(this).find("video").siblings().find("img").attr("src"));
+					var gifLength = $(this).find("video").siblings(".fallback-gif").length,
+						fallBackImgLength = $(this).find("video").siblings(".fallback-image").length,
+						videoLength = $(this).find("video").length,
+						isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+						isAndroid =navigator.userAgent.indexOf('Android') >=0;
+						console.log("gifLength "+gifLength+" fallBackImgLength "+fallBackImgLength + "  videoLength "+videoLength+" isIOS "+isIOS +" isAndroid "+isAndroid);
+						if(isIOS || isAndroid) {
+							$(this).find("video").hide();
+							$(this).find(".fallback-gif").show();
+							$(this).find(".fallback-image").hide();
+						}
+
+						else {
+							if(videoLength === 0 && gifLength > 0) {
+								console.log("show gif");
+								$(this).find("video").hide();
+								$(this).find(".fallback-gif").show();
+								$(this).find(".fallback-image").hide();
+							}
+							
+							else if (videoLength === 0 && gifLength === 0) {
+								console.log("show fallback img");
+
+								$(this).find("video").hide();							
+								$(this).find(".fallback-gif").hide();
+								$(this).find(".fallback-image").show();
+							}
+
+							else {
+								console.log("show video");
+								$(this).find("video").show();							
+								$(this).find(".fallback-gif").hide();
+								$(this).find(".fallback-image").hide();
+							}
+						}
+						
+				});
+			},
+
+			disableVidControlsSmallDevices = function() {
 				/*if (navigator.userAgent.indexOf('Android') >=0) {
 					$(".carousel-inner video").attr("controls","");
 				}*/
@@ -482,7 +535,7 @@ var carouselObj = (function($, window, sapient) {
 				
 				$(window).on('resize', function() {
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
-					debounce(sapient.carousel.enableVidControlsAndroid, 500, "resizing carouselIndicator");
+					debounce(sapient.carousel.disableVidControlsSmallDevices, 500, "resizing carouselIndicator");
 				});
 
 			},
@@ -585,7 +638,8 @@ var carouselObj = (function($, window, sapient) {
 			onScroll: onScroll,
 			playPauseVideo: playPauseVideo,
 			bindSlideEvent: bindSlideEvent,
-			enableVidControlsAndroid: enableVidControlsAndroid
+			disableVidControlsSmallDevices: disableVidControlsSmallDevices,
+			findCarousalItems: findCarousalItems
 		};
 	}
 
@@ -615,7 +669,11 @@ sapient.carousel.onResize();
 
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
-sapient.carousel.enableVidControlsAndroid();
+/*sapient.carousel.disableVidControlsSmallDevices();*/
+sapient.carousel.findCarousalItems("#carousel-our-story");
+sapient.carousel.findCarousalItems("#carousel-new-story");
+
+
 function failed(e) {
 		// video playback failed - show a message saying why
 		switch (e.target.error.code) {

@@ -40,8 +40,17 @@ $.fn.setup_navigation = function(settings) {
 		if($(this).next('ul').length > 0)
 			$(this).parent('li').attr('aria-haspopup', 'true');
 	});
-	
+
+	$(top_level_links).parent("li").hover(
+		function(){
+			$(this).addClass('hovered');
+	},
+		function(){
+			$(this).removeClass('hovered');
+	});
+
 	$(top_level_links).hover(function(){
+		$(this).parent("li").addClass('hovered');
 		$(this).closest('ul') 
 			.attr('aria-hidden', 'false')
 			.find('.'+settings.menuHoverClass)
