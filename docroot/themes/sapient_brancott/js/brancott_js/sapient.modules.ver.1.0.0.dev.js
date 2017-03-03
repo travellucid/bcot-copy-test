@@ -1319,7 +1319,6 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				$.each(selectarr, function(index) {
-
 					if (selectarr[index] == "") {
 						selectflag = 0;
 						return false;
@@ -1338,8 +1337,7 @@ var validationObj = (function($, window, sapient) {
 					$(".enquire-form input[type=checkbox] + label").removeClass("change");
 					$(".enquire-form input[type=checkbox] + label").removeClass("error");
 
-				}
-				return true;			
+				}		
 			});
 		};
 
