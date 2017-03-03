@@ -106,13 +106,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  
           }
 		  $variables['wine_details'] = $botl_images;
-		// print_r(array_values($botl_images));die;
-		  
-         
-		  
-		  //$botl_images[] = $range_titles;
-		 
-		  
+          //print_r(count($botl_images));die;		  
       }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
