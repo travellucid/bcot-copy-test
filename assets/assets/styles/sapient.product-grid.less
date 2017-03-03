@@ -45,11 +45,10 @@
 			display: inline-block;
 			font-size: 0;
 			margin: 0 1%;
-			max-width: 270px;
 			vertical-align: top;
-			width: 25%;
+			width: 270px;
 
-			@media screen and (min-width: 1025px) {
+			@media screen and (min-width: 1170px) {
 				&:first-child,
 				&:nth-child(4n+1) {
 					margin-left: 0;
@@ -88,9 +87,10 @@
 					bottom: 0;
 					height: 100%;
 					left: 0;
-					max-height: 270px;
+					height: 270px;
 					position: absolute;
 					right: 0;
+					width: 100%;
 				}
 			}
 
@@ -128,13 +128,12 @@
 	}
 }
 
-@media screen and (min-width: 991px) and (max-width: 1024px) {
+@media screen and (min-width: 991px) and (max-width: 1170px) {
 	#product-grid {
 		.category-grid {
 			margin: 0 75px;
 
 			.product-tile {
-				width: 31%;
 
 				&:first-child,
 				&:nth-child(3n+1) {
@@ -151,12 +150,10 @@
 	}
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 800px) {
 	#product-grid {
 		.category-grid {
 			.product-tile {
-				width: 48%;
-
 				&:first-child,
 				&:nth-child(odd) {
 					margin-left: 0;
@@ -181,7 +178,22 @@
 		}
 		.category-grid {
 			.product-tile {
-				margin: 0 !important;
+				.product-shot {
+					.product-bg {
+						margin: 0 auto;
+						width: 270px;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 480px) {
+	#product-grid {
+		.category-grid {
+			.product-tile {
 				width: 100%;
 			}
 		}
@@ -394,7 +406,7 @@
 		.carousel-indicators {
 			bottom: 0;
 			height: 0px;
-			top: 380px;
+			top: 400px;
 
 			li {
 				border-color: #d50032;
