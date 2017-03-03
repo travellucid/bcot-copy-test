@@ -28,13 +28,24 @@ class BrancottRestApiControllerFilters extends ControllerBase {
     $cid = $request_type . '_' . $language;
     //print $cid; exit;
     $cache = \Drupal::cache()->get($cid);
+	//$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+	$lang_explode = explode("-", $language);
+	
+	if($language == 'en'){
+		$locale = 'row';
+	}
+	else{
+		$locale = $lang_explode[1];
+	}
+	//print $locale; exit;
     if (0) {
       $result = json_decode($cache->data);
       return $result;
     }
     else {
      
-      $response = brancott_rest_api_reponse('http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sample1.json');
+      //$response = brancott_rest_api_reponse('http://brancottvanillascfanqpukk.devcloud.acquia-sites.com/sample1.json');
+	  $response = brancott_rest_api_reponse('http://gateway.pernod-ricard-winemakers.com/v2/brancott%20estate/'.$locale.'/wines/en');
     }
     if ($response) {
       //\Drupal::cache()->set($cid, $response);

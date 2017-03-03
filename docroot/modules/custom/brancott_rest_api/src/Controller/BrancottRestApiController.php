@@ -20,6 +20,15 @@ class BrancottRestApiController extends ControllerBase {
   public function getProductDetails($wine_id, $locale = 'nz') {
     
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+	$lang_explode = explode("-", $language);
+	
+	if($language == 'en'){
+		$locale = 'row';
+	}
+	else{
+		$locale = $lang_explode[1];
+	}
+	//print_r($locale);die;
     $data = array();
     $response = $data = $result = null;
     $request_type = 'wine_details';
