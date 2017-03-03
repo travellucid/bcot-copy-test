@@ -1,29 +1,54 @@
 <div id="hero-component" class="container-fluid  hero-container">
-	<div class="banner-image" style="background-image: url('{{ fields.field_hero_background_image_larg.content }}')"></div>
-	<div class="hero-bottom">
-		<img src="{{ fields.field_hero_left_triangle_image.content }}" alt="" class="triangle">
-                <img src="{{ fields.field_hero_right_triangle_image.content }}" alt="" class="triangle-right">
-	</div>
-	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
-		<span class="header_f">{{ fields.field_hero_subheading.content }}</span>
-		<h1 style = "color : {{ fields.field_headline_colour.content }}; text-align : {{ fields.field_hero_headline_position.content }} !important;">{{ fields.field_hero_headline.content |upper |raw }}</h1>
-		<a href="{{ fields.field_hero_cta_first.content }}" class="cta dark find-out-more">{{ fields.field_hero_cta_first_1.content }}</a>
-		<div class="cta-visitus">
-			<a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_hero_cta_second_1.content }}</a>
-			<a href="{{ fields.field_hero_cta_thi.content }}" class="cta secondary-green light ">{{ fields.field_hero_cta_thi_1.content }}</a>
-		</div>
-	</div>
-	{%- if fields.field_hero_right_side_image.content -%}
- 	<div class="hidden-sm hidden-xs hero-bottle-wrapper">
-		<picture>
-			<source class="hero-bottle" media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}"> 
-			<source class="hero-bottle" media="(max-width: 769px)"  srcset="{{ fields.field_hero_right_side_image.content }}"> 
-			<source  class="hero-bottle" srcset="{{ fields.field_hero_right_side_image.content }}"> 
-			<img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
-		</picture>
-	</div>
-	{%- endif -%}
- </div>
- 
- 
- 
+    <div class="banner-image" style="background-image: url('{{ fields.field_hero_background_image_larg.content }}')"></div>
+    <div class="hero-bottom">
+            <!-- <img src="{{ fields.field_hero_left_triangle_image.content }}" alt="" class="triangle">
+            <img src="{{ fields.field_hero_right_triangle_image.content }}" alt="" class="triangle-right"> -->
+
+        <picture>
+            <source  class="triangle" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
+
+            <source class="triangle" media="(max-width: 691px)"  srcset="{{ fields.field_hero_left_triangle_image_s.content }}"> 
+
+            <source class="triangle" media="(max-width: 991px)" srcset="{{ fields.field_hero_left_triangle_image_t.content }}">
+
+            <source class="triangle" media="(max-width: 1401px)" srcset="{{ fields.field_hero_left_triangle_image_f.content }}"> 
+            <img src="{{ fields.field_hero_left_triangle_image_f.content }}" alt="triangle image" class="triangle">
+        </picture>
+
+        <picture>
+            <source  class="triangle-right" media="(max-width: 321px)"  srcset="{{ fields.field_hero_right_triangle_image.content }}"> 
+
+            <source class="triangle-right" media="(max-width: 691px)"  srcset="{{ fields.field_hero_right_triangle_img_s.content }}"> 
+
+            <source class="triangle-right" media="(max-width: 991px)" srcset="{{ fields.field_hero_right_triangle_img_t.content }}">
+
+            <source class="triangle-right" media="(max-width: 1401px)" srcset="{{ fields.field_hero_right_triangle_img_f.content }}"> 
+
+
+            <img class="triangle-right" src="{{ fields.field_hero_right_triangle_img_f.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+        </picture>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
+        <span class="header_f">{{ fields.field_hero_subheading.content }}</span>
+        <h1 style = "color : {{ fields.field_headline_colour.content }}; text-align : {{ fields.field_hero_headline_position.content }} !important;">{{ fields.field_hero_headline.content |upper |raw }}</h1>
+        <a href="{{ fields.field_hero_cta_first.content }}" class="cta dark find-out-more">{{ fields.field_hero_cta_first_1.content }}</a>
+        <div class="cta-visitus">
+            <a href="{{ fields.field_hero_cta_second.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_hero_cta_second_1.content }}</a>
+            <a href="{{ fields.field_hero_cta_thi.content }}" class="cta secondary-green light ">{{ fields.field_hero_cta_thi_1.content }}</a>
+        </div>
+    </div>
+    {%- if fields.field_hero_right_side_image.content -%}
+    <div class="hidden-sm hidden-xs hero-bottle-wrapper">
+        <picture>
+            <source class="hero-bottle" media="(max-width: 1281px)" srcset="{{ fields.field_hero_right_side_image.content }}"> 
+            <source class="hero-bottle" media="(max-width: 769px)"  srcset="{{ fields.field_hero_right_side_image.content }}"> 
+            <source  class="hero-bottle" srcset="{{ fields.field_hero_right_side_image.content }}"> 
+            <img class="hero-bottle" src="{{ fields.field_hero_right_side_image.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+        </picture>
+    </div>
+    {%- endif -%}
+</div>
+
+
+

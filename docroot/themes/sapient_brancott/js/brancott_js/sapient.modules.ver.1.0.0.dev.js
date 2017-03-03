@@ -979,8 +979,6 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			mobileFiltersMenu = function() {
-
-
 				$("#open-navigation").on("click", function() {
 					$("#mobile-navigation").addClass("navigation-active");
 					$(this).addClass("navigation-activated");
@@ -1030,13 +1028,26 @@ var ourWines = (function($, window, sapient) {
 						parentHider = null;
 					},500);
 				});
+			},
+			closeMobileNavs = function(){
+				if($(window).width() > 990) {
+					$("#close-navigation").trigger('click');
+					$("#close-filters").trigger('click')
+				}
+			},
+			onResize = function() {
+				$(window).on('resize', function () {
+					debounce(sapient.winesFilter.closeMobileNavs,100,"close Mobile Navs");
+				});
 			};
 
 
 		return {
 			// public + private states and behaviors
 			filterWines: filterWines,
-			mobileFiltersMenu: mobileFiltersMenu
+			mobileFiltersMenu: mobileFiltersMenu,
+			closeMobileNavs: closeMobileNavs,
+			onResize: onResize
 		};
 	}
 
@@ -1055,7 +1066,7 @@ sapient.winesFilter = ourWines.getInstance();
 
 sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
-
+sapient.winesFilter.onResize();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
@@ -1164,9 +1175,9 @@ var validationObj = (function($, window, sapient) {
 
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form .group label")[index]).addClass("error");
+						$($(".enquire-form .group input ~ label")[index]).addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group label")[index]).html());
+						msgarr.push($($(".enquire-form .group input ~ label")[index]).html());
 
 					} 
 					else {
@@ -1178,7 +1189,6 @@ var validationObj = (function($, window, sapient) {
 					inputarr.push($($input[index]).val().length);
 
 				});
-
 
 				$.each($select, function(index) {
 
@@ -1194,7 +1204,6 @@ var validationObj = (function($, window, sapient) {
 					selectarr.push($select[index].value);
 
 				});
-
 				if (msgarr.length !== 0) {
 
 					$("#errMsg").addClass("error");

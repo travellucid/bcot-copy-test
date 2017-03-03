@@ -267,6 +267,24 @@ header.navbar {
 	}
 }
 
+@media screen and (min-width: 991px) and (max-width: 1280px) {
+	.touch-device {
+		nav[role="navigation"] {
+			.nav li {
+				&.logo {
+					a {
+						background-size: 140px 50px;
+						height: 50px;
+					}
+				}
+			}
+			.nav li > a {
+				padding: 25px 0;
+			}
+		}
+	}
+}
+
 #open-navigation {
 	background-color: transparent;
 	border: 1px solid #ffffff;
