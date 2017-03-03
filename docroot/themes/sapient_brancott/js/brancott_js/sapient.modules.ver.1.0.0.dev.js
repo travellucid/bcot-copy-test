@@ -369,7 +369,7 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
-			/*emptyform = function() {
+			emptyform = function() {
 				var cacheChecker = document.getElementById("cacheTest");
 				if (cacheChecker) {
 					if (cacheChecker.value.length) {
@@ -377,7 +377,7 @@ var commonObj = (function($, window, sapient) {
 					}
 					cacheChecker.value = "cacheTest";
 				}
-			},*/
+			},
 
 			assignTouchDeviceClass = function(){
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
@@ -403,7 +403,7 @@ var commonObj = (function($, window, sapient) {
 			hideLinkText: hideLinkText,
 			toggleAwardsDetails: toggleAwardsDetails,
 			addBgNoise: addBgNoise,
-			/*emptyform:emptyform,*/
+			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
 			killHash: killHash
 		};
@@ -427,6 +427,7 @@ sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
+sapient.common.emptyform();
 
 
 
@@ -474,7 +475,7 @@ var carouselObj = (function($, window, sapient) {
 						videoLength = $(this).find("video").length,
 						isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 						isAndroid =navigator.userAgent.indexOf('Android') >=0;
-						console.log("gifLength "+gifLength+" fallBackImgLength "+fallBackImgLength + "  videoLength "+videoLength+" isIOS "+isIOS +" isAndroid "+isAndroid);
+						/*console.log("gifLength "+gifLength+" fallBackImgLength "+fallBackImgLength + "  videoLength "+videoLength+" isIOS "+isIOS +" isAndroid "+isAndroid);*/
 						if(isIOS || isAndroid) {
 							$(this).find("video").hide();
 							$(this).find(".fallback-gif").show();
@@ -483,14 +484,14 @@ var carouselObj = (function($, window, sapient) {
 
 						else {
 							if(videoLength === 0 && gifLength > 0) {
-								console.log("show gif");
+								//console.log("show gif");
 								$(this).find("video").hide();
 								$(this).find(".fallback-gif").show();
 								$(this).find(".fallback-image").hide();
 							}
 							
 							else if (videoLength === 0 && gifLength === 0) {
-								console.log("show fallback img");
+								//console.log("show fallback img");
 
 								$(this).find("video").hide();							
 								$(this).find(".fallback-gif").hide();
@@ -498,7 +499,7 @@ var carouselObj = (function($, window, sapient) {
 							}
 
 							else {
-								console.log("show video");
+								//console.log("show video");
 								$(this).find("video").show();							
 								$(this).find(".fallback-gif").hide();
 								$(this).find(".fallback-image").hide();
