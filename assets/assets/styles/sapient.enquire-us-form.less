@@ -214,8 +214,8 @@
 	
 		input[type=checkbox] + label {
 			cursor: pointer;
-			font-size: 14px;
-			line-height: 24px;
+			font-size: 12px;
+			line-height: 22px;
 			/*margin: -6px;*/
 			vertical-align: middle;
 
@@ -356,6 +356,19 @@
 			font-size: 12px;
 		}
 		.submit-info {
+			input[type=checkbox] + label {
+				position: relative;
+				top: 10px;
+
+				&:before {
+					left: -10px;
+					margin: 0;
+					position:relative;
+					top: 3px;
+
+				}
+			}
+
 			.submit-btn {
 				padding: 18px 112px;
 			}
