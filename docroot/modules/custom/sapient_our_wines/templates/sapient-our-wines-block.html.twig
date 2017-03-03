@@ -123,7 +123,7 @@
                         {% set newkey = 'Wine Types' %}
                     {% elseif key == 'varietals' %}
                         {% set newkey = 'Varietals' %}
-                    {% elseif key == 'food_mathces' %}
+                    {% elseif key == 'food_matches' %}
                         {% set newkey = 'Food Matches' %}
                     {% else %}
                         {% set newkey = key %}
@@ -149,17 +149,10 @@
                                     <a href="#" class="category" data-level="2">{{ subfilter_key }}</a>
                                     <ul class="sub-categories">
                                         <li><a href="#" class="sub-nav-return" data-level="2">{{ subfilter_key }}</a></li>
-                                        <li>
-                                            <a href="#" class="category" data-level="3">{{ subfilter_key }}</a>
-                                            <ul class="sub-categories">
-                                                <li><a href="#" class="sub-nav-return" data-level="3">{{ subfilter_key }}</a></li>
-                                                {% for foodmatchkey, foodmatchvalue in subfilter %}
-                                                
-                                                <li><a href="#" data-category="{{ key }}" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a></li>
-                                                
-                                                {% endfor %}
-                                            </ul>
-                                        </li>
+                                        {% for foodmatchkey, foodmatchvalue in subfilter %}
+                                        <li><a href="#" data-category="{{ key }}" data-category-filter="{{ foodmatchvalue }}" class="filter-item">{{ foodmatchvalue }}</a></li>
+                                        
+                                        {% endfor %}
                                     </ul>
                                 </li>
                                  {% endfor %}
