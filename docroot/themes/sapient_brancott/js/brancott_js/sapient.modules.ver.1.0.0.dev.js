@@ -361,9 +361,6 @@ var commonObj = (function($, window, sapient) {
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
 
-				alert(isIOS);
-				alert(isAndroid);
-
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 				}
