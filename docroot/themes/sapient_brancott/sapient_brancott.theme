@@ -201,12 +201,12 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
                 $winedetails[$key]['range'] = $details->range;
 				$winedetails[$key]['botl_img'] = $bottle_image_url;
 			    $ids = \Drupal::entityQuery('node')
-		         ->condition('title', $details->range)
+		         ->condition('title',$details->range)
                  ->condition('status', 1)    //content type condition also to be added
                  ->execute(); 
 				$array_nid = array_values($ids);
 				$nid = $array_nid[0];
-				//print_r($nid);die;
+				//print_r($details);die;
 				if($nid){
 		        $bkg_color = \Drupal\node\Entity\Node::load($nid);
 		        $bkg_color =  $bkg_color->field_ranges_background_color->value;
@@ -218,7 +218,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 				
 			}	
             $variables['winedetails'] = $winedetails;
-            //print_r($winedetails);	die;		 
+           // print_r($nid);	die;		 
         }
       }
       if ($variables['view']->current_display == 'awards_and_accolades') {
