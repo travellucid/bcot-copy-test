@@ -32,6 +32,7 @@ module.exports = function(grunt) {
 			'<%= dirs.jsSource %>moment-with-locales.min.js',
 			'<%= dirs.jsSource %>jquery-ui.min.js',
 			'<%= dirs.jsSource %>bootstrap-datetimepicker.min.js',
+			'<%= dirs.jsSource %>jquery-validate.min.js',
 			'<%= dirs.jsSourceBootstrap %>bootstrap.min.js'
 		],
 		dest: "<%= dirs.jsLibsDest %><%= pkg.name %>.libs.js"
