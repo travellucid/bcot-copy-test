@@ -14,7 +14,6 @@ var heroObj = (function($, window, sapient) {
 				hours = time.getHours()-12,
 				mins = time.getMinutes(),
 				timeStr = "";
-				console.log(curr_date + " " + m_names[curr_month] + " " + curr_year);
 				
 				if(hours < 12) {
 					amPm = "pm";

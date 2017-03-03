@@ -14,7 +14,7 @@
 				{% set newkey = key %}
 			{% endif %}
 			{% if key != 'food_matches' %}
-			<li role="menuitem" aria-haspopup="true">
+			<li role="menuitem" aria-haspopup="true" class="{{ key }}">
 				<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey |upper }} <span class="expand-icon" data-toggle="dropdown"></span></a>
 				<ul class="level-2 list-reset" data-test="true" aria-hidden="true" role="menu">
 					<div>
@@ -25,7 +25,7 @@
 				</ul>
 			</li>
 			{% else %}
-			<li role="menuitem" aria-haspopup="true">
+			<li role="menuitem" aria-haspopup="true" class="{{ key }}">
 				<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true">{{ newkey |upper}} <span class="expand-icon" data-toggle="dropdown"></span></a>
 				<ul class="level-2 list-reset" data-test="true" aria-hidden="true" role="menu">
 					<div>
@@ -128,9 +128,7 @@
 						<a href="node/{{ tile.nid }}" class="product-tile">
 						    
 							<div class="product-shot">
-							     <img src="{{ tile.url }}" class="primary" /><img src="{{ tile.url }}" class="secondary" />
-									<!-- <img src="http://brancottvanillaxjhdrqa7rm.devcloud.acquia-sites.com/sites/default/files/2017-03/bottle-not-final-showcase-series.png" class="primary" /><img src="http://brancottvanillaxjhdrqa7rm.devcloud.acquia-sites.com/sites/default/files/2017-03/bottle-not-final-showcase-series.png" class="secondary" /> -->
-						
+							     <img src="{{ tile.url }}" />
 								<div class="product-bg" style="background-color: {{ tile.bkg_colr }};"></div>
 							</div>
 							<h3>{{ tile.range |upper }}</h3>
