@@ -87,6 +87,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  }
 		  //print_r($botl_images);die;
 		  $wine_ids =  $fc->field_wines->getValue();
+		  //print_r($wine_ids);die;
 		           foreach($wine_ids as $wine_id){
 					   
 					   $wine_id_new = $wine_id['target_id'];
@@ -103,10 +104,11 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 				   $botl_images[$collection['value']]['wine_bkg_colr'] = $bkg_color;
 				   $botl_images[$collection['value']]['range_title'] = $range_title_api;
 				   $botl_images[$collection['value']]['range_desc']= $range_desc_api;
+				   $botl_images[$collection['value']]['range_url']= '/our-wines/'.$range_title_api;
 		  
           }
 		  $variables['wine_details'] = $botl_images;
-          //print_r(count($botl_images));die;		  
+          //print_r($botl_images);die;		  
       }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
