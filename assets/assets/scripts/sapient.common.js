@@ -47,6 +47,15 @@ var commonObj = (function($, window, sapient) {
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 				}
+			},
+			killHash = function(){
+				$("a").each(function(){
+					if($(this).attr("href") == "#"){
+						$(this).click(function(e){
+							e.preventDefault();
+						});
+					}
+				});
 			};
 
 		return {
