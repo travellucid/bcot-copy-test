@@ -1,58 +1,55 @@
-
-<!-- for mobile--->
 <section id="mobile-navigation-wrapper" class="hidden-md hidden-lg">
-    <button id="open-navigation">NAVIGATION</button>
-    <div id="mobile-navigation">
-        <button id="close-navigation">&#10005;</button>
-        <h2>NAVIGATION</h2>
-        <div id="mobile-navigation-scroll-wrapper">
-                {% import _self as menus %}
+	<button id="open-navigation">Open mobile navigation</button>
+	<div id="mobile-navigation">
+		<button id="close-navigation">Close mobile navigation;</button>
+		<h2><a href="#"></a></h2>
+		<div id="mobile-navigation-scroll-wrapper">
+				{% import _self as menus %}
 {#
-        We call a macro which calls itself to render the full tree.
-        @see http://twig.sensiolabs.org/doc/tags/macro.html
+	We call a macro which calls itself to render the full tree.
+	@see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 {{ menus.menu_links(items, attributes, 0) }}
 {% macro menu_links(items, attributes, menu_level) %}
-    {% import _self as menus %}
-    {# All menu and submenu items #}
-                {% if items %}
-                    {% if menu_level == 0 %}
-                        <ul class="categories nav">
-                        {% else %}
-                            <ul class="sub-categories">
-                            {% endif %}
-                            {% for item in items %}
-                                {% if item.below %}
-                                    {% if menu_level == 0 %}
-                                        <li>
-                                            <a href="{{ item.url }}" class="category" data-level="1">{{ item.title }} <span class="caret"></span></a>
-                                                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                                        </li>
-                                    {% else %}
-                                        <li>
-                                            {#<a class="sub-nav-return" data-level="1" href="{{ item.url }}">{{ item.title }}</a>#}
-                                            <a class="sub-nav-return" data-level="1" href="#">{{ item.title }}</a>
-                                            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                                        </li>
-                                    {% endif %}
-                                {% else %}
-                                     {% if menu_level == 0 %}
-                                         <li>{{ link(item.title, item.url) }}</li>
-                                         {% else %}
-                                         {% if loop.first %}
-                                            <li><a class="sub-nav-return" data-level="1" href="#">{{ item.title }}</a></li>
-                                            <li>{{ link(item.title, item.url) }}</li>
-                                            {% else %}
-                                            <li>{{ link(item.title, item.url) }}</li>
-                                          {% endif %}
-                                         {% endif %}
-                                    
-                                    {% endif %}
-                                {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% endmacro %}     
-        </div>
-    </div>
+	{% import _self as menus %}
+	{# All menu and submenu items #}
+			{% if items %}
+				{% if menu_level == 0 %}
+					<ul class="categories nav">
+					{% else %}
+						<ul class="sub-categories">
+						{% endif %}
+						{% for item in items %}
+							{% if item.below %}
+								{% if menu_level == 0 %}
+									<li>
+										<a href="{{ item.url }}" class="category" data-level="1">{{ item.title }}  <img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_right.svg"></a>
+											{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+									</li>
+								{% else %}
+									<li>
+										{#<a class="sub-nav-return" data-level="1" href="{{ item.url }}"><img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg"> {{ item.title }}</a>#}
+										<a class="sub-nav-return" data-level="1" href="#"><img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg"> {{ item.title }}</a>
+										{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+									</li>
+								{% endif %}
+							{% else %}
+								 {% if menu_level == 0 %}
+									 <li>{{ link(item.title, item.url) }}</li>
+									 {% else %}
+									 {% if loop.first %}
+										<li><a class="sub-nav-return" data-level="1" href="#"><img src="/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg"> {{ item.title }}</a></li>
+										<li>{{ link(item.title, item.url) }}</li>
+										{% else %}
+										<li>{{ link(item.title, item.url) }}</li>
+									  {% endif %}
+									 {% endif %}
+								
+								{% endif %}
+							{% endfor %}
+					</ul>
+				{% endif %}
+			{% endmacro %}
+		</div>
+	</div>
 </section>
-

@@ -1,9 +1,6 @@
 $(document).ready(function() {
   // Setup the a11y nav
 	$('.nav').setup_navigation();
-
-	$('li.logo').prevAll().addClass("previous");
-	$('li.logo').nextAll().addClass("next");
   
   // RWD Nav Pattern
   $('body').addClass('js');
