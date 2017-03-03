@@ -65,7 +65,8 @@ var commonObj = (function($, window, sapient) {
 			toggleAwardsDetails: toggleAwardsDetails,
 			addBgNoise: addBgNoise,
 			/*emptyform:emptyform,*/
-			assignTouchDeviceClass: assignTouchDeviceClass
+			assignTouchDeviceClass: assignTouchDeviceClass,
+			killHash: killHash
 		};
 	}
 
@@ -86,7 +87,7 @@ sapient.common.hideLinkText();
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
-/*sapient.common.emptyform();*/
+sapient.common.killHash();
 
 
 
