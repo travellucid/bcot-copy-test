@@ -88,6 +88,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  //print_r($botl_images);die;
 		  $wine_ids =  $fc->field_wines->getValue();
 		           foreach($wine_ids as $wine_id){
+					   
 					   $wine_id_new = $wine_id['target_id'];
 					   $node_load_wine = \Drupal\node\Entity\Node::load($wine_id_new);
 		  
