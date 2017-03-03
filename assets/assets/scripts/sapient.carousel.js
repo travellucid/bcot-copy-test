@@ -100,7 +100,7 @@ var carouselObj = (function($, window, sapient) {
 					$(".carousel-control-wrapper").hide();
 				}
 				else {
-					$(".carousel-control-wrapper").hide();
+					$(".carousel-control-wrapper").show();
 				}
 			},
 
