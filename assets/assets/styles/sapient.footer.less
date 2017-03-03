@@ -256,7 +256,7 @@ li.wine-club {
 							margin-bottom: 16px;
 						}
 
-						&.icon-Wine,
+						/* &.icon-Wine,
 						&.icon-WINE {
 							a {
 								&::after {
@@ -264,7 +264,20 @@ li.wine-club {
 									top: 3px;
 								}
 							}
+						} */
+						a.external {
+						&::after {
+							background-image: url("@{background-icons-path}BE_icon_new_window.svg");
+							background-size: 13px;
+							content: "";
+							height: 13px;
+							margin-left: 8px;
+							position: absolute;
+							right: inherit;
+							top: 3px;
+							width: 13px;
 						}
+					}
 					}
 				}
 			}
