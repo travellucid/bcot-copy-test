@@ -1157,9 +1157,9 @@ var validationObj = (function($, window, sapient) {
 
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form .group label")[index]).addClass("error");
+						$($(".enquire-form .group input ~ label")[index]).addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group label")[index]).html());
+						msgarr.push($($(".enquire-form .group input ~ label")[index]).html());
 
 					} 
 					else {
@@ -1171,7 +1171,6 @@ var validationObj = (function($, window, sapient) {
 					inputarr.push($($input[index]).val().length);
 
 				});
-
 
 				$.each($select, function(index) {
 
@@ -1187,7 +1186,6 @@ var validationObj = (function($, window, sapient) {
 					selectarr.push($select[index].value);
 
 				});
-
 				if (msgarr.length !== 0) {
 
 					$("#errMsg").addClass("error");
