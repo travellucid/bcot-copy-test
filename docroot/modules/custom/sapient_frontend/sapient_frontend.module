@@ -70,6 +70,9 @@ function sapient_frontend_theme($existing, $type, $theme, $path) {
     'sapient_frontend-14' => array(
       'variables' => array('arguments' => NULL),
     ),
+    'sapient_frontend-15' => array(
+      'variables' => array('arguments' => NULL),
+    ),
     'sapient-main-header' => array(
       'variables' => array('arguments' => NULL),
     ),

@@ -30,7 +30,7 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
-			emptyform = function() {
+			/*emptyform = function() {
 				var cacheChecker = document.getElementById("cacheTest");
 				if (cacheChecker) {
 					if (cacheChecker.value.length) {
@@ -38,7 +38,7 @@ var commonObj = (function($, window, sapient) {
 					}
 					cacheChecker.value = "cacheTest";
 				}
-			},
+			},*/
 
 			assignTouchDeviceClass = function(){
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
@@ -47,6 +47,15 @@ var commonObj = (function($, window, sapient) {
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 				}
+			},
+			killHash = function(){
+				$("a").each(function(){
+					if($(this).attr("href") == "#"){
+						$(this).click(function(e){
+							e.preventDefault();
+						});
+					}
+				});
 			};
 
 		return {
@@ -55,8 +64,9 @@ var commonObj = (function($, window, sapient) {
 			hideLinkText: hideLinkText,
 			toggleAwardsDetails: toggleAwardsDetails,
 			addBgNoise: addBgNoise,
-			emptyform:emptyform,
-			assignTouchDeviceClass: assignTouchDeviceClass
+			/*emptyform:emptyform,*/
+			assignTouchDeviceClass: assignTouchDeviceClass,
+			killHash: killHash
 		};
 	}
 
@@ -77,7 +87,7 @@ sapient.common.hideLinkText();
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
-sapient.common.emptyform();
+sapient.common.killHash();
 
 
 

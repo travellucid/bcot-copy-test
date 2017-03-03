@@ -108,12 +108,7 @@ nav[role="navigation"] {
 		position: static;
 		text-align: center;
 		width: 20%;
-		&.previous {
-			text-align: left;
-		}
-		&.next {
-			text-align: right;
-		}
+
 		&.logo {
 			a {
 				background-image: url("@{background-icons-path}BE_icon_header_logo_white.svg");
@@ -185,7 +180,7 @@ nav[role="navigation"] {
 		position: static;
 		display: inline-block;
 		font-size: 0;
-		width: 30%;
+		width: 17%;
 	}
 	.nav ul a {
 		float: none;
@@ -213,7 +208,7 @@ nav[role="navigation"] {
 		z-index: 5;
 		/* Top level nav items */
 		.nav li > a {
-			padding: 19px 0;
+			padding: 19px 0 !important;
 			&.active-filter {
 				color: #d50032;
 			}
@@ -238,8 +233,8 @@ nav[role="navigation"] {
 			top: 58px;
 		}
 		.nav ul li {
-			width: 33%;
-			vertical-align: top;
+			width: 17%;
+			vertical-align: middle;
 			p {
 				font-family: "NeutraText Book";
 				padding: 19px 0 0;
@@ -249,6 +244,18 @@ nav[role="navigation"] {
 				&:focus,
 				&:hover {
 					color: #d50032 !important;
+				}
+			}
+		}
+
+		.nav {
+			li.food_matches {
+				li {
+					vertical-align: top;
+					width: 33%;
+					a {
+						padding: 10px 0 !important;
+					}
 				}
 			}
 		}
@@ -269,7 +276,23 @@ header.navbar {
 
 @media screen and (min-width: 991px) and (max-width: 1280px) {
 	.touch-device {
+		header.navbar {
+			height: 70px;
+			&.white-background {
+				nav[role="navigation"] {
+					.nav {
+						a {
+							color: #3e464b;
+							padding: 25px 0;
+						}
+					}
+				}
+			}
+		}
 		nav[role="navigation"] {
+			.nav ul {
+				top: 70px;
+			}
 			.nav li {
 				&.logo {
 					a {
@@ -312,17 +335,25 @@ header.navbar {
 	background-color: #ffffff;
 	bottom: 0;
 	height: 100vh;
-	display: none;
+	font-family: "NeutraText Bold",sans-serif;
+	font-size: 16px;
 	letter-spacing: 2px;
-	overflow-y: auto;
+	left: -99999px;
 	position: fixed;
 	right: 0;
 	text-align: center;
+	text-transform: uppercase;
 	top: 0;
 	width: 100%;
-	z-index: 102;
+	z-index: -1;
 	&.navigation-active {
-		display: block;
+		left: 0;
+		z-index: 102;
+	    -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+	       -moz-animation: fadein .5s; /* Firefox < 16 */
+	        -ms-animation: fadein .5s; /* Internet Explorer */
+	         -o-animation: fadein .5s; /* Opera < 12.1 */
+	            animation: fadein .5s;
 	}
 
 	#close-navigation {

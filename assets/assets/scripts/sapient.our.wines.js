@@ -24,6 +24,7 @@ var ourWines = (function($, window, sapient) {
 							type: "GET",
 							success: function(data) {
 								$("#response-wrapper").html(data);
+								sapient.common.killHash();
 							}
 						});
 					}
