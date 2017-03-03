@@ -176,30 +176,24 @@
 					<h2>{{ arg.strapline |upper }}</h2>
 					<p>{{ arg.description }}</p>
 				</div>
-				<div class="category-grid">
+				<div class = "category-grid">
 					{% for tile in arg.associated_wines %}
+					    {% if tile.url %}
 						<a href="node/{{ tile.nid }}" class="product-tile">
+						    
 							<div class="product-shot">
-								{% if tile.url %}
-									<img src="{{ tile.url }}" class="primary" /><img src="{{ tile.url }}" class="secondary" />
-								{% else %}
-									<img src="http://brancottvanillaxjhdrqa7rm.devcloud.acquia-sites.com/sites/default/files/2017-03/bottle-not-final-showcase-series.png" class="primary" /><img src="http://brancottvanillaxjhdrqa7rm.devcloud.acquia-sites.com/sites/default/files/2017-03/bottle-not-final-showcase-series.png" class="secondary" />
-								{% endif %}
+							     <img src="{{ tile.url }}" class="primary" /><img src="{{ tile.url }}" class="secondary" />
+									<!-- <img src="http://brancottvanillaxjhdrqa7rm.devcloud.acquia-sites.com/sites/default/files/2017-03/bottle-not-final-showcase-series.png" class="primary" /><img src="http://brancottvanillaxjhdrqa7rm.devcloud.acquia-sites.com/sites/default/files/2017-03/bottle-not-final-showcase-series.png" class="secondary" /> -->
+						
 								<div class="product-bg" style="background-color: {{ tile.bkg_colr }};"></div>
 							</div>
 							<h3>{{ tile.range |upper }}</h3>
 							<p>{{ tile.title }}</p>
 						</a>
+						{% endif %}
 					{% endfor %}
 				</div>
 			</div>
 		{% endfor %}
 	</div>
-</section>
-        
-        
-        
-        
-        
-        
-        
+</section>     
