@@ -105,7 +105,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
 		continue;
       } else {
 		     
-				  $range_details['associated_wines'] = $wine_details[$value->range];
+		$range_details['associated_wines'] = $wine_details[$value->range];
 	         
              
 		
@@ -142,11 +142,10 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $final_array['filters']['food_matches'] = $foodMatch;
 
 
-    $range_details = $final_array['range_details'];
+     $range_details = $final_array['range_details'];
      $indexed_range_details = array_values($range_details);
     $filters = $final_array['filters'];
-   // print_r($indexed_range_details);die;
-	foreach($indexed_range_details as $indexed_range_detail){
+    foreach($indexed_range_details as $indexed_range_detail){
 		//print_r($indexed_range_detail['associated_wines']);die;
 		if($indexed_range_detail['associated_wines'] != ''){
 		$index_details[] = $indexed_range_detail;

@@ -71,23 +71,25 @@ class BrancottSearchFilterController extends ControllerBase {
       $food_matches[] = $value->foodMatch;
       $final_array['filters'] = array();
 
-      $wine_details[$value->id]['title'] = $value->title;
-      $wine_details[$value->id]['range'] = $value->range;
+      
       $ids = \Drupal::entityQuery('node')
           ->condition('status', 1)
           ->condition('field_wine_id', $value->id)
           ->execute();
       $wine_image_url = '';
-      
+      //$wine_details[$value->id]['title'] = $value->title;
       if (count($ids)) {
-        $related_nodes = array_filter($ids);
+		$wine_details[$value->id]['title'] = $value->title;
+		$wine_details[$value->id]['range'] = $value->range;
+		$related_nodes = array_filter($ids);
         $related_wine_nid = reset($related_nodes);
         $wine_node_details = \Drupal\node\Entity\Node::load($related_wine_nid);
         $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
         $wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
+		$wine_details[$value->id]['url'] = $wine_image_url;
       }
-      $wine_details[$value->id]['url'] = $wine_image_url;
+      
     
       $final_array = $wine_details;
       //new code terminated

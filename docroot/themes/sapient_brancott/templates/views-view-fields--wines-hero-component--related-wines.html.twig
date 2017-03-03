@@ -2,12 +2,12 @@
     <h2>{{ fields.field_you_may_also_like.content }}</h2>
 {% endif %}
 {% for detail in winedetails %}
-    <a href ="#" class="product-tile">
+    <a href ="/node/{{ detail.nid }}" class="product-tile">
         <div class="product-shot">
-            <img src="{{ fields.field_wine_bottle_image.content }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
+            <img src="{{ detail.botl_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
             <div class="product-bg" style="background-color: {{ detail.bkg_colr }};"></div>
         </div>
-        <h3>{{ detail.range |upper}}</h3>
+        <h3>{{ detail.range |upper }}</h3>
         <p>{{ detail.title }}</p>
     </a> 
 {% endfor %}

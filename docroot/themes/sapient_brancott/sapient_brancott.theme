@@ -188,26 +188,37 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 				//print_r($value['target_id']);die;
 				$node_load = \Drupal\node\Entity\Node::load($value['target_id']);
 				$wine_id = $node_load->field_wine_id->value;
+				$bottle_img_tgt_id = $node_load->field_wine_bottle_image->getValue();
+				$bottle_img_tgt_id = $bottle_img_tgt_id[0]['target_id'];
+				$bottle_image_file = \Drupal\file\Entity\File::load($bottle_img_tgt_id);
+		  
+		        if($bottle_image_file){
+                $bottle_image_url = file_create_url($bottle_image_file->getFileUri());
+		        }
+				//print_r($bottle_img_tgt_id);die;
 				$details = braoncott_rest_api_get_results($wine_id);
 				$winedetails[$key]['title'] = $details->title;
                 $winedetails[$key]['range'] = $details->range;
+				$winedetails[$key]['botl_img'] = $bottle_image_url;
 			    $ids = \Drupal::entityQuery('node')
 		         ->condition('title', $details->range)
                  ->condition('status', 1)    //content type condition also to be added
                  ->execute(); 
 				$array_nid = array_values($ids);
 				$nid = $array_nid[0];
+				//print_r($nid);die;
 				if($nid){
 		        $bkg_color = \Drupal\node\Entity\Node::load($nid);
 		        $bkg_color =  $bkg_color->field_ranges_background_color->value;
 		        $winedetails[$key]['bkg_colr'] = $bkg_color;
+				$winedetails[$key]['nid'] = $value['target_id'];
 			    //print_r($bkg_color);exit;
 		        }
 				
 				
 			}	
             $variables['winedetails'] = $winedetails;
-                  //print_r($variables['newdetails']);	die;		 
+            //print_r($winedetails);	die;		 
         }
       }
       if ($variables['view']->current_display == 'awards_and_accolades') {
