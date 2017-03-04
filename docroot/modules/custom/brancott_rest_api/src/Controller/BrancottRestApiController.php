@@ -31,7 +31,7 @@ class BrancottRestApiController extends ControllerBase {
     $data = array();
     $response = $data = $result = null;
     $request_type = 'wine_details';
-    $cid = $request_type . '_' . $language . '_' . $wine_id;
+    $cid = $request_type . '_' . $locale . '_' . $wine_id;
     $cache = \Drupal::cache()->get($cid);
     if ($cache) {
       $result = json_decode($cache->data);
@@ -40,14 +40,9 @@ class BrancottRestApiController extends ControllerBase {
     else {
       $response = brancott_rest_api_reponse('http://gateway.pernod-ricard-winemakers.com/v2/brancott%20estate/' . $locale . '/wines/' . $wine_id . '/en');
     }
-
-    if ($response) {
-      \Drupal::cache()->set($cid, $response);
-      $result = json_decode($response);
-      $data = array();
-
-      // # add all the data in one multiple dim array
-
+    if ($response['code'] == 200) {
+      \Drupal::cache()->set($cid, $response['result']);
+      $result = json_decode($response['result']);
       $data = $result;
       // display the content in the middle section of the page
     }
