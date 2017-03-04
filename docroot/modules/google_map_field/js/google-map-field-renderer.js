@@ -21,28 +21,11 @@ var google_map_field_map;
           center: latlng,
           streetViewControl: false,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
-          scrollwheel: false,
+          //scrollwheel: false,
           navigationControl: false,
           mapTypeControl: false,
           scaleControl: false,
           draggable: false,
-          style: [
-             {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
-            }
-          ]
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
 
@@ -61,7 +44,7 @@ var google_map_field_map;
           position: latlng,
           animation: google.maps.Animation.DROP,
           optimized: false,
-          icon: markerIcon,
+          //icon: markerIcon,
           label: {
             text: label,
             color: "#eb3a44",
