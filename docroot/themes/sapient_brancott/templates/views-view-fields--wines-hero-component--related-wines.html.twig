@@ -3,7 +3,7 @@
 {% endif %}
 {% for detail in winedetails %}
 
-    <!--a href="{{ path('entity.node.canonical', {'node': detail.nid}) }}" class="product-tile">-->
+    <!--<a href="{{ path('entity.node.canonical', {'node': detail.nid}) }}" class="product-tile">-->
 	<a href="node/{{ detail.nid }}" class="product-tile">
         <div class="product-shot">
             <img src="{{ detail.botl_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
