@@ -111,15 +111,17 @@
 					}
 				}
 
-				&:hover,
-				&:focus {
-					span {
-						color: #1e7266;
-					}
-					.product-bg {
-						background-color: #fff !important;
-						box-shadow: 0px 0px 0px 4px #1e7266 inset;
-					}
+				@media screen and (min-width: 1025px) {
+					&:hover,
+					&:focus {
+						span {
+							color: #1e7266;
+						}
+						.product-bg {
+							background-color: #fff !important;
+							box-shadow: 0px 0px 0px 4px #1e7266 inset;
+						}
+					}	
 				}
 			}
 		}
@@ -223,7 +225,7 @@
 			margin: 0 15px;
 		}
 		.see-all-link {
-			display: inline-block;
+			display: block;
 		}	
 	}
 }
