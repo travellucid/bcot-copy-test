@@ -50,6 +50,7 @@ $.fn.setup_navigation = function(settings) {
 	});
 
 	$(top_level_links).hover(function(){
+		$(".level-2.list-reset").removeAttr("style");
 		$(this).parent("li").addClass('hovered');
 		$(this).closest('ul') 
 			.attr('aria-hidden', 'false')
@@ -71,6 +72,7 @@ $.fn.setup_navigation = function(settings) {
 	});
 
   $(top_level_links).focus(function(){
+  	$(".level-2.list-reset").removeAttr("style");
 		$(this).closest('ul')
 			.find('.'+settings.menuHoverClass)
 			.attr('aria-hidden', 'true')
