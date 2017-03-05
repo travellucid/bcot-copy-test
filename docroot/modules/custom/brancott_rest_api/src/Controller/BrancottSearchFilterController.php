@@ -113,16 +113,16 @@ class BrancottSearchFilterController extends ControllerBase {
 	
 	
 	 if ($range) {
-		 print_r('test');die;
+		 
         $range_details = $this->getRangeDetails($range);
-		//print_r($range_details); die;
+		
 		 $table =  array(
          '#theme' => 'search_results_range_template',
          '#search_array' => $wine_details,
 	     '#range_details' =>  $range_details,
        );
     } else {
-		//print_r('test1');die;
+		
 		 $table =  array(
          '#theme' => 'search_results_template',
          '#search_array' => $wine_details,
