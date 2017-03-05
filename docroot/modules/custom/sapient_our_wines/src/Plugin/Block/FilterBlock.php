@@ -52,7 +52,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     elseif ($arg[1] == 'our-wines') {
       $range_name = $arg[2];
     }
-
+//print $range_name; exit;
     foreach ($values as $value) {
       $first_level = array();
       $all_level = array();
@@ -97,12 +97,13 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $wine_details[$value->range][$value->id]['range'] = $value->range; //range
       }
       //print_r($wine_details[$value->range][$value->id]['url']);die;
-
+		//print $value->range; exit;
       $range_details = $this->getRangeDetails($value->range);
-      if (!empty($range_name) && strtolower($range_name) != strtolower($value->range)) {
+      if (!empty($range_name) && strtolower(urldecode($range_name)) != strtolower($value->range)) {
         continue;
       }
       else {
+		  
         $range_details['associated_wines'] = $wine_details[$value->range];
       }
 
@@ -146,7 +147,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $index_details[] = $indexed_range_detail;
       }
     }
-    //print_r($index_details);die;
+    //print_r($filters);die;
     return array(
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $index_details,
@@ -165,10 +166,10 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         if (strlen($values_range->description) > 40) {
           $first = substr($values_range->description, 0, 40);
           $second = substr($values_range->description, 40);
-          $range_details['description'] = '<p>' . $first . '</p><a href="#" class="see-more">See More</a><p class="extra-text">' . $second . '</p><a href="#" class="see-less">See Less</a>';
+          $range_details['description'] = '<span>' . $first . '<span class="ellipses">...</span></span><a href="#" class="see-more">See More</a><span class="extra-text">' . $second . '</span><a href="#" class="see-less">See Less</a>';
         }
         else {
-          $range_details['description'] = '<p>' . $values_range->description . '</p>';
+          $range_details['description'] = '<span>' . $values_range->description . '</span>';
         }
 
         break;

@@ -65,6 +65,8 @@ footer {
 			width: auto;
 
 			ul {
+				.set-max-width(1170px);
+				
 				display: inline-block;
 
 				li {
@@ -72,13 +74,15 @@ footer {
 						margin: 0 50px;
 					}
 
-					float: left;
+					/* float: left; */
+					display: inline-block;
 					margin: 0 23.5px;
 
 					a {
 						color: @dark-gray;
 						font-size: 12px;
 						font-family: "NeutraText Bold";
+						margin-top: 10px;
 						padding: 0;
 
 						&:hover {
@@ -119,7 +123,7 @@ footer {
 			min-width: 44%;
 
 			ul {
-				margin: 40px 0 30px;
+				margin: 40px 0 20px;
 				display: inline-block;
 
 				li {
@@ -199,6 +203,34 @@ li.wine-club {
 
 
 }
+@media screen and (max-width: @bp-max-mobile) {
+    footer {
+        div.country-selector-wrapper {
+            background-color: @dark-gray;
+            height: 90px;
+            position: relative;
+            width: 100%;
+            .country-selector {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            div.your-country {
+                color: @white;
+            }
+            .logo-wrapper {
+                background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
+                background-size: 229px 41px;
+                height: 41px;
+                margin-left: 115px;
+                top: 15px;
+                width: 229px;
+                .centerY();
+            }
+        }
+    }
+}
+
+
 
 @media screen and (max-width: @bp-max-mobile) {
 	footer {
@@ -247,7 +279,9 @@ li.wine-club {
 					font-family: "NeutraText Bold";
 
 					li {
+						display: block;
 						float: none;
+
 						&.icon-Wine {
 							a {}
 						}

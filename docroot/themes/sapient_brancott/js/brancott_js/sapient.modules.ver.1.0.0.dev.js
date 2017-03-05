@@ -533,7 +533,7 @@ var carouselObj = (function($, window, sapient) {
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
 					
-				if(isIOS || isAndroid) {
+				if(isIOS || isAndroid || $(window).width() < 1025) {
 					$(".carousel-control-wrapper").hide();
 				}
 				else {
@@ -1079,6 +1079,23 @@ var ourWines = (function($, window, sapient) {
 					}
 				});
 			},
+
+			seeMoreLess = function() {
+				$(document).on('click','#product-grid .see-less', function(){
+					$(this).hide();
+					$(this).siblings().find(".ellipses").show();
+					$(this).siblings(".extra-text").hide();
+					$(this).siblings(".see-more").show();
+				});
+
+				$(document).on('click','#product-grid .see-more', function(){
+					$(this).hide();
+					$(this).prev().find(".ellipses").hide();
+					$(this).siblings(".extra-text").show();
+					$(this).siblings(".see-less").show();
+				});
+			},
+
 			mobileFiltersMenu = function() {
 				$("#open-navigation").on("click", function() {
 					$("#mobile-navigation").addClass("navigation-active");
@@ -1148,7 +1165,8 @@ var ourWines = (function($, window, sapient) {
 			filterWines: filterWines,
 			mobileFiltersMenu: mobileFiltersMenu,
 			closeMobileNavs: closeMobileNavs,
-			onResize: onResize
+			onResize: onResize,
+			seeMoreLess: seeMoreLess
 		};
 	}
 
@@ -1168,6 +1186,7 @@ sapient.winesFilter = ourWines.getInstance();
 sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
 sapient.winesFilter.onResize();
+sapient.winesFilter.seeMoreLess();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
@@ -1268,7 +1287,7 @@ var validationObj = (function($, window, sapient) {
 					})
 			  	}	
 
-			$(".enquire-form .submit-info .submit-btn").click(function() {
+			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
 				$("#errMsg .messages").html("");
 
@@ -1280,7 +1299,6 @@ var validationObj = (function($, window, sapient) {
 					msgarr = [];
 
 				$.each($input, function(index) {
-
 					if ($($input[index]).val().length == 0) {
 
 						$($(".enquire-form .group input ~ label")[index]).addClass("error");
@@ -1332,14 +1350,16 @@ var validationObj = (function($, window, sapient) {
 
 					if (inputarr[index] === 0) {
 						inputflag = 0;
-						return false;
+						event.preventDefault();
+						
 					}
 				})
 
 				$.each(selectarr, function(index) {
 					if (selectarr[index] == "") {
 						selectflag = 0;
-						return false;
+						event.preventDefault();
+						
 					}
 				})
 
@@ -1347,7 +1367,8 @@ var validationObj = (function($, window, sapient) {
 
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
 					$(".enquire-form input[type=checkbox] + label").addClass("error");
-					return false;
+					event.preventDefault();
+					
 
 				} 
 				else {
