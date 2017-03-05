@@ -87,7 +87,7 @@ class BrancottSearchFilterController extends ControllerBase {
                 $new_nid_transtion = $query->execute()->fetchField();
       $wine_image_url = '';
       //$wine_details[$value->id]['title'] = $value->title;
-      if ($ids) {
+      if ($new_nid_transtion) {
 		$wine_details[$value->id]['title'] = $value->title;
 		$wine_details[$value->id]['range'] = $value->range;
 		$related_nodes = array_filter($ids);
@@ -113,6 +113,7 @@ class BrancottSearchFilterController extends ControllerBase {
 	
 	
 	 if ($range) {
+		 print_r('test');die;
         $range_details = $this->getRangeDetails($range);
 		//print_r($range_details); die;
 		 $table =  array(
@@ -121,6 +122,7 @@ class BrancottSearchFilterController extends ControllerBase {
 	     '#range_details' =>  $range_details,
        );
     } else {
+		//print_r('test1');die;
 		 $table =  array(
          '#theme' => 'search_results_template',
          '#search_array' => $wine_details,
