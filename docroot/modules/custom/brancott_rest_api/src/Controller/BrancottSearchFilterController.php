@@ -46,6 +46,7 @@ class BrancottSearchFilterController extends ControllerBase {
   }
 
   public function getSearchResults($filter_value = NULL) {
+	$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $range = $this->request->getCurrentRequest()->get('range');
     $wine_type = $this->request->getCurrentRequest()->get('wine_type');
     $varietals = $this->request->getCurrentRequest()->get('varietals');
@@ -59,6 +60,7 @@ class BrancottSearchFilterController extends ControllerBase {
       if ($range && strpos($value->range, $range)=== false ) {
         continue;
       }
+	  //print $value->wineType;
       if ($wine_type && strpos($value->wineType, $wine_type) === false) {
         continue;
       }
@@ -78,8 +80,7 @@ class BrancottSearchFilterController extends ControllerBase {
           ->condition('field_wine_id', $value->id)
           ->execute();
 	   $ids = reset($ids);
-	  
-	   $con = \Drupal\Core\Database\Database::getConnection();
+	$con = \Drupal\Core\Database\Database::getConnection();
 		  $query = $con->select('node_field_data', 'n')->distinct();
                 $query->fields('n', array('nid'));
                 $query->condition('n.nid', $ids, '=');
@@ -87,6 +88,7 @@ class BrancottSearchFilterController extends ControllerBase {
                 $new_nid_transtion = $query->execute()->fetchField();
       $wine_image_url = '';
       //$wine_details[$value->id]['title'] = $value->title;
+	  //print $langcode; exit;
       if ($new_nid_transtion) {
 		$wine_details[$value->id]['title'] = $value->title;
 		$wine_details[$value->id]['range'] = $value->range;
@@ -109,10 +111,7 @@ class BrancottSearchFilterController extends ControllerBase {
       $final_array = $wine_details;
      
     }
-	
-	
-	
-	 if ($range) {
+	if ($range) {
 		 
         $range_details = $this->getRangeDetails($range);
 		
