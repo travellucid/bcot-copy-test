@@ -101,10 +101,7 @@ class BrancottSearchFilterController extends ControllerBase {
 		            }
         
       }
-      
-    
       $final_array = $wine_details;
-     
     }
 	if ($range) {
 		 
@@ -116,7 +113,6 @@ class BrancottSearchFilterController extends ControllerBase {
 	     '#range_details' =>  $range_details,
        );
     } else {
-		print_r($wine_details); exit;
 		 $table =  array(
          '#theme' => 'search_results_template',
          '#search_array' => $wine_details,
