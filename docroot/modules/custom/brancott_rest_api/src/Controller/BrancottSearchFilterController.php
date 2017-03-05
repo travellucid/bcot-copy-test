@@ -87,21 +87,16 @@ class BrancottSearchFilterController extends ControllerBase {
                 $query->condition('n.langcode', $langcode, '=');
                 $new_nid_transtion = $query->execute()->fetchField();
       $wine_image_url = '';
-      //$wine_details[$value->id]['title'] = $value->title;
-	  //print $langcode; exit;
       if ($new_nid_transtion) {
 		$wine_details[$value->id]['title'] = $value->title;
 		$wine_details[$value->id]['range'] = $value->range;
-		$related_nodes = array_filter($ids);
-        $related_wine_nid = reset($related_nodes);
-        $wine_node_details = \Drupal\node\Entity\Node::load($related_wine_nid);
-		
-        $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
+		$wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);
+		$wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
 		if($wine_image_file){
                        $wine_image_url = file_create_url($wine_image_file->getFileUri());
 		               $wine_details[$value->id]['url'] = $wine_image_url;
-					   $wine_details[$value->id]['nid'] = $related_wine_nid;
+					   $wine_details[$value->id]['nid'] = $new_nid_transtion;
 					   
 		            }
         
@@ -121,7 +116,7 @@ class BrancottSearchFilterController extends ControllerBase {
 	     '#range_details' =>  $range_details,
        );
     } else {
-		
+		print_r($wine_details); exit;
 		 $table =  array(
          '#theme' => 'search_results_template',
          '#search_array' => $wine_details,
