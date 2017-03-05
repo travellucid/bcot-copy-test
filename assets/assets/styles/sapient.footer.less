@@ -199,6 +199,34 @@ li.wine-club {
 
 
 }
+@media screen and (max-width: @bp-max-mobile) {
+    footer {
+        div.country-selector-wrapper {
+            background-color: @dark-gray;
+            height: 90px;
+            position: relative;
+            width: 100%;
+            .country-selector {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            div.your-country {
+                color: @white;
+            }
+            .logo-wrapper {
+                background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
+                background-size: 229px 41px;
+                height: 41px;
+                margin-left: 115px;
+                top: 15px;
+                width: 229px;
+                .centerY();
+            }
+        }
+    }
+}
+
+
 
 @media screen and (max-width: @bp-max-mobile) {
 	footer {
