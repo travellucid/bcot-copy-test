@@ -162,8 +162,9 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     foreach ($values_ranges as $values_range) {
       if ($range_title == $values_range->title) {
         $range_details['title'] = $values_range->title;
-        $range_details['strapline'] = $values_range->strapline;
+        $range_details['strapline'] = $values_range->strapline; $values_range->description = "xzxshckjsahdsahfdkjhfhdsafkjdshfkjshdkjfhdskjfhdskjfhdsfhdsf ksdhfkjdshfkjdshfjdshfjf";
         if (strlen($values_range->description) > 40) {
+         
           $first = substr($values_range->description, 0, 40);
           $second = substr($values_range->description, 40);
           $range_details['description'] = '<span>' . $first . '<span class="ellipses">...</span></span><a href="#" class="see-more">See More</a><span class="extra-text">' . $second . '</span><a href="#" class="see-less">See Less</a>';
