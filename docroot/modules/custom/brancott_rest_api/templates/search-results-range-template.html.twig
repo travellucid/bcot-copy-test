@@ -1,0 +1,19 @@
+<div class="category-wrapper">
+				<div class="category-header">
+					<p class="title-tag">{{ range_details.title |upper }}</p>
+					<h2>{{ range_details.strapline |upper }}</h2>
+					{{ range_details.description |raw }}
+				</div>
+				<div class="category-grid">
+		{% for search_result in search_array %}
+		<a href="node/{{ search_result.nid }}" class="product-tile">
+			<div class="product-shot">
+				<img src="{{ search_result.url }}" />
+				<div class="product-bg"></div>
+			</div>
+			<h3>{{search_result.range |upper }}</h3>
+			<p>{{search_result.title }}</p>
+		</a>
+		{% endfor %}
+	</div>
+</div>
