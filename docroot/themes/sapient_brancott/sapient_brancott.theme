@@ -12,7 +12,7 @@ use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
   
   global $base_url;
-
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $view_id = $variables['view']->storage->id();
   
   switch ($view_id) {
@@ -178,8 +178,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         }
       }
       if ($variables['view']->current_display == 'related_wines') {
-		  //print_r($variables['row']->_entity->nid->getValue());die;
-		  //kint($variables['row']);die;
+		  
 		  
         if ($variables['row']->_entity->field_wine_id) {
 			
@@ -199,17 +198,25 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		        }
 				//print_r($bottle_img_tgt_id);die;
 				$details = braoncott_rest_api_get_results($wine_id);
-				$winedetails[$key]['title'] = $details->title;
-                $winedetails[$key]['range'] = $details->range;
-				$winedetails[$key]['botl_img'] = $bottle_image_url;
+				
 			    $ids = \Drupal::entityQuery('node')
 		         ->condition('title',$details->range)
                  ->condition('status', 1)    //content type condition also to be added
-                 ->execute(); 
-				$array_nid = array_values($ids);
-				$nid = $array_nid[0];
-				//print_r($details);die;
-				if($nid){
+                 ->execute();
+                 $new_nid = reset($ids);
+                 $con = \Drupal\Core\Database\Database::getConnection();
+                 $query = $con->select('node_field_data', 'n')->distinct();
+                 $query->fields('n', array('nid'));
+                 $query->condition('n.nid', $new_nid, '=');
+                 $query->condition('n.langcode', $langcode, '=');
+                 $new_nid_transtion = $query->execute()->fetchField();
+				//$array_nid = array_values($ids);
+				//$nid = $array_nid[0];
+				//print_r($new_nid_transtion);die;
+				if($new_nid_transtion){
+				$winedetails[$key]['title'] = $details->title;
+                $winedetails[$key]['range'] = $details->range;
+				$winedetails[$key]['botl_img'] = $bottle_image_url;
 		        $bkg_color = \Drupal\node\Entity\Node::load($nid);
 		        $bkg_color =  $bkg_color->field_ranges_background_color->value;
 		        $winedetails[$key]['bkg_colr'] = $bkg_color;
