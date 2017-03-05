@@ -5,10 +5,15 @@ var ourWines = (function($, window, sapient) {
 	function createFilterWinesCollection() {
 		var filterWines = function() {
 				var allProductsGrid = $("#response-wrapper").html(),
-					filtersTop = $("#block-Filter_block_our_wines").offset();
-					
+					filtersTop = $("#block-Filter_block_our_wines").offset(),
+					wineFilter = $(".wine-filters-desktop");
+
 				$(".filter-item").on("click", function(e) {
 					e.preventDefault();
+
+					if($(this).hasClass('active-filter')) {
+						return;
+					}
 
 					if ($(this).data("categoryFilter") === "all-data") {
 						$("#response-wrapper").html(allProductsGrid);
@@ -31,20 +36,29 @@ var ourWines = (function($, window, sapient) {
 						});
 					}
 
-					$("body, html").animate({
-						scrollTop: filtersTop.top
-					}, 'slow');
+					setTimeout(function(){
+						if($(window).width() < 990) {
+							$("#close-filters").trigger('click');
 
-					if($(window).width() < 990) {
+							var headerHeight = $("header.navbar").outerHeight(),
+								topPos = filtersTop.top - headerHeight;
 
-						$("#close-filters").trigger('click');
+							$("body, html").animate({
+								scrollTop: topPos
+							}, "slow");
 
-						var p = $("#product-grid"),
-							offset = p.offset();
-						$("body, html").animate({
-							scrollTop: offset.top
-						}, 'slow');
-					}
+						} else {
+							$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
+							var headerHeight = $("header.navbar").outerHeight(),
+								topPos = filtersTop.top - headerHeight;
+
+							$("body, html").animate({
+								scrollTop: topPos
+							}, 'slow');
+
+							$(wineFilter).find("li.hovered").blur().removeClass('hovered');
+						}
+					},250);
 				});
 			},
 

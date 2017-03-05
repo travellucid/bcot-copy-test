@@ -21,19 +21,18 @@
 
 		.see-more,
 		.see-less {
-			color: @bright-green;
-			font-family: "NeutraText Bold";
-			font-size: 16px;
-			letter-spacing: normal;
-			line-height: 26px;
-			margin-left:2px;
+			display: none;
 		}
 
 		.see-less {
 			display: none;
 		}
-		
+
 		.extra-text {
+			display: inline;
+		}
+
+		.ellipses {
 			display: none;
 		}
 
@@ -190,11 +189,31 @@
 		.category-grid {
 			margin: 0 15px;
 			
-			/* span {
-				font-size: 1px;
-				letter-spacing: normal;
-				line-height: 28px;
-			} */
+		.see-more,
+		.see-less {
+			color: @bright-green;
+			font-family: "NeutraText Bold";
+			font-size: 16px;
+			letter-spacing: normal;
+			line-height: 26px;
+			margin-left:2px;
+		}
+		
+		.ellipses {
+			display: inline;
+		}
+
+		.see-more {
+			display: inline;
+		}
+		.see-less {
+			display: none;
+		}
+		
+		.extra-text {
+			display: none;
+		}
+
 		}
 		.category-grid {
 			.product-tile {
