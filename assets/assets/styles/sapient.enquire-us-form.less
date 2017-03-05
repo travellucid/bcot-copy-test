@@ -198,7 +198,10 @@
 			border: none;
 			border-bottom: 2px solid @dark-gray;
 			height: inherit;
-			overflow-y: hidden;
+			min-height: 104px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			resize: none;
 			width: 100%;
 
 			&:focus {
@@ -215,7 +218,11 @@
 		label {
 			position: static;
 		}
-	
+
+		input[type=checkbox] {
+			width: 0;
+		}
+
 		input[type=checkbox] + label {
 			cursor: pointer;
 			font-size: 12px;

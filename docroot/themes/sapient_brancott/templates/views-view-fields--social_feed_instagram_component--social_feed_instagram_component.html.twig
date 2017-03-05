@@ -1,15 +1,12 @@
-<a href ="{{ fields.field_social_feed_instagram_link.content }}">
 <div id="follow-us" class="cfix">
-	<div id="gallery">
-		{{ fields.view.content }}
-	</div>
-	<div id="content">
-	<a href ="{{ fields.field_social_feed_instagram_link.content }}">
-		<div class="follow-us-text">
-			<span class="hashtag header_f">{{ fields.field_instagram_hashtag.content }}</span>
-			<h2 class="follow-text header_c">{{ fields.field_instagram_tagline.content }}</h2>
-			<span class="icon-Instagram"></span>
-		</div>
-		</a>
-	</div>
+    <div id="gallery">
+        {{ fields.view.content }}
+    </div>
+    <a id="content" href ="{{ fields.field_social_feed_instagram_link.content }}">
+        <div class="follow-us-text">
+            <span class="hashtag header_f">{{ fields.field_instagram_hashtag.content }}</span>
+            <h2 class="follow-text header_c">{{ fields.field_instagram_tagline.content }}</h2>
+            <span class="icon-Instagram"></span>
+        </div>
+    </a>
 </div>

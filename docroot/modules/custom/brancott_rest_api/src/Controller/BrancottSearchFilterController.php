@@ -68,6 +68,7 @@ class BrancottSearchFilterController extends ControllerBase {
 	  if ($foodfilter && strpos($value->foodMatch, $foodfilter) === false ) {
         continue;
       }
+	  
       $food_matches[] = $value->foodMatch;
       $final_array['filters'] = array();
 
@@ -91,22 +92,35 @@ class BrancottSearchFilterController extends ControllerBase {
                        $wine_image_url = file_create_url($wine_image_file->getFileUri());
 		               $wine_details[$value->id]['url'] = $wine_image_url;
 					   $wine_details[$value->id]['nid'] = $related_wine_nid;
-					   //$botl_images['range_bkg'][] = $bkg_color;
+					   
 		            }
-        //$wine_image_url = \Drupal\image\Entity\ImageStyle::load('medium')->buildUrl($wine_image_file->getFileUri());
-		//$wine_details[$value->id]['url'] = $wine_image_url;
+        
       }
       
     
       $final_array = $wine_details;
-      //new code terminated
+     
     }
 	
-	//echo "<pre>";print_r($wine_details);die;
-    $table =  array(
-      '#theme' => 'search_results_template',
-      '#search_array' => $wine_details,
-    );
+	
+	
+	 if ($range) {
+        $range_details = $this->getRangeDetails($range);
+		//print_r($range_details); die;
+		 $table =  array(
+         '#theme' => 'search_results_range_template',
+         '#search_array' => $wine_details,
+	     '#range_details' =>  $range_details,
+       );
+    } else {
+		 $table =  array(
+         '#theme' => 'search_results_template',
+         '#search_array' => $wine_details,
+       );
+	}		  
+	  
+	 
+   
     $markup = drupal_render($table);
     
     $response = new Response();
