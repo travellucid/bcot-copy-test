@@ -19,7 +19,7 @@
             <div class="awards-details-wrapper">
                 <h3 class="header_g">{{ items.awardTypes }}</h3>
                 <span class="header_d">{{ items.awardName }} </span>
-                <span class="header_g">VINTAGE: {{ items.vintage }} </span>
+                <span class="header_g">{{ fields.field_awards_vintage_title.content }}: {{ items.vintage }} </span>
             </div>
         {% endfor %}
         {% if (total_count > 3) %}
@@ -27,7 +27,7 @@
                 <div class="awards-details-wrapper hidden-details-wrapper">
                     <h3 class="header_g">{{ items.awardTypes }}</h3>
                     <span class="header_d">{{ items.awardName }} </span>
-                    <span class="header_g">VINTAGE: {{ items.vintage }} </span>
+                    <span class="header_g">{{ fields.field_awards_vintage_title.content }}: {{ items.vintage }} </span>
                 </div>
             {% endfor %}
         {% endif %}
