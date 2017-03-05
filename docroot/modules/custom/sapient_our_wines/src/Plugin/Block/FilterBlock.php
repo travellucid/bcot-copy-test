@@ -53,9 +53,6 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       $range_name = $arg[2];
     }
 //print $range_name; exit;
-    //global $language;
-	$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-	
     foreach ($values as $value) {
       $first_level = array();
       $all_level = array();
@@ -70,29 +67,8 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
           ->condition('status', 1)
           ->condition('field_wine_id', $value->id)
           ->execute();
-	 
-	
-      $new_nid = reset($ids);
-	  if($new_nid) {
-		  $con = \Drupal\Core\Database\Database::getConnection();
-		  $query = $con->select('node_field_data', 'n')->distinct();
-                $query->fields('n', array('nid'));
-                $query->condition('n.nid', $new_nid, '=');
-                $query->condition('n.langcode', $langcode, '=');
-                $new_nid_transtion = $query->execute()->fetchField();
-			 
-			 //print_r($new_nid_transtion); exit;
-			 $wine_image_url = '';
-			 if ($new_nid_transtion) {
-        $wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);
-        $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
-         
-        $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
-        if ($wine_image_file) {
-          $wine_image_url = file_create_url($wine_image_file->getFileUri());
-        }
-      
-	  
+      $array_nids = array_values($ids);
+      $new_nid = $array_nids[0];
       $ids_bkg = \Drupal::entityQuery('node')
           ->condition('status', 1)
           ->condition('title', $value->range)
@@ -103,8 +79,16 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $bkg_color = \Drupal\node\Entity\Node::load($bkg_nid);
         $bkg_color = $bkg_color->field_ranges_background_color->value;
       }
-      
-      
+      $wine_image_url = '';
+      if ($new_nid) {
+        $wine_node_details = \Drupal\node\Entity\Node::load($new_nid);
+        $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
+
+        $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
+        if ($wine_image_file) {
+          $wine_image_url = file_create_url($wine_image_file->getFileUri());
+        }
+      }
       if ($wine_image_url) {
         $wine_details[$value->range][$value->id]['url'] = $wine_image_url; //url
         $wine_details[$value->range][$value->id]['bkg_colr'] = $bkg_color; //bkgcolr
@@ -112,11 +96,8 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $wine_details[$value->range][$value->id]['title'] = $value->title; //title
         $wine_details[$value->range][$value->id]['range'] = $value->range; //range
       }
-	  
-	  
-	  }
-	  }
-      
+      //print_r($wine_details[$value->range][$value->id]['url']);die;
+		//print $value->range; exit;
       $range_details = $this->getRangeDetails($value->range);
       if (!empty($range_name) && strtolower(urldecode($range_name)) != strtolower($value->range)) {
         continue;
