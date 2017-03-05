@@ -46,87 +46,91 @@ class BrancottSearchFilterController extends ControllerBase {
   }
 
   public function getSearchResults($filter_value = NULL) {
-	$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $range = $this->request->getCurrentRequest()->get('range');
     $wine_type = $this->request->getCurrentRequest()->get('wine_type');
     $varietals = $this->request->getCurrentRequest()->get('varietals');
-	$foodfilter = $this->request->getCurrentRequest()->get('food_matches');
+    $foodfilter = $this->request->getCurrentRequest()->get('food_matches');
 
     $rest_api = new BrancottRestApiControllerFilters;
     $values = $rest_api->getFilters();
     //print_r($values); exit;
     $wine_details = array();
     foreach ($values as $value) {
-      if ($range && strpos($value->range, $range)=== false ) {
+      if ($range && strpos($value->range, $range) === false) {
         continue;
       }
-	  //print $value->wineType;
+      //print $value->wineType;
       if ($wine_type && strpos($value->wineType, $wine_type) === false) {
         continue;
       }
-      if ($varietals && strpos($value->grapeVariety, $varietals) === false ) {
+      if ($varietals && strpos($value->grapeVariety, $varietals) === false) {
         continue;
       }
-	  if ($foodfilter && strpos($value->foodMatch, $foodfilter) === false ) {
+      if ($foodfilter && strpos($value->foodMatch, $foodfilter) === false) {
         continue;
       }
-	  
+
       $food_matches[] = $value->foodMatch;
       $final_array['filters'] = array();
 
-      
+
       $ids = \Drupal::entityQuery('node')
           ->condition('status', 1)
           ->condition('field_wine_id', $value->id)
           ->execute();
-	   $ids = reset($ids);
-	$con = \Drupal\Core\Database\Database::getConnection();
-		  $query = $con->select('node_field_data', 'n')->distinct();
-                $query->fields('n', array('nid'));
-                $query->condition('n.nid', $ids, '=');
-                $query->condition('n.langcode', $langcode, '=');
-                $new_nid_transtion = $query->execute()->fetchField();
+      $ids = reset($ids);
+      $con = \Drupal\Core\Database\Database::getConnection();
+      $query = $con->select('node_field_data', 'n')->distinct();
+      $query->fields('n', array('nid'));
+      $query->condition('n.nid', $ids, '=');
+      $query->condition('n.langcode', $langcode, '=');
+      $new_nid_transtion = $query->execute()->fetchField();
       $wine_image_url = '';
       if ($new_nid_transtion) {
-		$wine_details[$value->id]['title'] = $value->title;
-		$wine_details[$value->id]['range'] = $value->range;
-		$wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);
-		$wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
+        $wine_details[$value->id]['title'] = $value->title;
+        $wine_details[$value->id]['range'] = $value->range;
+        $wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);
+        $wine_file_id = $wine_node_details->field_wine_bottle_image->target_id;
         $wine_image_file = \Drupal\file\Entity\File::load($wine_file_id);
-		if($wine_image_file){
-                       $wine_image_url = file_create_url($wine_image_file->getFileUri());
-		               $wine_details[$value->id]['url'] = $wine_image_url;
-					   $wine_details[$value->id]['nid'] = $new_nid_transtion;
-					   
-		            }
-        
+        if ($wine_image_file) {
+          $wine_image_url = file_create_url($wine_image_file->getFileUri());
+          $wine_details[$value->id]['url'] = $wine_image_url;
+          $wine_details[$value->id]['nid'] = $new_nid_transtion;
+          $ids = \Drupal::entityQuery('node')
+              ->condition('title', $value->range)
+              ->condition('status', 1)    //content type condition also to be added
+              ->execute();
+          $range_nid = reset($ids);
+          $bkg_color = \Drupal\node\Entity\Node::load($range_nid);
+          $bkg_color = $bkg_color->field_ranges_background_color->value;
+          $wine_details[$value->id]['bkg_colr'] = $bkg_color;
+        }
       }
       $final_array = $wine_details;
     }
-	if ($range) {
-		 
-        $range_details = $this->getRangeDetails($range);
-		
-		 $table =  array(
-         '#theme' => 'search_results_range_template',
-         '#search_array' => $wine_details,
-	     '#range_details' =>  $range_details,
-       );
-    } else {
-		 $table =  array(
-         '#theme' => 'search_results_template',
-         '#search_array' => $wine_details,
-       );
-	}		  
-	  
-	 
-   
+    if ($range) {
+      $range_details = $this->getRangeDetails($range);
+      $table = array(
+        '#theme' => 'search_results_range_template',
+        '#search_array' => $wine_details,
+        '#range_details' => $range_details,
+      );
+    }
+    else {
+      $table = array(
+        '#theme' => 'search_results_template',
+        '#search_array' => $wine_details,
+      );
+    }
+
+
+
     $markup = drupal_render($table);
-    
+
     $response = new Response();
     $response->setContent($markup);
     return $response;
-    
   }
 
   public function getRangeDetails($range_title) {
