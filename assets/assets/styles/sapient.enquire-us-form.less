@@ -181,7 +181,6 @@
 	}
 
 	.other-information {
-		max-width: 770px;
 		margin: 18px 0 30px;
 		
 		/*span.header_g {
@@ -199,9 +198,10 @@
 			border: none;
 			border-bottom: 2px solid @dark-gray;
 			height: inherit;
-			overflow-y: hidden;
-			position: absolute;
-			z-index: 100;
+			min-height: 104px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			resize: none;
 			width: 100%;
 
 			&:focus {
