@@ -533,7 +533,7 @@ var carouselObj = (function($, window, sapient) {
 				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
 					
-				if(isIOS || isAndroid || $(window).width() < 990) {
+				if(isIOS || isAndroid || $(window).width() < 1025) {
 					$(".carousel-control-wrapper").hide();
 				}
 				else {
