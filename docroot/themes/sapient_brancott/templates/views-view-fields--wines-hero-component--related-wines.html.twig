@@ -1,19 +1,19 @@
-{% if (winedetails) %}
-    <h2>{{ fields.field_you_may_also_like.content }}</h2>
-{% endif %}
-{% for detail in winedetails %}
-    <a href="node/{{ detail.nid }}" class="product-tile">
-        <div class="product-shot">
-            <img src="{{ detail.botl_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
-            <div class="product-bg" style="background-color: {{ detail.bkg_colr }};"></div>
-        </div>
-        <h3>{{ detail.range |upper }}</h3>
-        <p>{{ detail.title }}</p>
-    </a> 
-{% endfor %}
-
-
-
-
-
-
+<section id="response-wrapper">
+	<div id="product-grid" class="you-may-like">
+		{% if (winedetails) %}
+			<h2>{{ fields.field_you_may_also_like.content }}</h2>
+		{% endif %}
+		<div class="category-grid">
+			{% for detail in winedetails %}
+			<a href="node/{{ detail.nid }}" class="product-tile">
+				<div class="product-shot">
+					<img src="{{ detail.botl_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" />
+					<div class="product-bg" style="background-color: {{ detail.bkg_colr }};"></div>
+				</div>
+				<h3>{{ detail.range |upper }}</h3>
+				<p>{{ detail.title }}</p>
+			</a> 
+		{% endfor %}
+		</div>
+	</div>
+</section>
