@@ -57,7 +57,7 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id == 'menu_edit_form') {
     // Extend menu_edit_menu with the limit form.
     $form['menu_item_limit'] = sapient_our_wines_config_menu($form, $form_state->getBuildInfo()['callback_object']);
-    //$form['#validate'][] = 'sapient_our_wines_config_menu_validate';
+
     $form['#validate'][] = 'sapient_our_wines_menu_validate';
     array_unshift($form['actions']['submit']['#submit'], 'sapient_our_wines_config_menu_submit');
   }
