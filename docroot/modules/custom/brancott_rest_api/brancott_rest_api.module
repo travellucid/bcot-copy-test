@@ -101,6 +101,9 @@ function brancott_rest_api_theme($existing, $type, $theme, $path) {
 	'search_results_template' => array(
       'variables' => array('search_array' => NULL),
     ),
+	'search_results_range_template' => array(
+      'variables' => array('range_details' => NULL,'search_array' => NULL),
+    ),
   );
 }
 
