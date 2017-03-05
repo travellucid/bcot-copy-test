@@ -63,6 +63,7 @@
 	.mac-specific {
 		height: 40px;
 	}
+
 	.group {
 		height: 42px;
 		margin-bottom: 40px;
@@ -208,6 +209,7 @@
 
 	.submit-info {
 		padding: 0 15px 100px;
+		position: static;
 		text-align: center;
 
 		label {
@@ -354,12 +356,15 @@
 @media screen and (max-width: 1200px) {
 	.enquire-form  {	  
 		label {
-			top: -19px;
+			top: -21px;
 			font-size: 12px;
+		}
+
+		input:focus ~ label {
+			top: -21px;
 		}
 		.submit-info {
 			input[type=checkbox] + label {
-				position: relative;
 				top: 10px;
 
 				&:before {

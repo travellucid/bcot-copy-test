@@ -33,14 +33,19 @@ class BrancottRestApiController extends ControllerBase {
     $request_type = 'wine_details';
     $cid = $request_type . '_' . $locale . '_' . $wine_id;
     $cache = \Drupal::cache()->get($cid);
-    if ($cache) {
+    
+	if ($cache) {
+		
       $result = json_decode($cache->data);
+	  
       return $result;
     }
     else {
       $response = brancott_rest_api_reponse('http://gateway.pernod-ricard-winemakers.com/v2/brancott%20estate/' . $locale . '/wines/' . $wine_id . '/en');
     }
+	
     if ($response['code'] == 200) {
+		
       \Drupal::cache()->set($cid, $response['result']);
       $result = json_decode($response['result']);
       $data = $result;

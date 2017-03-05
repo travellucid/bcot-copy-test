@@ -167,6 +167,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         }
       }
     case 'wines_hero_component':
+	
       if ($variables['view']->current_display == 'wines_hero_component') {
         if ($variables['row']->_entity->field_wine_id) {
           $wine_id = $variables['row']->_entity->field_wine_id->value;
@@ -177,15 +178,16 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         }
       }
       if ($variables['view']->current_display == 'related_wines') {
+		  //print_r($variables['row']->_entity->nid->getValue());die;
+		  //kint($variables['row']);die;
 		  
-		  //print_r($language);die;
         if ($variables['row']->_entity->field_wine_id) {
-			//kint($variables['row']);die;
+			
 			$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
 			
 			$winedetails = array();
 			foreach($wine_ids_array as $key =>$value){
-				//print_r($value['target_id']);die;
+				
 				$node_load = \Drupal\node\Entity\Node::load($value['target_id']);
 				$wine_id = $node_load->field_wine_id->value;
 				$bottle_img_tgt_id = $node_load->field_wine_bottle_image->getValue();
