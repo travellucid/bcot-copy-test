@@ -425,38 +425,38 @@ function character_limitation_tours_and_experiences($form, \Drupal\Core\Form\For
   if (strlen($values['field_rezdy_block_collection'][4]['field_rezdy_block_description'][0]['value']) > 500) {
     $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_description', 'Max length for this field is 30 characters.');
   }
-  if (strlen($values['field_rezdy_block_collection'][0]['field_rezdy_block_cost'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_cost', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][0]['field_rezdy_block_cost'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_cost', 'Max length for this field is 100 characters.');
   }
 
-  if (strlen($values['field_rezdy_block_collection'][1]['field_rezdy_block_cost'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][1][field_rezdy_block_cost', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][1]['field_rezdy_block_cost'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][1][field_rezdy_block_cost', 'Max length for this field is 100 characters.');
   }
-  if (strlen($values['field_rezdy_block_collection'][2]['field_rezdy_block_cost'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][2][field_rezdy_block_cost', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][2]['field_rezdy_block_cost'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][2][field_rezdy_block_cost', 'Max length for this field is 100 characters.');
   }
-  if (strlen($values['field_rezdy_block_collection'][3]['field_rezdy_block_cost'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_cost', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][3]['field_rezdy_block_cost'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_cost', 'Max length for this field is 100 characters.');
   }
-  if (strlen($values['field_rezdy_block_collection'][4]['field_rezdy_block_cost'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_cost', 'Max length for this field is 30 characters.');
-  }
-
-  if (strlen($values['field_rezdy_block_collection'][0]['field_rezdy_block_availability'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_availability', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][4]['field_rezdy_block_cost'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_cost', 'Max length for this field is 100 characters.');
   }
 
-  if (strlen($values['field_rezdy_block_collection'][1]['field_rezdy_block_availability'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][1][field_rezdy_block_availability', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][0]['field_rezdy_block_availability'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][0][field_rezdy_block_availability', 'Max length for this field is 100 characters.');
   }
-  if (strlen($values['field_rezdy_block_collection'][2]['field_rezdy_block_availability'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][2][field_rezdy_block_availability', 'Max length for this field is 30 characters.');
+
+  if (strlen($values['field_rezdy_block_collection'][1]['field_rezdy_block_availability'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][1][field_rezdy_block_availability', 'Max length for this field is 100 characters.');
   }
-  if (strlen($values['field_rezdy_block_collection'][3]['field_rezdy_block_availability'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_availability', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][2]['field_rezdy_block_availability'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][2][field_rezdy_block_availability', 'Max length for this field is 100 characters.');
   }
-  if (strlen($values['field_rezdy_block_collection'][4]['field_rezdy_block_availability'][0]['value']) > 30) {
-    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_availability', 'Max length for this field is 30 characters.');
+  if (strlen($values['field_rezdy_block_collection'][3]['field_rezdy_block_availability'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_availability', 'Max length for this field is 100 characters.');
+  }
+  if (strlen($values['field_rezdy_block_collection'][4]['field_rezdy_block_availability'][0]['value']) > 100) {
+    $form_state->setErrorByName('field_rezdy_block_collection][3][field_rezdy_block_availability', 'Max length for this field is 100 characters.');
   }
 }
 
