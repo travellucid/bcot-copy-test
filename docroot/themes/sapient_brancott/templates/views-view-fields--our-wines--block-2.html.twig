@@ -7,19 +7,14 @@
 	<div id="product-grid-carousal" class="carousel slide" data-ride="carousel" data-interval="false">
 		<div class="category-grid carousel-inner" role="listbox">
 			{% for detail in wine_details %}
-			<a class="product-tile item" href="#">
+			<a class="product-tile item" href="{{ detail.range_url }}">
 				<div class="product-shot">
-				    
-					<img src="{{ detail.wine_img.0 }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="primary" />
-					
-					<img src="{{ detail.wine_img.1 }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="secondary" />
-					
+					<img src="{{ detail.wine_img.0 }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="primary" /><img src="{{ detail.wine_img.1 }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="secondary" />
 					<div class="product-bg" style="background-color: {{ detail.wine_bkg_colr }};"></div>
-					
 				</div>
-				<h3>{{ detail.range_title |upper }}</h3>
+				<h3>{{ detail.range_title | upper }}</h3>
 				<p>{{ detail.range_desc }}</p>
-				<span  class="cta secondary-green hidden-md hidden-lg">VIEW RANGE</span>
+				<span class="cta secondary-green">VIEW RANGE</span>
 			</a>
 			{% endfor %}
 			<a class="product-tile see-all-wines grid-view" href="{{ fields.field_see_all_wines.content }}">
@@ -33,13 +28,20 @@
 
 		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
 		<ol class="carousel-indicators">
-			<li data-target="#carousel-our-story" data-slide-to="0" class="active"></li>
+		    {% for i in 0..wine_details|length %}
+		      {% if loop.first %}
+		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}" class="active"></li>
+		      {% elseif not loop.last %}
+		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}"></li>
+		      {% endif %}
+		    {% endfor %}
+			<!--<li data-target="#carousel-our-story" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel-our-story" data-slide-to="1"></li>
 			<li data-target="#carousel-our-story" data-slide-to="2"></li>
 			<li data-target="#carousel-our-story" data-slide-to="3"></li>
 			<li data-target="#carousel-our-story" data-slide-to="4"></li>
 			<li data-target="#carousel-our-story" data-slide-to="5"></li>
-			<li data-target="#carousel-our-story" data-slide-to="6"></li>
+			<li data-target="#carousel-our-story" data-slide-to="6"></li>-->
 		</ol>
 		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
 
