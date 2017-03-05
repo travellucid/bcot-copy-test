@@ -1,44 +1,44 @@
 {%set total_count =  wine_award|length %}
 {% if (total_count > 0) %}
-<div class="awards-accolades">
-    <div class="heading-image-wrapper">
-        <picture>
-            <source  media="(max-width: 321px)" srcset="{{ fields.field_award_image_1.content }}" class="background-image"> 
-            <source  media="(max-width: 691px)" srcset="{{ fields.field_award_image_1.content }}" class="background-image">
-            <source  media="(max-width: 769px)" srcset="{{ fields.field_award_image.content }}" class="background-image">  
-            <source  media="(max-width: 1281px)" srcset="{{ fields.field_award_image.content }}" class="background-image"> 
-            <img src="{{ fields.field_award_image.content }}" alt="{{ fields.field_award_image_2.content }}">
-        </picture>
-        <h2 class="header_b">{{ fields.field_award_title.content }}</h2>
-    </div>
-    <div class="list-wrapper">
-        {% if (total_count > 3) %}
-            {%set pending_count =  (total_count - 3) %}
-        {% endif %}
-        {% for key, items in wine_award|slice(0, 3) %} 
-            <div class="awards-details-wrapper">
-                <h3 class="header_g">{{ items.awardTypes }}</h3>
-                <span class="header_d">{{ items.awardName }} </span>
-                <span class="header_g">VINTAGE: {{ items.vintage }} </span>
-            </div>
-        {% endfor %}
-        {% if (total_count > 3) %}
-            {% for key, items in wine_award|slice(3, pending_count) %} 
-                <div class="awards-details-wrapper hidden-details-wrapper">
+    <div class="awards-accolades">
+        <div class="heading-image-wrapper">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_award_image_1.content }}" class="background-image"> 
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_award_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_award_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_award_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_award_image.content }}" alt="{{ fields.field_award_image_2.content }}">
+            </picture>
+            <h2 class="header_b">{{ fields.field_award_title.content }}</h2>
+        </div>
+        <div class="list-wrapper">
+            {% if (total_count > 3) %}
+                {%set pending_count =  (total_count - 3) %}
+            {% endif %}
+            {% for key, items in wine_award|slice(0, 3) %} 
+                <div class="awards-details-wrapper">
                     <h3 class="header_g">{{ items.awardTypes }}</h3>
                     <span class="header_d">{{ items.awardName }} </span>
                     <span class="header_g">{{ fields.field_awards_vintage_title.content }}: {{ items.vintage }} </span>
                 </div>
             {% endfor %}
-        {% endif %}
-    </div>
-    {% if (total_count > 3) %}
-    <div class="see-more-btn-wrapper">	
-        <button class="cta see-more-btn">
-            See {{ pending_count }} more
-            <span class ="btn-img"></span>
-        </button>
-    </div>
+            {% if (total_count > 3) %}
+                {% for key, items in wine_award|slice(3, pending_count) %} 
+                    <div class="awards-details-wrapper hidden-details-wrapper">
+                        <h3 class="header_g">{{ items.awardTypes }}</h3>
+                        <span class="header_d">{{ items.awardName }} </span>
+                        <span class="header_g">{{ fields.field_awards_vintage_title.content }}: {{ items.vintage }} </span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% if (total_count > 3) %}
+            <div class="see-more-btn-wrapper">	
+                <button class="cta see-more-btn">
+                    See {{ pending_count }} more
+                    <span class ="btn-img"></span>
+                </button>
+            </div>
         {% endif %}    
-</div>
+    </div>
 {% endif %}
