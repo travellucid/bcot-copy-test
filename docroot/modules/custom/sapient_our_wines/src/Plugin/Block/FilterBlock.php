@@ -52,7 +52,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     elseif ($arg[1] == 'our-wines') {
       $range_name = $arg[2];
     }
-
+//print $range_name; exit;
     foreach ($values as $value) {
       $first_level = array();
       $all_level = array();
@@ -97,12 +97,13 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $wine_details[$value->range][$value->id]['range'] = $value->range; //range
       }
       //print_r($wine_details[$value->range][$value->id]['url']);die;
-
+		//print $value->range; exit;
       $range_details = $this->getRangeDetails($value->range);
-      if (!empty($range_name) && strtolower($range_name) != strtolower($value->range)) {
+      if (!empty($range_name) && strtolower(urldecode($range_name)) != strtolower($value->range)) {
         continue;
       }
       else {
+		  
         $range_details['associated_wines'] = $wine_details[$value->range];
       }
 
@@ -146,7 +147,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $index_details[] = $indexed_range_detail;
       }
     }
-    //print_r($index_details);die;
+    //print_r($filters);die;
     return array(
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $index_details,
