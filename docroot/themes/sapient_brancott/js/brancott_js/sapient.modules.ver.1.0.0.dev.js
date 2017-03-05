@@ -1143,6 +1143,13 @@ var ourWines = (function($, window, sapient) {
 					$("#open-filters").removeClass("filters-activated");
 				});
 
+				$(window).scroll(function(){
+					var navTopnavigation = $("#mobile-navigation h2").outerHeight();
+					$("#mobile-navigation-scroll-wrapper").css({ "height": $(window).height() - navTopnavigation });
+					var navTopfilters = $("#mobile-filters h2").outerHeight();
+					$("#mobile-filters-scroll-wrapper").css({ "height": $(window).height() - navTopfilters });
+				});
+
 				$("a.category").on("click",function(e){
 				  e.preventDefault();
 				  $(this).addClass("iamalive");
