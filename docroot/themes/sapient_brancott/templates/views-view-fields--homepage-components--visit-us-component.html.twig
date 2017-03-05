@@ -1,6 +1,6 @@
 <section id="visit-us">
     {%- if fields.field_visit_us_subheading.content or fields.field_visit_us_main_headline.content or fields.field_visit_us_description.content -%}
-    <div class="top-section" >
+    <div class="top-section container-fluid">
         <h2 class="header_f">{{ fields.field_visit_us_subheading.content |upper |raw }}</h2>
         <h3  class="header_a">{{ fields.field_visit_us_main_headline.content |upper |raw }}</h3>
         <p class="description-visit-us">{{ fields.field_visit_us_description.content }}</p>
