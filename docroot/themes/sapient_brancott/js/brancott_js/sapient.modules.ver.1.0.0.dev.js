@@ -63,6 +63,7 @@ $.fn.setup_navigation = function(settings) {
 	});
 
 	$(top_level_links).hover(function(){
+		$(".level-2.list-reset").removeAttr("style");
 		$(this).parent("li").addClass('hovered');
 		$(this).closest('ul') 
 			.attr('aria-hidden', 'false')
@@ -84,6 +85,7 @@ $.fn.setup_navigation = function(settings) {
 	});
 
   $(top_level_links).focus(function(){
+  	$(".level-2.list-reset").removeAttr("style");
 		$(this).closest('ul')
 			.find('.'+settings.menuHoverClass)
 			.attr('aria-hidden', 'true')
@@ -1037,10 +1039,15 @@ var ourWines = (function($, window, sapient) {
 	function createFilterWinesCollection() {
 		var filterWines = function() {
 				var allProductsGrid = $("#response-wrapper").html(),
-					filtersTop = $("#block-Filter_block_our_wines").offset();
-					
+					filtersTop = $("#block-Filter_block_our_wines").offset(),
+					wineFilter = $(".wine-filters-desktop");
+
 				$(".filter-item").on("click", function(e) {
 					e.preventDefault();
+
+					if($(this).hasClass('active-filter')) {
+						return;
+					}
 
 					if ($(this).data("categoryFilter") === "all-data") {
 						$("#response-wrapper").html(allProductsGrid);
@@ -1063,22 +1070,48 @@ var ourWines = (function($, window, sapient) {
 						});
 					}
 
-					$("body, html").animate({
-						scrollTop: filtersTop.top
-					}, 'slow');
+					setTimeout(function(){
+						if($(window).width() < 990) {
+							$("#close-filters").trigger('click');
 
-					if($(window).width() < 990) {
+							var headerHeight = $("header.navbar").outerHeight(),
+								topPos = filtersTop.top - headerHeight;
 
-						$("#close-filters").trigger('click');
+							$("body, html").animate({
+								scrollTop: topPos
+							}, "slow");
 
-						var p = $("#product-grid"),
-							offset = p.offset();
-						$("body, html").animate({
-							scrollTop: offset.top
-						}, 'slow');
-					}
+						} else {
+							$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
+							var headerHeight = $("header.navbar").outerHeight(),
+								topPos = filtersTop.top - headerHeight;
+
+							$("body, html").animate({
+								scrollTop: topPos
+							}, 'slow');
+
+							$(wineFilter).find("li.hovered").blur().removeClass('hovered');
+						}
+					},250);
 				});
 			},
+
+			seeMoreLess = function() {
+				$(document).on('click','#product-grid .see-less', function(){
+					$(this).hide();
+					$(this).siblings().find(".ellipses").show();
+					$(this).siblings(".extra-text").hide();
+					$(this).siblings(".see-more").show();
+				});
+
+				$(document).on('click','#product-grid .see-more', function(){
+					$(this).hide();
+					$(this).prev().find(".ellipses").hide();
+					$(this).siblings(".extra-text").show();
+					$(this).siblings(".see-less").show();
+				});
+			},
+
 			mobileFiltersMenu = function() {
 				$("#open-navigation").on("click", function() {
 					$("#mobile-navigation").addClass("navigation-active");
@@ -1108,6 +1141,13 @@ var ourWines = (function($, window, sapient) {
 					$("ul.nav.categories").css("left", "");
 					$("#mobile-filters-scroll-wrapper").removeAttr("style");
 					$("#open-filters").removeClass("filters-activated");
+				});
+
+				$(window).scroll(function(){
+					var navTopnavigation = $("#mobile-navigation h2").outerHeight();
+					$("#mobile-navigation-scroll-wrapper").css({ "height": $(window).height() - navTopnavigation });
+					var navTopfilters = $("#mobile-filters h2").outerHeight();
+					$("#mobile-filters-scroll-wrapper").css({ "height": $(window).height() - navTopfilters });
 				});
 
 				$("a.category").on("click",function(e){
@@ -1148,7 +1188,8 @@ var ourWines = (function($, window, sapient) {
 			filterWines: filterWines,
 			mobileFiltersMenu: mobileFiltersMenu,
 			closeMobileNavs: closeMobileNavs,
-			onResize: onResize
+			onResize: onResize,
+			seeMoreLess: seeMoreLess
 		};
 	}
 
@@ -1168,6 +1209,7 @@ sapient.winesFilter = ourWines.getInstance();
 sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
 sapient.winesFilter.onResize();
+sapient.winesFilter.seeMoreLess();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
