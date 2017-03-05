@@ -467,15 +467,30 @@ header.navbar {
 				padding: 15px;
 				text-decoration: none;
 				text-transform: uppercase;
+
 				img {
 					position: absolute;
 					right: 10px;
 					top: 20px;
 				}
+
 				&.sub-nav-return {
 					background-color: #e2f4fd;
 					font-size: 12px;
 					padding: 8px 15px;
+				}
+
+				&.external {
+					&::after {
+						background-image: url("@{background-icons-path}BE_icon_new_window.svg");
+						background-size: 13px;
+						content: "";
+						display: inline-block;
+						height: 13px;
+						margin-left: 10px;
+						position: relative;
+						width: 13px;
+					}
 				}
 			}
 			ul.sub-categories {

@@ -51,7 +51,7 @@ var validationObj = (function($, window, sapient) {
 					})
 			  	}	
 
-			$(".enquire-form .submit-info .submit-btn").click(function() {
+			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
 				$("#errMsg .messages").html("");
 
@@ -63,7 +63,6 @@ var validationObj = (function($, window, sapient) {
 					msgarr = [];
 
 				$.each($input, function(index) {
-
 					if ($($input[index]).val().length == 0) {
 
 						$($(".enquire-form .group input ~ label")[index]).addClass("error");
@@ -115,14 +114,16 @@ var validationObj = (function($, window, sapient) {
 
 					if (inputarr[index] === 0) {
 						inputflag = 0;
-						return false;
+						event.preventDefault();
+						
 					}
 				})
 
 				$.each(selectarr, function(index) {
 					if (selectarr[index] == "") {
 						selectflag = 0;
-						return false;
+						event.preventDefault();
+						
 					}
 				})
 
@@ -130,7 +131,8 @@ var validationObj = (function($, window, sapient) {
 
 					$(".enquire-form input[type=checkbox] + label").addClass("change");
 					$(".enquire-form input[type=checkbox] + label").addClass("error");
-					return false;
+					event.preventDefault();
+					
 
 				} 
 				else {
