@@ -163,7 +163,6 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       if ($range_title == $values_range->title) {
         $range_details['title'] = $values_range->title;
         $range_details['strapline'] = $values_range->strapline;
-        $values_range->description = "some text will go here which will be more than 40 characters. This will be divided into 2 sections";
         if (strlen($values_range->description) > 40) {
           $first = substr($values_range->description, 0, 40);
           $second = substr($values_range->description, 40);
