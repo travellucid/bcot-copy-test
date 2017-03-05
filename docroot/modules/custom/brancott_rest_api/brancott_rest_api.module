@@ -74,8 +74,11 @@ function brancott_rest_api_call_request($requesturl, $method, $params = array())
 
     // close the curl connection
     $result = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $response['result'] = $result;
+    $response['code'] = $httpcode;
     curl_close($ch);
-    return $result;
+    return $response;
   }
   catch (Exception $e) {
     echo $e->getMessage();
@@ -102,26 +105,24 @@ function brancott_rest_api_theme($existing, $type, $theme, $path) {
 }
 
 function braoncott_rest_api_get_results($wine_id) {
-	//print_r('test');die;
-  $rest_api = new BrancottRestApiController;
+	$rest_api = new BrancottRestApiController();
   $value = $rest_api->getProductDetails($wine_id);
   return $value;
 }
 
 
 function braoncott_rest_api_get_filters() {
-  $rest_api_filters = new BrancottRestApiControllerFilters;
+  $rest_api_filters = new BrancottRestApiControllerFilters();
   $value = $rest_api_filters->getFilters();
   return $value;
 }
 function braoncott_rest_api_get_ranges() {
-  $rest_api_ranges = new BrancottRestApiControllerRanges;
+  $rest_api_ranges = new BrancottRestApiControllerRanges();
   $value = $rest_api_ranges->getRanges();
   return $value;
 }
 function braoncott_rest_api_get_ranges_details() {
   $value = getRangeDetails();
-  //print_r($value);die;
   return $value;
 }
 
