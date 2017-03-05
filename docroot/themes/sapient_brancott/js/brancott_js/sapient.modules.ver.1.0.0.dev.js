@@ -1079,6 +1079,23 @@ var ourWines = (function($, window, sapient) {
 					}
 				});
 			},
+
+			seeMoreLess = function() {
+				$(document).on('click','#product-grid .see-less', function(){
+					$(this).hide();
+					$(this).siblings().find(".ellipses").show();
+					$(this).siblings(".extra-text").hide();
+					$(this).siblings(".see-more").show();
+				});
+
+				$(document).on('click','#product-grid .see-more', function(){
+					$(this).hide();
+					$(this).prev().find(".ellipses").hide();
+					$(this).siblings(".extra-text").show();
+					$(this).siblings(".see-less").show();
+				});
+			},
+
 			mobileFiltersMenu = function() {
 				$("#open-navigation").on("click", function() {
 					$("#mobile-navigation").addClass("navigation-active");
@@ -1148,7 +1165,8 @@ var ourWines = (function($, window, sapient) {
 			filterWines: filterWines,
 			mobileFiltersMenu: mobileFiltersMenu,
 			closeMobileNavs: closeMobileNavs,
-			onResize: onResize
+			onResize: onResize,
+			seeMoreLess: seeMoreLess
 		};
 	}
 
@@ -1168,6 +1186,7 @@ sapient.winesFilter = ourWines.getInstance();
 sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
 sapient.winesFilter.onResize();
+sapient.winesFilter.seeMoreLess();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
