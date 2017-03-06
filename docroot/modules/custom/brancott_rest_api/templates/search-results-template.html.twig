@@ -4,7 +4,7 @@
 		<a href="node/{{ search_result.nid }}" class="product-tile">
 			<div class="product-shot">
 				<img src="{{ search_result.url }}" />
-				<div class="product-bg"></div>
+				<div class="product-bg" style="background-color: {{ search_result.bkg_colr }};"></div>
 			</div>
 			<h3>{{search_result.range |upper }}</h3>
 			<p>{{search_result.title }}</p>
