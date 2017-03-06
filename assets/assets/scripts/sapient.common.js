@@ -58,6 +58,13 @@ var commonObj = (function($, window, sapient) {
 					$("#find-us-component #map-overlay a[href^='tel']").addClass("touchDevices");
 				}
 			},
+			
+			posSignup = function() {
+				var $main = $("footer").prev();
+				if($main.find(".sign-up").next.length === 0 ) {
+					$(".sign-up").css("padding",0);
+				}
+			},
 
 			killHash = function(){
 				$("a").each(function(){
@@ -78,6 +85,7 @@ var commonObj = (function($, window, sapient) {
 			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
 			telAppledevices:telAppledevices,
+			posSignup:posSignup,
 			killHash: killHash
 		};
 	}
@@ -102,6 +110,7 @@ sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
 sapient.common.emptyform();
 sapient.common.telAppledevices();
+sapient.common.posSignup();
 
 
 
