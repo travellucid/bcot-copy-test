@@ -32,8 +32,8 @@ var google_map_field_map;
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
 
-        google.maps.event.trigger(google_map_field_map, 'resize')
-        google_map_field_map.panBy(-150, 0);
+        google.maps.event.trigger(google_map_field_map, 'resize');
+        google_map_field_map.panBy(-200, 0);
         google_map_field_map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(-41.4813,173.6561), 
                                                        new google.maps.LatLng(-41.6421,174.0578)));
         // Drop a marker at the specified position.
