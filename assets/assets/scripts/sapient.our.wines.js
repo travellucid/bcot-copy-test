@@ -6,7 +6,8 @@ var ourWines = (function($, window, sapient) {
 		var filterWines = function() {
 				var allProductsGrid = $("#response-wrapper").html(),
 					filtersTop = $("#block-Filter_block_our_wines").offset(),
-					wineFilter = $(".wine-filters-desktop");
+					wineFilter = $(".wine-filters-desktop"),
+					localeCode = drupalSettings.path.currentLanguage;
 
 				$(".filter-item").on("click", function(e) {
 					e.preventDefault();
@@ -27,7 +28,7 @@ var ourWines = (function($, window, sapient) {
 							$(this).addClass('active-filter');
 
 						$.ajax({
-							url: "/search-page?" + wineCategory + "=" + wineCategoryFilter,
+							url: "/" + localeCode + "/search-page?" + wineCategory + "=" + wineCategoryFilter,
 							type: "GET",
 							success: function(data) {
 								$("#response-wrapper").html(data);
