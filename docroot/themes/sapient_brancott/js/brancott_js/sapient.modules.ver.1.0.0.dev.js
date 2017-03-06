@@ -236,15 +236,16 @@ var datePickerObj = (function($, window, sapient) {
 	var datetimepickerInstance;
 	function createDatePickerInstance() {
 		var bindDatePicker = function() {
-			$(".date").datetimepicker({
+			$(".enquire-form .date-wrapper .date").datetimepicker({
 				maxDate:'2020/01/01',
 				format:'DD-MM-YYYY'
 			}).find('input:first').on("blur",function () {
+				console.log("here")
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
 				var date = sapient.datepicker.parseDate($(this).val());
-
-				if (! sapient.datepicker.sValidDate(date)) {
+				console.log(date);
+				if (! sapient.datepicker.isValidDate(date)) {
 					//create date based on momentjs (we have that)
 					date = moment().format('YYYY-MM-DD');
 				}
@@ -252,6 +253,7 @@ var datePickerObj = (function($, window, sapient) {
 				$(this).val(date);
 			});
 			
+			/*$(".enquire-form .date-wrapper .date")*/
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
@@ -270,6 +272,18 @@ var datePickerObj = (function($, window, sapient) {
 			
 
 			$(".enquire-form .date-wrapper .date").on("change", function() {
+				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				 	val = $(this).val().split("-"),
+				 	getDay,
+				 	newDate;
+
+				val[1] = monthArray[val[1] -1];
+				getDay = weekArray[new Date($(this).val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
+				val.unshift(getDay)
+				newDate = val.join(" ");
+				
+				$(this).val(newDate);
 				$(" .bootstrap-datetimepicker-widget").hide();
 			});
 
@@ -287,14 +301,10 @@ var datePickerObj = (function($, window, sapient) {
 					$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
 				}
 			}
-			
-			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
-				
-				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left - 250);
-			}*/
 		},
 
 		isValidDate = function(value, format) {
+			console.log()
 			format = format || false;
 			// lets parse the date to the best of our knowledge
 			if (format) {
@@ -316,10 +326,10 @@ var datePickerObj = (function($, window, sapient) {
 
 		 return {
 			 // public + private states and behaviors
-			 bindDatePicker: bindDatePicker,
-			 positionCalender:positionCalender,
-			 isValidDate:isValidDate,
-			 parseDate:parseDate
+			bindDatePicker: bindDatePicker,
+			positionCalender:positionCalender,
+			isValidDate:isValidDate,
+			parseDate:parseDate
 
 		 };
 	}
@@ -732,13 +742,12 @@ var heroObj = (function($, window, sapient) {
 		var setLocalTime = function(offset) {
 				var d = new Date(),
 				utc = d.getTime() + (d.getTimezoneOffset() * 60000),
-				nd = new Date(utc + (3600000*offset)),
+				time = new Date(utc + (3600000*offset)),
 				m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"),
-				time = nd,
 				curr_year = time.getFullYear(),
 				curr_month = time.getMonth(),
 				curr_date = time.getDate(),
-				hours = time.getHours()-12,
+				hours = time.getHours()/*-12*/,
 				mins = time.getMinutes(),
 				timeStr = "";
 
@@ -746,12 +755,14 @@ var heroObj = (function($, window, sapient) {
 				mins="0" + mins;
 			}
 
-			if(hours < 12) {
-					amPm = "pm";
+			if((hours-12) < 0) {
+					amPm = "am";
+					console.log(hours);
 				}
 				
 			else {
-				amPm = "am";
+				amPm = "pm";
+				hours-=12;
 			}
 				
 			timeStr = curr_date  + " " + m_names[curr_month] + " " + curr_year + " / " + hours + ":" +mins +""+ amPm;
