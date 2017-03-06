@@ -48,9 +48,15 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $final_array = array();
     if ($arg[2] == 'our-wines') {
       $range_name = $arg[3];
+      if(strlen($range_name)) {
+        $range_name = str_replace("-", " ", $range_name);
+      }
     }
     elseif ($arg[1] == 'our-wines') {
       $range_name = $arg[2];
+      if(strlen($range_name)) {
+        $range_name = str_replace("-", " ", $range_name);
+      }
     }
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
