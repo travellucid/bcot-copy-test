@@ -65,6 +65,9 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
     // Add a validation to form menu_edit_item.
     array_unshift($form['#validate'], 'sapient_our_wines_menu_validate');
   }
+  if ($form_id == 'webform_submission_enquire_form_form') {
+    $form['#validate'][] = 'webform_submission_enquire_form_form_validation';
+  }
 }
 
 function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -205,6 +208,20 @@ function _menu_item_limitation_get_item_count($menu_name) {
     return 0;
   }
 }
+
+function webform_submission_enquire_form_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  $enquire_form_name = $values['name'];
+   if (!preg_match('/^[A-Za-z]{1}[A-Za-z]{5,31}$/', $enquire_form_name))
+    {
+    $form_state->setErrorByName('name',  'Uppercase, lowercase, A-Z, a-z are allowed');
+    }
+    // print_r($values['email_address']);exit;
+    $email = $values['email_address'];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $form_state->setErrorByName('email_address', 'This is not a valid email ID');
+    }
+ }
 
 function character_limitation_private_page($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
