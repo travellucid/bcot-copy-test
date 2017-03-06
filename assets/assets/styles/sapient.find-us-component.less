@@ -34,6 +34,11 @@
 					color: @bright-green;
 					display: block;
 				}
+
+				a[href^="tel"] {
+					pointer-events: none;
+				}
+
 		}
 
 		h2 {
@@ -63,11 +68,15 @@
 				font-stretch: normal;
 				line-height: 26px;
 				letter-spacing: normal;
+				padding: 0 15px;
 				text-align: center;
+		}
+		.touchDevices {
+			pointer-events: auto !important;
 		}
 }
 
-@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+@media screen and (max-width: @bp-max-mobile) {
 		#find-us-component {
 			.map {
 					height: auto;
@@ -90,6 +99,7 @@
 			}
 		}
 }
+
 
 @media screen and (width: 768px) {
 		#find-us-component {
