@@ -55,7 +55,7 @@ var commonObj = (function($, window, sapient) {
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
 
 				if(isIOS || isAndroid) {
-					$("#find-us-component #map-overlay a[href^='tel']").addClass("")
+					$("#find-us-component #map-overlay a[href^='tel']").addClass("touchDevices")
 				}
 			},
 
