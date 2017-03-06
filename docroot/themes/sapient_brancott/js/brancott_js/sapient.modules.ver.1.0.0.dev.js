@@ -1086,7 +1086,7 @@ var ourWines = (function($, window, sapient) {
 							$(this).addClass('active-filter');
 
 						$.ajax({
-							url: "/search-page?" + wineCategory + "=" + wineCategoryFilter,
+							url: drupalSettings.path.currentLanguage + "/search-page?" + wineCategory + "=" + wineCategoryFilter,
 							type: "GET",
 							success: function(data) {
 								$("#response-wrapper").html(data);
