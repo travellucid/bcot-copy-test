@@ -18,7 +18,11 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   switch ($view_id) {
     
     case 'our_wines':
-      
+      if ($variables['view']->current_display == 'block_1') {
+		  $wine_count = count(views_get_view_result('our_wines', 'block_2', 1 ));
+		  $variables['wine_count'] = $wine_count;
+		  
+	  }
       if ($variables['view']->current_display == 'block_2') {
         $details = getRangeDetailsFiltered();
         
