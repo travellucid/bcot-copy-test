@@ -388,7 +388,16 @@ var commonObj = (function($, window, sapient) {
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 				}
+				
 			},
+
+			telAppledevices = function() {
+				var appleDevices = navigator.platform.match(/(iPhone|iPad)/i) ? true : false;
+				if(appleDevices && ($(windowWidth) < 1400)) {
+					$("#find-us-component #map-overlay a[href^='tel']").addClass("")
+				}
+			},
+
 			killHash = function(){
 				$("a").each(function(){
 					if($(this).attr("href") == "#"){
@@ -407,6 +416,7 @@ var commonObj = (function($, window, sapient) {
 			addBgNoise: addBgNoise,
 			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
+			telAppledevices:telAppledevices,
 			killHash: killHash
 		};
 	}
@@ -430,6 +440,7 @@ sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
 sapient.common.emptyform();
+sapient.common.telAppledevices();
 
 
 
@@ -1304,11 +1315,11 @@ var validationObj = (function($, window, sapient) {
 			
 			
 			var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-				if(mac) {
-					$.each($select,function() {
-						$(this).addClass("mac-specific");
-					})
-			  	}	
+			if(mac) {
+				$.each($select,function() {
+					$(this).addClass("mac-specific");
+				})
+		  	}	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				

@@ -45,11 +45,11 @@ var validationObj = (function($, window, sapient) {
 			
 			
 			var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-				if(mac) {
-					$.each($select,function() {
-						$(this).addClass("mac-specific");
-					})
-			  	}	
+			if(mac) {
+				$.each($select,function() {
+					$(this).addClass("mac-specific");
+				})
+		  	}	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
