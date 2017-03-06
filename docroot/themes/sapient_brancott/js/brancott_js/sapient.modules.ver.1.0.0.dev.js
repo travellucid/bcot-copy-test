@@ -1437,15 +1437,16 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		handleBackEndError = function() {
-			var beErrLength= $(".custom-error li");
+			var beErrLength= $(".custom-error li").length;
 			if(beErrLength > 0){
+				var str="";
 				$(".custom-error li").each(function(){
-					var str=$(this).text();
-					
-				});
-				$(".enquire-form ol ").append(str);
+				str= str+""+$(this).text();
+			});
+
+				$(".enquire-form .error-msg").addClass("error").show();
+				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
 			}
-			
 		};
 
 		return {
