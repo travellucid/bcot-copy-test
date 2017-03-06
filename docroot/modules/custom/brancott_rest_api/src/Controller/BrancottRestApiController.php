@@ -35,9 +35,7 @@ class BrancottRestApiController extends ControllerBase {
     $cache = \Drupal::cache()->get($cid);
     
 	if ($cache) {
-		
       $result = json_decode($cache->data);
-	  
       return $result;
     }
     else {
@@ -45,11 +43,11 @@ class BrancottRestApiController extends ControllerBase {
     }
 	
     if ($response['code'] == 200) {
-		
-      \Drupal::cache()->set($cid, $response['result']);
-      $result = json_decode($response['result']);
+		$result = json_decode($response['result']);
+		if($result->id) {
+			\Drupal::cache()->set($cid, $response['result']);
+		}
       $data = $result;
-      // display the content in the middle section of the page
     }
     return $data;
   }

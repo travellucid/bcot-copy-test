@@ -288,9 +288,11 @@ nav[role="navigation"] {
 header.navbar {
 	&.white-background {
 		#open-navigation {
-			border-color: #d50032;
-			&::before {
+			span {
 				border-color: #d50032;
+				&::before {
+					border-color: #d50032;
+				}
 			}
 		}
 	}
@@ -342,24 +344,33 @@ header.navbar {
 
 #open-navigation {
 	background-color: transparent;
-	border: 1px solid #ffffff;
-	border-width: 1px 0;
-	display: block;
+	border: 0 none;
+	border-color: transparent;
 	float: right;
-	height: 14px;
-	margin: 24px 15px 0 0;
+	height: 30px;
+	margin: 20px 20px 0 0;
 	padding: 0;
-	position: relative;
-	text-indent: -999999px;
-	width: 20px;
-	&::before {
-		content: " ";
-		display: block;
-		left: 0;
-		position: absolute;
-		width: 100%;
-		border-top: 1px solid #ffffff;
-		top: 50%;
+	text-align: center;
+	width: 30px;
+
+	span {
+		border: 1px solid #ffffff;
+		border-width: 1px 0;
+		float: right;
+		height: 13px;
+		position: relative;
+		text-indent: -999999px;
+		width: 17px;
+
+		&::before {
+			content: " ";
+			display: block;
+			left: 0;
+			position: absolute;
+			width: 100%;
+			border-top: 1px solid #ffffff;
+			top: 50%;
+		}
 	}
 }
 

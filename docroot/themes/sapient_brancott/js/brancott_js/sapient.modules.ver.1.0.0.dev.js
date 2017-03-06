@@ -1340,10 +1340,9 @@ var validationObj = (function($, window, sapient) {
 				});
 
 				$.each($select, function(index) {
-
 					if ($select[index].value == "") {
 						$($select[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group select option[value='']")[index]).text());
+						msgarr.push($($(".enquire-form .group select")[index]).siblings("label").text());
 					} 
 
 					else {
