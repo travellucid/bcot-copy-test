@@ -392,8 +392,10 @@ var commonObj = (function($, window, sapient) {
 			},
 
 			telAppledevices = function() {
-				var appleDevices = navigator.platform.match(/(iPhone|iPad)/i) ? true : false;
-				if(appleDevices && ($(windowWidth) < 1400)) {
+				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+					isAndroid =navigator.userAgent.indexOf('Android') >=0;
+
+				if(isIOS || isAndroid) {
 					$("#find-us-component #map-overlay a[href^='tel']").addClass("")
 				}
 			},
