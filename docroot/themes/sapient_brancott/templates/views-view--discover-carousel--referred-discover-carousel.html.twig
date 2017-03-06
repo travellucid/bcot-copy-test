@@ -42,7 +42,7 @@
   {{ title }}
 <div id="carousel-new-story" class="carousel slide container-fluid" data-ride="carousel"  data-interval="false">
     <ol class="carousel-indicators">
-
+        {% if view.total_rows > 1 %}
         {% for i in 0..view.total_rows %}
 		   {% if loop.first %}
 		      <li data-target="#carousel-new-story" data-slide-to="{{ i }}" class="active"></li>
@@ -50,6 +50,7 @@
 		      <li data-target="#carousel-new-story" data-slide-to="{{ i }}"></li>
 		   {% endif %}
 		{% endfor %}
+		{% endif %}
     </ol> 
  <div class="carousel-inner " role="listbox">
   {{ rows }}
