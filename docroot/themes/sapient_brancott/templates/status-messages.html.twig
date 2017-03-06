@@ -1,4 +1,3 @@
-{% extends "@classy/misc/status-messages.html.twig" %}
 {#
 /**
  * @file
@@ -18,12 +17,31 @@
  * - status_headings: List of all status types.
  * - display: (optional) May have a value of 'status' or 'error' when only
  *   displaying messages of that specific type.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ *
+ * @ingroup themeable
  */
 #}
-{% block messages %}
-    {% if message_list is not empty %}
-        <div class="messages__wrapper layout-container">
-            {{ parent() }}
-        </div>
+{% for type, messages in message_list %}
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+    {% if type == 'error' %}
+      <div role="alert" class="custom-error">
     {% endif %}
-{% endblock messages %}
+      {% if status_headings[type] %}
+        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+      {% endif %}
+      {% if messages|length > 0 %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ messages|first }}
+      {% endif %}
+    {% if type == 'error' %}
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}
