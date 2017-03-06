@@ -279,7 +279,7 @@ var datePickerObj = (function($, window, sapient) {
 		positionCalender = function() {
 			var iconPos = $(".calender-icon").offset();
 			
-			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+			if($(".bootstrap-datetimepicker-widget ").is(":visible") === true) {
 
 				$(this).blur();
 
@@ -1049,7 +1049,8 @@ var ourWines = (function($, window, sapient) {
 		var filterWines = function() {
 				var allProductsGrid = $("#response-wrapper").html(),
 					filtersTop = $("#block-Filter_block_our_wines").offset(),
-					wineFilter = $(".wine-filters-desktop");
+					wineFilter = $(".wine-filters-desktop"),
+					localeCode = drupalSettings.path.currentLanguage;
 
 				$(".filter-item").on("click", function(e) {
 					e.preventDefault();
@@ -1070,7 +1071,7 @@ var ourWines = (function($, window, sapient) {
 							$(this).addClass('active-filter');
 
 						$.ajax({
-							url: drupalSettings.path.currentLanguage + "/search-page?" + wineCategory + "=" + wineCategoryFilter,
+							url: "/" + localeCode + "/search-page?" + wineCategory + "=" + wineCategoryFilter,
 							type: "GET",
 							success: function(data) {
 								$("#response-wrapper").html(data);
@@ -1333,9 +1334,9 @@ var validationObj = (function($, window, sapient) {
 				$.each($input, function(index) {
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form .group input ~ label")[index]).addClass("error");
+						$($input[index]).siblings("label").addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group input ~ label")[index]).html());
+						msgarr.push($($input[index]).siblings("label").text());
 
 					} 
 					else {
@@ -1350,14 +1351,14 @@ var validationObj = (function($, window, sapient) {
 
 				$.each($select, function(index) {
 					if ($select[index].value == "") {
+						$($select[index]).siblings("label").addClass("error");
 						$($select[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group select")[index]).siblings("label").text());
+						msgarr.push($($select[index]).siblings("label").text());
 					} 
 
 					else {
 						$($select[index]).removeClass("error-border");
 					}
-
 					selectarr.push($select[index].value);
 
 				});

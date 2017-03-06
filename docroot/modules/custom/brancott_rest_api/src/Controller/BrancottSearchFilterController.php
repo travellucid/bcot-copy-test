@@ -54,13 +54,13 @@ class BrancottSearchFilterController extends ControllerBase {
 
     $rest_api = new BrancottRestApiControllerFilters;
     $values = $rest_api->getFilters();
-    //print_r($values); exit;
+    
     $wine_details = array();
     foreach ($values as $value) {
       if ($range && strpos($value->range, $range) === false) {
         continue;
       }
-      //print $value->wineType;
+      
       if ($wine_type && strpos($value->wineType, $wine_type) === false) {
         continue;
       }
@@ -90,7 +90,7 @@ class BrancottSearchFilterController extends ControllerBase {
 	   
       $wine_image_url = '';
       if ($new_nid_transtion) {
-		  print "sdfsdfsdf"; exit;
+		 
         $wine_details[$value->id]['title'] = $value->title;
         $wine_details[$value->id]['range'] = $value->range;
         $wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);

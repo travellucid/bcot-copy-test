@@ -46,7 +46,7 @@ var datePickerObj = (function($, window, sapient) {
 		positionCalender = function() {
 			var iconPos = $(".calender-icon").offset();
 			
-			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+			if($(".bootstrap-datetimepicker-widget ").is(":visible") === true) {
 
 				$(this).blur();
 
