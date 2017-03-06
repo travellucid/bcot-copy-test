@@ -130,8 +130,12 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
       if ($variables['view']->current_display == 'related_wines') {
         if ($variables['row']->_entity->field_wine_id) {
           
-          $wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
-          
+          //$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
+          $wine_ids_array = array();
+          //$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
+          $node = \Drupal::routeMatch()->getParameter('node');
+          $node_translation = $node->getTranslation($langcode);
+          $wine_ids_array = $node_translation->field_related_wines->getValue();
           $winedetails = array();
           foreach ($wine_ids_array as $key => $value) {
            
