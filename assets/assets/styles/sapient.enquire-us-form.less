@@ -54,6 +54,7 @@
 	}
 
 	select {
+		background-color: transparent;
 		border: none;
 		border-bottom: 2px solid  @black;
 		outline: none;
@@ -106,7 +107,7 @@
 	
 	/* active state */
 	input {
-		
+		background-color: transparent;
 		border: none;
 		border-bottom: 2px solid  @black;
 		display: block;
@@ -191,17 +192,18 @@
 
 		label {
 			top: -24px;
-			font-size: 12px;
-			line-height: 22px;
+			font-size: 14px;
+			line-height: 24px;
 		}
 		.detail-info {
 			font-family: "NeutraText Book";
 			border: none;
 			border-bottom: 2px solid @dark-gray;
 			height: 105px;
+			max-height: 300px;
 			overflow-y: auto;
 			overflow-x: hidden;
-			resize: none;
+			resize: vertical;
 			width: 100%;
 
 			&:focus {

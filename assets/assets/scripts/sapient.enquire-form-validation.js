@@ -30,6 +30,11 @@ var validationObj = (function($, window, sapient) {
 				
 
 			});
+			
+			$select.on("change",function(){
+				$(this).removeClass("error-border");
+				$(this).siblings('label').removeClass("error");
+			});
 
 			$input.each(function() {
 
@@ -45,11 +50,11 @@ var validationObj = (function($, window, sapient) {
 			
 			
 			var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-				if(mac) {
-					$.each($select,function() {
-						$(this).addClass("mac-specific");
-					})
-			  	}	
+			if(mac) {
+				$.each($select,function() {
+					$(this).addClass("mac-specific");
+				})
+		  	}	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
@@ -65,9 +70,9 @@ var validationObj = (function($, window, sapient) {
 				$.each($input, function(index) {
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form .group input ~ label")[index]).addClass("error");
+						$($input[index]).siblings("label").addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group input ~ label")[index]).html());
+						msgarr.push($($input[index]).siblings("label").text());
 
 					} 
 					else {
@@ -82,14 +87,14 @@ var validationObj = (function($, window, sapient) {
 
 				$.each($select, function(index) {
 					if ($select[index].value == "") {
+						$($select[index]).siblings("label").addClass("error");
 						$($select[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group select")[index]).siblings("label").text());
+						msgarr.push($($select[index]).siblings("label").text());
 					} 
 
 					else {
 						$($select[index]).removeClass("error-border");
 					}
-
 					selectarr.push($select[index].value);
 
 				});

@@ -236,15 +236,16 @@ var datePickerObj = (function($, window, sapient) {
 	var datetimepickerInstance;
 	function createDatePickerInstance() {
 		var bindDatePicker = function() {
-			$(".date").datetimepicker({
+			$(".enquire-form .date-wrapper .date").datetimepicker({
 				maxDate:'2020/01/01',
 				format:'DD-MM-YYYY'
 			}).find('input:first').on("blur",function () {
+				console.log("here")
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
 				var date = sapient.datepicker.parseDate($(this).val());
-
-				if (! sapient.datepicker.sValidDate(date)) {
+				console.log(date);
+				if (! sapient.datepicker.isValidDate(date)) {
 					//create date based on momentjs (we have that)
 					date = moment().format('YYYY-MM-DD');
 				}
@@ -252,6 +253,7 @@ var datePickerObj = (function($, window, sapient) {
 				$(this).val(date);
 			});
 			
+			/*$(".enquire-form .date-wrapper .date")*/
 			$(".fa-clock-o").closest(".picker-switch").hide();
 			$(".table-condensed .next").html("");
 			$(".table-condensed .prev").html("");
@@ -270,6 +272,18 @@ var datePickerObj = (function($, window, sapient) {
 			
 
 			$(".enquire-form .date-wrapper .date").on("change", function() {
+				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				 	val = $(this).val().split("-"),
+				 	getDay,
+				 	newDate;
+
+				val[1] = monthArray[val[1] -1];
+				getDay = weekArray[new Date($(this).val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
+				val.unshift(getDay)
+				newDate = val.join(" ");
+				
+				$(this).val(newDate);
 				$(" .bootstrap-datetimepicker-widget").hide();
 			});
 
@@ -279,7 +293,7 @@ var datePickerObj = (function($, window, sapient) {
 		positionCalender = function() {
 			var iconPos = $(".calender-icon").offset();
 			
-			if($(".bootstrap-datetimepicker-widget ").css("display") === "block") {
+			if($(".bootstrap-datetimepicker-widget ").is(":visible") === true) {
 
 				$(this).blur();
 
@@ -287,14 +301,10 @@ var datePickerObj = (function($, window, sapient) {
 					$(".bootstrap-datetimepicker-widget ").css("left", iconPos.left );
 				}
 			}
-			
-			/*else if (($(".bootstrap-datetimepicker-widget ").css("display") === "block")) {
-				
-				$(".bootstrap-datetimepicker-widget ").css("left",$(".calender-icon").offset().left - 250);
-			}*/
 		},
 
 		isValidDate = function(value, format) {
+			console.log()
 			format = format || false;
 			// lets parse the date to the best of our knowledge
 			if (format) {
@@ -316,10 +326,10 @@ var datePickerObj = (function($, window, sapient) {
 
 		 return {
 			 // public + private states and behaviors
-			 bindDatePicker: bindDatePicker,
-			 positionCalender:positionCalender,
-			 isValidDate:isValidDate,
-			 parseDate:parseDate
+			bindDatePicker: bindDatePicker,
+			positionCalender:positionCalender,
+			isValidDate:isValidDate,
+			parseDate:parseDate
 
 		 };
 	}
@@ -388,7 +398,18 @@ var commonObj = (function($, window, sapient) {
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 				}
+				
 			},
+
+			telAppledevices = function() {
+				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+					isAndroid =navigator.userAgent.indexOf('Android') >=0;
+
+				if(isIOS || isAndroid) {
+					$("#find-us-component #map-overlay a[href^='tel']").addClass("touchDevices");
+				}
+			},
+
 			killHash = function(){
 				$("a").each(function(){
 					if($(this).attr("href") == "#"){
@@ -407,6 +428,7 @@ var commonObj = (function($, window, sapient) {
 			addBgNoise: addBgNoise,
 			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
+			telAppledevices:telAppledevices,
 			killHash: killHash
 		};
 	}
@@ -430,6 +452,7 @@ sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
 sapient.common.emptyform();
+sapient.common.telAppledevices();
 
 
 
@@ -716,46 +739,42 @@ var heroObj = (function($, window, sapient) {
 
 	function createHeroInstance() {
 
-		var setLocalTime = function() {
-
-			var m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"),
-				time = new Date(),
+		var setLocalTime = function(offset) {
+				var d = new Date(),
+				utc = d.getTime() + (d.getTimezoneOffset() * 60000),
+				time = new Date(utc + (3600000*offset)),
+				m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"),
 				curr_year = time.getFullYear(),
 				curr_month = time.getMonth(),
 				curr_date = time.getDate(),
-				hours = time.getHours()-12,
+				hours = time.getHours()/*-12*/,
 				mins = time.getMinutes(),
 				timeStr = "";
-				
-				if(hours < 12) {
-					amPm = "pm";
-				}
-				else {
-					amPm = "am";
-				}
-				timeStr = curr_date  + " " + m_names[curr_month] + " " + curr_year + " / " + hours + ":" +mins +""+ amPm;
-			var	dateTimeHeading = $("#hero-component .date-time");
-			if(dateTimeHeading.length > 0) {
-				$("#hero-component .date-time").text(timeStr);				
+
+			if(mins < 10){
+				mins="0" + mins;
 			}
+
+			if((hours-12) < 0) {
+					amPm = "am";
+					console.log(hours);
+				}
+				
+			else {
+				amPm = "pm";
+				hours-=12;
+			}
+				
+			timeStr = curr_date  + " " + m_names[curr_month] + " " + curr_year + " / " + hours + ":" +mins +""+ amPm;
+
+			var	dateTimeHeading = $("#hero-component .date-time");
+
+			if(dateTimeHeading.length > 0) {
+				$("#hero-component .date-time").text( timeStr);				
+			}
+
 		};
-/*function updateTime(){
-    var currentTime = new Date()
-    var hours = currentTime.getHours()
-    var minutes = currentTime.getMinutes()
-    if (minutes < 10){
-        minutes = "0" + minutes
-    }
-    var t_str = hours + ":" + minutes + " ";
-    if(hours > 11){
-        t_str += "PM";
-    } else {
-        t_str += "AM";
-    }
-    document.getElementById('time_span').innerHTML = t_str;
-}
-setInterval(updateTime, 1000);
-*/
+
 		return {
 			setLocalTime: setLocalTime
 		};
@@ -774,7 +793,7 @@ setInterval(updateTime, 1000);
 
 sapient.hero = heroObj.getInstance();
 
-sapient.hero.setLocalTime();
+sapient.hero.setLocalTime("+13");
 var headerObj = (function($, window, sapient) {
 
 	var headerInstance;
@@ -1040,7 +1059,8 @@ var ourWines = (function($, window, sapient) {
 		var filterWines = function() {
 				var allProductsGrid = $("#response-wrapper").html(),
 					filtersTop = $("#block-Filter_block_our_wines").offset(),
-					wineFilter = $(".wine-filters-desktop");
+					wineFilter = $(".wine-filters-desktop"),
+					localeCode = drupalSettings.path.currentLanguage;
 
 				$(".filter-item").on("click", function(e) {
 					e.preventDefault();
@@ -1061,7 +1081,7 @@ var ourWines = (function($, window, sapient) {
 							$(this).addClass('active-filter');
 
 						$.ajax({
-							url: "/search-page?" + wineCategory + "=" + wineCategoryFilter,
+							url: "/" + localeCode + "/search-page?" + wineCategory + "=" + wineCategoryFilter,
 							type: "GET",
 							success: function(data) {
 								$("#response-wrapper").html(data);
@@ -1289,6 +1309,11 @@ var validationObj = (function($, window, sapient) {
 				
 
 			});
+			
+			$select.on("change",function(){
+				$(this).removeClass("error-border");
+				$(this).siblings('label').removeClass("error");
+			});
 
 			$input.each(function() {
 
@@ -1304,11 +1329,11 @@ var validationObj = (function($, window, sapient) {
 			
 			
 			var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-				if(mac) {
-					$.each($select,function() {
-						$(this).addClass("mac-specific");
-					})
-			  	}	
+			if(mac) {
+				$.each($select,function() {
+					$(this).addClass("mac-specific");
+				})
+		  	}	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
@@ -1324,9 +1349,9 @@ var validationObj = (function($, window, sapient) {
 				$.each($input, function(index) {
 					if ($($input[index]).val().length == 0) {
 
-						$($(".enquire-form .group input ~ label")[index]).addClass("error");
+						$($input[index]).siblings("label").addClass("error");
 						$($input[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group input ~ label")[index]).html());
+						msgarr.push($($input[index]).siblings("label").text());
 
 					} 
 					else {
@@ -1341,14 +1366,14 @@ var validationObj = (function($, window, sapient) {
 
 				$.each($select, function(index) {
 					if ($select[index].value == "") {
+						$($select[index]).siblings("label").addClass("error");
 						$($select[index]).addClass("error-border");
-						msgarr.push($($(".enquire-form .group select")[index]).siblings("label").text());
+						msgarr.push($($select[index]).siblings("label").text());
 					} 
 
 					else {
 						$($select[index]).removeClass("error-border");
 					}
-
 					selectarr.push($select[index].value);
 
 				});

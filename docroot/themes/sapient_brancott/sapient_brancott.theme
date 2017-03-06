@@ -16,97 +16,49 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   $view_id = $variables['view']->storage->id();
 
   switch ($view_id) {
+    
     case 'our_wines':
-
       if ($variables['view']->current_display == 'block_1') {
-        $values = $variables['row']->_entity->field_ranges->getValue();
-        $details = getRangeDetailsFiltered();
-        $nids_array = array();
-        foreach ($values as $value) {
-          $nids_array[] = $value['target_id'];
-        }
-        foreach ($nids_array as $nid) {
-
-          $nid_title = \Drupal\node\Entity\Node::load($nid);
-          $nid_title = $nid_title->title->value;
-          //print_r($nid_title);die;
-          foreach ($details as $key => $detail) {
-            if ($nid_title == $detail->title) {
-              $detail_array[$key]['title'] = $detail->title;
-              $detail_array[$key]['desc'] = $detail->description;
-              $ids = \Drupal::entityQuery('node')
-                  ->condition('title', $detail->title)
-                  ->condition('status', 1)
-                  ->execute();
-              $array_nid = array_values($ids);
-              $nid = $array_nid[0];
-
-
-              $node_load = \Drupal\node\Entity\Node::load($nid);
-              $bkg_color = $node_load->field_ranges_background_color->value;
-              $range_image_target = $node_load->field_ranges_image->target_id;
-              $range_image_file = \Drupal\file\Entity\File::load($range_image_target);
-
-              if ($range_image_file) {
-                $range_image_url = file_create_url($range_image_file->getFileUri());
-              }
-
-              $detail_array[$key]['bkg_colr'] = $bkg_color;
-              $detail_array[$key]['range_image'] = $range_image_url;
-            }
-          }
-        }
-
-
-
-        $variables['range_details'] = $detail_array;
-        //print_r($detail_array);die;
-      }
-    case 'our_wines':
-
+		  $wine_count = count(views_get_view_result('our_wines', 'block_2', 1 ));
+		  $variables['wine_count'] = $wine_count;
+		  
+	  }
       if ($variables['view']->current_display == 'block_2') {
         $details = getRangeDetailsFiltered();
-        // print_r($details);die;
-
-        $field_collection = $variables['row']->_entity->field_range_selection->getValue();
-        $field_collection_ids = array();
-        foreach ($field_collection as $collection) {
-          //$field_collection_ids[] = $collection['value'];
-          $fc = \Drupal\field_collection\Entity\FieldCollectionItem::load($collection['value']);
-          $range_id = $fc->field_range->getValue();
-          $range_id = $range_id[0]['target_id'];
-          $node_load_range = \Drupal\node\Entity\Node::load($range_id);
+        
+        //kint($variables['row']->_relationship_entities['field_range_selection_value']->field_wines->getValue()[1]['target_id']); exit;
+        
+		$range_id = $variables['row']->_relationship_entities['field_range_selection_value']->field_range->getValue()[0]['target_id'];
+		
+		$wines_ids = $variables['row']->_relationship_entities['field_range_selection_value']->field_wines->getValue();
+		$node_load_range = \Drupal\node\Entity\Node::load($range_id);
           $bkg_color = $node_load_range->field_ranges_background_color->value;
           $range_title = $node_load_range->title->value;
+		  $url = '/our-wines/'.$range_title ;
           foreach ($details as $key => $detail) {
             if ($range_title == $detail->title) {
               $range_title_api = $detail->title;
               $range_desc_api = $detail->description;
             }
           }
-          //print_r($botl_images);die;
-          $wine_ids = $fc->field_wines->getValue();
-          //print_r($wine_ids);die;
-          foreach ($wine_ids as $wine_id) {
-
-            $wine_id_new = $wine_id['target_id'];
-            $node_load_wine = \Drupal\node\Entity\Node::load($wine_id_new);
-
-            $wine_image_target = $node_load_wine->field_wine_bottle_image->target_id;
-            $wine_image_file = \Drupal\file\Entity\File::load($wine_image_target);
-            if ($wine_image_file) {
-              $wine_image_url = file_create_url($wine_image_file->getFileUri());
-              $botl_images[$collection['value']]['wine_img'][] = $wine_image_url;
-              //$botl_images['range_bkg'][] = $bkg_color;
+		  
+		  foreach($wines_ids as $wine_id){
+			  $exact_wine_id = $wine_id['target_id'];
+			  $node_load_wine = \Drupal\node\Entity\Node::load($exact_wine_id);
+			  $wine_image_target = $node_load_wine->field_wine_bottle_image->target_id;
+              $wine_image_file = \Drupal\file\Entity\File::load($wine_image_target);
+              if ($wine_image_file) {
+              $wine_image_url[] = file_create_url($wine_image_file->getFileUri());
+              
             }
-          }
-          $botl_images[$collection['value']]['wine_bkg_colr'] = $bkg_color;
-          $botl_images[$collection['value']]['range_title'] = $range_title_api;
-          $botl_images[$collection['value']]['range_desc'] = $range_desc_api;
-          $botl_images[$collection['value']]['range_url'] = '/our-wines/' . $range_title_api;
-        }
-        $variables['wine_details'] = $botl_images;
-        //print_r($botl_images);die;		  
+		  }
+		  $wine_botl_1 = $wine_image_url[0];
+		  $wine_botl_2 = $wine_image_url[1];
+		  $range_details = array('bkg_colr' => $bkg_color,'range_title' => $range_title_api,'url' => $url,'range_desc_api' => $range_desc_api,'botl_1_img' => $wine_botl_1,'botl_2_img' => $wine_botl_2);
+		
+          $variables['range_details'] = $range_details;
+		 
+          
       }
     case 'homepage_components':
       if ($variables['view']->current_display == 'common_hero_component') {
@@ -177,12 +129,16 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
       }
       if ($variables['view']->current_display == 'related_wines') {
         if ($variables['row']->_entity->field_wine_id) {
-          //print "here"; exit;
-          $wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
-          //print_r($wine_ids_array); exit;
+          
+          //$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
+          $wine_ids_array = array();
+          //$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
+          $node = \Drupal::routeMatch()->getParameter('node');
+          $node_translation = $node->getTranslation($langcode);
+          $wine_ids_array = $node_translation->field_related_wines->getValue();
           $winedetails = array();
           foreach ($wine_ids_array as $key => $value) {
-            //print $langcode; exit;
+           
             $con = \Drupal\Core\Database\Database::getConnection();
             $query = $con->select('node_field_data', 'n')->distinct();
             $query->fields('n', array('nid'));
@@ -308,8 +264,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         if ($variables['row']->_entity->field_generic_page_dch_api_url) {
           $generic_dch_url = $variables['row']->_entity->field_generic_page_dch_api_url->getValue()[0][uri];
           $details = braoncott_rest_api_get_generic_url($generic_dch_url);
-          //$generic_body = $variables['row']->_entity->body;
-          //$generic_body = $details;
+          
           $variables['generic_body_dch'] = $details;
         }
       }
@@ -322,12 +277,10 @@ function sapient_brancott_theme() {
     'webform_submission_enquire_form_form' => array(
       'arguments' => array('form' => NULL,),
       'template' => 'enquire-form',
-      //'variables' => array('form' => NULL,'test' => 'sanju', ),
       'render element' => 'form'
     ),
     'webform_submission_book_a_table_form' => array(
       'template' => 'book-table-form',
-      //'variables' => array('form' => NULL,'test' => 'sanju', ),
       'render element' => 'form'
     ),
   );

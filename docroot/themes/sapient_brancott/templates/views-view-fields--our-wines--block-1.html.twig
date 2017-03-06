@@ -1,23 +1,13 @@
-<section id="product-grid" class="you-may-like">
-	<div class="top-section">
+<div class="top-section">
 		<p class="header_f">{{ fields.field_our_wine_heading.content }}</p>
 		<h2 class="header_a">{{ fields.field_our_wine_title.content }}</h2>
 		<p class="description-visit-us">{{ fields.field_our_wine_description.content }}</p>
 	</div>
 	<div id="product-grid-carousal" class="carousel slide" data-ride="carousel" data-interval="false">
-		<div class="category-grid carousel-inner" role="listbox">
-			{% for detail in range_details %}
-			<a class="product-tile item" href="#">
-				<div class="product-shot">
-					<img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="primary" /><img src="{{ detail.range_image }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="secondary" />
-					<div class="product-bg" style="background-color: {{ detail.bkg_colr }};"></div>
-				</div>
-				<h3>{{ detail.title | upper }}</h3>
-				<p>{{ detail.desc }}</p>
-				<span  class="cta secondary-green hidden-md hidden-lg">VIEW RANGE</span>
-			</a>
-			{% endfor %}
-			<a class="product-tile see-all-wines hidden-xs hidden-sm" href="{{ fields.field_see_all_wines.content }}">
+	
+	     <div class="category-grid carousel-inner" role="listbox">
+			{{ fields.view.content }}
+			<a class="product-tile see-all-wines grid-view" href="{{ fields.field_see_all_wines.content }}">
 				<div class="product-shot">
 					<span>{{ fields.field_see_all_wines_1.content }}</span>
 					<img src="https://placeholdit.imgix.net/~text?w=248&h=770" />
@@ -25,19 +15,23 @@
 				</div>
 			</a>
 		</div>
-
-		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
 		<ol class="carousel-indicators">
-			<li data-target="#carousel-our-story" data-slide-to="0" class="active"></li>
+		    {% for i in 0..wine_count %}
+		   {% if loop.first %}
+		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}" class="active"></li>
+		   {% elseif not loop.last %}
+		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}"></li>
+		   {% endif %}
+		   {% endfor %}
+		    
+			{#<li data-target="#carousel-our-story" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel-our-story" data-slide-to="1"></li>
 			<li data-target="#carousel-our-story" data-slide-to="2"></li>
 			<li data-target="#carousel-our-story" data-slide-to="3"></li>
 			<li data-target="#carousel-our-story" data-slide-to="4"></li>
 			<li data-target="#carousel-our-story" data-slide-to="5"></li>
-			<li data-target="#carousel-our-story" data-slide-to="6"></li>
+			<li data-target="#carousel-our-story" data-slide-to="6"></li>#}
 		</ol>
-		<!-- We have to make the indicators dynamic based on the number of actual wine categories -->
-
-	</div>
-	<a class="cta dark see-all-link hidden-md hidden-lg" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a> 
-</section>
+	    </div>
+	     <a class="cta dark see-all-link carousel-view" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a> 
+	

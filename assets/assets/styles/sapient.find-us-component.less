@@ -33,7 +33,14 @@
 				a {
 					color: @bright-green;
 					display: block;
+					font-family: "NeutraText Bold";
 				}
+
+				a[href^="tel"] {
+					pointer-events: none;
+					font-size: 16px;
+				}
+
 		}
 
 		h2 {
@@ -63,11 +70,16 @@
 				font-stretch: normal;
 				line-height: 26px;
 				letter-spacing: normal;
+				padding: 0 15px;
 				text-align: center;
+		}
+
+		.touchDevices {
+			pointer-events: auto !important;
 		}
 }
 
-@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+@media screen and (max-width: @bp-max-mobile) {
 		#find-us-component {
 			.map {
 					height: auto;
@@ -81,7 +93,6 @@
 			}
 
 			#map-overlay {
-					margin-top: 100px;
 					display: block;
 					padding: 0 0 40px;
 					position: static;
@@ -90,6 +101,7 @@
 			}
 		}
 }
+
 
 @media screen and (width: 768px) {
 		#find-us-component {
