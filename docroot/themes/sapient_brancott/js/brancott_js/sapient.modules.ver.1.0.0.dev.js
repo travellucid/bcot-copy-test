@@ -412,7 +412,7 @@ var commonObj = (function($, window, sapient) {
 
 			posSignup = function() {
 				var $main = $("footer").prev();
-				if($main.find(".sign-up").parent().next().length === 0 ) {
+				if($main.find(".sign-up").parent().next().length === 0) {
 					$(".sign-up").css("padding",0);
 				}
 			},
