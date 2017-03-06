@@ -19,13 +19,16 @@ var google_map_field_map;
         var mapOptions = {
           zoom: zoom,
           center: latlng,
-          streetViewControl: false,
+          //streetViewControl: false,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
-          //scrollwheel: false,
+          disableDefaultUI: true,
+          scrollwheel: false,
+          zoomControl: true,
+          panControl: false,
+          draggable: true
           //navigationControl: false,
           //mapTypeControl: false,
           //scaleControl: false,
-          //draggable: true,
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
 
