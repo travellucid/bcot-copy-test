@@ -90,7 +90,7 @@ class BrancottSearchFilterController extends ControllerBase {
 	   
       $wine_image_url = '';
       if ($new_nid_transtion) {
-		  print "sdfsdfsdf"; exit;
+		 
         $wine_details[$value->id]['title'] = $value->title;
         $wine_details[$value->id]['range'] = $value->range;
         $wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);
