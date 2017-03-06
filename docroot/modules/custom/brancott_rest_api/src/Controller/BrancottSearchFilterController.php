@@ -54,13 +54,13 @@ class BrancottSearchFilterController extends ControllerBase {
 
     $rest_api = new BrancottRestApiControllerFilters;
     $values = $rest_api->getFilters();
-    //print_r($values); exit;
+    
     $wine_details = array();
     foreach ($values as $value) {
       if ($range && strpos($value->range, $range) === false) {
         continue;
       }
-      //print $value->wineType;
+      
       if ($wine_type && strpos($value->wineType, $wine_type) === false) {
         continue;
       }
