@@ -388,7 +388,18 @@ var commonObj = (function($, window, sapient) {
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 				}
+				
 			},
+
+			telAppledevices = function() {
+				var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
+					isAndroid =navigator.userAgent.indexOf('Android') >=0;
+
+				if(isIOS || isAndroid) {
+					$("#find-us-component #map-overlay a[href^='tel']").addClass("touchDevices");
+				}
+			},
+
 			killHash = function(){
 				$("a").each(function(){
 					if($(this).attr("href") == "#"){
@@ -407,6 +418,7 @@ var commonObj = (function($, window, sapient) {
 			addBgNoise: addBgNoise,
 			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
+			telAppledevices:telAppledevices,
 			killHash: killHash
 		};
 	}
@@ -430,6 +442,7 @@ sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
 sapient.common.emptyform();
+sapient.common.telAppledevices();
 
 
 
@@ -716,8 +729,19 @@ var heroObj = (function($, window, sapient) {
 
 	function createHeroInstance() {
 
-		var setLocalTime = function() {
+		var setLocalTime = function(offset) {
+				var d = new Date(),    
+				// convert to msec
+				// add local time zone offset 
+				// get UTC time in msec
+				utc = d.getTime() + (d.getTimezoneOffset() * 60000),
 
+				// create new Date object for different city
+				// using supplied offset
+				nd = new Date(utc + (3600000*offset));
+
+				// return time as a string
+		/*		return  nd.toLocaleString();
 			var m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"),
 				time = new Date(),
 				curr_year = time.getFullYear(),
@@ -734,10 +758,11 @@ var heroObj = (function($, window, sapient) {
 					amPm = "am";
 				}
 				timeStr = curr_date  + " " + m_names[curr_month] + " " + curr_year + " / " + hours + ":" +mins +""+ amPm;
-			var	dateTimeHeading = $("#hero-component .date-time");
-			if(dateTimeHeading.length > 0) {
-				$("#hero-component .date-time").text(timeStr);				
-			}
+*/
+				var	dateTimeHeading = $("#hero-component .date-time");
+				if(dateTimeHeading.length > 0) {
+					$("#hero-component .date-time").text( nd.toLocaleString());				
+				}
 		};
 /*function updateTime(){
     var currentTime = new Date()
@@ -774,7 +799,7 @@ setInterval(updateTime, 1000);
 
 sapient.hero = heroObj.getInstance();
 
-sapient.hero.setLocalTime();
+sapient.hero.setLocalTime("+13");
 var headerObj = (function($, window, sapient) {
 
 	var headerInstance;
@@ -1304,11 +1329,11 @@ var validationObj = (function($, window, sapient) {
 			
 			
 			var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-				if(mac) {
-					$.each($select,function() {
-						$(this).addClass("mac-specific");
-					})
-			  	}	
+			if(mac) {
+				$.each($select,function() {
+					$(this).addClass("mac-specific");
+				})
+		  	}	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				

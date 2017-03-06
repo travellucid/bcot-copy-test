@@ -4,8 +4,19 @@ var heroObj = (function($, window, sapient) {
 
 	function createHeroInstance() {
 
-		var setLocalTime = function() {
+		var setLocalTime = function(offset) {
+				var d = new Date(),    
+				// convert to msec
+				// add local time zone offset 
+				// get UTC time in msec
+				utc = d.getTime() + (d.getTimezoneOffset() * 60000),
 
+				// create new Date object for different city
+				// using supplied offset
+				nd = new Date(utc + (3600000*offset));
+
+				// return time as a string
+		/*		return  nd.toLocaleString();
 			var m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"),
 				time = new Date(),
 				curr_year = time.getFullYear(),
@@ -22,10 +33,11 @@ var heroObj = (function($, window, sapient) {
 					amPm = "am";
 				}
 				timeStr = curr_date  + " " + m_names[curr_month] + " " + curr_year + " / " + hours + ":" +mins +""+ amPm;
-			var	dateTimeHeading = $("#hero-component .date-time");
-			if(dateTimeHeading.length > 0) {
-				$("#hero-component .date-time").text(timeStr);				
-			}
+*/
+				var	dateTimeHeading = $("#hero-component .date-time");
+				if(dateTimeHeading.length > 0) {
+					$("#hero-component .date-time").text( nd.toLocaleString());				
+				}
 		};
 /*function updateTime(){
     var currentTime = new Date()
@@ -62,4 +74,4 @@ setInterval(updateTime, 1000);
 
 sapient.hero = heroObj.getInstance();
 
-sapient.hero.setLocalTime();
+sapient.hero.setLocalTime("+13");
