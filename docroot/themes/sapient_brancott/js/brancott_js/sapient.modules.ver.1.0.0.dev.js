@@ -732,13 +732,12 @@ var heroObj = (function($, window, sapient) {
 		var setLocalTime = function(offset) {
 				var d = new Date(),
 				utc = d.getTime() + (d.getTimezoneOffset() * 60000),
-				nd = new Date(utc + (3600000*offset)),
+				time = new Date(utc + (3600000*offset)),
 				m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"),
-				time = nd,
 				curr_year = time.getFullYear(),
 				curr_month = time.getMonth(),
 				curr_date = time.getDate(),
-				hours = time.getHours()-12,
+				hours = time.getHours()/*-12*/,
 				mins = time.getMinutes(),
 				timeStr = "";
 
@@ -746,12 +745,14 @@ var heroObj = (function($, window, sapient) {
 				mins="0" + mins;
 			}
 
-			if(hours < 12) {
-					amPm = "pm";
+			if((hours-12) < 0) {
+					amPm = "am";
+					console.log(hours);
 				}
 				
 			else {
-				amPm = "am";
+				amPm = "pm";
+				hours-=12;
 			}
 				
 			timeStr = curr_date  + " " + m_names[curr_month] + " " + curr_year + " / " + hours + ":" +mins +""+ amPm;
