@@ -14,7 +14,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   global $base_url;
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $view_id = $variables['view']->storage->id();
-
+  $variables['current_language'] = $langcode;
   switch ($view_id) {
     
     case 'our_wines':
@@ -34,7 +34,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		$node_load_range = \Drupal\node\Entity\Node::load($range_id);
           $bkg_color = $node_load_range->field_ranges_background_color->value;
           $range_title = $node_load_range->title->value;
-		  $url = '/our-wines/'.$range_title ;
+		  $url = $langcode.'/our-wines/'.$range_title ;
           foreach ($details as $key => $detail) {
             if ($range_title == $detail->title) {
               $range_title_api = $detail->title;
