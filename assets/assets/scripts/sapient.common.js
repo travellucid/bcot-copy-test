@@ -59,6 +59,13 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
+			posSignup = function() {
+				var $main = $("footer").prev();
+				if($main.find(".sign-up").parent().next().length === 0) {
+					$(".sign-up").css("padding",0);
+				}
+			},
+
 			killHash = function(){
 				$("a").each(function(){
 					if($(this).attr("href") == "#"){
@@ -78,6 +85,7 @@ var commonObj = (function($, window, sapient) {
 			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
 			telAppledevices:telAppledevices,
+			posSignup:posSignup,
 			killHash: killHash
 		};
 	}
@@ -102,6 +110,7 @@ sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
 sapient.common.emptyform();
 sapient.common.telAppledevices();
+sapient.common.posSignup();
 
 
 

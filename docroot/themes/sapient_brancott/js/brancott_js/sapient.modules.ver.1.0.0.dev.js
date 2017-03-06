@@ -410,6 +410,13 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
+			posSignup = function() {
+				var $main = $("footer").prev();
+				if($main.find(".sign-up").parent().next().length === 0) {
+					$(".sign-up").css("padding",0);
+				}
+			},
+
 			killHash = function(){
 				$("a").each(function(){
 					if($(this).attr("href") == "#"){
@@ -429,6 +436,7 @@ var commonObj = (function($, window, sapient) {
 			emptyform:emptyform,
 			assignTouchDeviceClass: assignTouchDeviceClass,
 			telAppledevices:telAppledevices,
+			posSignup:posSignup,
 			killHash: killHash
 		};
 	}
@@ -453,6 +461,7 @@ sapient.common.assignTouchDeviceClass();
 sapient.common.killHash();
 sapient.common.emptyform();
 sapient.common.telAppledevices();
+sapient.common.posSignup();
 
 
 
@@ -1425,11 +1434,25 @@ var validationObj = (function($, window, sapient) {
 
 				}		
 			});
+		},
+
+		handleBackEndError = function() {
+			var beErrLength= $(".custom-error li").length;
+			if(beErrLength > 0){
+				var str="";
+				$(".custom-error li").each(function(){
+				str= str+""+$(this).text();
+			});
+
+				$(".enquire-form .error-msg").addClass("error").show();
+				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+			}
 		};
 
 		return {
 			// public + private states and behaviors
-			validate: validate
+			validate: validate,
+			handleBackEndError: handleBackEndError
 		};
 	}
 
@@ -1447,3 +1470,4 @@ var validationObj = (function($, window, sapient) {
 
 sapient.validation = validationObj.getInstance();
 sapient.validation.validate();
+sapient.validation.handleBackEndError();

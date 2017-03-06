@@ -146,11 +146,25 @@ var validationObj = (function($, window, sapient) {
 
 				}		
 			});
+		},
+
+		handleBackEndError = function() {
+			var beErrLength= $(".custom-error li").length;
+			if(beErrLength > 0){
+				var str="";
+				$(".custom-error li").each(function(){
+				str= str+""+$(this).text();
+			});
+
+				$(".enquire-form .error-msg").addClass("error").show();
+				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+			}
 		};
 
 		return {
 			// public + private states and behaviors
-			validate: validate
+			validate: validate,
+			handleBackEndError: handleBackEndError
 		};
 	}
 
@@ -168,3 +182,4 @@ var validationObj = (function($, window, sapient) {
 
 sapient.validation = validationObj.getInstance();
 sapient.validation.validate();
+sapient.validation.handleBackEndError();
