@@ -30,6 +30,11 @@ var validationObj = (function($, window, sapient) {
 				
 
 			});
+			
+			$select.on("change",function(){
+				$(this).removeClass("error-border");
+				$(this).siblings('label').removeClass("error");
+			});
 
 			$input.each(function() {
 
