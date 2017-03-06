@@ -79,6 +79,7 @@ class BrancottSearchFilterController extends ControllerBase {
           ->condition('status', 1)
           ->condition('field_wine_id', $value->id)
           ->execute();
+		  
       $ids = reset($ids);
       $con = \Drupal\Core\Database\Database::getConnection();
       $query = $con->select('node_field_data', 'n')->distinct();
@@ -86,8 +87,10 @@ class BrancottSearchFilterController extends ControllerBase {
       $query->condition('n.nid', $ids, '=');
       $query->condition('n.langcode', $langcode, '=');
       $new_nid_transtion = $query->execute()->fetchField();
+	   
       $wine_image_url = '';
       if ($new_nid_transtion) {
+		  print "sdfsdfsdf"; exit;
         $wine_details[$value->id]['title'] = $value->title;
         $wine_details[$value->id]['range'] = $value->range;
         $wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);
