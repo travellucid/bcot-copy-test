@@ -65,7 +65,7 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
     // Add a validation to form menu_edit_item.
     array_unshift($form['#validate'], 'sapient_our_wines_menu_validate');
   }
-  if ($form_id == 'webform_submission_enquire_form_form') {
+  if ($form_id == 'webform_submission_enquire_form_form' or $form_id == 'webform_submission_book_a_table_form') {
     $form['#validate'][] = 'webform_submission_enquire_form_form_validation';
   }
 }
