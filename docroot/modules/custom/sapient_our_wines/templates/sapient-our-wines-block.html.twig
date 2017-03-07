@@ -1,6 +1,6 @@
 <nav class="menu hidden-xs hidden-sm wine-filters-desktop" role="navigation" aria-label="Main menu">
 		<ul class="nav level-1 list-reset" role="menubar" aria-hidden="false">
-			<li role="menuitem" aria-haspopup="true"><a href="#" data-category-filter="all-data" class="filter-item">ALL WINES</a></li>
+			<li role="menuitem" aria-haspopup="true"><a href="/{{ current_language }}/our-wines">ALL WINES</a></li>
 			{% for key, filter in filters %}  		
 			{% if key == 'range' %}
 				{% set newkey = 'Ranges' %}
@@ -125,8 +125,8 @@
 				<div class = "category-grid">
 					{% for tile in arg.associated_wines %}
 					    {% if tile.url %}
-						{#<a href="{{ path('entity.node.canonical', {'node': tile.nid}) }}" class="product-tile">#}
-						<a href="node/{{ tile.nid }}" class="product-tile">
+						<a href="{{ path('entity.node.canonical', {'node': tile.nid}) }}" class="product-tile">
+						{#<a href="node/{{ tile.nid }}" class="product-tile">#}
 						    
 							<div class="product-shot">
 							     <img src="{{ tile.url }}" />
