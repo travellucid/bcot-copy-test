@@ -289,8 +289,21 @@ function sapient_brancott_theme() {
 }
 
 function sapient_brancott_preprocess_block(&$variables) {
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if ($variables['plugin_id'] == 'block_content:6302c677-689c-4557-ae88-15e9570b93d2') {
     $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
     $variables['selected_language'] = $language_name;
   }
+  if ($variables['plugin_id'] == 'webform_block') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+          $node_translation = $node->getTranslation($langcode);
+          $enquire_form_title = $node_translation->field_enquire_title->value;
+          if ($enquire_form_title) {
+          $variables['enquire_title'] = $enquire_form_title;
+          }
+          $enquire_form_description = $node_translation->field_enquire_description->value;
+          if ($enquire_form_description) {
+          $variables['enquire_description'] = $enquire_form_description;
+          }
+  } 
 }
