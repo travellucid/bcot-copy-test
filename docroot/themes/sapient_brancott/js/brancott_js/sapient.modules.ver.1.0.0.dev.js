@@ -1520,6 +1520,7 @@ var validationObj = (function($, window, sapient) {
 
 				$(".enquire-form .error-msg").addClass("error").show();
 				$(".enquire-form .error-msg").find(".header_e").css("display","none");
+				$(".successfull-msg").hide();
 				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
 			}
 		},
