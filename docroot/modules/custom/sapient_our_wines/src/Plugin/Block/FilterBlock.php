@@ -86,7 +86,6 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $query->condition('n.langcode', $langcode, '=');
         $new_nid_transtion = $query->execute()->fetchField();
 
-        //print_r($new_nid_transtion); exit;
         $wine_image_url = '';
         if ($new_nid_transtion) {
           $wine_node_details = \Drupal\node\Entity\Node::load($new_nid_transtion);
@@ -164,7 +163,6 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $indexed_range_details = array_values($range_details);
     $filters = $final_array['filters'];
     foreach ($indexed_range_details as $indexed_range_detail) {
-      //print_r($indexed_range_detail['associated_wines']);die;
       if ($indexed_range_detail['associated_wines'] != '') {
         $index_details[] = $indexed_range_detail;
       }
