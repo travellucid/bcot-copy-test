@@ -1,10 +1,15 @@
 
 var google_map_field_map;
-
 (function ($, Drupal) {
 
   Drupal.behaviors.google_map_field_renderer = {
     attach: function (context) {
+        
+        $('.map_bound').each(function (index, item) {
+            var right_bound = $(this).attr('data-right_bound');
+            var left_bound = $(this).attr('data-left_bound');
+        })
+      
 
       $('.google-map-field .map-container').each(function (index, item) {
 
@@ -31,8 +36,8 @@ var google_map_field_map;
           //scaleControl: false,
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
-        google_map_field_map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(-41.4813,173.6561), 
-                                                       new google.maps.LatLng(-41.6421,174.0578)));
+        google_map_field_map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(right_bound), 
+                                                       new google.maps.LatLng(left_bound)));
        // google.maps.event.trigger(google_map_field_map, 'resize');
         google_map_field_map.panBy(-150, 0);
         
