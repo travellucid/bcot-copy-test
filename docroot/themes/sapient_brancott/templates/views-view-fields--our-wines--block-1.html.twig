@@ -20,20 +20,13 @@
 		   {% for i in 0..wine_count %}
 		   
 		   {% if loop.first %}
-		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}" class="active"></li>
+		      <li data-target="#product-grid-carousal" data-slide-to="{{ i }}" class="active"></li>
 		   {% elseif not loop.last %}
-		      <li data-target="#carousel-our-story" data-slide-to="{{ i }}"></li>
+		      <li data-target="#product-grid-carousal" data-slide-to="{{ i }}"></li>
 		   {% endif %}
 		   
 		   {% endfor %}
 		    {% endif %}
-			{#<li data-target="#carousel-our-story" data-slide-to="0" class="active"></li>
-			<li data-target="#carousel-our-story" data-slide-to="1"></li>
-			<li data-target="#carousel-our-story" data-slide-to="2"></li>
-			<li data-target="#carousel-our-story" data-slide-to="3"></li>
-			<li data-target="#carousel-our-story" data-slide-to="4"></li>
-			<li data-target="#carousel-our-story" data-slide-to="5"></li>
-			<li data-target="#carousel-our-story" data-slide-to="6"></li>#}
 		</ol>
 	    </div>
 	     <a class="cta dark see-all-link carousel-view" href="{{ fields.field_see_all_wines.content }}">{{ fields.field_see_all_wines_1.content }}</a> 
