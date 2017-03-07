@@ -212,12 +212,10 @@ function _menu_item_limitation_get_item_count($menu_name) {
 function webform_submission_enquire_form_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
   $enquire_form_name = $values['name'];
-  //    /^[\p{L}-]*$/u
-   if (!preg_match('/^[A-Za-z]{1}[A-Za-z- ]$/', $enquire_form_name))
+   if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{5,31}[\p{L}-]*$/u", $enquire_form_name))
     {
-    $form_state->setErrorByName('name',  'Uppercase, lowercase, spaces, hyphen are allowed in name');
+    $form_state->setErrorByName('name',  'Uppercase, lowercase, accented characters, spaces, hyphen are allowed in name');
     }
-    // print_r($values['email_address']);exit;
     $email = $values['email_address'];
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $form_state->setErrorByName('email_address', 'This is not a valid email ID');
