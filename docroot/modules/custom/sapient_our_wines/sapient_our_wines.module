@@ -217,7 +217,7 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
   $enquire_form_name = $values['name'];
    if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{5,31}[\p{L}-]*$/u", $enquire_form_name))
     {
-    $form_state->setErrorByName('name',  'Only uppercase, lowercase, accented characters, spaces and hyphen are allowed in NAME');
+    $form_state->setErrorByName('name',  'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES AND HYPEN ARE ALLOWED IN NAME');
     }
     $email = $values['email_address'];
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
