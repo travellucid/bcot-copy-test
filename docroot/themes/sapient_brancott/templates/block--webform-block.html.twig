@@ -65,8 +65,10 @@
   {{ title_suffix }}
   
   {% block content %}
-      <h2>{{ enquire_title }}</h2>
-      <p class="form-info">{{ enquire_description }} </p>
+      <div class="form-heading">
+        <h2>{{ enquire_title }}</h2>
+        <p class="form-info">{{ enquire_description }} </p>
+      </div>  
     {{ content }}
   {% endblock %}
 </section>
