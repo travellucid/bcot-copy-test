@@ -596,7 +596,8 @@ var carouselObj = (function($, window, sapient) {
 					isAndroid =navigator.userAgent.indexOf('Android') >=0;
 					
 				if(isIOS || isAndroid || $(window).width() < 1025) {
-					$(".carousel-control-wrapper").hide();
+					$(".carousel-control-wrapper .prev-carousal").css("left",0);
+					$(".carousel-control-wrapper .next-carousal").css("right",0);
 				}
 				else {
 					$(".carousel-control-wrapper").show();
@@ -609,7 +610,7 @@ var carouselObj = (function($, window, sapient) {
 					sapient.carousel.togggleCarouselView("#product-grid-carousal");
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
-					debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
+					//debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
 				});
 
 			},
@@ -744,7 +745,7 @@ sapient.carousel.onResize();
 sapient.carousel.togggleCarouselView("#product-grid-carousal");
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
-sapient.carousel.disableArrowsControlsSmallDevices();
+//sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
 
