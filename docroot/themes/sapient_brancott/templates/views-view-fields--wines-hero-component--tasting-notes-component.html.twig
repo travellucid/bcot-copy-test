@@ -1,3 +1,4 @@
+<div class="tasting-notes-content-wrapper">
 {% if (tasting_notes_aroma or tasting_notes_taste or tasting_notes_complement) %}
     <h2 class="header_b"> {{ fields.field_tasting_notes_title.content }} </h2>
 {% endif %}
@@ -37,7 +38,7 @@
 {% if (tasting_notes_complement) %}
     <p class="desc-2"> {{ tasting_notes_complement }} </p>
 {% endif %}
-
+</div>
 <a href="#" class="cta secondary-green watch-video" data-toggle="modal" data-target="#nutritional-info-component">{{ fields.field_nutritional_info_cta_new.content }} </a>
 <a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_1.content }}</a>
 
