@@ -414,7 +414,7 @@ var commonObj = (function($, window, sapient) {
 				var $main = $("footer").prev();
 				
 				if($main.find(".sign-up").parent().next().length === 0) {
-					$(".sign-up").css("padding",0);
+					$main.find(".sign-up").parent().css("padding",0);
 				}
 				else if($main.find(".sign-up").parent().next().hasClass("background-noise-section")) {
 					$main.find(".sign-up").parent().addClass("background-noise-section");
