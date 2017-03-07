@@ -28,6 +28,9 @@
     {% if type == 'error' %}
       <div role="alert" class="custom-error">
     {% endif %}
+    {% if type == 'status' %}
+      <div role="alert" class="successfull-msg">
+    {% endif %}
       {% if status_headings[type] %}
         <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
       {% endif %}
@@ -41,6 +44,9 @@
         {{ messages|first }}
       {% endif %}
     {% if type == 'error' %}
+      </div>
+    {% endif %}
+    {% if type == 'status' %}
       </div>
     {% endif %}
   </div>
