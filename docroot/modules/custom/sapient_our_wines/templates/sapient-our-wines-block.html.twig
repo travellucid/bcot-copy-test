@@ -1,6 +1,6 @@
 <nav class="menu hidden-xs hidden-sm wine-filters-desktop" role="navigation" aria-label="Main menu">
 		<ul class="nav level-1 list-reset" role="menubar" aria-hidden="false">
-			<li role="menuitem" aria-haspopup="true"><a href="#" data-category-filter="all-data" class="filter-item">ALL WINES</a></li>
+			<li role="menuitem" aria-haspopup="true"><a href="/{{ current_language }}/our-wines">ALL WINES</a></li>
 			{% for key, filter in filters %}  		
 			{% if key == 'range' %}
 				{% set newkey = 'Ranges' %}

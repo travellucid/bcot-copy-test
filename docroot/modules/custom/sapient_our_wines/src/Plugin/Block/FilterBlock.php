@@ -33,6 +33,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $path = \Drupal::request()->getpathInfo();
     $arg = explode('/', $path);
     $rest_api = new BrancottRestApiControllerFilters;
@@ -172,6 +173,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $index_details,
       '#filters' => $filters,
+      '#current_language' => $langcode,
     );
   }
 
