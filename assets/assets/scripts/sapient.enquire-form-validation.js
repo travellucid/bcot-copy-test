@@ -147,6 +147,21 @@ var validationObj = (function($, window, sapient) {
 				}		
 			});
 		},
+		
+		handleBackEndSucess =function() {
+			var successMsg = $(".successfull-msg").find("li");
+
+			if(successMsg.length > 0) {
+				var str = successMsg.text()
+				$('html, body').animate({
+				scrollTop: $("#block-webform_block").offset().top
+				}, 1000);
+
+				$(".enquire-form .error-msg").addClass("error").show();
+				$(".enquire-form .error-msg").find(".header_e").css("display","none");
+				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+			}
+		},
 
 		handleBackEndError = function() {
 			var beErrLength= $(".custom-error li").length;
@@ -155,11 +170,11 @@ var validationObj = (function($, window, sapient) {
 				$(".custom-error li").each(function(){
 				str= str+""+$(this).text();
 
-				$('html, body').animate({
-				scrollTop: $("#block-webform_block").offset().top
-				}, 1000);
+					$('html, body').animate({
+					scrollTop: $("#block-webform_block").offset().top
+					}, 1000);
 
-			});
+				});
 
 				$(".enquire-form .error-msg").addClass("error").show();
 				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
@@ -169,6 +184,7 @@ var validationObj = (function($, window, sapient) {
 		return {
 			// public + private states and behaviors
 			validate: validate,
+			handleBackEndSucess:handleBackEndSucess,
 			handleBackEndError: handleBackEndError
 		};
 	}
@@ -188,3 +204,4 @@ var validationObj = (function($, window, sapient) {
 sapient.validation = validationObj.getInstance();
 sapient.validation.validate();
 sapient.validation.handleBackEndError();
+sapient.validation.handleBackEndSucess();

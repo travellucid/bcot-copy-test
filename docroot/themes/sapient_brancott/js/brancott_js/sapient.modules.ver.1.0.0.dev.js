@@ -628,10 +628,21 @@ var carouselObj = (function($, window, sapient) {
 				$(window).on('resize', function() {
 					sapient.carousel.togggleCarouselView("#product-grid-carousal");
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
-					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
+					debounce(sapient.carousel.positionCarouselControl, 500, "resizing carouselIndicator");
 					//debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
 				});
 
+			},
+			positionCarouselControl = function() {
+				var interval = setInterval(function() {
+					var $heightImg = $($("#carousel-new-story .carousel-inner  picture img")[0]).height();
+
+					if ($heightImg > 0 ){
+						$("#carousel-new-story .carousel-control-wrapper .prev-carousal").css("top",$heightImg/2);
+						$("#carousel-new-story .carousel-control-wrapper .next-carousal").css("top",$heightImg/2);
+					}
+
+				}, 200);
 			},
 
 			playPauseVideo = function() {
@@ -730,6 +741,7 @@ var carouselObj = (function($, window, sapient) {
 			positionCarousel: positionCarousel,
 			onResize: onResize,
 			onScroll: onScroll,
+			positionCarouselControl:positionCarouselControl,
 			playPauseVideo: playPauseVideo,
 			bindSlideEvent: bindSlideEvent,
 			disableArrowsControlsSmallDevices: disableArrowsControlsSmallDevices,
@@ -760,6 +772,7 @@ sapient.carousel.bindSlideEvent("#carousel-our-story");
 sapient.carousel.bindSlideEvent("#carousel-our-wines");
 sapient.carousel.bindSlideEvent("#carousel-new-story");
 sapient.carousel.positionCarousel();
+sapient.carousel.positionCarouselControl();
 sapient.carousel.onResize();
 sapient.carousel.togggleCarouselView("#product-grid-carousal");
 sapient.carousel.onScroll();
@@ -767,6 +780,7 @@ sapient.carousel.playPauseVideo();
 //sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
+
 
 
 /*function failed(e) {
@@ -1483,6 +1497,21 @@ var validationObj = (function($, window, sapient) {
 				}		
 			});
 		},
+		
+		handleBackEndSucess =function() {
+			var successMsg = $(".successfull-msg").find("li");
+
+			if(successMsg.length > 0) {
+				var str = successMsg.text()
+				$('html, body').animate({
+				scrollTop: $("#block-webform_block").offset().top
+				}, 1000);
+
+				$(".enquire-form .error-msg").addClass("error").show();
+				$(".enquire-form .error-msg").find(".header_e").css("display","none");
+				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+			}
+		},
 
 		handleBackEndError = function() {
 			var beErrLength= $(".custom-error li").length;
@@ -1491,11 +1520,11 @@ var validationObj = (function($, window, sapient) {
 				$(".custom-error li").each(function(){
 				str= str+""+$(this).text();
 
-				$('html, body').animate({
-				scrollTop: $("#block-webform_block").offset().top
-				}, 1000);
+					$('html, body').animate({
+					scrollTop: $("#block-webform_block").offset().top
+					}, 1000);
 
-			});
+				});
 
 				$(".enquire-form .error-msg").addClass("error").show();
 				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
@@ -1505,6 +1534,7 @@ var validationObj = (function($, window, sapient) {
 		return {
 			// public + private states and behaviors
 			validate: validate,
+			handleBackEndSucess:handleBackEndSucess,
 			handleBackEndError: handleBackEndError
 		};
 	}
@@ -1524,3 +1554,4 @@ var validationObj = (function($, window, sapient) {
 sapient.validation = validationObj.getInstance();
 sapient.validation.validate();
 sapient.validation.handleBackEndError();
+sapient.validation.handleBackEndSucess();
