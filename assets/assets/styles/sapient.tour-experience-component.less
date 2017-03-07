@@ -92,7 +92,10 @@
             padding-bottom: 0;
         }
     }
-    @media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+    
+}
+@media screen and (max-width: @bp-large-mobile-to-table-landscape) {
+    #tour-experience-component {
         .desktop-only {
             display: none !important;
         }
@@ -147,9 +150,8 @@
         }
     }
 }
-
 @media screen and (max-width: @bp-max-mobile) {
-    #tours-and-experience {
+    #tour-experience-component {
         a {
             min-width: 170px;
         }
@@ -157,7 +159,7 @@
 }
 
 @media screen and (min-width: 991px) {
-    #tours-and-experience {
+    #tour-experience-component {
         .mobile-only {
             display: none !important;
         }
