@@ -1514,13 +1514,13 @@ var validationObj = (function($, window, sapient) {
 
 			if(successMsg.length > 0) {
 				var str = successMsg.text()
+				$(".successfull-msg").hide();
 				$('html, body').animate({
 				scrollTop: $("#block-webform_block").offset().top
 				}, 1000);
 
 				$(".enquire-form .error-msg").addClass("error").show();
 				$(".enquire-form .error-msg").find(".header_e").css("display","none");
-				$(".successfull-msg").hide();
 				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
 			}
 		},
