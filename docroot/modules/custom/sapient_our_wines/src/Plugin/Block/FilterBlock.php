@@ -33,6 +33,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $path = \Drupal::request()->getpathInfo();
     $arg = explode('/', $path);
     $rest_api = new BrancottRestApiControllerFilters;
@@ -48,9 +49,15 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $final_array = array();
     if ($arg[2] == 'our-wines') {
       $range_name = $arg[3];
+      if(strlen($range_name)) {
+        $range_name = str_replace("-", " ", $range_name);
+      }
     }
     elseif ($arg[1] == 'our-wines') {
       $range_name = $arg[2];
+      if(strlen($range_name)) {
+        $range_name = str_replace("-", " ", $range_name);
+      }
     }
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
@@ -166,6 +173,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $index_details,
       '#filters' => $filters,
+      '#current_language' => $langcode,
     );
   }
 

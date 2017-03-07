@@ -4,7 +4,8 @@
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
     'clearfix',
-	'scroll-to'
+	'scroll-to',
+'padding-class'
   ]
 %}
 
@@ -17,7 +18,7 @@
     {{ title_suffix }}
 
     {% block content %}
-        <div class="sign-up  container-fluid">
+        <div class="sign-up">
             <div class="row sign-up-text-wrapper">
                 {%- if content.field_sign_up_text.0 -%}               
                 <h3 class="sign-up-text header_c">{{ content.field_sign_up_text.0 }}</h3>
