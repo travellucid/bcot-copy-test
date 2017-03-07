@@ -12,8 +12,8 @@ var google_map_field_map;
             lon = $(this).attr('data-lon'),
             label = $(this).attr('data-label'),
             zoom = parseInt($(this).attr('data-zoom')),
-            right_bound = $('.map_bound').attr('data-right-bound'),
-            left_bound = $('.map_bound').attr('data-left-bound'),        
+            right_bound = $('.map_bound').attr('data-right_bound'),
+            left_bound = $('.map_bound').attr('data-left_bound'),        
             // Create the map coords and map options.
            latlng = new google.maps.LatLng(lat, lon),mapOptions = {
               zoom: zoom,
