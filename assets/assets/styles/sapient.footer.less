@@ -21,8 +21,35 @@ footer {
 		width: 100%;
 
 		.country-selector {
-			max-width: 1400px;
+			height: 90px;
+			max-width: 1170px;
 			margin: 0 auto;
+			position: relative;
+			
+			span.region-text {
+				color: @white;
+				cursor: pointer;
+				display: block;
+				position: absolute;
+				right: 0;
+				font-family: "NeutraText Bold";
+				font-size: 12px;
+				font-weight: bold;
+				line-height: 1.83;
+				
+				&::before {
+					content: "";
+					background-image: url("http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/icons/BE_icon_arrow_down_red.svg");
+					background-size: 12px 12px;
+					height: 12px;
+					margin-left: -22px;
+					position: absolute;
+					top:5px;
+					width: 12px;
+				}
+
+				.centerY();
+			}
 		}
 
 		div.your-country {
@@ -33,7 +60,7 @@ footer {
 			background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
 			background-size: 229px 41px;
 			height: 41px;
-			margin-left: 115px;
+			/* margin-left: 115px; */
 			top: 15px;
 			width: 229px;
 			.centerY();
@@ -193,44 +220,66 @@ li.wine-club {
 		div.country-selector-wrapper {
 			.country-selector {
 				max-width: 1170px;
+
+				span.region-text {
+					right: 25px;
+				}
 			}
 
 			.logo-wrapper {
 				margin-left: 28px;
 			}
+			
 		}
 	}
 
 
 }
-@media screen and (max-width: @bp-max-mobile) {
-    footer {
-        div.country-selector-wrapper {
-            background-color: @dark-gray;
-            height: 90px;
-            position: relative;
-            width: 100%;
-            
-		    .country-selector {
-                max-width: 1400px;
-                margin: 0 auto;
-            }
-            div.your-country {
-                color: @white;
-            }
-            .logo-wrapper {
-                background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
-                background-size: 229px 41px;
-                height: 41px;
-                margin-left: 115px;
-                top: 15px;
-                width: 229px;
-                .centerY();
-            }
-        }
-    }
+
+@media screen and (max-width:@bp-tablet) {
+	footer {
+		div.country-selector-wrapper {			
+			.country-selector {
+				span.region-text {
+					right: 28px;
+				}
+			}
+		}
+	}
 }
 
+@media screen and (max-width: @bp-max-mobile) {
+	footer {
+		div.country-selector-wrapper {
+			background-color: @dark-gray;
+			height: 90px;
+			position: relative;
+			width: 100%;
+			
+			.country-selector {
+				height: 152px;
+				/* max-width: 1400px; */
+				margin: 0 auto;
+				span.region-text {
+					margin-top: 23px;
+					.centerBoth();
+				}
+			}
+			div.your-country {
+				color: @white;
+			}
+			.logo-wrapper {
+				background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
+				background-size: 229px 41px;
+				height: 41px;
+				margin-left: 115px;
+				top: 15px;
+				width: 229px;
+				.centerY();
+			}
+		}
+	}
+}
 
 
 @media screen and (max-width: @bp-max-mobile) {
