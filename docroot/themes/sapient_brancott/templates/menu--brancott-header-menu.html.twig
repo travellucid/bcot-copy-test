@@ -21,7 +21,7 @@
 							{% set dynamic_class =   item.title|replace({ ' ' : '-' }) %}
 							{% set dynamic_class =   dynamic_class|lower %}
 							{% if item.title == 'logo' %}
-								<li class="{{ dynamic_class }}"><a href="/">Link to Brancott Estate Homepage</a>
+								<li class="{{ dynamic_class }}"><a href="{{ item.url }}">Link to Brancott Estate Homepage</a>
 								{% else %}
 									{% if item.below %}
 										{% if menu_level == 0 %}

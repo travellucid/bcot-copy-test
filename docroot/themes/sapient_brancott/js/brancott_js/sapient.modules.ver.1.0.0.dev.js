@@ -412,7 +412,7 @@ var commonObj = (function($, window, sapient) {
 
 			posSignup = function() {
 				var $main = $("footer").prev();
-				if($main.find(".sign-up").parent().next().length === 0 ) {
+				if($main.find(".sign-up").parent().next().length === 0) {
 					$(".sign-up").css("padding",0);
 				}
 			},
@@ -1437,15 +1437,16 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		handleBackEndError = function() {
-			var beErrLength= $(".custom-error li");
+			var beErrLength= $(".custom-error li").length;
 			if(beErrLength > 0){
+				var str="";
 				$(".custom-error li").each(function(){
-					var str=$(this).text();
-					
-				});
-				$(".enquire-form ol ").append(str);
+				str= str+""+$(this).text();
+			});
+
+				$(".enquire-form .error-msg").addClass("error").show();
+				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
 			}
-			
 		};
 
 		return {
