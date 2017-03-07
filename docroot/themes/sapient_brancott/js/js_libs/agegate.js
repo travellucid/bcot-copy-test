@@ -5174,7 +5174,7 @@ require([
                 final_url = "en-"+c_code;
             }
         
-        location.href=final_url;
+       // location.href=final_url;
 
 
       $.cookie('age_checked', this.makeAgeCheckCookieValue(), { path: '/' });

@@ -610,7 +610,7 @@ var carouselObj = (function($, window, sapient) {
 					sapient.carousel.togggleCarouselView("#product-grid-carousal");
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
-					//debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
+					debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
 				});
 
 			},
@@ -745,7 +745,7 @@ sapient.carousel.onResize();
 sapient.carousel.togggleCarouselView("#product-grid-carousal");
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
-//sapient.carousel.disableArrowsControlsSmallDevices();
+sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
 
@@ -1290,13 +1290,22 @@ var footerObj = (function($, window, sapient) {
 				debounce(sapient.footer.setFooterDdownPos,500,"testing debounce");
 				/*sapient.footer.setFooterDdownPos();*/
 			});
+		},
+
+		regionSelector = function(name) {
+			$(document).on('click','footer .region-text', function() {
+				console.log("region-text");
+				document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				location.reload();
+			});
 		};
 
 
 		return {
 			// public + private states and behaviors
 			setFooterDdownPos: setFooterDdownPos,
-			onResize: onResize
+			onResize: onResize,
+			regionSelector: regionSelector
 		};
 	}
 
@@ -1313,8 +1322,9 @@ var footerObj = (function($, window, sapient) {
 
 sapient.footer = footerObj.getInstance();
 
-sapient.footer.setFooterDdownPos();
-sapient.footer.onResize();
+/*sapient.footer.setFooterDdownPos();
+sapient.footer.onResize();*/
+sapient.footer.regionSelector("age_checked");
 var validationObj = (function($, window, sapient) {
 
 	var validationInstance;
