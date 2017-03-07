@@ -5138,7 +5138,8 @@ require([
       if (!this.countryCode) { this.errorMessage(this.messages['no-country-selected']); return; }
       if (!this.countryAccess || !this.countryAge) { this.errorMessage(this.messages['country-not-allowed']); return; }
       if (!this.checkDate()) { this.errorMessage(this.messages['not-old-enough']); return; }
-      this.saveAgeChecked()
+      //redirect to a locale
+      this.saveAgeChecked(this.countryCode)
       this.close()
     },
 
@@ -5155,12 +5156,27 @@ require([
       this.birthday = new Date(this.year, this.month-1, this.day)
       this.age = this.calculateAge(this.birthday)
 
-      console.log(this.age, this.countryAge)
+      //console.log(this.age, this.countryAge)
 
       if (this.age >= this.countryAge) return true
     },
 
     saveAgeChecked: function() {
+        var args=arguments,
+            c_code= args[0].toLowerCase(),
+            url = window.location.host,
+            final_url = "";
+
+            if(c_code !== 'nz' && c_code !== 'au' && c_code !== 'gb') {
+                final_url="en";
+            } 
+            else {
+                final_url = "en-"+c_code;
+            }
+        
+        location.href=final_url;
+
+
       $.cookie('age_checked', this.makeAgeCheckCookieValue(), { path: '/' });
       $.removeCookie('age_checked_failed', {path: '/'});
 

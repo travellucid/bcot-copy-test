@@ -491,7 +491,7 @@ var carouselObj = (function($, window, sapient) {
 
 		var enableTouchCarousel = function(value) {
 
-			if($(value).find(".item") > 1 ) {
+			if($(value).find(".item").length > 1 ) {
 
 				$(value).on("touchstart", function(event) {
 			
