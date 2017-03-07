@@ -428,6 +428,13 @@ var commonObj = (function($, window, sapient) {
 					$instaComp.addClass("background-noise-section");
 				}
 			},
+			posForm = function() {
+				var $form = $("form").parent();
+
+				if($form.prev().hasClass("background-noise-section") && !($form.hasClass("background-noise-section"))) {
+					$form.css("padding-top", 100 + "px");
+				}
+			},
 
 			killHash = function() {
 				$("a").each(function(){
@@ -450,6 +457,7 @@ var commonObj = (function($, window, sapient) {
 			telAppledevices:telAppledevices,
 			posSignup:posSignup,
 			instaGrain:instaGrain,
+			posForm:posForm,
 			killHash: killHash
 		};
 	}
@@ -476,6 +484,7 @@ sapient.common.emptyform();
 sapient.common.telAppledevices();
 sapient.common.posSignup();
 sapient.common.instaGrain();
+sapient.common.posForm();
 
 
 
