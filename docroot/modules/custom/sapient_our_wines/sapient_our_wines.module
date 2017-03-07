@@ -220,6 +220,10 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $form_state->setErrorByName('email_address', 'This is not a valid email ID');
     }
+    $phone_number = $values['enquire_phone_number'];
+    if (!preg_match("/^[0-9+ ]$/", $phone_number)) {
+      $form_state->setErrorByName('$phone_number', '0-9,+ and spaces are allowed');
+    }
  }
 
 function character_limitation_private_page($form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -329,8 +333,8 @@ function character_limitation_header_menu($form, \Drupal\Core\Form\FormStateInte
   $values = $form_state->getValues();
   $link_length = strlen($values['title'][0]['value']);
 
-  if ($link_length > 20) {
-    $form_state->setErrorByName('title', 'Max length for this field is 20 characters.');
+  if ($link_length > 30) {
+    $form_state->setErrorByName('title', 'Max length for this field is 30 characters.');
   }
 }
 
