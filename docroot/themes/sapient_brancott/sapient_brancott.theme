@@ -26,19 +26,19 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
       if ($variables['view']->current_display == 'block_2') {
         $details = getRangeDetailsFiltered();
         
-        
-        
 		$range_id = $variables['row']->_relationship_entities['field_range_selection_value']->field_range->getValue()[0]['target_id'];
 		
 		$wines_ids = $variables['row']->_relationship_entities['field_range_selection_value']->field_wines->getValue();
 		$node_load_range = \Drupal\node\Entity\Node::load($range_id);
           $bkg_color = $node_load_range->field_ranges_background_color->value;
           $range_title = $node_load_range->title->value;
-          $range_title = strtolower(preg_replace('/\s+/', '-', $range_title));
+          $range_title_slug = $node_load_range->field_slug->value;
+          $url_range_title = strtolower(preg_replace('/\s+/', '-', $range_title));
          
-		      $url = $langcode.'/our-wines/'.$range_title ;
+		      $url = $langcode.'/our-wines/'.$url_range_title;
           foreach ($details as $key => $detail) {
-            if ($range_title == $detail->title) {
+            
+            if ($range_title_slug == $detail->slug) {
               $range_title_api = $detail->title;
               $range_desc_api = $detail->description;
             }
@@ -59,7 +59,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 		  $range_details = array('bkg_colr' => $bkg_color,'range_title' => $range_title_api,'url' => $url,'range_desc_api' => $range_desc_api,'botl_1_img' => $wine_botl_1,'botl_2_img' => $wine_botl_2);
 		
           $variables['range_details'] = $range_details;
-		 
+    //print_r($range_details);die;
           
       }
     case 'homepage_components':
@@ -289,8 +289,21 @@ function sapient_brancott_theme() {
 }
 
 function sapient_brancott_preprocess_block(&$variables) {
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if ($variables['plugin_id'] == 'block_content:6302c677-689c-4557-ae88-15e9570b93d2') {
     $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
     $variables['selected_language'] = $language_name;
   }
+  if ($variables['plugin_id'] == 'webform_block') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+          $node_translation = $node->getTranslation($langcode);
+          $enquire_form_title = $node_translation->field_enquire_title->value;
+          if ($enquire_form_title) {
+          $variables['enquire_title'] = $enquire_form_title;
+          }
+          $enquire_form_description = $node_translation->field_enquire_description->value;
+          if ($enquire_form_description) {
+          $variables['enquire_description'] = $enquire_form_description;
+          }
+  } 
 }

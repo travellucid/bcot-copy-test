@@ -414,7 +414,7 @@ var commonObj = (function($, window, sapient) {
 				var $main = $("footer").prev();
 				
 				if($main.find(".sign-up").parent().next().length === 0) {
-					$(".sign-up").css("padding",0);
+					$main.find(".sign-up").parent().css("padding",0);
 				}
 				else if($main.find(".sign-up").parent().next().hasClass("background-noise-section")) {
 					$main.find(".sign-up").parent().addClass("background-noise-section");
@@ -491,6 +491,8 @@ var carouselObj = (function($, window, sapient) {
 
 		var enableTouchCarousel = function(value) {
 
+			if($(value).find(".item") > 1 ) {
+
 				$(value).on("touchstart", function(event) {
 			
 					var xClick = event.originalEvent.touches[0].pageX;
@@ -512,7 +514,10 @@ var carouselObj = (function($, window, sapient) {
 					});
 
 				});
-			},
+			} else {
+				$(value).find(".carousel-control-wrapper").remove();
+			}
+		},
 
 			disableTouchCarousel = function(value) {
 

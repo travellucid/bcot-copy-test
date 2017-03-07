@@ -6,6 +6,8 @@ var carouselObj = (function($, window, sapient) {
 
 		var enableTouchCarousel = function(value) {
 
+			if($(value).find(".item") > 1 ) {
+
 				$(value).on("touchstart", function(event) {
 			
 					var xClick = event.originalEvent.touches[0].pageX;
@@ -27,7 +29,10 @@ var carouselObj = (function($, window, sapient) {
 					});
 
 				});
-			},
+			} else {
+				$(value).find(".carousel-control-wrapper").remove();
+			}
+		},
 
 			disableTouchCarousel = function(value) {
 
