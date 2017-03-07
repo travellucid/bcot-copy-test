@@ -5163,7 +5163,7 @@ require([
 
     saveAgeChecked: function() {
         var args=arguments,
-            c_code= 'nz',
+            c_code= args[0].toLowerCase(),
             url = window.location.host,
             final_url = "";
 
