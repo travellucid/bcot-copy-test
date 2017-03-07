@@ -115,8 +115,9 @@ var carouselObj = (function($, window, sapient) {
 				$(window).on('resize', function() {
 					sapient.carousel.togggleCarouselView("#product-grid-carousal");
 					debounce(sapient.carousel.positionCarousel, 500, "resizing carouselIndicator");
-					debounce(sapient.carousel.positionCarouselControl, 500, "resizing carouselIndicator");
+					debounce(sapient.carousel.positionCarouselControl, 500, "resizing carouselControl");
 					//debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
+					debounce(sapient.carousel.disableArrowsControlsSmallDevices, 500, "resizing disableArrowsControlsSmallDevices");
 				});
 
 			},
@@ -264,7 +265,7 @@ sapient.carousel.onResize();
 sapient.carousel.togggleCarouselView("#product-grid-carousal");
 sapient.carousel.onScroll();
 sapient.carousel.playPauseVideo();
-//sapient.carousel.disableArrowsControlsSmallDevices();
+sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
 
