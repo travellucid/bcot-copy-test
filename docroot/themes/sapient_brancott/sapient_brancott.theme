@@ -290,10 +290,10 @@ function sapient_brancott_theme() {
 
 function sapient_brancott_preprocess_block(&$variables) {
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  //if ($variables['plugin_id'] == 'block_content:6302c677-689c-4557-ae88-15e9570b93d2') {
+  if ($variables['plugin_id'] == 'block_content:6302c677-689c-4557-ae88-15e9570b93d2') {
     $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
     $variables['selected_language'] = $language_name;
-  //}
+  }
   if ($variables['plugin_id'] == 'webform_block') {
     $node = \Drupal::routeMatch()->getParameter('node');
           $node_translation = $node->getTranslation($langcode);
