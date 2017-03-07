@@ -7,7 +7,7 @@
     .set-max-width(1170px);
     h2{
     	color: @dark-gray;
-    	padding: 100px 0;
+    	padding-bottom: 100px;
     }
     .header_sect {
         color: @dark-gray;
@@ -51,7 +51,6 @@
         background-color: @white;
         display: table;
         margin: 0 auto;
-        margin-bottom: 100px;
         position: relative;
         text-align: left;
         table-layout: fixed;
@@ -85,6 +84,12 @@
                     transform: translateX(0);
                 }
             }
+        }
+    }
+    .views-row {
+        padding-bottom: 100px;
+        &:last-child {
+            padding-bottom: 0;
         }
     }
     @media screen and (max-width: @bp-large-mobile-to-table-landscape) {

@@ -154,6 +154,11 @@ var validationObj = (function($, window, sapient) {
 				var str="";
 				$(".custom-error li").each(function(){
 				str= str+""+$(this).text();
+
+				$('html, body').animate({
+				scrollTop: $("#block-webform_block").offset().top
+				}, 1000);
+
 			});
 
 				$(".enquire-form .error-msg").addClass("error").show();

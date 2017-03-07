@@ -412,12 +412,24 @@ var commonObj = (function($, window, sapient) {
 
 			posSignup = function() {
 				var $main = $("footer").prev();
+				
 				if($main.find(".sign-up").parent().next().length === 0) {
 					$(".sign-up").css("padding",0);
 				}
+				else if($main.find(".sign-up").parent().next().hasClass("background-noise-section")) {
+					$main.find(".sign-up").parent().addClass("background-noise-section");
+				}
 			},
 
-			killHash = function(){
+			instaGrain = function() {
+				var $instaComp = $(".block-views-blocksocial-feed-instagram-component-social-feed-instagram-component");
+
+				if($instaComp.next().hasClass("background-noise-section")) {
+					$instaComp.addClass("background-noise-section");
+				}
+			},
+
+			killHash = function() {
 				$("a").each(function(){
 					if($(this).attr("href") == "#"){
 						$(this).click(function(e){
@@ -437,6 +449,7 @@ var commonObj = (function($, window, sapient) {
 			assignTouchDeviceClass: assignTouchDeviceClass,
 			telAppledevices:telAppledevices,
 			posSignup:posSignup,
+			instaGrain:instaGrain,
 			killHash: killHash
 		};
 	}
@@ -462,6 +475,7 @@ sapient.common.killHash();
 sapient.common.emptyform();
 sapient.common.telAppledevices();
 sapient.common.posSignup();
+sapient.common.instaGrain();
 
 
 
@@ -1442,6 +1456,11 @@ var validationObj = (function($, window, sapient) {
 				var str="";
 				$(".custom-error li").each(function(){
 				str= str+""+$(this).text();
+
+				$('html, body').animate({
+				scrollTop: $("#block-webform_block").offset().top
+				}, 1000);
+
 			});
 
 				$(".enquire-form .error-msg").addClass("error").show();
