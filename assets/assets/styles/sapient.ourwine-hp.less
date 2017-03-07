@@ -1,6 +1,4 @@
 /* product grid for home page */
-
-
 #product-grid-carousal {
 	.category-grid {
 		.cfix();
@@ -10,9 +8,7 @@
 		font-size: 0;
 
 		.product-tile {
-			display: inline-block;
 			margin: 0 1%;
-			position: static;
 			vertical-align: top;
 			width: 270px;
 
@@ -134,6 +130,16 @@
 		display: none;
 	}
 }
+@media screen and (min-width: 690px) {
+	#product-grid-carousal {
+		.category-grid {
+			.product-tile {
+				display: inline-block;
+				position: static;
+			}
+		}
+	}
+}
 #our-wines-homepage {
 	.top-section {
 		margin: 0 auto;
@@ -198,9 +204,7 @@
 			margin: 0 auto 20px !important;
 			width: 270px;
 			.product-tile {
-				display: none;
 				margin: 0 auto !important;
-				position: relative;
 
 				.product-shot {
 					padding-bottom: 20px;
@@ -216,6 +220,10 @@
 
 				&.item.active {
 					display: block;
+				}
+
+				&.see-all-wines {
+					display: none;
 				}
 			}
 		}
