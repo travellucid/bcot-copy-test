@@ -4,12 +4,6 @@ var google_map_field_map;
 
   Drupal.behaviors.google_map_field_renderer = {
     attach: function (context) {
-        
-        $('.map_bound').each(function (index, item) {
-            var right_bound = $(this).attr('data-right_bound');
-            var left_bound = $(this).attr('data-left_bound');
-        })
-      
 
       $('.google-map-field .map-container').each(function (index, item) {
 
@@ -18,6 +12,8 @@ var google_map_field_map;
         var lon = $(this).attr('data-lon');
         var label = $(this).attr('data-label');
         var zoom = parseInt($(this).attr('data-zoom'));
+        var right_bound = $('.map_bound').attr('data-right_bound');
+        var left_bound = $('.map_bound').attr('data-left_bound');
 
         // Create the map coords and map options.
         var latlng = new google.maps.LatLng(lat, lon);
@@ -36,8 +32,8 @@ var google_map_field_map;
           //scaleControl: false,
         };
         google_map_field_map = new google.maps.Map(this, mapOptions);
-        google_map_field_map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(right_bound), 
-                                                       new google.maps.LatLng(left_bound)));
+        google_map_field_map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(left_bound), 
+                                                       new google.maps.LatLng(right_bound)));
        // google.maps.event.trigger(google_map_field_map, 'resize');
         google_map_field_map.panBy(-150, 0);
         
