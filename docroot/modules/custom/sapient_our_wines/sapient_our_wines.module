@@ -226,6 +226,11 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $form_state->setErrorByName('email_address', 'This is not a valid email ID');
     }
+    
+    $newsletter_postcode = $values['postcode'];
+    if (!preg_match('/^[ +0-9]+$/', $newsletter_postcode)) {
+      $form_state->setErrorByName('postcode', '0-9,+ and spaces are allowed');
+    }
  }
 
 function webform_submission_enquire_form_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
