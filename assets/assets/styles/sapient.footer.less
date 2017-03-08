@@ -26,7 +26,7 @@ footer {
 			margin: 0 auto;
 			position: relative;
 			
-			span.region-text {
+			a.region-text {
 				color: @white;
 				cursor: pointer;
 				display: block;
@@ -39,7 +39,7 @@ footer {
 				
 				&::before {
 					content: "";
-					background-image: url("http://brancottvanilla.dev.dd:8083/themes/sapient_brancott/css/images/icons/BE_icon_arrow_down_red.svg");
+					background-image: url("@{background-icons-path}BE_icon_location.svg");
 					background-size: 12px 12px;
 					height: 12px;
 					margin-left: -22px;
@@ -221,7 +221,7 @@ li.wine-club {
 			.country-selector {
 				max-width: 1170px;
 
-				span.region-text {
+				a.region-text {
 					right: 25px;
 				}
 			}
@@ -240,7 +240,7 @@ li.wine-club {
 	footer {
 		div.country-selector-wrapper {			
 			.country-selector {
-				span.region-text {
+				a.region-text {
 					right: 28px;
 				}
 			}
@@ -260,7 +260,7 @@ li.wine-club {
 				height: 152px;
 				/* max-width: 1400px; */
 				margin: 0 auto;
-				span.region-text {
+				a.region-text {
 					margin-top: 23px;
 					.centerBoth();
 				}
