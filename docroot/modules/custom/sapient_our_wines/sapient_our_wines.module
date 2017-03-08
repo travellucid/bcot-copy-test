@@ -224,7 +224,7 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
     }
     $email = $values['email_address'];
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $form_state->setErrorByName('email_address', 'This is not a valid email ID');
+      $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
     }
     
     $newsletter_postcode = $values['postcode'];
@@ -242,7 +242,7 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
     }
     $email = $values['email_address'];
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $form_state->setErrorByName('email_address', 'This is not a valid email ID');
+      $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
     }
     $phone_number = $values['enquire_phone_number'];
     if (!preg_match('/^[ +0-9]+$/', $phone_number)) {
