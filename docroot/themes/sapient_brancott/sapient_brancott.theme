@@ -292,12 +292,15 @@ function sapient_brancott_theme() {
       'template' => 'book-table-form',
       'render element' => 'form'
     ),
+    'webform_submission_newsletter_signup_form' => array(
+      'template' => 'newsletter-form',
+      'render element' => 'form'
+    ),
   );
 }
 
 function sapient_brancott_preprocess_block(&$variables) {
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  //if ($variables['plugin_id'] == 'block_content:6302c677-689c-4557-ae88-15e9570b93d2') {
     $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
     if($language_name){
      $variables['selected_language'] = $language_name; 
@@ -316,5 +319,13 @@ function sapient_brancott_preprocess_block(&$variables) {
           if ($enquire_form_description) {
           $variables['enquire_description'] = $enquire_form_description;
           }
+          $newsletter_form_heading = $node_translation->field_newsletter_form_heading->value;
+          if ($newsletter_form_heading) {
+          $variables['newsletter_heading'] = $newsletter_form_heading;
+          }
+          $newsletter_form_subheading = $node_translation->field_newsletter_form_sub_headin->value;
+          if ($newsletter_form_subheading) {
+          $variables['newsletter_subheading'] = $newsletter_form_subheading;
+          }          
   } 
 }

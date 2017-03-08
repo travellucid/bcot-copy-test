@@ -1,12 +1,16 @@
+@import "sapient.variables-mixins.less";
 .cookie-notification-wrapper {
 	background-color: @bright-green;
+	bottom: 0;
+	width: 100%;
+	position: fixed;
 
 	.content-wrapper {
 		color: @white;
 		font-size: 16px;
 		max-width: 770px;
 		margin: 0 auto;
-		padding: 24px 0;
+		padding: 24px 15px;
 		text-align: center;
 
 		a {
@@ -45,3 +49,23 @@
 	}	 
 
 }
+@media screen and (max-width: @bp-tablet) {
+	.cookie-notification-wrapper {
+		.close-btn {
+			right: 8%;
+			top: 8%;
+		}
+	}
+}
+
+@media screen and (max-width: @bp-max-mobile) {
+	.cookie-notification-wrapper {
+		.content-wrapper {
+			margin: 0;
+			max-width: 660px;
+			padding: 24px 35px;
+		}
+	}
+	
+}
+
