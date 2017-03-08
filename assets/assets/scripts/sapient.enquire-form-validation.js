@@ -5,8 +5,8 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
-			var $input = $(".enquire-form  .group input"),
-				$select = $(".enquire-form .group select");	
+			var $input = $(".enquire-form  .group input").filter('[required]:visible'),
+				$select = $(".enquire-form .group select").filter('[required]:visible');	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
@@ -102,7 +102,7 @@ var validationObj = (function($, window, sapient) {
 		},
 		
 		inputSelect = function() {
-			var $input = $(".enquire-form  .group input");
+			var $input = $(".enquire-form  .group input").filter('[required]:visible');
 
 			$input.each(function() {
 
@@ -136,6 +136,7 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		inputOnFocus = function() {
+			
 			$(".enquire-form input.brancott-form").on('focus',function() {
 
 				$(this).removeClass("error-border");

@@ -420,6 +420,7 @@ var commonObj = (function($, window, sapient) {
 					$main.find(".sign-up").parent().addClass("background-noise-section");
 				}
 			},
+
 			posFilters = function() {
 				$($("section.padding-class")[$("section.padding-class").length-1]).find("#product-grid .category-wrapper")
 				var $filter = $($("section.padding-class")[$("section.padding-class").length-1]);
@@ -429,6 +430,7 @@ var commonObj = (function($, window, sapient) {
 					$filter.css("padding",0);
 				}
 			},
+
 			instaGrain = function() {
 				var $instaComp = $(".block-views-blocksocial-feed-instagram-component-social-feed-instagram-component");
 
@@ -436,6 +438,7 @@ var commonObj = (function($, window, sapient) {
 					$instaComp.addClass("background-noise-section");
 				}
 			},
+
 			awardsGrain = function() {
 				var $awardsGrain = $(".block-views-blockwines-hero-component-awards-and-accolades");
 				if(!($awardsGrain.next().hasClass("background-noise-section"))) {
@@ -1366,8 +1369,8 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
-			var $input = $(".enquire-form  .group input"),
-				$select = $(".enquire-form .group select");	
+			var $input = $(".enquire-form  .group input").filter('[required]:visible'),
+				$select = $(".enquire-form .group select").filter('[required]:visible');	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
@@ -1463,7 +1466,7 @@ var validationObj = (function($, window, sapient) {
 		},
 		
 		inputSelect = function() {
-			var $input = $(".enquire-form  .group input");
+			var $input = $(".enquire-form  .group input").filter('[required]:visible');
 
 			$input.each(function() {
 
@@ -1497,6 +1500,7 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		inputOnFocus = function() {
+			
 			$(".enquire-form input.brancott-form").on('focus',function() {
 
 				$(this).removeClass("error-border");
