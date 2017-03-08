@@ -69,7 +69,15 @@ var commonObj = (function($, window, sapient) {
 					$main.find(".sign-up").parent().addClass("background-noise-section");
 				}
 			},
+			posFilters = function() {
+				$($("section.padding-class")[$("section.padding-class").length-1]).find("#product-grid .category-wrapper")
+				var $filter = $($("section.padding-class")[$("section.padding-class").length-1]);
+				
 
+				if($filter.find("#product-grid .category-wrapper").length > 0) {
+					$filter.css("padding",0);
+				}
+			},
 			instaGrain = function() {
 				var $instaComp = $(".block-views-blocksocial-feed-instagram-component-social-feed-instagram-component");
 
@@ -77,6 +85,13 @@ var commonObj = (function($, window, sapient) {
 					$instaComp.addClass("background-noise-section");
 				}
 			},
+			awardsGrain = function() {
+				var $awardsGrain = $(".block-views-blockwines-hero-component-awards-and-accolades");
+				if(!($awardsGrain.next().hasClass("background-noise-section"))) {
+					$awardsGrain.css("padding",0);
+				}
+			},
+
 			posForm = function() {
 				var $form = $("form").parent();
 
@@ -107,6 +122,8 @@ var commonObj = (function($, window, sapient) {
 			posSignup:posSignup,
 			instaGrain:instaGrain,
 			posForm:posForm,
+			posFilters:posFilters,
+			awardsGrain:awardsGrain,
 			killHash: killHash
 		};
 	}
@@ -134,6 +151,8 @@ sapient.common.telAppledevices();
 sapient.common.posSignup();
 sapient.common.instaGrain();
 sapient.common.posForm();
+sapient.common.awardsGrain();
+sapient.common.posFilters();
 
 
 
