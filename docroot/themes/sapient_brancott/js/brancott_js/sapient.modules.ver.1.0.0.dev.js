@@ -1376,7 +1376,7 @@ var validationObj = (function($, window, sapient) {
 				
 				$("#errMsg .messages").html("");
 
-				var checked = $('.enquire-form  .subscription-checkbox'),
+				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
 					inputflag = 0,
 					inputarr = [],
 					selectflag = 0,
@@ -1449,8 +1449,7 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				$.each(checked,function(index) {
-					if (!checked.is(':checked')) {	
-						console.log($(this));					
+					if (!checked.is(':checked')) {						
 						$(this).siblings("label").addClass("change");
 						$(this).siblings("label").addClass("error");
 						event.preventDefault();	

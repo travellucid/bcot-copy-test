@@ -85,8 +85,7 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				$.each(checked,function(index) {
-					if (!checked.is(':checked')) {	
-						console.log($(this));					
+					if (!checked.is(':checked')) {						
 						$(this).siblings("label").addClass("change");
 						$(this).siblings("label").addClass("error");
 						event.preventDefault();	
