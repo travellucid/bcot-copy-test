@@ -12,7 +12,7 @@ var validationObj = (function($, window, sapient) {
 				
 				$("#errMsg .messages").html("");
 
-				var checked = $('.enquire-form  .subscription-checkbox'),
+				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
 					inputflag = 0,
 					inputarr = [],
 					selectflag = 0,
