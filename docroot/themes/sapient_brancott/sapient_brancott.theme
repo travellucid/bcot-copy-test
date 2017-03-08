@@ -312,5 +312,13 @@ function sapient_brancott_preprocess_block(&$variables) {
           if ($enquire_form_description) {
           $variables['enquire_description'] = $enquire_form_description;
           }
+          $newsletter_form_heading = $node_translation->field_newsletter_form_heading->value;
+          if ($newsletter_form_heading) {
+          $variables['newsletter_heading'] = $newsletter_form_heading;
+          }
+          $newsletter_form_subheading = $node_translation->field_newsletter_form_sub_headin->value;
+          if ($newsletter_form_subheading) {
+          $variables['newsletter_subheading'] = $newsletter_form_subheading;
+          }          
   } 
 }

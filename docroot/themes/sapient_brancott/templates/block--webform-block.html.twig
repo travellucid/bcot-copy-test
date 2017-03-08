@@ -66,8 +66,18 @@
   
   {% block content %}
       <div class="form-heading">
-        <h2>{{ enquire_title }}</h2>
-        <p class="form-info">{{ enquire_description }} </p>
+        {% if enquire_title %}
+          <h2>{{ enquire_title }}</h2>
+        {% endif %}
+        {% if enquire_description %}
+          <p class="form-info">{{ enquire_description }} </p>
+        {% endif %}
+        {% if newsletter_heading %}
+          <h2>{{ newsletter_heading }}</h2>
+        {% endif %}
+        {% if newsletter_subheading %}
+          <p class="form-info">{{ newsletter_subheading }} </p>
+        {% endif %}
       </div>  
     {{ content }}
   {% endblock %}
