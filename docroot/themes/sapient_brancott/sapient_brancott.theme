@@ -285,6 +285,10 @@ function sapient_brancott_theme() {
       'template' => 'book-table-form',
       'render element' => 'form'
     ),
+    'webform_submission_newsletter_signup_form' => array(
+      'template' => 'newsletter-form',
+      'render element' => 'form'
+    ),
   );
 }
 
