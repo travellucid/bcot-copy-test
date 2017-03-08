@@ -83,7 +83,6 @@ nav[role="navigation"] {
 			color: #ffffff;
 			display: inline-block;
 			font-size: 14px;
-			text-shadow: 0 1px 0 rgba(255, 255, 255, .25);
 			width: 100%;
 			&:hover,
 			&:focus {
@@ -197,10 +196,6 @@ nav[role="navigation"] {
 		font-size: 16px;
 		transition: 0.1s linear all;
 	}
-	.nav ul a:hover,
-	.nav ul a:focus {
-		text-shadow: none;
-	}
 	.list-reset {
 		margin: 0;
 		padding: 0;
@@ -255,14 +250,15 @@ nav[role="navigation"] {
 			top: 58px;
 		}
 		.nav ul li {
-			width: 17%;
+			width: auto;
 			vertical-align: middle;
 			p {
 				font-family: "NeutraText Book";
 				padding: 19px 0 0;
 			}
 			a {
-				background-color: transparent;
+				background-color: transparent !important;
+				padding: 19px 25px !important;
 				&:focus,
 				&:hover {
 					color: #d50032 !important;
@@ -339,8 +335,10 @@ header.navbar {
 				}
 			}
 		}
-		.level-2.list-reset {
-			display: none !important;
+		header.navbar {
+			.level-2.list-reset {
+				display: none !important;
+			}
 		}
 	}
 }
