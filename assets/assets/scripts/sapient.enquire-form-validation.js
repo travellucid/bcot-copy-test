@@ -5,14 +5,14 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
-			var $input = $(".enquire-form  .group input"),
-				$select = $(".enquire-form .group select");	
+			var $input = $(".enquire-form  .group input").filter('[required]:visible'),
+				$select = $(".enquire-form .group select").filter('[required]:visible');	
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
 				$("#errMsg .messages").html("");
 
-				var checked = $('.enquire-form  .subscription-checkbox'),
+				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
 					inputflag = 0,
 					inputarr = [],
 					selectflag = 0,
@@ -85,8 +85,7 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				$.each(checked,function(index) {
-					if (!checked.is(':checked')) {	
-						console.log($(this));					
+					if (!checked.is(':checked')) {						
 						$(this).siblings("label").addClass("change");
 						$(this).siblings("label").addClass("error");
 						event.preventDefault();	
@@ -102,7 +101,7 @@ var validationObj = (function($, window, sapient) {
 		},
 		
 		inputSelect = function() {
-			var $input = $(".enquire-form  .group input");
+			var $input = $(".enquire-form  .group input").filter('[required]:visible');
 
 			$input.each(function() {
 
@@ -136,6 +135,7 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		inputOnFocus = function() {
+			
 			$(".enquire-form input.brancott-form").on('focus',function() {
 
 				$(this).removeClass("error-border");
