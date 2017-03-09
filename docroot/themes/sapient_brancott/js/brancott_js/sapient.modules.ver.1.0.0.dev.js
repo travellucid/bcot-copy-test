@@ -1538,7 +1538,7 @@ var validationObj = (function($, window, sapient) {
 				$(".enquire-form").hide();
 				$(".form-geading .form-info").hide();
 				$(".enquire-form .status-msg .error").hide();
-				successMsg.addClass("status-msg").show().insertAfter($(".form-heading"));
+				successMsg.addClass("success-msg").show().insertAfter($(".form-heading"));
 			}
 		},
 
