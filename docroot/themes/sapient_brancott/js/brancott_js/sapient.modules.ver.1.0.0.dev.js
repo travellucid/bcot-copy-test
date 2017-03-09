@@ -446,6 +446,13 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
+			heroGrain = function() {
+				var $heroComponent = $(".block-views-blockhomepage-components-hero-component");
+				if(($heroComponent.length>0) && $heroComponent.next().hasClass("background-noise-section")) {
+					$heroComponent.addClass("background-noise-section");
+				}
+			},
+
 			posForm = function() {
 				var $form = $("form").parent();
 
@@ -478,7 +485,8 @@ var commonObj = (function($, window, sapient) {
 			posForm:posForm,
 			posFilters:posFilters,
 			awardsGrain:awardsGrain,
-			killHash: killHash
+			killHash: killHash,
+			heroGrain:heroGrain
 		};
 	}
 
@@ -507,6 +515,7 @@ sapient.common.instaGrain();
 sapient.common.posForm();
 sapient.common.awardsGrain();
 sapient.common.posFilters();
+sapient.common.heroGrain();
 
 
 
@@ -1352,7 +1361,7 @@ var validationObj = (function($, window, sapient) {
 
 			$(".enquire-form .submit-info .submit-btn").click(function(event) {
 				
-				$("#errMsg .messages").html("");
+				$("#statusMsg .messages").html("");
 
 				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
 					inputflag = 0,
@@ -1396,17 +1405,17 @@ var validationObj = (function($, window, sapient) {
 				
 				if (msgarr.length !== 0) {
 
-					$(".enquire-form #errMsg ol").addClass("error");
-					$(".enquire-form #errMsg").css('display', 'block');
+					$(".enquire-form #statusMsg ol").addClass("error");
+					$(".enquire-form #statusMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
-						$("#errMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
+						$("#statusMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
 					});
 
 				}
 				else {
 
-					$("#errMsg").css('display', 'none');
+					$("#statusMsg").css('display', 'none');
 
 				}
 
@@ -1526,9 +1535,8 @@ var validationObj = (function($, window, sapient) {
 				scrollTop: $("#block-webform_block").offset().top
 				}, 1000);
 
-				$(".enquire-form .error-msg").show();
-				$(".enquire-form .error-msg").find(".header_e").css("display","none");
-				$(".enquire-form ol  ").append("<li>"+str+"</li>");
+				$(".enquire-form").hide();
+				$(".form-geading .form-info").hide();
 			}
 		},
 
@@ -1545,7 +1553,7 @@ var validationObj = (function($, window, sapient) {
 					scrollTop: $("#block-webform_block").offset().top
 					}, 1000);
 
-					$(".enquire-form .error-msg").show();
+					$(".enquire-form .status-msg").show();
 					$(".enquire-form ol  ").append("<li class='msg error'>"+str+"</li>");
 
 				});

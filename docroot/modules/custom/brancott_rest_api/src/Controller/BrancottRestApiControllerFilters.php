@@ -16,7 +16,7 @@ class BrancottRestApiControllerFilters extends ControllerBase {
    */
   public function getFilters() {
 
-    \Drupal::service('page_cache_kill_switch')->trigger();
+//    \Drupal::service('page_cache_kill_switch')->trigger();
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $data = array();
     $response = $data = $result = null;
@@ -24,9 +24,7 @@ class BrancottRestApiControllerFilters extends ControllerBase {
     $cid = $request_type . '_' . $language;
     //print $cid; exit;
     $cache = \Drupal::cache()->get($cid);
-    //$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $lang_explode = explode("-", $language);
-
     if ($language == 'en') {
       $locale = 'row';
     }
@@ -43,7 +41,7 @@ class BrancottRestApiControllerFilters extends ControllerBase {
       return $result;
     }
     else {
-      $response = brancott_rest_api_reponse('http://gateway.pernod-ricard-winemakers.com/v2/brancott%20estate/' . $locale . '/wines/en');
+      $response = brancott_rest_api_reponse($dch_ranges_url. '/' . $locale . '/wines/en');
     }
     if ($response['code'] == 200) {
       \Drupal::cache()->set($cid, $response['result']);
