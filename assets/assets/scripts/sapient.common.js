@@ -100,6 +100,10 @@ var commonObj = (function($, window, sapient) {
 				if(($heroComponent.length>0) && $heroComponent.next().hasClass("background-noise-section")) {
 					$heroComponent.addClass("background-noise-section");
 				}
+				else if($heroComponent.length>0) {
+					$heroComponent.css("padding-bottom",0);
+
+				}
 			},
 
 			posForm = function() {

@@ -12,10 +12,23 @@
 	}
 }
 .success-msg {
-
 	&.successfull-msg {
+		max-width: 770px;
+		margin: 0 auto;
 		text-align: center;
-	}	
+
+		p{
+			color: @dark-gray;
+			padding: 40px 0;
+		}
+
+		a.cta {
+			&:hover {
+				border:2px solid @bright-green;
+			}
+		}
+	}
+
 }
 
 .enquire-form {
