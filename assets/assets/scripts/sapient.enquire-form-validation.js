@@ -137,7 +137,7 @@ var validationObj = (function($, window, sapient) {
 		inputOnFocus = function() {
 			
 			$(".enquire-form input.brancott-form").on('focus',function() {
-
+				
 				$(this).removeClass("error-border");
 				$(this).siblings('label').removeClass("error");
 				
@@ -147,6 +147,15 @@ var validationObj = (function($, window, sapient) {
 			}); 
 		},
 
+		inputOnFocusOut = function() {
+			$(".enquire-form input.brancott-form").on('focusout',function(){
+
+				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+
+			});
+		},
+		
 		selectChange = function() {
 			var $select = $(".enquire-form .group select");
 
@@ -155,15 +164,6 @@ var validationObj = (function($, window, sapient) {
 				$(this).siblings('label').removeClass("error");
 			});
 
-		},
-
-		inputOnFocusOut = function() {
-			$(".enquire-form input.brancott-form").on('focusout',function(){
-
-				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
-				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
-
-			});
 		},
 
 		handleBackEndSucess =function() {
@@ -176,28 +176,44 @@ var validationObj = (function($, window, sapient) {
 				scrollTop: $("#block-webform_block").offset().top
 				}, 1000);
 
-				$(".enquire-form .error-msg").addClass("error").show();
+				$(".enquire-form .error-msg").show();
 				$(".enquire-form .error-msg").find(".header_e").css("display","none");
-				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+				$(".enquire-form ol  ").append("<li>"+str+"</li>");
 			}
 		},
 
 		handleBackEndError = function() {
-			var beErrLength= $(".custom-error li").length;
+			var beErrLength= $(".custom-error li").length,
+				$input = $(".enquire-form  .group input");
+			
 			if(beErrLength > 0){
 				var str="";
 				$(".custom-error li").each(function(){
-				str= str+""+$(this).text();
+				str= $(this).text();
 
 					$('html, body').animate({
 					scrollTop: $("#block-webform_block").offset().top
 					}, 1000);
 
-				});
+					$(".enquire-form .error-msg").addClass("error").show();
+					$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
 
-				$(".enquire-form .error-msg").addClass("error").show();
-				$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+				});
+				
 			}
+
+			$.each($input,function(index) {
+				if($($input[index]).hasClass("error")) {
+					
+					$($input[index]).siblings("label").addClass("error");
+					$($input[index]).addClass("error-border");
+				}
+				else {
+
+					$($input[index]).siblings("label").removeClass("error");
+					$($input[index]).removeClass("error-border");
+				}
+			})
 		};
 
 		return {
