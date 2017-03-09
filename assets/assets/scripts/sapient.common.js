@@ -95,6 +95,13 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
+			heroGrain = function() {
+				var $heroComponent = $(".block-views-blockhomepage-components-hero-component");
+				if(($heroComponent.length>0) && $heroComponent.next().hasClass("background-noise-section")) {
+					$heroComponent.addClass("background-noise-section");
+				}
+			},
+
 			posForm = function() {
 				var $form = $("form").parent();
 
@@ -127,7 +134,8 @@ var commonObj = (function($, window, sapient) {
 			posForm:posForm,
 			posFilters:posFilters,
 			awardsGrain:awardsGrain,
-			killHash: killHash
+			killHash: killHash,
+			heroGrain:heroGrain
 		};
 	}
 
@@ -156,6 +164,7 @@ sapient.common.instaGrain();
 sapient.common.posForm();
 sapient.common.awardsGrain();
 sapient.common.posFilters();
+sapient.common.heroGrain();
 
 
 
