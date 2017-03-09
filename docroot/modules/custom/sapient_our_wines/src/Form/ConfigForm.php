@@ -89,6 +89,14 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('DCH Term of Use URL'),
       '#required' => TRUE,
     ];
+  
+  $form['google_map_api_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Google Map API Key'),
+      '#default_value' => $vc->get('google_map_api_key'),
+      '#description' => $this->t('Google Map API Key'),
+      '#required' => TRUE,
+    ];
     
    
    
@@ -142,11 +150,11 @@ class ConfigForm extends FormBase {
     $config
         ->set('openweatherapi_key', $form_state->getValue('openweatherapi_key'))
         ->set('dch_wine_url', $form_state->getValue('dch_wine_url'))
-		->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
+        ->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
         ->set('dch_all_wines_url', $form_state->getValue('dch_all_wines_url'))
-		->set('dch_pp_url', $form_state->getValue('dch_pp_url'))
-		>set('dch_tu_url', $form_state->getValue('dch_tu_url'))
-		->save();
+        ->set('dch_pp_url', $form_state->getValue('dch_pp_url')) > set('dch_tu_url', $form_state->getValue('dch_tu_url'))
+        ->set('google_map_api_key', $form_state->getValue('google_map_api_key'))
+        ->save();
     drupal_set_message('Settings have been saved.');
   }
 
