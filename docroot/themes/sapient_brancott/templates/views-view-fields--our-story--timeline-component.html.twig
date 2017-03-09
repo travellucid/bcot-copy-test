@@ -9,7 +9,18 @@
 
         <div class="img-wrapper-vertical common-margin">
             {% for image in image_list %}
-                <img src="{{ image }}" alt="" />
+                
+                <picture>
+                    <source   media="(max-width: 321px)"  srcset="{{ fields.field_image_vertical_2.content }}"> 
+
+                    <source  media="(max-width: 691px)"  srcset="{{ fields.field_image_vertical_1.content }}"> 
+
+                    <source  media="(max-width: 991px)" srcset="{{ fields.field_image_vertical.content }}">
+
+                    <source  media="(max-width: 1401px)" srcset="{{ fields.field_image_vertical.content }}"> 
+
+                    <img  src="{{ fields.field_image_vertical.content }}" alt="{{ fields.field_image_vertical_5.content }}"> 
+                </picture>
             {% endfor %}
 
             {% if fields.field_video_youtube_.content %}
@@ -19,7 +30,18 @@
     {% elseif (fields.field_media_style.content == "horizontal_style") %}
         <div class="img-wrapper-horizontal common-margin">
             {% for image in image_list %}
-                <img src="https://dummyimage.com/370x370/000/fff.png" alt="" />
+              
+                <picture>
+                    <source   media="(max-width: 321px)"  srcset="{{ fields.field_image_vertical_4.content }}"> 
+
+                    <source  media="(max-width: 691px)"  srcset="{{ fields.field_image_vertical_4.content }}"> 
+
+                    <source  media="(max-width: 991px)" srcset="{{ fields.field_image_vertical_4.content }}">
+
+                    <source  media="(max-width: 1401px)" srcset="{{ fields.field_image_vertical_3.content }}"> 
+
+                    <img  src="{{ fields.field_image_vertical_3.content }}" alt="{{ fields.field_image_vertical_5.content }}"> 
+                </picture>
             {% endfor %}
         </div>
 
