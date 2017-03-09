@@ -58,6 +58,7 @@ footer {
 
 		.logo-wrapper {
 			background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
+
 			background-size: 229px 41px;
 			height: 41px;
 			/* margin-left: 115px; */
@@ -251,32 +252,32 @@ li.wine-club {
 @media screen and (max-width: @bp-max-mobile) {
 	footer {
 		div.country-selector-wrapper {
-			background-color: @dark-gray;
+			/* background-color: @dark-gray;
 			height: 90px;
 			position: relative;
-			width: 100%;
+			width: 100%; */
 			
-			.country-selector {
+			/* .country-selector {
 				height: 152px;
-				/* max-width: 1400px; */
+				max-width: 1400px;
 				margin: 0 auto;
 				a.region-text {
 					margin-top: 23px;
 					.centerBoth();
 				}
-			}
-			div.your-country {
+			} */
+			/* div.your-country {
 				color: @white;
-			}
-			.logo-wrapper {
-				background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
-				background-size: 229px 41px;
-				height: 41px;
+			} */
+			/* .logo-wrapper {
+				background-image: url("@{background-icons-path}BE_icon_footer_logo_white_horizontal.svg");
+				background-size: 133px 70px;
+				height: 70px;
 				margin-left: 115px;
 				top: 15px;
-				width: 229px;
+				width: 133px;
 				.centerY();
-			}
+			} */
 		}
 	}
 }
@@ -286,23 +287,33 @@ li.wine-club {
 	footer {
 		div.country-selector-wrapper {
 			height: 164px;
+			background-color: @dark-gray;
+			position: relative;
+			width: 100%;
+
+			.country-selector {
+				height: 152px;
+				/* max-width: 1400px; */
+				margin: 0 auto;
+				a.region-text {
+					margin-top: 43px;
+					.centerBoth();
+				}
+			}
 
 			div.your-country {
 				.centerX();
+				color: @white;
 			}
 
 			.logo-wrapper {
 				top: 0;
-				.centerX();
-			}
-
-			.logo-wrapper {
-				background-image: url("@{background-icons-path}BE_icon_footer_logo_white.svg");
-				background-size: 173px 30px;
-				height: 30px;
-				margin-left: 0;
-				top: 30px;
-				width: 173px;
+				background-image: url("@{background-icons-path}BE_icon_footer_logo_white_horizontal.svg");
+				background-size: 133px 70px;
+				height: 70px;
+				margin: 20px 0 0;
+				/* top: 70px; */
+				width: 133px;
 
 				.centerX();
 			}

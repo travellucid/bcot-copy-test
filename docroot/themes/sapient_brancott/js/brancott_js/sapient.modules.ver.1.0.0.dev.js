@@ -785,29 +785,6 @@ sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
 
-
-
-/*function failed(e) {
-		// video playback failed - show a message saying why
-		switch (e.target.error.code) {
-		    case e.target.error.MEDIA_ERR_ABORTED:
-		        alert('You aborted the video playback.');
-		        break;
-		    case e.target.error.MEDIA_ERR_NETWORK:
-		        alert('A network error caused the video download to fail part-way.');
-		        break;
-		    case e.target.error.MEDIA_ERR_DECODE:
-		        alert('The video playback was aborted due to a corruption problem or because the video used features your browser did not support.');
-		        break;
-		    case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
-		        alert('The video could not be loaded, either because the server or network failed or because the format is not supported.');
-		        break;
-		    default:
-		        alert('An unknown error occurred.');
-		        break;
-		}
-
-		}*/
 var heroObj = (function($, window, sapient) {
 
 	var heroInstance;
@@ -1369,6 +1346,7 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
+
 			var $input = $(".enquire-form  .group input").filter('[required]:visible'),
 				$select = $(".enquire-form .group select").filter('[required]:visible');	
 
@@ -1384,6 +1362,7 @@ var validationObj = (function($, window, sapient) {
 					msgarr = [];
 
 				$.each($input, function(index) {
+
 					if ($($input[index]).val().length == 0) {
 
 						$($input[index]).siblings("label").addClass("error");
@@ -1478,6 +1457,13 @@ var validationObj = (function($, window, sapient) {
 					$(this).siblings('label').removeClass("text-entered");
 				}
 			})	
+		},
+		resetForm = function() {
+			$(document).ready(function () {
+				for (i = 0; i < document.forms.length; i++) {
+			        document.forms[i].reset();
+			    }
+			});
 		},
 
 		selectInMac = function() {
@@ -1590,7 +1576,8 @@ var validationObj = (function($, window, sapient) {
 			submitBtnClass:submitBtnClass,
 			handleBackEndError: handleBackEndError,
 			selectInMac:selectInMac,
-			inputSelect:inputSelect
+			inputSelect:inputSelect,
+			resetForm:resetForm
 		};
 	}
 
@@ -1616,3 +1603,4 @@ sapient.validation.selectChange();
 sapient.validation.submitBtnClass();
 sapient.validation.selectInMac();
 sapient.validation.inputSelect();
+sapient.validation.resetForm();
