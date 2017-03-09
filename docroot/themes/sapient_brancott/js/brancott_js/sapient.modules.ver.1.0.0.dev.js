@@ -451,6 +451,10 @@ var commonObj = (function($, window, sapient) {
 				if(($heroComponent.length>0) && $heroComponent.next().hasClass("background-noise-section")) {
 					$heroComponent.addClass("background-noise-section");
 				}
+				else if($heroComponent.length>0) {
+					$heroComponent.css("padding-bottom",0);
+
+				}
 			},
 
 			posForm = function() {
@@ -1527,7 +1531,7 @@ var validationObj = (function($, window, sapient) {
 
 		handleBackEndSucess =function() {
 			var successMsg = $(".successfull-msg");
-			console.log(successMsg);
+			
 			if(successMsg.length > 0) {
 				var str = successMsg.text()
 				$(".successfull-msg").hide();
