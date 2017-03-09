@@ -176,8 +176,8 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		handleBackEndSucess =function() {
-			var successMsg = $(".successfull-msg").find("li");
-
+			var successMsg = $(".successfull-msg");
+			
 			if(successMsg.length > 0) {
 				var str = successMsg.text()
 				$(".successfull-msg").hide();
@@ -186,7 +186,9 @@ var validationObj = (function($, window, sapient) {
 				}, 1000);
 
 				$(".enquire-form").hide();
-				$(".form-geading .form-info").hide();
+				$(".form-heading .form-info").hide();
+				$(".enquire-form .status-msg .error").hide();
+				successMsg.addClass("success-msg").show().insertAfter($(".form-heading"));
 			}
 		},
 
