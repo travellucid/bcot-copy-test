@@ -205,8 +205,7 @@ var validationObj = (function($, window, sapient) {
 					}, 1000);
 
 					$(".enquire-form .error-msg").show();
-					$(".enquire-form ol  ").addClass("error");
-					$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+					$(".enquire-form ol  ").append("<li class='msg error'>"+str+"</li>");
 
 				});
 				

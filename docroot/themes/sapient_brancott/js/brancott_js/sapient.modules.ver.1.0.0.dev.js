@@ -1528,7 +1528,7 @@ var validationObj = (function($, window, sapient) {
 
 				$(".enquire-form .error-msg").show();
 				$(".enquire-form .error-msg").find(".header_e").css("display","none");
-				$(".enquire-form ol  ").append("<li>"+str+"</li>");
+				$(".enquire-form ol  ").append("<li class='success-msg'>"+str+"</li>");
 			}
 		},
 
