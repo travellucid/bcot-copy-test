@@ -52,7 +52,7 @@ class ConfigForm extends FormBase {
     ];
     $form['dch_wine_url'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('DCH Wines URL'),
+      '#title' => $this->t('DCH Gateway Endpoint URL'),
       '#default_value' => $vc->get('dch_wine_url'),
       '#description' => $this->t('DCH Wines URL'),
       '#required' => TRUE,
@@ -66,13 +66,13 @@ class ConfigForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['dch_all_wines_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('DCH All Wines URL'),
-      '#default_value' => $vc->get('dch_all_wines_url'),
-      '#description' => $this->t('DCH All Wines URL'),
-      '#required' => TRUE,
-    ];
+//    $form['dch_all_wines_url'] = [
+//      '#type' => 'textfield',
+//      '#title' => $this->t('DCH All Wines URL'),
+//      '#default_value' => $vc->get('dch_all_wines_url'),
+//      '#description' => $this->t('DCH All Wines URL'),
+//      '#required' => TRUE,
+//    ];
 
     $form['dch_pp_url'] = [
       '#type' => 'textfield',
@@ -150,7 +150,7 @@ class ConfigForm extends FormBase {
         ->set('openweatherapi_key', $form_state->getValue('openweatherapi_key'))
         ->set('dch_wine_url', $form_state->getValue('dch_wine_url'))
         ->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
-        ->set('dch_all_wines_url', $form_state->getValue('dch_all_wines_url'))
+//        ->set('dch_all_wines_url', $form_state->getValue('dch_all_wines_url'))
         ->set('dch_pp_url', $form_state->getValue('dch_pp_url'))
         ->set('dch_tu_url', $form_state->getValue('dch_tu_url'))
         ->set('google_map_api_key', $form_state->getValue('google_map_api_key'))
