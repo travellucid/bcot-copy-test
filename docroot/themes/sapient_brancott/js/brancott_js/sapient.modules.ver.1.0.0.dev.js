@@ -1528,7 +1528,7 @@ var validationObj = (function($, window, sapient) {
 
 				$(".enquire-form .error-msg").show();
 				$(".enquire-form .error-msg").find(".header_e").css("display","none");
-				$(".enquire-form ol  ").append("<li class='success-msg'>"+str+"</li>");
+				$(".enquire-form ol  ").append("<li>"+str+"</li>");
 			}
 		},
 
@@ -1546,8 +1546,7 @@ var validationObj = (function($, window, sapient) {
 					}, 1000);
 
 					$(".enquire-form .error-msg").show();
-					$(".enquire-form ol  ").addClass("error");
-					$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+					$(".enquire-form ol  ").append("<li class='msg error'>"+str+"</li>");
 
 				});
 				
