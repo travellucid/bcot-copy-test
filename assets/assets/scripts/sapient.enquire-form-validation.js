@@ -5,6 +5,7 @@ var validationObj = (function($, window, sapient) {
 	function createValidtaionInstance() {
 
 		var validate = function() {
+
 			var $input = $(".enquire-form  .group input").filter('[required]:visible'),
 				$select = $(".enquire-form .group select").filter('[required]:visible');	
 
@@ -20,6 +21,7 @@ var validationObj = (function($, window, sapient) {
 					msgarr = [];
 
 				$.each($input, function(index) {
+
 					if ($($input[index]).val().length == 0) {
 
 						$($input[index]).siblings("label").addClass("error");
@@ -53,8 +55,8 @@ var validationObj = (function($, window, sapient) {
 				
 				if (msgarr.length !== 0) {
 
-					$("#errMsg").addClass("error");
-					$("#errMsg").css('display', 'block');
+					$(".enquire-form #errMsg ol").addClass("error");
+					$(".enquire-form #errMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
 						$("#errMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
@@ -114,6 +116,13 @@ var validationObj = (function($, window, sapient) {
 					$(this).siblings('label').removeClass("text-entered");
 				}
 			})	
+		},
+		resetForm = function() {
+			$(document).ready(function () {
+				for (i = 0; i < document.forms.length; i++) {
+			        document.forms[i].reset();
+			    }
+			});
 		},
 
 		selectInMac = function() {
@@ -195,8 +204,8 @@ var validationObj = (function($, window, sapient) {
 					scrollTop: $("#block-webform_block").offset().top
 					}, 1000);
 
-					$(".enquire-form .error-msg").addClass("error").show();
-					$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+					$(".enquire-form .error-msg").show();
+					$(".enquire-form ol  ").append("<li class='msg error'>"+str+"</li>");
 
 				});
 				
@@ -226,7 +235,8 @@ var validationObj = (function($, window, sapient) {
 			submitBtnClass:submitBtnClass,
 			handleBackEndError: handleBackEndError,
 			selectInMac:selectInMac,
-			inputSelect:inputSelect
+			inputSelect:inputSelect,
+			resetForm:resetForm
 		};
 	}
 
@@ -252,3 +262,4 @@ sapient.validation.selectChange();
 sapient.validation.submitBtnClass();
 sapient.validation.selectInMac();
 sapient.validation.inputSelect();
+sapient.validation.resetForm();
