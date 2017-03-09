@@ -1,0 +1,26 @@
+@import "sapient.variables-mixins.less";
+.error-info-wrapper {
+	.centerBoth();
+	margin-top: 12%;
+	max-width: 770px;
+	padding: 0 15px;
+	top: 12%;
+	width: 100%;
+	h1,h2 {
+		color: @dark-gray;
+		text-align: left;
+	}
+}
+
+@media screen and (max-width: @bp-tablet) {
+	.error-info-wrapper {
+		max-width: 660px;
+		h1,h2 {
+			text-align: center;
+		}	
+		h2 {
+			font-size: 14px;
+			line-height: 24px;
+		}
+	}
+}

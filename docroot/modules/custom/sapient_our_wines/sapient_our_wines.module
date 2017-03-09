@@ -68,6 +68,9 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id == 'webform_submission_enquire_form_form' or $form_id == 'webform_submission_book_a_table_form') {
     $form['#validate'][] = 'webform_submission_enquire_form_form_validation';
   }
+  if ($form_id == 'webform_submission_newsletter_signup_form') {
+    $form['#validate'][] = 'webform_submission_newsletter_signup_form_validation';
+  }
 }
 
 function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -212,6 +215,24 @@ function _menu_item_limitation_get_item_count($menu_name) {
   }
 }
 
+function webform_submission_newsletter_signup_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  $newsletter_form_name = $values['name'];
+   if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{5,31}[\p{L}-]*$/u", $newsletter_form_name))
+    {
+    $form_state->setErrorByName('name',  'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES AND HYPEN ARE ALLOWED IN NAME');
+    }
+    $email = $values['email_address'];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
+    }
+    
+    $newsletter_postcode = $values['postcode'];
+    if (!preg_match('/^[ +0-9]+$/', $newsletter_postcode)) {
+      $form_state->setErrorByName('postcode', '0-9,+ and spaces are allowed');
+    }
+ }
+
 function webform_submission_enquire_form_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
   $enquire_form_name = $values['name'];
@@ -219,13 +240,13 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
     {
     $form_state->setErrorByName('name',  'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES AND HYPEN ARE ALLOWED IN NAME');
     }
-    $email = $values['email_address'];
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $form_state->setErrorByName('email_address', 'This is not a valid email ID');
-    }
     $phone_number = $values['enquire_phone_number'];
     if (!preg_match('/^[ +0-9]+$/', $phone_number)) {
-      $form_state->setErrorByName('enquire_phone_number', '0-9,+ and spaces are allowed');
+      $form_state->setErrorByName('enquire_phone_number', '0-9,+ AND SPACES ARE ALLOWED');
+    }
+    $email = $values['email_address'];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
     }
  }
 

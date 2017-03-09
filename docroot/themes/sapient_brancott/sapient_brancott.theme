@@ -63,6 +63,13 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           
       }
     case 'homepage_components':
+       if ($variables['view']->current_display == 'tour_experience_rezdy') {
+         $node = \Drupal::routeMatch()->getParameter('node');
+         $node_translation = $node->getTranslation($langcode);
+         //kint($node_translation);die;
+         
+         
+       }
       if ($variables['view']->current_display == 'common_hero_component') {
         if ($variables['row']->_entity->field_city) {
           $city = $variables['row']->_entity->field_city->value;
@@ -285,6 +292,10 @@ function sapient_brancott_theme() {
       'template' => 'book-table-form',
       'render element' => 'form'
     ),
+    'webform_submission_newsletter_signup_form' => array(
+      'template' => 'newsletter-form',
+      'render element' => 'form'
+    ),
   );
 }
 
@@ -308,5 +319,13 @@ function sapient_brancott_preprocess_block(&$variables) {
           if ($enquire_form_description) {
           $variables['enquire_description'] = $enquire_form_description;
           }
+          $newsletter_form_heading = $node_translation->field_newsletter_form_heading->value;
+          if ($newsletter_form_heading) {
+          $variables['newsletter_heading'] = $newsletter_form_heading;
+          }
+          $newsletter_form_subheading = $node_translation->field_newsletter_form_sub_headin->value;
+          if ($newsletter_form_subheading) {
+          $variables['newsletter_subheading'] = $newsletter_form_subheading;
+          }          
   } 
 }

@@ -3,25 +3,25 @@
     <div class="hero-bottom">
        
         <picture>
-            <source class="triangle" media="(max-width: 321px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_landscape-triangle-320_7.png"> 
+            <source  class="triangle" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
 
-            <source class="triangle" media="(max-width: 691px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_landscape-triangle-691_6.png"> 
+            <source class="triangle" media="(max-width: 691px)"  srcset="{{ fields.field_hero_left_triangle_image_s.content }}"> 
 
-            <source class="triangle" media="(max-width: 991px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_landscape-triangle-991_6.png">
+            <source class="triangle" media="(max-width: 991px)" srcset="{{ fields.field_hero_left_triangle_image_t.content }}">
 
-            <source class="triangle" media="(max-width: 1401px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_landscape-triangle-1400_9.png"> 
-            <img src="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_landscape-triangle-1400_9.png" alt="triangle image" class="triangle">
+            <source class="triangle" media="(max-width: 1401px)" srcset="{{ fields.field_hero_left_triangle_img_f.content }}"> 
+            <img src="{{ fields.field_hero_left_triangle_img_f.content }}" alt="triangle image" class="triangle">
         </picture>
         <picture>
-            <source class="triangle-right" media="(max-width: 321px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_grain-triangle-320_9.png"> 
+            <source  class="triangle-right" media="(max-width: 321px)"  srcset="{{ fields.field_hero_right_triangle_image.content }}"> 
 
-            <source class="triangle-right" media="(max-width: 691px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_grain-triangle-691_5.png"> 
+            <source class="triangle-right" media="(max-width: 691px)"  srcset="{{ fields.field_hero_right_triangle_img_s.content }}"> 
 
-            <source class="triangle-right" media="(max-width: 991px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_grain-triangle-991_5.png">
+            <source class="triangle-right" media="(max-width: 991px)" srcset="{{ fields.field_hero_right_triangle_img_t.content }}">
 
-            <source class="triangle-right" media="(max-width: 1401px)" srcset="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_grain-triangle-1400_5.png"> 
+            <source class="triangle-right" media="(max-width: 1401px)" srcset="{{ fields.field_hero_right_triangle_img_f.content }}"> 
 
-            <img class="triangle-right" src="/sites/brancottvanilla.dev.dd/files/2017-03/_2x_grain-triangle-1400_5.png" alt=""> 
+            <img class="triangle-right" src="{{ fields.field_hero_right_triangle_img_f.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
         </picture>
 
 
@@ -35,3 +35,9 @@
         	
     </div>
 </div>
+  <div id="timeline-component">
+        <h2 class="header_b">{{ fields.field_hero_bottom_headline.content }}</h2>
+  
+  <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
+  <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel=0"></iframe>
+  </div>

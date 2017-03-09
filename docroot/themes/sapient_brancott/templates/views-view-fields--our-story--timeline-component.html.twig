@@ -1,0 +1,51 @@
+<div id="timeline-component">
+
+    <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+    <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+
+    <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
+    {% set image_list = fields.field_image_vertical.content|split(',') %}
+    {% if (fields.field_media_style.content == "vertical_style") %}
+
+        <div class="img-wrapper-vertical common-margin">
+            {% for image in image_list %}
+                
+                <picture>
+                    <source   media="(max-width: 321px)"  srcset="{{ fields.field_image_vertical_2.content }}"> 
+
+                    <source  media="(max-width: 691px)"  srcset="{{ fields.field_image_vertical_1.content }}"> 
+
+                    <source  media="(max-width: 991px)" srcset="{{ fields.field_image_vertical.content }}">
+
+                    <source  media="(max-width: 1401px)" srcset="{{ fields.field_image_vertical.content }}"> 
+
+                    <img  src="{{ fields.field_image_vertical.content }}" alt="{{ fields.field_image_vertical_5.content }}"> 
+                </picture>
+            {% endfor %}
+
+            {% if fields.field_video_youtube_.content %}
+                <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_.content }}?rel=0"></iframe>
+                {% endif %}
+        </div>
+    {% elseif (fields.field_media_style.content == "horizontal_style") %}
+        <div class="img-wrapper-horizontal common-margin">
+            {% for image in image_list %}
+              
+                <picture>
+                    <source   media="(max-width: 321px)"  srcset="{{ fields.field_image_vertical_4.content }}"> 
+
+                    <source  media="(max-width: 691px)"  srcset="{{ fields.field_image_vertical_4.content }}"> 
+
+                    <source  media="(max-width: 991px)" srcset="{{ fields.field_image_vertical_4.content }}">
+
+                    <source  media="(max-width: 1401px)" srcset="{{ fields.field_image_vertical_3.content }}"> 
+
+                    <img  src="{{ fields.field_image_vertical_3.content }}" alt="{{ fields.field_image_vertical_5.content }}"> 
+                </picture>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
+
+</div>
