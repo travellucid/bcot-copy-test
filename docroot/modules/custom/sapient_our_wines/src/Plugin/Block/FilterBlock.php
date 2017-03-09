@@ -36,7 +36,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $path = \Drupal::request()->getpathInfo();
     $arg = explode('/', $path);
-    $rest_api = new BrancottRestApiControllerFilters;
+    $rest_api = new BrancottRestApiControllerFilters();
     $values = $rest_api->getFilters();
 
     $ranges = array();

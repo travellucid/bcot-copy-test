@@ -39,7 +39,9 @@ class BrancottRestApiController extends ControllerBase {
       return $result;
     }
     else {
-      $response = brancott_rest_api_reponse('http://gateway.pernod-ricard-winemakers.com/v2/brancott%20estate/' . $locale . '/wines/' . $wine_id . '/en');
+      $vc = $this->config('sapient_our_wines.settings');
+      $dch_ranges_url = $vc->get('dch_wine_url');
+      $response = brancott_rest_api_reponse($dch_ranges_url. '/' . $locale . '/wines/' . $wine_id . '/en');
     }
 	
     if ($response['code'] == 200) {
