@@ -1396,8 +1396,8 @@ var validationObj = (function($, window, sapient) {
 				
 				if (msgarr.length !== 0) {
 
-					$("#errMsg").addClass("error");
-					$("#errMsg").css('display', 'block');
+					$(".enquire-form #errMsg ol").addClass("error");
+					$(".enquire-form #errMsg").css('display', 'block');
 
 					$.each(msgarr, function(index) {
 						$("#errMsg .messages").append('<li class="msg">' + msgarr[index] + '</li>');
@@ -1545,8 +1545,8 @@ var validationObj = (function($, window, sapient) {
 					scrollTop: $("#block-webform_block").offset().top
 					}, 1000);
 
-					$(".enquire-form .error-msg").addClass("error").show();
-					$(".enquire-form ol  ").append("<li class='msg'>"+str+"</li>");
+					$(".enquire-form .error-msg").show();
+					$(".enquire-form ol  ").append("<li class='msg error'>"+str+"</li>");
 
 				});
 				
