@@ -59,8 +59,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $range_name = str_replace("-", " ", $range_name);
       }
     }
-    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-
+    
     foreach ($values as $value) {
       $first_level = array();
       $all_level = array();
@@ -83,7 +82,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $query = $con->select('node_field_data', 'n')->distinct();
         $query->fields('n', array('nid'));
         $query->condition('n.nid', $new_nid, '=');
-        $query->condition('n.langcode', $langcode, '=');
+        //$query->condition('n.langcode', $langcode, '=');
         $new_nid_transtion = $query->execute()->fetchField();
 
         $wine_image_url = '';
