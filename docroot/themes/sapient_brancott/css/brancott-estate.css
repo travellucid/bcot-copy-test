@@ -826,12 +826,6 @@ select + .age-gate .form-row-error-text,
     left: 50%;
 }
 
-@media screen and (min-width: 768px) and (max-width: 990px) {
-  .age-gate__content {
-    max-width: 432px;
-  }
-}
-
 @media screen and (max-width: 767px) {
   .age-gate__content {
     top: 0;

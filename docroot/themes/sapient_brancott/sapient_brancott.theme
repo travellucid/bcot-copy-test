@@ -143,7 +143,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $wine_ids_array = array();
           //$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
           $node = \Drupal::routeMatch()->getParameter('node');
-          $node_translation = $node->getTranslation($langcode);
+          //$node_translation = $node->getTranslation($langcode);
+          $node_translation = $node;
           $wine_ids_array = $node_translation->field_related_wines->getValue();
           $winedetails = array();
           foreach ($wine_ids_array as $key => $value) {
