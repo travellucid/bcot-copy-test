@@ -37,7 +37,6 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
          
 		      $url = $langcode.'/our-wines/'.$url_range_title;
           foreach ($details as $key => $detail) {
-            
             if ($range_title_slug == $detail->slug) {
               $range_title_api = $detail->title;
               $range_desc_api = $detail->description;
@@ -113,7 +112,10 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           else {
             $variables['climate_desc'] = '';
           }
-          $owm = new OpenWeatherMap('bd4028edc390aa0629042fefed9976ca');
+          $vc = \Drupal::config('sapient_our_wines.settings');
+          $openweatherapi_key = $vc->get('openweatherapi_key');
+          $openweatherapi_key = $openweatherapi_key ? $openweatherapi_key : 'bd4028edc390aa0629042fefed9976ca';
+          $owm = new OpenWeatherMap($openweatherapi_key);
           $weather = $owm->getWeather($city, 'metric');
 
           $icon_id = $weather->weather->icon;
@@ -303,11 +305,11 @@ function sapient_brancott_theme() {
 function sapient_brancott_preprocess_block(&$variables) {
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
-    if($language_name){
-     $variables['selected_language'] = $language_name; 
+    if($language_name == 'English'){
+     $variables['selected_language'] = 'REST OF THE WORLD'; 
     }
     else{
-     $variables['selected_language'] = 'New Zealand';  
+     $variables['selected_language'] = $language_name; 
     }
   if ($variables['plugin_id'] == 'webform_block') {
     $node = \Drupal::routeMatch()->getParameter('node');
