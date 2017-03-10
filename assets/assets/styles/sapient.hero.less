@@ -302,7 +302,7 @@
 		}
 	}
 	.product-details-mobile{
-		margin: -60% auto 0;
+		margin: -50% auto 0;
 		position: relative;
 		padding: 0;
 		text-align: center;
@@ -422,7 +422,9 @@
 
 @media screen and (min-width: 450px) and (max-width: 740px) {
 	#product-detail-hero-mobile {
-		display: none;
+		&.product-details-mobile {
+			margin: -23% auto 0;
+		}
 	}
 
 }
