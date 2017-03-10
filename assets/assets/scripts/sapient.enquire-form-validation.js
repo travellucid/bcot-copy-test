@@ -211,6 +211,17 @@ var validationObj = (function($, window, sapient) {
 
 				});
 				
+				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				 	val = $(".enquire-form .date-wrapper #edit-preferred-date").val().split("-"),
+				 	getDay,
+				 	newDate;
+
+				val[1] = monthArray[val[1] -1];
+				getDay = weekArray[new Date($(".enquire-form .date-wrapper #edit-preferred-date").val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
+				val.unshift(getDay)
+				newDate = val.join(" ");
+				$(".date-overlay").text(newDate);
 			}
 
 			$.each($input,function(index) {
@@ -224,7 +235,8 @@ var validationObj = (function($, window, sapient) {
 					$($input[index]).siblings("label").removeClass("error");
 					$($input[index]).removeClass("error-border");
 				}
-			})
+			});
+
 		};
 
 		return {
