@@ -56,12 +56,13 @@ class RemotekeyAutocompleteController extends ControllerBase {
   public function autocomplete() {
     $string = $this->request->getCurrentRequest()->get('q');
     $data = array();
-
     // All the checks have already been done to this point, we can directly query
     // the console.
     $endpoint_url = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_endpoint');
     $api_key = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_key');
+    //Todo: Use instance code 
     $instance = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_instance');
+    
     $use_curl = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_use_curl');
 
 

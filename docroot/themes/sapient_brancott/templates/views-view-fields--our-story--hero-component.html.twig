@@ -1,8 +1,8 @@
 <div id="hero-component" class="container-fluid  hero-container common-hero">
     <div class="banner-image" style="background-image: url('{{ fields.field_hero_background_image.content }}')" alt="{{ fields.field_hero_background_image_1.content }} "></div>
     <div class="hero-bottom">
-       
-<picture>
+
+        <picture>
             {% if (fields.field_hero_left_triangle_image.content) %}
                 <source  class="triangle" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
             {% else %}
@@ -70,17 +70,17 @@
 
     </div>
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 hero-inner-container">
-                    <span class="header_f">{{ fields.field_story_subheading.content }}</span>
-        	
+        <span class="header_f">{{ fields.field_story_subheading.content }}</span>
+
         <h1 class="header_a">{{ fields.field_hero_heading.content }}</h1>
 
-       
-        	
+
+
     </div>
 </div>
-  <div id="timeline-component">
-        <h2 class="header_b">{{ fields.field_hero_bottom_headline.content }}</h2>
-  
-  <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
-  <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel=0"></iframe>
-  </div>
+<div id="timeline-component">
+    <h2 class="header_b">{{ fields.field_hero_bottom_headline.content }}</h2>
+
+    <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
+    <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel=0"></iframe>
+</div>
