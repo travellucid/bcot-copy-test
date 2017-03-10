@@ -27,8 +27,7 @@ class BrancottRestApiControllerFilters extends ControllerBase {
     $lang_explode = explode("-", $language);
     if ($language == 'en') {
       $locale = 'row';
-    }
-    else {
+    } else {
       $locale = $lang_explode[1];
     }
     $data = array();
@@ -39,9 +38,10 @@ class BrancottRestApiControllerFilters extends ControllerBase {
     if ($cache) {
       $result = json_decode($cache->data);
       return $result;
-    }
-    else {
-      $response = brancott_rest_api_reponse($dch_ranges_url. '/' . $locale . '/wines/en');
+    } else {
+      $vc = $this->config('sapient_our_wines.settings');
+      $dch_ranges_url = $vc->get('dch_wine_url');
+      $response = brancott_rest_api_reponse($dch_ranges_url . '/' . $locale . '/wines/en');
     }
     if ($response['code'] == 200) {
       \Drupal::cache()->set($cid, $response['result']);
