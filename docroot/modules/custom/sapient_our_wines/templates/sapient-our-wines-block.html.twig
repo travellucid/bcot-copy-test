@@ -120,7 +120,7 @@
 				<div class="category-header">
 					<p class="title-tag">{{ arg.title |upper }}</p>
 					<h2>{{ arg.strapline |upper }}</h2>
-					{{ arg.description |raw }}
+					<p>{{ arg.description |raw }}</p>
 				</div>
 				<div class = "category-grid">
 					{% for tile in arg.associated_wines %}

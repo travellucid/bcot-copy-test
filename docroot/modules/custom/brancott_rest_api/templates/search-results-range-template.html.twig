@@ -2,7 +2,7 @@
 				<div class="category-header">
 					<p class="title-tag">{{ range_details.title |upper }}</p>
 					<h2>{{ range_details.strapline |upper }}</h2>
-					{{ range_details.description |raw }}
+					<p>{{ range_details.description |raw }}</p>
 				</div>
 				<div class="category-grid">
 		{% for search_result in search_array %}
