@@ -13,7 +13,41 @@ var google_map_field_map;
             label = $(this).attr('data-label'),
             zoom = parseInt($(this).attr('data-zoom')),
             right_bound = $('.map_bound').attr('data-right_bound'),
-            left_bound = $('.map_bound').attr('data-left_bound'),        
+            left_bound = $('.map_bound').attr('data-left_bound'),
+            style =[
+              {
+                "featureType": "landscape",
+                "stylers": [
+                  {
+                    "color": "#ebeaea"
+                  }
+                ]
+              },
+              {
+                "featureType": "landscape",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  {
+                    "color": "#ebeaea"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "stylers": [
+                  {
+                    "color": "#ebeaea"
+                  }
+                ]
+              },
+              {
+                "featureType": "water",
+                "stylers": [
+                  {
+                    "color": "#c9daff"
+                  }
+                ]
+              }],     
             // Create the map coords and map options.
            latlng = new google.maps.LatLng(lat, lon),mapOptions = {
               zoom: zoom,
@@ -24,7 +58,8 @@ var google_map_field_map;
               scrollwheel: false,
               zoomControl: true,
               panControl: false,
-              draggable: true
+              draggable: true,
+              styles: style
               //navigationControl: false,
               //mapTypeControl: false,
               //scaleControl: false,
@@ -49,12 +84,12 @@ var google_map_field_map;
           animation: google.maps.Animation.DROP,
           optimized: false,
           //label: label,
-          /*label: {
-           text: label,
-           color: "#eb3a44",
+          label: {
+           text: "Brancott Estate",
+           color: "#984843",
            fontSize: "12px",
-           //fontWeight: "bold"
-           }*/
+           fontWeight: "bold"
+           }
 
         });
 
@@ -70,7 +105,7 @@ $(window).resize(function(){
 });
 
 var fitBoundsMap=function(){
-  console.log("resize");
+ // console.log("resize");
   google_map_field_map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(-41.4813,173.6561), 
                                                        new google.maps.LatLng(-41.6421,174.0578)));
   google_map_field_map.panBy(-150, 0);
