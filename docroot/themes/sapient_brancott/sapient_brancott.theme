@@ -332,3 +332,9 @@ function sapient_brancott_preprocess_block(&$variables) {
           }          
   } 
 }
+
+
+
+function sapient_brancott_preprocess_views_view(&$variables) {
+  
+}
