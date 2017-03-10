@@ -16,7 +16,6 @@
 
   </head>
   <body class="path-node page-node-type-error-page has-glyphicons">
-  <div class="background-noise-section">
  <div class="error-page background-noise-section">
 	<div class="error-info-wrapper">
 		<h1 class="error-heading">OOPS!</h1>
@@ -24,7 +23,7 @@
 	</div>
 	<img src="/themes/sapient_brancott/css/images/wine-spill-graphic-PNG.png" alt="Error" class="background-image">
 </div>	
-</div>
+
   </body>
 </html>
 
