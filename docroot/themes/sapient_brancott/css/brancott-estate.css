@@ -848,7 +848,7 @@ select + .age-gate .form-row-error-text,
   margin: 0 auto 20px;
   background-image: url("/themes/sapient_brancott/css/images/icons/BE_icon_header_logo_colour.svg");
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: 150px  58px;
 }
 @media screen and (min-width: 768px) {
   .age-gate__content .age-gate__logo {
