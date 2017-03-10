@@ -39,7 +39,7 @@ var datePickerObj = (function($, window, sapient) {
 			
 
 			$(".enquire-form .date-wrapper .date").on("change", function() {
-				/*var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
 					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 				 	val = $(this).val().split("-"),
 				 	getDay,
@@ -50,7 +50,7 @@ var datePickerObj = (function($, window, sapient) {
 				val.unshift(getDay)
 				newDate = val.join(" ");
 				
-				$(this).val(newDate);*/
+				$(this).val(newDate);
 				$(" .bootstrap-datetimepicker-widget").hide();
 			});
  
