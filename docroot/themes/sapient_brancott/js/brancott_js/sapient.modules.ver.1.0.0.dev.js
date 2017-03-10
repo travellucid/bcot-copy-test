@@ -1410,10 +1410,10 @@ var validationObj = (function($, window, sapient) {
 				});
 
 				$.each(textarea, function(index) {
-					if($(textarea[index]).value == "") {
+					if(($(textarea[index]).html())== "") {
 						$(textarea[index]).siblings("label").addClass("error");
 						$(textarea[index]).addClass("error-border");
-						msgarr.push($($select[index]).siblings("label").text());
+						msgarr.push($(textarea[index]).siblings("label").text());
 
 					}
 
