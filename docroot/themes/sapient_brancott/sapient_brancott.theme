@@ -343,7 +343,7 @@ function sapient_brancott_preprocess_views_view(&$variables) {
      $results = views_get_view_result('contact_us_page', 'address_block',356);
      foreach ($results as $result){
     $options[] = $result;
-    print_r($result);die;
+    kint($result);
   }
    
    
