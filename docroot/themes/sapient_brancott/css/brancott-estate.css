@@ -854,6 +854,7 @@ select + .age-gate .form-row-error-text,
   .age-gate__content .age-gate__logo {
     width: 200px;
     height: 93px;
+    background-size: 200px  93px;
   }
 }
 .age-gate__content .age-gate-form {
