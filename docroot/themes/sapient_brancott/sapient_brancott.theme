@@ -336,7 +336,7 @@ function sapient_brancott_preprocess_block(&$variables) {
 
 
 function sapient_brancott_preprocess_views_view(&$variables) {
-  if ($view_id == 'address_block' ) {
+  if ($view_id == 'contact_us_page' ) {
 	$variables['sanju'] = 'sanju';
     }
 }
