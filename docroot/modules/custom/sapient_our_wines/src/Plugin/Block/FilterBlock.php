@@ -59,7 +59,6 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $range_name = str_replace("-", " ", $range_name);
       }
     }
-    
     foreach ($values as $value) {
       $first_level = array();
       $all_level = array();
