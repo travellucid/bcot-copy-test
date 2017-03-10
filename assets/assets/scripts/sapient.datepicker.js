@@ -44,13 +44,13 @@ var datePickerObj = (function($, window, sapient) {
 				 	val = $(this).val().split("-"),
 				 	getDay,
 				 	newDate;
-				console.log($(this).val());
+				
 				val[1] = monthArray[val[1] -1];
 				getDay = weekArray[new Date($(this).val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
 				val.unshift(getDay)
-				newDate = val.join(" ");
+				newDate = val.join(" ");*/
 				
-				$(this).val(newDate);*/
+				$(this).val(newDate);
 				$(" .bootstrap-datetimepicker-widget").hide();
 			});
  
