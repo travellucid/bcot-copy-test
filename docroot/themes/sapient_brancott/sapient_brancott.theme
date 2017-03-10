@@ -342,10 +342,11 @@ function sapient_brancott_preprocess_views_view(&$variables) {
   if ($view_id == 'contact_us_page' ) {
      $results = views_get_view_result('contact_us_page', 'address_block',356);
      foreach ($results as $result){
-    $options[] = $result->field_address_heading[0][value];
+    $options[] = $result;
+    print_r($result);die;
   }
    
-    print_r($options);echo "test";
+   
 	$variables['sanju'] = 'sanju';
     }
 }
