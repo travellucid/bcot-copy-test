@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEJpivEA6PEe51Yok1hrmDHY_9SqzMh9w&libraries=geometry,places" type="text/javascript"></script>
+    
+      <style>
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }    
+    </style>
+  </head>
+  <body>
+    <div id="map" style="height:400px; width:100%;" ></div>
+ <script>
+    var latlng = new google.maps.LatLng(-41.5419823,173.8518291);
+  
+    
+     /* THIS IS NOT THE STYLING 'SKIN' THAT EMMA HAS SPECIFIED */
+var styles =[
+  {
+    "featureType": "landscape",
+    "stylers": [
+      {
+        "color": "#ebeaea"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#ebeaea"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "color": "#ebeaea"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "stylers": [
+      {
+        "color": "#c9daff"
+      }
+    ]
+  }
+];
+ 
+     
+    function initialize() {
+            var bounds = new google.maps.LatLngBounds();
+        
+            var myOptions = {
+                zoom: 11,
+                center: latlng, 
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true,
+                scrollwheel: false,
+                draggable: true,
+                zoomControl: true,
+                panControl: false,
+                styles: styles
+            };
+
+            map = new google.maps.Map(document.getElementById('map'), myOptions);            
+            
+            
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                /* 
+                  THIS IS DEFINITELY NOT THE WAY TO DO STYLE THE LABEL. MAYBE THIS?
+                   https://github.com/googlemaps/v3-utility-library/tree/master/markerwithlabel 
+                */
+                icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + '' + '|FF0000|000000',
+                  label: {
+                        text: "<b>a Label",
+                        color: "#eb3a44",
+                        fontSize: "16px",
+                        fontWeight: "bold"
+                      }
+            });
+        
+    
+            map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(-41.4813,173.6561), 
+                                                       new google.maps.LatLng(-41.6421,174.0578))) 
+        
+    }
+     
+     google.maps.event.addDomListener(window, 'load', initialize);
+     google.maps.event.addDomListener(window, 'resize', initialize);
+     window.onpopstate = initialize();
+     
+     
+    </script>
+       
+  </body>
+</html>
