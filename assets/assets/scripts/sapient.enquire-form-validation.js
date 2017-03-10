@@ -14,10 +14,10 @@ var validationObj = (function($, window, sapient) {
 				$("#statusMsg .messages").html("");
 
 				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
-					inputflag = 0,
+					textarea =$('.enquire-form .other-information textarea').filter('[required]:visible'),
 					inputarr = [],
-					selectflag = 0,
 					selectarr = [],
+					textareaarr = [],
 					msgarr = [];
 
 				$.each($input, function(index) {
@@ -52,6 +52,17 @@ var validationObj = (function($, window, sapient) {
 					selectarr.push($select[index].value);
 
 				});
+
+				$.each(textarea, function(index) {
+					if($(textarea[index]).value == "") {
+						$(textarea[index]).siblings("label").addClass("error");
+						$(textarea[index]).addClass("error-border");
+						msgarr.push($($select[index]).siblings("label").text());
+
+					}
+
+					textareaarr.push($(textarea[index]).value);
+				});
 				
 				if (msgarr.length !== 0) {
 
@@ -72,7 +83,6 @@ var validationObj = (function($, window, sapient) {
 				$.each(inputarr, function(index) {
 
 					if (inputarr[index] === 0) {
-						inputflag = 0;
 						event.preventDefault();
 						
 					}
@@ -80,7 +90,13 @@ var validationObj = (function($, window, sapient) {
 
 				$.each(selectarr, function(index) {
 					if (selectarr[index] == "") {
-						selectflag = 0;
+						event.preventDefault();
+						
+					}
+				})
+
+				$.each(textareaarr, function(index) {
+					if (textareaarr[index] == "") {
 						event.preventDefault();
 						
 					}
@@ -117,6 +133,7 @@ var validationObj = (function($, window, sapient) {
 				}
 			})	
 		},
+
 		resetForm = function() {
 			$(document).ready(function () {
 				for (i = 0; i < document.forms.length; i++) {
