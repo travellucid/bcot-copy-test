@@ -336,6 +336,8 @@ function sapient_brancott_preprocess_block(&$variables) {
 
 
 function sapient_brancott_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+    $view_id = $variables['view']->storage->id();
   if ($view_id == 'contact_us_page' ) {
 	$variables['sanju'] = 'sanju';
     }
