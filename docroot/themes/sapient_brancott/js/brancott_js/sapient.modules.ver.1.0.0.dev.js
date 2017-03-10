@@ -1552,8 +1552,9 @@ var validationObj = (function($, window, sapient) {
 			
 			if(beErrLength > 0){
 				var str="";
+				
 				$(".custom-error li").each(function(){
-				str= $(this).text();
+					str= $(this).text();
 
 					$('html, body').animate({
 					scrollTop: $("#block-webform_block").offset().top
