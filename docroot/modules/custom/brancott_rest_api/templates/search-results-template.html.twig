@@ -1,13 +1,16 @@
 <div class="category-wrapper">
+	{#<div class="category-header">
+		<p class="title-tag">YOU SEARCHED FOR:</p>
+		<h2 id="filter-term"></h2>
+	</div>#}
 	<div class="category-grid">
 		{% for search_result in search_array %}
-                <a href="{{ path('entity.node.canonical', {'node': search_result.nid}) }}" class="product-tile">
-		{#<a href="/node/{{ search_result.nid }}" class="product-tile">#}
+		<a href="{{ path('entity.node.canonical', {'node': search_result.nid}) }}" class="product-tile">
 			<div class="product-shot">
 				<img src="{{ search_result.url }}" />
 				<div class="product-bg" style="background-color: {{ search_result.bkg_colr }};"></div>
 			</div>
-			<h3>{{search_result.range |upper }}</h3>
+			<h3>{{search_result.range | upper }}</h3>
 			<p>{{search_result.title }}</p>
 		</a>
 		{% endfor %}

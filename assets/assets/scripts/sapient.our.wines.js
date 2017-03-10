@@ -32,6 +32,9 @@ var ourWines = (function($, window, sapient) {
 							type: "GET",
 							success: function(data) {
 								$("#response-wrapper").html(data);
+
+								//$("#response-wrapper").find("#filter-term").html(wineCategoryFilter);
+								
 								sapient.common.killHash();
 							}
 						});
