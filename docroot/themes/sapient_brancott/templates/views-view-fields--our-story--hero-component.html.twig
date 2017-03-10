@@ -2,26 +2,69 @@
     <div class="banner-image" style="background-image: url('{{ fields.field_hero_background_image.content }}')" alt="{{ fields.field_hero_background_image_1.content }} "></div>
     <div class="hero-bottom">
        
-        <picture>
-            <source  class="triangle" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
+<picture>
+            {% if (fields.field_hero_left_triangle_image.content) %}
+                <source  class="triangle" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
+            {% else %}
+                <source  class="triangle" media="(max-width: 321px)"  srcset="/themes/sapient_brancott/css/images/triangle/left/_2x_landscape-triangle-320.png"> 
+            {% endif %}
 
-            <source class="triangle" media="(max-width: 691px)"  srcset="{{ fields.field_hero_left_triangle_image_s.content }}"> 
+            {% if (fields.field_hero_left_triangle_image_s.content) %}
+                <source class="triangle" media="(max-width: 691px)"  srcset="{{ fields.field_hero_left_triangle_image_s.content }}"> 
+            {% else %}
+                <source  class="triangle" media="(max-width: 321px)"  srcset="/themes/sapient_brancott/css/images/triangle/left/_2x_landscape-triangle-691.png"> 
+            {% endif %}
 
-            <source class="triangle" media="(max-width: 991px)" srcset="{{ fields.field_hero_left_triangle_image_t.content }}">
+            {% if (fields.field_hero_left_triangle_image_t.content) %}
+                <source class="triangle" media="(max-width: 991px)" srcset="{{ fields.field_hero_left_triangle_image_t.content }}"> 
+            {% else %}
+                <source  class="triangle" media="(max-width: 321px)"  srcset="/themes/sapient_brancott/css/images/triangle/left/_2x_landscape-triangle-991.png"> 
+            {% endif %}
 
-            <source class="triangle" media="(max-width: 1401px)" srcset="{{ fields.field_hero_left_triangle_img_f.content }}"> 
-            <img src="{{ fields.field_hero_left_triangle_img_f.content }}" alt="triangle image" class="triangle">
+            {% if (fields.field_hero_left_triangle_img_f.content) %}
+                <source class="triangle" media="(max-width: 1401px)" srcset="{{ fields.field_hero_left_triangle_img_f.content }}"> 
+            {% else %}
+                <source  class="triangle" media="(max-width: 321px)"  srcset="/themes/sapient_brancott/css/images/triangle/left/_2x_landscape-triangle-1400.png"> 
+            {% endif %}
+
+            {% if (fields.field_hero_left_triangle_img_f.content) %}
+                <img src="{{ fields.field_hero_left_triangle_img_f.content }}" alt="triangle image" class="triangle">
+            {% else %}
+                <img src="/themes/sapient_brancott/css/images/triangle/left/_2x_landscape-triangle-1400.png" alt="triangle image" class="triangle">
+            {% endif %}
         </picture>
+
         <picture>
-            <source  class="triangle-right" media="(max-width: 321px)"  srcset="{{ fields.field_hero_right_triangle_image.content }}"> 
+            {% if (fields.field_hero_right_triangle_image.content) %}
+                <source  class="triangle-right" media="(max-width: 321px)"  srcset="{{ fields.field_hero_right_triangle_image.content }}"> 
+            {% else %}
+                <source  class="triangle-right" media="(max-width: 321px)"  srcset="/themes/sapient_brancott/css/images/triangle/right/_2x_grain-triangle-320.png"> 
+            {% endif %}   
 
-            <source class="triangle-right" media="(max-width: 691px)"  srcset="{{ fields.field_hero_right_triangle_img_s.content }}"> 
+            {% if (fields.field_hero_right_triangle_image.content) %}
+                <source class="triangle-right" media="(max-width: 691px)"  srcset="{{ fields.field_hero_right_triangle_img_s.content }}"> 
+            {% else %}
+                <source class="triangle-right" media="(max-width: 691px)"  srcset="/themes/sapient_brancott/css/images/triangle/right/_2x_grain-triangle-691.png"> 
+            {% endif %}  
 
-            <source class="triangle-right" media="(max-width: 991px)" srcset="{{ fields.field_hero_right_triangle_img_t.content }}">
+            {% if (fields.field_hero_right_triangle_image.content) %}
+                <source class="triangle-right" media="(max-width: 991px)" srcset="{{ fields.field_hero_right_triangle_img_t.content }}">
+            {% else %}
+                <source class="triangle-right" media="(max-width: 991px)" srcset="/themes/sapient_brancott/css/images/triangle/right/_2x_grain-triangle-991.png">
+            {% endif %}             
 
-            <source class="triangle-right" media="(max-width: 1401px)" srcset="{{ fields.field_hero_right_triangle_img_f.content }}"> 
+            {% if (fields.field_hero_right_triangle_image.content) %}
+                <source class="triangle-right" media="(max-width: 1401px)" srcset="{{ fields.field_hero_right_triangle_img_f.content }}"> 
+            {% else %}
+                <source class="triangle-right" media="(max-width: 1401px)" srcset="/themes/sapient_brancott/css/images/triangle/right/_2x_grain-triangle-1400.png"> 
+            {% endif %}              
 
-            <img class="triangle-right" src="{{ fields.field_hero_right_triangle_img_f.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+            {% if (fields.field_hero_right_triangle_image.content) %}
+                <img class="triangle-right" src="{{ fields.field_hero_right_triangle_img_f.content }}" alt="{{ fields.field_hero_right_side_image_1.content }}"> 
+            {% else %}
+                <img class="triangle-right" src="/themes/sapient_brancott/css/images/triangle/right/_2x_grain-triangle-1400.png" alt="triangle image"> 
+            {% endif %}                 
+
         </picture>
 
 
