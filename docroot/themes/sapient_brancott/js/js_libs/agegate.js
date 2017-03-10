@@ -5168,13 +5168,13 @@ require([
             final_url = "";
 
             if(c_code !== 'nz' && c_code !== 'au' && c_code !== 'gb') {
-                final_url="en";
+                final_url="/en";
             } 
             else {
-                final_url = "en-"+c_code;
+                final_url = "/en-"+c_code;
             }
         
-       // location.href=final_url;
+       location.href=final_url;
 
 
       $.cookie('age_checked', this.makeAgeCheckCookieValue(), { path: '/' });

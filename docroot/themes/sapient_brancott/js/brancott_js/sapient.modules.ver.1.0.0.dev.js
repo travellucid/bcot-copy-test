@@ -240,11 +240,11 @@ var datePickerObj = (function($, window, sapient) {
 				maxDate:'2020/01/01',
 				format:'DD-MM-YYYY'
 			}).find('input:first').on("blur",function () {
-				console.log("here")
+	
 				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
 				// update the format if it's yyyy-mm-dd
 				var date = sapient.datepicker.parseDate($(this).val());
-				console.log(date);
+			
 				if (! sapient.datepicker.isValidDate(date)) {
 					//create date based on momentjs (we have that)
 					date = moment().format('YYYY-MM-DD');
@@ -272,21 +272,20 @@ var datePickerObj = (function($, window, sapient) {
 			
 
 			$(".enquire-form .date-wrapper .date").on("change", function() {
-				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+				/*var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
 					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 				 	val = $(this).val().split("-"),
 				 	getDay,
 				 	newDate;
-
+				console.log($(this).val());
 				val[1] = monthArray[val[1] -1];
 				getDay = weekArray[new Date($(this).val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
 				val.unshift(getDay)
 				newDate = val.join(" ");
 				
-				$(this).val(newDate);
+				$(this).val(newDate);*/
 				$(" .bootstrap-datetimepicker-widget").hide();
 			});
-
  
 		},
 
