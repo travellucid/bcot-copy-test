@@ -112,9 +112,7 @@
 	</div>
 </section>
 
-<section id="no_result_message">
-	<p>{{ no_result_message }}</p>
-</section>
+
 
 {% if arguments %}
 <section id="product-grid">
@@ -146,4 +144,13 @@
 		{% endfor %}
 	</div>
 </section>
+
+{% else %}
+
+<section id="product-grid" class="no_result_message">
+	<div id="response-wrapper">
+		<p>{{ no_result_message }}</p>
+	</div>
+</section>
+
 {% endif %}
