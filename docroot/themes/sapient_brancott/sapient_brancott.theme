@@ -278,7 +278,6 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         if ($variables['row']->_entity->field_generic_page_dch_api_url) {
           $generic_dch_url = $variables['row']->_entity->field_generic_page_dch_api_url->getValue()[0][uri];
           $details = braoncott_rest_api_get_generic_url($generic_dch_url);
-          
           $variables['generic_body_dch'] = $details;
         }
       }
@@ -308,7 +307,7 @@ function sapient_brancott_preprocess_block(&$variables) {
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
     if($language_name == 'English'){
-     $variables['selected_language'] = 'REST OF THE WORLD'; 
+     $variables['selected_language'] = 'GLOBAL'; 
     }
     else{
      $variables['selected_language'] = $language_name; 
