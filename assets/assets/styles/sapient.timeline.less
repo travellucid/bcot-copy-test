@@ -6,41 +6,23 @@
 	padding-bottom: 0 !important;
 }
 
-#timeline-component {
-	padding: 100px 15px 0;
-	max-width:1170px;
-	margin: 0 auto;
-	text-align: center;
-
+#hero-timeline-component {
+	padding-top: 100px;
 	h2, h3,h4 {
 		color: @dark-gray;
-	}
-	
-	.common-margin {
-		margin-bottom: 90px;
-	}
-	img {
-		display: block;
-		margin: 0 auto;
 	}
 	p {
 		font-family: "NeutraText Book";
 		font-size: 16px;
 		line-height: 26px;
 		max-width: 576px;
-		margin: 0 auto;
+		margin: 24px auto 0;
 		&.quote {
 			display: inline-block;
 			font-family: "NeutraText-Demi";
 			margin-top: 25px;
 		}
 	}
-	span.author {
-		font-family: "NeutraText Book";
-	}
-	
-
-	
 	.youtube {
 		border: 0 none;
 		display: block;
@@ -50,31 +32,194 @@
 		width: 100%;
 		margin-bottom: 92px;
 	}
-	
-	.line-bg {
-		.cfix();
-		font-family: "NeutraText Bold";
-		display: block;
-		padding: 5px;
-		position: relative;
-		text-align: left;
-		/* float:left; */
-		&::before {
-			background-color: @fawn;
-			content: " ";
-			height: 5px;
-			margin-right: 35px;
-			position: absolute;
-			right: 100%;
-			top: 50%;
-			width: 100vw;
-		}
+	.common-margin {
+		margin-bottom: 90px;
 	}
-	
-	.img-wrapper-horizontal {
+}
+#timeline-component {
+	margin: 0 auto;
+	max-width: 1170px;
+
+/* 	padding: 100px 15px 0; */
+	h2, h3,h4 {
+		color: @dark-gray;
+	}
+
+.line-bg {
+	.cfix();
+	font-family: "NeutraText Bold";
+	display: block;
+	padding: 5px;
+	position: relative;
+	text-align: left;
+	/* float:left; */
+	&::before {
+		background-color: @fawn;
+		content: " ";
+		height: 5px;
+		margin-right: 35px;
+		position: absolute;
+		right: 100%;
+		top: 50%;
+		width: 100vw;
+	}
+}
+
+.youtube {
+	border: 0 none;
+	display: block;
+	margin: 0 auto;
+	max-width: 770px;
+	height: 433px;
+	width: 100%;
+	margin-bottom: 92px;
+}
+/* 
+	max-width:1170px; */
+/* 	margin: 0 auto;
+text-align: center;
+
+h2, h3,h4 {
+	color: @dark-gray;
+}
+
+.common-margin {
+	margin-bottom: 90px;
+}
+img {
+	display: block;
+	margin: 0 auto;
+}
+p {
+	font-family: "NeutraText Book";
+	font-size: 16px;
+	line-height: 26px;
+	max-width: 576px;
+	margin: 0 auto;
+	&.quote {
+		display: inline-block;
+		font-family: "NeutraText-Demi";
+		margin-top: 25px;
+	}
+}
+span.author {
+	font-family: "NeutraText Book";
+}
+
+
+
+.youtube {
+	border: 0 none;
+	display: block;
+	margin: 0 auto;
+	max-width: 770px;
+	height: 433px;
+	width: 100%;
+	margin-bottom: 92px;
+}
+
+.line-bg {
+	.cfix();
+	font-family: "NeutraText Bold";
+	display: block;
+	padding: 5px;
+	position: relative;
+	text-align: left;
+	float:left;
+	&::before {
+		background-color: @fawn;
+		content: " ";
+		height: 5px;
+		margin-right: 35px;
+		position: absolute;
+		right: 100%;
+		top: 50%;
+		width: 100vw;
+	}
+}
+
+ */
+
+	.vertical-timeline {
+
+		max-width:770px; 
+		margin: 0 auto;
+		text-align: center;
+
+		h2, h3,h4 {
+		color: @dark-gray;
+		}
+
+		.common-margin {
+		margin-bottom: 90px;
+		}
 		img {
-			display: inline-block;
-			margin: 0 .5% 15px;
+		display: block;
+		margin: 0 auto;
+		}
+		p {
+		font-family: "NeutraText Book";
+		font-size: 16px;
+		line-height: 26px;
+		max-width: 576px;
+		margin: 0 auto;
+		&.quote {
+		display: inline-block;
+		font-family: "NeutraText-Demi";
+		margin-top: 25px;
+		}
+		}
+		span.author {
+		font-family: "NeutraText Book";
+		}
+
+	}
+
+	.horizontal-timeline {
+		.top {
+			margin: 0 auto;
+			max-width: 770px;
+		}
+
+		.img-wrapper-horizontal {
+			margin: 0 auto;
+			max-width: 1170px;
+			img {
+				display: inline-block;
+				margin: 0 .5% 15px;
+			}
+
+		max-width:1170px; 
+		margin: 0 auto;
+		text-align: center;
+
+		h2, h3,h4 {
+		color: @dark-gray;
+		}
+
+		.common-margin {
+		margin-bottom: 90px;
+		}
+		img {
+	/* 	display: block;
+	margin: 0 auto; */
+		}
+		p {
+		font-family: "NeutraText Book";
+		font-size: 16px;
+		line-height: 26px;
+		max-width: 576px;
+		margin: 0 auto;
+		&.quote {
+		display: inline-block;
+		font-family: "NeutraText-Demi";
+		margin-top: 25px;
+		}
+		}
+		span.author {
+		font-family: "NeutraText Book";
+		}
+
 		}
 	}
 }
@@ -83,6 +228,13 @@
 	#timeline-component {
     	max-width: 486px;
     }
+    .vertical-timeline {
+
+	}
+
+	.horizontal-timeline {
+		
+	}
 }
 
 
@@ -111,6 +263,13 @@
 				display: inline-block;
 				width: 100%;
 			}
+		}
+		.vertical-timeline {
+
+		}
+
+		.horizontal-timeline {
+
 		}
 	}
 }

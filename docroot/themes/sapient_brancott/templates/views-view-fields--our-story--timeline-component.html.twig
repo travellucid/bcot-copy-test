@@ -1,9 +1,4 @@
-<div id="timeline-component">
-
-    <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
-    <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
-
-    <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
+    
     {% set image_list = fields.field_image_vertical.content|split(',') %}
     
     {% set image_list_v1 = fields.field_image_vertical_1.content|split(',') %}
@@ -13,7 +8,11 @@
     
     {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
     {% if (fields.field_media_style.content == "vertical_style") %}
+    <div class="vertical-timeline">
+              <p class="header_d line-bg">{{ fields.field_timeline_date.content }}</p>
+    <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
 
+    <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
         <div class="img-wrapper-vertical common-margin">
             {% for key, image in image_list %}
                  {#<img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> #}
@@ -22,7 +21,7 @@
 
                     <source  media="(max-width: 691px)"  srcset="{{ image_list_v2[key] }}"> 
 
-                    <source  media="(max-width: 991px)" srcset="{{ image_list[key] }}">
+                    <source  media="(max-width: 1025px)" srcset="{{ image_list[key] }}">
 
                     <source  media="(max-width: 1401px)" srcset="{{ image }}"> 
 
@@ -34,7 +33,18 @@
                 <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_.content }}?rel=0"></iframe>
                 {% endif %}
         </div>
+    </div>
+  
     {% elseif (fields.field_media_style.content == "horizontal_style") %}
+    <div class="horizontal-timeline">
+    <div class="top">
+        <p class="header_d line-bg">{{ fields.field_timeline_date.content }}</p>
+        <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+        <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
+    </div>
+
+
+
         <div class="img-wrapper-horizontal common-margin">
             {% for key, image_horizontal in image_list_v3 %}
 {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
@@ -43,7 +53,7 @@
 
                     <source  media="(max-width: 691px)"  srcset="{{ image_list_v4[key] }}"> 
 
-                    <source  media="(max-width: 991px)" srcset="{{ image_list_v4[key] }}">
+                    <source  media="(max-width: 1025px)" srcset="{{ image_list_v4[key] }}">
 
                     <source  media="(max-width: 1401px)" srcset="{{ image_horizontal }}"> 
 
@@ -52,7 +62,9 @@
             {% endfor %}
         </div>
 
+    </div>
+    
     {% endif %}
 
 
-</div>
+
