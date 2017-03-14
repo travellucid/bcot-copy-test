@@ -269,6 +269,10 @@ var datePickerObj = (function($, window, sapient) {
 				sapient.datepicker.positionCalender();
 			});
 
+			$(".date-overlay").on('click', function(){
+				$(".date-wrapper input").focus();
+			});
+
 
 			$(window).on('resize', function() {
 				debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");
