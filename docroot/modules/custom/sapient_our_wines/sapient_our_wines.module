@@ -560,6 +560,7 @@ function character_limitation_wines_page($form, \Drupal\Core\Form\FormStateInter
  */
 function sapient_our_wines_pathauto_alias_alter(&$alias, array &$context) {
   if ($context['bundle'] == 'wines') {
+    $alias = str_replace(" ", "-", $alias);
     // Force all aliases to be saved as language neutral.
     $context['language'] = \Drupal\Core\Language\Language::LANGCODE_NOT_SPECIFIED;
   }

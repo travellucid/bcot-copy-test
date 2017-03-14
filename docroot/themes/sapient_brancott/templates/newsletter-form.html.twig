@@ -7,34 +7,39 @@
 		<ol class="messages header_g"></ol>
 	</div>	
 	<form {{form.attributes }}>
-	      {{ form.form_build_id }}
-                    {{ form.form_token }}
-                    {{ form.form_id }}
-                    {{ form.subject }}
-                    {{ form.message }}
+		  {{ form.form_build_id }}
+					{{ form.form_token }}
+					{{ form.form_id }}
+					{{ form.subject }}
+					{{ form.message }}
 		<div class="col-md-12 col-xs-12 col-sm-12 group ">
 			{{ form.elements.name }}
 			
 		</div>
-                <div class="col-md-6 col-xs-12 col-sm-12 group ">
+		<div class="col-md-6 col-xs-12 col-sm-12 group ">
 			{{ form.elements.email_address }}
 		</div>
-                <div class="col-md-6 col-xs-12 col-sm-12 group ">
+		<div class="col-md-6 col-xs-12 col-sm-12 group ">
 			{{ form.elements.date_of_birth }}
 		</div>
-                <div class="col-md-6 col-xs-12 col-sm-12 group">
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
 			{{ form.elements.gender }}
 		</div>
-                <div class="col-md-6 col-xs-12 col-sm-12 group">
+		<div class="col-md-6 col-xs-12 col-sm-12 group">
 			{{ form.elements.postcode }}
 		</div>
-		<div class="submit-info col-md-12 col-xs-12 col-sm-12  ">
-                        {{ form.elements.hear_more_from_brancott_estate }}
-                        {{ form.elements.hear_more_from_brands_from_pernod_ricard_group }}
-                        {{ form.elements.terms_and_conditions }}
+		<div class="col-md-6 col-xs-12 col-sm-12 group checkbox-item">
+			{{ form.elements.hear_more_from_brancott_estate }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group checkbox-item">
+			{{ form.elements.hear_more_from_brands_from_pernod_ricard_group }}
+		</div>
+		<div class="col-md-6 col-xs-12 col-sm-12 group checkbox-item">
+			{{ form.elements.terms_and_conditions }}
+		</div>
+		<div class="submit-info col-md-12 col-xs-12 col-sm-12">
 			{{ form.actions.submit }}
-		
-	    </div>
+		</div>
 	</form>
 	
 </div>
