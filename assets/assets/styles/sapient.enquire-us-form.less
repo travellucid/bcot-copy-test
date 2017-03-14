@@ -79,10 +79,18 @@
 		outline: none;
 		padding: 13px 10px 5px 0;
 		width: 100%;
+		
+		-webkit-appearance: none;
+  	    -moz-appearance: none;
+  	 	appearance:none;
+
+  	 	&::-ms-expand {
+    		display: none;
+		}
 	} 
+
 	.mac-specific {
 		height: 40px;
-		-webkit-appearance:none;
 	}
 
 	.group {
@@ -224,7 +232,18 @@
 			top: 10px;
 		}
 	}
-
+	.dropdown-icon {
+			background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
+			background-repeat: no-repeat;
+			background-size: 12px;
+			bottom: 10px;
+			cursor: pointer;
+			height: 12px;
+			width: 12px;
+			position: absolute;
+			right: 20px;
+			top: 21px;
+	}		
 	.other-information {
 		margin: 18px 0 30px;
 		
@@ -327,6 +346,7 @@
 	}
 
 }
+
 .newsletter-form {
 	.submit-info {
 		text-align: left;
@@ -336,6 +356,14 @@
 		}
 	}
 }
+
+.newsletter-form-heading {
+	&.form-heading {
+		padding-top: 100px;
+	}
+}
+
+
 .bootstrap-datetimepicker-widget {
 	
 	font-family: "NeutraText Book";
