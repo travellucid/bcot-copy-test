@@ -15,9 +15,9 @@
         {% endif %}
     </address>
     {% if (fields.field_phone_number.content) %}
-        <p>{{ fields.field_phone_text.content }} <a href="{{ fields.field_phone_number.content }}">{{fields.field_phone_number.content }}</a></p>
+        <p>{{ fields.field_phone_text.content }} <a href="tel:{{ fields.field_phone_number.content }}">{{fields.field_phone_number.content }}</a></p>
         {% endif %}
         {% if (fields.field_email_text.content) %}
-        <p><a href="#">{{ fields.field_email_text.content }}</a></p>
+        <p><a href="mailto:{{ fields.field_email_address.content }}">{{ fields.field_email_text.content }}</a></p>
         {% endif %}
 </div>
