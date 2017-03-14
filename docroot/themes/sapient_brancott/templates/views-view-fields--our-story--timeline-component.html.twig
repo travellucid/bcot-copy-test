@@ -9,7 +9,7 @@
     {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
     {% if (fields.field_media_style.content == "vertical_style") %}
     <div class="vertical-timeline">
-              <p class="header_d line-bg">{{ fields.field_timeline_date.content }}</p>
+              <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
     <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
 
     <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
@@ -38,9 +38,13 @@
     {% elseif (fields.field_media_style.content == "horizontal_style") %}
     <div class="horizontal-timeline">
     <div class="top">
-        <p class="header_d line-bg">{{ fields.field_timeline_date.content }}</p>
+        <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
         <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
         <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
+          
+  <p class="quote common-margin">
+  “Wines from here will become world famous”</p>
+<span class="author">– Frank Yukich, Montana Wines founder</span>
     </div>
 
 
