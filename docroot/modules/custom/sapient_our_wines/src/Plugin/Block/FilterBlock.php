@@ -165,10 +165,26 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $index_details[] = $indexed_range_detail;
       }
     }
+    if(empty($index_details)){
+   $our_wines_ids = \Drupal::entityQuery('node')
+          ->condition('status', 1)
+          ->condition('type', 'our_wines')
+          ->execute();
+
+
+      $our_wines_id = reset($our_wines_ids);
+      if($our_wines_id) {
+       
+        $node_load_our_wines = \Drupal\node\Entity\Node::load($our_wines_id);
+        $no_result_message = $node_load_our_wines->field_no_result_message->value;
+       
+      } 
+    } 
     return array(
       '#theme' => 'sapient_our_wines_block',
       '#arguments' => $index_details,
       '#filters' => $filters,
+      '#no_result_message' => $no_result_message,
       '#current_language' => $langcode,
     );
   }
