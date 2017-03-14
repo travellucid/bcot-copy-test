@@ -260,12 +260,16 @@ var datePickerObj = (function($, window, sapient) {
 			$(".enquire-form .date-wrapper input").attr('readonly','readonly');
 
 			$(".date-wrapper .calender-icon").on('click',function(){
-				$("#edit-preferred-date").focus(); 
+				$(".date-wrapper input").focus(); 
 				sapient.datepicker.positionCalender();
 				
 			}); 
 
-		
+			$(".date-wrapper input").on(focus, function(){
+				sapient.datepicker.positionCalender();
+			});
+
+
 			$(window).on('resize', function() {
 				debounce(sapient.datepicker.positionCalender, 50, "changing calenderPostion");
 			});
