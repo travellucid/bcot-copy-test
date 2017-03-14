@@ -79,7 +79,9 @@
 		border-radius: 0;
 		outline: none;
 		padding: 13px 10px 5px 0;
+		position: relative;
 		width: 100%;
+		z-index: 2;
 		
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -138,6 +140,7 @@
 		background-color: transparent;
 		border: none;
 		border-bottom: 2px solid  @black;
+		border-radius: 0;
 		display: block;
 		font-size: 18px;
 		margin: -1px;
@@ -235,16 +238,16 @@
 	}
 	
 	.dropdown-icon {
-			background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
-			background-repeat: no-repeat;
-			background-size: 12px;
-			bottom: 10px;
-			cursor: pointer;
-			height: 12px;
-			width: 12px;
 			position: absolute;
 			right: 20px;
 			top: 21px;
+			z-index: 1;
+			border: solid transparent;
+			height: 0;
+			width: 0;
+			border-top-color: #d50032;
+			border-width: 6px !important;
+			margin-left: -6px !important;
 	}
 
 	.other-information {
