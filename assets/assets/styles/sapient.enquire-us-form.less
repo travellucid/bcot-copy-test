@@ -293,9 +293,11 @@
 
 	.checkbox-item {
 		padding: 0 15px;
-		position: relative;
+		//position: relative;
+		text-align: center;
+
 		label {
-			position: static;
+			position: relative;
 		}
 
 		input[type=checkbox] {
@@ -306,7 +308,7 @@
 			cursor: pointer;
 			font-size: 12px;
 			line-height: 22px;
-			padding-left: 34px;
+			padding-left: 50px;
 			vertical-align: middle;
 
 			&:before {
@@ -347,8 +349,7 @@
 		text-align: center;
 		
 		.submit-btn {
-			display: block;
-			margin: 35px auto 0;
+			margin-top: 35px;
 
 			&:hover {
 				border:2px solid @bright-green;
@@ -360,12 +361,9 @@
 }
 
 .newsletter-form {
-	.submit-info {
+	.checkbox-item {
 		text-align: left;
-
-		input[type=checkbox] ~ label {
-			margin-bottom: 10px;
-		}
+		margin-bottom: 10px;
 	}
 }
 
