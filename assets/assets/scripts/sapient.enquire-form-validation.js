@@ -15,10 +15,14 @@ var validationObj = (function($, window, sapient) {
 
 				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
 					textarea =$('.enquire-form .other-information textarea').filter('[required]:visible'),
+					$email = $('input[type = email]'),
 					inputarr = [],
 					selectarr = [],
 					textareaarr = [],
+					filter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 					msgarr = [];
+				
+
 
 				$.each($input, function(index) {
 
@@ -64,6 +68,18 @@ var validationObj = (function($, window, sapient) {
 					textareaarr.push($(textarea[index]).value);
 				});
 				
+				if (filter.test($email)) {
+					msgarr.push('Please provide a valid email address');
+					$email.siblings("label").addClass("error");
+					$email.addClass("error-border");
+					event.preventDefault();
+				}
+				else {
+
+					$email.siblings("label").removeClass("error");
+					$email.removeClass("error-border");
+				}
+
 				if (msgarr.length !== 0) {
 
 					$(".enquire-form #statusMsg ol").addClass("error");
@@ -79,6 +95,7 @@ var validationObj = (function($, window, sapient) {
 					$("#statusMsg").css('display', 'none');
 
 				}
+
 
 				$.each(inputarr, function(index) {
 
@@ -137,8 +154,8 @@ var validationObj = (function($, window, sapient) {
 		resetForm = function() {
 			$(document).ready(function () {
 				for (i = 0; i < document.forms.length; i++) {
-			        document.forms[i].reset();
-			    }
+					document.forms[i].reset();
+				}
 			});
 		},
 
@@ -151,7 +168,7 @@ var validationObj = (function($, window, sapient) {
 				$.each($select,function() {
 					$(this).addClass("mac-specific");
 				})
-		  	}
+			}
 		},
 
 		submitBtnClass = function() {
@@ -230,9 +247,9 @@ var validationObj = (function($, window, sapient) {
 				
 				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
 					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-				 	val = $(".enquire-form .date-wrapper #edit-preferred-date").val().split("-"),
-				 	getDay,
-				 	newDate;
+					val = $(".enquire-form .date-wrapper #edit-preferred-date").val().split("-"),
+					getDay,
+					newDate;
 
 				val[1] = monthArray[val[1] -1];
 				getDay = weekArray[new Date($(".enquire-form .date-wrapper #edit-preferred-date").val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];

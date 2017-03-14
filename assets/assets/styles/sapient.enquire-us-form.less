@@ -142,7 +142,8 @@
 		border-bottom: 2px solid  @black;
 		border-radius: 0;
 		display: block;
-		font-size: 18px;
+		font-size: 16px;
+		letter-spacing: normal;
 		margin: -1px;
 		outline: none;
 		padding: 10px 10px 5px 0;
@@ -207,14 +208,10 @@
 	
 	.date-wrapper {
 
-		label,
+	
 		input.date {
-			pointer-events: none;
-
-		}
-		
-		#edit-preferred-date {
 			color: transparent;
+
 		}
 		
 		span.date-overlay {
@@ -293,9 +290,11 @@
 
 	.checkbox-item {
 		padding: 0 15px;
-		position: relative;
+		//position: relative;
+		text-align: center;
+
 		label {
-			position: static;
+			position: relative;
 		}
 
 		input[type=checkbox] {
@@ -306,7 +305,7 @@
 			cursor: pointer;
 			font-size: 12px;
 			line-height: 22px;
-			padding-left: 34px;
+			padding-left: 50px;
 			vertical-align: middle;
 
 			&:before {
@@ -324,6 +323,7 @@
 		}
 		
 		input[type=checkbox]:checked + label{
+			top: -10px;
 
 			&:before {
 				background-image: url("@{background-icons-path}icon_tick.svg");
@@ -347,8 +347,7 @@
 		text-align: center;
 		
 		.submit-btn {
-			display: block;
-			margin: 35px auto 0;
+			margin-top: 35px;
 
 			&:hover {
 				border:2px solid @bright-green;
@@ -358,14 +357,14 @@
 	}
 
 }
+.webform-submission-newsletter-signup-form{
+	padding-top: 100px;
+}
 
 .newsletter-form {
-	.submit-info {
+	.checkbox-item {
 		text-align: left;
-
-		input[type=checkbox] ~ label {
-			margin-bottom: 10px;
-		}
+		margin-bottom: 10px;
 	}
 }
 
