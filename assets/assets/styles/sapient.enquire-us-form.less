@@ -76,6 +76,7 @@
 		background-color: transparent;
 		border: none;
 		border-bottom: 2px solid  @black;
+		border-radius: 0;
 		outline: none;
 		padding: 13px 10px 5px 0;
 		width: 100%;
@@ -266,11 +267,9 @@
 		}
 	}
 
-	.submit-info {
+	.checkbox-item {
 		padding: 0 15px;
-		position: static;
-		text-align: center;
-
+		position: relative;
 		label {
 			position: static;
 		}
@@ -283,16 +282,18 @@
 			cursor: pointer;
 			font-size: 12px;
 			line-height: 22px;
-			/*margin: -6px;*/
+			padding-left: 34px;
 			vertical-align: middle;
 
 			&:before {
 				border: 2px solid @black;
-				content: '';
-				display: inline-block;
+				content: " ";
+				display: block;
 				height: 24px;
-				margin-right: 10px;
+				left: 15px;
+				position: absolute;
 				text-align: center;	
+				top: 5px;
 				vertical-align: middle;
 				width: 24px;
 			}
@@ -314,6 +315,12 @@
 				border: 2px solid @wrong-way-red !important;
 			}	
 		}
+	}
+	
+	.submit-info {
+		padding: 0 15px;
+		position: static;
+		text-align: center;
 		
 		.submit-btn {
 			display: block;
@@ -455,3 +462,6 @@
 	}
 }
 
+@media screen and (max-width: 767px) {
+	
+}
