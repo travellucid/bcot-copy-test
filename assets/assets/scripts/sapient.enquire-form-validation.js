@@ -14,10 +14,10 @@ var validationObj = (function($, window, sapient) {
 				$("#statusMsg .messages").html("");
 
 				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
-					inputflag = 0,
+					textarea =$('.enquire-form .other-information textarea').filter('[required]:visible'),
 					inputarr = [],
-					selectflag = 0,
 					selectarr = [],
+					textareaarr = [],
 					msgarr = [];
 
 				$.each($input, function(index) {
@@ -52,6 +52,17 @@ var validationObj = (function($, window, sapient) {
 					selectarr.push($select[index].value);
 
 				});
+
+				$.each(textarea, function(index) {
+					if(($(textarea[index]).html())== "") {
+						$(textarea[index]).siblings("label").addClass("error");
+						$(textarea[index]).addClass("error-border");
+						msgarr.push($(textarea[index]).siblings("label").text());
+
+					}
+
+					textareaarr.push($(textarea[index]).value);
+				});
 				
 				if (msgarr.length !== 0) {
 
@@ -72,7 +83,6 @@ var validationObj = (function($, window, sapient) {
 				$.each(inputarr, function(index) {
 
 					if (inputarr[index] === 0) {
-						inputflag = 0;
 						event.preventDefault();
 						
 					}
@@ -80,7 +90,13 @@ var validationObj = (function($, window, sapient) {
 
 				$.each(selectarr, function(index) {
 					if (selectarr[index] == "") {
-						selectflag = 0;
+						event.preventDefault();
+						
+					}
+				})
+
+				$.each(textareaarr, function(index) {
+					if (textareaarr[index] == "") {
 						event.preventDefault();
 						
 					}
@@ -117,6 +133,7 @@ var validationObj = (function($, window, sapient) {
 				}
 			})	
 		},
+
 		resetForm = function() {
 			$(document).ready(function () {
 				for (i = 0; i < document.forms.length; i++) {
@@ -211,6 +228,17 @@ var validationObj = (function($, window, sapient) {
 
 				});
 				
+				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				 	val = $(".enquire-form .date-wrapper #edit-preferred-date").val().split("-"),
+				 	getDay,
+				 	newDate;
+
+				val[1] = monthArray[val[1] -1];
+				getDay = weekArray[new Date($(".enquire-form .date-wrapper #edit-preferred-date").val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
+				val.unshift(getDay)
+				newDate = val.join(" ");
+				$(".date-overlay").text(newDate);
 			}
 
 			$.each($input,function(index) {
@@ -224,7 +252,8 @@ var validationObj = (function($, window, sapient) {
 					$($input[index]).siblings("label").removeClass("error");
 					$($input[index]).removeClass("error-border");
 				}
-			})
+			});
+
 		};
 
 		return {
