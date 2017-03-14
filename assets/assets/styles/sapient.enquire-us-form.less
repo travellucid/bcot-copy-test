@@ -76,16 +76,17 @@
 		background-color: transparent;
 		border: none;
 		border-bottom: 2px solid  @black;
+		border-radius: 0;
 		outline: none;
 		padding: 13px 10px 5px 0;
 		width: 100%;
 		
 		-webkit-appearance: none;
-  	    -moz-appearance: none;
-  	 	appearance:none;
+		-moz-appearance: none;
+		appearance:none;
 
-  	 	&::-ms-expand {
-    		display: none;
+		&::-ms-expand {
+			display: none;
 		}
 	} 
 
@@ -217,7 +218,7 @@
 			font-family:  "NeutraText Book";
 			font-size: 14px;
 			position: absolute;
-		    top: 13px;
+			top: 13px;
 		}
 
 		.calender-icon {
@@ -232,6 +233,7 @@
 			top: 10px;
 		}
 	}
+	
 	.dropdown-icon {
 			background-image: url("@{background-icons-path}BE_icon_arrow_down_red.svg");
 			background-repeat: no-repeat;
@@ -243,7 +245,8 @@
 			position: absolute;
 			right: 20px;
 			top: 21px;
-	}		
+	}
+
 	.other-information {
 		margin: 18px 0 30px;
 		
@@ -285,11 +288,9 @@
 		}
 	}
 
-	.submit-info {
+	.checkbox-item {
 		padding: 0 15px;
-		position: static;
-		text-align: center;
-
+		position: relative;
 		label {
 			position: static;
 		}
@@ -302,16 +303,18 @@
 			cursor: pointer;
 			font-size: 12px;
 			line-height: 22px;
-			/*margin: -6px;*/
+			padding-left: 34px;
 			vertical-align: middle;
 
 			&:before {
 				border: 2px solid @black;
-				content: '';
-				display: inline-block;
+				content: " ";
+				display: block;
 				height: 24px;
-				margin-right: 10px;
+				left: 15px;
+				position: absolute;
 				text-align: center;	
+				top: 5px;
 				vertical-align: middle;
 				width: 24px;
 			}
@@ -333,6 +336,12 @@
 				border: 2px solid @wrong-way-red !important;
 			}	
 		}
+	}
+	
+	.submit-info {
+		padding: 0 15px;
+		position: static;
+		text-align: center;
 		
 		.submit-btn {
 			display: block;
@@ -464,6 +473,7 @@
 		}
 		.submit-info {
 			input[type=checkbox] + label {
+				margin-left: 10px;
 				top: 10px;
 
 				&:before {
@@ -482,3 +492,6 @@
 	}
 }
 
+@media screen and (max-width: 767px) {
+	
+}
