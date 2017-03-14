@@ -26,7 +26,7 @@ var datePickerObj = (function($, window, sapient) {
 			$(".table-condensed .prev").html("");
 			$(".enquire-form .date-wrapper input").attr('readonly','readonly');
 
-			$(".calender-icon").on('click',function(){
+			$(".date-wrapper .calender-icon").on('click',function(){
 				$("#edit-preferred-date").focus(); 
 				sapient.datepicker.positionCalender();
 				

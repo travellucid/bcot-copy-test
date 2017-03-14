@@ -178,7 +178,7 @@
 .age-gate .select-input,
 .age-gate input[type="text"],
 .age-gate input[type="email"],
-.age-gate input[type="tel"],
+.age-gate input[type="number"],
 .age-gate input[type="url"],
 .age-gate input[type="password"],
 .age-gate input[type="search"],
@@ -196,7 +196,7 @@
 .age-gate .select-input:focus,
 .age-gate input[type="text"]:focus,
 .age-gate input[type="email"]:focus,
-.age-gate input[type="tel"]:focus,
+.age-gate input[type="number"]:focus,
 .age-gate input[type="url"]:focus,
 .age-gate input[type="password"]:focus,
 .age-gate input[type="search"]:focus,
@@ -282,7 +282,7 @@
 }
 .age-gate .form-row input[type="text"],
 .age-gate .form-row input[type="email"],
-.age-gate .form-row input[type="tel"],
+.age-gate .form-row input[type="number"],
 .age-gate .form-row input[type="url"],
 .age-gate .form-row input[type="password"],
 .age-gate .form-row input[type="search"],
@@ -863,7 +863,7 @@ select + .age-gate .form-row-error-text,
     padding: 15px;
   }
 }
-.age-gate__content input[type="tel"].date-control__input {
+.age-gate__content input[type="number"].date-control__input {
   border: solid 2px #3e464b;
   border-radius: 0;
   border-width: 0 0 2px 0;
@@ -883,30 +883,30 @@ select + .age-gate .form-row-error-text,
           transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   -webkit-appearance: none;
 }
-.age-gate__content input[type="tel"].date-control__input:last-child {
+.age-gate__content input[type="number"].date-control__input:last-child {
   margin-right: 0;
 }
-.age-gate__content .date-control--year input[type="tel"].date-control__input.date-control__input--month,
-.age-gate__content .date-control--year input[type="tel"].date-control__input.date-control__input--day {
+.age-gate__content .date-control--year input[type="number"].date-control__input.date-control__input--month,
+.age-gate__content .date-control--year input[type="number"].date-control__input.date-control__input--day {
   width: 0;
   border-width: 0;
   margin: 0;
 }
-.age-gate__content .date-control--year input[type="tel"].date-control__input.date-control__input--year {
+.age-gate__content .date-control--year input[type="number"].date-control__input.date-control__input--year {
   width: 100%;
   margin-right: 0;
   text-align: left;
 }
-.age-gate__content .date-control--month input[type="tel"].date-control__input.date-control__input--day {
+.age-gate__content .date-control--month input[type="number"].date-control__input.date-control__input--day {
   width: 0;
   border-width: 3px 0;
   margin: 0;
 }
-.age-gate__content .date-control--month input[type="tel"].date-control__input.date-control__input--year,
-.age-gate__content .date-control--month input[type="tel"].date-control__input.date-control__input--month {
+.age-gate__content .date-control--month input[type="number"].date-control__input.date-control__input--year,
+.age-gate__content .date-control--month input[type="number"].date-control__input.date-control__input--month {
   width: 47.5%;
 }
-.age-gate__content .date-control--month input[type="tel"].date-control__input.date-control__input--month {
+.age-gate__content .date-control--month input[type="number"].date-control__input.date-control__input--month {
   margin-right: 0;
 }
 .age-gate__content .age-gate-divider {

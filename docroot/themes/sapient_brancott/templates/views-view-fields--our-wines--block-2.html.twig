@@ -1,9 +1,14 @@
 <a class="product-tile item" href="/{{ range_details.url }}">
-	<div class="product-shot">
-		<img src="{{ range_details.botl_1_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="primary" /><img src="{{ range_details.botl_2_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="secondary" />
-		<div class="product-bg" style="background-color: {{ range_details.bkg_colr }};"></div>
-	</div>
-	<h3>{{ range_details.range_title | upper }}</h3>
-	<p>{{ range_details.range_desc_api }}</p>
-	<span class="cta secondary-green">VIEW RANGE</span>
+    <div class="product-shot">
+        {% if range_details.botl_1_img %}
+            <img src="{{ range_details.botl_1_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="primary" />
+        {% endif %}
+        {% if range_details.botl_2_img %}
+            <img src="{{ range_details.botl_2_img }}" alt="{{ fields.field_wine_bottle_image_1.content }}" class="secondary" />
+        {% endif %}
+        <div class="product-bg" style="background-color: {{ range_details.bkg_colr }};"></div>
+    </div>
+    <h3>{{ range_details.range_title | upper }}</h3>
+    <p>{{ range_details.range_desc_api }}</p>
+    <span class="cta secondary-green">VIEW RANGE</span>
 </a>
