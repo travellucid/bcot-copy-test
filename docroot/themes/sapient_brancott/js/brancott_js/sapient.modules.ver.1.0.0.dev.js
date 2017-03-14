@@ -265,7 +265,7 @@ var datePickerObj = (function($, window, sapient) {
 				
 			}); 
 
-			$(".date-wrapper input").on(focus, function(){
+			$(".date-wrapper input").on('focus', function(){
 				sapient.datepicker.positionCalender();
 			});
 
