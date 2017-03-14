@@ -1,9 +1,23 @@
 <div class="wrapper-contactus">
-	<p class="header_f">{{ fields.field_address_title.content }}</p>
-	<address class="body-contactus header_d">{{ fields.field_address_line_1.content }}<br>
-	{{ fields.field_address_line_2.content }}<br>
-	{{ fields.field_address_line_3.content }}<br>
-	{{ fields.field_address_line_4.content }}</address>
-	<p>{{ fields.field_phone_text.content }} <a href="{{ fields.field_phone_number.content }}">{{fields.field_phone_number.content }}</a></p>
-	<p><a href="#">{{ fields.field_email_text.content }}</a></p>
+    <p class="header_f">{{ fields.field_address_title.content }}</p>
+    <address class="body-contactus header_d">
+        {% if (fields.field_address_line_1.content) %}
+            {{ fields.field_address_line_1.content }}<br>
+        {% endif %}
+        {% if (fields.field_address_line_2.content) %}
+            {{ fields.field_address_line_2.content }}<br>
+        {% endif %}
+        {% if (fields.field_address_line_3.content) %}
+            {{ fields.field_address_line_3.content }}<br>
+        {% endif %}
+        {% if (fields.field_address_line_4.content) %}
+            {{ fields.field_address_line_4.content }}
+        {% endif %}
+    </address>
+    {% if (fields.field_phone_number.content) %}
+        <p>{{ fields.field_phone_text.content }} <a href="{{ fields.field_phone_number.content }}">{{fields.field_phone_number.content }}</a></p>
+        {% endif %}
+        {% if (fields.field_email_text.content) %}
+        <p><a href="#">{{ fields.field_email_text.content }}</a></p>
+        {% endif %}
 </div>
