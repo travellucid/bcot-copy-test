@@ -15,11 +15,11 @@ var validationObj = (function($, window, sapient) {
 
 				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
 					textarea =$('.enquire-form .other-information textarea').filter('[required]:visible'),
-					$email = $('input[type = email]').filter('[required]:visible'),
+					$email = $('input[type = email]'),
 					inputarr = [],
 					selectarr = [],
 					textareaarr = [],
-					filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+					filter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 					msgarr = [];
 				
 
@@ -68,13 +68,18 @@ var validationObj = (function($, window, sapient) {
 					textareaarr.push($(textarea[index]).value);
 				});
 				
-				if (!filter.test($email.value)) {
+				if (filter.test($email)) {
 					msgarr.push('Please provide a valid email address');
 					$email.siblings("label").addClass("error");
 					$email.addClass("error-border");
 					event.preventDefault();
 				}
-				
+				else {
+
+					$email.siblings("label").removeClass("error");
+					$email.removeClass("error-border");
+				}
+
 				if (msgarr.length !== 0) {
 
 					$(".enquire-form #statusMsg ol").addClass("error");
