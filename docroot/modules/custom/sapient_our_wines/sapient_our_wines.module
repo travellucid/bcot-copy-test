@@ -268,20 +268,20 @@ function character_limitation_private_page($form, \Drupal\Core\Form\FormStateInt
   if (strlen($values['field_referred_content'][4]['field_find_'][0]['value']) > 20) {
     $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
   }
-  if (strlen($values['field_referred_content'][0]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][0][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_referred_content'][0]['field_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_referred_content][0][field_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][1]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][1][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_referred_content'][1]['field_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_referred_content][1][field_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][2]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][2][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_referred_content'][2]['field_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_referred_content][2][field_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][3]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_referred_content'][3]['field_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][4]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_referred_content'][4]['field_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 250 characters.');
   }
 }
 
