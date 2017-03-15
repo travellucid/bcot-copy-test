@@ -47,6 +47,9 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form') {
     $form['#validate'][] = 'character_limitation_restaurant';
   }
+  if ($form_id == 'node_our_wines_edit_form' or $form_id == 'node_our_wines_form') {
+    $form['path']['#access'] = FALSE;
+  }
   if ($form_id == 'taxonomy_term_our_wines_form') {
     $form['#validate'][] = 'character_limitation_taxonomy_term_our_wines_form';
   }
@@ -69,6 +72,9 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   }
   if ($form_id == 'webform_submission_newsletter_signup_form') {
     $form['#validate'][] = 'webform_submission_newsletter_signup_form_validation';
+  }
+  if ($form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form') {
+    $form['#validate'][] = 'character_limitation_where_to_buy';
   }
 }
 
@@ -217,11 +223,11 @@ function _menu_item_limitation_get_item_count($menu_name) {
 function webform_submission_newsletter_signup_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
   $newsletter_form_name = $values['name'];
-  if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,255}[\p{L}-]*$/u", $newsletter_form_name)) {
+  if ($newsletter_form_name && !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,255}[\p{L}-]*$/u", $newsletter_form_name)) {
     $form_state->setErrorByName('name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES AND HYPEN ARE ALLOWED IN NAME');
   }
   $email = $values['email_address'];
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
   }
 }
@@ -239,6 +245,41 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
   $email = $values['email_address'];
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
+  }
+}
+
+function character_limitation_where_to_buy($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  $referred_comp = count($values['field_referred_content']);
+  if (strlen($values['field_referred_content'][0]['field_find_'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_referred_content][0][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][1]['field_find_'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_referred_content][1][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][2]['field_find_'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_referred_content][2][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][3]['field_find_'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][4]['field_find_'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][0]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][0][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][1]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][1][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][2]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][2][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][3]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][4]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
   }
 }
 
