@@ -51,12 +51,11 @@
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
     'clearfix',
-	'scroll-to',
-'padding-class'
+    'scroll-to'
   ]
 %}
 <!-- adding a new unique id for front end functionality -->
-<div id = {{ 'block-' ~ plugin_id }} {{ attributes.addClass(classes) }}>
+<section id = {{ 'block-' ~ plugin_id }} {{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
@@ -66,5 +65,5 @@
   {% block content %}
     {{ content }}
   {% endblock %}
-</div>
+</section>
 
