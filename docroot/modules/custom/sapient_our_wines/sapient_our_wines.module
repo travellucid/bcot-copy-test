@@ -47,6 +47,9 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form') {
     $form['#validate'][] = 'character_limitation_restaurant';
   }
+  if ($form_id == 'node_our_wines_edit_form' or $form_id == 'node_our_wines_form') {
+    $form['path']['#access'] = FALSE;
+  }
   if ($form_id == 'taxonomy_term_our_wines_form') {
     $form['#validate'][] = 'character_limitation_taxonomy_term_our_wines_form';
   }
