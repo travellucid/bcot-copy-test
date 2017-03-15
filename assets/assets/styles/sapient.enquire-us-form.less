@@ -216,7 +216,8 @@
 		
 		span.date-overlay {
 			font-family:  "NeutraText Book";
-			font-size: 14px;
+			font-size: 16px;
+			letter-spacing: normal;
 			position: absolute;
 			top: 13px;
 		}
@@ -237,7 +238,7 @@
 	.dropdown-icon {
 			position: absolute;
 			right: 20px;
-			top: 21px;
+			top: 17px;
 			z-index: 1;
 			border: solid transparent;
 			height: 0;
@@ -289,8 +290,8 @@
 	}
 
 	.checkbox-item {
+		height: auto;
 		padding: 0 15px;
-		//position: relative;
 		text-align: center;
 
 		label {
@@ -306,6 +307,7 @@
 			font-size: 12px;
 			line-height: 22px;
 			padding-left: 50px;
+			top: -10px;
 			vertical-align: middle;
 
 			&:before {
@@ -315,15 +317,14 @@
 				height: 24px;
 				left: 15px;
 				position: absolute;
-				text-align: center;	
-				top: 5px;
+				text-align: center;
+				top: 0;
 				vertical-align: middle;
 				width: 24px;
 			}
 		}
 		
 		input[type=checkbox]:checked + label{
-
 			&:before {
 				background-image: url("@{background-icons-path}icon_tick.svg");
 				background-position: 3px;
@@ -355,6 +356,9 @@
 
 	}
 
+}
+.webform-submission-newsletter-signup-form{
+	padding-top: 100px;
 }
 
 .newsletter-form {

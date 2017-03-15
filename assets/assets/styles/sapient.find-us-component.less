@@ -32,8 +32,9 @@
 				
 				a {
 					color: @bright-green;
-					display: block;
+					display: inline-block;
 					font-family: "NeutraText Bold";
+					margin-left: 2px;
 				}
 
 				a[href^="tel"] {
@@ -97,7 +98,6 @@
 			}
 
 			#map-overlay {
-					display: block;
 					padding: 0 0 40px;
 					position: static;
 					transform: translateY(0);
@@ -110,13 +110,23 @@
 @media screen and (width: 768px) {
 		#find-us-component {
 			.map {
-					.google-map-field {
-							.map-container {
-								height: 768px !important;
-							}
+				.google-map-field {
+					.map-container {
+						height: 768px !important;
 					}
+				}
 			}
 		}
 }
 
+@media screen and (max-width: 690px) {
+		#find-us-component {
+			#map-overlay {
+				a {
+					display: block;
+					margin-left: 0px;
+				}				
+			}
+		}
+}
 
