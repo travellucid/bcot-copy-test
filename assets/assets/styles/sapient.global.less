@@ -17,6 +17,15 @@ a:focus {
     background-image: @grain-noise-img;
 }
 
+#edit-date-of-birth{
+	&::-webkit-calendar-picker-indicator{
+	    display:none;
+	}
+	&::-webkit-inner-spin-button {
+	     display:none;
+	}
+}
+
 body {
 	color: @dark-gray;
 	font-family: "NeutraText Book", sans-serif;
