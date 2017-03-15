@@ -12,9 +12,18 @@ a:focus {
 
 .page-node-type-story,
 .page-node-type-where-to-buy,
-.page-node-type-contact-us
-{
+.page-node-type-contact-us,
+.page-node-type-our-story {
     background-image: @grain-noise-img;
+}
+
+#edit-date-of-birth{
+	&::-webkit-calendar-picker-indicator{
+	    display:none;
+	}
+	&::-webkit-inner-spin-button {
+	     display:none;
+	}
 }
 
 body {
