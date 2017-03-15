@@ -1597,6 +1597,8 @@ var validationObj = (function($, window, sapient) {
 			if(beErrLength > 0){
 				var str="";
 				
+				$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn");
+				
 				$(".custom-error li").each(function(){
 					str= $(this).text();
 
