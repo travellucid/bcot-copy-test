@@ -138,6 +138,17 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['wine_title'] = mb_strtoupper($details->title);
           $variables['wine_range'] = mb_strtoupper($details->range);
           $variables['wine_description'] = $details->description;
+          $ids = \Drupal::entityQuery('node')
+                    ->condition('title', $details->range)
+                    ->condition('status', 1)    //content type condition also to be added
+                    ->execute();
+                $range_nid = reset($ids);
+               
+                $bkg_color = \Drupal\node\Entity\Node::load($range_nid);
+                $bkg_color = $bkg_color->field_ranges_background_color->value;
+          
+          $variables['range_bkg_colr'] = $bkg_color;
+          
         }
       }
       if ($variables['view']->current_display == 'related_wines') {
