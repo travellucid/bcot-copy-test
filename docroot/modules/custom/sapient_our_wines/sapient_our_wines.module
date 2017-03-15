@@ -432,10 +432,58 @@ function character_limitation_taxonomy_term_contact_us_form($form, \Drupal\Core\
 function character_limitation_our_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
   $link_our_story = strlen($values['field_hero_cta_first'][0]['title']);
-
-
+  $referred_comp = count($values['field_referred_content']);
+  $discover_comp = count($values['field_discover_carausal']);
+  $a = strlen($values['field_discover_carausal'][0]['field_carousel_description'][0]['value']);
   if ($link_our_story > 30) {
     $form_state->setErrorByName('field_hero_cta_first', 'Max length for this field is 30 characters.');
+  }
+  if (strlen($values['field_referred_content'][0]['field_find_'][0]['value']) > 20) {
+    $form_state->setErrorByName('field_referred_content][0][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][1]['field_find_'][0]['value']) > 20) {
+    $form_state->setErrorByName('field_referred_content][1][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][2]['field_find_'][0]['value']) > 20) {
+    $form_state->setErrorByName('field_referred_content][2][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][3]['field_find_'][0]['value']) > 20) {
+    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
+  }
+  if (strlen($values['field_referred_content'][4]['field_find_'][0]['value']) > 20) {
+    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
+  }
+
+  if (strlen($values['field_referred_content'][0]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][0][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][1]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][1][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][2]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][2][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][3]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
+  }
+  if (strlen($values['field_referred_content'][4]['field_description'][0]['value']) > 200) {
+    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
+  }
+
+  if (strlen($values['field_discover_carausal'][0]['field_carousel_description'][0]['value']) > 500) {
+    $form_state->setErrorByName('field_discover_carausal][0][field_carousel_description', 'Max length for this field is 500 characters.');
+  }
+  if (strlen($values['field_discover_carausal'][1]['field_carousel_description'][0]['value']) > 500) {
+    $form_state->setErrorByName('field_discover_carausal][1][field_carousel_description', 'Max length for this field is 500 characters.');
+  }
+  if (strlen($values['field_discover_carausal'][2]['field_carousel_description'][0]['value']) > 500) {
+    $form_state->setErrorByName('field_discover_carausal][2][field_carousel_description', 'Max length for this field is 500 characters.');
+  }
+  if (strlen($values['field_discover_carausal'][3]['field_carousel_description'][0]['value']) > 500) {
+    $form_state->setErrorByName('field_discover_carausal][3][field_carousel_description', 'Max length for this field is 500 characters.');
+  }
+  if (strlen($values['field_discover_carausal'][4]['field_carousel_description'][0]['value']) > 500) {
+    $form_state->setErrorByName('field_discover_carausal][3][field_carousel_description', 'Max length for this field is 500 characters.');
   }
 }
 
