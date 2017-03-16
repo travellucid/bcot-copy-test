@@ -60,7 +60,7 @@
 			li.msg {
 
 				&:before {
-					content: "• ";
+					content: "•";
 					color: @wrong-way-red; 
 					margin-right: 10px;
 				}
@@ -100,6 +100,20 @@
 		height: 42px;
 		margin-bottom: 40px;
 		position: relative;
+
+		
+
+		.form-required{
+			&:after {
+				content:"*";
+				right:0;
+				top:5px;
+			}
+			&.error {
+				color:red;
+			}
+		}
+
 	}
 
 	::-webkit-input-placeholder { /* Chrome/Opera/Safari */

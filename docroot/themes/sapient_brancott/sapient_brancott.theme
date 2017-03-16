@@ -357,14 +357,18 @@ function sapient_brancott_preprocess_views_view(&$variables) {
      $node_translation = $node->getTranslation($langcode);
       
      $con = \Drupal\Core\Database\Database::getConnection();
-            $query = $con->select('node_field_data', 'n')->distinct();
-            $query->fields('n', array('nid'));
-            $query->condition('n.nid', $nid, '=');
+             $query = $con->select('node_field_data', 'n')->distinct();
+             $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
+             $query->fields('h', array('field_address_heading_value'));
+             
+            //$query->condition('n.nid', $nid, '=');
+            $query->condition('n.langcode', $langcode, '=');
             $new_nid_transtion = $query->execute()->fetchField();
      
-            $node_load = \Drupal\node\Entity\Node::load($new_nid_transtion);
-            $heading = $node_load->field_address_heading->value;
-	$variables['address_heading'] = $heading;
+            
+            $variables['address_heading'] = $new_nid_transtion;
+            
+          
     }
 }
 
