@@ -69,9 +69,7 @@ var validationObj = (function($, window, sapient) {
 				});
 				
 
-				if($email.val().lenght !== 0) {
-
-					alert("here");
+				if($email.val().length !== 0) {
 					
 					if (filter.test($email.val())) {
 						$email.siblings("label").removeClass("error");
