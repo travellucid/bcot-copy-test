@@ -1434,8 +1434,6 @@ var validationObj = (function($, window, sapient) {
 				
 
 				if($email.val().length !== 0) {
-
-					alert($email.val().length);
 					
 					if (filter.test($email.val())) {
 						$email.siblings("label").removeClass("error");
