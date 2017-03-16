@@ -15,6 +15,15 @@ var commonObj = (function($, window, sapient) {
 				
 			},
 
+			resetFormOnReload = function() {
+				$('body').bind('beforeunload',function(){
+					//do something
+					$("#webform-submission-enquire-form-form").find('input').val('');
+					$(".date-overlay").text('');
+					$("#webform-submission-enquire-form-form").find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected')
+				});
+			},
+
 			toggleAwardsDetails = function() {
 				$(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
 					$(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
@@ -139,7 +148,8 @@ var commonObj = (function($, window, sapient) {
 			posFilters:posFilters,
 			awardsGrain:awardsGrain,
 			killHash: killHash,
-			heroGrain:heroGrain
+			heroGrain:heroGrain,
+			resetFormOnReload: resetFormOnReload
 		};
 	}
 
@@ -169,8 +179,7 @@ sapient.common.posForm();
 sapient.common.awardsGrain();
 sapient.common.posFilters();
 sapient.common.heroGrain();
-
-
+/*sapient.common.resetFormOnReload();*/
 
 
 /*$( function() {
