@@ -81,11 +81,26 @@
 		max-width: 770px;
 		margin: 0 auto;
 		text-align: center;
+		
+		div.common-margin {
+			margin: 0 auto;
+			margin-bottom: 90px;
+			max-width: 770px;
+			text-align: left;	
+		}
+		.quote-author {
+			margin: 0 auto;
+			max-width: 570px;
+		}
+		
 		h2,
 		h3,
 		h4 {
 			color: @dark-gray;
 		}
+		/* div.common-margin {
+			max-width: 570px;
+		} */
 		p.common-margin {
 			margin-bottom: 90px;
 			max-width: 570px;
@@ -98,7 +113,7 @@
 			font-family: "NeutraText Book";
 			font-size: 16px;
 			line-height: 26px;
-			max-width: 770px;
+			max-width: 570px;
 			margin: 24px auto 0;
 			&.quote {
 				display: inline-block;
@@ -107,16 +122,24 @@
 			}
 		}
 		span.author {
+			display: block;
 			font-family: "NeutraText Book";
+			font-size: 16px;
+			letter-spacing: normal;
+			line-height: 26px;
 		}
 
 		.img-wrapper-vertical {
+			max-width: 770px !important;
+
 			&:last-child {
 				margin-bottom: 92px;
 			}
 		}
 	}
 	.horizontal-timeline {
+		margin-bottom: 92px;
+		
 		.top {
 			margin: 0 auto;
 			max-width: 770px;
@@ -124,8 +147,9 @@
 				font-family: "NeutraText Book";
 				font-size: 16px;
 				line-height: 26px;
-				max-width: 570px;
 				margin: 24px auto 90px;
+				max-width: 570px;
+				text-align: left;
 				&.quote {
 					display: inline-block;
 					font-family: "NeutraText-Demi";
@@ -133,7 +157,11 @@
 				}
 			}
 			span.author {
+				display: block;
 				font-family: "NeutraText Book";
+				font-size: 16px;
+				letter-spacing: normal;
+				line-height: 26px;
 			}
 		}
 		.img-wrapper-horizontal {
@@ -174,6 +202,7 @@
 @media screen and (max-width:990px) {
 	#hero-timeline-component {
 		margin: 0 auto;
+		margin-bottom: 92px;
 		max-width: 430px;
 	}
 	#timeline-component {
@@ -188,8 +217,10 @@
 		/*  max-width:1170px; */
 		margin: 0 auto;
 		text-align: center;
+		
 		.youtube {
 			max-width: 430px;
+			height: 213px;
 		}
 		.vertical-timeline {
 			max-width: 430px;
