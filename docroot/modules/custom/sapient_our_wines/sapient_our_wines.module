@@ -80,10 +80,22 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id == 'node_contact_us_edit_form' or $form_id == 'node_contact_us_form') {
     $form['#validate'][] = 'character_limitation_contact_us';
   }
+  if ($form_id == 'node_story_edit_form' or $form_id == 'node_story_form') {
+    $form['#validate'][] = 'character_limitation_story';
+  }
   
   
 }
+function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
+  $values = $form_state->getValues();
+  if (strlen($values['field_hero_bottom_description'][0]['value']) > 300) {
+    $form_state->setErrorByName('field_hero_bottom_description', 'Max length for this field is 300 characters.');
+  }
+  
+ 
+  
+}
 function character_limitation_contact_us($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
   $values = $form_state->getValues();
