@@ -1,7 +1,0 @@
-sapient_generic_services.content:
-  path: '/first'
-  defaults:
-    _controller: 'Drupal\sapient_generic_services\Controller\GenericController::content'
-    _title: 'HelloWorld'
-  requirements:
-    _permission: 'access content'
