@@ -68,17 +68,21 @@ var validationObj = (function($, window, sapient) {
 					textareaarr.push($(textarea[index]).value);
 				});
 				
-				if (filter.test($email.val())) {
-					$email.siblings("label").removeClass("error");
-					$email.removeClass("error-border");
-				}
-				else {
 
-					msgarr.push('Please provide a valid email address');
-					$email.siblings("label").addClass("error");
-					$email.addClass("error-border");
-					event.preventDefault();					
-				}
+				if($email.val().length !== 0) {
+					
+					if (filter.test($email.val())) {
+						$email.siblings("label").removeClass("error");
+						$email.removeClass("error-border");
+					}
+					else {
+
+						msgarr.push('Please provide a valid email address');
+						$email.siblings("label").addClass("error");
+						$email.addClass("error-border");
+						event.preventDefault();					
+					}
+				}	
 
 				if (msgarr.length !== 0) {
 
