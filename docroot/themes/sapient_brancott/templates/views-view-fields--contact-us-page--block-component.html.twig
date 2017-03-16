@@ -11,7 +11,16 @@
     <div class="content-wrapper">
         <h3 class="header_b header_sect">{{ fields.field_block_heading.content |capitalize |raw }}</h3>
         <p class="tagline">{{ fields.field_block_subheading.content }}</p>
-        <a href="{{ fields.field_cta.content }}" class="cta dark watch-video">{{ fields.field_cta_1.content }}</a>
+        {% if (fields.field_cta_options.content == 'external') %}
+        <a href="{{ fields.field_cta.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_cta_1.content }}</a>
+        {% endif %}
+        {% if (fields.field_cta_options.content == 'internal') %}
+       <a href="{{ fields.field_cta.content }}"  class="cta dark watch-video">{{ fields.field_cta_1.content }}</a>
+        {% endif %}
+        {% if (fields.field_cta_options.content == 'buy_now') %}
+        <a data-ctbuy-key="{{ fields.field_click_to_buy.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_to_buy_1.content }}</a>
+
+        {% endif %}
     </div>
 </div>
     
