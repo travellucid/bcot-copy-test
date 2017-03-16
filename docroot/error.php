@@ -21,7 +21,7 @@
 		<h1 class="error-heading">OOPS!</h1>
 		<h2>THIS LINK MAY BE BROKEN OR THE PAGE MAY HAVE BEEN REMOVED.</h2>
 	</div>
-	<img src="/themes/sapient_brancott/css/images/wine-spill-graphic-PNG.png" alt="Error" class="background-image">
+	<img src="/themes/sapient_brancott/css/images/404-hero-compressed.png" alt="Error" class="background-image">
 </div>	
 
   </body>
