@@ -89,16 +89,14 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('DCH Term of Use URL'),
       '#required' => TRUE,
     ];
-
-//    $form['google_map_api_key'] = [
-//      '#type' => 'textfield',
-//      '#title' => $this->t('Google Map API Key'),
-//      '#default_value' => $vc->get('google_map_api_key'),
-//      '#description' => $this->t('Google Map API Key'),
-//      '#required' => TRUE,
-//    ];
-
-
+    
+    $form['facebook_app_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Facebook App Id'),
+      '#default_value' => $vc->get('facebook_app_id'),
+      '#description' => $this->t('Facebook App Id for Age gate authentication'),
+      '#required' => TRUE,
+    ];
 
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
@@ -153,6 +151,7 @@ class ConfigForm extends FormBase {
 //        ->set('dch_all_wines_url', $form_state->getValue('dch_all_wines_url'))
         ->set('dch_pp_url', $form_state->getValue('dch_pp_url'))
         ->set('dch_tu_url', $form_state->getValue('dch_tu_url'))
+       ->set('facebook_app_id', $form_state->getValue('facebook_app_id'))
 //        ->set('google_map_api_key', $form_state->getValue('google_map_api_key'))
         ->save();
     drupal_set_message('Settings have been saved.');

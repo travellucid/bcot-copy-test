@@ -138,6 +138,17 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['wine_title'] = mb_strtoupper($details->title);
           $variables['wine_range'] = mb_strtoupper($details->range);
           $variables['wine_description'] = $details->description;
+          $ids = \Drupal::entityQuery('node')
+                    ->condition('title', $details->range)
+                    ->condition('status', 1)    //content type condition also to be added
+                    ->execute();
+                $range_nid = reset($ids);
+               
+                $bkg_color = \Drupal\node\Entity\Node::load($range_nid);
+                $bkg_color = $bkg_color->field_ranges_background_color->value;
+          
+          $variables['range_bkg_colr'] = $bkg_color;
+          
         }
       }
       if ($variables['view']->current_display == 'related_wines') {
@@ -355,4 +366,15 @@ function sapient_brancott_preprocess_views_view(&$variables) {
             $heading = $node_load->field_address_heading->value;
 	$variables['address_heading'] = $heading;
     }
+}
+
+
+function sapient_brancott_preprocess_page(&$variables) {
+   // Define {{ body_class }}  in the template.
+    //$vc = $this->config('sapient_our_wines.settings');
+    $fb_app_id = \Drupal::config('sapient_our_wines.settings')->get('facebook_app_id'); 
+    //$fb_app_id = $vc->get('facebook_app_id');
+    $variables['fb_app_id'] = $fb_app_id;
+   
+ 
 }

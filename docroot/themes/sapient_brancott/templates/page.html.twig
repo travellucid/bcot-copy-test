@@ -192,6 +192,8 @@
 {% endif %}
 <script>
     window.ageGateReady = function () {
-        var ageGate = new AgeGate($('body'), {facebookAppId: "150695588276579"});
+       var fb = {{ fb_app_id }};
+       //alert(fb);
+        var ageGate = new AgeGate($('body'), {facebookAppId: "{{ fb_app_id }}"});
     };
 </script>
