@@ -1,21 +1,29 @@
-    
-    {% set image_list = fields.field_image_vertical.content|split(',') %}
+{% set image_list = fields.field_image_vertical.content|split(',') %}
     
     {% set image_list_v1 = fields.field_image_vertical_1.content|split(',') %}
     {% set image_list_v2 = fields.field_image_vertical_2.content|split(',') %}
     {% set image_list_v3 = fields.field_image_vertical_3.content|split(',') %}
     {% set image_list_v4 = fields.field_image_vertical_4.content|split(',') %}
+    {% set video_list = fields.field_video_youtube_.content|split(',') %}
     
     {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
     {% if (fields.field_media_style.content == "vertical_style") %}
     <div class="vertical-timeline">
               <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+    {% if fields.field_timeline_heading.content %}
     <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
-
+    {% endif %}
+    {% if fields.field_timeline_description.content %}
     <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
+    {% endif %}
     <p class="quote common-margin">
+  {% if fields.field_timeline_subtext_one.content %}
   {{ fields.field_timeline_subtext_one.content }}</p>
+  {% endif %}
+    {% if fields.field_timeline_subtext_second.content %}
 <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
+{% endif %}
+        {% if image_list %}
         <div class="img-wrapper-vertical common-margin">
             {% for key, image in image_list %}
                  {#<img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> #}
@@ -33,25 +41,36 @@
             {% endfor %}
 
             {% if fields.field_video_youtube_.content %}
-                <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_.content }}?rel=0"></iframe>
-                {% endif %}
+                {% for video in video_list %}
+                <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel=0"></iframe>
+                {% endfor %}
+            {% endif %}
         </div>
+        {% endif %}
     </div>
   
     {% elseif (fields.field_media_style.content == "horizontal_style") %}
     <div class="horizontal-timeline">
     <div class="top">
         <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+        {% if fields.field_timeline_heading.content %}
         <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+        {% endif %}
+        {% if fields.field_timeline_description.content %}
         <p class="common-margin">{{ fields.field_timeline_description.content }}</p>
+        {% endif %}
           
   <p class="quote common-margin">
+      {% if fields.field_timeline_subtext_one.content %}
   {{ fields.field_timeline_subtext_one.content }}</p>
+      {% endif %}
+      {% if fields.field_timeline_subtext_second.content %}
 <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
+{% endif %}
     </div>
 
 
-
+        {% if image_list_v3 %}
         <div class="img-wrapper-horizontal common-margin">
             {% for key, image_horizontal in image_list_v3 %}
 {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
@@ -68,7 +87,7 @@
                 </picture>
             {% endfor %}
         </div>
-
+         {% endif %}
     </div>
     
     {% endif %}
