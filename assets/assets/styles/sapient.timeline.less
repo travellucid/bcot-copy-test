@@ -9,6 +9,7 @@
 	h4 {
 		color: @dark-gray;
 	}
+	margin-bottom: 92px; 
 	p {
 		font-family: "NeutraText Book";
 		font-size: 16px;
@@ -21,6 +22,12 @@
 			margin-top: 25px;
 		}
 	}
+	img {
+		display: block;
+		max-width: 770px;
+		margin: 0 auto;
+		width: 100%;
+	}
 	.youtube {
 		border: 0 none;
 		display: block;
@@ -28,8 +35,10 @@
 		max-width: 770px;
 		height: 433px;
 		width: 100%;
-		margin-bottom: 92px;
+		/* margin-bottom: 92px; */
 	}
+
+	
 	p.common-margin {
 		margin-bottom: 90px;
 		max-width: 570px;
@@ -90,6 +99,7 @@
 		}
 		.quote-author {
 			margin: 0 auto;
+			margin-bottom: 92px;
 			max-width: 570px;
 		}
 		
@@ -108,6 +118,8 @@
 		img {
 			display: block;
 			margin: 0 auto;
+			max-width: 770px;
+			width: 100%;
 		}
 		p {
 			font-family: "NeutraText Book";
@@ -140,14 +152,33 @@
 	.horizontal-timeline {
 		margin-bottom: 92px;
 		
+		.quote-author {
+			margin: 0 auto;
+			margin-bottom: 92px;
+			max-width: 570px;
+		}
+
 		.top {
 			margin: 0 auto;
 			max-width: 770px;
+
+
+			div.common-margin {
+				margin: 0 auto;
+				margin-bottom: 90px;
+				max-width: 770px;
+				text-align: left;	
+			}
+			.quote-author {
+				margin: 0 auto;
+				margin-bottom: 92px;
+				max-width: 570px;
+			}
 			p {
 				font-family: "NeutraText Book";
 				font-size: 16px;
 				line-height: 26px;
-				margin: 24px auto 90px;
+				margin: 24px auto 0;
 				max-width: 570px;
 				text-align: left;
 				&.quote {
@@ -170,6 +201,8 @@
 			img {
 				display: inline-block;
 				margin: 0 .5% 15px;
+				max-width: 370px;
+				width: 100%;
 			}
 			max-width:1170px;
 			margin: 0 auto;
@@ -182,10 +215,6 @@
 			p.common-margin {
 				margin-bottom: 90px;
 				max-width: 570px;
-			}
-			img {
-				/* 	display: block;
-	margin: 0 auto; */
 			}
 		}
 	}
@@ -200,14 +229,28 @@
 }
 
 @media screen and (max-width:990px) {
+
 	#hero-timeline-component {
-		margin: 0 auto;
-		margin-bottom: 92px;
-		max-width: 430px;
+		h2,
+		h3,
+		h4 {
+			text-align: left;
+		}
+		.top-wrapper {
+			margin: 0 auto;
+			margin-bottom: 92px;
+			max-width: 430px;
+			img {
+				max-width: 432px;
+				width: 100%;
+			}
+		}		
 	}
+
 	#timeline-component {
 		img {
-			/*  width: 100%; */
+			max-width: 430px;
+			width: 100%; 
 		}
 		p {
 			letter-spacing: normal;
@@ -224,18 +267,25 @@
 		}
 		.vertical-timeline {
 			max-width: 430px;
+			.quote-author {
+				max-width: 430px
+			}
 			img {
+				max-width: 430px;
 				width: 100%;
 			}
 		}
 		.horizontal-timeline {
 			margin: 0 15px;
+			margin-bottom: 92px;
 			.top {
 				max-width: 430px;
 			}
 			.img-wrapper-horizontal {
 				img {
 					margin: 0;
+					max-width: 204px;
+					width: 100%;
 				}
 			}
 		}
@@ -245,20 +295,27 @@
 @media screen and (max-width:690px) {
 	#hero-timeline-component {
 		margin: 0 15px;
-		.youtube {
-			height: auto;
-		}
+		.top-wrapper {
+			.youtube {
+				height: auto;
+			}
+		}		
 	}
+
 	#timeline-component {
 		.vertical-timeline {
 			margin: 0 15px;
 			img {
+				max-width: 290px;
 				width: 100%;
 			}
 		}
-		.img-wrapper-horizontal {
-			img {
-				width: 100%;
+		.horizontal-timeline {
+			.img-wrapper-horizontal {
+				img {
+					max-width: 290px;
+					width: 100%;
+				}
 			}
 		}
 		.youtube {
