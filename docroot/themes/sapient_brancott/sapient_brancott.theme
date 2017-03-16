@@ -16,10 +16,15 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   $view_id = $variables['view']->storage->id();
   $variables['current_language'] = $langcode;
   switch ($view_id) {
-    
+   case 'stockists_component':
+      if ($variables['view']->current_display == 'where_to_buy_stockists_component') {
+		  $count = count(views_get_view_result('stockists_component', 'where_to_buy_referenced_stockists_component'));
+      $variables['stockists_count'] = $count;
+		  
+	  }
     case 'our_wines':
       if ($variables['view']->current_display == 'block_1') {
-		  $wine_count = count(views_get_view_result('our_wines', 'block_2', 1 ));
+		  $wine_count = count(views_get_view_result('our_wines', 'block_2', 1));
 		  $variables['wine_count'] = $wine_count;
 		  
 	  }
