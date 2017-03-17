@@ -117,12 +117,12 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         }
       }
 
-      $range_details = $this->getRangeDetails($value->range);
+      
       if (!empty($range_name) && strtolower(urldecode($range_name)) != strtolower($value->range)) {
         continue;
       }
       else {
-
+        $range_details = $this->getRangeDetails($value->range);
         $range_details['associated_wines'] = $wine_details[$value->range];
       }
 
@@ -190,7 +190,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
   }
 
   public function getRangeDetails($range_title) {
-    $rest_api_ranges = new BrancottRestApiControllerRanges;
+    $rest_api_ranges = new BrancottRestApiControllerRanges();
     $values_ranges = $rest_api_ranges->getRanges();
     $range_details = array();
     foreach ($values_ranges as $values_range) {
@@ -198,9 +198,8 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $range_details['title'] = $values_range->title;
         $range_details['strapline'] = $values_range->strapline;
         if (strlen($values_range->description) > 40) {
-          $first = substr($values_range->description, 0, 40);
-          $second = substr($values_range->description, 40);
-          $range_details['description'] = '<p>' . $first . '</p><a href="#" class="see-more">See More</a><p class="extra-text">' . $second . '</p><a href="#" class="see-less">See Less</a>';
+          $first = \Drupal\Component\Utility\Unicode::truncate($values_range->description, 40, TRUE);
+          $range_details['description'] = '<p class="trimmed-text">' . $first . '</p><a href="#" class="see-more">See More</a><p class="extra-text">' . $values_range->description . '</p>';
         }
         else {
           $range_details['description'] = '<p>' . $values_range->description . '</p>';
