@@ -16,10 +16,15 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   $view_id = $variables['view']->storage->id();
   $variables['current_language'] = $langcode;
   switch ($view_id) {
-    
+   case 'stockists_component':
+      if ($variables['view']->current_display == 'where_to_buy_stockists_component') {
+		  $count = count(views_get_view_result('stockists_component', 'where_to_buy_referenced_stockists_component'));
+      $variables['stockists_count'] = $count;
+		  
+	  }
     case 'our_wines':
       if ($variables['view']->current_display == 'block_1') {
-		  $wine_count = count(views_get_view_result('our_wines', 'block_2', 1 ));
+		  $wine_count = count(views_get_view_result('our_wines', 'block_2', 1));
 		  $variables['wine_count'] = $wine_count;
 		  
 	  }
@@ -41,7 +46,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 //            if ($range_title_slug == $detail->slug) {
             if ($range_id == $detail->id) {
               $range_title_api = $detail->title;
-              $range_desc_api = $detail->description;
+             // $range_desc_api = $detail->description;
+              $range_desc_api = $detail->strapline;
             }
           }
 		  
@@ -357,14 +363,18 @@ function sapient_brancott_preprocess_views_view(&$variables) {
      $node_translation = $node->getTranslation($langcode);
       
      $con = \Drupal\Core\Database\Database::getConnection();
-            $query = $con->select('node_field_data', 'n')->distinct();
-            $query->fields('n', array('nid'));
-            $query->condition('n.nid', $nid, '=');
+             $query = $con->select('node_field_data', 'n')->distinct();
+             $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
+             $query->fields('h', array('field_address_heading_value'));
+             
+            //$query->condition('n.nid', $nid, '=');
+            $query->condition('n.langcode', $langcode, '=');
             $new_nid_transtion = $query->execute()->fetchField();
      
-            $node_load = \Drupal\node\Entity\Node::load($new_nid_transtion);
-            $heading = $node_load->field_address_heading->value;
-	$variables['address_heading'] = $heading;
+            
+            $variables['address_heading'] = $new_nid_transtion;
+            
+          
     }
 }
 

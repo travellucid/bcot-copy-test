@@ -76,8 +76,50 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form') {
     $form['#validate'][] = 'character_limitation_where_to_buy';
   }
+  
+  if ($form_id == 'node_contact_us_edit_form' or $form_id == 'node_contact_us_form') {
+    $form['#validate'][] = 'character_limitation_contact_us';
+  }
+  if ($form_id == 'node_story_edit_form' or $form_id == 'node_story_form') {
+    $form['#validate'][] = 'character_limitation_story';
+  }
+  
+  
 }
+function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
+  $values = $form_state->getValues();
+  if (strlen($values['field_hero_bottom_description'][0]['value']) > 300) {
+    $form_state->setErrorByName('field_hero_bottom_description', 'Max length for this field is 300 characters.');
+  }
+  
+ 
+  
+}
+function character_limitation_contact_us($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $values = $form_state->getValues();
+  if (strlen($values['field_image_component'][0]['field_cta'][0]['title']) > 30) {
+    $form_state->setErrorByName('field_image_component][0][field_cta', 'Max length for this field is 30 characters.');
+  }
+  if (strlen($values['field_image_component'][1]['field_cta'][0]['title']) > 30) {
+     $form_state->setErrorByName('field_image_component][1][field_cta', 'Max length for this field is 30 characters.');
+  }
+  if (strlen($values['field_image_component'][2]['field_cta'][0]['title']) > 30) {
+     $form_state->setErrorByName('field_image_component][2][field_cta', 'Max length for this field is 30 characters.');
+  }
+  if (strlen($values['field_image_component'][3]['field_cta'][0]['title']) > 30) {
+     $form_state->setErrorByName('field_image_component][3][field_cta', 'Max length for this field is 30 characters.');
+  }
+  if (strlen($values['field_image_component'][4]['field_cta'][0]['title']) > 30) {
+     $form_state->setErrorByName('field_image_component][4][field_cta', 'Max length for this field is 30 characters.');
+  }
+  if (strlen($values['field_image_component'][5]['field_cta'][0]['title']) > 30) {
+     $form_state->setErrorByName('field_image_component][5][field_cta', 'Max length for this field is 30 characters.');
+  }
+ 
+  
+}
 function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
   $values = $form_state->getValues();
@@ -251,35 +293,35 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
 function character_limitation_where_to_buy($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
   $referred_comp = count($values['field_referred_content']);
-  if (strlen($values['field_referred_content'][0]['field_find_'][0]['title']) > 20) {
-    $form_state->setErrorByName('field_referred_content][0][field_find_', 'Max length for this field is 20 characters.');
+  if (strlen($values['field_where_to_buy_collection'][0]['field_where_to_buy_find_out_more'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_where_to_buy_collection][0][field_where_to_buy_find_out_more', 'Max length for this field is 20 characters.');
   }
-  if (strlen($values['field_referred_content'][1]['field_find_'][0]['title']) > 20) {
-    $form_state->setErrorByName('field_referred_content][1][field_find_', 'Max length for this field is 20 characters.');
+  if (strlen($values['field_where_to_buy_collection'][1]['field_where_to_buy_find_out_more'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_where_to_buy_collection][1][field_where_to_buy_find_out_more', 'Max length for this field is 20 characters.');
   }
-  if (strlen($values['field_referred_content'][2]['field_find_'][0]['title']) > 20) {
-    $form_state->setErrorByName('field_referred_content][2][field_find_', 'Max length for this field is 20 characters.');
+  if (strlen($values['field_where_to_buy_collection'][2]['field_where_to_buy_find_out_more'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_where_to_buy_collection][2][field_where_to_buy_find_out_more', 'Max length for this field is 20 characters.');
   }
-  if (strlen($values['field_referred_content'][3]['field_find_'][0]['title']) > 20) {
-    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
+  if (strlen($values['field_where_to_buy_collection'][3]['field_where_to_buy_find_out_more'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_where_to_buy_collection][3][field_where_to_buy_find_out_more', 'Max length for this field is 20 characters.');
   }
-  if (strlen($values['field_referred_content'][4]['field_find_'][0]['title']) > 20) {
-    $form_state->setErrorByName('field_referred_content][3][field_find_', 'Max length for this field is 20 characters.');
+  if (strlen($values['field_where_to_buy_collection'][4]['field_where_to_buy_find_out_more'][0]['title']) > 20) {
+    $form_state->setErrorByName('field_where_to_buy_collection][4][field_find_', 'Max length for this field is 20 characters.');
   }
-  if (strlen($values['field_referred_content'][0]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][0][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_where_to_buy_collection'][0]['field_where_to_buy_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_where_to_buy_collection][0][field_where_to_buy_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][1]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][1][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_where_to_buy_collection'][1]['field_where_to_buy_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_where_to_buy_collection][1][field_where_to_buy_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][2]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][2][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_where_to_buy_collection'][2]['field_where_to_buy_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_where_to_buy_collection][2][field_where_to_buy_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][3]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_where_to_buy_collection'][3]['field_where_to_buy_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_where_to_buy_collection][3][field_where_to_buy_description', 'Max length for this field is 250 characters.');
   }
-  if (strlen($values['field_referred_content'][4]['field_description'][0]['value']) > 200) {
-    $form_state->setErrorByName('field_referred_content][3][field_description', 'Max length for this field is 200 characters.');
+  if (strlen($values['field_where_to_buy_collection'][4]['field_where_to_buy_description'][0]['value']) > 250) {
+    $form_state->setErrorByName('field_where_to_buy_collection][4][field_where_to_buy_description', 'Max length for this field is 250 characters.');
   }
 }
 

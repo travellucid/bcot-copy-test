@@ -68,7 +68,7 @@
       ]
         %}
         <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-            <a href="{{ url('<front>') }}" class="logo-img header-logo hidden-md hidden-lg"></a>
+            <a href="{{ url('<front>') }}" class="logo-img header-logo hidden-md hidden-lg">Link to Brancott Estate Homepage</a>
             {% if not navbar_attributes.hasClass('container') %}
                 <div class="{{ container }}">
                 {% endif %}
@@ -194,6 +194,6 @@
     window.ageGateReady = function () {
        var fb = {{ fb_app_id }};
        //alert(fb);
-        var ageGate = new AgeGate($('body'), {facebookAppId: "{{ fb_app_id }}"});
+        var ageGate = new AgeGate($('body'), {facebookAppId: "{{ fb_app_id }}", keyMarkets: ['UK', 'NZ', 'AU', 'US', 'CA']});
     };
 </script>

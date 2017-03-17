@@ -1,7 +1,7 @@
 <div id="hero-component" class="container-fluid  hero-container">
     <div class="banner-image" style="background-image: url('{{ fields.field_background_image.content }}')" aria-label="{{ fields.field_background_image_2.content }}"></div>
     <div class="hero-bottom">
-       <picture>
+        <picture>
             {% if (fields.field_hero_left_triangle_image.content) %}
                 <source  class="triangle" media="(max-width: 321px)"  srcset="{{ fields.field_hero_left_triangle_image.content }}"> 
             {% else %}
@@ -68,12 +68,15 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-inner-container">
         <h1>{{ fields.field_hero_headline.content |upper |raw }}</h1>
-        {% if (fields.field_where_to_buy_cta_link.content == '0') or (fields.field_where_to_buy_cta_link.content == '1') %}
+        {% if (fields.field_where_to_buy_cta_link_1.content == 'buy_now') or (fields.field_where_to_buy_cta_link_1.content == 'external') or  (fields.field_where_to_buy_cta_link_1.content == 'internal')%}
             <div class="cta-visitus">
-                {% if fields.field_where_to_buy_cta_link.content == '0' %}
-                    <a href="{{ fields.field_click_to_buy_hero_cta.content }}" class="cta dark find-out-more">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
+                {% if fields.field_where_to_buy_cta_link_1.content == 'buy_now' %}
+                    <a data-ctbuy-key="{{ fields.field_click_to_buy_hero_cta.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
                 {% endif %}
-                {% if fields.field_where_to_buy_cta_link.content == '1' %}
+                {% if fields.field_where_to_buy_cta_link_1.content == 'external' %}
+                    <a href="{{ fields.field_buy_now_external_url.content }}" target="_blank" class="cta dark find-out-more">{{ fields.field_buy_now_external_url_1.content }}</a>
+                {% endif %}
+                {% if fields.field_where_to_buy_cta_link_1.content == 'internal' %}
                     <a href="{{ fields.field_buy_now_external_url.content }}" class="cta dark find-out-more">{{ fields.field_buy_now_external_url_1.content }}</a>
                 {% endif %}
             </div>

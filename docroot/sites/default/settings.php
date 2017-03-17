@@ -739,7 +739,7 @@ $settings['file_scan_ignore_directories'] = [
   'node_modules',
   'bower_components',
 ];
-
+$settings['cache']['default'] = 'cache.backend.database';
 /**
  * Load local development override configuration, if available.
  *

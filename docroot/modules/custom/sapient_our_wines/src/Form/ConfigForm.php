@@ -50,7 +50,12 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('Open weather API Key'),
       '#required' => TRUE,
     ];
-    $form['dch_wine_url'] = [
+    $form['dch_details'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('DCH configurations'),
+      '#open' => TRUE, // Added
+    );
+    $form['dch_details']['dch_wine_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('DCH Gateway Endpoint URL'),
       '#default_value' => $vc->get('dch_wine_url'),
@@ -58,7 +63,7 @@ class ConfigForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['dch_ranges_url'] = [
+    $form['dch_details']['dch_ranges_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('DCH Ranges URL'),
       '#default_value' => $vc->get('dch_ranges_url'),
@@ -66,15 +71,7 @@ class ConfigForm extends FormBase {
       '#required' => TRUE,
     ];
 
-//    $form['dch_all_wines_url'] = [
-//      '#type' => 'textfield',
-//      '#title' => $this->t('DCH All Wines URL'),
-//      '#default_value' => $vc->get('dch_all_wines_url'),
-//      '#description' => $this->t('DCH All Wines URL'),
-//      '#required' => TRUE,
-//    ];
-
-    $form['dch_pp_url'] = [
+    $form['dch_details']['dch_pp_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('DCH Privacy Policy URL'),
       '#default_value' => $vc->get('dch_pp_url'),
@@ -82,19 +79,79 @@ class ConfigForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['dch_tu_url'] = [
+    $form['dch_details']['dch_tu_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('DCH Term of Use URL'),
       '#default_value' => $vc->get('dch_tu_url'),
       '#description' => $this->t('DCH Term of Use URL'),
       '#required' => TRUE,
     ];
-    
-    $form['facebook_app_id'] = [
+    $form['dch_details']['dch_legal_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('DCH Legal URL'),
+      '#default_value' => $vc->get('dch_legal_url'),
+      '#description' => $this->t('DCH Legal URL'),
+      '#required' => TRUE,
+    ];
+    // Age gate component.
+    $form['age_gate'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Age gate Configurations'),
+      '#open' => TRUE, // Added
+    );
+    $form['age_gate']['facebook_app_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Facebook App Id'),
       '#default_value' => $vc->get('facebook_app_id'),
       '#description' => $this->t('Facebook App Id for Age gate authentication'),
+      '#required' => TRUE,
+    ];
+    // Click to Buy component.
+    $form['click_to_buy'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Click to Buy Brancott specific settings'),
+      '#open' => TRUE, // Added
+    );
+    $form['click_to_buy']['click_to_buy_instances'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Click to Buy Instances'),
+      '#default_value' => $vc->get('click_to_buy_instances'),
+      '#description' => t('Please follow the exact format without spaces:  <b>key|code,key|code,key|code</b>. Key would be locale and Value woul dbe Instance ID.'),
+    );
+    // Salesforce component
+    $form['salesforce_credentials'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Salesforce Integration settings'),
+      '#open' => TRUE, // Added
+    );
+    $form['salesforce_credentials']['business_unit'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Business Unit'),
+      '#default_value' => $vc->get('business_unit'),
+      '#required' => TRUE,
+    ];
+    $form['salesforce_credentials']['client_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Client ID'),
+      '#default_value' => $vc->get('client_id'),
+      '#required' => TRUE,
+    ];
+    $form['salesforce_credentials']['client_secret'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Client Secret'),
+      '#default_value' => $vc->get('client_secret'),
+      '#required' => TRUE,
+    ];
+    $form['salesforce_credentials']['data_extension'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Data Extension'),
+      '#default_value' => $vc->get('data_extension'),
+      '#required' => TRUE,
+    ];
+    $form['salesforce_credentials']['external_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('External Key'),
+      '#default_value' => $vc->get('external_key'),
       '#required' => TRUE,
     ];
 
@@ -151,8 +208,14 @@ class ConfigForm extends FormBase {
 //        ->set('dch_all_wines_url', $form_state->getValue('dch_all_wines_url'))
         ->set('dch_pp_url', $form_state->getValue('dch_pp_url'))
         ->set('dch_tu_url', $form_state->getValue('dch_tu_url'))
-       ->set('facebook_app_id', $form_state->getValue('facebook_app_id'))
-//        ->set('google_map_api_key', $form_state->getValue('google_map_api_key'))
+        ->set('dch_legal_url', $form_state->getValue('dch_legal_url'))
+        ->set('facebook_app_id', $form_state->getValue('facebook_app_id'))
+        ->set('click_to_buy_instances', $form_state->getValue('click_to_buy_instances'))
+        ->set('business_unit', $form_state->getValue('business_unit'))
+        ->set('client_id', $form_state->getValue('client_id'))
+        ->set('client_secret', $form_state->getValue('client_secret'))
+        ->set('data_extension', $form_state->getValue('data_extension'))
+        ->set('external_key', $form_state->getValue('external_key'))
         ->save();
     drupal_set_message('Settings have been saved.');
   }

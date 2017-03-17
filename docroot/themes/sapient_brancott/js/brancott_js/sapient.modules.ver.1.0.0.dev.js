@@ -373,6 +373,14 @@ var commonObj = (function($, window, sapient) {
 				
 			},
 
+			setTimeLineEmptySpan = function() {
+				$("#timeline-component span.line-bg").each(function(){
+					if($(this).text() == ""){
+						$(this).css("top","19px");
+					}
+				});
+			},
+
 			toggleAwardsDetails = function() {
 				$(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
 					$(".awards-accolades .list-wrapper .awards-details-wrapper").removeClass("hidden-details-wrapper");
@@ -497,7 +505,8 @@ var commonObj = (function($, window, sapient) {
 			posFilters:posFilters,
 			awardsGrain:awardsGrain,
 			killHash: killHash,
-			heroGrain:heroGrain
+			heroGrain: heroGrain,
+			setTimeLineEmptySpan: setTimeLineEmptySpan
 		};
 	}
 
@@ -527,9 +536,7 @@ sapient.common.posForm();
 sapient.common.awardsGrain();
 sapient.common.posFilters();
 sapient.common.heroGrain();
-
-
-
+sapient.common.setTimeLineEmptySpan();
 
 /*$( function() {
 	$( "#datepicker" ).datepicker();
@@ -1202,6 +1209,7 @@ var ourWines = (function($, window, sapient) {
 				$(document).on('click','#product-grid .see-more', function(){
 					$(this).hide();
 					$(this).prev().find(".ellipses").hide();
+					$(this).prev(".trimmed-text").hide();
 					$(this).siblings(".extra-text").css("display","block");
 					$(this).siblings(".see-less").show();
 				});

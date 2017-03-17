@@ -9,7 +9,7 @@
 	padding: 0 !important;
 }
 .ctbuy-popin-mumm .ctbuy-popin--head {
-	background-color: #3e464b;
+	background-color: #1e7266;
 	box-shadow: 0 0 0 0;
 	margin: 0;
 	width: 100%;
@@ -79,28 +79,26 @@
 }
 
 .ctbuy-popin--close a {
-	height: 30px !important;
-	right: 10px !important;
+	height: 20px !important;
+	right: 15px !important;
 	text-indent: -999999px;
-	top: 10px !important;
-	width: 30px !important;
+	top: 17px !important;
+	width: 20px !important;
 
 	&::after,
 	&::before {
+		border-top: 2px solid #ffffff;
 		content: " ";
 		display: block;
 		left: 0;
 		position: absolute;
+		top: 50%;
 		width: 100%;
 	}
 	&::before {
-		border-top: 1px solid #ffffff;
-		top: 50%;
 		transform: rotate(45deg);
 	}
 	&::after {
-		border-bottom: 1px solid #ffffff;
-		top: 50%;
 		transform: rotate(-45deg);
 	}
 }
