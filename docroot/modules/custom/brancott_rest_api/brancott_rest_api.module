@@ -137,7 +137,7 @@ function getRangeDetailsFiltered() {
   }
   
 function braoncott_rest_api_get_generic_url($generic_dch_url) {
-  $rest_api_generic_page = new BrancottRestApiControllerGenericPage;
+  $rest_api_generic_page = new BrancottRestApiControllerGenericPage();
   $value = $rest_api_generic_page->getGenericPage($generic_dch_url);
   return $value;
 }
