@@ -1,0 +1,160 @@
+{% if (fields.counter.content == "1") %}
+    <div class="section-class img-right">
+        <div class="image-wrapper mobile-only">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+        <div class="content-wrapper">
+            <h2 class="header_sect">{{ fields.field_where_to_buy_heading.content |upper |raw }}</h2>
+            <p class="tagline">{{ fields.field_where_to_buy_description.content }}</p>
+
+
+            {% if (fields.field_where_to_buy_find_out_more.content == 'external') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_find_out_more.content == 'internal') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more_1.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_click_to_buy.content == 'buy_now') %}
+                <a data-ctbuy-key="{{ fields.field_where_to_buy_click_to_buy.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_where_to_buy_click_to_buy_1.content }}</a>
+            {% endif %}
+        </div>
+        <div class="image-wrapper desktop-only">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+    </div>
+{% elseif (fields.counter.content == "2") %}
+    <div class="section-class img-left">
+        <div class="image-wrapper">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+        <div class="content-wrapper">
+            <h2 class="header_sect">{{ fields.field_where_to_buy_heading.content |upper |raw }}</h2>
+            <p class="tagline">{{ fields.field_where_to_buy_description.content }}</p>
+
+            {% if (fields.field_where_to_buy_find_out_more.content == 'external') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_find_out_more.content == 'internal') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more_1.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_click_to_buy.content == 'buy_now') %}
+                <a data-ctbuy-key="{{ fields.field_where_to_buy_click_to_buy.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_where_to_buy_click_to_buy_1.content }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% elseif (fields.counter.content == "3") %}
+    <div class="section-class img-right">
+        <div class="image-wrapper mobile-only">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+        <div class="content-wrapper">
+            <h2 class="header_sect">{{ fields.field_where_to_buy_heading.content |upper |raw }}</h2>
+            <p class="tagline">{{ fields.field_where_to_buy_description.content }}</p>
+
+            {% if (fields.field_where_to_buy_find_out_more.content == 'external') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_find_out_more.content == 'internal') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more_1.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_click_to_buy.content == 'buy_now') %}
+                <a data-ctbuy-key="{{ fields.field_where_to_buy_click_to_buy.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_where_to_buy_click_to_buy_1.content }}</a>
+            {% endif %}
+        </div>
+        <div class="image-wrapper desktop-only">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+    </div>
+{% elseif (fields.counter.content == "4") %}
+    <div class="section-class img-left">
+        <div class="image-wrapper">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+        <div class="content-wrapper">
+            <h2 class="header_sect">{{ fields.field_where_to_buy_heading.content |upper |raw }}</h2>
+            <p class="tagline">{{ fields.field_where_to_buy_description.content }}</p>
+
+            {% if (fields.field_where_to_buy_find_out_more.content == 'external') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_find_out_more.content == 'internal') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more_1.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_click_to_buy.content == 'buy_now') %}
+                <a data-ctbuy-key="{{ fields.field_where_to_buy_click_to_buy.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_where_to_buy_click_to_buy_1.content }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% elseif (fields.counter.content == "5") %}
+    <div class="section-class img-right">
+        <div class="image-wrapper mobile-only">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+        <div class="content-wrapper">
+            <h2 class="header_sect">{{ fields.field_where_to_buy_heading.content |upper |raw }}</h2>
+            <p class="tagline">{{ fields.field_where_to_buy_description.content }}</p>
+
+            {% if (fields.field_where_to_buy_find_out_more.content == 'external') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_find_out_more.content == 'internal') %}
+                <a href="{{ fields.field_where_to_buy_find_out_more.content }}" class="cta dark watch-video">{{ fields.field_where_to_buy_find_out_more_1.content }}</a>
+            {% endif %}
+            {% if (fields.field_where_to_buy_click_to_buy.content == 'buy_now') %}
+                <a data-ctbuy-key="{{ fields.field_where_to_buy_click_to_buy.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_where_to_buy_click_to_buy_1.content }}</a>
+            {% endif %}
+        </div>
+        <div class="image-wrapper desktop-only">
+            <picture>
+                <source  media="(max-width: 321px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">   
+                <source  media="(max-width: 691px)" srcset="{{ fields.field_where_to_buy_image_1.content }}" class="background-image">
+                <source  media="(max-width: 769px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image">  
+                <source  media="(max-width: 1281px)" srcset="{{ fields.field_where_to_buy_image.content }}" class="background-image"> 
+                <img src="{{ fields.field_where_to_buy_image.content }}" alt="{{ fields.field_where_to_buy_image_2.content }}">
+            </picture>
+        </div>
+    </div>
+{% endif %}
+
