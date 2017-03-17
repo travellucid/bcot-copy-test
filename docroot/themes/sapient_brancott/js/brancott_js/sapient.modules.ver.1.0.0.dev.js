@@ -1434,8 +1434,6 @@ var validationObj = (function($, window, sapient) {
 				
 
 				if($email.val().length !== 0) {
-
-					alert($email.val().length);
 					
 					if (filter.test($email.val())) {
 						$email.siblings("label").removeClass("error");
@@ -1558,16 +1556,37 @@ var validationObj = (function($, window, sapient) {
 				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow");  
 
 			}); 
+
+			
+		},
+
+		textareaOnFocus = function() {
+			
+			$(".enquire-form  .other-information textarea").on('focus', function() {
+
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow"); 
+			})
 		},
 
 		inputOnFocusOut = function() {
 			$(".enquire-form input.brancott-form").on('focusout',function(){
-
 				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 
 			});
 		},
+
+		textareaOnFocusOut = function() {
+			
+			$(".enquire-form  .other-information textarea").on('focusout',function(){
+				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
+				
+
+			});
+		},
+
 		
 		selectChange = function() {
 			var $select = $(".enquire-form .group select");
@@ -1656,6 +1675,8 @@ var validationObj = (function($, window, sapient) {
 			handleBackEndError: handleBackEndError,
 			selectInMac:selectInMac,
 			inputSelect:inputSelect,
+			textareaOnFocus:textareaOnFocus,
+			textareaOnFocusOut:textareaOnFocusOut,
 			resetForm:resetForm
 		};
 	}
@@ -1678,6 +1699,8 @@ sapient.validation.handleBackEndError();
 sapient.validation.handleBackEndSucess();
 sapient.validation.inputOnFocus();
 sapient.validation.inputOnFocusOut();
+sapient.validation.textareaOnFocus();
+sapient.validation.textareaOnFocusOut();
 sapient.validation.selectChange();
 sapient.validation.submitBtnClass();
 sapient.validation.selectInMac();
