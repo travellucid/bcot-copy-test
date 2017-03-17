@@ -20,8 +20,9 @@
                     <p class="">{{ fields.field_timeline_description.content }}</p>
                 {% endif %}
 
-                <p class="quote">
+               
                     {% if fields.field_timeline_subtext_one.content %}
+                         <p class="quote">
                         {{ fields.field_timeline_subtext_one.content }}</p>
                     {% endif %}
                     {% if fields.field_timeline_subtext_second.content %}
@@ -70,6 +71,7 @@
                     {% if fields.field_timeline_description.content %}
                         <p class="common-margin ">{{ fields.field_timeline_description.content }}</p>
                     {% endif %}
+                    {% if (fields.field_timeline_subtext_one.content or fields.field_timeline_subtext_second.content) %}
                     <div class="quote-author">
 
                         {% if fields.field_timeline_subtext_one.content %}
@@ -79,6 +81,7 @@
                             <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
                         {% endif %}
                     </div>
+                    {% endif %}
                 </div> 
             </div>   
 
