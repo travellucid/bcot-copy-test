@@ -9,6 +9,11 @@
 	h4 {
 		color: @dark-gray;
 	}
+	h2 {
+		margin: 0 auto;
+		max-width: 770px;
+		text-align: left;
+	}
 	margin-bottom: 92px; 
 	p {
 		font-family: "NeutraText Book";
@@ -61,6 +66,9 @@
 	.line-bg {
 		.cfix();
 		font-family: "NeutraText Bold";
+		font-size: 28px;
+		letter-spacing: 2px;
+		line-height: 38px;
 		display: block;
 		padding: 5px;
 		position: relative;
@@ -152,12 +160,12 @@
 	.horizontal-timeline {
 		margin-bottom: 92px;
 		
-		.quote-author {
+		/* .quote-author {
 			margin: 0 auto;
 			margin-bottom: 92px;
 			max-width: 570px;
 		}
-
+		 */
 		.top {
 			margin: 0 auto;
 			max-width: 770px;
@@ -221,11 +229,17 @@
 }
 
 @media screen and (max-width:1024px) {
-	#timeline-component {
-		/*  max-width: 486px; */
-	}
-	.vertical-timeline {}
-	.horizontal-timeline {}
+    #timeline-component {
+        /*  max-width: 486px; */
+        .vertical-timeline {}
+        .horizontal-timeline {
+            .img-wrapper-horizontal {
+                img {
+                    max-width: 204px;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width:990px) {
