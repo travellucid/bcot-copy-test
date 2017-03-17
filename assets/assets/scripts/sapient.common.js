@@ -15,12 +15,11 @@ var commonObj = (function($, window, sapient) {
 				
 			},
 
-			resetFormOnReload = function() {
-				$('body').bind('beforeunload',function(){
-					//do something
-					$("#webform-submission-enquire-form-form").find('input').val('');
-					$(".date-overlay").text('');
-					$("#webform-submission-enquire-form-form").find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected')
+			setTimeLineEmptySpan = function() {
+				$("#timeline-component span.line-bg").each(function(){
+					if($(this).text() == ""){
+						$(this).css("top","19px");
+					}
 				});
 			},
 
@@ -148,8 +147,8 @@ var commonObj = (function($, window, sapient) {
 			posFilters:posFilters,
 			awardsGrain:awardsGrain,
 			killHash: killHash,
-			heroGrain:heroGrain,
-			resetFormOnReload: resetFormOnReload
+			heroGrain: heroGrain,
+			setTimeLineEmptySpan: setTimeLineEmptySpan
 		};
 	}
 
@@ -179,8 +178,7 @@ sapient.common.posForm();
 sapient.common.awardsGrain();
 sapient.common.posFilters();
 sapient.common.heroGrain();
-/*sapient.common.resetFormOnReload();*/
-
+sapient.common.setTimeLineEmptySpan();
 
 /*$( function() {
 	$( "#datepicker" ).datepicker();
