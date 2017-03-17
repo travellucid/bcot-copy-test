@@ -77,6 +77,7 @@ var ourWines = (function($, window, sapient) {
 				$(document).on('click','#product-grid .see-more', function(){
 					$(this).hide();
 					$(this).prev().find(".ellipses").hide();
+					$(this).prev(".trimmed-text").hide();
 					$(this).siblings(".extra-text").css("display","block");
 					$(this).siblings(".see-less").show();
 				});
