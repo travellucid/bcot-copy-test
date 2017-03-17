@@ -46,7 +46,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 //            if ($range_title_slug == $detail->slug) {
             if ($range_id == $detail->id) {
               $range_title_api = $detail->title;
-              $range_desc_api = $detail->description;
+             // $range_desc_api = $detail->description;
+              $range_desc_api = $detail->strapline;
             }
           }
 		  
