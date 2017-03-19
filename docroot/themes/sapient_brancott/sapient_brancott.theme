@@ -215,6 +215,15 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         }
       }
       if ($variables['view']->current_display == 'tasting_notes_component') {
+         $block = \Drupal\block_content\Entity\BlockContent::load(21);
+         $variables['nutritional_title'] = $block->field_nutritional_info_title->value;
+         $variables['nutritional_cta_new'] = $block->field_nutritional_info_cta_new->value;
+         $variables['nutritional_cta_first_uri'] = $block->field_nutritional_info_cta1->uri;
+         $variables['nutritional_cta_second_uri'] = $block->field_nutritional_info_cta2->uri;
+         $variables['nutritional_cta_first_title'] = $block->field_nutritional_info_cta1->title;
+         $variables['nutritional_cta_second_title'] = $block->field_nutritional_info_cta2->title;
+         $variables['nutritional_note_first'] = $block->field_nutritional_info_note1->value;
+         $variables['nutritional_note_second'] = $block->field_nutritional_info_note12->value;
         if ($variables['row']->_entity->field_wine_id) {
           $wine_id = $variables['row']->_entity->field_wine_id->value;
           $details = braoncott_rest_api_get_results($wine_id);
