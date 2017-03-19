@@ -39,7 +39,7 @@
     <p class="desc-2"> {{ tasting_notes_complement }} </p>
 {% endif %}
 </div>
-<a href="#" class="cta secondary-green watch-video" data-toggle="modal" data-target="#nutritional-info-component">{{ fields.field_nutritional_info_cta_new.content }} </a>
+<a href="#" class="cta secondary-green watch-video" data-toggle="modal" data-target="#nutritional-info-component">{{ nutritional_cta_new }} </a>
 <a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_1.content }}</a>
 
 <!-- Modal -->
@@ -48,7 +48,7 @@
         <div class="modal-content background-noise-section">
             <div class="wrapper-head modal-header">
                 <a class="close-btn" data-dismiss="modal"></a>
-                <h2 class="header_e">NUTRITIONAL INFO</h2>
+                <h2 class="header_e">{{ nutritional_title }}</h2>
             </div>
             <div class="modal-body">
                 <h3 class="header_f">{{ wine_title |upper }}  {{ nutritional_info_alcohol |upper }} V/V </h3>
@@ -96,10 +96,10 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>{{ fields.field_nutritional_info_note1.content }}</p>
-                <p>{{ fields.field_nutritional_info_note12.content }}</p>
-                <a href="{{ fields.field_nutritional_info_cta1.content }}">{{ fields.field_nutritional_info_cta1_1.content }}</a>
-                <a href="{{ fields.field_nutritional_info_cta2.content }}">{{ fields.field_nutritional_info_cta2_1.content }}</a>
+                <p>{{ nutritional_note_first }}</p>
+                <p>{{ nutritional_note_second }}</p>
+                <a href="{{ nutritional_cta_first_uri }}">{{ nutritional_cta_first_title }}</a>
+                <a href="{{ nutritional_cta_second_uri }}">{{ nutritional_cta_second_title }}</a>
             </div>
 
         </div>
