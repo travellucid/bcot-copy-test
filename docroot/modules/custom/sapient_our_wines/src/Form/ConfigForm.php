@@ -93,6 +93,13 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('DCH Legal URL'),
       '#required' => TRUE,
     ];
+    $form['dch_details']['cache_ttl'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Cache Lifetime'),
+      '#default_value' => $vc->get('cache_ttl'),
+      '#description' => $this->t('Cache Lifetime in second'),
+      '#required' => TRUE,
+    ];
     // Age gate component.
     $form['age_gate'] = array(
       '#type' => 'fieldset',
@@ -209,6 +216,7 @@ class ConfigForm extends FormBase {
         ->set('dch_pp_url', $form_state->getValue('dch_pp_url'))
         ->set('dch_tu_url', $form_state->getValue('dch_tu_url'))
         ->set('dch_legal_url', $form_state->getValue('dch_legal_url'))
+        ->set('cache_ttl', $form_state->getValue('cache_ttl'))
         ->set('facebook_app_id', $form_state->getValue('facebook_app_id'))
         ->set('click_to_buy_instances', $form_state->getValue('click_to_buy_instances'))
         ->set('business_unit', $form_state->getValue('business_unit'))

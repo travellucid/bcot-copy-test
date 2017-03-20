@@ -198,7 +198,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $range_details['title'] = $values_range->title;
         $range_details['strapline'] = $values_range->strapline;
         if (strlen($values_range->description) > 40) {
-          $first = \Drupal\Component\Utility\Unicode::truncate($values_range->description, 40, TRUE);
+          $first = \Drupal\Component\Utility\Unicode::truncate($values_range->description, 40, TRUE, TRUE);
           $range_details['description'] = '<p class="trimmed-text hidden-md hidden-lg">' . $first . '</p><a href="#" class="see-more">See More</a><p class="extra-text">' . $values_range->description . '</p>';
         }
         else {
