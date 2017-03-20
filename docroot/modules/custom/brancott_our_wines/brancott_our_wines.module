@@ -10,16 +10,16 @@
 /**
  *
  */
-function sapient_our_wines_theme($existing, $type, $theme, $path) {
+function brancott_our_wines_theme($existing, $type, $theme, $path) {
 
   return array(
-    'sapient_our_wines_block' => array(
+    'brancott_our_wines_block' => array(
       'variables' => array('arguments' => NULL, 'filters' => NULL, 'current_language' => NULL, 'no_result_message' => NULL),
     ),
   );
 }
 
-function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form') {
     $form['#validate'][] = 'character_limitation_homepage';
   }
@@ -58,14 +58,14 @@ function sapient_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   }
   if ($form_id == 'menu_edit_form') {
     // Extend menu_edit_menu with the limit form.
-    $form['menu_item_limit'] = sapient_our_wines_config_menu($form, $form_state->getBuildInfo()['callback_object']);
+    $form['menu_item_limit'] = brancott_our_wines_config_menu($form, $form_state->getBuildInfo()['callback_object']);
 
-    $form['#validate'][] = 'sapient_our_wines_menu_validate';
-    array_unshift($form['actions']['submit']['#submit'], 'sapient_our_wines_config_menu_submit');
+    $form['#validate'][] = 'brancott_our_wines_menu_validate';
+    array_unshift($form['actions']['submit']['#submit'], 'brancott_our_wines_config_menu_submit');
   }
   if ($form_id == 'menu_link_content_menu_link_content_form') {
     // Add a validation to form menu_edit_item.
-    array_unshift($form['#validate'], 'sapient_our_wines_menu_validate');
+    array_unshift($form['#validate'], 'brancott_our_wines_menu_validate');
   }
   if ($form_id == 'webform_submission_enquire_form_form' or $form_id == 'webform_submission_book_a_table_form') {
     $form['#validate'][] = 'webform_submission_enquire_form_form_validation';
@@ -145,7 +145,7 @@ function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInter
  * @return array
  *   The prefilled form element.
  */
-function sapient_our_wines_config_menu($form, \Drupal\menu_ui\MenuForm $menu_form) {
+function brancott_our_wines_config_menu($form, \Drupal\menu_ui\MenuForm $menu_form) {
   $menu_name = empty($menu_form->getEntity()->id()) ? 'new' : $menu_form->getEntity()->id();
   // Try to get the current limit of the menu.
   $config = \Drupal::service('config.factory')->getEditable('menu_item_limit.settings');
@@ -167,7 +167,7 @@ function sapient_our_wines_config_menu($form, \Drupal\menu_ui\MenuForm $menu_for
  * @param array $form_state
  *   The current state of the menu edit form.
  */
-function sapient_our_wines_config_menu_validate($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+function brancott_our_wines_config_menu_validate($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
   // Check if the entered limit is set to a value of 0 or higher.
   $limit = $form_state->getValue('menu_item_limit');
   if ((!is_numeric($limit)) || ($limit < 0)) {
@@ -183,7 +183,7 @@ function sapient_our_wines_config_menu_validate($form, \Drupal\Core\Form\FormSta
  * @param array $form_state
  *   The current state of the menu edit form.
  */
-function sapient_our_wines_config_menu_submit($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+function brancott_our_wines_config_menu_submit($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
   // Set the limit for the menu.
   \Drupal::logger('menu_item_limit')->notice('mymodule submit ');
   $limit = $form_state->getValue('menu_item_limit');
@@ -204,7 +204,7 @@ function sapient_our_wines_config_menu_submit($form, \Drupal\Core\Form\FormState
  * @return bool
  *   TRUE when the item can be created and the limit hasn't been reached.
  */
-function sapient_our_wines_menu_validate($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+function brancott_our_wines_menu_validate($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
   // Check if menu item already exists and validate then.
   if (($form_state->getBuildInfo()['callback_object']->getEntity()->isNew())) {
     return TRUE;
@@ -689,7 +689,7 @@ function character_limitation_wines_page($form, \Drupal\Core\Form\FormStateInter
  *     This can be altered by reference.
  *   - 'pattern': A string of the pattern used for aliasing the object.
  */
-function sapient_our_wines_pathauto_alias_alter(&$alias, array &$context) {
+function brancott_our_wines_pathauto_alias_alter(&$alias, array &$context) {
   if ($context['bundle'] == 'wines') {
     $alias = str_replace(" ", "-", $alias);
     // Force all aliases to be saved as language neutral.

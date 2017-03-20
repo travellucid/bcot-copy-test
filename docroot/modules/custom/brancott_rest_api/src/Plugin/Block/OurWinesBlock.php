@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\sapient_our_wines\Plugin\Block\OurWinesBlock.
+ * Contains \Drupal\brancott_our_wines\Plugin\Block\OurWinesBlock.
  */
 
-namespace Drupal\sapient_our_wines\Plugin\Block;
+namespace Drupal\brancott_our_wines\Plugin\Block;
 
 use Drupal\Core\Database\Database;
 use Drupal\Core\Block\BlockBase;
@@ -48,7 +48,7 @@ class OurWinesBlock extends BlockBase implements BlockPluginInterface
 			}
             
 		    return array(
-                    '#theme' => 'sapient_our_wines_template',
+                    '#theme' => 'brancott_our_wines_template',
                     '#names' => $names,
 					'#count' => $count,
                     ); 
