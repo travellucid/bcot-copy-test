@@ -83,13 +83,14 @@ var google_map_field_map;
 					animation: google.maps.Animation.DROP,
 					optimized: false,
 					labelAnchor: new google.maps.Point(30, 30),
+					icon: { url: '/themes/sapient_brancott/css/images/icons/brancott-google-pin.svg' }/*,
 					//label: label,
 					label: {
 						text: "Brancott Estate",
 						color: "#984843",
 						fontSize: "12px",
 						fontWeight: "bold"
-					}
+					}*/
 				});
 			});
 
