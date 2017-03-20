@@ -1,7 +1,7 @@
-name: Sapient Our Wines Block
-description: Sapient Our Wines Carousel Block on Homepage
+name: Brancott Our Wines Block
+description: Brancott Our Wines Carousel Block on Homepage
 core: 8.x
-package: Sapient
+package: Brancott Estate
 dependencies:
 - node
 - block
