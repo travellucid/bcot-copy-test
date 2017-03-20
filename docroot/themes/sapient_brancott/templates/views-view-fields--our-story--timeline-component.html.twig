@@ -1,3 +1,4 @@
+
 {% set image_list = fields.field_image_vertical.content|split(',') %}
 
 {% set image_list_v1 = fields.field_image_vertical_1.content|split(',') %}
@@ -5,7 +6,7 @@
 {% set image_list_v3 = fields.field_image_vertical_3.content|split(',') %}
 {% set image_list_v4 = fields.field_image_vertical_4.content|split(',') %}
 {% set video_list = fields.field_video_youtube_.content|split(',') %}
-
+{% set alt_list = fields.field_image_vertical_5.content|split(',') %}
 {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
 {% if (fields.field_media_style.content == "vertical_style") %}
     <div class="vertical-timeline">
@@ -43,7 +44,7 @@
 
                             <source  media="(max-width: 1401px)" srcset="{{ image }}"> 
 
-                            <img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> 
+                            <img  src="{{ image }}" alt="{{ alt_list[key] }}"> 
                         </picture>
                     {% endfor %}
 
@@ -105,7 +106,7 @@
 
                             <source  media="(max-width: 1401px)" srcset="{{ image_horizontal }}"> 
 
-                            <img  src="{{ image_horizontal }}" alt="{{ fields.field_image_vertical_5.content }}"> 
+                            <img  src="{{ image_horizontal }}" alt="{{ alt_list[key] }}"> 
                         </picture>
                     {% endif %}
                 {% endfor %}
