@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="115px" height="55px" viewBox="0 0 115 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>brancott-google-pin</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="11" cy="41" r="10"></circle>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FB7467" offset="0%"></stop>
+            <stop stop-color="#F3443B" offset="100%"></stop>
+        </linearGradient>
+        <path d="M10.2534547,40 L10.2534547,38.049206 C9.90844634,35.6736516 9.26439428,31.9279085 8.31670467,29.1581129 C7.11291794,25.6398267 3.42995302,19.6030478 2.0340916,17.3742962 C0.753298228,15.5760084 0,13.3759753 0,11 C0,4.92486775 4.92486775,0 11,0 C17.0751322,0 22,4.92486775 22,11 C22,13.3783461 21.2451977,15.5803987 19.9620728,17.379678 L19.9620728,17.379678 C18.5215899,19.6594652 14.8287347,25.6654095 13.6337012,29.1581129 C12.6860116,31.9279085 12.0419595,35.6736516 11.6969512,38.049206 L11.6969512,40 L10.2534547,40 L10.2534547,40 Z" id="path-4"></path>
+        <mask id="mask-5" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="22" height="40" fill="white">
+            <use xlink:href="#path-4"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="brancott-google-pin">
+            <rect id="Rectangle" fill="#EFEDE4" x="20" y="27" width="95" height="28"></rect>
+            <text id="Brancott-Estate-Heri" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#770B00">
+                <tspan x="22" y="38">Brancott Estate</tspan>
+                <tspan x="22" y="52">Heritage Centre</tspan>
+            </text>
+            <g id="Oval">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#E48500" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <path d="M14.3125,40.40625 C14.3125,40.275 14.3125,40.125 14.29375,39.99375 L13.80625,36 L7.50625,36 L7.01875,39.99375 C7,40.14375 7,40.275 7,40.40625 C7,42.3 8.44375,43.85625 10.28125,44.04375 L10.28125,47.25 L8.78125,47.25 C8.575,47.25 8.40625,47.41875 8.40625,47.625 C8.40625,47.83125 8.575,48 8.78125,48 L12.53125,48 C12.7375,48 12.90625,47.83125 12.90625,47.625 C12.90625,47.41875 12.7375,47.25 12.53125,47.25 L11.03125,47.25 L11.03125,44.04375 C12.86875,43.85625 14.3125,42.3 14.3125,40.40625 Z M13.13125,36.75 L13.50625,39.75 L7.80625,39.75 L8.1625,36.75 L13.13125,36.75 Z" id="Page-1" fill="#FFFFFF"></path>
+            <g id="google_maps_pin">
+                <use id="pin" stroke="#B73830" mask="url(#mask-5)" stroke-width="2" fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+                <path d="M11,16 C13.209139,16 15,14.209139 15,12 C15,9.790861 13.209139,8 11,8 C8.790861,8 7,9.790861 7,12 C7,14.209139 8.790861,16 11,16 Z" id="circle" fill="#5C1410"></path>
+            </g>
+        </g>
+    </g>
+</svg>
