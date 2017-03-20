@@ -21,7 +21,10 @@ class BrancottRestApiController extends ControllerBase {
 
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $lang_explode = explode("-", $language);
-
+    $cache_ttl = \Drupal::config('brancott_our_wines.settings')->get('cache_ttl'); 
+    $current_time = time();
+    $cache_time = $cache_ttl + $current_time;
+   
     if ($language == 'en') {
       $locale = 'row';
     }
@@ -47,7 +50,7 @@ class BrancottRestApiController extends ControllerBase {
     if ($response['code'] == 200) {
 		$result = json_decode($response['result']);
 		if($result->id) {
-			\Drupal::cache()->set($cid, $response['result']);
+			\Drupal::cache()->set($cid, $response['result'], $cache_time);
 		}
       $data = $result;
     }
