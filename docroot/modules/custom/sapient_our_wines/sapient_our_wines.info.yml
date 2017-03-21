@@ -1,8 +1,0 @@
-name: Sapient Our Wines Block
-description: Sapient Our Wines Carousel Block on Homepage
-core: 8.x
-package: Sapient
-dependencies:
-- node
-- block
-type: module

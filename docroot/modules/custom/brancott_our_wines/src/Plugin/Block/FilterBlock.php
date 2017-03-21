@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\sapient_our_wines\Plugin\Block\FilterBlock.
+ * Contains \Drupal\brancott_our_wines\Plugin\Block\FilterBlock.
  */
 
-namespace Drupal\sapient_our_wines\Plugin\Block;
+namespace Drupal\brancott_our_wines\Plugin\Block;
 
 use Drupal\Core\Database\Database;
 use Drupal\Core\Block\BlockBase;
@@ -181,7 +181,7 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
       } 
     } 
     return array(
-      '#theme' => 'sapient_our_wines_block',
+      '#theme' => 'brancott_our_wines_block',
       '#arguments' => $index_details,
       '#filters' => $filters,
       '#no_result_message' => $no_result_message,

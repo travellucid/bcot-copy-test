@@ -39,7 +39,7 @@ class BrancottRestApiControllerFilters extends ControllerBase {
       $result = json_decode($cache->data);
       return $result;
     } else {
-      $vc = $this->config('sapient_our_wines.settings');
+      $vc = $this->config('brancott_our_wines.settings');
       $dch_ranges_url = $vc->get('dch_wine_url');
       $response = brancott_rest_api_reponse($dch_ranges_url . '/' . $locale . '/wines/en');
     }

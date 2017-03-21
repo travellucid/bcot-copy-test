@@ -120,7 +120,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           else {
             $variables['climate_desc'] = '';
           }
-          $vc = \Drupal::config('sapient_our_wines.settings');
+          $vc = \Drupal::config('brancott_our_wines.settings');
           $openweatherapi_key = $vc->get('openweatherapi_key');
           $openweatherapi_key = $openweatherapi_key ? $openweatherapi_key : 'bd4028edc390aa0629042fefed9976ca';
           $owm = new OpenWeatherMap($openweatherapi_key);
@@ -390,8 +390,8 @@ function sapient_brancott_preprocess_views_view(&$variables) {
 
 function sapient_brancott_preprocess_page(&$variables) {
    // Define {{ body_class }}  in the template.
-    //$vc = $this->config('sapient_our_wines.settings');
-    $fb_app_id = \Drupal::config('sapient_our_wines.settings')->get('facebook_app_id'); 
+    //$vc = $this->config('brancott_our_wines.settings');
+    $fb_app_id = \Drupal::config('brancott_our_wines.settings')->get('facebook_app_id'); 
     //$fb_app_id = $vc->get('facebook_app_id');
     $variables['fb_app_id'] = $fb_app_id;
    
