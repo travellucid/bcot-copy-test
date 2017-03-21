@@ -59,6 +59,11 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         $range_name = str_replace("-", " ", $range_name);
       }
     }
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if($node && $node->type->getValue()[0]['target_id'] == 'ranges') {
+      $range_name = $node->field_slug->getValue()[0]['value'];
+      $range_id = $node->field_ranges_id->getValue()[0]['value'];
+    }
     foreach ($values as $value) {
       $first_level = array();
       $all_level = array();
@@ -117,8 +122,10 @@ class FilterBlock extends BlockBase implements BlockPluginInterface {
         }
       }
 
-      
-      if (!empty($range_name) && strtolower(urldecode($range_name)) != strtolower($value->range)) {
+//      if (!empty($range_name) && strtolower(urldecode($range_name)) != strtolower($value->range)) {
+//        continue;
+//      }
+      if (!empty($range_name) && $range_id != $value->rangeID) {
         continue;
       }
       else {

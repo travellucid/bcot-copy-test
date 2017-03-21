@@ -12,7 +12,7 @@
     <div class="vertical-timeline">
         <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
         {% if fields.field_timeline_heading.content %}
-            <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+            <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
         {% endif %}
 
         <div class="common-margin">
@@ -63,7 +63,7 @@
         <div class="top">
             <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
             {% if fields.field_timeline_heading.content %}
-                <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+                <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
             {% endif %}
 
             <div class="">
@@ -113,7 +113,37 @@
             </div>
         {% endif %}
     </div>
+{% else %}
+    <div class="horizontal-timeline">
+        <div class="top">
+            <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+            {% if fields.field_timeline_heading.content %}
+                <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
+            {% endif %}
 
+            <div class="">
+
+                <div class="common-margin">
+                    {% if fields.field_timeline_description.content %}
+                        <p class="common-margin ">{{ fields.field_timeline_description.content }}</p>
+                    {% endif %}
+                    {% if (fields.field_timeline_subtext_one.content or fields.field_timeline_subtext_second.content) %}
+                    <div class="quote-author">
+
+                        {% if fields.field_timeline_subtext_one.content %}
+                            <p class="quote ">{{ fields.field_timeline_subtext_one.content }}</p>
+                        {% endif %}
+                        {% if fields.field_timeline_subtext_second.content %}
+                            <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div> 
+            </div>   
+
+
+        </div>
+    </div>
 {% endif %}
 
 

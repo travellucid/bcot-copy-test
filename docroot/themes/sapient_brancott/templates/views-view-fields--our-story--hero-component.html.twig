@@ -81,9 +81,13 @@
 <div id="hero-timeline-component">
     <div class="top-wrapper">
         <h2 class="header_b">{{ fields.field_hero_bottom_headline.content }}</h2>
-        <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
-        <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel=0"></iframe>
+        {% if (fields.field_hero_bottom_description.content) %}
+            <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
+        {% endif %}
+        {% if (fields.field_video_youtube_link.content) %}
+            <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel=0"></iframe>
+            {% endif %} 
     </div>
-    
+
 
 </div>
