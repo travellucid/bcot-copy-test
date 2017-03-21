@@ -123,9 +123,8 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 			
-			closeCookie = function() {
-				var $closeButton = $(".cookie-notification-wrapper .close-btn");
-					$closeButton.on('click', function() {
+			closeCookie = function() {					
+				$(document).on("click",".cookie-notification-wrapper .close-btn", function() {
 						alert("clicked");
 						$(".cookie-notification-wrapper").hide();
 						$(".cookie-notification-wrapper .agree-button").trigger( "click" );

@@ -980,11 +980,11 @@ select + .age-gate .form-row-error-text,
 }
 
 ::-webkit-scrollbar:vertical {
-    width: 12px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar:horizontal {
-    height: 12px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -996,4 +996,13 @@ select + .age-gate .form-row-error-text,
 ::-webkit-scrollbar-track {
     border-radius: 10px;  
     background-color: #ffffff; 
+}
+.js-facebook .js-login-facebook {
+  border-radius: 0;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.btn-facebook__label {
+  color: white;
 }
