@@ -1347,7 +1347,7 @@ sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
 sapient.winesFilter.onResize();
 sapient.winesFilter.seeMoreLess();
-sapient.winesFilter.onClickOutside();
+/*sapient.winesFilter.onClickOutside();*/
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
@@ -1378,6 +1378,10 @@ var footerObj = (function($, window, sapient) {
 				document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 				location.reload();
 			});
+		},
+
+		setEqualMargin = function() {
+			$("footer .region-footer a.external").closest("li").css("margin-right",48);
 		};
 
 
@@ -1385,7 +1389,8 @@ var footerObj = (function($, window, sapient) {
 			// public + private states and behaviors
 			setFooterDdownPos: setFooterDdownPos,
 			onResize: onResize,
-			regionSelector: regionSelector
+			regionSelector: regionSelector,
+			setEqualMargin: setEqualMargin
 		};
 	}
 
@@ -1405,6 +1410,7 @@ sapient.footer = footerObj.getInstance();
 /*sapient.footer.setFooterDdownPos();
 sapient.footer.onResize();*/
 sapient.footer.regionSelector("age_checked");
+sapient.footer.setEqualMargin();
 var validationObj = (function($, window, sapient) {
 
 	var validationInstance;
