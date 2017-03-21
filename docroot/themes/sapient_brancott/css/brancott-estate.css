@@ -111,14 +111,16 @@
 }
 .age-gate .btn--primaryfilled {
   background-color: #1e7266;
+  border: 2px solid #1e7266 !important;
   color: #fff;
   border: 0;
   border-radius: 0;
 }
 .age-gate .btn--primaryfilled:hover,
 .age-gate .btn--primaryfilled:focus {
-  color: #1e7266;
   background: #fff;
+  border: 2px solid #1e7266 !important;
+  color: #1e7266;
   border: 0;
 }
 .age-gate .btn--block {
@@ -870,6 +872,7 @@ select + .age-gate .form-row-error-text,
   -moz-box-sizing: border-box;
        box-sizing: border-box;
   display: inline-block;
+  letter-spacing: 2px;
   width: 30%;
   padding: 10px 0;
   margin-right: 5%;
@@ -961,4 +964,36 @@ select + .age-gate .form-row-error-text,
     background-position: 3px;
     background-repeat: no-repeat;
     background-size: 15px 10px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .age-gate .btn-reset,
+  .age-gate .btn {
+    line-height: 24px;
+  }  
+}
+
+/* custom scrollbar */
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;  
+    background-color: #ffffff; 
 }
