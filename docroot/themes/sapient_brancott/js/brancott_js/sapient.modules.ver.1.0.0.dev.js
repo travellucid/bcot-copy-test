@@ -1297,10 +1297,8 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			onClickOutside = function() {
-				$(document).on('touchend', function(e) {
-					if ($(e.target).is('.wine-filters-desktop .list-reset .menuitem')) {
-						return;
-					}
+				$(document).on('touchend', '#hero-component, #product-grid',function(e) {
+					
 					$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
 					$(".wine-filters-desktop .hovered").css("background-color","#1e7266");
 					$(".hovered >a").css("color","white");
