@@ -15,9 +15,7 @@
         <source  srcset="{{ fields.field_our_story_fallback_image.content }}"> 
         <img class ="" src="{{ fields.field_our_story_fallback_image.content }}" alt="{{ fields.field_our_story_fallback_image_1.content }}">  
     </picture> 
-
     <img class="fallback-gif" src="{{ fields.field_our_story_fallback_gif.content }}">			           
-
 {% else %}
     <picture>
         <source  media="(max-width: 321px)" srcset="{{ fields.field_our_story_background_image_1.content }}">
@@ -33,5 +31,4 @@
         <h2 class= "header_a">{{ fields.field_our_story_headline.content |upper |raw }}</h2>
         <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-light watch-video">{{ fields.field_hero_cta_first_1.content }}</a>
     </div>
-
 {% endif %}
