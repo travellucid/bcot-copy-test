@@ -121,6 +121,16 @@ var commonObj = (function($, window, sapient) {
 					$form.css("padding-top", 100 + "px");
 				}
 			},
+			
+			closeCookie = function() {
+				var $closeButton = $(".cookie-notification-wrapper .close-btn");
+					$closeButton.on('click', function() {
+						alert("clicked");
+						$(".cookie-notification-wrapper").hide();
+						$(".cookie-notification-wrapper .agree-button").trigger( "click" );
+					});
+
+			},
 
 			killHash = function() {
 				$("a").each(function(){
@@ -148,6 +158,7 @@ var commonObj = (function($, window, sapient) {
 			awardsGrain:awardsGrain,
 			killHash: killHash,
 			heroGrain: heroGrain,
+			closeCookie:closeCookie,
 			setTimeLineEmptySpan: setTimeLineEmptySpan
 		};
 	}
@@ -179,6 +190,7 @@ sapient.common.awardsGrain();
 sapient.common.posFilters();
 sapient.common.heroGrain();
 sapient.common.setTimeLineEmptySpan();
+sapient.common.closeCookie();
 
 /*$( function() {
 	$( "#datepicker" ).datepicker();
