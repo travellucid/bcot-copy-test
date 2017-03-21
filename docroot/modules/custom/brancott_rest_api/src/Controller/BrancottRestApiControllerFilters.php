@@ -22,12 +22,12 @@ class BrancottRestApiControllerFilters extends ControllerBase {
     $response = $data = $result = null;
     $request_type = 'filter_details';
     $cid = $request_type . '_' . $language;
-    //print $cid; exit;
     $cache = \Drupal::cache()->get($cid);
     $lang_explode = explode("-", $language);
     if ($language == 'en') {
       $locale = 'row';
-    } else {
+    }
+    else {
       $locale = $lang_explode[1];
     }
     $data = array();
@@ -38,13 +38,17 @@ class BrancottRestApiControllerFilters extends ControllerBase {
     if ($cache) {
       $result = json_decode($cache->data);
       return $result;
-    } else {
+    }
+    else {
       $vc = $this->config('brancott_our_wines.settings');
       $dch_ranges_url = $vc->get('dch_wine_url');
       $response = brancott_rest_api_reponse($dch_ranges_url . '/' . $locale . '/wines/en');
     }
     if ($response['code'] == 200) {
-      \Drupal::cache()->set($cid, $response['result']);
+      $cache_ttl = \Drupal::config('brancott_our_wines.settings')->get('cache_ttl');
+      $current_time = time();
+      $cache_time = $cache_ttl + $current_time;
+      \Drupal::cache()->set($cid, $response['result'], $cache_time);
       $result = json_decode($response['result']);
       $data = $result;
     }
