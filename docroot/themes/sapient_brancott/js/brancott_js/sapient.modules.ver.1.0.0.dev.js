@@ -394,6 +394,7 @@ var commonObj = (function($, window, sapient) {
 				for (var i = 1; i < section.length; i += 2) {
 					$(section[i]).addClass("background-noise-section");
 				}
+				$("#tasting-notes-component").closest("section.views-element-container").addClass("background-noise-section");
 			},
 
 			emptyform = function() {
