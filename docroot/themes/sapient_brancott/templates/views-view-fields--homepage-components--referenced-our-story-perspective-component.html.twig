@@ -1,0 +1,34 @@
+{% if fields.field_video.content %}
+    <video  class="our-story-video" >
+        <source src="{{ fields.field_video.content }}" type="video/mp4">
+    </video>
+    <div class="inner-container">
+        <h2 class= "header_a">{{ fields.field_our_story_headline.content |upper |raw }}</h2>
+        <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-light watch-video">{{ fields.field_hero_cta_first_1.content }}</a>
+    </div>
+    <picture class="fallback-image">
+        <source  media="(max-width: 321px)" srcset="{{ fields.field_our_story_fallback_image_2.content }}">
+        <source  media="(max-width: 690px)" srcset="{{ fields.field_our_story_fallback_image_2.content }}">   
+        <source  media="(max-width: 769px)" srcset="{{ fields.field_our_story_fallback_image.content }}">
+        <source  media="(max-width: 990px)" srcset="{{ fields.field_our_story_fallback_image.content }}">  
+        <source  media="(max-width: 1281px)" srcset="{{ fields.field_our_story_fallback_image.content }}"> 
+        <source  srcset="{{ fields.field_our_story_fallback_image.content }}"> 
+        <img class ="" src="{{ fields.field_our_story_fallback_image.content }}" alt="{{ fields.field_our_story_fallback_image_1.content }}">  
+    </picture> 
+    <img class="fallback-gif" src="{{ fields.field_our_story_fallback_gif.content }}">			           
+{% else %}
+    <picture>
+        <source  media="(max-width: 321px)" srcset="{{ fields.field_our_story_background_image_1.content }}">
+        <source  media="(max-width: 690px)" srcset="{{ fields.field_our_story_background_image_1.content}}">   
+        <source  media="(max-width: 769px)" srcset="{{ fields.field_our_story_background_image.content }}">
+        <source  media="(max-width: 990px)" srcset="{{ fields.field_our_story_background_image.content }}">  
+        <source  media="(max-width: 1281px)" srcset="{{ fields.field_our_story_background_image.content }}"> 
+        <source  srcset="{{ fields.field_our_story_background_image.content }}"> 
+        <!-- img tag for browsers that do not support picture element -->
+        <img src="{{ fields.field_our_story_background_image.content }}" alt="{{ fields.field_our_story_background_image_2.content }}">  
+    </picture> 
+    <div class="inner-container">
+        <h2 class= "header_a">{{ fields.field_our_story_headline.content |upper |raw }}</h2>
+        <a href="{{ fields.field_hero_cta_first.content }}" class="cta secondary-light watch-video">{{ fields.field_hero_cta_first_1.content }}</a>
+    </div>
+{% endif %}
