@@ -1,9 +1,9 @@
 @import "sapient.variables-mixins.less";
 .error-page {
 	.error-info-wrapper {
-		margin: 0 auto;
+		.centerX();
 		max-width: 770px;
-		padding: 12% 15px 0;
+		padding: 8% 15px 0;
 		width: 100%;
 		h1,h2 {
 			color: @dark-gray;
@@ -13,12 +13,14 @@
 	
 	img {
 		width: 100%;
+		padding-top: 7%;
 	}
 }
 @media screen and (max-width: @bp-max-mobile) {
 	.error-page {
 		.error-info-wrapper {
 			max-width: 660px;
+			top: 20%;
 			h1,h2 {
 				text-align: center;
 			}	
@@ -26,6 +28,9 @@
 				font-size: 14px;
 				line-height: 24px;
 			}
+		}
+		img {
+			padding-top: 40%;
 		}
 	}	
 }
