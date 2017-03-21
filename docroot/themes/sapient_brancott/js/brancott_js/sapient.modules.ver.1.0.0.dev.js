@@ -481,9 +481,8 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 			
-			closeCookie = function() {
-				var $closeButton = $(".cookie-notification-wrapper .close-btn");
-					$closeButton.on('click', function() {
+			closeCookie = function() {					
+				$(document).on("click",".cookie-notification-wrapper .close-btn", function() {
 						alert("clicked");
 						$(".cookie-notification-wrapper").hide();
 						$(".cookie-notification-wrapper .agree-button").trigger( "click" );
@@ -1296,7 +1295,28 @@ var ourWines = (function($, window, sapient) {
 				$(window).on('resize', function () {
 					debounce(sapient.winesFilter.closeMobileNavs,100,"close Mobile Navs");
 				});
-			};
+			},
+			onClickOutside = function() {
+				$(document).on('touchend', function(e) {
+					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *')
+					 && ($(this).find(".list-reset").css("opacity") !== 0)) {
+						return;
+					}
+					else if($(this).find(".list-reset").css("opacity") == 0){
+						$(this).addClass("hovered");
+						$(this).find(".level-2.list-reset").css({"opacity":1, "left": 0 });
+						//$(".hovered >a").css("color","white");
+					}
+					else {
+						$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
+						$(".wine-filters-desktop .hovered").css("background-color","#1e7266");
+						$(".hovered >a").css("color","white");
+						$(".wine-filters-desktop .hovered ").removeClass("hovered");	
+					}
+					
+				});
+			}
+			;
 
 
 		return {
@@ -1305,7 +1325,8 @@ var ourWines = (function($, window, sapient) {
 			mobileFiltersMenu: mobileFiltersMenu,
 			closeMobileNavs: closeMobileNavs,
 			onResize: onResize,
-			seeMoreLess: seeMoreLess
+			seeMoreLess: seeMoreLess,
+			onClickOutside: onClickOutside
 		};
 	}
 
@@ -1326,6 +1347,7 @@ sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
 sapient.winesFilter.onResize();
 sapient.winesFilter.seeMoreLess();
+sapient.winesFilter.onClickOutside();
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
@@ -1356,6 +1378,10 @@ var footerObj = (function($, window, sapient) {
 				document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 				location.reload();
 			});
+		},
+
+		setEqualMargin = function() {
+			$("footer .region-footer a.external").closest("li").css("margin-right",48);
 		};
 
 
@@ -1363,7 +1389,8 @@ var footerObj = (function($, window, sapient) {
 			// public + private states and behaviors
 			setFooterDdownPos: setFooterDdownPos,
 			onResize: onResize,
-			regionSelector: regionSelector
+			regionSelector: regionSelector,
+			setEqualMargin: setEqualMargin
 		};
 	}
 
@@ -1383,6 +1410,7 @@ sapient.footer = footerObj.getInstance();
 /*sapient.footer.setFooterDdownPos();
 sapient.footer.onResize();*/
 sapient.footer.regionSelector("age_checked");
+sapient.footer.setEqualMargin();
 var validationObj = (function($, window, sapient) {
 
 	var validationInstance;

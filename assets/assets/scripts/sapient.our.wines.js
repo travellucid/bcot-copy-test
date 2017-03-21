@@ -151,7 +151,28 @@ var ourWines = (function($, window, sapient) {
 				$(window).on('resize', function () {
 					debounce(sapient.winesFilter.closeMobileNavs,100,"close Mobile Navs");
 				});
-			};
+			},
+			onClickOutside = function() {
+				$(document).on('touchend', function(e) {
+					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *')
+					 && ($(this).find(".list-reset").css("opacity") !== 0)) {
+						return;
+					}
+					else if($(this).find(".list-reset").css("opacity") == 0){
+						$(this).addClass("hovered");
+						$(this).find(".level-2.list-reset").css({"opacity":1, "left": 0 });
+						//$(".hovered >a").css("color","white");
+					}
+					else {
+						$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
+						$(".wine-filters-desktop .hovered").css("background-color","#1e7266");
+						$(".hovered >a").css("color","white");
+						$(".wine-filters-desktop .hovered ").removeClass("hovered");	
+					}
+					
+				});
+			}
+			;
 
 
 		return {
@@ -160,7 +181,8 @@ var ourWines = (function($, window, sapient) {
 			mobileFiltersMenu: mobileFiltersMenu,
 			closeMobileNavs: closeMobileNavs,
 			onResize: onResize,
-			seeMoreLess: seeMoreLess
+			seeMoreLess: seeMoreLess,
+			onClickOutside: onClickOutside
 		};
 	}
 
@@ -181,3 +203,4 @@ sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
 sapient.winesFilter.onResize();
 sapient.winesFilter.seeMoreLess();
+sapient.winesFilter.onClickOutside();
