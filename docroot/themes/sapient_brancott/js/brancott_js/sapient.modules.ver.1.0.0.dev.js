@@ -1298,7 +1298,7 @@ var ourWines = (function($, window, sapient) {
 			},
 			onClickOutside = function() {
 				$(document).on('touchend', function(e) {
-					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *')) {
+					if ($(e.target).is('.wine-filters-desktop .list-reset .menuitem')) {
 						return;
 					}
 					$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
