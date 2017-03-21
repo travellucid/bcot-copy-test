@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sapient_our_wines\Form;
+namespace Drupal\brancott_our_wines\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -21,7 +21,7 @@ class ConfigForm extends FormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'sapient_our_wines.settings',
+      'brancott_our_wines.settings',
     ];
   }
 
@@ -40,7 +40,7 @@ class ConfigForm extends FormBase {
    *   The render array defining the elements of the form.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $vc = $this->config('sapient_our_wines.settings');
+    $vc = $this->config('brancott_our_wines.settings');
     $form = array();
 
     $form['openweatherapi_key'] = [
@@ -189,7 +189,7 @@ class ConfigForm extends FormBase {
    *   The unique ID of the form defined by this class.
    */
   public function getFormId() {
-    return 'sapient_our_wines_config_form';
+    return 'brancott_our_wines_config_form';
   }
 
   /**
@@ -207,7 +207,7 @@ class ConfigForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = \Drupal::configFactory()->getEditable('sapient_our_wines.settings');
+    $config = \Drupal::configFactory()->getEditable('brancott_our_wines.settings');
     $config
         ->set('openweatherapi_key', $form_state->getValue('openweatherapi_key'))
         ->set('dch_wine_url', $form_state->getValue('dch_wine_url'))

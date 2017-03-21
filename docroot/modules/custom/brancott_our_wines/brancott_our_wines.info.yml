@@ -1,0 +1,8 @@
+name: Brancott Our Wines Block
+description: Brancott Our Wines Carousel Block on Homepage
+core: 8.x
+package: Brancott Estate
+dependencies:
+- node
+- block
+type: module

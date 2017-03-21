@@ -1,7 +1,7 @@
-sapient_our_wines.simple_form:
+brancott_our_wines.simple_form:
   path: 'admin/config/brancott_settings'
   defaults:
-    _form:  '\Drupal\sapient_our_wines\Form\ConfigForm'
+    _form:  '\Drupal\brancott_our_wines\Form\ConfigForm'
     _title: 'Brancott Settings'
   requirements:
     _permission: 'administer site configuration'
