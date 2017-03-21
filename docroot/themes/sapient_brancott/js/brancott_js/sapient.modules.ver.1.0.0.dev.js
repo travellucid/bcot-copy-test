@@ -483,7 +483,6 @@ var commonObj = (function($, window, sapient) {
 			
 			closeCookie = function() {					
 				$(document).on("click",".cookie-notification-wrapper .close-btn", function() {
-						alert("clicked");
 						$(".cookie-notification-wrapper").hide();
 						$(".cookie-notification-wrapper .agree-button").trigger( "click" );
 					});
@@ -1347,7 +1346,7 @@ sapient.winesFilter.filterWines();
 sapient.winesFilter.mobileFiltersMenu();
 sapient.winesFilter.onResize();
 sapient.winesFilter.seeMoreLess();
-sapient.winesFilter.onClickOutside();
+/*sapient.winesFilter.onClickOutside();*/
 var footerObj = (function($, window, sapient) {
 
 	var footerInstance;
