@@ -12,7 +12,7 @@
     <div class="vertical-timeline">
         <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
         {% if fields.field_timeline_heading.content %}
-            <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+            <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
         {% endif %}
 
         <div class="common-margin">
@@ -63,7 +63,7 @@
         <div class="top">
             <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
             {% if fields.field_timeline_heading.content %}
-                <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+                <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
             {% endif %}
 
             <div class="">
@@ -118,7 +118,7 @@
         <div class="top">
             <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
             {% if fields.field_timeline_heading.content %}
-                <h2 class="header_b">{{ fields.field_timeline_heading.content }}</h2>
+                <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
             {% endif %}
 
             <div class="">
