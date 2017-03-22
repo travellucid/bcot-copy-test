@@ -71,28 +71,6 @@ class ConfigForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['dch_details']['dch_pp_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('DCH Privacy Policy URL'),
-      '#default_value' => $vc->get('dch_pp_url'),
-      '#description' => $this->t('DCH Privacy Policy URL'),
-      '#required' => TRUE,
-    ];
-
-    $form['dch_details']['dch_tu_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('DCH Term of Use URL'),
-      '#default_value' => $vc->get('dch_tu_url'),
-      '#description' => $this->t('DCH Term of Use URL'),
-      '#required' => TRUE,
-    ];
-    $form['dch_details']['dch_legal_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('DCH Legal URL'),
-      '#default_value' => $vc->get('dch_legal_url'),
-      '#description' => $this->t('DCH Legal URL'),
-      '#required' => TRUE,
-    ];
     $form['dch_details']['cache_ttl'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Cache Lifetime'),
@@ -212,10 +190,6 @@ class ConfigForm extends FormBase {
         ->set('openweatherapi_key', $form_state->getValue('openweatherapi_key'))
         ->set('dch_wine_url', $form_state->getValue('dch_wine_url'))
         ->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
-//        ->set('dch_all_wines_url', $form_state->getValue('dch_all_wines_url'))
-        ->set('dch_pp_url', $form_state->getValue('dch_pp_url'))
-        ->set('dch_tu_url', $form_state->getValue('dch_tu_url'))
-        ->set('dch_legal_url', $form_state->getValue('dch_legal_url'))
         ->set('cache_ttl', $form_state->getValue('cache_ttl'))
         ->set('facebook_app_id', $form_state->getValue('facebook_app_id'))
         ->set('click_to_buy_instances', $form_state->getValue('click_to_buy_instances'))
