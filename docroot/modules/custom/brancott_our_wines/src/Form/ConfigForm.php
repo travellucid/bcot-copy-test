@@ -139,6 +139,33 @@ class ConfigForm extends FormBase {
       '#default_value' => $vc->get('external_key'),
       '#required' => TRUE,
     ];
+    
+    // Analytics 
+    $form['analytics'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Analytics Integration settings'),
+      '#open' => TRUE, // Added
+    );
+    $form['analytics']['analytics_head'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Analytics Head'),
+      '#default_value' => $vc->get('analytics_head'),
+      '#required' => FALSE,
+    ];
+    $form['analytics']['analytics_body_begin'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Analytics Body Begin'),
+      '#default_value' => $vc->get('analytics_body_begin'),
+      '#required' => FALSE,
+    ];
+    $form['analytics']['analytics_body_end'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Analytics Body End'),
+      '#default_value' => $vc->get('analytics_body_end'),
+      '#required' => FALSE,
+    ];
+
+
 
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
@@ -198,6 +225,9 @@ class ConfigForm extends FormBase {
         ->set('client_secret', $form_state->getValue('client_secret'))
         ->set('data_extension', $form_state->getValue('data_extension'))
         ->set('external_key', $form_state->getValue('external_key'))
+        ->set('analytics_head', $form_state->getValue('analytics_head'))
+        ->set('analytics_body_begin', $form_state->getValue('analytics_body_begin'))
+        ->set('analytics_body_end', $form_state->getValue('analytics_body_end'))
         ->save();
     drupal_set_message('Settings have been saved.');
   }
