@@ -161,7 +161,6 @@ var ourWines = (function($, window, sapient) {
 							$(".visited >a").css("color","red");
 							$(".wine-filters-desktop .visited ").addClass("hovered").removeClass("visited");
 						}
-						
 						return;
 					}
 
