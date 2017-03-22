@@ -387,6 +387,9 @@ function sapient_brancott_preprocess_views_view(&$variables) {
             
           
     }
+    if ($view_id == 'brancott_sitemap' ) {
+      $variables['current_langcode'] = $langcode;
+    }
 }
 
 
