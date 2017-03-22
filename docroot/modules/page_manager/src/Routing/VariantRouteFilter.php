@@ -155,7 +155,6 @@ class VariantRouteFilter implements RouteFilterInterface {
   protected function checkPageVariantAccess($page_variant_id) {
     /** @var \Drupal\page_manager\PageVariantInterface $variant */
     $variant = $this->pageVariantStorage->load($page_variant_id);
-
     try {
       $access = $variant && $variant->access('view');
     }
@@ -170,7 +169,10 @@ class VariantRouteFilter implements RouteFilterInterface {
       $contexts = $variant->getContexts();
       if (isset($contexts['current_user'])) {
         $access = $contexts['current_user']->getContextData()->getValue()->hasPermission('link to any page');
-                                $access = $access ? TRUE : FALSE;
+        $access = $access ? TRUE : FALSE;
+        if($variant->getPage()->id() == 'node_view') {
+          $access = TRUE;
+        }                        
       } 
     }
     //print_r($access);die;
