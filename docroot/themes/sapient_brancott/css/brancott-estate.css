@@ -979,7 +979,7 @@ border-color: transparent transparent #d50032 transparent;
 }
 
 /* custom scrollbar */
-
+/* 
 ::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -1001,7 +1001,7 @@ border-color: transparent transparent #d50032 transparent;
 ::-webkit-scrollbar-track {
     border-radius: 10px;  
     background-color: #ffffff; 
-}
+} */
 
 .js-facebook .js-login-facebook {
   border-radius: 0;
