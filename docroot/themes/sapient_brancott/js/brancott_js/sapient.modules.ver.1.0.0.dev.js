@@ -1299,9 +1299,9 @@ var ourWines = (function($, window, sapient) {
 				$(document).on('touchend', function(e) {
 					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *') ) {
 						if ($(e.target.parentElement).hasClass("visited") ){
-							$(this).find(".wine-filters-desktop [role='menuitem'] .level-2.list-reset").css({"opacity":1, "left": 0 });
+							$(e.target.parentElement).find(".level-2.list-reset").css({"opacity":1, "left": 0 });
 							$(".wine-filters-desktop .visited").css("background-color","white");
-							$(".visited >a").css("color","red");
+							$(".visited >a").css("color","#d50032");
 							$(".wine-filters-desktop .visited ").addClass("hovered").removeClass("visited");
 						}
 						return;
