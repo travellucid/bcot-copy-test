@@ -1296,7 +1296,7 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			onClickOutside = function() {
-				$(document).on('click touch', function(e) {
+				$(document).on('touchend', function(e) {
 					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *') ) {
 
 						$(".wine-filters-desktop .visited").css("background-color","#1e7266");
