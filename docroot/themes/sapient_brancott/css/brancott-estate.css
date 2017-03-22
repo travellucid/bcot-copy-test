@@ -589,9 +589,9 @@ select + .age-gate .form-row-error-text,
   border-width: 5px 5px 0 5px;
 }
 .age-gate .selectize-control.single .selectize-input.dropdown-active:after {
-  margin-top: -4px;
-  border-width: 0 5px 5px 5px;
-  border-color: transparent transparent #fff transparent;
+margin-top: -4px;
+border-width: 0 5px 5px 5px;
+border-color: transparent transparent #d50032 transparent;
 }
 .age-gate .selectize-control.rtl.single .selectize-input:after {
   left: 15px;
