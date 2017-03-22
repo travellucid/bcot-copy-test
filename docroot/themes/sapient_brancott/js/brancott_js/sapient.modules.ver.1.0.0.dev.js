@@ -1301,6 +1301,7 @@ var ourWines = (function($, window, sapient) {
 
 						$(".wine-filters-desktop .visited").css("background-color","#1e7266");
 						$(".wine-filters-desktop .hovered").css("background-color","#1e7266");
+						$(".hovered >a").css("color","white");
 						if ($(e.target.parentElement).hasClass("visited") ){
 							$(e.target.parentElement).siblings().removeClass("visited");
 							$(e.target.parentElement).find(".level-2.list-reset").css({"opacity":1, "left": 0 });
