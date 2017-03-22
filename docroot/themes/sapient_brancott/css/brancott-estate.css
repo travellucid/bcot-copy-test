@@ -1007,3 +1007,7 @@ select + .age-gate .form-row-error-text,
 .btn-facebook__label {
   color: white;
 }
+
+.date-control input[type='number'] {
+  -moz-appearance:textfield;
+}
