@@ -155,10 +155,11 @@ var ourWines = (function($, window, sapient) {
 			onClickOutside = function() {
 				$(document).on('touchend', function(e) {
 					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *') ) {
-						if ($(this).find(".wine-filters-desktop [role='menuitem']").hasClass("visited") ){
-							$(this).find(".wine-filters-desktop [role='menuitem'] .level-2.list-reset").css({"opacity":1, "left": 0 });
+						if ($(e.target.parentElement).hasClass("visited") ){
+							$(e.target.parentElement).siblings().removeClass("visited");
+							$(e.target.parentElement).find(".level-2.list-reset").css({"opacity":1, "left": 0 });
 							$(".wine-filters-desktop .visited").css("background-color","white");
-							$(".visited >a").css("color","red");
+							$(".visited >a").css("color","#d50032");
 							$(".wine-filters-desktop .visited ").addClass("hovered").removeClass("visited");
 						}
 						return;
