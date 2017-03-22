@@ -399,3 +399,18 @@ function sapient_brancott_preprocess_page(&$variables) {
    
  
 }
+
+function sapient_brancott_preprocess_html(&$variables) {
+    $analytics_head = \Drupal::config('brancott_our_wines.settings')->get('analytics_head'); 
+    if ($analytics_head) {
+      $variables['analytics_head'] = $analytics_head;
+    }
+    $analytics_body_begin = \Drupal::config('brancott_our_wines.settings')->get('analytics_body_begin');
+    if ($analytics_body_begin) {
+      $variables['analytics_body_begin'] = $analytics_body_begin;
+    }
+    $analytics_body_end = \Drupal::config('brancott_our_wines.settings')->get('analytics_body_end');
+    if ($analytics_body_end) {
+      $variables['analytics_body_end'] = $analytics_body_end;
+    }
+}
