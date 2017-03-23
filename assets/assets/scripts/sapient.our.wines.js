@@ -1,6 +1,3 @@
-$("body").on("touchmove", function(){
-						dragging = true;
-					});
 var ourWines = (function($, window, sapient) {
 
 	var filterWinesCollection;
@@ -174,13 +171,6 @@ var ourWines = (function($, window, sapient) {
 						$(".wine-filters-desktop .visited").removeClass("visited");
 						return;
 					}
-
-					
-					
-					if (dragging){
-						return;
-					}
-
 					$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
 					$(".wine-filters-desktop .hovered").css("background-color","#1e7266");
 					$(".wine-filters-desktop .hovered >a").css("color","white");
