@@ -68,7 +68,7 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
       '#maxlength' => '20',
       '#placeholder' => t('Title'),
       '#required' => TRUE,
-      '#description' => $desc,
+      '#description' => t('Maximum character limit : 20').$desc,
       
       
     ];
