@@ -165,7 +165,18 @@ class ConfigForm extends FormBase {
       '#required' => FALSE,
     ];
 
-
+    // Robotstxt 
+    $form['robotstxt'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Robots.txt Integration settings'),
+      '#open' => TRUE, // Added
+    );
+    $form['robotstxt']['robots_txt'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Robots txt'),
+      '#default_value' => $vc->get('robots_txt'),
+      '#required' => FALSE,
+    ];
 
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
@@ -228,8 +239,36 @@ class ConfigForm extends FormBase {
         ->set('analytics_head', $form_state->getValue('analytics_head'))
         ->set('analytics_body_begin', $form_state->getValue('analytics_body_begin'))
         ->set('analytics_body_end', $form_state->getValue('analytics_body_end'))
+        ->set('robots_txt', $form_state->getValue('robots_txt'))
         ->save();
+    $this->robotostxt($form_state->getValue('robots_txt'));
     drupal_set_message('Settings have been saved.');
   }
 
+  
+    /**
+   * Autocomplete.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function robotostxt($robots_txt) {
+    $data = array();
+    // Defining possible robots.txt files array.
+    $files = array(
+        DRUPAL_ROOT . '/robots.txt',
+        DRUPAL_ROOT . '/sites/default/default.robots.txt',
+    );
+    //print_r($files); exit;
+    foreach ($files as $file) {
+      if (file_exists($file) && is_readable($file)) {
+          if (file_put_contents($files[0], $robots_txt) !== FALSE) {
+            //_custom_robots_watchdog();
+          }
+
+        break;
+      }
+    }
+    return $data;
+  }
 }
