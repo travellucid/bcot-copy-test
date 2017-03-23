@@ -153,14 +153,9 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			onClickOutside = function() {
-				$("body").on("touchmove", function(){
-				dragging = true;
-				});
+				
 				$(document).on('touchend', function(e) {
-					if (dragging){
-						return;
-					}
-					
+
 					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *') ) {
 
 						$(".wine-filters-desktop .visited").css("background-color","#1e7266");
@@ -176,7 +171,6 @@ var ourWines = (function($, window, sapient) {
 						$(".wine-filters-desktop .visited").removeClass("visited");
 						return;
 					}
-
 					$(".level-2.list-reset").css({"opacity":0, "left": -9999 });
 					$(".wine-filters-desktop .hovered").css("background-color","#1e7266");
 					$(".wine-filters-desktop .hovered >a").css("color","white");
