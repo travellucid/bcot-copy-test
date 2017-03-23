@@ -53,7 +53,12 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
     ];
 
     // title
-
+   /* $desc = "Drop Down Options<br>
+<ul>
+  <li>Buy No Popup - Use 'Click to Buy' below</li>
+  <li>Internal Site Page - Use 'CTA' below</li>
+  <li>External Site Page - Use 'CTA' below</li>
+</ul>";*/
     $element['title'] = [
       '#type' => 'textfield',
       '#title' => t('Click to buy Console, text of the CTA'),
@@ -63,7 +68,9 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
       '#maxlength' => '20',
       '#placeholder' => t('Title'),
       '#required' => TRUE,
-      '#description' => t('Maximum character limit : 20'),
+      '#description' => t('Maximum character limit : 20<br>'),
+      
+      
     ];
 
     return $element;
