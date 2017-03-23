@@ -153,7 +153,14 @@ var ourWines = (function($, window, sapient) {
 				});
 			},
 			onClickOutside = function() {
+				$("body").on("touchmove", function(){
+				dragging = true;
+				});
 				$(document).on('touchend', function(e) {
+					if (dragging){
+						return;
+					}
+					
 					if ($(e.target).is('.wine-filters-desktop, .wine-filters-desktop *') ) {
 
 						$(".wine-filters-desktop .visited").css("background-color","#1e7266");

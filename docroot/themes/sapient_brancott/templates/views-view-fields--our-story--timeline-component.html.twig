@@ -5,6 +5,8 @@
 {% set image_list_v2 = fields.field_image_vertical_2.content|split(',') %}
 {% set image_list_v3 = fields.field_image_vertical_3.content|split(',') %}
 {% set image_list_v4 = fields.field_image_vertical_4.content|split(',') %}
+{% set image_list_v6 = fields.field_image_vertical_6.content|split(',') %}
+{% set image_list_v7 = fields.field_image_vertical_7.content|split(',') %}
 {% set video_list = fields.field_video_youtube_.content|split(',') %}
 {% set alt_list = fields.field_image_vertical_5.content|split(',') %}
 {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
@@ -37,7 +39,7 @@
                         <picture>
                             <source   media="(max-width: 321px)"  srcset="{{ image_list_v1[key] }}"> 
 
-                            <source  media="(max-width: 691px)"  srcset="{{ image_list_v1[key] }}">
+                            <source  media="(max-width: 691px)"  srcset="{{ image_list_v6[key] }}">
                             <source  media="(max-width: 769px)"  srcset="{{ image_list_v1[key] }}">
 
                             <source  media="(max-width: 1025px)" srcset="{{ image_list[key] }}">
@@ -99,7 +101,7 @@
                         <picture>
                             <source   media="(max-width: 321px)"  srcset="{{ image_horizontal }}"> 
 
-                            <source  media="(max-width: 691px)"  srcset=" {{ image_horizontal }}"> 
+                            <source  media="(max-width: 691px)"  srcset=" {{ image_list_v7[key] }}"> 
                             <source  media="(max-width: 769px)"  srcset="{{ image_horizontal }}"> 
 
                             <source  media="(max-width: 1025px)" srcset="{{ image_horizontal }}">
