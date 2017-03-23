@@ -1141,6 +1141,9 @@ sapient.followUs = followUsObj.getInstance();
 
 sapient.followUs.setContentWidth();
 sapient.followUs.onResize();
+$("body").on("touchmove", function(){
+						dragging = true;
+					});
 var ourWines = (function($, window, sapient) {
 
 	var filterWinesCollection;
@@ -1315,9 +1318,7 @@ var ourWines = (function($, window, sapient) {
 						return;
 					}
 
-					$("body").on("touchmove", function(){
-						dragging = true;
-					});
+					
 					
 					if (dragging){
 						return;
