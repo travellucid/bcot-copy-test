@@ -60,7 +60,7 @@
         {%- if enable_data_layer -%}
         <script>
             dataLayer.push(
-              {'pageTitle': {{ head_title|safe_join(' | ') }} }
+              {'pageTitle': '{{ head_title|safe_join(' | ') }}' }
             );
         </script>
         {%- endif -%}
