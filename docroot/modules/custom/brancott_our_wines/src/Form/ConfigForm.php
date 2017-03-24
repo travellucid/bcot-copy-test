@@ -164,6 +164,12 @@ class ConfigForm extends FormBase {
       '#default_value' => $vc->get('analytics_body_end'),
       '#required' => FALSE,
     ];
+    $form['analytics']['enable_data_layer'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable Data Layer'),
+      '#default_value' => $vc->get('enable_data_layer'),
+      '#required' => FALSE,
+    ];
 
     // Robotstxt 
     $form['robotstxt'] = array(
@@ -239,6 +245,7 @@ class ConfigForm extends FormBase {
         ->set('analytics_head', $form_state->getValue('analytics_head'))
         ->set('analytics_body_begin', $form_state->getValue('analytics_body_begin'))
         ->set('analytics_body_end', $form_state->getValue('analytics_body_end'))
+        ->set('enable_data_layer', $form_state->getValue('enable_data_layer'))
         ->set('robots_txt', $form_state->getValue('robots_txt'))
         ->save();
     $this->robotostxt($form_state->getValue('robots_txt'));
