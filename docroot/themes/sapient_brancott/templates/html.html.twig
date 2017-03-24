@@ -56,22 +56,29 @@
 %}
 <!DOCTYPE html>
 <html {{ html_attributes }}>
-  <head>
-    {{ analytics_head |raw }} 
+    <head>
+        {%- if enable_data_layer -%}
+        <script>
+            dataLayer.push(
+              {'pageTitle': {{ head_title|safe_join(' | ') }} }
+            );
+        </script>
+        {%- endif -%}
+        {{ analytics_head |raw }} 
     <head-placeholder token="{{ placeholder_token|raw }}">
-    <title>{{ head_title|safe_join(' | ') }}</title>
-    <css-placeholder token="{{ placeholder_token|raw }}">
-    <js-placeholder token="{{ placeholder_token|raw }}">
-  </head>
-  <body{{ attributes.addClass(body_classes) }}>
-      {{ analytics_body_begin |raw }}
-    <a href="#main-content" class="visually-hidden focusable skip-link">
-      {{ 'Skip to main content'|t }}
-    </a>
-    {{ page_top }}
-    {{ page }}
-    {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-        {{ analytics_body_end |raw }}
-  </body>
-</html>
+        <title>{{ head_title|safe_join(' | ') }}</title>
+        <css-placeholder token="{{ placeholder_token|raw }}">
+            <js-placeholder token="{{ placeholder_token|raw }}">
+                </head>
+                <body{{ attributes.addClass(body_classes) }}>
+                    {{ analytics_body_begin |raw }}
+                    <a href="#main-content" class="visually-hidden focusable skip-link">
+                        {{ 'Skip to main content'|t }}
+                    </a>
+                    {{ page_top }}
+                    {{ page }}
+                    {{ page_bottom }}
+                <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+                    {{ analytics_body_end |raw }}
+                    </body>
+                    </html>
