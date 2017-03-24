@@ -82,16 +82,16 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $city = $variables['row']->_entity->field_city->value;
           $month = date('n');
           if (!empty($month == 1)) {
-            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_jan->getValue()[0]['value'];
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_desc_jan->getValue()[0]['value'];
           }
           elseif (!empty($month == 2)) {
-            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_feb->getValue()[0]['value'];
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_desc_feb->getValue()[0]['value'];
           }
           elseif (!empty($month == 3)) {
-            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_march->getValue()[0]['value'];
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_desc_march->getValue()[0]['value'];
           }
           elseif (!empty($values[$month == 4])) {
-            $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_april->getValue()[0]['value'];
+            $variables['climate_desc'] = $variables['row']->_entity->field_climate_desc_april->getValue()[0]['value'];
           }
           elseif (!empty($values[$month == 5])) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_may->getValue()[0]['value'];
