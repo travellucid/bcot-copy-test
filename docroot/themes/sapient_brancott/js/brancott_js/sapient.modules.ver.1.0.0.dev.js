@@ -380,6 +380,11 @@ var commonObj = (function($, window, sapient) {
 					}
 				});
 			},
+			setScrollTopAgeGate= function() {
+				$(".age-gate .form-row .js-country-select").on("touchend",function(){
+					setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);console.log("aaaasxxkjhdioadHIhdjkDJKHSDJKHSDJK")},500);
+				});
+			},
 
 			toggleAwardsDetails = function() {
 				$(".awards-accolades .see-more-btn-wrapper .see-more-btn").click(function() {
@@ -413,6 +418,9 @@ var commonObj = (function($, window, sapient) {
 
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
+					$(document).on("touchend",".age-gate .form-row .js-country-select", function(){
+						setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);},100);
+					});
 				}
 				
 			},
