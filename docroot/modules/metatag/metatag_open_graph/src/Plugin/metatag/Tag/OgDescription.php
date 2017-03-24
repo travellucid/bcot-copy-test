@@ -10,7 +10,7 @@ use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  * @MetatagTag(
  *   id = "og_description",
  *   label = @Translation("Description"),
- *   description = @Translation("A one to two sentence description of the content."),
+ *   description = @Translation("A one to two sentence description of the content. <br> Maximum Character Limit : 255"),
  *   name = "og:description",
  *   group = "open_graph",
  *   weight = 6,
