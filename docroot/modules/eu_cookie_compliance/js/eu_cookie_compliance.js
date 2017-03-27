@@ -24,6 +24,10 @@
           }
 
           var status = Drupal.eu_cookie_compliance.getCurrentStatus();
+          var age_gate_status = Drupal.eu_cookie_compliance.getAgeGateCurrentStatus();
+          if (age_gate_status !== 0) {
+            return;
+          }
           var clicking_confirms = settings.popup_clicking_confirmation;
           var agreed_enabled = settings.popup_agreed_enabled;
           var popup_hide_agreed = settings.popup_hide_agreed;
@@ -127,6 +131,13 @@
 
   Drupal.eu_cookie_compliance.getCurrentStatus = function () {
     var name = 'cookie-agreed';
+    var result = Drupal.eu_cookie_compliance.getCookie(name);
+
+    return parseInt(result);
+  };
+  
+  Drupal.eu_cookie_compliance.getAgeGateCurrentStatus = function () {
+    var name = 'age_checked';
     var result = Drupal.eu_cookie_compliance.getCookie(name);
 
     return parseInt(result);
