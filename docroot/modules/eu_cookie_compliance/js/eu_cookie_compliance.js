@@ -25,7 +25,7 @@
 
           var status = Drupal.eu_cookie_compliance.getCurrentStatus();
           var age_gate_status = Drupal.eu_cookie_compliance.getAgeGateCurrentStatus();
-          if (age_gate_status !== 0) {
+          if (age_gate_status === 0) {
             return;
           }
           var clicking_confirms = settings.popup_clicking_confirmation;
