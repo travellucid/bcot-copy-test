@@ -266,7 +266,7 @@
   font-family: "NeutraText Book";
   line-height: 22px;
 }
-@media screen and (width: 768px) {
+/* @media screen and (width: 768px) {
   .age-gate .form-row label {
     display: block;
     text-align: left;
@@ -275,7 +275,7 @@
     font-size: 14px;
     line-height: 24px;
   }
-}
+} */
 
 .age-gate .form-row .form-label-text {
   float: left;
