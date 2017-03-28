@@ -141,3 +141,94 @@ function braoncott_rest_api_get_generic_url($generic_dch_url) {
   $value = $rest_api_generic_page->getGenericPage($generic_dch_url);
   return $value;
 }
+
+function brancott_rest_api_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'webform_submission_newsletter_signup_form') {
+     $form['actions']['submit']['#submit'][] = 'brancott_newsletter_salesforce';
+  }
+}
+function brancott_newsletter_salesforce() {
+  
+  require('\sdk\ET_Client.php');
+ 
+  try {	
+	$myclient = new ET_Client();
+	
+	$DataExtensionNameForTesting = "2D45CEE8-2751-44FA-ADB5-90A896175A05";
+
+	print_r("Get single Data Extension \n");
+	$getDE = new ET_DataExtension();
+	$getDE->authStub = $myclient;
+	$getDE->props = array("CustomerKey", "Name");	
+	$getDE->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $DataExtensionNameForTesting);
+	$getResult = $getDE->get();
+	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
+	print 'Code: '.$getResult->code."\n";
+	print 'Message: '.$getResult->message."\n";
+	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
+	print 'Result Count: '.count($getResult->results)."\n";
+	print 'Results: '."\n";
+	print_r($getResult->results);die;
+	print "\n---------------\n";
+    //print_r('test123');die;
+	//Get all Data Extensions Columns filter by specific DE
+	print_r("Get all Data Extensions Columns filter by specific DE \n");
+	$getDEColumns = new ET_DataExtension_Column();
+	$getDEColumns->authStub = $myclient;
+	$getDEColumns->props = array("CustomerKey", "Name");	
+	$getDEColumns->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $DataExtensionNameForTesting);
+	$getResult = $getDEColumns->get();
+	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
+	print 'Code: '.$getResult->code."\n";
+	print 'Message: '.$getResult->message."\n";
+	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
+	print 'Result Count: '.count($getResult->results)."\n";
+	print 'Results: '."\n";
+	print_r($getResult->results);
+	print "\n---------------\n";
+
+	// Add a row to a DataExtension 
+	print_r("Add a row to a DataExtension  \n");
+	$postDRRow = new ET_DataExtension_Row();
+	$postDRRow->authStub = $myclient;
+	$postDRRow->props = array("EmailAddress" => "g@example.com");
+	$postDRRow->CustomerKey = $DataExtensionNameForTesting;	
+	$postResult = $postDRRow->post();
+	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
+	print 'Code: '.$postResult->code."\n";
+	print 'Message: '.$postResult->message."\n";	
+	print 'Result Count: '.count($postResult->results)."\n";
+	print 'Results: '."\n";
+	print_r($postResult->results);
+	print "\n---------------\n";
+
+	
+	//Get rows from Data Extension using filter (By Name)
+	print_r("Get rows from Data Extension using filter (By Name) \n");
+	$getDERows = new ET_DataExtension_Row();
+	$getDERows->authStub = $myclient;
+	$getDERows->props = array("EmailAddress", "Title");
+	$getDERows->Name = $DataExtensionNameForTesting;
+	$getDERows->filter = array('Property' => 'EmailAddress','SimpleOperator' => 'equals','Value' => 'gpahuja@sapient.com');
+	$getResult = $getDERows->get();
+	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
+	print 'Code: '.$getResult->code."\n";
+	print 'Message: '.$getResult->message."\n";
+	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
+	print 'Result Count: '.count($getResult->results)."\n";
+	print 'Results: '."\n";
+	print_r($getResult->results);
+	print "\n---------------\n";
+	
+	
+	}
+	catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
+
+
+
+
+
+
+}
