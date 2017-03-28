@@ -484,13 +484,34 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
-			posForm = function() {
-				/*var $form = $("form").parent();
+			onResize = function() {	
+				$(window).on('resize', function() {
+					debounce(sapient.common.posFindUs, 500, "changing SignUpPosition");		
+				});
 
-				if($form.prev().hasClass("background-noise-section")) {
-					alert()
+			},
+			posFindUs = function() {
+				var $findUs = $("#find-us-component");
+
+				if($findUs.prev().hasClass("background-noise-section") && ($(window).width() < 980)) {
+
+					$findUs.css("padding-top", 100 + "px");
+				}
+				else {
+
+					$findUs.css("padding-top", 0 + "px");
+				}
+			},
+
+			posForm = function() {
+				var $form = $("form").parent();
+
+				if($form.prev().hasClass("background-noise-section") && !($form.hasClass("background-noise-section"))) {
 					$form.css("padding-top", 100 + "px");
-				}*/
+				}
+				else if($form.hasClass("background-noise-section") && !($form.prev().hasClass("background-noise-section"))) {
+					$form.css("padding-top", 100 + "px");
+				}
 			},
 			
 			closeCookie = function() {					
@@ -528,6 +549,8 @@ var commonObj = (function($, window, sapient) {
 			killHash: killHash,
 			heroGrain: heroGrain,
 			closeCookie:closeCookie,
+			posFindUs:posFindUs,
+			onResize:onResize,
 			setTimeLineEmptySpan: setTimeLineEmptySpan
 		};
 	}
@@ -560,7 +583,8 @@ sapient.common.posFilters();
 sapient.common.heroGrain();
 sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
-
+sapient.common.onResize();
+sapient.common.posFindUs();
 /*$( function() {
 	$( "#datepicker" ).datepicker();
   } );*/
