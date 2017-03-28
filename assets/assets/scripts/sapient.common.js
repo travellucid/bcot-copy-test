@@ -103,6 +103,9 @@ var commonObj = (function($, window, sapient) {
 				if($instaComp.next().hasClass("background-noise-section")) {
 					$instaComp.addClass("background-noise-section");
 				}
+				/*else {
+					$instaComp.removeClass("background-noise-section");
+				}*/
 			},
 
 			awardsGrain = function() {

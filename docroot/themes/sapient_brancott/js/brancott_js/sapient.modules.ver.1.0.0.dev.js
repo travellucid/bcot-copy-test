@@ -395,7 +395,7 @@ var commonObj = (function($, window, sapient) {
 			
 			addBgNoise = function() {
 
-				var section = $("section .views-element-container");
+				var section = $("section.views-element-container");
 				for (var i = 1; i < section.length; i += 2) {
 					$(section[i]).addClass("background-noise-section");
 				}
@@ -461,6 +461,9 @@ var commonObj = (function($, window, sapient) {
 				if($instaComp.next().hasClass("background-noise-section")) {
 					$instaComp.addClass("background-noise-section");
 				}
+				/*else {
+					$instaComp.removeClass("background-noise-section");
+				}*/
 			},
 
 			awardsGrain = function() {
@@ -482,11 +485,12 @@ var commonObj = (function($, window, sapient) {
 			},
 
 			posForm = function() {
-				var $form = $("form").parent();
+				/*var $form = $("form").parent();
 
-				if($form.prev().hasClass("background-noise-section") && !($form.hasClass("background-noise-section"))) {
+				if($form.prev().hasClass("background-noise-section")) {
+					alert()
 					$form.css("padding-top", 100 + "px");
-				}
+				}*/
 			},
 			
 			closeCookie = function() {					
