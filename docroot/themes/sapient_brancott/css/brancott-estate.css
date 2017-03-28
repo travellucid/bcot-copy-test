@@ -998,6 +998,20 @@ border-color: transparent transparent #d50032 transparent;
 }
 }
 
+@media screen and (max-width:360px){  
+  .age-gate-divider {
+    margin: 0 auto;
+    margin-bottom: 17px;
+    max-width: 335px;
+  }
+  .age-gate-divider .left {
+    width: 139px;
+  }
+  .age-gate-divider .right {
+    width: 139px;
+  }
+}
+
 @media screen and (max-width:320px){
   
 .age-gate-divider {

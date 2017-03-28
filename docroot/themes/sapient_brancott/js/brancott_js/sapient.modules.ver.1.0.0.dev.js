@@ -465,7 +465,7 @@ var commonObj = (function($, window, sapient) {
 
 			awardsGrain = function() {
 				var $awardsGrain = $(".block-views-blockwines-hero-component-awards-and-accolades");
-				if(!($awardsGrain.next().hasClass("background-noise-section"))) {
+				if(($awardsGrain.next().hasClass("background-noise-section"))) {
 					$awardsGrain.css("padding",0);
 				}
 			},
