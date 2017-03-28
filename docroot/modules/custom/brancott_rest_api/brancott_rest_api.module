@@ -191,7 +191,7 @@ function brancott_newsletter_salesforce() {
 	print_r("Add a row to a DataExtension  \n");
 	$postDRRow = new ET_DataExtension_Row();
 	$postDRRow->authStub = $myclient;
-	$postDRRow->props = array("EmailAddress" => "g@example.com");
+	$postDRRow->props = array("EmailAddress" => "g@example.com");//will be adding dynamic values from form_state
 	$postDRRow->CustomerKey = $DataExtensionNameForTesting;	
 	$postResult = $postDRRow->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
