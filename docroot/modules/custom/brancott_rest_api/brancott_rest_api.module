@@ -168,7 +168,7 @@ function brancott_newsletter_salesforce() {
 	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
 	print 'Result Count: '.count($getResult->results)."\n";
 	print 'Results: '."\n";
-	print_r($getResult->results);die;
+	print_r($getResult->results);
 	print "\n---------------\n";
     //print_r('test123');die;
 	//Get all Data Extensions Columns filter by specific DE
