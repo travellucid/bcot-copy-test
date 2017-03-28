@@ -129,13 +129,13 @@ class ConfigForm extends FormBase {
     ];
     $form['salesforce_credentials']['data_extension'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Data Extension'),
+      '#title' => $this->t('Data Extension Name'),
       '#default_value' => $vc->get('data_extension'),
       '#required' => TRUE,
     ];
     $form['salesforce_credentials']['external_key'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('External Key'),
+      '#title' => $this->t('Data Extension Key'),
       '#default_value' => $vc->get('external_key'),
       '#required' => TRUE,
     ];

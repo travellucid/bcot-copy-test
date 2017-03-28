@@ -1,0 +1,7 @@
+pr_ctbuy_connector.simple_form:
+  title: Click to Buy Connector - Configuration
+  route_name: pr_ctbuy_connector.simple_form
+  parent: system.admin_config_services
+  description: 'Click to Buy Connector - Configuration'
+  position: left
+  weight: -20

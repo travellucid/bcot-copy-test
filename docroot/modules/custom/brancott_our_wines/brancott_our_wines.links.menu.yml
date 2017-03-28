@@ -1,0 +1,7 @@
+brancott_our_wines.simple_form:
+  title: Brancott Estate Configurations
+  route_name: brancott_our_wines.simple_form
+  parent: system.admin_config_services
+  description: 'Brancott Estate Configurations'
+  position: left
+  weight: -20
