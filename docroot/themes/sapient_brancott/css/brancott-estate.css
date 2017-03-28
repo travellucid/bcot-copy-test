@@ -155,7 +155,7 @@
   background-color: #37538e;
   border: 0;
   color: #fff;
-  padding: 20px 30px;
+  padding: 10px 30px;
   font-size: 0.714285714285714em;
   -webkit-transition-property: padding-left;
           transition-property: padding-left;
@@ -258,9 +258,25 @@
   text-align: left;
   text-transform: uppercase;
   margin: 30px 0 0 0;
-  font-size: 14px;
-    line-height: 24px;
+  font-size: 12px;
+  line-height: 22px;
 }
+
+.age-gate input {
+  font-family: "NeutraText Book";
+  line-height: 22px;
+}
+@media screen and (width: 768px) {
+  .age-gate .form-row label {
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 30px 0 0 0;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
 .age-gate .form-row .form-label-text {
   float: left;
   -moz-box-sizing: border-box;
@@ -563,6 +579,13 @@ select + .age-gate .form-row-error-text,
 .age-gate .selectize-control.multi .selectize-input.has-items {
   padding: 6px 8px 3px;
 }
+.age-gate .selectize-input > div {
+  font-family: "NeutraText Book";
+  font-size: 16px;
+  letter-spacing: normal;
+  line-height: 26px;
+}
+
 .age-gate .selectize-control.multi .selectize-input > div {
   cursor: pointer;
   margin: 0 3px 3px 0;
@@ -917,12 +940,79 @@ border-color: transparent transparent #d50032 transparent;
 .age-gate__content .date-control--month input[type="number"].date-control__input.date-control__input--month {
   margin-right: 0;
 }
-.age-gate__content .age-gate-divider {
+/* .age-gate__content .age-gate-divider {
   width: 300px;
   border-bottom: 1px solid #fff;
   height: 10px;
   margin: 0 auto 2.6em;
+} */
+.age-gate-divider {
+  margin: 0 auto;
+  max-width: 370px;
+  margin-bottom:17px
 }
+.age-gate-divider .left {
+  border-bottom: 1px solid black;
+  display: inline-block;
+  width: 162.5px;
+}
+.age-gate-divider .right {
+  border-bottom: 1px solid black;
+  display: inline-block;
+  width: 162.5px;
+}
+.age-gate-divider .center {
+  
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  top: 5px;
+}
+
+@media screen and (max-width:1024px){
+  
+.age-gate-divider {
+  margin: 0 auto;
+  margin-bottom: 17px;
+  max-width: 370px;
+}
+.age-gate-divider .left {
+  width: 162.5px;
+}
+.age-gate-divider .right {
+  width: 162.5px;
+}
+}
+@media screen and (max-width:375px){
+  
+.age-gate-divider {
+  margin: 0 auto;
+  margin-bottom: 17px;
+  max-width: 335px;
+}
+.age-gate-divider .left {
+  width: 147px;
+}
+.age-gate-divider .right {
+  width: 147px;
+}
+}
+
+@media screen and (max-width:320px){
+  
+.age-gate-divider {
+  margin: 0 auto;
+  margin-bottom: 17px;
+  max-width: 280px;
+}
+.age-gate-divider .left {
+  width: 120px;
+}
+.age-gate-divider .right {
+  width: 119px;
+}
+}
+
 .agegate--loaded .age-gate__content .age-gate-form {
   opacity: 1;
 }
@@ -1003,6 +1093,9 @@ border-color: transparent transparent #d50032 transparent;
     background-color: #ffffff; 
 } */
 
+.js-facebook {
+  margin-top: -10px;
+}
 .js-facebook .js-login-facebook {
   border-radius: 0;
   font-size: 12px;
