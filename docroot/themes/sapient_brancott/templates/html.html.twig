@@ -59,7 +59,8 @@
     <head>
         {%- if enable_data_layer -%}
         <script>
-            dataLayer.push(
+dataLayer = window.dataLayer || [];            
+dataLayer.push(
               {'pageTitle': '{{ head_title|safe_join(' | ') }}' }
             );
         </script>
