@@ -43,13 +43,19 @@ class SimpleForm extends FormBase {
     $vc = $this->config('pr_ctbuy_connector.settings');
     $form = array();
 
-    $form['pr_ctbuy_connector_instance'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Click to buy Console - Instance Code'),
-      '#default_value' => $vc->get('pr_ctbuy_connector_instance'),
-      '#description' => $this->t('The code of the instance this website (language sensitive) must connect to.'),
-      '#required' => TRUE,
-    ];
+//    $form['pr_ctbuy_connector_instance'] = [
+//      '#type' => 'textfield',
+//      '#title' => $this->t('Click to buy Console - Instance Code'),
+//      '#default_value' => $vc->get('pr_ctbuy_connector_instance'),
+//      '#description' => $this->t('The code of the instance this website (language sensitive) must connect to.'),
+//      '#required' => TRUE,
+//    ];
+    $form['pr_ctbuy_connector_instances'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Click to buy Console - Instance Codes'),
+      '#default_value' => $vc->get('pr_ctbuy_connector_instances'),
+      '#description' => t('The code of the instance this website (language sensitive) must connect to. Please follow the exact format without spaces:  <b>key|code,key|code,key|code</b>. Key would be locale and Value woul dbe Instance ID.'),
+    );
     $form['pr_ctbuy_connector_lang'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Click to buy Console - Language'),
@@ -78,20 +84,20 @@ class SimpleForm extends FormBase {
       '#description' => $this->t('The URL for the JS SDK file. Leave empty if on the Endpoints domain'),
       '#required' => FALSE,
     ];
-    $form['pr_ctbuy_connector_no_geoloc'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Click to buy Console - Disable Geolocalization'),
-      '#description' => $this->t('You can choose to disable GeoIp2 Geolocalization.'),
-      '#default_value' => $vc->get('pr_ctbuy_connector_no_geoloc'),
-      '#required' => FALSE,
-    ];
-    $form['pr_ctbuy_connector_use_curl'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Click to buy Console - Use cURL'),
-      '#default_value' => $vc->get('pr_ctbuy_connector_use_curl'),
-      '#description' => $this->t('In some specific cases you may need to use cURL to access the click to buy console.'),
-      '#required' => FALSE,
-    ];
+//    $form['pr_ctbuy_connector_no_geoloc'] = [
+//      '#type' => 'checkbox',
+//      '#title' => $this->t('Click to buy Console - Disable Geolocalization'),
+//      '#description' => $this->t('You can choose to disable GeoIp2 Geolocalization.'),
+//      '#default_value' => $vc->get('pr_ctbuy_connector_no_geoloc'),
+//      '#required' => FALSE,
+//    ];
+//    $form['pr_ctbuy_connector_use_curl'] = [
+//      '#type' => 'checkbox',
+//      '#title' => $this->t('Click to buy Console - Use cURL'),
+//      '#default_value' => $vc->get('pr_ctbuy_connector_use_curl'),
+//      '#description' => $this->t('In some specific cases you may need to use cURL to access the click to buy console.'),
+//      '#required' => FALSE,
+//    ];
 
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
@@ -159,13 +165,14 @@ class SimpleForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = \Drupal::configFactory()->getEditable('pr_ctbuy_connector.settings');
     $config
-        ->set('pr_ctbuy_connector_instance', $form_state->getValue('pr_ctbuy_connector_instance'))
+//        ->set('pr_ctbuy_connector_instance', $form_state->getValue('pr_ctbuy_connector_instance'))
+        ->set('pr_ctbuy_connector_instances', $form_state->getValue('pr_ctbuy_connector_instances'))
         ->set('pr_ctbuy_connector_lang', $form_state->getValue('pr_ctbuy_connector_lang'))
         ->set('pr_ctbuy_connector_key', $form_state->getValue('pr_ctbuy_connector_key'))
         ->set('pr_ctbuy_connector_endpoint', $form_state->getValue('pr_ctbuy_connector_endpoint'))
         ->set('pr_ctbuy_connector_sdk', $form_state->getValue('pr_ctbuy_connector_sdk'))
-        ->set('pr_ctbuy_connector_no_geoloc', $form_state->getValue('pr_ctbuy_connector_no_geoloc'))
-        ->set('pr_ctbuy_connector_use_curl', $form_state->getValue('pr_ctbuy_connector_use_curl'))
+//        ->set('pr_ctbuy_connector_no_geoloc', $form_state->getValue('pr_ctbuy_connector_no_geoloc'))
+//        ->set('pr_ctbuy_connector_use_curl', $form_state->getValue('pr_ctbuy_connector_use_curl'))
         ->save();
     drupal_set_message('Settings have been saved.');
   }
