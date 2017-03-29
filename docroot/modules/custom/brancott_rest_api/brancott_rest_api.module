@@ -148,7 +148,16 @@ function brancott_rest_api_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   }
 }
 
-function brancott_newsletter_salesforce() {
+function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  
+  $values = $form_state->getValues();
+  $name = $values['name'];
+  $email_address = $values['email_address'];
+  $dob = $values['date_of_birth'];
+  $gender = $values['gender'];
+  $postcode = $values['postcode'];
+  
+  
   require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
   try {
     $myclient = new ET_Client();
@@ -157,7 +166,7 @@ function brancott_newsletter_salesforce() {
     \Drupal::logger('my_module')->notice("Add a row to a DataExtension  \n");
     $postDRRow = new ET_DataExtension_Row();
     $postDRRow->authStub = $myclient;
-    $postDRRow->props = array("EmailAddress" => "sometestemailid1@example.com"); //will be adding dynamic values from form_state
+    $postDRRow->props = array("EmailAddress" => $email_address, "PostCode" =>$postcode, "Gender" =>$gender, "DateOfBirth" => $dob); //will be adding dynamic values from form_state
     $postDRRow->CustomerKey = $DataExtensionNameForTesting;
     $postResult = $postDRRow->post();
     \Drupal::logger('my_module')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
