@@ -72,7 +72,8 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
   }
   if ($form_id == 'webform_submission_newsletter_signup_form') {
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    if ($langcode == 'en_us') {
+    print_r($langcode);exit();
+    if ($langcode == 'en-us') {
       $form['elements']['postcode']['#title'] = 'ZIPCODE';
       $form['elements']['postcode']['#placeholder'] = 'Zipcode';
     }
@@ -288,27 +289,27 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
       $form_state->setErrorByName('postcode', 'Alpha Numeric and 10 char allowed');
     }
   }
-  if($langcode == 'en_ca'){
+  if($langcode == 'en-ca'){
     if ((strlen($newsletter_form_postcode) !== 4) || $newsletter_form_postcode && !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode)) {
       $form_state->setErrorByName('postcode', 'Alpha Numeric and 4 char allowed');
     }
   }
-  if($langcode == 'en_us'){
+  if($langcode == 'en-us'){
     if ((strlen($newsletter_form_postcode) !== 5) || $newsletter_form_postcode && !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
       $form_state->setErrorByName('postcode', 'Alpha Numeric and 5 char allowed');
     }
   }
-  if($langcode == 'en_au'){
+  if($langcode == 'en-au'){
     if ((strlen($newsletter_form_postcode) !== 4) || $newsletter_form_postcode && !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
       $form_state->setErrorByName('postcode', 'Alpha Numeric and 4 char allowed');
     }
   }
-  if($langcode == 'en_nz'){
+  if($langcode == 'en-nz'){
     if ((strlen($newsletter_form_postcode) !== 10) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
       $form_state->setErrorByName('postcode', 'Alpha Numeric and 10 char allowed');
     }
   }
-  if($langcode == 'en_gb'){
+  if($langcode == 'en-gb'){
     if ((strlen($newsletter_form_postcode) !== 10) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
       $form_state->setErrorByName('postcode', 'Alpha Numeric and 10 char allowed');
     }
