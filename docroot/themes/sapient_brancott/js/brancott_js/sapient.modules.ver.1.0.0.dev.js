@@ -623,9 +623,10 @@ var carouselObj = (function($, window, sapient) {
 			}
 		},
 
-			disableTouchCarousel = function(value) {
-
-				
+			hideCarouselCtrl = function(id) {
+				if($(id).find(".carousel-indicators li").length === 1){
+					$(id).find(".carousel-control-wrapper,.carousel-indicators").css("visibility","hidden");
+				}								
 			},
 
 			togggleCarouselView = function(id) {
@@ -824,7 +825,7 @@ var carouselObj = (function($, window, sapient) {
 			disableArrowsControlsSmallDevices: disableArrowsControlsSmallDevices,
 			findCarousalItems: findCarousalItems,
 			togggleCarouselView: togggleCarouselView,
-			disableTouchCarousel: disableTouchCarousel
+			hideCarouselCtrl: hideCarouselCtrl
 		};
 	}
 
@@ -858,6 +859,9 @@ sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
 
+sapient.carousel.hideCarouselCtrl("#carousel-our-wines");
+sapient.carousel.hideCarouselCtrl("#carousel-new-story");
+sapient.carousel.hideCarouselCtrl("#carousel-our-story");
 var heroObj = (function($, window, sapient) {
 
 	var heroInstance;
