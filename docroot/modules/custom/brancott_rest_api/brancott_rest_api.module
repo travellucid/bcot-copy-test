@@ -98,44 +98,44 @@ function brancott_rest_api_theme($existing, $type, $theme, $path) {
         'data' => NULL
       )
     ),
-	'search_results_template' => array(
+    'search_results_template' => array(
       'variables' => array('search_array' => NULL),
     ),
-	'search_results_range_template' => array(
-      'variables' => array('range_details' => NULL,'search_array' => NULL),
+    'search_results_range_template' => array(
+      'variables' => array('range_details' => NULL, 'search_array' => NULL),
     ),
   );
 }
 
 function braoncott_rest_api_get_results($wine_id) {
-	$rest_api = new BrancottRestApiController();
+  $rest_api = new BrancottRestApiController();
   $value = $rest_api->getProductDetails($wine_id);
   return $value;
 }
-
 
 function braoncott_rest_api_get_filters() {
   $rest_api_filters = new BrancottRestApiControllerFilters();
   $value = $rest_api_filters->getFilters();
   return $value;
 }
+
 function braoncott_rest_api_get_ranges() {
   $rest_api_ranges = new BrancottRestApiControllerRanges();
   $value = $rest_api_ranges->getRanges();
   return $value;
 }
+
 function braoncott_rest_api_get_ranges_details() {
   $value = getRangeDetails();
   return $value;
 }
 
-
 function getRangeDetailsFiltered() {
-    $rest_api_ranges = new BrancottRestApiControllerRanges;
-    $values_ranges = $rest_api_ranges->getRanges();	
-	return $values_ranges;
-  }
-  
+  $rest_api_ranges = new BrancottRestApiControllerRanges;
+  $values_ranges = $rest_api_ranges->getRanges();
+  return $values_ranges;
+}
+
 function braoncott_rest_api_get_generic_url($generic_dch_url) {
   $rest_api_generic_page = new BrancottRestApiControllerGenericPage();
   $value = $rest_api_generic_page->getGenericPage($generic_dch_url);
@@ -144,91 +144,58 @@ function braoncott_rest_api_get_generic_url($generic_dch_url) {
 
 function brancott_rest_api_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'webform_submission_newsletter_signup_form') {
-     $form['actions']['submit']['#submit'][] = 'brancott_newsletter_salesforce';
+    $form['actions']['submit']['#submit'][] = 'brancott_newsletter_salesforce';
   }
 }
-function brancott_newsletter_salesforce() {
+
+function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   
-  require('\sdk\ET_Client.php');
- 
-  try {	
-	$myclient = new ET_Client();
-	
-	$DataExtensionNameForTesting = "2D45CEE8-2751-44FA-ADB5-90A896175A05";
-
-	print_r("Get single Data Extension \n");
-	$getDE = new ET_DataExtension();
-	$getDE->authStub = $myclient;
-	$getDE->props = array("CustomerKey", "Name");	
-	$getDE->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $DataExtensionNameForTesting);
-	$getResult = $getDE->get();
-	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
-	print 'Code: '.$getResult->code."\n";
-	print 'Message: '.$getResult->message."\n";
-	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
-	print 'Result Count: '.count($getResult->results)."\n";
-	print 'Results: '."\n";
-	print_r($getResult->results);
-	print "\n---------------\n";
-    //print_r('test123');die;
-	//Get all Data Extensions Columns filter by specific DE
-	print_r("Get all Data Extensions Columns filter by specific DE \n");
-	$getDEColumns = new ET_DataExtension_Column();
-	$getDEColumns->authStub = $myclient;
-	$getDEColumns->props = array("CustomerKey", "Name");	
-	$getDEColumns->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $DataExtensionNameForTesting);
-	$getResult = $getDEColumns->get();
-	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
-	print 'Code: '.$getResult->code."\n";
-	print 'Message: '.$getResult->message."\n";
-	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
-	print 'Result Count: '.count($getResult->results)."\n";
-	print 'Results: '."\n";
-	print_r($getResult->results);
-	print "\n---------------\n";
-
-	// Add a row to a DataExtension 
-	print_r("Add a row to a DataExtension  \n");
-	$postDRRow = new ET_DataExtension_Row();
-	$postDRRow->authStub = $myclient;
-	$postDRRow->props = array("EmailAddress" => "g@example.com");//will be adding dynamic values from form_state
-	$postDRRow->CustomerKey = $DataExtensionNameForTesting;	
-	$postResult = $postDRRow->post();
-	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
-	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
-	print 'Result Count: '.count($postResult->results)."\n";
-	print 'Results: '."\n";
-	print_r($postResult->results);
-	print "\n---------------\n";
-
-	
-	//Get rows from Data Extension using filter (By Name)
-	print_r("Get rows from Data Extension using filter (By Name) \n");
-	$getDERows = new ET_DataExtension_Row();
-	$getDERows->authStub = $myclient;
-	$getDERows->props = array("EmailAddress", "Title");
-	$getDERows->Name = $DataExtensionNameForTesting;
-	$getDERows->filter = array('Property' => 'EmailAddress','SimpleOperator' => 'equals','Value' => 'gpahuja@sapient.com');
-	$getResult = $getDERows->get();
-	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
-	print 'Code: '.$getResult->code."\n";
-	print 'Message: '.$getResult->message."\n";
-	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
-	print 'Result Count: '.count($getResult->results)."\n";
-	print 'Results: '."\n";
-	print_r($getResult->results);
-	print "\n---------------\n";
-	
-	
-	}
-	catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
-
-
-
-
-
-
+  $values = $form_state->getValues();
+  $name = $values['name'];
+  $email_address = $values['email_address'];
+  $dob = $values['date_of_birth'];
+  $gender = $values['gender'];
+  $postcode = $values['postcode'];
+  
+  
+  require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+  try {
+    $myclient = new ET_Client();
+    $DataExtensionNameForTesting = "2D45CEE8-2751-44FA-ADB5-90A896175A05";
+    // Add a row to a DataExtension 
+    \Drupal::logger('my_module')->notice("Add a row to a DataExtension  \n");
+    $postDRRow = new ET_DataExtension_Row();
+    $postDRRow->authStub = $myclient;
+    $postDRRow->props = array("EmailAddress" => $email_address, "PostCode" =>$postcode, "Gender" =>$gender, "DateOfBirth" => $dob); //will be adding dynamic values from form_state
+    $postDRRow->CustomerKey = $DataExtensionNameForTesting;
+    $postResult = $postDRRow->post();
+    \Drupal::logger('my_module')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
+    \Drupal::logger('my_module')->notice('Code: ' . $postResult->code);
+    \Drupal::logger('my_module')->notice('Message: ' . $postResult->message);
+    \Drupal::logger('my_module')->notice('Result Count: ' . count($postResult->results));
+//	\Drupal::logger('my_module')->notice( 'Results: ');
+//	\Drupal::logger('my_module')->notice($postResult->results);
+//	print "\n---------------\n";
+//  exit;      
+//	
+//	//Get rows from Data Extension using filter (By Name)
+//	print_r("Get rows from Data Extension using filter (By Name) \n");
+//	$getDERows = new ET_DataExtension_Row();
+//	$getDERows->authStub = $myclient;
+//	$getDERows->props = array("EmailAddress", "Title");
+//	$getDERows->Name = $DataExtensionNameForTesting;
+//	$getDERows->filter = array('Property' => 'EmailAddress','SimpleOperator' => 'equals','Value' => 'gpahuja@sapient.com');
+//	$getResult = $getDERows->get();
+//	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
+//	print 'Code: '.$getResult->code."\n";
+//	print 'Message: '.$getResult->message."\n";
+//	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
+//	print 'Result Count: '.count($getResult->results)."\n";
+//	print 'Results: '."\n";
+//	print_r($getResult->results);
+//	print "\n---------------\n";
+  }
+  catch (Exception $e) {
+    \Drupal::logger('my_module')->notice('Caught exception: ' . $e->getMessage());
+  }
 }

@@ -1,46 +1,56 @@
 <div class="enquire-form newsletter-form">
-	<div class="form-details">
-		<span class="form-guidelines header_e">All fields marked * are required.</span>
-	</div>	
-	<div class="status-msg" id="statusMsg">
-		<div class="header_e error">One or more required fields were not filled out correctly:</div>
-		<ol class="messages header_g"></ol>
-	</div>	
-	<form {{form.attributes }}>
-		  {{ form.form_build_id }}
-					{{ form.form_token }}
-					{{ form.form_id }}
-					{{ form.subject }}
-					{{ form.message }}
-		<div class="col-md-12 col-xs-12 col-sm-12 group ">
-			{{ form.elements.name }}
-			
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group ">
-			{{ form.elements.email_address }}
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group ">
-			{{ form.elements.date_of_birth }}
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group">
-			{{ form.elements.gender }}
-			<span class="dropdown-icon"></span>
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group">
-			{{ form.elements.postcode }}
-		</div>
-		<div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
-			{{ form.elements.hear_more_from_brancott_estate }}
-		</div>
-		<div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
-			{{ form.elements.hear_more_from_brands_from_pernod_ricard_group }}
-		</div>
-		<div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
-			{{ form.elements.terms_and_conditions }}
-		</div>
-		<div class="submit-info col-md-12 col-xs-12 col-sm-12">
-			{{ form.actions.submit }}
-		</div>
-	</form>
-	
+    <div class="form-details">
+        <span class="form-guidelines header_e">All fields marked * are required.</span>
+    </div>	
+    <div class="status-msg" id="statusMsg">
+        <div class="header_e error">One or more required fields were not filled out correctly:</div>
+        <ol class="messages header_g"></ol>
+    </div>	
+    <form {{form.attributes }}>
+        {{ form.form_build_id }}
+        {{ form.form_token }}
+        {{ form.form_id }}
+        {{ form.subject }}
+        {{ form.message }}
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.name }}
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.last_name }}
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.email_address }}
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.date_of_birth }}
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group">
+            {{ form.elements.gender }}
+            <span class="dropdown-icon"></span>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group">
+            {{ form.elements.country }}
+            <span class="dropdown-icon"></span>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group">
+            {{ form.elements.state }}
+            <span class="dropdown-icon"></span>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group">
+            {{ form.elements.postcode }}
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
+            {{ form.elements.hear_more_from_brancott_estate }}
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
+            {{ form.elements.hear_more_from_brands_from_pernod_ricard_group }}
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
+            {{ form.elements.terms_and_conditions }}
+        </div>
+        <div class="submit-info col-md-12 col-xs-12 col-sm-12">
+            {{ form.actions.submit }}
+        </div>
+    </form>
+
 </div>
