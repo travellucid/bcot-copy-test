@@ -192,6 +192,11 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
     ); //will be adding dynamic values from form_state
     $postDRRow->CustomerKey = $DataExtensionNameForTesting;
     $postResult = $postDRRow->post();
+    \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+      " PostCode " . $postcode .  " Gender " . $gender .   " DateOfBirth " . $dob . " FirstName " . $name .
+      " LastName " . $last_name . " State " . $state . " Country " . $country . " CampaignCode " . 'Newsletter' .
+      " OptInDate " . date("m/d/Y") . " OptInPreference " . $hear_more_from_brancott_estate .
+      " OptIn_PernodRicard " .$hear_more_from_brands_from_pernod_ricard_group);
     \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
     \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
     \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
@@ -222,7 +227,6 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
       $postDRRow->authStub = $myclient;
       $postDRRow->props = array(
         "EmailAddress" => $email_address,
-        
         "FirstName" => $name,
         "LastName" => $last_name,
         "CampaignCode" => 'Enquire',
@@ -231,6 +235,10 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
         "OptIn_PernodRicard" => '',
       ); 
       $postDRRow->CustomerKey = $DataExtensionNameForTesting;
+      \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+      " FirstName " . $name . " LastName " . $last_name  . " CampaignCode " . 'Enquire' .
+      " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_
+      );
       $postResult = $postDRRow->post();
       \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
       \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
@@ -270,6 +278,10 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
         "OptIn_PernodRicard" => '',
       );
       $postDRRow->CustomerKey = $DataExtensionNameForTesting;
+      \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+      " FirstName " . $name . " LastName " . $last_name  . " CampaignCode " . 'Restaurant' .
+      " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_
+      );
       $postResult = $postDRRow->post();
       \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
       \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
