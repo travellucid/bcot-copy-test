@@ -10,7 +10,6 @@ if (!$) {
 	var $ = jQuery.noConflict();
 }
 var sapient = sapient || {}; // core sapient
-
 $(document).ready(function() {
   // Setup the a11y nav
 	$('.nav').setup_navigation();
@@ -395,7 +394,7 @@ var commonObj = (function($, window, sapient) {
 			
 			addBgNoise = function() {
 
-				var section = $("section .views-element-container");
+				var section = $("section.views-element-container");
 				for (var i = 1; i < section.length; i += 2) {
 					$(section[i]).addClass("background-noise-section");
 				}
@@ -461,6 +460,9 @@ var commonObj = (function($, window, sapient) {
 				if($instaComp.next().hasClass("background-noise-section")) {
 					$instaComp.addClass("background-noise-section");
 				}
+				/*else {
+					$instaComp.removeClass("background-noise-section");
+				}*/
 			},
 
 			awardsGrain = function() {
@@ -481,10 +483,32 @@ var commonObj = (function($, window, sapient) {
 				}
 			},
 
+			onResize = function() {	
+				$(window).on('resize', function() {
+					debounce(sapient.common.posFindUs, 500, "changing SignUpPosition");		
+				});
+
+			},
+			posFindUs = function() {
+				var $findUs = $("#find-us-component");
+
+				if($findUs.prev().hasClass("background-noise-section") && ($(window).width() < 980)) {
+
+					$findUs.css("padding-top", 100 + "px");
+				}
+				else {
+
+					$findUs.css("padding-top", 0);
+				}
+			},
+
 			posForm = function() {
 				var $form = $("form").parent();
 
 				if($form.prev().hasClass("background-noise-section") && !($form.hasClass("background-noise-section"))) {
+					$form.css("padding-top", 100 + "px");
+				}
+				else if($form.hasClass("background-noise-section") && !($form.prev().hasClass("background-noise-section"))) {
 					$form.css("padding-top", 100 + "px");
 				}
 			},
@@ -524,6 +548,8 @@ var commonObj = (function($, window, sapient) {
 			killHash: killHash,
 			heroGrain: heroGrain,
 			closeCookie:closeCookie,
+			posFindUs:posFindUs,
+			onResize:onResize,
 			setTimeLineEmptySpan: setTimeLineEmptySpan
 		};
 	}
@@ -556,7 +582,8 @@ sapient.common.posFilters();
 sapient.common.heroGrain();
 sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
-
+sapient.common.onResize();
+sapient.common.posFindUs();
 /*$( function() {
 	$( "#datepicker" ).datepicker();
   } );*/
@@ -596,9 +623,10 @@ var carouselObj = (function($, window, sapient) {
 			}
 		},
 
-			disableTouchCarousel = function(value) {
-
-				
+			hideCarouselCtrl = function(id) {
+				if($(id).find(".carousel-indicators li").length === 1){
+					$(id).find(".carousel-control-wrapper,.carousel-indicators").css("visibility","hidden");
+				}								
 			},
 
 			togggleCarouselView = function(id) {
@@ -797,7 +825,7 @@ var carouselObj = (function($, window, sapient) {
 			disableArrowsControlsSmallDevices: disableArrowsControlsSmallDevices,
 			findCarousalItems: findCarousalItems,
 			togggleCarouselView: togggleCarouselView,
-			disableTouchCarousel: disableTouchCarousel
+			hideCarouselCtrl: hideCarouselCtrl
 		};
 	}
 
@@ -831,6 +859,9 @@ sapient.carousel.disableArrowsControlsSmallDevices();
 sapient.carousel.findCarousalItems("#carousel-our-story");
 sapient.carousel.findCarousalItems("#carousel-new-story");
 
+sapient.carousel.hideCarouselCtrl("#carousel-our-wines");
+sapient.carousel.hideCarouselCtrl("#carousel-new-story");
+sapient.carousel.hideCarouselCtrl("#carousel-our-story");
 var heroObj = (function($, window, sapient) {
 
 	var heroInstance;
@@ -1386,9 +1417,8 @@ var footerObj = (function($, window, sapient) {
 
 		regionSelector = function(name) {
 			$(document).on('click','footer .region-text', function() {
-				console.log("region-text");
 				document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-				location.reload();
+				location.reload(true);
 			});
 		},
 

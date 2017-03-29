@@ -24,9 +24,8 @@ var footerObj = (function($, window, sapient) {
 
 		regionSelector = function(name) {
 			$(document).on('click','footer .region-text', function() {
-				console.log("region-text");
 				document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-				location.reload();
+				location.reload(true);
 			});
 		},
 
