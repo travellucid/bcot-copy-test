@@ -141,7 +141,7 @@ var commonObj = (function($, window, sapient) {
 				}
 				else {
 
-					$findUs.css("padding-top", 0 + "px");
+					$findUs.css("padding-top", 0);
 				}
 			},
 
