@@ -236,7 +236,7 @@ var carouselObj = (function($, window, sapient) {
 			disableArrowsControlsSmallDevices: disableArrowsControlsSmallDevices,
 			findCarousalItems: findCarousalItems,
 			togggleCarouselView: togggleCarouselView,
-			disableTouchCarousel: hideCarouselCtrl
+			hideCarouselCtrl: hideCarouselCtrl
 		};
 	}
 
