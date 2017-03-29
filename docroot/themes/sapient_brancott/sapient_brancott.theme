@@ -374,25 +374,26 @@ function sapient_brancott_preprocess_views_view(&$variables) {
      $node_translation = $node->getTranslation($langcode);
       
      $con = \Drupal\Core\Database\Database::getConnection();
-             $query = $con->select('node_field_data', 'n')->distinct();
-             $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
-             $query->fields('h', array('field_address_heading_value'));
-             
-            //$query->condition('n.nid', $nid, '=');
-            $query->condition('n.langcode', $langcode, '=');
-            $new_nid_transtion = $query->execute()->fetchField();
-     
+             $query = $con->select('node_field_data', 'n');
+             $query->fields('n', array('title'));
+             $query->condition('n.langcode', $langcode, '=');
+             $new_nid_transtion = $query->execute()->fetchField();
+            // print_r($new_nid_transtion);die;
+   
             
             $variables['address_heading'] = $new_nid_transtion;
             
           
     }
     if ($view_id == 'brancott_sitemap' ) {
-      $request = \Drupal::request();
-      // Assuming the Request is $request.
-      if ($request->attributes->has('_title')) {
-      $sitemap_title = $request->attributes->get('_title'));
-  }
+      $node = \Drupal::routeMatch()->getParameter('node');
+     $nid = $node->nid->getValue()[0]['value'];
+     $node_translation = $node->getTranslation($langcode);
+      
+     $con = \Drupal\Core\Database\Database::getConnection();
+             $query = $con->select('node_field_data', 'n')->distinct();
+             $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
+             $query->fields('h', array('field_address_heading_value'));
       $variables['current_langcode'] = $langcode;
       $variables['sitemap_title'] = $sitemap_title;
     }
