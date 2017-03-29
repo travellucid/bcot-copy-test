@@ -157,45 +157,27 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $gender = $values['gender'];
   $postcode = $values['postcode'];
   
-  
   require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
   try {
     $myclient = new ET_Client();
-    $DataExtensionNameForTesting = "2D45CEE8-2751-44FA-ADB5-90A896175A05";
+    $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
     // Add a row to a DataExtension 
-    \Drupal::logger('my_module')->notice("Add a row to a DataExtension  \n");
+    \Drupal::logger('brancott_rest_api')->notice("Add a row to a DataExtension  \n");
     $postDRRow = new ET_DataExtension_Row();
     $postDRRow->authStub = $myclient;
-    $postDRRow->props = array("EmailAddress" => $email_address, "PostCode" =>$postcode, "Gender" =>$gender, "DateOfBirth" => $dob); //will be adding dynamic values from form_state
+    $postDRRow->props = array(
+                        "EmailAddress" => $email_address, 
+                        "PostCode" =>$postcode,
+                        "Gender" =>$gender,
+                        "DateOfBirth" => $dob); //will be adding dynamic values from form_state
     $postDRRow->CustomerKey = $DataExtensionNameForTesting;
     $postResult = $postDRRow->post();
-    \Drupal::logger('my_module')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
-    \Drupal::logger('my_module')->notice('Code: ' . $postResult->code);
-    \Drupal::logger('my_module')->notice('Message: ' . $postResult->message);
-    \Drupal::logger('my_module')->notice('Result Count: ' . count($postResult->results));
-//	\Drupal::logger('my_module')->notice( 'Results: ');
-//	\Drupal::logger('my_module')->notice($postResult->results);
-//	print "\n---------------\n";
-//  exit;      
-//	
-//	//Get rows from Data Extension using filter (By Name)
-//	print_r("Get rows from Data Extension using filter (By Name) \n");
-//	$getDERows = new ET_DataExtension_Row();
-//	$getDERows->authStub = $myclient;
-//	$getDERows->props = array("EmailAddress", "Title");
-//	$getDERows->Name = $DataExtensionNameForTesting;
-//	$getDERows->filter = array('Property' => 'EmailAddress','SimpleOperator' => 'equals','Value' => 'gpahuja@sapient.com');
-//	$getResult = $getDERows->get();
-//	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
-//	print 'Code: '.$getResult->code."\n";
-//	print 'Message: '.$getResult->message."\n";
-//	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
-//	print 'Result Count: '.count($getResult->results)."\n";
-//	print 'Results: '."\n";
-//	print_r($getResult->results);
-//	print "\n---------------\n";
+    \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
+    \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
+    \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
+    \Drupal::logger('brancott_rest_api')->notice('Result Count: ' . count($postResult->results));
   }
   catch (Exception $e) {
-    \Drupal::logger('my_module')->notice('Caught exception: ' . $e->getMessage());
+    \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
   }
 }
