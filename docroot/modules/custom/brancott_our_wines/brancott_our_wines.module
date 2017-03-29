@@ -295,22 +295,22 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
   }
   if($langcode == 'en-us'){
     if ((strlen($newsletter_form_postcode) !== 5) || $newsletter_form_postcode && !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
-      $form_state->setErrorByName('postcode', 'Alpha Numeric and 5 char allowed');
+      $form_state->setErrorByName('postcode', 'Numeric and 5 char allowed');
     }
   }
   if($langcode == 'en-au'){
     if ((strlen($newsletter_form_postcode) !== 4) || $newsletter_form_postcode && !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
-      $form_state->setErrorByName('postcode', 'Alpha Numeric and 4 char allowed');
+      $form_state->setErrorByName('postcode', 'Numeric and 4 char allowed');
     }
   }
   if($langcode == 'en-nz'){
     if ((strlen($newsletter_form_postcode) !== 10) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
-      $form_state->setErrorByName('postcode', 'Alpha Numeric and 10 char allowed');
+      $form_state->setErrorByName('postcode', 'Numeric and 10 char allowed');
     }
   }
   if($langcode == 'en-gb'){
     if ((strlen($newsletter_form_postcode) !== 10) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
-      $form_state->setErrorByName('postcode', 'Alpha Numeric and 10 char allowed');
+      $form_state->setErrorByName('postcode', 'Numeric and 10 char allowed');
     }
   }
 }
