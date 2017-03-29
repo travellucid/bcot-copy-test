@@ -72,7 +72,6 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
   }
   if ($form_id == 'webform_submission_newsletter_signup_form') {
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    print_r($langcode);exit();
     if ($langcode == 'en-us') {
       $form['elements']['postcode']['#title'] = 'ZIPCODE';
       $form['elements']['postcode']['#placeholder'] = 'Zipcode';
