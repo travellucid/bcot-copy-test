@@ -10,7 +10,6 @@ if (!$) {
 	var $ = jQuery.noConflict();
 }
 var sapient = sapient || {}; // core sapient
-
 $(document).ready(function() {
   // Setup the a11y nav
 	$('.nav').setup_navigation();
@@ -499,7 +498,7 @@ var commonObj = (function($, window, sapient) {
 				}
 				else {
 
-					$findUs.css("padding-top", 0 + "px");
+					$findUs.css("padding-top", 0);
 				}
 			},
 
@@ -1414,9 +1413,8 @@ var footerObj = (function($, window, sapient) {
 
 		regionSelector = function(name) {
 			$(document).on('click','footer .region-text', function() {
-				console.log("region-text");
 				document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-				location.reload();
+				location.reload(true);
 			});
 		},
 
