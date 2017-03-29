@@ -1,57 +1,55 @@
 <div class="enquire-form">
-	<div class="form-details">
-		<span class="form-guidelines header_e">All fields marked * are required.</span>
-	</div>	
-	<div class="status-msg" id="statusMsg">
-		<div class="header_e error">One or more required fields were not filled out correctly:</div>
-		<ol class="messages header_g"></ol>
-	</div>	
-	<form {{form.attributes }}>
-	      {{ form.form_build_id }}
-                    {{ form.form_token }}
-                    {{ form.form_id }}
-                    {{ form.subject }}
-                    {{ form.message }}
-		<div class="col-md-12 col-xs-12 col-sm-12 group ">
-			{{ form.elements.name }}
-			
-		</div>
-		<div class="col-md-12 col-xs-12 col-sm-12 group ">
-			{{ form.elements.last_name }}
-			
-		</div>                        
-		<div class="col-md-6 col-xs-12 col-sm-12 group ">
-			{{ form.elements.enquire_phone_number }}
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group ">
-			{{ form.elements.email_address }}
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group">
-			{{ form.elements.type_of_function }}
-			<span class="dropdown-icon"></span>
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group">
-			{{ form.elements.no_of_people }}
-			<span class="dropdown-icon"></span>
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group date-wrapper">
-			{{ form.elements.preferred_date }}
-			<span class="calender-icon"></span>
-			<span class="date-overlay"></span>
-		</div>
-		<div class="col-md-6 col-xs-12 col-sm-12 group time-wrapper">
-			{{ form.elements.preferred_time }}
-			<span class="dropdown-icon"></span>
-		</div>
-		<div class="col-md-12 col-xs-12 col-sm-12 other-information">
-			{{ form.elements.any_other_information }}
-		</div>
-		<div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
-			{{ form.elements.yes_sign_me_up_to_exclusive_news_events_offers_ }}
-		</div>
-		<div class="submit-info col-md-12 col-xs-12 col-sm-12  ">
-			{{ form.actions.submit }}
-	    </div>
-	</form>
-	
+    <div class="form-details">
+        <span class="form-guidelines header_e">All fields marked * are required.</span>
+    </div>	
+    <div class="status-msg" id="statusMsg">
+        <div class="header_e error">One or more required fields were not filled out correctly:</div>
+        <ol class="messages header_g"></ol>
+    </div>	
+    <form {{form.attributes }}>
+        {{ form.form_build_id }}
+        {{ form.form_token }}
+        {{ form.form_id }}
+        {{ form.subject }}
+        {{ form.message }}
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.name }}
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.last_name }}
+        </div>                        
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.enquire_phone_number }}
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group ">
+            {{ form.elements.email_address }}
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group">
+            {{ form.elements.type_of_function }}
+            <span class="dropdown-icon"></span>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group">
+            {{ form.elements.no_of_people }}
+            <span class="dropdown-icon"></span>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group date-wrapper">
+            {{ form.elements.preferred_date }}
+            <span class="calender-icon"></span>
+            <span class="date-overlay"></span>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 group time-wrapper">
+            {{ form.elements.preferred_time }}
+            <span class="dropdown-icon"></span>
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12 other-information">
+            {{ form.elements.any_other_information }}
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12 group checkbox-item">
+            {{ form.elements.yes_sign_me_up_to_exclusive_news_events_offers_ }}
+        </div>
+        <div class="submit-info col-md-12 col-xs-12 col-sm-12  ">
+            {{ form.actions.submit }}
+        </div>
+    </form>
+
 </div>
