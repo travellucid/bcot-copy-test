@@ -388,7 +388,13 @@ function sapient_brancott_preprocess_views_view(&$variables) {
           
     }
     if ($view_id == 'brancott_sitemap' ) {
+      $request = \Drupal::request();
+      // Assuming the Request is $request.
+      if ($request->attributes->has('_title')) {
+      $sitemap_title = $request->attributes->get('_title'));
+  }
       $variables['current_langcode'] = $langcode;
+      $variables['sitemap_title'] = $sitemap_title;
     }
 }
 
