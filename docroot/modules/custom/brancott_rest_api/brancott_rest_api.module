@@ -173,6 +173,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   } elseif($values['country'] == 'us') {
     $state = $state_us;
   }
+  $country = strlen($country) ? strtoupper($country) : '';
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
   $hear_more_from_brands_from_pernod_ricard_group = $values['hear_more_from_brands_from_pernod_ricard_group'];
   require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
@@ -192,7 +193,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
       "FirstName" => $name,
       "LastName" => $last_name,
       "State" => $state,
-      "Country" => strtoupper($country),
+      "Country" => $country,
       "CampaignCode" => 'Newsletter',
       "OptInDate" => date("d/m/Y"),
       "OptInPreference" => $hear_more_from_brancott_estate ? 'true' : '',
