@@ -250,6 +250,14 @@ var validationObj = (function($, window, sapient) {
 				successMsg.addClass("success-msg").show().insertAfter($(".form-heading"));
 			}
 		},
+		
+		countrySelector = function() {
+			$(document).on('change','.newsletter-form .country-primary select',function() {
+				var str= "$('."+$(this).val().toLowerCase()+"').show()";
+				$(".newsletter-form .country-secondary").hide();
+				eval(str);
+			});
+		},
 
 		handleBackEndError = function() {
 			var beErrLength= $(".custom-error li").length,
@@ -303,17 +311,18 @@ var validationObj = (function($, window, sapient) {
 		return {
 			// public + private states and behaviors
 			validate: validate,
-			handleBackEndSucess:handleBackEndSucess,
-			inputOnFocus:inputOnFocus,
-			inputOnFocusOut:inputOnFocusOut,
-			selectChange:selectChange,
-			submitBtnClass:submitBtnClass,
-			handleBackEndError: handleBackEndError,
-			selectInMac:selectInMac,
-			inputSelect:inputSelect,
-			textareaOnFocus:textareaOnFocus,
-			textareaOnFocusOut:textareaOnFocusOut,
-			resetForm:resetForm
+			handleBackEndSucess: handleBackEndSucess,
+			inputOnFocus: inputOnFocus,
+			inputOnFocusOut: inputOnFocusOut,
+			selectChange: selectChange,
+			submitBtnClass: submitBtnClass,
+			handleBackEndError:  handleBackEndError,
+			selectInMac: selectInMac,
+			inputSelect: inputSelect,
+			textareaOnFocus: textareaOnFocus,
+			textareaOnFocusOut: textareaOnFocusOut,
+			resetForm: resetForm,
+			countrySelector: countrySelector
 		};
 	}
 
@@ -340,5 +349,6 @@ sapient.validation.textareaOnFocusOut();
 sapient.validation.selectChange();
 sapient.validation.submitBtnClass();
 sapient.validation.selectInMac();
+sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
