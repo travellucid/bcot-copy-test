@@ -39,7 +39,7 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
 
     $element['remote_key'] = [
       '#type' => 'textfield',
-      '#title' => t('Click to buy Console, Remote Key'),
+      '#title' => t('Click to Buy Search Keywords'),
       '#autocomplete_route_name' => 'pr_ctbuy_connector.remote_key_autocomplete',
       '#autocomplete_route_parameters' => array(),
       // Set here the current value for this field, or a default value (or 
