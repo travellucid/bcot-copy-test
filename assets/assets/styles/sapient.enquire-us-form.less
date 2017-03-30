@@ -385,6 +385,25 @@
 	.checkbox-item {
 		text-align: left;
 		margin-bottom: 10px;
+
+		label {
+			a {
+				color: @bright-green;
+
+				&.external {
+					&::after {
+						background-image: url("@{background-icons-path}BE_icon_new_window.svg");
+						background-size: 13px;
+						bottom: 5px;
+						content: "";
+						height: 13px;
+						position: absolute;
+						right: -20px;
+						width: 13px;
+					}
+				}
+			}
+		}
 	}
 }
 
