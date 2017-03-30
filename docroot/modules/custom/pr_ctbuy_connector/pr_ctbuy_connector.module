@@ -23,8 +23,8 @@ function getInstancePairs() {
 	$instances_value = 0;
 	}
 	else{
-	unset($form['field_cta_options']['widget']['#options']['buy_now']);
-	$form['field_click_to_buy_hero_cta']['#access'] = false;
+	//unset($form['field_cta_options']['widget']['#options']['buy_now']);
+	//$form['field_click_to_buy_hero_cta']['#access'] = false;
 	}
 
   }
@@ -34,8 +34,8 @@ function getInstancePairs() {
 	$instances_value = 0;
 	}
 	else{
-	unset($form['field_where_to_buy_cta_link']['widget']['#options']['buy_now']);
-	$form['field_click_to_buy_hero_cta']['#access'] = false;
+	//unset($form['field_where_to_buy_cta_link']['widget']['#options']['buy_now']);
+	//$form['field_click_to_buy_hero_cta']['#access'] = false;
 	}
 
   }
