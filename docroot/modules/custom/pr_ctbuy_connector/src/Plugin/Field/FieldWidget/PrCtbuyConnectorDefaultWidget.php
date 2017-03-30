@@ -49,7 +49,7 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
 
       '#empty_value' => '',
       '#placeholder' => t('Remote Key'),
-      '#required' => TRUE,
+//      '#required' => TRUE,
     ];
 
     // title
@@ -67,7 +67,7 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
       '#empty_value' => '',
       '#maxlength' => '20',
       '#placeholder' => t('Title'),
-      '#required' => TRUE,
+//      '#required' => TRUE,
       '#description' => t('Maximum character limit : 20'),
       
       

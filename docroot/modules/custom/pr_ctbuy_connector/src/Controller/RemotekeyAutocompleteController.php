@@ -54,22 +54,22 @@ class RemotekeyAutocompleteController extends ControllerBase {
    *   Return Hello string.
    */
   public function autocomplete() {
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $string = $this->request->getCurrentRequest()->get('q');
+    $string = strlen($string) ? trim($string) : '';
     $data = array();
     // All the checks have already been done to this point, we can directly query
     // the console.
     $endpoint_url = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_endpoint');
     $api_key = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_key');
-    //Todo: Use instance code 
-    $instance = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_instance');
-    
-    $use_curl = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_use_curl');
-
-
-    $endpoint_url .= '/GetListForInstance/?instance=' . $instance . '&search=' . $string;
-
-    if ($string && $use_curl) {
-      //print $endpoint_url; exit;
+    //    $use_curl = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_use_curl');
+    $use_curl = 1;
+    $instance_pairs = $this->getInstancePairs();
+    if ($instance_pairs && $instance_pairs[$language]) {
+      $instance = $instance_pairs[$language];
+    }
+    if ($instance && $string && $use_curl) {
+      $endpoint_url .= '/GetListForInstance/?instance=' . $instance . '&search=' . $string;
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $endpoint_url);
       curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
@@ -79,52 +79,34 @@ class RemotekeyAutocompleteController extends ControllerBase {
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       // Bypass SSL checking.
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-
       $data = curl_exec($ch);
-      
       $error = curl_error($ch);
-
       curl_close($ch);
       $data = json_decode($data);
-      //print_r($data); exit;
       foreach ($data as $key => $value) {
-        //print "aaaaa";
-        
         $results[] = [
           'value' => $key,
           'label' => $value,
         ];
       }
-      //print_r($results); exit;
     }
     else {
-//      $options = array(
-//        'method' => 'GET',
-//        'timeout' => 15,
-//        'headers' => array(
-//          'api_key' => $api_key,
-//        ),
-//      );
-//
-//      try {
-//        $response = \Drupal::httpClient()->get($endpoint_url, array('headers' => array('Accept' => 'text/plain')));
-//        $data = (string) $response->getBody();
-//        if (empty($data)) {
-//          return FALSE;
-//        }
-//      }
-//      catch (RequestException $e) {
-//        return FALSE;
-//      }
-//
-//      $data = $result->data;
+      $results = array(array('value' => 0, 'label' => 'No instance code found. Online Shop doesnt exists for this market. '));
     }
-    //$data = str_replace("world","Peter","Hello world!");
-    //$data[] = ['value' => 'termvalue', 'label' => 'termname'];
-    //print_r($data); exit;
-//    $data = json_decode($data);
-//    return JsonResponse::create($data);
     return new JsonResponse($results);
   }
 
+  public function getInstancePairs() {
+    $instance_pairs = array();
+    $instances = \Drupal::config('pr_ctbuy_connector.settings')->get('pr_ctbuy_connector_instances');
+    $instances_array = explode(',', $instances);
+    foreach ($instances_array as $instance_details) {
+      $instance_details = trim($instance_details);
+      $instance_array = explode('|', $instance_details);
+      if (trim($instance_array[1])) {
+        $instance_pairs[$instance_array[0]] = trim($instance_array[1]);
+      }
+    }
+    return $instance_pairs;
+  }
 }

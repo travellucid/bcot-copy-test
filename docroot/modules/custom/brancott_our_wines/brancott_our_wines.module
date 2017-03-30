@@ -71,6 +71,11 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['#validate'][] = 'webform_submission_enquire_form_form_validation';
   }
   if ($form_id == 'webform_submission_newsletter_signup_form') {
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($langcode == 'en-us') {
+      $form['elements']['postcode']['#title'] = 'ZIPCODE';
+      $form['elements']['postcode']['#placeholder'] = 'Zipcode';
+    }
     $form['#validate'][] = 'webform_submission_newsletter_signup_form_validation';
   }
   if ($form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form') {
@@ -263,23 +268,63 @@ function _menu_item_limitation_get_item_count($menu_name) {
 }
 
 function webform_submission_newsletter_signup_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $values = $form_state->getValues();
   $newsletter_form_name = $values['name'];
-  if ($newsletter_form_name && !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,255}[\p{L}-]*$/u", $newsletter_form_name)) {
-    $form_state->setErrorByName('name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES AND HYPEN ARE ALLOWED IN NAME');
+  if ($newsletter_form_name && !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $newsletter_form_name)) {
+    $form_state->setErrorByName('name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
   }
+  $newsletter_form_last_name = $values['last_name'];
+  if ($newsletter_form_last_name && !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $newsletter_form_last_name)) {
+    $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
+  }  
   $email = $values['email_address'];
-  if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
+  if ((strlen($email) > 250) && $email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
+  }
+  $newsletter_form_postcode = $values['postcode'];
+  if($langcode == 'en'){
+    if ((strlen($newsletter_form_postcode) !== 10) || $newsletter_form_postcode && !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode)) {
+      $form_state->setErrorByName('postcode', 'Alpha Numeric and 10 char allowed');
+    }
+  }
+  if($langcode == 'en-ca'){
+    if ((strlen($newsletter_form_postcode) !== 4) || $newsletter_form_postcode && !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode)) {
+      $form_state->setErrorByName('postcode', 'Alpha Numeric and 4 char allowed');
+    }
+  }
+  if($langcode == 'en-us'){
+    if ((strlen($newsletter_form_postcode) !== 5) || $newsletter_form_postcode && !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
+      $form_state->setErrorByName('postcode', 'Numeric and 5 char allowed');
+    }
+  }
+  if($langcode == 'en-au'){
+    if ((strlen($newsletter_form_postcode) !== 4) || $newsletter_form_postcode && !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
+      $form_state->setErrorByName('postcode', 'Numeric and 4 char allowed');
+    }
+  }
+  if($langcode == 'en-nz'){
+    if ((strlen($newsletter_form_postcode) !== 10) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
+      $form_state->setErrorByName('postcode', 'Numeric and 10 char allowed');
+    }
+  }
+  if($langcode == 'en-gb'){
+    if ((strlen($newsletter_form_postcode) !== 10) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode)) {
+      $form_state->setErrorByName('postcode', 'Numeric and 10 char allowed');
+    }
   }
 }
 
 function webform_submission_enquire_form_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
   $enquire_form_name = $values['name'];
-  if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,255}[\p{L}-]*$/u", $enquire_form_name)) {
-    $form_state->setErrorByName('name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES AND HYPEN ARE ALLOWED IN NAME');
+  if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $enquire_form_name)) {
+    $form_state->setErrorByName('name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
   }
+  $enquire_form_last_name = $values['last_name'];
+  if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $enquire_form_last_name)) {
+    $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
+  }  
   $phone_number = $values['enquire_phone_number'];
   if ($phone_number && !preg_match('/^[ +0-9]+$/', $phone_number)) {
     $form_state->setErrorByName('enquire_phone_number', '0-9,+ AND SPACES ARE ALLOWED');
