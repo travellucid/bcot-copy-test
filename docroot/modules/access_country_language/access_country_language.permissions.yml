@@ -1,0 +1,2 @@
+permission_callbacks:
+  - Drupal\access_country_language\LanguagePermissions::permissions
