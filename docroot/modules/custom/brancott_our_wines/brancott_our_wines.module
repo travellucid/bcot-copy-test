@@ -76,6 +76,13 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
       $form['elements']['postcode']['#title'] = 'ZIPCODE';
       $form['elements']['postcode']['#placeholder'] = 'Zipcode';
     }
+    if ($langcode == 'en' || $langcode == 'en-au' || $langcode == 'en_ca' || $langcode == 'en_gb' || $langcode == 'en_nz') {
+      $form['elements']['date_of_birth_us']['#access'] = FALSE;
+    }
+    if ($langcode == 'en-us') {
+      $form['elements']['date_of_birth']['#access'] = FALSE;
+    }
+    //kint($form['elements']['date_of_birth_us']);exit;
     $form['#validate'][] = 'webform_submission_newsletter_signup_form_validation';
   }
   if ($form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form') {
@@ -274,7 +281,7 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
   }
   $newsletter_form_last_name = $values['last_name'];
   if ($newsletter_form_last_name && !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $newsletter_form_last_name)) {
-    $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
+    $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN LAST NAME');
   }  
   $email = $values['email_address'];
   if ((strlen($email) > 250) && $email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -321,15 +328,19 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
   }
   $enquire_form_last_name = $values['last_name'];
   if (!preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $enquire_form_last_name)) {
-    $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
+    $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN LAST NAME');
   }  
   $phone_number = $values['enquire_phone_number'];
   if ($phone_number && !preg_match('/^[ +0-9]+$/', $phone_number)) {
     $form_state->setErrorByName('enquire_phone_number', '0-9,+ AND SPACES ARE ALLOWED');
   }
   $email = $values['email_address'];
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  if ((strlen($email) > 250) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
+  }
+  $enquire_form_other_info = $values['any_other_information'];
+  if (strlen($enquire_form_other_info) > 200) {
+    $form_state->setErrorByName('any_other_information', 'MAX 200 CHARACTERS ARE ALLOWED IN ANY OTHER INFORMATION');
   }
 }
 
