@@ -1708,9 +1708,9 @@ var validationObj = (function($, window, sapient) {
 		
 		countrySelector = function() {
 			$(document).on('change','.newsletter-form .country-primary select',function() {
-				var str= "$('."+$(this).val().toLowerCase()+"').show()";
+				var str= $(this).val().toLowerCase();
 				$(".newsletter-form .country-secondary").hide();
-				eval(str);
+				$('.'+str).show();
 			});
 		},
 
