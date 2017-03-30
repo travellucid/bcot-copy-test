@@ -146,6 +146,12 @@ function brancott_rest_api_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id == 'webform_submission_newsletter_signup_form') {
     $form['actions']['submit']['#submit'][] = 'brancott_newsletter_salesforce';
   }
+  else if ($form_id == 'webform_submission_enquire_form_form') {
+    $form['actions']['submit']['#submit'][] = 'brancott_enquire_salesforce';
+  }
+  else if ($form_id == 'webform_submission_book_a_table_form') {
+    $form['actions']['submit']['#submit'][] = 'brancott_restaurant_salesforce';
+  }
 }
 
 function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -183,10 +189,14 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
       "OptInDate" => date("m/d/Y"),
       "OptInPreference" => $hear_more_from_brancott_estate ? 'true' : '',
       "OptIn_PernodRicard" => $hear_more_from_brands_from_pernod_ricard_group ? 'true' : '',
-      
     ); //will be adding dynamic values from form_state
     $postDRRow->CustomerKey = $DataExtensionNameForTesting;
     $postResult = $postDRRow->post();
+    \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+      " PostCode " . $postcode .  " Gender " . $gender .   " DateOfBirth " . $dob . " FirstName " . $name .
+      " LastName " . $last_name . " State " . $state . " Country " . $country . " CampaignCode " . 'Newsletter' .
+      " OptInDate " . date("m/d/Y") . " OptInPreference " . $hear_more_from_brancott_estate .
+      " OptIn_PernodRicard " .$hear_more_from_brands_from_pernod_ricard_group);
     \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
     \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
     \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
@@ -194,5 +204,92 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   }
   catch (Exception $e) {
     \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
+  }
+}
+
+function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $values = $form_state->getValues();
+  $name = $values['name'];
+  $last_name = $values['last_name'];
+  $email_address = $values['email_address'];
+  $yes_sign_me_up_to_exclusive_news_events_offers_ = $values['yes_sign_me_up_to_exclusive_news_events_offers_'];
+
+  if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
+    require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+    try {
+      $myclient = new ET_Client();
+      $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
+      \Drupal::logger('brancott_rest_api')->notice('Data Extension: ' . $DataExtensionNameForTesting);
+      // Add a row to a DataExtension 
+      \Drupal::logger('brancott_rest_api')->notice("Add a row to a DataExtension  \n");
+      $postDRRow = new ET_DataExtension_Row();
+      $postDRRow->authStub = $myclient;
+      $postDRRow->props = array(
+        "EmailAddress" => $email_address,
+        "FirstName" => $name,
+        "LastName" => $last_name,
+        "CampaignCode" => 'Enquire',
+        "OptInDate" => date("m/d/Y"),
+        "OptInPreference" => 'true',
+        "OptIn_PernodRicard" => '',
+      ); 
+      $postDRRow->CustomerKey = $DataExtensionNameForTesting;
+      \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+      " FirstName " . $name . " LastName " . $last_name  . " CampaignCode " . 'Enquire' .
+      " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_
+      );
+      $postResult = $postDRRow->post();
+      \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
+      \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
+      \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
+      \Drupal::logger('brancott_rest_api')->notice('Result Count: ' . count($postResult->results));
+    }
+    catch (Exception $e) {
+      \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
+    }
+  }
+}
+
+function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $values = $form_state->getValues();
+  $name = $values['name'];
+  $last_name = $values['last_name'];
+  $email_address = $values['email_address'];
+  $yes_sign_me_up_to_exclusive_news_events_offers_ = $values['yes_sign_me_up_to_exclusive_news_events_offers_'];
+  if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
+    require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+    try {
+      $myclient = new ET_Client();
+      $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
+      \Drupal::logger('brancott_rest_api')->notice('Data Extension: ' . $DataExtensionNameForTesting);
+      // Add a row to a DataExtension 
+      \Drupal::logger('brancott_rest_api')->notice("Add a row to a DataExtension  \n");
+      $postDRRow = new ET_DataExtension_Row();
+      $postDRRow->authStub = $myclient;
+      $postDRRow->props = array(
+        "EmailAddress" => $email_address,
+        "FirstName" => $name,
+        "LastName" => $last_name,
+        "CampaignCode" => 'Restaurant',
+        "OptInDate" => date("m/d/Y"),
+        "OptInPreference" => 'true',
+        "OptIn_PernodRicard" => '',
+      );
+      $postDRRow->CustomerKey = $DataExtensionNameForTesting;
+      \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+      " FirstName " . $name . " LastName " . $last_name  . " CampaignCode " . 'Restaurant' .
+      " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_
+      );
+      $postResult = $postDRRow->post();
+      \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
+      \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
+      \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
+      \Drupal::logger('brancott_rest_api')->notice('Result Count: ' . count($postResult->results));
+    }
+    catch (Exception $e) {
+      \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
+    }
   }
 }
