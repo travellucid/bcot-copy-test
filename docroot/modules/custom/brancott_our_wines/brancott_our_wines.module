@@ -104,9 +104,7 @@ function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface 
   if (strlen($values['field_hero_bottom_description'][0]['value']) > 500) {
     $form_state->setErrorByName('field_hero_bottom_description', 'Max length for this field is 500 characters.');
   }
-  
- 
-  
+
 }
 function character_limitation_contact_us($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
