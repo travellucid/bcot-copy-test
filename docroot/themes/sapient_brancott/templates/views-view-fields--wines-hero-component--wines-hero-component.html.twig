@@ -4,8 +4,18 @@
         <span class="header_f">{{ wine_range }}</span>
         <h1>{{ wine_title }}</h1>
         <p class="hidden-sm hidden-xs">{{ wine_description }}</p>
+        {% if (fields.field_cta_options.content == 'external') %}
+        <a href="{{ fields.field_cta.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_cta_1.content }}</a>
+        {% endif %}
+        {% if (fields.field_cta_options.content == 'internal') %}
+        <a href="{{ fields.field_cta.content }}"  class="cta dark watch-video">{{ fields.field_cta_1.content }}</a>
+        {% endif %}
+        {% if (fields.field_cta_options.content == 'buy_now') %}
+        <a data-ctbuy-key="{{ fields.field_click_to_buy_hero_cta.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more hidden-sm hidden-xs">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
+
+        {% endif %}
             
-            <a data-ctbuy-key="{{ fields.field_click_to_buy_hero_cta.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark find-out-more hidden-sm hidden-xs">{{ fields.field_click_to_buy_hero_cta_1.content }}</a>
+            
         	
     </div>
     <div class="hidden-sm hidden-xs hero-bottle-wrapper">
@@ -93,3 +103,6 @@
     <p>{{ wine_description }}</p>
 </div>
 {{ attach_library('sapient_brancott/pr-ctbuy-connector') }}
+
+
+
