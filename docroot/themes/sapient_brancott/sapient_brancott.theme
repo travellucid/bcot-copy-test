@@ -122,11 +122,19 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
 
           if ($cache) {
             $weather = $cache->data;
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache');
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache: icon ID is ' . $weather->weather->icon);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache: temp is ' . $weather->temperature->now);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache: unit is ' . $weather->temperature->getUnit());
           } else {
             $openweatherapi_ttl = $vc->get('openweatherapi_cache_ttl');
             $openweatherapi_key = $openweatherapi_key ? $openweatherapi_key : 'bd4028edc390aa0629042fefed9976ca';
             $owm = new OpenWeatherMap($openweatherapi_key);
             $weather = $owm->getWeather($city, 'metric');
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API');
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: icon ID is ' . $weather->weather->icon);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: temp is ' . $weather->temperature->now);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: unit is ' . $weather->temperature->getUnit());
             $current_time = time();
             $cache_time = $openweatherapi_ttl + $current_time;
             \Drupal::cache()->set($cid, $weather, $cache_time);
