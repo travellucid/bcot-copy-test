@@ -1532,7 +1532,7 @@ var validationObj = (function($, window, sapient) {
 					}
 					else {
 
-						msgarr.push('Please provide a valid email address');
+						msgarr.push('PLEASE PROVIDE A VALID EMAIL ADDRESS');
 						$email.siblings("label").addClass("error");
 						$email.addClass("error-border");
 						event.preventDefault();					
