@@ -42,12 +42,23 @@ class ConfigForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $vc = $this->config('brancott_our_wines.settings');
     $form = array();
-
-    $form['openweatherapi_key'] = [
+    $form['openweatherapi_details'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Open Weather API configurations'),
+      '#open' => TRUE, // Added
+    );
+    $form['openweatherapi_details']['openweatherapi_key'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Open weather API Key'),
+      '#title' => $this->t('Open Weather API Key'),
       '#default_value' => $vc->get('openweatherapi_key'),
       '#description' => $this->t('Open weather API Key'),
+      '#required' => TRUE,
+    ];
+    $form['openweatherapi_details']['openweatherapi_cache_ttl'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Open Weather Cache Lifetime'),
+      '#default_value' => $vc->get('openweatherapi_cache_ttl'),
+      '#description' => $this->t('Cache Lifetime in second'),
       '#required' => TRUE,
     ];
     $form['dch_details'] = array(
@@ -232,6 +243,7 @@ class ConfigForm extends FormBase {
     $config = \Drupal::configFactory()->getEditable('brancott_our_wines.settings');
     $config
         ->set('openweatherapi_key', $form_state->getValue('openweatherapi_key'))
+        ->set('openweatherapi_cache_ttl', $form_state->getValue('openweatherapi_cache_ttl'))
         ->set('dch_wine_url', $form_state->getValue('dch_wine_url'))
         ->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
         ->set('cache_ttl', $form_state->getValue('cache_ttl'))
