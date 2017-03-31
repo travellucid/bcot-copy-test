@@ -339,7 +339,7 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
     $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN LAST NAME');
   }  
   $phone_number = $values['enquire_phone_number'];
-  if ($phone_number && !preg_match('/^[ +0-9]+$/', $phone_number)) {
+  if ((strlen($phone_number) > 10) || $phone_number && !preg_match('/^[ +0-9]+$/', $phone_number)) {
     $form_state->setErrorByName('enquire_phone_number', '0-9,+ AND SPACES ARE ALLOWED');
   }
   $email = $values['email_address'];
