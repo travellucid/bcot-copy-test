@@ -178,7 +178,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $country = strlen($country) ? strtoupper($country) : '';
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
   $hear_more_from_brands_from_pernod_ricard_group = $values['hear_more_from_brands_from_pernod_ricard_group'];
-  require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+  require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
   try {
     $myclient = new ET_Client();
     $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
@@ -228,7 +228,7 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
     if (!$count) {
-      require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+      require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
       try {
         $myclient = new ET_Client();
         $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
@@ -274,7 +274,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $email_address = $values['email_address'];
   $yes_sign_me_up_to_exclusive_news_events_offers_ = $values['yes_sign_me_up_to_exclusive_news_events_offers_'];
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
-    require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+    require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
     try {
       $myclient = new ET_Client();
       $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
@@ -311,7 +311,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
 
 function brancott_check_email_salesforce($email) {
   $count = 0;
-  require(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+  require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
   try {
     $myclient = new ET_Client();
     $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
