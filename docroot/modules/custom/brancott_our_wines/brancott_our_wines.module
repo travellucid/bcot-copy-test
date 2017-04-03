@@ -289,17 +289,17 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
       $form_state->setErrorByName('postcode', 'ONLY ALPHANUMERIC CHARACTERS ARE ALLOWED. MAXIMUN 10 CHARACTERS ARE ALLOWED.');
     }
   $newsletter_form_postcode_canada = $values['postcode_canada'];
-    if ((strlen($newsletter_form_postcode_canada) !== 6) || $newsletter_form_postcode_canada && !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode_canada)) {
+    if ((strlen($newsletter_form_postcode_canada) !== 6) && $newsletter_form_postcode_canada && !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode_canada)) {
       $form_state->setErrorByName('postcode_canada', 'ONLY ALPHANUMERIC CHARACTERS ARE ALLOWED. MAXIMUN 6 CHARACTERS ARE ALLOWED.');
     }
 
   $newsletter_form_postcode_us = $values['postcode_us'];
-    if ((strlen($newsletter_form_postcode_us) !== 5) || $newsletter_form_postcode_us && !preg_match('/^[0-9]*$/', $newsletter_form_postcode_us)) {
+    if ((strlen($newsletter_form_postcode_us) !== 5) && $newsletter_form_postcode_us && !preg_match('/^[0-9]*$/', $newsletter_form_postcode_us)) {
       $form_state->setErrorByName('postcode_us', 'ONLY NUMBERS ARE ALLOWED. MAXIMUM 5 CHARACTERS ARE ALLOWED');
     }
 
   $newsletter_form_postcode_australia = $values['postcode_australia'];
-    if ((strlen($newsletter_form_postcode_australia) !== 4) || $newsletter_form_postcode_australia && !preg_match('/^[0-9]*$/', $newsletter_form_postcode_australia)) {
+    if ((strlen($newsletter_form_postcode_australia) !== 4) && $newsletter_form_postcode_australia && !preg_match('/^[0-9]*$/', $newsletter_form_postcode_australia)) {
       $form_state->setErrorByName('postcode_australia', 'ONLY NUMBERS ARE ALLOWED. MAXIMUM 4 CHARACTERS ARE ALLOWED');
     }
 
