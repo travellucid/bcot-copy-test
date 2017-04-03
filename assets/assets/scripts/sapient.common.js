@@ -174,9 +174,26 @@ var commonObj = (function($, window, sapient) {
 				});
 			},
 
-			setCountryNewsLetter = function() {
-				var cookieVal = $.cookie("age_checked");
+			getCookie =function (cname) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			},
 
+			setCountryNewsLetter = function() {
+				var cookieVal=sapient.common.getCookie("age_checked");/*
+				var cookieVal = $.cookie("age_checked");*/
+				
 				var country = cookieVal.substr(0,2).toLowerCase();
 
 				if(country !=='ca' && country !=='gb' && country !=='us' && country !=='au'  && country !=='nz') {
@@ -185,6 +202,8 @@ var commonObj = (function($, window, sapient) {
 
 				$("#edit-country").val(country);
 				$("#edit-country").trigger("change");
+
+				
 			}
 
 		return {
@@ -207,7 +226,8 @@ var commonObj = (function($, window, sapient) {
 			posFindUs:posFindUs,
 			onResize:onResize,
 			setTimeLineEmptySpan: setTimeLineEmptySpan,
-			setCountryNewsLetter: setCountryNewsLetter
+			setCountryNewsLetter: setCountryNewsLetter,
+			getCookie: getCookie
 		};
 	}
 
@@ -238,9 +258,9 @@ sapient.common.posFilters();
 sapient.common.heroGrain();
 sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
-sapient.common.onResize();
 sapient.common.posFindUs();
+sapient.common.onResize();
 
-$(document).ready(function() {  
+/*$(document).ready(function() {  
 	sapient.common.setCountryNewsLetter();
-});
+});*/
