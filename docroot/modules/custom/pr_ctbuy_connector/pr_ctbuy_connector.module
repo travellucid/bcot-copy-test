@@ -38,6 +38,17 @@ function getInstancePairs() {
 	}
 	else{
 	unset($form['field_where_to_buy_cta_link']['widget']['#options']['buy_now']);
+	unset($form['field_where_to_buy_collection']['widget'][0]['field_where_to_buy_cta_options']['widget']['#options']['buy_now']);
+	unset($form['field_where_to_buy_collection']['widget'][1]['field_where_to_buy_cta_options']['widget']['#options']['buy_now']);
+	unset($form['field_where_to_buy_collection']['widget'][2]['field_where_to_buy_cta_options']['widget']['#options']['buy_now']);
+	unset($form['field_where_to_buy_collection']['widget'][3]['field_where_to_buy_cta_options']['widget']['#options']['buy_now']);
+	unset($form['field_where_to_buy_collection']['widget'][4]['field_where_to_buy_cta_options']['widget']['#options']['buy_now']);
+	unset($form['field_where_to_buy_collection']['widget'][5]['field_where_to_buy_cta_options']['widget']['#options']['buy_now']);
+	unset($form['field_where_to_buy_collection']['widget'][6]['field_where_to_buy_cta_options']['widget']['#options']['buy_now']);
+	$form['field_where_to_buy_collection']['widget'][0]['field_where_to_buy_click_to_buy']['#access'] = false;
+    $form['field_where_to_buy_collection']['widget'][1]['field_where_to_buy_click_to_buy']['#access'] = false;
+	$form['field_where_to_buy_collection']['widget'][2]['field_where_to_buy_click_to_buy']['#access'] = false;
+	$form['field_where_to_buy_collection']['widget'][3]['field_where_to_buy_click_to_buy']['#access'] = false;
 	$form['field_click_to_buy_hero_cta']['#access'] = false;
 	}
     $form['#validate'][] = 'buy_now_validation_where_to_buy';
@@ -61,18 +72,20 @@ function buy_now_validation_wines_page($form, \Drupal\Core\Form\FormStateInterfa
 	    if(empty($click_to_buy_key_hero) or empty($click_to_buy_label_hero)){
           $form_state->setErrorByName('field_click_to_buy_hero_cta', 'It is a required Field');
 	    }
-		if($cta_options == 'internal' or $cta_options == 'external'){
+	}	
+	if($cta_options == 'internal' or $cta_options == 'external'){
 		  if(empty($cta_uri) or empty($cta_text)){
           $form_state->setErrorByName('field_cta', 'It is a required Field');
 	    }
-		}
-    }
+	}
+    
 	if ($cta_tasting_options == 'buy_now') {
 	    if(empty($tasting_cta_remote) or empty($tasting_cta_label)){
           $form_state->setErrorByName('field_click', 'It is a required Field');
 	    }
-    }if($cta_tasting_options == 'internal' or $cta_tasting_options == 'external'){
-	    if(empty($tasting_cta_uri) or empty($tasting_cta_text)){
+    }
+	if($cta_tasting_options == 'internal' or $cta_tasting_options == 'external'){
+	      if(empty($tasting_cta_uri) or empty($tasting_cta_text)){
           $form_state->setErrorByName('field_tasting_notes_cta', 'It is a required Field');
 	    } 
 	}
