@@ -531,9 +531,26 @@ var commonObj = (function($, window, sapient) {
 				});
 			},
 
-			setCountryNewsLetter = function() {
-				var cookieVal = $.cookie("age_checked");
+			getCookie =function (cname) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			},
 
+			setCountryNewsLetter = function() {
+				var cookieVal=sapient.common.getCookie("age_checked");/*
+				var cookieVal = $.cookie("age_checked");*/
+				
 				var country = cookieVal.substr(0,2).toLowerCase();
 
 				if(country !=='ca' && country !=='gb' && country !=='us' && country !=='au'  && country !=='nz') {
@@ -542,6 +559,8 @@ var commonObj = (function($, window, sapient) {
 
 				$("#edit-country").val(country);
 				$("#edit-country").trigger("change");
+
+				
 			}
 
 		return {
@@ -564,7 +583,8 @@ var commonObj = (function($, window, sapient) {
 			posFindUs:posFindUs,
 			onResize:onResize,
 			setTimeLineEmptySpan: setTimeLineEmptySpan,
-			setCountryNewsLetter: setCountryNewsLetter
+			setCountryNewsLetter: setCountryNewsLetter,
+			getCookie: getCookie
 		};
 	}
 
@@ -595,12 +615,12 @@ sapient.common.posFilters();
 sapient.common.heroGrain();
 sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
-sapient.common.onResize();
 sapient.common.posFindUs();
+sapient.common.onResize();
 
-$(document).ready(function() {  
+/*$(document).ready(function() {  
 	sapient.common.setCountryNewsLetter();
-});
+});*/
 var carouselObj = (function($, window, sapient) {
 
 	var carouselInstance;
@@ -1722,9 +1742,11 @@ var validationObj = (function($, window, sapient) {
 		
 		countrySelector = function() {
 			$(document).on('change','.newsletter-form .country-primary select',function() {
-				var str= $(this).val().toLowerCase();
-				$(".newsletter-form .country-secondary").hide();
-				$('.'+str).show();
+				var str= $(this).val().toLowerCase(),
+				$selector = $("."+str);
+				$(".newsletter-form .country-secondary").hide().removeAttr("required");
+				$selector.find("label").addClass("form-required");
+				$selector.show().find("select,input,textarea").attr("required",true);
 			});
 		},
 
@@ -1734,7 +1756,8 @@ var validationObj = (function($, window, sapient) {
 			
 			if(beErrLength > 0){
 				var str="";
-				
+				sapient.validation.countrySelector();
+				sapient.common.setCountryNewsLetter();
 				$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn");
 				
 				$(".custom-error li").each(function(){
@@ -1751,15 +1774,19 @@ var validationObj = (function($, window, sapient) {
 				
 				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
 					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-					val = $(".enquire-form .date-wrapper #edit-preferred-date").val().split("-"),
+					val = $(".enquire-form .date-wrapper #edit-preferred-date").val(),
 					getDay,
 					newDate;
+				if(val) {
+					val=val.split("-")
+					val[1] = monthArray[val[1] -1];
+					getDay = weekArray[new Date($(".enquire-form .date-wrapper #edit-preferred-date").val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
+					val.unshift(getDay)
+					newDate = val.join(" ");
+					$(".date-overlay").text(newDate);
+				}
 
-				val[1] = monthArray[val[1] -1];
-				getDay = weekArray[new Date($(".enquire-form .date-wrapper #edit-preferred-date").val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
-				val.unshift(getDay)
-				newDate = val.join(" ");
-				$(".date-overlay").text(newDate);
+
 			}
 
 			$.each($input,function(index) {
@@ -1821,3 +1848,6 @@ sapient.validation.selectInMac();
 sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
+$(document).ready(function() {  
+	sapient.common.setCountryNewsLetter();
+});
