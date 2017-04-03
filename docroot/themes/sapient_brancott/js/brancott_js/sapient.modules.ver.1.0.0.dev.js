@@ -581,7 +581,6 @@ var commonObj = (function($, window, sapient) {
 
 sapient.common = commonObj.getInstance();
 sapient.common.hideLinkText();
-sapient.common.setCountryNewsLetter();
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
@@ -598,9 +597,10 @@ sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
 sapient.common.onResize();
 sapient.common.posFindUs();
-/*$( function() {
-	$( "#datepicker" ).datepicker();
-  } );*/
+
+$(document).ready(function() {  
+	sapient.common.setCountryNewsLetter();
+});
 var carouselObj = (function($, window, sapient) {
 
 	var carouselInstance;
