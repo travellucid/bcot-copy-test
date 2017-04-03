@@ -102,18 +102,18 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('Facebook App Id for Age gate authentication'),
       '#required' => TRUE,
     ];
-    // Click to Buy component.
-    $form['click_to_buy'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Click to Buy Brancott specific settings'),
-      '#open' => TRUE, // Added
-    );
-    $form['click_to_buy']['click_to_buy_instances'] = array(
-      '#type' => 'textarea',
-      '#title' => t('Click to Buy Instances'),
-      '#default_value' => $vc->get('click_to_buy_instances'),
-      '#description' => t('Please follow the exact format without spaces:  <b>key|code,key|code,key|code</b>. Key would be locale and Value woul dbe Instance ID.'),
-    );
+//    // Click to Buy component.
+//    $form['click_to_buy'] = array(
+//      '#type' => 'fieldset',
+//      '#title' => t('Click to Buy Brancott specific settings'),
+//      '#open' => TRUE, // Added
+//    );
+//    $form['click_to_buy']['click_to_buy_instances'] = array(
+//      '#type' => 'textarea',
+//      '#title' => t('Click to Buy Instances'),
+//      '#default_value' => $vc->get('click_to_buy_instances'),
+//      '#description' => t('Please follow the exact format without spaces:  <b>key|code,key|code,key|code</b>. Key would be locale and Value woul dbe Instance ID.'),
+//    );
     // Salesforce component
     $form['salesforce_credentials'] = array(
       '#type' => 'fieldset',
@@ -248,7 +248,7 @@ class ConfigForm extends FormBase {
         ->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
         ->set('cache_ttl', $form_state->getValue('cache_ttl'))
         ->set('facebook_app_id', $form_state->getValue('facebook_app_id'))
-        ->set('click_to_buy_instances', $form_state->getValue('click_to_buy_instances'))
+//        ->set('click_to_buy_instances', $form_state->getValue('click_to_buy_instances'))
         ->set('business_unit', $form_state->getValue('business_unit'))
         ->set('client_id', $form_state->getValue('client_id'))
         ->set('client_secret', $form_state->getValue('client_secret'))
