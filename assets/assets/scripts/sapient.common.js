@@ -61,7 +61,7 @@ var commonObj = (function($, window, sapient) {
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 					$(document).on("touchend",".age-gate .form-row .js-country-select", function(){
-						setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);},100);
+						//setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);},100);
 					});
 				}
 				
@@ -172,7 +172,20 @@ var commonObj = (function($, window, sapient) {
 						});
 					}
 				});
-			};
+			},
+
+			setCountryNewsLetter = function() {
+				var cookieVal = $.cookie("age_checked");
+
+				var country = cookieVal.substr(0,2).toLowerCase();
+
+				if(country !=='ca' && country !=='gb' && country !=='us' && country !=='au'  && country !=='nz') {
+					country = 'gbl';
+				}
+
+				$("#edit-country").val(country);
+				$("#edit-country").trigger("change");
+			}
 
 		return {
 			// public + private states and behaviors
@@ -193,7 +206,8 @@ var commonObj = (function($, window, sapient) {
 			closeCookie:closeCookie,
 			posFindUs:posFindUs,
 			onResize:onResize,
-			setTimeLineEmptySpan: setTimeLineEmptySpan
+			setTimeLineEmptySpan: setTimeLineEmptySpan,
+			setCountryNewsLetter: setCountryNewsLetter
 		};
 	}
 
@@ -210,7 +224,6 @@ var commonObj = (function($, window, sapient) {
 
 sapient.common = commonObj.getInstance();
 sapient.common.hideLinkText();
-/*sapient.common.debounce();*/
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
@@ -227,6 +240,7 @@ sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
 sapient.common.onResize();
 sapient.common.posFindUs();
-/*$( function() {
-	$( "#datepicker" ).datepicker();
-  } );*/
+
+$(document).ready(function() {  
+	sapient.common.setCountryNewsLetter();
+});
