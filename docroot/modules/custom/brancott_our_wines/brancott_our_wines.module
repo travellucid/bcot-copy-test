@@ -285,7 +285,7 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
       $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
   }
   $newsletter_form_postcode = $values['postcode'];
-    if ($values['country'] == 'gb' || $values['country'] == 'gbl'  &&  (strlen($newsletter_form_postcode) > 10) || $newsletter_form_postcode && !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode)) {
+    if ($values['country'] == 'gb' || $values['country'] == 'gbl' || $values['country'] == 'uk' || $values['country'] == 'nz'  &&  (strlen($newsletter_form_postcode) > 10) || $newsletter_form_postcode && !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode)) {
       $form_state->setErrorByName('postcode', 'ONLY ALPHANUMERIC CHARACTERS ARE ALLOWED. MAXIMUN 10 CHARACTERS ARE ALLOWED.');
     }
   $newsletter_form_postcode_canada = $values['postcode_canada'];
