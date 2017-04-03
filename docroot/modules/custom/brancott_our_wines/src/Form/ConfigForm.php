@@ -42,12 +42,23 @@ class ConfigForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $vc = $this->config('brancott_our_wines.settings');
     $form = array();
-
-    $form['openweatherapi_key'] = [
+    $form['openweatherapi_details'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Open Weather API configurations'),
+      '#open' => TRUE, // Added
+    );
+    $form['openweatherapi_details']['openweatherapi_key'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Open weather API Key'),
+      '#title' => $this->t('Open Weather API Key'),
       '#default_value' => $vc->get('openweatherapi_key'),
       '#description' => $this->t('Open weather API Key'),
+      '#required' => TRUE,
+    ];
+    $form['openweatherapi_details']['openweatherapi_cache_ttl'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Open Weather Cache Lifetime'),
+      '#default_value' => $vc->get('openweatherapi_cache_ttl'),
+      '#description' => $this->t('Cache Lifetime in second'),
       '#required' => TRUE,
     ];
     $form['dch_details'] = array(
@@ -91,18 +102,18 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('Facebook App Id for Age gate authentication'),
       '#required' => TRUE,
     ];
-    // Click to Buy component.
-    $form['click_to_buy'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Click to Buy Brancott specific settings'),
-      '#open' => TRUE, // Added
-    );
-    $form['click_to_buy']['click_to_buy_instances'] = array(
-      '#type' => 'textarea',
-      '#title' => t('Click to Buy Instances'),
-      '#default_value' => $vc->get('click_to_buy_instances'),
-      '#description' => t('Please follow the exact format without spaces:  <b>key|code,key|code,key|code</b>. Key would be locale and Value woul dbe Instance ID.'),
-    );
+//    // Click to Buy component.
+//    $form['click_to_buy'] = array(
+//      '#type' => 'fieldset',
+//      '#title' => t('Click to Buy Brancott specific settings'),
+//      '#open' => TRUE, // Added
+//    );
+//    $form['click_to_buy']['click_to_buy_instances'] = array(
+//      '#type' => 'textarea',
+//      '#title' => t('Click to Buy Instances'),
+//      '#default_value' => $vc->get('click_to_buy_instances'),
+//      '#description' => t('Please follow the exact format without spaces:  <b>key|code,key|code,key|code</b>. Key would be locale and Value woul dbe Instance ID.'),
+//    );
     // Salesforce component
     $form['salesforce_credentials'] = array(
       '#type' => 'fieldset',
@@ -232,11 +243,12 @@ class ConfigForm extends FormBase {
     $config = \Drupal::configFactory()->getEditable('brancott_our_wines.settings');
     $config
         ->set('openweatherapi_key', $form_state->getValue('openweatherapi_key'))
+        ->set('openweatherapi_cache_ttl', $form_state->getValue('openweatherapi_cache_ttl'))
         ->set('dch_wine_url', $form_state->getValue('dch_wine_url'))
         ->set('dch_ranges_url', $form_state->getValue('dch_ranges_url'))
         ->set('cache_ttl', $form_state->getValue('cache_ttl'))
         ->set('facebook_app_id', $form_state->getValue('facebook_app_id'))
-        ->set('click_to_buy_instances', $form_state->getValue('click_to_buy_instances'))
+//        ->set('click_to_buy_instances', $form_state->getValue('click_to_buy_instances'))
         ->set('business_unit', $form_state->getValue('business_unit'))
         ->set('client_id', $form_state->getValue('client_id'))
         ->set('client_secret', $form_state->getValue('client_secret'))

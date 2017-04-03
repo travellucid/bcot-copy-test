@@ -16,67 +16,61 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
   $view_id = $variables['view']->storage->id();
   $variables['current_language'] = $langcode;
   switch ($view_id) {
-   case 'stockists_component':
+    case 'stockists_component':
       if ($variables['view']->current_display == 'where_to_buy_stockists_component') {
-		  $count = count(views_get_view_result('stockists_component', 'where_to_buy_referenced_stockists_component'));
-      $variables['stockists_count'] = $count;
-		  
-	  }
+        $count = count(views_get_view_result('stockists_component', 'where_to_buy_referenced_stockists_component'));
+        $variables['stockists_count'] = $count;
+      }
     case 'our_wines':
       if ($variables['view']->current_display == 'block_1') {
-		  $wine_count = count(views_get_view_result('our_wines', 'block_2', 1));
-		  $variables['wine_count'] = $wine_count;
-		  
-	  }
+        $wine_count = count(views_get_view_result('our_wines', 'block_2', 1));
+        $variables['wine_count'] = $wine_count;
+      }
       if ($variables['view']->current_display == 'block_2') {
         $details = getRangeDetailsFiltered();
-        
-		$range_id = $variables['row']->_relationship_entities['field_range_selection_value']->field_range->getValue()[0]['target_id'];
-		
-		$wines_ids = $variables['row']->_relationship_entities['field_range_selection_value']->field_wines->getValue();
-		$node_load_range = \Drupal\node\Entity\Node::load($range_id);
-          $bkg_color = $node_load_range->field_ranges_background_color->value;
-          $range_title = $node_load_range->title->value;
+
+        $range_id = $variables['row']->_relationship_entities['field_range_selection_value']->field_range->getValue()[0]['target_id'];
+
+        $wines_ids = $variables['row']->_relationship_entities['field_range_selection_value']->field_wines->getValue();
+        $node_load_range = \Drupal\node\Entity\Node::load($range_id);
+        $bkg_color = $node_load_range->field_ranges_background_color->value;
+        $range_title = $node_load_range->title->value;
 //          $range_title_slug = $node_load_range->field_slug->value;
-          $range_id = $node_load_range->field_ranges_id->value;
-          $url_range_title = strtolower(preg_replace('/\s+/', '-', $range_title));
-         
-		      $url = $langcode.'/our-wines/'.$url_range_title;
-          foreach ($details as $key => $detail) {
+        $range_id = $node_load_range->field_ranges_id->value;
+        $url_range_title = strtolower(preg_replace('/\s+/', '-', $range_title));
+
+        $url = $langcode . '/our-wines/' . $url_range_title;
+        foreach ($details as $key => $detail) {
 //            if ($range_title_slug == $detail->slug) {
-            if ($range_id == $detail->id) {
-              $range_title_api = $detail->title;
-             // $range_desc_api = $detail->description;
-              $range_desc_api = $detail->strapline;
-            }
+          if ($range_id == $detail->id) {
+            $range_title_api = $detail->title;
+            // $range_desc_api = $detail->description;
+            $range_desc_api = $detail->strapline;
           }
-		  
-		  foreach($wines_ids as $wine_id){
-			  $exact_wine_id = $wine_id['target_id'];
-			  $node_load_wine = \Drupal\node\Entity\Node::load($exact_wine_id);
-			  $wine_image_target = $node_load_wine->field_wine_bottle_image->target_id;
-              $wine_image_file = \Drupal\file\Entity\File::load($wine_image_target);
-              if ($wine_image_file) {
-              $wine_image_url[] = file_create_url($wine_image_file->getFileUri());
-              
-            }
-		  }
-		  $wine_botl_1 = $wine_image_url[0];
-		  $wine_botl_2 = $wine_image_url[1];
-		  $range_details = array('bkg_colr' => $bkg_color,'range_title' => $range_title_api,'url' => $url,'range_desc_api' => $range_desc_api,'botl_1_img' => $wine_botl_1,'botl_2_img' => $wine_botl_2);
-		
-          $variables['range_details'] = $range_details;
-    //print_r($range_details);die;
-          
+        }
+
+        foreach ($wines_ids as $wine_id) {
+          $exact_wine_id = $wine_id['target_id'];
+          $node_load_wine = \Drupal\node\Entity\Node::load($exact_wine_id);
+          $wine_image_target = $node_load_wine->field_wine_bottle_image->target_id;
+          $wine_image_file = \Drupal\file\Entity\File::load($wine_image_target);
+          if ($wine_image_file) {
+            $wine_image_url[] = file_create_url($wine_image_file->getFileUri());
+          }
+        }
+        $wine_botl_1 = $wine_image_url[0];
+        $wine_botl_2 = $wine_image_url[1];
+        $range_details = array('bkg_colr' => $bkg_color, 'range_title' => $range_title_api, 'url' => $url, 'range_desc_api' => $range_desc_api, 'botl_1_img' => $wine_botl_1, 'botl_2_img' => $wine_botl_2);
+
+        $variables['range_details'] = $range_details;
+        //print_r($range_details);die;
       }
     case 'homepage_components':
-       if ($variables['view']->current_display == 'tour_experience_rezdy') {
-         $node = \Drupal::routeMatch()->getParameter('node');
-         $node_translation = $node->getTranslation($langcode);
-         //kint($node_translation);die;
-         
-         
-       }
+      if ($variables['view']->current_display == 'tour_experience_rezdy') {
+        $node = \Drupal::routeMatch()->getParameter('node');
+        $node_translation = $node->getTranslation($langcode);
+        //kint($node_translation);die;
+      }
       if ($variables['view']->current_display == 'common_hero_component') {
         if ($variables['row']->_entity->field_city) {
           $city = $variables['row']->_entity->field_city->value;
@@ -122,10 +116,29 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           }
           $vc = \Drupal::config('brancott_our_wines.settings');
           $openweatherapi_key = $vc->get('openweatherapi_key');
-          $openweatherapi_key = $openweatherapi_key ? $openweatherapi_key : 'bd4028edc390aa0629042fefed9976ca';
-          $owm = new OpenWeatherMap($openweatherapi_key);
-          $weather = $owm->getWeather($city, 'metric');
+          
+          $cid = 'openweatherapi_cache';
+          $cache = \Drupal::cache()->get($cid);
 
+          if ($cache) {
+            $weather = $cache->data;
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache');
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache: icon ID is ' . $weather->weather->icon);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache: temp is ' . $weather->temperature->now);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from cache: unit is ' . $weather->temperature->getUnit());
+          } else {
+            $openweatherapi_ttl = $vc->get('openweatherapi_cache_ttl');
+            $openweatherapi_key = $openweatherapi_key ? $openweatherapi_key : 'bd4028edc390aa0629042fefed9976ca';
+            $owm = new OpenWeatherMap($openweatherapi_key);
+            $weather = $owm->getWeather($city, 'metric');
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API');
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: icon ID is ' . $weather->weather->icon);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: temp is ' . $weather->temperature->now);
+            \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: unit is ' . $weather->temperature->getUnit());
+            $current_time = time();
+            $cache_time = $openweatherapi_ttl + $current_time;
+            \Drupal::cache()->set($cid, $weather, $cache_time);
+          }
           $icon_id = $weather->weather->icon;
           $basepath = base_path() . $variables['directory'];
 
@@ -145,21 +158,20 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['wine_range'] = mb_strtoupper($details->range);
           $variables['wine_description'] = $details->description;
           $ids = \Drupal::entityQuery('node')
-                    ->condition('title', $details->range)
-                    ->condition('status', 1)    //content type condition also to be added
-                    ->execute();
-                $range_nid = reset($ids);
-               
-                $bkg_color = \Drupal\node\Entity\Node::load($range_nid);
-                $bkg_color = $bkg_color->field_ranges_background_color->value;
-          
+              ->condition('title', $details->range)
+              ->condition('status', 1)    //content type condition also to be added
+              ->execute();
+          $range_nid = reset($ids);
+
+          $bkg_color = \Drupal\node\Entity\Node::load($range_nid);
+          $bkg_color = $bkg_color->field_ranges_background_color->value;
+
           $variables['range_bkg_colr'] = $bkg_color;
-          
         }
       }
       if ($variables['view']->current_display == 'related_wines') {
         if ($variables['row']->_entity->field_wine_id) {
-          
+
           //$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
           $wine_ids_array = array();
           //$wine_ids_array = $variables['row']->_entity->field_related_wines->getValue();
@@ -169,7 +181,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $wine_ids_array = $node_translation->field_related_wines->getValue();
           $winedetails = array();
           foreach ($wine_ids_array as $key => $value) {
-           
+
             $con = \Drupal\Core\Database\Database::getConnection();
             $query = $con->select('node_field_data', 'n')->distinct();
             $query->fields('n', array('nid'));
@@ -215,15 +227,15 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         }
       }
       if ($variables['view']->current_display == 'tasting_notes_component') {
-         $block = \Drupal\block_content\Entity\BlockContent::load(21);
-         $variables['nutritional_title'] = $block->field_nutritional_info_title->value;
-         $variables['nutritional_cta_new'] = $block->field_nutritional_info_cta_new->value;
-         $variables['nutritional_cta_first_uri'] = $block->field_nutritional_info_cta1->uri;
-         $variables['nutritional_cta_second_uri'] = $block->field_nutritional_info_cta2->uri;
-         $variables['nutritional_cta_first_title'] = $block->field_nutritional_info_cta1->title;
-         $variables['nutritional_cta_second_title'] = $block->field_nutritional_info_cta2->title;
-         $variables['nutritional_note_first'] = $block->field_nutritional_info_note1->value;
-         $variables['nutritional_note_second'] = $block->field_nutritional_info_note12->value;
+        $block = \Drupal\block_content\Entity\BlockContent::load(21);
+        $variables['nutritional_title'] = $block->field_nutritional_info_title->value;
+        $variables['nutritional_cta_new'] = $block->field_nutritional_info_cta_new->value;
+        $variables['nutritional_cta_first_uri'] = $block->field_nutritional_info_cta1->uri;
+        $variables['nutritional_cta_second_uri'] = $block->field_nutritional_info_cta2->uri;
+        $variables['nutritional_cta_first_title'] = $block->field_nutritional_info_cta1->title;
+        $variables['nutritional_cta_second_title'] = $block->field_nutritional_info_cta2->title;
+        $variables['nutritional_note_first'] = $block->field_nutritional_info_note1->value;
+        $variables['nutritional_note_second'] = $block->field_nutritional_info_note12->value;
         if ($variables['row']->_entity->field_wine_id) {
           $wine_id = $variables['row']->_entity->field_wine_id->value;
           $details = braoncott_rest_api_get_results($wine_id);
@@ -235,18 +247,19 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $alcohol = $details->wineNutritional[0]->alcohol;
           if ($alcohol) {
             $alcohol_cal = round(1000 / (((($alcohol) / 100) * 1000 * 0.789) / 10));
+            $alcohol_cal_info = 1000 / (((($alcohol) / 100) * 1000 * 0.789) / 10);
             $variables['nutritional_alcohol'] = $alcohol_cal;
-            $alcohol_info_cal = round(((10 / $alcohol_cal) * 150));
+            $alcohol_info_cal = round(((10 / $alcohol_cal_info) * 150));
             $variables['nutritional_alcohol_cal'] = $alcohol_info_cal;
           }
           else {
             $variables['nutritional_alcohol'] = '0';
             $variables['nutritional_alcohol_cal'] = '0';
           }
-          $variables['nutritional_info_calories'] = $details->wineNutritional[0]->calories;
+          $variables['nutritional_info_calories'] = round($details->wineNutritional[0]->calories);
           $calories = $details->wineNutritional[0]->calories;
           if ($calories) {
-            $calories_cal = round((($calories) / 150) * $alcohol_cal);
+            $calories_cal = round((($calories) / 150) * $alcohol_cal_info);
             $variables['nutritional_calories'] = $calories_cal;
           }
           else {
@@ -255,7 +268,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['nutritional_info_fat'] = $details->wineNutritional[0]->fat;
           $fat = $details->wineNutritional[0]->fat;
           if ($fat) {
-            $fat_cal = round((($fat) / 150) * $alcohol_cal);
+            $fat_cal = round((($fat) / 150) * $alcohol_cal_info);
             $variables['nutritional_fat'] = $fat_cal;
           }
           else {
@@ -264,7 +277,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['nutritional_info_saturates'] = $details->wineNutritional[0]->saturates;
           $saturates = $details->wineNutritional[0]->saturates;
           if ($saturates) {
-            $saturates_cal = round((($saturates) / 150) * $alcohol_cal);
+            $saturates_cal = round((($saturates) / 150) * $alcohol_cal_info);
             $variables['nutritional_saturates'] = $saturates_cal;
           }
           else {
@@ -273,7 +286,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['nutritional_info_carbohydrates'] = $details->wineNutritional[0]->carbohydrates;
           $carbohydrates = $details->wineNutritional[0]->carbohydrates;
           if ($carbohydrates) {
-            $carbohydrates_cal = number_format(((($carbohydrates) / 150) * $alcohol_cal), 3);
+            $carbohydrates_cal = number_format(((($carbohydrates) / 150) * $alcohol_cal_info), 3);
             $variables['nutritional_carbohydrates'] = $carbohydrates_cal;
           }
           else {
@@ -282,16 +295,18 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $variables['nutritional_info_sugars'] = $details->wineNutritional[0]->sugars;
           $sugars = $details->wineNutritional[0]->sugars;
           if ($sugars) {
-            $sugars_cal = number_format(((($sugars) / 150) * $alcohol_cal), 3);
+            $sugars_cal = number_format(((($sugars) / 150) * $alcohol_cal_info), 3);
             $variables['nutritional_sugars'] = $sugars_cal;
           }
           else {
             $variables['nutritional_sugars'] = '0';
           }
-          $variables['nutritional_info_proteins'] = $details->wineNutritional[0]->proteins;
+          $nutritional_info_pro = $details->wineNutritional[0]->proteins;
+          $nutritional_info_pro_cal = $nutritional_info_pro * 1000;
+          $variables['nutritional_info_proteins'] = round($nutritional_info_pro * 1000);
           $proteins = $details->wineNutritional[0]->proteins;
           if ($proteins) {
-            $proteins_cal = round((($proteins) / 150) * $alcohol_cal);
+            $proteins_cal = round((($nutritional_info_pro_cal) / 150) * $alcohol_cal_info);
             $variables['nutritional_proteins'] = $proteins_cal;
           }
           else {
@@ -304,9 +319,9 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         if ($variables['row']->_entity->field_generic_page_dch_api_url) {
           $generic_dch_url = $variables['row']->_entity->field_generic_page_dch_api_url->getValue()[0][uri];
           if ($generic_dch_url) {
-          $details = braoncott_rest_api_get_generic_url($generic_dch_url);
-          $variables['generic_body_dch'] = $details;
-        }
+            $details = braoncott_rest_api_get_generic_url($generic_dch_url);
+            $variables['generic_body_dch'] = $details;
+          }
         }
       }
       break;
@@ -333,96 +348,89 @@ function sapient_brancott_theme() {
 
 function sapient_brancott_preprocess_block(&$variables) {
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
-    if($language_name == 'English'){
-     $variables['selected_language'] = 'GLOBAL'; 
-    }
-    else{
-     $variables['selected_language'] = $language_name; 
-    }
+  $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
+  if ($language_name == 'English') {
+    $variables['selected_language'] = 'GLOBAL';
+  }
+  else {
+    $variables['selected_language'] = $language_name;
+  }
   if ($variables['plugin_id'] == 'webform_block') {
     $node = \Drupal::routeMatch()->getParameter('node');
-          $node_translation = $node->getTranslation($langcode);
-          $enquire_form_title = $node_translation->field_enquire_title->value;
-          if ($enquire_form_title) {
-          $variables['enquire_title'] = $enquire_form_title;
-          }
-          $enquire_form_description = $node_translation->field_enquire_description->value;
-          if ($enquire_form_description) {
-          $variables['enquire_description'] = $enquire_form_description;
-          }
-          $newsletter_form_heading = $node_translation->field_newsletter_form_heading->value;
-          if ($newsletter_form_heading) {
-          $variables['newsletter_heading'] = $newsletter_form_heading;
-          }
-          $newsletter_form_subheading = $node_translation->field_newsletter_form_sub_headin->value;
-          if ($newsletter_form_subheading) {
-          $variables['newsletter_subheading'] = $newsletter_form_subheading;
-          }          
-  } 
+    $node_translation = $node->getTranslation($langcode);
+    $enquire_form_title = $node_translation->field_enquire_title->value;
+    if ($enquire_form_title) {
+      $variables['enquire_title'] = $enquire_form_title;
+    }
+    $enquire_form_description = $node_translation->field_enquire_description->value;
+    if ($enquire_form_description) {
+      $variables['enquire_description'] = $enquire_form_description;
+    }
+    $newsletter_form_heading = $node_translation->field_newsletter_form_heading->value;
+    if ($newsletter_form_heading) {
+      $variables['newsletter_heading'] = $newsletter_form_heading;
+    }
+    $newsletter_form_subheading = $node_translation->field_newsletter_form_sub_headin->value;
+    if ($newsletter_form_subheading) {
+      $variables['newsletter_subheading'] = $newsletter_form_subheading;
+    }
+  }
 }
-
-
 
 function sapient_brancott_preprocess_views_view(&$variables) {
   $view = $variables['view'];
-    $view_id = $variables['view']->storage->id();
-    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  if ($view_id == 'contact_us_page' ) {
-     $node = \Drupal::routeMatch()->getParameter('node');
-     $nid = $node->nid->getValue()[0]['value'];
-     $node_translation = $node->getTranslation($langcode);
-      
-     $con = \Drupal\Core\Database\Database::getConnection();
-             $query = $con->select('node_field_data', 'n');
-             $query->fields('n', array('title'));
-             $query->condition('n.langcode', $langcode, '=');
-             $new_nid_transtion = $query->execute()->fetchField();
-            // print_r($new_nid_transtion);die;
-   
-            
-            $variables['address_heading'] = $new_nid_transtion;
-            
-          
-    }
-    if ($view_id == 'brancott_sitemap' ) {
-      $node = \Drupal::routeMatch()->getParameter('node');
-     $nid = $node->nid->getValue()[0]['value'];
-     $node_translation = $node->getTranslation($langcode);
-      
-     $con = \Drupal\Core\Database\Database::getConnection();
-             $query = $con->select('node_field_data', 'n')->distinct();
-             $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
-             $query->fields('h', array('field_address_heading_value'));
-      $variables['current_langcode'] = $langcode;
-      $variables['sitemap_title'] = $sitemap_title;
-    }
+  $view_id = $variables['view']->storage->id();
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  if ($view_id == 'contact_us_page') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $nid = $node->nid->getValue()[0]['value'];
+    $node_translation = $node->getTranslation($langcode);
+
+    $con = \Drupal\Core\Database\Database::getConnection();
+    $query = $con->select('node_field_data', 'n');
+    $query->fields('n', array('title'));
+    $query->condition('n.langcode', $langcode, '=');
+    $new_nid_transtion = $query->execute()->fetchField();
+    // print_r($new_nid_transtion);die;
+
+
+    $variables['address_heading'] = $new_nid_transtion;
+  }
+  if ($view_id == 'brancott_sitemap') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $nid = $node->nid->getValue()[0]['value'];
+    $node_translation = $node->getTranslation($langcode);
+
+    $con = \Drupal\Core\Database\Database::getConnection();
+    $query = $con->select('node_field_data', 'n')->distinct();
+    $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
+    $query->fields('h', array('field_address_heading_value'));
+    $variables['current_langcode'] = $langcode;
+    $variables['sitemap_title'] = $sitemap_title;
+  }
 }
 
-
 function sapient_brancott_preprocess_page(&$variables) {
-   // Define {{ body_class }}  in the template.
-    //$vc = $this->config('brancott_our_wines.settings');
-    $fb_app_id = \Drupal::config('brancott_our_wines.settings')->get('facebook_app_id'); 
-    //$fb_app_id = $vc->get('facebook_app_id');
-    $variables['fb_app_id'] = $fb_app_id;
-   
- 
+  // Define {{ body_class }}  in the template.
+  //$vc = $this->config('brancott_our_wines.settings');
+  $fb_app_id = \Drupal::config('brancott_our_wines.settings')->get('facebook_app_id');
+  //$fb_app_id = $vc->get('facebook_app_id');
+  $variables['fb_app_id'] = $fb_app_id;
 }
 
 function sapient_brancott_preprocess_html(&$variables) {
-    $analytics_head = \Drupal::config('brancott_our_wines.settings')->get('analytics_head'); 
-    if ($analytics_head) {
-      $variables['analytics_head'] = $analytics_head;
-    }
-    $analytics_body_begin = \Drupal::config('brancott_our_wines.settings')->get('analytics_body_begin');
-    if ($analytics_body_begin) {
-      $variables['analytics_body_begin'] = $analytics_body_begin;
-    }
-    $analytics_body_end = \Drupal::config('brancott_our_wines.settings')->get('analytics_body_end');
-    if ($analytics_body_end) {
-      $variables['analytics_body_end'] = $analytics_body_end;
-    }
-    $enable_data_layer = \Drupal::config('brancott_our_wines.settings')->get('enable_data_layer');
-    $variables['enable_data_layer'] = $enable_data_layer;
+  $analytics_head = \Drupal::config('brancott_our_wines.settings')->get('analytics_head');
+  if ($analytics_head) {
+    $variables['analytics_head'] = $analytics_head;
+  }
+  $analytics_body_begin = \Drupal::config('brancott_our_wines.settings')->get('analytics_body_begin');
+  if ($analytics_body_begin) {
+    $variables['analytics_body_begin'] = $analytics_body_begin;
+  }
+  $analytics_body_end = \Drupal::config('brancott_our_wines.settings')->get('analytics_body_end');
+  if ($analytics_body_end) {
+    $variables['analytics_body_end'] = $analytics_body_end;
+  }
+  $enable_data_layer = \Drupal::config('brancott_our_wines.settings')->get('enable_data_layer');
+  $variables['enable_data_layer'] = $enable_data_layer;
 }
