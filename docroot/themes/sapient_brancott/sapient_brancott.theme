@@ -381,6 +381,7 @@ function sapient_brancott_preprocess_views_view(&$variables) {
   $view = $variables['view'];
   $view_id = $variables['view']->storage->id();
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  
   if ($view_id == 'contact_us_page') {
     $node = \Drupal::routeMatch()->getParameter('node');
     $nid = $node->nid->getValue()[0]['value'];
@@ -388,23 +389,27 @@ function sapient_brancott_preprocess_views_view(&$variables) {
 
     $con = \Drupal\Core\Database\Database::getConnection();
     $query = $con->select('node_field_data', 'n');
-    $query->fields('n', array('title'));
+    $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
+    $query->fields('h', array('field_address_heading_value'));
     $query->condition('n.langcode', $langcode, '=');
+    $query->condition('n.nid', $nid, '=');
     $new_nid_transtion = $query->execute()->fetchField();
-    // print_r($new_nid_transtion);die;
-
-
+   // print_r($new_nid_transtion);die;
     $variables['address_heading'] = $new_nid_transtion;
   }
   if ($view_id == 'brancott_sitemap') {
-    $node = \Drupal::routeMatch()->getParameter('node');
-    $nid = $node->nid->getValue()[0]['value'];
-    $node_translation = $node->getTranslation($langcode);
-
+    $curr_node = \Drupal::routeMatch()->getParameter('node');
+    $curr_nid = $curr_node->nid->getValue()[0]['value'];
+    $node_translation = $curr_node->getTranslation($langcode);
+    //kint($node_translation);die;
     $con = \Drupal\Core\Database\Database::getConnection();
     $query = $con->select('node_field_data', 'n')->distinct();
-    $query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
-    $query->fields('h', array('field_address_heading_value'));
+    //$query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
+    $query->fields('n', array('title'));
+    $query->condition('n.nid', $curr_nid, '=');
+    $query->condition('n.langcode', $langcode, '=');
+    $sitemap_title = $query->execute()->fetchField();
+     //print_r($sitemap_title);die;
     $variables['current_langcode'] = $langcode;
     $variables['sitemap_title'] = $sitemap_title;
   }
