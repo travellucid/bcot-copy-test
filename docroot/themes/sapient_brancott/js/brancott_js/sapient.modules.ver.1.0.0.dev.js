@@ -381,7 +381,7 @@ var commonObj = (function($, window, sapient) {
 			},
 			setScrollTopAgeGate= function() {
 				$(".age-gate .form-row .js-country-select").on("touchend",function(){
-					setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);console.log("aaaasxxkjhdioadHIhdjkDJKHSDJKHSDJK")},500);
+					setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);},500);
 				});
 			},
 
@@ -989,7 +989,7 @@ var heroObj = (function($, window, sapient) {
 
 sapient.hero = heroObj.getInstance();
 
-sapient.hero.setLocalTime("+13");
+sapient.hero.setLocalTime("+12");
 var headerObj = (function($, window, sapient) {
 
 	var headerInstance;

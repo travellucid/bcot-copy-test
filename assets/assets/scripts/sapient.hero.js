@@ -58,4 +58,4 @@ var heroObj = (function($, window, sapient) {
 
 sapient.hero = heroObj.getInstance();
 
-sapient.hero.setLocalTime("+13");
+sapient.hero.setLocalTime("+12");
