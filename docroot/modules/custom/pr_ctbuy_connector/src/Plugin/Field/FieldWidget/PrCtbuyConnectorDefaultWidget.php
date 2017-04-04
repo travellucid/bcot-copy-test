@@ -53,12 +53,14 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
     ];
 
     // title
-   /* $desc = "Drop Down Options<br>
+    $desc = "<strong>How to use key word search:</strong>
 <ul>
-  <li>Buy No Popup - Use 'Click to Buy' below</li>
-  <li>Internal Site Page - Use 'CTA' below</li>
-  <li>External Site Page - Use 'CTA' below</li>
-</ul>";*/
+<li>Type product search keywords. For example 'brancott'.</li>
+<li>Wait while the system looks up a list of wine products. Note the animated blue  circle on the right. This might take a number of seconds.</li>
+<li>Select a product from the list of wine products presented. Your selection appear here as a 'product index'. For example 'PRPECOMB000015|brancottuk|PRPECOM000692' or 'bra-brancottuk-marlborough-sauvignon-gris'. </li>
+<br>
+<li>If you want to change the current 'product index', just delete the current setting and continue from the first step above.</li>
+<ul>";
     $element['title'] = [
       '#type' => 'textfield',
       '#title' => t('Click to buy Console, text of the CTA'),
@@ -68,7 +70,7 @@ class PrCtbuyConnectorDefaultWidget extends WidgetBase {
       '#maxlength' => '20',
       '#placeholder' => t('Title'),
 //      '#required' => TRUE,
-      '#description' => t('Maximum character limit : 20'),
+      '#description' => $desc,
       
       
     ];
