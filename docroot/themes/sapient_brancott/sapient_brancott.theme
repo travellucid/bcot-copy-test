@@ -421,11 +421,15 @@ function sapient_brancott_preprocess_page(&$variables) {
   $fb_app_id = \Drupal::config('brancott_our_wines.settings')->get('facebook_app_id');
   //$fb_app_id = $vc->get('facebook_app_id');
   $variables['fb_app_id'] = $fb_app_id;
- /* $type = $variables['node']->getType();
-  if ($type == 'error_page') { 
+  if($variables['node']){
+    $type = $variables['node']->getType();
+    if ($type == 'error_page') { 
       $variables['#attached']['library'][] = 'sapient_brancott/header-error-page';
       
-    }*/
+    }
+  }
+  
+ // 
 }
 
 function sapient_brancott_preprocess_html(&$variables) {
