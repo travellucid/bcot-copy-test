@@ -299,6 +299,9 @@ var validationObj = (function($, window, sapient) {
 
 
 			}
+			else {
+				sapient.common.setCountryNewsLetter();
+			}
 
 			$.each($input,function(index) {
 				if($($input[index]).hasClass("error")) {
@@ -360,5 +363,5 @@ sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
 $(document).ready(function() {  
-	sapient.common.setCountryNewsLetter();
+	/*sapient.common.setCountryNewsLetter();*/
 });
