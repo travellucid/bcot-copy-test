@@ -204,6 +204,38 @@ var commonObj = (function($, window, sapient) {
 				$("#edit-country").trigger("change");
 
 				
+			},
+
+			ageGateSetFocusTextBox= function() {
+				$(document).on("change",".age-gate  .date-control #year", function() {
+					if($(".age-gate  .date-control #month").css("width")!='0px') {
+						//alert("ag");
+					var inpYear = document.getElementById('year');
+						inpYear.onkeypress = function() {
+							if( inpYear.value.length >=3){
+								$(".age-gate  .date-control #year").next().focus();
+							}
+						}
+					}});
+
+					$(document).on("change",".age-gate  .date-control #month", function() {
+						var inpMon = document.getElementById('month');
+						inpMon.onkeypress = function() {
+							if(inpMon.value.length >=1){
+								$(".age-gate  .date-control #month").next().focus();
+							}
+						}
+						
+					});		
+					$(document).on("change",".age-gate  .date-control #day", function() {
+						var inpDay = document.getElementById('day');
+						inpDay.onkeypress = function() {
+							if(inpDay.value.length >=1){
+								$(".age-gate  .date-control #day").blur();
+							}
+						}
+						
+					});					
 			}
 
 		return {
@@ -227,7 +259,8 @@ var commonObj = (function($, window, sapient) {
 			onResize:onResize,
 			setTimeLineEmptySpan: setTimeLineEmptySpan,
 			setCountryNewsLetter: setCountryNewsLetter,
-			getCookie: getCookie
+			getCookie: getCookie,
+			ageGateSetFocusTextBox: ageGateSetFocusTextBox
 		};
 	}
 
@@ -258,9 +291,9 @@ sapient.common.posFilters();
 sapient.common.heroGrain();
 sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
-sapient.common.posFindUs();
 sapient.common.onResize();
+sapient.common.posFindUs();
 
-/*$(document).ready(function() {  
-	sapient.common.setCountryNewsLetter();
-});*/
+$(document).ready(function() {  
+	//sapient.common.ageGateSetFocusTextBox();
+});
