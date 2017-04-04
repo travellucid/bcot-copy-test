@@ -287,24 +287,24 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
   $newsletter_form_postcode = $values['postcode'];
     if (($values['country'] == 'gb' || $values['country'] == 'gbl' || $values['country'] == 'uk' || $values['country'] == 'nz')  
           &&  ((strlen($newsletter_form_postcode) > 10) || !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode))) {
-      $form_state->setErrorByName('postcode', 'ONLY ALPHANUMERIC CHARACTERS ARE ALLOWED. MAXIMUM 10 CHARACTERS ARE ALLOWED.');
+      $form_state->setErrorByName('postcode', 'ONLY ALPHANUMERIC CHARACTERS ALLOWED. MAXIMUM 10 CHARACTERS ALLOWED.');
     }
   $newsletter_form_postcode_canada = $values['postcode_canada'];
     if ($values['country'] == 'ca' 
         && ((strlen($newsletter_form_postcode_canada) !== 6) || !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode_canada))) {
-      $form_state->setErrorByName('postcode_canada', 'ONLY ALPHANUMERIC CHARACTERS ARE ALLOWED. MAXIMUM 6 CHARACTERS ARE ALLOWED.');
+      $form_state->setErrorByName('postcode_canada', 'ONLY ALPHANUMERIC CHARACTERS ALLOWED. MUST HAVE 6 CHARACTERS.');
     }
 
   $newsletter_form_postcode_us = $values['postcode_us'];
     if ($values['country'] == 'us' 
         && ((strlen($newsletter_form_postcode_us) !== 5) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode_us))) {
-      $form_state->setErrorByName('postcode_us', 'ONLY NUMBERS ARE ALLOWED. MAXIMUM 5 CHARACTERS ARE ALLOWED');
+      $form_state->setErrorByName('postcode_us', 'ONLY NUMBERS ALLOWED. MUST HAVE 5 CHARACTERS.');
     }
 
   $newsletter_form_postcode_australia = $values['postcode_australia'];
     if ($values['country'] == 'au' 
         && ((strlen($newsletter_form_postcode_australia) !== 4) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode_australia))) {
-      $form_state->setErrorByName('postcode_australia', 'ONLY NUMBERS ARE ALLOWED. MAXIMUM 4 CHARACTERS ARE ALLOWED');
+      $form_state->setErrorByName('postcode_australia', 'ONLY NUMBERS ALLOWED. MUST HAVE 4 CHARACTERS.');
     }
 
 }
@@ -321,7 +321,7 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
   }  
   $phone_number = $values['enquire_phone_number'];
   if ((strlen($phone_number) > 10) || $phone_number && !preg_match('/^[ +0-9]+$/', $phone_number)) {
-    $form_state->setErrorByName('PHONE NUMBERS SHOULD COMPRISE ONLY DIGITS, + AND SPACES AND HAVE LESS THAN 10 CHARACTERS');
+    $form_state->setErrorByName('enquire_phone_number', 'PHONE NUMBERS SHOULD COMPRISE ONLY DIGITS, + AND SPACES AND HAVE LESS THAN 10 CHARACTERS');
   }
   $email = $values['email_address'];
   if ((strlen($email) > 250) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {

@@ -17,6 +17,10 @@ global-styling:
 pr-ctbuy-connector:
   js:
      js/brancott_js/pr_ctbuy_connector.js: {}
+     
+header-error-page:
+  js:
+     js/brancott_js/header_error_page.js: {}
 
 bootstrap-scripts:
   js:
