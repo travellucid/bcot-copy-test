@@ -40,16 +40,19 @@
 {% endif %}
 </div>
 <a href="#" class="cta secondary-green watch-video" data-toggle="modal" data-target="#nutritional-info-component">{{ nutritional_cta_new }} </a>
-{% if (field_cta_options_tasting_notes == 'external') %}
+{% if (fields.field_cta_options_tasting_notes.content == 'external') %}
+        
         <a href="{{ fields.field_tasting_notes_cta.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_tasting_notes_cta_1.content }}</a>
         {% endif %}
-        {% if (field_cta_options_tasting_notes == 'internal') %}
+        {% if (fields.field_cta_options_tasting_notes.content == 'internal') %}
+            
         <a href="{{ fields.field_tasting_notes_cta.content }}"  class="cta dark watch-video">{{ fields.field_tasting_notes_cta_1.content }}</a>
         {% endif %}
-        {% if (field_cta_options_tasting_notes == 'buy_now') %}
+        {% if (fields.field_cta_options_tasting_notes.content == 'buy_now') %}
+            
         <a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_1.content }}</a>
 
-        {% endif %}
+   {% endif %}
 
 
 <!-- Modal -->

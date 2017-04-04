@@ -61,7 +61,7 @@ var commonObj = (function($, window, sapient) {
 				if(isIOS || isAndroid) {
 					$("body").addClass('touch-device');
 					$(document).on("touchend",".age-gate .form-row .js-country-select", function(){
-						setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);},100);
+						//setTimeout(function(){$(".age-gate__content").focus().scrollTop(400);},100);
 					});
 				}
 				
@@ -172,7 +172,39 @@ var commonObj = (function($, window, sapient) {
 						});
 					}
 				});
-			};
+			},
+
+			getCookie =function (cname) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			},
+
+			setCountryNewsLetter = function() {
+				var cookieVal=sapient.common.getCookie("age_checked");/*
+				var cookieVal = $.cookie("age_checked");*/
+				
+				var country = cookieVal.substr(0,2).toLowerCase();
+
+				if(country !=='ca' && country !=='gb' && country !=='us' && country !=='au'  && country !=='nz') {
+					country = 'gbl';
+				}
+
+				$("#edit-country").val(country);
+				$("#edit-country").trigger("change");
+
+				
+			}
 
 		return {
 			// public + private states and behaviors
@@ -193,7 +225,9 @@ var commonObj = (function($, window, sapient) {
 			closeCookie:closeCookie,
 			posFindUs:posFindUs,
 			onResize:onResize,
-			setTimeLineEmptySpan: setTimeLineEmptySpan
+			setTimeLineEmptySpan: setTimeLineEmptySpan,
+			setCountryNewsLetter: setCountryNewsLetter,
+			getCookie: getCookie
 		};
 	}
 
@@ -210,7 +244,6 @@ var commonObj = (function($, window, sapient) {
 
 sapient.common = commonObj.getInstance();
 sapient.common.hideLinkText();
-/*sapient.common.debounce();*/
 sapient.common.addBgNoise();
 sapient.common.toggleAwardsDetails();
 sapient.common.assignTouchDeviceClass();
@@ -225,8 +258,9 @@ sapient.common.posFilters();
 sapient.common.heroGrain();
 sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
-sapient.common.onResize();
 sapient.common.posFindUs();
-/*$( function() {
-	$( "#datepicker" ).datepicker();
-  } );*/
+sapient.common.onResize();
+
+/*$(document).ready(function() {  
+	sapient.common.setCountryNewsLetter();
+});*/

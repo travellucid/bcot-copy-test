@@ -253,9 +253,11 @@ var validationObj = (function($, window, sapient) {
 		
 		countrySelector = function() {
 			$(document).on('change','.newsletter-form .country-primary select',function() {
-				var str= $(this).val().toLowerCase();
-				$(".newsletter-form .country-secondary").hide();
-				$('.'+str).show();
+				var str= $(this).val().toLowerCase(),
+				$selector = $("."+str);
+				$(".newsletter-form .country-secondary").hide().removeAttr("required");
+				$selector.find("label").addClass("form-required");
+				$selector.show().find("select,input,textarea").attr("required",true);
 			});
 		},
 
@@ -265,7 +267,8 @@ var validationObj = (function($, window, sapient) {
 			
 			if(beErrLength > 0){
 				var str="";
-				
+				sapient.validation.countrySelector();
+				sapient.common.setCountryNewsLetter();
 				$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn");
 				
 				$(".custom-error li").each(function(){
@@ -282,15 +285,19 @@ var validationObj = (function($, window, sapient) {
 				
 				var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
 					weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-					val = $(".enquire-form .date-wrapper #edit-preferred-date").val().split("-"),
+					val = $(".enquire-form .date-wrapper #edit-preferred-date").val(),
 					getDay,
 					newDate;
+				if(val) {
+					val=val.split("-")
+					val[1] = monthArray[val[1] -1];
+					getDay = weekArray[new Date($(".enquire-form .date-wrapper #edit-preferred-date").val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
+					val.unshift(getDay)
+					newDate = val.join(" ");
+					$(".date-overlay").text(newDate);
+				}
 
-				val[1] = monthArray[val[1] -1];
-				getDay = weekArray[new Date($(".enquire-form .date-wrapper #edit-preferred-date").val().replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")).getDay()];
-				val.unshift(getDay)
-				newDate = val.join(" ");
-				$(".date-overlay").text(newDate);
+
 			}
 
 			$.each($input,function(index) {
@@ -352,3 +359,6 @@ sapient.validation.selectInMac();
 sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
+$(document).ready(function() {  
+	sapient.common.setCountryNewsLetter();
+});
