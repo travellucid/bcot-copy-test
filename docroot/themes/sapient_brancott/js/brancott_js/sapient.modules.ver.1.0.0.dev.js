@@ -1528,10 +1528,9 @@ var validationObj = (function($, window, sapient) {
 
 		var validate = function() {
 
-			var $input = $(".enquire-form  .group input").filter('[required]:visible'),
-				$select = $(".enquire-form .group select").filter('[required]:visible');	
+			
 
-			$(".enquire-form .submit-info .submit-btn").click(function(event) {
+			$(document).on("click", ".enquire-form .submit-info .submit-btn",function(event) {
 				
 				$("#statusMsg .messages").html("");
 
@@ -1542,7 +1541,9 @@ var validationObj = (function($, window, sapient) {
 					selectarr = [],
 					textareaarr = [],
 					filter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-					msgarr = [];
+					msgarr = [],
+					$input = $(".enquire-form  .group input").filter('[required]'),
+					$select = $(".enquire-form .group select").filter('[required]');	
 				
 
 
@@ -1777,7 +1778,7 @@ var validationObj = (function($, window, sapient) {
 			$(document).on('change','.newsletter-form .country-primary select',function() {
 				var str= $(this).val().toLowerCase(),
 				$selector = $("."+str);
-				$(".newsletter-form .country-secondary").hide().removeAttr("required");
+				$(".newsletter-form .country-secondary").hide().find("select,input,textarea").removeAttr("required");
 				$selector.find("label").addClass("form-required");
 				$selector.show().find("select,input,textarea").attr("required",true);
 			});
@@ -1790,7 +1791,8 @@ var validationObj = (function($, window, sapient) {
 			if(beErrLength > 0){
 				var str="";
 				sapient.validation.countrySelector();
-				sapient.common.setCountryNewsLetter();
+				$("#edit-country").trigger("change");
+				//sapient.common.setCountryNewsLetter();
 				$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn");
 				
 				$(".custom-error li").each(function(){
