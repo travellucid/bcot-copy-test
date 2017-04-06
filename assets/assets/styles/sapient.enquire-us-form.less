@@ -77,7 +77,7 @@
 		border-bottom: 2px solid  @black;
 		border-radius: 0;
 		outline: none;
-		padding: 13px 10px 5px 0;
+		padding: 2px 10px 5px 0;
 		position: relative;
 		width: 100%;
 		z-index: 2;
@@ -159,7 +159,7 @@
 		letter-spacing: normal;
 		margin: -1px;
 		outline: none;
-		padding: 10px 10px 5px 0;
+		padding: 2px 10px 5px 0;
 		width: 100%;
 
 
@@ -325,6 +325,7 @@
 		input[type=checkbox] + label {
 			cursor: pointer;
 			font-size: 12px;
+			left: -15px;
 			line-height: 22px;
 			padding-left: 50px;
 			top: -10px;
@@ -409,10 +410,11 @@
 						width: 13px;
 					}
 				}
+				&:hover {
+					text-decoration: underline;
+				}
 			}
-			&:hover {
-				text-decoration: underline;
-			}
+			
 		}
 	}
 }
