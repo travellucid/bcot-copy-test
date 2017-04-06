@@ -5160,6 +5160,19 @@ require([
 
       if (this.age >= this.countryAge) return true
     },
+    
+    checkCountry(testStr) {
+ 
+        var str=$("#node_translation_languages").data("country");
+        var countryArr=str.split(',');
+        /*var testStr="en-gb";*/
+        for(var i=0;i< countryArr.length;i++){
+          if(countryArr[i]===testStr){
+            return true;
+          }
+        }
+         return false; 
+    },
 
     saveAgeChecked: function() {
         var args=arguments,
@@ -5167,11 +5180,14 @@ require([
             url = window.location.host,
             final_url = "";
 
-            if(c_code !== 'nz' && c_code !== 'au' && c_code !== 'gb') {
+            if(c_code !== 'nz' && c_code !== 'au' && c_code !== 'gb' && c_code !== 'us' && c_code !== 'ca') {
                 final_url="/en";
             } 
             else {
                 final_url = "/en-"+c_code;
+                if(this.checkCountry(final_url) === false) {
+                     final_url="/en";
+                }
             }
         
        location.href=final_url;
