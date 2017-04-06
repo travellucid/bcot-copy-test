@@ -1,6 +1,6 @@
 .ctbuy-popin-mumm,
 #ctbuy-popin {
-	background-color: rgba(0,0,0, .75) !important;
+	background-color: rgba(0,0,0, .5) !important;
 }
 .ctbuy-popin--inside {
 	background-image: @grain-noise-img;
@@ -117,6 +117,10 @@
 
 .ctbuy-popin--slider_controls ul li {
 	text-align: center !important;
+	    margin: 15px;
+}
+.ctbuy-popin--slider_controls  {
+	margin-top: 15px;
 }
 
 .ctbuy-popin--slider_controls a {
@@ -128,8 +132,10 @@
 	background-image: url(/themes/sapient_brancott/css/images/icons/BE_icon_arrow_mob_left.svg);
 	background-repeat: no-repeat;
 	background-size: 20px 15px;
-	margin-right: 10px !important;
 	height: 15px;
+	margin-right: 10px !important;
+	margin-left: -30px;
+	position: absolute;
 	vertical-align: middle !important;
 	width: 20px;
 }
@@ -140,6 +146,7 @@
 	background-size: 20px 15px;
 	height: 15px;
 	margin-left: 10px;
+	position: absolute;
 	vertical-align: middle !important;
 	width: 20px;
 }
@@ -150,4 +157,12 @@
 
 .ctbuy-popin--action:hover {
     color: #ffffff !important;
+}
+.ctbuy-popin--slider_controls-next a:hover, .ctbuy-popin--slider_controls-prev a:hover {
+    background: #1e7266 !important;
+    color: #fff !important;
+}
+
+.ctbuy-popin-brancottestate {
+    background: rgba(0, 0, 0, 0) !important;
 }
