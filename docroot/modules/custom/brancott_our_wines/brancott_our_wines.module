@@ -69,7 +69,7 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     // Add a validation to form menu_edit_item.
     array_unshift($form['#validate'], 'brancott_our_wines_menu_validate');
   }
-  if ($form_id == 'webform_submission_enquire_form_form' or $form_id == 'webform_submission_book_a_table_form') {
+  if ($form_id == 'webform_submission_enquire_form_form' or $form_id == 'webform_submission_book_a_table_form' or $form_id == 'webform_submission_private_events_form') {
     $form['#validate'][] = 'webform_submission_enquire_form_form_validation';
   }
   if ($form_id == 'webform_submission_newsletter_signup_form') {

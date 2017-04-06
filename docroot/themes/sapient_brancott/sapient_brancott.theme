@@ -343,7 +343,7 @@ function sapient_brancott_theme() {
       'template' => 'newsletter-form',
       'render element' => 'form'
     ),
-    'webform-submission-private-events-form' => array(
+    'webform_submission_private_events_form' => array(
       'template' => 'private-events-form',
       'render element' => 'form'
     ),
