@@ -228,7 +228,14 @@ var validationObj = (function($, window, sapient) {
 				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 				
-
+				if($(this).val().length !== 0) {
+					
+					$(this).siblings('label').addClass("text-area-entered");
+				}
+				else {
+					
+					$(this).siblings('label').removeClass("text-area-entered");
+				}
 			});
 		},
 
