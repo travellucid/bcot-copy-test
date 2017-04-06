@@ -1,3 +1,3 @@
-$(document).ready(function() {  
-	$(window).scrollTop(1);
+$(document).ready(function () {
+    $(window).scrollTop(1);
 }); 

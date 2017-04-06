@@ -347,6 +347,15 @@ function sapient_brancott_theme() {
 }
 
 function sapient_brancott_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'block_content:7bc94064-ecf8-4b99-8b65-f54285df636a') {
+    $node = \Drupal\node\Entity\Node::load(1);
+    if($node){
+      
+    $languages = $node->getTranslationLanguages();
+    $translation_languages = array_keys($languages);
+    $variables['translation_languages'] = $translation_languages;
+    }
+  }
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
   if ($language_name == 'English') {
@@ -421,11 +430,18 @@ function sapient_brancott_preprocess_page(&$variables) {
   $fb_app_id = \Drupal::config('brancott_our_wines.settings')->get('facebook_app_id');
   //$fb_app_id = $vc->get('facebook_app_id');
   $variables['fb_app_id'] = $fb_app_id;
-  $type = $variables['node']->getType();
-  if ($type == 'error_page') { 
+  //$node = \Drupal\node\Entity\Node::load($variables['node']->id());
+  //$languages = $node->getTranslationLanguages();
+ // kint($languages);die;
+  if($variables['node']){
+    $type = $variables['node']->getType();
+    if ($type == 'error_page') { 
       $variables['#attached']['library'][] = 'sapient_brancott/header-error-page';
       
     }
+  }
+  
+
 }
 
 function sapient_brancott_preprocess_html(&$variables) {
