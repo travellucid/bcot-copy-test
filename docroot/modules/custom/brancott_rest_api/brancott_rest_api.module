@@ -322,7 +322,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
   }
   else {
     drupal_get_messages();
-    drupal_set_message(t('<p>Thank you, but the email address that you have used is already registered with us.</p><a class="cta dark" href="/[webform_submission:langcode]/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>'), 'status');
+    drupal_set_message('<p>' . t('Thank you, but the email address that you have used is already registered with us.') . '</p><a class="cta dark" href="/[webform_submission:langcode]/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>', 'status');
 //      drupal_set_message(t('Thank you, but the email address that you have used is already registered with us.'), 'status');
   }
 }
