@@ -18,7 +18,7 @@
             {% for key, items in wine_award|slice(0, 3) %} 
                 <div class="awards-details-wrapper">
                     <h3 class="header_g">{{ items.awardTypes |upper }}</h3>
-                    <span class="header_d">{{ items.awardName }} </span>
+                    <span class="header_d">{{ items.awardName }},{{ items.awardDate }}  </span>
                     <span class="header_g">{{ fields.field_awards_vintage_title.content }}: {{ items.vintage }} </span>
                 </div>
             {% endfor %}
@@ -26,7 +26,7 @@
                 {% for key, items in wine_award|slice(3, pending_count) %} 
                     <div class="awards-details-wrapper hidden-details-wrapper">
                         <h3 class="header_g">{{ items.awardTypes |upper }}</h3>
-                        <span class="header_d">{{ items.awardName }} </span>
+                        <span class="header_d">{{ items.awardName }},{{ items.awardDate }} </span>
                         <span class="header_g">{{ fields.field_awards_vintage_title.content }}: {{ items.vintage }} </span>
                     </div>
                 {% endfor %}
