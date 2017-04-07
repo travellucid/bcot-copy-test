@@ -12,16 +12,23 @@ var validationObj = (function($, window, sapient) {
 				
 				$("#statusMsg .messages").html("");
 
-				var checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
-					textarea =$('.enquire-form .other-information textarea').filter('[required]:visible'),
-					$email = $('input[type = email]'),
-					inputarr = [],
+				var inputarr = [],
 					selectarr = [],
 					textareaarr = [],
-					filter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 					msgarr = [],
+					$checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
+					textarea =$('.enquire-form .other-information textarea').filter('[required]:visible'),
+					$email = $('.enquire-form input[type = email]'),
 					$input = $(".enquire-form  .group input").filter('[required]'),
-					$select = $(".enquire-form .group select").filter('[required]');	
+					$select = $(".enquire-form .group select").filter('[required]'),
+					$alphaNumeric = $(".enquire-form .group .alpha-numeric").filter('[required]'),
+					$numericOnly = $(".enquire-form .group .numeric-only").filter('[required]'),
+					$alphaOnly = $(".enquire-form .group .alpha-only").filter('[required]'),
+					
+					filterEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+					filterAlphaNumeric =  /[^a-z\d]/i,
+					filterAlphaOnly = /^[a-zA-Z]*$/,
+					filterNumericOnly = /^\d+$/;	
 				
 
 
@@ -72,15 +79,42 @@ var validationObj = (function($, window, sapient) {
 
 				if($email.val().length !== 0) {
 					
-					if (filter.test($email.val())) {
+					if (filterEmail.test($email.val())) {
 						$email.siblings("label").removeClass("error");
 						$email.removeClass("error-border");
 					}
 					else {
-
-						msgarr.push('Please provide a valid email address');
+						msgarr.push($email.data("err"));
 						$email.siblings("label").addClass("error");
 						$email.addClass("error-border");
+						event.preventDefault();					
+					}
+				}
+
+				if($alphaNumeric.val().length !== 0) {
+					
+					if (filterAlphaNumeric.test($alphaNumeric.val())) {
+						$alphaNumeric.siblings("label").removeClass("error");
+						$alphaNumeric.removeClass("error-border");
+					}
+					else {
+						msgarr.push($alphaNumeric.data("err"));
+						$alphaNumeric.siblings("label").addClass("error");
+						$alphaNumeric.addClass("error-border");
+						event.preventDefault();					
+					}
+				}
+
+				if($numericOnly.val().length !== 0) {
+					
+					if (filterNumericOnly.test($numericOnly.val())) {
+						$numericOnly.siblings("label").removeClass("error");
+						$numericOnly.removeClass("error-border");
+					}
+					else {
+						msgarr.push($numericOnly.data("err"));
+						$numericOnly.siblings("label").addClass("error");
+						$numericOnly.addClass("error-border");
 						event.preventDefault();					
 					}
 				}	
@@ -124,8 +158,8 @@ var validationObj = (function($, window, sapient) {
 					}
 				})
 
-				$.each(checked,function(index) {
-					if (!checked.is(':checked')) {						
+				$.each($checked,function(index) {
+					if (!$checked.is(':checked')) {						
 						$(this).siblings("label").addClass("change");
 						$(this).siblings("label").addClass("error");
 						event.preventDefault();	
