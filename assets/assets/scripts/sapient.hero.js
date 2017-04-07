@@ -58,11 +58,32 @@ var heroObj = (function($, window, sapient) {
 
 sapient.hero = heroObj.getInstance();
 $(document).ready(function(){
-	var dstFlag = $("#node_translation_languages").data("isDst");
+	/*var dstFlag = $("#node_translation_languages").data("isDst");
 	if(dstFlag == 0){
 		sapient.hero.setLocalTime("+12");
 	}
 	else if(dstFlag == 1){
 		sapient.hero.setLocalTime("+13");	
-	}
+	}*/
+
+
+var timezones= ['Pacific/Auckland']
+
+
+$(timezones).each(function(i,zone){
+    var samleDte =  moment();
+    if( samleDte.tz(zone).isDST() ){
+		alert(samleDte.tz(zone).isDST());
+        sapient.hero.setLocalTime("+12");
+    }
+    else{
+		alert(samleDte.tz(zone).isDST());
+        sapient.hero.setLocalTime("+12");	
+    }
+		alert( samleDte.tz(zone));
+    
+});
+
+
+
 });
