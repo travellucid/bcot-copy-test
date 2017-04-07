@@ -358,6 +358,7 @@ function sapient_brancott_preprocess_block(&$variables) {
     $languages = $node->getTranslationLanguages();
     $translation_languages = array_keys($languages);
     $variables['translation_languages'] = $translation_languages;
+    $variables['daylight'] = date(I);
     }
   }
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
