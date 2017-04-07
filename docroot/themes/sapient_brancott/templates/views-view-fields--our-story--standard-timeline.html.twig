@@ -11,7 +11,7 @@
 {% set alt_list = fields.field_image_vertical_5.content|split(',') %}
 {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
 {% if (fields.field_media_style.content == "vertical_style") %}
-    sandeep
+    
     <div class="vertical-timeline">
         <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
         {% if fields.field_timeline_heading.content %}
@@ -35,6 +35,7 @@
             </div>
             {% if fields.field_image_vertical.content %}
                 <div class="img-wrapper-vertical common-margin">
+                    sanju
                     {% for key, image in image_list %}
                         {#<img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
