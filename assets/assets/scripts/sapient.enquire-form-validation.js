@@ -235,8 +235,8 @@ var validationObj = (function($, window, sapient) {
 			
 			$(".enquire-form  .other-information textarea").on('focus', function() {
 
-				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0.1%"}).animate({"left":"-0.1%","width":"50.1%"}, "slow");
-				$(this).siblings().find(" .highlight2").css({"width":"0.1%"}).animate({"width":"49.9%"}, "slow"); 
+				$(this).siblings().find(" .highlight1").css({"left":"50%"},{"width":"0%"}).animate({"left":"0%","width":"50%"}, "slow");
+				$(this).siblings().find(" .highlight2").css({"width":"0%"}).animate({"width":"50%"}, "slow"); 
 			})
 		},
 
