@@ -184,7 +184,7 @@ var validationObj = (function($, window, sapient) {
 							$($email[index]).removeClass("error-border");
 						}
 						else {
-							msgarr.push('$($email[index]).data("err")');
+							msgarr.push($("#node_translation_languages").data("emailErr"));
 							$($email[index]).siblings("label").addClass("error");
 							$($email[index]).addClass("error-border");
 							event.preventDefault();					
