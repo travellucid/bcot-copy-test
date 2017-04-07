@@ -117,7 +117,7 @@ class XmlSitemapController extends ControllerBase {
 
     // Output the XSL content.
     $response = new Response($xsl_content);
-    $response->headers->set('Content-type', 'application/xml; charset=utf-8');
+    $response->headers->set('Content-type', 'text/xml; charset=utf-8');
     $response->headers->set('X-Robots-Tag', 'noindex, follow');
     return $response;
   }
