@@ -996,7 +996,6 @@ $(document).ready(function(){
 	else if(dstFlag == 1){
 		sapient.hero.setLocalTime("+13");	
 	}
-	alert(dstFlag);	
 });
 var headerObj = (function($, window, sapient) {
 
