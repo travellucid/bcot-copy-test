@@ -1640,7 +1640,8 @@ var validationObj = (function($, window, sapient) {
 								$alphaNumeric[index].removeClass("error-border");
 							}
 							else {
-								msgarr.push('$($alphaNumeric[index]).data("err")');
+								msgarr.push($("#node_translation_languages").data("alphNumericErr")+" - "+$($alphaNumeric[index]).siblings("label").text());
+
 								$($alphaNumeric[index]).siblings("label").addClass("error");
 								$($alphaNumeric[index]).addClass("error-border");
 								event.preventDefault();					
@@ -1657,7 +1658,7 @@ var validationObj = (function($, window, sapient) {
 								$($alphaOnly[index]).removeClass("error-border");
 							}
 							else {
-								msgarr.push('$($alphaOnly[index]).data("err")');
+								msgarr.push($("#node_translation_languages").data("alphaOnlyErr")+" - "+$($alphaOnly[index]).siblings("label").text());
 								$($alphaOnly[index]).siblings("label").addClass("error");
 								$($alphaOnly[index]).addClass("error-border");
 								event.preventDefault();					
@@ -1678,41 +1679,14 @@ var validationObj = (function($, window, sapient) {
 						else {/*
 							msgarr.push($($numericOnly[index]).data("err"));*/
 
-							msgarr.push('$($numericOnly[index]).data("err")');
+							msgarr.push($("#node_translation_languages").data("numericErr")+" - "+$($numericOnly[index]).siblings("label").text());
 							$($numericOnly[index]).siblings("label").addClass("error");
 							$($numericOnly[index]).addClass("error-border");
 							event.preventDefault();					
 						}
 					}
 				});
-				/*if($numericOnly.val().length !== 0) {
-					
-					if (filterNumericOnly.test($numericOnly.val())) {
-						$numericOnly.siblings("label").removeClass("error");
-						$numericOnly.removeClass("error-border");
-					}
-					else {
-						msgarr.push($numericOnly.data("err"));
-						$numericOnly.siblings("label").addClass("error");
-						$numericOnly.addClass("error-border");
-						event.preventDefault();					
-					}
-				}	*/
-
-				/*if($email.val().length !== 0) {
-					
-					if (filterEmail.test($email.val())) {
-						$email.siblings("label").removeClass("error");
-						$email.removeClass("error-border");
-					}
-					else {
-						msgarr.push($email.data("err"));
-						$email.siblings("label").addClass("error");
-						$email.addClass("error-border");
-						event.preventDefault();					
-					}
-				}*/
-
+				
 				$.each($email, function(index) {
 					
 					if($($email[index]).val().length !== 0) {
@@ -1722,7 +1696,7 @@ var validationObj = (function($, window, sapient) {
 							$($email[index]).removeClass("error-border");
 						}
 						else {
-							msgarr.push('$($email[index]).data("err")');
+							msgarr.push($("#node_translation_languages").data("emailErr")+" - "+$($email[index]).siblings("label").text());
 							$($email[index]).siblings("label").addClass("error");
 							$($email[index]).addClass("error-border");
 							event.preventDefault();					
