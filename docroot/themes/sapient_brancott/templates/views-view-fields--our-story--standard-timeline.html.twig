@@ -13,7 +13,9 @@
 {% if (fields.field_media_style.content == "vertical_style") %}
     
     <div class="vertical-timeline">
-        <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+        {% if fields.field_timeline_date.content %}
+            <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+        {% endif %}
         {% if fields.field_timeline_heading.content %}
             <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
         {% endif %}
@@ -65,7 +67,9 @@
 {% elseif (fields.field_media_style.content == "horizontal_style") %}
     <div class="horizontal-timeline">
         <div class="top">
+            {% if fields.field_timeline_date.content %}
             <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+            {% endif %}
             {% if fields.field_timeline_heading.content %}
                 <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
             {% endif %}
@@ -121,7 +125,9 @@
 {% else %}
     <div class="horizontal-timeline">
         <div class="top">
-            <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+            {% if fields.field_timeline_date.content %}
+                <span class="header_d line-bg">{{ fields.field_timeline_date.content }}</span>
+            {% endif %}
             {% if fields.field_timeline_heading.content %}
                 <h2 class="header_b">{{ fields.field_timeline_heading.content |upper }}</h2>
             {% endif %}
