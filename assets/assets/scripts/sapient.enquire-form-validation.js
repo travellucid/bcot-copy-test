@@ -280,10 +280,16 @@ var validationObj = (function($, window, sapient) {
 			$select.on("change",function(){
 				$(this).removeClass("error-border");
 				$(this).siblings('label').removeClass("error");
+
+				if($(this).val() == "") {
+					$(this).siblings('label').removeClass("text-entered");
+				}
+				else{
+					$(this).siblings('label').addClass("text-entered");
+				}
 			});
 
 		},
-
 		handleBackEndSucess =function() {
 			var successMsg = $(".successfull-msg");
 			
