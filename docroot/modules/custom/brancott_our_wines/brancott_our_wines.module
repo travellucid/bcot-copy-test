@@ -83,7 +83,13 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['#validate'][] = 'character_limitation_contact_us';
   }
   if ($form_id == 'node_story_edit_form' or $form_id == 'node_story_form') {
+    $form['field_timeline_component']['widget'][0]['field_timeline_heading_standard']['#access'] = FALSE;
+    $form['field_timeline_component']['widget'][0]['field_timeline_description_stand']['#access'] = FALSE;
     $form['#validate'][] = 'character_limitation_story';
+  }
+  if ($form_id == 'node_standard_page_edit_form' or $form_id == 'node_standard_page_form') {
+      $form['field_timeline_component']['widget'][0]['field_timeline_heading']['#access'] = FALSE;
+    $form['field_timeline_component']['widget'][0]['field_timeline_description']['#access'] = FALSE;
   }
   if ($form_id == 'node_homepage_edit_form' || $form_id == 'node_homepage_form' || $form_id == 'node_our_story_edit_form' or $form_id == 'node_our_story_form' || $form_id == 'node_visit_us_edit_form' or $form_id == 'node_visit_us_form' || $form_id == 'node_private_events_edit_form' or $form_id == 'node_private_events_form' || $form_id == 'node_vineyard_edit_form' or $form_id == 'node_vineyard_form' || $form_id == 'node_tours_and_experiences_edit_form' or $form_id == 'node_tours_and_experiences_form' || $form_id == 'node_wines_edit_form' or $form_id == 'node_wines_form' || $form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form' || $form_id == 'node_our_wines_edit_form' or $form_id == 'node_our_wines_form' || $form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form' || $form_id == 'node_contact_us_edit_form' or $form_id == 'node_contact_us_form' || $form_id == 'node_story_edit_form' or $form_id == 'node_story_form') {
     if (!$user->hasPermission('access language ' . $langcode)) {
