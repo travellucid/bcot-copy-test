@@ -989,13 +989,22 @@ var heroObj = (function($, window, sapient) {
 
 sapient.hero = heroObj.getInstance();
 $(document).ready(function(){
-	var dstFlag = $("#node_translation_languages").data("isDst");
-	if(dstFlag == 0){
-		sapient.hero.setLocalTime("+12");
-	}
-	else if(dstFlag == 1){
-		sapient.hero.setLocalTime("+13");	
-	}
+
+var timezones= ['Pacific/Auckland']
+
+
+$(timezones).each(function(i,zone){
+    var samleDte =  moment();
+    if( samleDte.tz(zone).isDST() ){
+	    sapient.hero.setLocalTime("+12");
+    }
+    else{
+	   sapient.hero.setLocalTime("+12");	
+    }
+});
+
+
+
 });
 var headerObj = (function($, window, sapient) {
 
@@ -1631,7 +1640,7 @@ var validationObj = (function($, window, sapient) {
 								$alphaNumeric[index].removeClass("error-border");
 							}
 							else {
-								msgarr.push('$($alphaNumeric[index]).data("err")');
+								msgarr.push($("#node_translation_languages").data("alphNumericErr"));
 								$($alphaNumeric[index]).siblings("label").addClass("error");
 								$($alphaNumeric[index]).addClass("error-border");
 								event.preventDefault();					
@@ -1648,7 +1657,7 @@ var validationObj = (function($, window, sapient) {
 								$($alphaOnly[index]).removeClass("error-border");
 							}
 							else {
-								msgarr.push('$($alphaOnly[index]).data("err")');
+								msgarr.push($("#node_translation_languages").data("alphaOnlyErr"));
 								$($alphaOnly[index]).siblings("label").addClass("error");
 								$($alphaOnly[index]).addClass("error-border");
 								event.preventDefault();					
@@ -1669,7 +1678,7 @@ var validationObj = (function($, window, sapient) {
 						else {/*
 							msgarr.push($($numericOnly[index]).data("err"));*/
 
-							msgarr.push('$($numericOnly[index]).data("err")');
+							msgarr.push($("#node_translation_languages").data("numericErr"));
 							$($numericOnly[index]).siblings("label").addClass("error");
 							$($numericOnly[index]).addClass("error-border");
 							event.preventDefault();					
@@ -1713,7 +1722,7 @@ var validationObj = (function($, window, sapient) {
 							$($email[index]).removeClass("error-border");
 						}
 						else {
-							msgarr.push('$($email[index]).data("err")');
+							msgarr.push($("#node_translation_languages").data("emailErr"));
 							$($email[index]).siblings("label").addClass("error");
 							$($email[index]).addClass("error-border");
 							event.preventDefault();					

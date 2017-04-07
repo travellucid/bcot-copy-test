@@ -95,7 +95,8 @@
         {% if fields.field_image_vertical.content %}
             <div class="img-wrapper-horizontal common-margin">
 
-                {% for key, image_horizontal in image_list_v3 %}
+                {#{% for key, image_horizontal in image_list_v3 %}#}
+                {% for key, image_horizontal in image_list %}
                     {% if ( key < 3) %}
                         {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
