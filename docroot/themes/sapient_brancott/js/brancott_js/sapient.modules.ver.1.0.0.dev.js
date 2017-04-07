@@ -1640,7 +1640,7 @@ var validationObj = (function($, window, sapient) {
 								$alphaNumeric[index].removeClass("error-border");
 							}
 							else {
-								msgarr.push($("#node_translation_languages").data("data-alpha-numeric-err"));
+								msgarr.push($("#node_translation_languages").data("alphNumericErr"));
 								$($alphaNumeric[index]).siblings("label").addClass("error");
 								$($alphaNumeric[index]).addClass("error-border");
 								event.preventDefault();					
@@ -1657,7 +1657,7 @@ var validationObj = (function($, window, sapient) {
 								$($alphaOnly[index]).removeClass("error-border");
 							}
 							else {
-								msgarr.push($("#node_translation_languages").data("data-alpha-only-err"));
+								msgarr.push($("#node_translation_languages").data("alphaOnlyErr"));
 								$($alphaOnly[index]).siblings("label").addClass("error");
 								$($alphaOnly[index]).addClass("error-border");
 								event.preventDefault();					
@@ -1678,7 +1678,7 @@ var validationObj = (function($, window, sapient) {
 						else {/*
 							msgarr.push($($numericOnly[index]).data("err"));*/
 
-							msgarr.push($("#node_translation_languages").data("data-numeric-err"));
+							msgarr.push($("#node_translation_languages").data("numericErr"));
 							$($numericOnly[index]).siblings("label").addClass("error");
 							$($numericOnly[index]).addClass("error-border");
 							event.preventDefault();					
