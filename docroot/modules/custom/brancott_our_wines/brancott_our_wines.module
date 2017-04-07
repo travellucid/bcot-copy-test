@@ -94,6 +94,12 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
       $form['actions']['delete']['#access'] = FALSE;
       $form['actions']['submit']['#access'] = FALSE;
     }
+    if (isset($form['promote'])) {
+      $form['promote']['#access'] = FALSE;
+    }
+    if (isset($form['sticky'])) {
+      $form['sticky']['#access'] = FALSE;
+    }
   }
 }
 
