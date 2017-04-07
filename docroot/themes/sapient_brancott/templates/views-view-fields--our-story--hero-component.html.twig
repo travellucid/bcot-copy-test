@@ -82,6 +82,7 @@
     {% endif %}
 </div>
 {% endif %}
+{% if (fields.field_hero_bottom_headline.content or fields.field_hero_bottom_description.content or fields.field_video_youtube_link.content) %}
 <div id="hero-timeline-component">
     <div class="top-wrapper">
         {% if (fields.field_hero_bottom_headline.content) %}
@@ -97,3 +98,4 @@
 
 
 </div>
+{% endif %} 
