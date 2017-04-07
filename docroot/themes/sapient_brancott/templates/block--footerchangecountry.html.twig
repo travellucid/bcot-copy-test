@@ -47,7 +47,7 @@
              {% set lang_id = lang_id|merge([translation_language]) %}
             {% endfor %}
             {% set lang_id = lang_id|join(',') %}
-        <div id = "node_translation_languages" data-country = "{{ lang_id }}" data-alpha-only-err ="ONLY ALPHA CHARACTERS ARE ALLOWED" data-alpha-numeric-err ="ONLY ALPHANUMERIC CHARACTERS ARE ALLOWED" data-numeric-err ="ONLY NUMERIC CHARACTERS ARE ALLOWED" data-is-dst = "{{ daylight }}" style ="display:none">
+        <div id = "node_translation_languages" data-country = "{{ lang_id }}" data-alpha-only-err = "ONLY ALPHA CHARACTERS ARE ALLOWED" data-alpha-numeric-err = "ONLY ALPHANUMERIC CHARACTERS ARE ALLOWED" data-numeric-err = "ONLY NUMERIC CHARACTERS ARE ALLOWED" data-is-dst = "{{ daylight }}" style ="display:none">
             
             
         </div>                  
