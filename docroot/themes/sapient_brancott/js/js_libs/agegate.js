@@ -5167,7 +5167,7 @@ require([
         var countryArr=str.split(',');
         /*var testStr="en-gb";*/
         for(var i=0;i< countryArr.length;i++){
-          if(countryArr[i]===testStr){
+          if("/"+countryArr[i]===testStr){
             return true;
           }
         }
