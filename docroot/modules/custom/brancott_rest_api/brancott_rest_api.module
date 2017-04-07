@@ -147,7 +147,7 @@ function brancott_rest_api_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 
     $form['actions']['submit']['#submit'][] = 'brancott_newsletter_salesforce';
   }
-  else if ($form_id == 'webform_submission_enquire_form_form') {
+  else if ($form_id == 'webform_submission_enquire_form_form' || $form_id == 'webform_submission_private_events_form') {
     $form['actions']['submit']['#submit'][] = 'brancott_enquire_salesforce';
   }
   else if ($form_id == 'webform_submission_book_a_table_form') {
