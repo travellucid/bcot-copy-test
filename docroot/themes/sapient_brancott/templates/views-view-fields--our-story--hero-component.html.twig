@@ -1,3 +1,4 @@
+{% if (fields.field_hero_background_image.content) %}
 <div id="hero-component" class="container-fluid  hero-container common-hero">
     <div class="banner-image" style="background-image: url('{{ fields.field_hero_background_image.content }}')" alt="{{ fields.field_hero_background_image_1.content }} "></div>
     <div class="hero-bottom">
@@ -78,9 +79,12 @@
 
     </div>
 </div>
+{% endif %}
 <div id="hero-timeline-component">
     <div class="top-wrapper">
+        {% if (fields.field_hero_bottom_headline.content) %}
         <h2 class="header_b">{{ fields.field_hero_bottom_headline.content }}</h2>
+        {% endif %}
         {% if (fields.field_hero_bottom_description.content) %}
             <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
         {% endif %}

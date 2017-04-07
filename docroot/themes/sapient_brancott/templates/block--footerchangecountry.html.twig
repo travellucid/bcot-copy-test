@@ -41,10 +41,14 @@
             {% endblock %}
             <a href="#" class="region-text">{{ selected_language |upper }}</a >         
 	</div>
-        <div id = "node_translation_languages" style ="display:none">
-            {% for translation_language in translation_languages %}
-             {{ translation_language }},
+        {% set lang_id = [] %}
+        {% for translation_language in translation_languages %}
+             
+             {% set lang_id = lang_id|merge([translation_language]) %}
             {% endfor %}
+            {% set lang_id = lang_id|join(',') %}
+        <div id = "node_translation_languages" data-country = {{ lang_id }} style ="display:none">
+            
             
         </div>                  
   

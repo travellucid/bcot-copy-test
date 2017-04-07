@@ -1666,7 +1666,6 @@ var validationObj = (function($, window, sapient) {
 			var $input = $(".enquire-form  .group input").filter('[required]:visible');
 
 			$input.each(function() {
-
 				if($(this).val().length !== 0) {
 					
 					$(this).siblings('label').addClass("text-entered");
@@ -1675,6 +1674,7 @@ var validationObj = (function($, window, sapient) {
 					
 					$(this).siblings('label').removeClass("text-entered");
 				}
+				
 			})	
 		},
 
@@ -1733,6 +1733,14 @@ var validationObj = (function($, window, sapient) {
 				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 
+				if($(this).val().length !== 0) {
+					
+					$(this).siblings('label').addClass("text-entered");
+				}
+				else {
+					
+					$(this).siblings('label').removeClass("text-entered");
+				}
 			});
 		},
 
@@ -1742,7 +1750,14 @@ var validationObj = (function($, window, sapient) {
 				$(this).siblings().find(" .highlight1").css({"left":"0"},{"width":"50%"}).animate({"left":"50%","width":"0"}, "slow");
 				$(this).siblings().find(" .highlight2").css({"width":"50%"}).animate({"width":"0"}, "slow");  
 				
-
+				if($(this).val().length !== 0) {
+					
+					$(this).siblings('label').addClass("text-area-entered");
+				}
+				else {
+					
+					$(this).siblings('label').removeClass("text-area-entered");
+				}
 			});
 		},
 
