@@ -20,7 +20,7 @@ function brancott_our_wines_theme($existing, $type, $theme, $path) {
 }
 
 function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  $user =  \Drupal::currentUser();
+  $user = \Drupal::currentUser();
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if ($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form') {
     $form['#validate'][] = 'character_limitation_homepage';
@@ -78,21 +78,21 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
   if ($form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form') {
     $form['#validate'][] = 'character_limitation_where_to_buy';
   }
-  
+
   if ($form_id == 'node_contact_us_edit_form' or $form_id == 'node_contact_us_form') {
     $form['#validate'][] = 'character_limitation_contact_us';
   }
   if ($form_id == 'node_story_edit_form' or $form_id == 'node_story_form') {
     $form['#validate'][] = 'character_limitation_story';
   }
-  if($form['#entity_type'] == 'node' || $form['#entity_type'] == 'taxonomy_term') {
-      if(!$user->hasPermission('access language ' . $langcode)) {
-        $form['actions']['publish']['#access'] = FALSE;
-        $form['actions']['unpublish']['#access'] = FALSE;
-        $form['actions']['delete']['#access'] = FALSE;
-        $form['actions']['submit']['#access'] = FALSE;
+  if ($form_id == 'node_homepage_edit_form' || $form_id == 'node_homepage_form' || $form_id == 'node_our_story_edit_form' or $form_id == 'node_our_story_form' || $form_id == 'node_visit_us_edit_form' or $form_id == 'node_visit_us_form' || $form_id == 'node_private_events_edit_form' or $form_id == 'node_private_events_form' || $form_id == 'node_vineyard_edit_form' or $form_id == 'node_vineyard_form' || $form_id == 'node_tours_and_experiences_edit_form' or $form_id == 'node_tours_and_experiences_form' || $form_id == 'node_wines_edit_form' or $form_id == 'node_wines_form' || $form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form' || $form_id == 'node_our_wines_edit_form' or $form_id == 'node_our_wines_form' || $form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form' || $form_id == 'node_contact_us_edit_form' or $form_id == 'node_contact_us_form' || $form_id == 'node_story_edit_form' or $form_id == 'node_story_form') {
+    if (!$user->hasPermission('access language ' . $langcode)) {
+      $form['actions']['publish']['#access'] = FALSE;
+      $form['actions']['unpublish']['#access'] = FALSE;
+      $form['actions']['delete']['#access'] = FALSE;
+      $form['actions']['submit']['#access'] = FALSE;
     }
-  } 
+  }
 }
 
 function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -101,8 +101,8 @@ function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface 
   if (strlen($values['field_hero_bottom_description'][0]['value']) > 500) {
     $form_state->setErrorByName('field_hero_bottom_description', 'Max length for this field is 500 characters.');
   }
-
 }
+
 function character_limitation_contact_us($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
   $values = $form_state->getValues();
@@ -110,23 +110,22 @@ function character_limitation_contact_us($form, \Drupal\Core\Form\FormStateInter
     $form_state->setErrorByName('field_image_component][0][field_cta', 'Max length for this field is 30 characters.');
   }
   if (strlen($values['field_image_component'][1]['field_cta'][0]['title']) > 30) {
-     $form_state->setErrorByName('field_image_component][1][field_cta', 'Max length for this field is 30 characters.');
+    $form_state->setErrorByName('field_image_component][1][field_cta', 'Max length for this field is 30 characters.');
   }
   if (strlen($values['field_image_component'][2]['field_cta'][0]['title']) > 30) {
-     $form_state->setErrorByName('field_image_component][2][field_cta', 'Max length for this field is 30 characters.');
+    $form_state->setErrorByName('field_image_component][2][field_cta', 'Max length for this field is 30 characters.');
   }
   if (strlen($values['field_image_component'][3]['field_cta'][0]['title']) > 30) {
-     $form_state->setErrorByName('field_image_component][3][field_cta', 'Max length for this field is 30 characters.');
+    $form_state->setErrorByName('field_image_component][3][field_cta', 'Max length for this field is 30 characters.');
   }
   if (strlen($values['field_image_component'][4]['field_cta'][0]['title']) > 30) {
-     $form_state->setErrorByName('field_image_component][4][field_cta', 'Max length for this field is 30 characters.');
+    $form_state->setErrorByName('field_image_component][4][field_cta', 'Max length for this field is 30 characters.');
   }
   if (strlen($values['field_image_component'][5]['field_cta'][0]['title']) > 30) {
-     $form_state->setErrorByName('field_image_component][5][field_cta', 'Max length for this field is 30 characters.');
+    $form_state->setErrorByName('field_image_component][5][field_cta', 'Max length for this field is 30 characters.');
   }
- 
-  
 }
+
 function character_limitation_restaurant($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
   $values = $form_state->getValues();
@@ -279,34 +278,29 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
   $newsletter_form_last_name = $values['last_name'];
   if ((strlen($newsletter_form_last_name) > 35) || $newsletter_form_last_name && !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $newsletter_form_last_name)) {
     $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN LAST NAME');
-  }  
+  }
   $email = $values['email_address'];
   if ((strlen($email) > 250) && $email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
+    $form_state->setErrorByName('email_address', 'THIS IS NOT A VALID EMAIL ID');
   }
   $newsletter_form_postcode = $values['postcode'];
-    if (($values['country'] == 'gb' || $values['country'] == 'gbl' || $values['country'] == 'uk' || $values['country'] == 'nz')  
-          &&  ((strlen($newsletter_form_postcode) > 10) || !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode))) {
-      $form_state->setErrorByName('postcode', 'ONLY ALPHANUMERIC CHARACTERS ALLOWED. MAXIMUM 10 CHARACTERS ALLOWED.');
-    }
+  if (($values['country'] == 'gb' || $values['country'] == 'gbl' || $values['country'] == 'uk' || $values['country'] == 'nz') && ((strlen($newsletter_form_postcode) > 10) || !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode))) {
+    $form_state->setErrorByName('postcode', 'ONLY ALPHANUMERIC CHARACTERS ALLOWED. MAXIMUM 10 CHARACTERS ALLOWED.');
+  }
   $newsletter_form_postcode_canada = $values['postcode_canada'];
-    if ($values['country'] == 'ca' 
-        && ((strlen($newsletter_form_postcode_canada) !== 6) || !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode_canada))) {
-      $form_state->setErrorByName('postcode_canada', 'ONLY ALPHANUMERIC CHARACTERS ALLOWED. MUST HAVE 6 CHARACTERS.');
-    }
+  if ($values['country'] == 'ca' && ((strlen($newsletter_form_postcode_canada) !== 6) || !preg_match('/^[a-zA-Z0-9]*$/', $newsletter_form_postcode_canada))) {
+    $form_state->setErrorByName('postcode_canada', 'ONLY ALPHANUMERIC CHARACTERS ALLOWED. MUST HAVE 6 CHARACTERS.');
+  }
 
   $newsletter_form_postcode_us = $values['postcode_us'];
-    if ($values['country'] == 'us' 
-        && ((strlen($newsletter_form_postcode_us) !== 5) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode_us))) {
-      $form_state->setErrorByName('postcode_us', 'ONLY NUMBERS ALLOWED. MUST HAVE 5 CHARACTERS.');
-    }
+  if ($values['country'] == 'us' && ((strlen($newsletter_form_postcode_us) !== 5) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode_us))) {
+    $form_state->setErrorByName('postcode_us', 'ONLY NUMBERS ALLOWED. MUST HAVE 5 CHARACTERS.');
+  }
 
   $newsletter_form_postcode_australia = $values['postcode_australia'];
-    if ($values['country'] == 'au' 
-        && ((strlen($newsletter_form_postcode_australia) !== 4) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode_australia))) {
-      $form_state->setErrorByName('postcode_australia', 'ONLY NUMBERS ALLOWED. MUST HAVE 4 CHARACTERS.');
-    }
-
+  if ($values['country'] == 'au' && ((strlen($newsletter_form_postcode_australia) !== 4) || !preg_match('/^[0-9]*$/', $newsletter_form_postcode_australia))) {
+    $form_state->setErrorByName('postcode_australia', 'ONLY NUMBERS ALLOWED. MUST HAVE 4 CHARACTERS.');
+  }
 }
 
 function webform_submission_enquire_form_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -318,7 +312,7 @@ function webform_submission_enquire_form_form_validation($form, \Drupal\Core\For
   $enquire_form_last_name = $values['last_name'];
   if ((strlen($enquire_form_last_name) > 35) || !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $enquire_form_last_name)) {
     $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN LAST NAME');
-  }  
+  }
   $phone_number = $values['enquire_phone_number'];
   if ((strlen($phone_number) > 10) || $phone_number && !preg_match('/^[ +0-9]+$/', $phone_number)) {
     $form_state->setErrorByName('enquire_phone_number', 'PHONE NUMBERS SHOULD COMPRISE ONLY DIGITS, + AND SPACES AND HAVE LESS THAN 10 CHARACTERS');
