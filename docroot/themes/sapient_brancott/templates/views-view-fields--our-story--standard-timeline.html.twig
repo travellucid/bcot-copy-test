@@ -49,14 +49,14 @@
                             <img  src="{{ image }}" alt="{{ alt_list[key] }}"> 
                         </picture>
                     {% endfor %}
-
+            {% endif %}
                     {% if fields.field_video_youtube_.content %}
                         {% for video in video_list %}
                             <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel=0"></iframe>
                         {% endfor %}
                     {% endif %}
                 </div>
-            {% endif %}
+            
         </div>
     </div>
 
