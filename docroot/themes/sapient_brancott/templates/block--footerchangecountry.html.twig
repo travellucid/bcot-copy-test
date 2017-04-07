@@ -47,7 +47,7 @@
              {% set lang_id = lang_id|merge([translation_language]) %}
             {% endfor %}
             {% set lang_id = lang_id|join(',') %}
-        <div id = "node_translation_languages" data-country = {{ lang_id }} style ="display:none">
+        <div id = "node_translation_languages" data-country = "{{ lang_id }}" data-is-dst = "{{ daylight }}" style ="display:none">
             
             
         </div>                  
