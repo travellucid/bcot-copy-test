@@ -77,56 +77,37 @@ var validationObj = (function($, window, sapient) {
 				});
 				
 
-				
-				
-			/*	if($alphaNumeric.val().length !== 0) {
+				if($email.val().length !== 0) {
 					
-					if (filterAlphaNumeric.test($alphaNumeric.val())) {
-						$alphaNumeric.siblings("label").removeClass("error");
-						$alphaNumeric.removeClass("error-border");
+					if (filterEmail.test($email.val())) {
+						$email.siblings("label").removeClass("error");
+						$email.removeClass("error-border");
 					}
 					else {
-						msgarr.push($alphaNumeric.data("err"));
-						$alphaNumeric.siblings("label").addClass("error");
-						$alphaNumeric.addClass("error-border");
+						msgarr.push($email.data("err"));
+						$email.siblings("label").addClass("error");
+						$email.addClass("error-border");
 						event.preventDefault();					
 					}
 				}
-*/
-					$.each($alphaNumeric, function(index) {
-					
-						if($($alphaNumeric[index]).val().length !== 0) {
-							
-							if (filterAlphaNumeric.test($($alphaNumeric[index]).val())) {
-								$alphaNumeric[index].siblings("label").removeClass("error");
-								$alphaNumeric[index].removeClass("error-border");
-							}
-							else {
-								msgarr.push('$($alphaNumeric[index]).data("err")');
-								$($alphaNumeric[index]).siblings("label").addClass("error");
-								$($alphaNumeric[index]).addClass("error-border");
-								event.preventDefault();					
-							}
 
-						}
-					});
-					$.each($alphaOnly, function(index) {
+				$.each($alphaNumeric, function(index) {
 					
-						if($($alphaOnly[index]).val().length !== 0) {
-							
-							if (filterAlphaOnly.test($($alphaOnly[index]).val())) {
-								$($alphaOnly[index]).siblings("label").removeClass("error");
-								$($alphaOnly[index]).removeClass("error-border");
-							}
-							else {
-								msgarr.push('$($alphaOnly[index]).data("err")');
-								$($alphaOnly[index]).siblings("label").addClass("error");
-								$($alphaOnly[index]).addClass("error-border");
-								event.preventDefault();					
-							}
-
+					if($($alphaNumeric[index]).val().length !== 0) {
+						
+						if (filterAlphaNumeric.test($($alphaNumeric[index]).val())) {
+							$alphaNumeric[index].siblings("label").removeClass("error");
+							$alphaNumeric[index].removeClass("error-border");
 						}
-					});
+						else {
+							msgarr.push($($alphaNumeric[index]).data("err"));
+							$($alphaNumeric[index]).siblings("label").addClass("error");
+							$($alphaNumeric[index]).addClass("error-border");
+							event.preventDefault();					
+						}
+	
+					}
+				}
 				
 
 				$.each($numericOnly, function(index) {
@@ -137,16 +118,15 @@ var validationObj = (function($, window, sapient) {
 							$($numericOnly[index]).siblings("label").removeClass("error");
 							$($numericOnly[index]).removeClass("error-border");
 						}
-						else {/*
-							msgarr.push($($numericOnly[index]).data("err"));*/
-
-							msgarr.push('$($numericOnly[index]).data("err")');
+						else {
+							msgarr.push($($numericOnly[index]).data("err"));
 							$($numericOnly[index]).siblings("label").addClass("error");
 							$($numericOnly[index]).addClass("error-border");
 							event.preventDefault();					
 						}
 					}
 				});
+
 				/*if($numericOnly.val().length !== 0) {
 					
 					if (filterNumericOnly.test($numericOnly.val())) {
@@ -160,37 +140,6 @@ var validationObj = (function($, window, sapient) {
 						event.preventDefault();					
 					}
 				}	*/
-
-				/*if($email.val().length !== 0) {
-					
-					if (filterEmail.test($email.val())) {
-						$email.siblings("label").removeClass("error");
-						$email.removeClass("error-border");
-					}
-					else {
-						msgarr.push($email.data("err"));
-						$email.siblings("label").addClass("error");
-						$email.addClass("error-border");
-						event.preventDefault();					
-					}
-				}*/
-
-				$.each($email, function(index) {
-					
-					if($($email[index]).val().length !== 0) {
-						
-						if (filterEmail.test($($email[index]).val())) {
-							$($email[index]).siblings("label").removeClass("error");
-							$($email[index]).removeClass("error-border");
-						}
-						else {
-							msgarr.push('$($email[index]).data("err")');
-							$($email[index]).siblings("label").addClass("error");
-							$($email[index]).addClass("error-border");
-							event.preventDefault();					
-						}
-					}
-				});
 
 				if (msgarr.length !== 0) {
 

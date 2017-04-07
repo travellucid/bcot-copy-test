@@ -57,5 +57,13 @@ var heroObj = (function($, window, sapient) {
 })(jQuery, window, sapient);
 
 sapient.hero = heroObj.getInstance();
-
-sapient.hero.setLocalTime("+12");
+$(document).ready(function(){
+	var dstFlag = $("#node_translation_languages").data("isDst");
+	if(dstFlag == 0){
+		sapient.hero.setLocalTime("+12");
+	}
+	else if(dstFlag == 1){
+		sapient.hero.setLocalTime("+13");	
+	}
+	alert(dstFlag);	
+});
