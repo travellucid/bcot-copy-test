@@ -225,7 +225,7 @@ class ConfigForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Message for Email validation'),
       '#default_value' => $vc->get('email_message'),
-      '#description' => $this->t('essage for Email validation'),
+      '#description' => $this->t('Message for Email validation'),
       '#required' => TRUE,
     ];
 
@@ -293,6 +293,10 @@ class ConfigForm extends FormBase {
         ->set('analytics_body_end', $form_state->getValue('analytics_body_end'))
         ->set('enable_data_layer', $form_state->getValue('enable_data_layer'))
         ->set('robots_txt', $form_state->getValue('robots_txt'))
+         ->set('alpha_only_message', $form_state->getValue('alpha_only_message'))
+        ->set('alphanumeric_only_message', $form_state->getValue('alphanumeric_only_message'))
+        ->set('numeric_only_message', $form_state->getValue('numeric_only_message'))
+        ->set('email_message', $form_state->getValue('email_message'))
         ->save();
     $this->robotostxt($form_state->getValue('robots_txt'));
     drupal_set_message('Settings have been saved.');
