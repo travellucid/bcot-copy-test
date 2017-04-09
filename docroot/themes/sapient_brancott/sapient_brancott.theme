@@ -361,6 +361,16 @@ function sapient_brancott_preprocess_block(&$variables) {
     $variables['daylight'] = date(I);
     }
   }
+  if($variables['plugin_id'] == 'footerchangecountry') {
+    $alpha_only_message = \Drupal::config('brancott_our_wines.settings')->get('alpha_only_message');
+    $alphanumeric_only_message = \Drupal::config('brancott_our_wines.settings')->get('alphanumeric_only_message');
+    $numeric_only_message = \Drupal::config('brancott_our_wines.settings')->get('numeric_only_message');
+    $email_message = \Drupal::config('brancott_our_wines.settings')->get('email_message');
+    $variables['alpha_only_message'] = $alpha_only_message;
+    $variables['alphanumeric_only_message'] = $alphanumeric_only_message;
+    $variables['numeric_only_message'] = $numeric_only_message;
+    $variables['email_message'] = $email_message;
+  }
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $language_name = \Drupal::languageManager()->getCurrentLanguage()->getName();
   if ($language_name == 'English') {
