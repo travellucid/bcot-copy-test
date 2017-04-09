@@ -194,6 +194,40 @@ class ConfigForm extends FormBase {
       '#default_value' => $vc->get('robots_txt'),
       '#required' => FALSE,
     ];
+    
+    $form['error_messages_details'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Error Messages Configurations'),
+      '#open' => TRUE, // Added
+    );
+    $form['error_messages_details']['alpha_only_message'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Message for Alphabets only fields'),
+      '#default_value' => $vc->get('alpha_only_message'),
+      '#description' => $this->t('Message for Alphabets only fields'),
+      '#required' => TRUE,
+    ];
+    $form['error_messages_details']['alphanumeric_only_message'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Message for Alphanumeric only fields'),
+      '#default_value' => $vc->get('alphanumeric_only_message'),
+      '#description' => $this->t('Message for Alphanumeric only fields'),
+      '#required' => TRUE,
+    ];
+     $form['error_messages_details']['numeric_only_message'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Message for Numeric only fields'),
+      '#default_value' => $vc->get('numeric_only_message'),
+      '#description' => $this->t('Message for Numeric only fields'),
+      '#required' => TRUE,
+    ];
+    $form['error_messages_details']['email_message'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Message for Email validation'),
+      '#default_value' => $vc->get('email_message'),
+      '#description' => $this->t('essage for Email validation'),
+      '#required' => TRUE,
+    ];
 
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
