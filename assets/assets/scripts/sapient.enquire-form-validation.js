@@ -26,7 +26,7 @@ var validationObj = (function($, window, sapient) {
 					$alphaOnly = $(".enquire-form .group .alpha-only").filter('[required]'),
 					
 					filterEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-					filterAlphaNumeric =  /[^a-z\d]/i,
+					filterAlphaNumeric = /^[a-z0-9]+$/i,
 					filterAlphaOnly = /^[a-zA-Z]*$/,
 					filterNumericOnly = /^\d+$/;	
 				
@@ -102,7 +102,7 @@ var validationObj = (function($, window, sapient) {
 								$alphaNumeric[index].removeClass("error-border");
 							}
 							else {
-								msgarr.push($("#node_translation_languages").data("alphNumericErr")+" - "+$($alphaNumeric[index]).siblings("label").text());
+								msgarr.push($("#node_translation_languages").data("alphaNumericErr")+" - "+$($alphaNumeric[index]).siblings("label").text());
 
 								$($alphaNumeric[index]).siblings("label").addClass("error");
 								$($alphaNumeric[index]).addClass("error-border");
