@@ -97,8 +97,9 @@
                
                 {#{% for key, image_horizontal in image_list_v3 %}#}
                 {% for key, image_horizontal in image_list %}
-                    {% set global_style = fields.field_vertical_image_3.content %}
-                    {{ global_style }} brancott-test
+                    {% set global_style = fields.field_image_vertical_3.content %}
+                    {% set global_sty = 'testing' %}
+                    {{ global_sty }} {{ global_style }} brancott-test
                     {% if (key < 3) %}
                         {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
