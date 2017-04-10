@@ -32,8 +32,9 @@
                     <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
                 {% endif %}
             </div>
-            {% if fields.field_image_vertical.content %}
+            
                 <div class="img-wrapper-vertical common-margin">
+                    {% if fields.field_image_vertical.content %}
                     {% for key, image in image_list %}
                         {#<img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
@@ -49,14 +50,14 @@
                             <img  src="{{ image }}" alt="{{ alt_list[key] }}"> 
                         </picture>
                     {% endfor %}
-
+                    {% endif %}
                     {% if fields.field_video_youtube_.content %}
                         {% for video in video_list %}
                             <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel=0"></iframe>
                         {% endfor %}
                     {% endif %}
                 </div>
-            {% endif %}
+            
         </div>
     </div>
 
