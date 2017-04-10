@@ -59,17 +59,26 @@
     <head>
         {%- if enable_data_layer -%}
         <script>
-dataLayer = window.dataLayer || [];            
-dataLayer.push(
-              {'pageTitle': '{{ head_title|safe_join(' | ') }}' }
+            dataLayer = window.dataLayer || [];
+            dataLayer.push(
+                    {'pageTitle': '{{ head_title|safe_join(' | ') }}'}
             );
         </script>
         {%- endif -%}
         {{ analytics_head |raw }} 
     <head-placeholder token="{{ placeholder_token|raw }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="/themes/sapient_brancott/css/images/favicons/apple-touch-icon.png">
+                <link rel="icon" type="image/png" href="/themes/sapient_brancott/css/images/favicons/android-chrome-192x192.png" sizes="192x192">
+                <link rel="icon" type="image/png" href="/themes/sapient_brancott/css/images/favicons/android-chrome-256x256.png" sizes="256x256">
+                <link rel="icon" type="image/png" href="/themes/sapient_brancott/css/images/favicons/BE_favicon_260x260px.png" sizes="260x260">
+                <link rel="icon" type="image/png" href="/themes/sapient_brancott/css/images/favicons/favicon-16x16.png" sizes="16x16">
+                <link rel="icon" type="image/png" href="/themes/sapient_brancott/css/images/favicons/favicon-32x32.png" sizes="32x32">
+                <link rel="icon" type="image/png" href="/themes/sapient_brancott/css/images/favicons/mstile-150x150.png" sizes="150x150">
+                <link rel="icon"  href="/themes/sapient_brancott/css/images/favicons/safari-pinned-tab.svg" >
         <title>{{ head_title|safe_join(' | ') }}</title>
         <css-placeholder token="{{ placeholder_token|raw }}">
             <js-placeholder token="{{ placeholder_token|raw }}">
+                
                 </head>
                 <body{{ attributes.addClass(body_classes) }}>
                     {{ analytics_body_begin |raw }}
