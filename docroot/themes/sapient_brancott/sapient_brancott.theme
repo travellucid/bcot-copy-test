@@ -84,36 +84,37 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           elseif (!empty($month == 3)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_desc_march->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 4])) {
+          elseif (!empty($month == 4)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_desc_april->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 5])) {
+          elseif (!empty($month == 5)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_may->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 6])) {
+          elseif (!empty($month == 6)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_june->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 7])) {
+          elseif (!empty($month == 7)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_july->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 8])) {
+          elseif (!empty($month == 8)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_aug->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 9])) {
+          elseif (!empty($month == 9)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_sep->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 10])) {
+          elseif (!empty($month == 10)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_oct->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 11])) {
+          elseif (!empty($month == 11)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_nov->getValue()[0]['value'];
           }
-          elseif (!empty($values[$month == 12])) {
+          elseif (!empty($month == 12)) {
             $variables['climate_desc'] = $variables['row']->_entity->field_climate_description_dec->getValue()[0]['value'];
           }
           else {
             $variables['climate_desc'] = '';
           }
+          
           $vc = \Drupal::config('brancott_our_wines.settings');
           $openweatherapi_key = $vc->get('openweatherapi_key');
           
