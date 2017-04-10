@@ -8,6 +8,8 @@
  */
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
 
@@ -459,11 +461,29 @@ function sapient_brancott_preprocess_page(&$variables) {
  // kint($languages);die;
   if($variables['node']){
     $type = $variables['node']->getType();
+    
     if ($type == 'error_page') { 
       $variables['#attached']['library'][] = 'sapient_brancott/header-error-page';
       
     }
+    if ($type == 'wines') {
+      $node = \Drupal::routeMatch()->getParameter('node');
+      $wine_id = $node->field_wine_id->getValue()[0]['value'];
+      $new_wine_id = braoncott_rest_api_get_results($wine_id);
+      
+      if(!$new_wine_id->id) {
+        
+        $url = '/404';
+        $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
+        $response->send();
+      }
+      
+
+      
+      
+    }
   }
+  
   
 
 }
