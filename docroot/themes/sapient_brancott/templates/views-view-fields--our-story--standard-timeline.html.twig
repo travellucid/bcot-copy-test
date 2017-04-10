@@ -94,20 +94,25 @@
 
         {% if fields.field_image_vertical.content %}
             <div class="img-wrapper-horizontal common-margin">
-
+               
                 {#{% for key, image_horizontal in image_list_v3 %}#}
                 {% for key, image_horizontal in image_list %}
                     {% if (key < 3) %}
                         {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
                             <source   media="(max-width: 321px)"  srcset="{{ image_horizontal }}"> 
+                            <source  media="(max-width: 691px)"  srcset=" {{ fields.field_vertical_image_3.content }}"> 
+                            <source  media="(max-width: 769px)"  srcset="{{ fields.field_vertical_image_3.content }}"> 
 
-                            <source  media="(max-width: 691px)"  srcset=" {{ image_list_v7[key] }}"> 
+                            <source  media="(max-width: 1025px)" srcset="{{ fields.field_vertical_image_3.content }}">
+
+                            <source  media="(max-width: 1401px)" srcset="{{ fields.field_vertical_image_3.content }}">
+                            <!--<source  media="(max-width: 691px)"  srcset=" {{ image_list_v7[key] }}"> 
                             <source  media="(max-width: 769px)"  srcset="{{ image_horizontal }}"> 
 
                             <source  media="(max-width: 1025px)" srcset="{{ image_horizontal }}">
 
-                            <source  media="(max-width: 1401px)" srcset="{{ image_horizontal }}"> 
+                            <source  media="(max-width: 1401px)" srcset="{{ image_horizontal }}">--> 
 
                             <img  src="{{ image_horizontal }}" alt="{{ alt_list[key] }}"> 
                         </picture>
