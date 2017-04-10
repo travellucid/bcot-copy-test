@@ -114,6 +114,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           else {
             $variables['climate_desc'] = '';
           }
+          echo "monthly desc"; print_r($variables['climate_desc']);
           $vc = \Drupal::config('brancott_our_wines.settings');
           $openweatherapi_key = $vc->get('openweatherapi_key');
           
