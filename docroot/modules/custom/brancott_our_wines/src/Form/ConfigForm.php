@@ -228,6 +228,36 @@ class ConfigForm extends FormBase {
       '#description' => $this->t('Message for Email validation'),
       '#required' => TRUE,
     ];
+    
+     $form['smfc_form_messages'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Salesforce Submission Messages'),
+      '#open' => TRUE, // Added
+    );
+    $form['smfc_form_messages']['newsletter_message'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Message for Newsletter form duplicate submission'),
+      '#default_value' => $vc->get('newsletter_message'),
+      '#required' => TRUE,
+    ];
+    $form['smfc_form_messages']['tour_experience_message'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Message for Tours and Experience form duplicate submission'),
+      '#default_value' => $vc->get('tour_experience_message'),
+      '#required' => TRUE,
+    ];
+     $form['smfc_form_messages']['private_event_message'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Message for Private Events form duplicate submission'),
+      '#default_value' => $vc->get('private_event_message'),
+      '#required' => TRUE,
+    ];
+    $form['smfc_form_messages']['restaurant_page_message'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Message for Book A Table form duplicate submission'),
+      '#default_value' => $vc->get('restaurant_page_message'),
+      '#required' => TRUE,
+    ];
 
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
@@ -293,10 +323,14 @@ class ConfigForm extends FormBase {
         ->set('analytics_body_end', $form_state->getValue('analytics_body_end'))
         ->set('enable_data_layer', $form_state->getValue('enable_data_layer'))
         ->set('robots_txt', $form_state->getValue('robots_txt'))
-         ->set('alpha_only_message', $form_state->getValue('alpha_only_message'))
+        ->set('alpha_only_message', $form_state->getValue('alpha_only_message'))
         ->set('alphanumeric_only_message', $form_state->getValue('alphanumeric_only_message'))
         ->set('numeric_only_message', $form_state->getValue('numeric_only_message'))
         ->set('email_message', $form_state->getValue('email_message'))
+        ->set('newsletter_message', $form_state->getValue('newsletter_message'))
+        ->set('tour_experience_message', $form_state->getValue('tour_experience_message'))
+        ->set('private_event_message', $form_state->getValue('private_event_message'))
+        ->set('restaurant_page_message', $form_state->getValue('restaurant_page_message'))
         ->save();
     $this->robotostxt($form_state->getValue('robots_txt'));
     drupal_set_message('Settings have been saved.');
