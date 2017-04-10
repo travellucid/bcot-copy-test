@@ -102,7 +102,7 @@ var validationObj = (function($, window, sapient) {
 								$alphaNumeric[index].removeClass("error-border");
 							}
 							else {
-								msgarr.push($("#node_translation_languages").data("alphNumericErr")+" - "+$($alphaNumeric[index]).siblings("label").text());
+								msgarr.push($("#node_translation_languages").data("alphaNumericErr")+" - "+$($alphaNumeric[index]).siblings("label").text());
 
 								$($alphaNumeric[index]).siblings("label").addClass("error");
 								$($alphaNumeric[index]).addClass("error-border");
