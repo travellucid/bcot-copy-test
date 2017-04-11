@@ -284,7 +284,7 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
     $form_state->setErrorByName('name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
   }
   $newsletter_form_last_name = $values['last_name'];
-  if ((strlen($newsletter_form_last_name) > 35) || $newsletter_form_last_name && !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $newsletter_form_last_name)) {
+  if ((strlen($newsletter_form_last_name) > 35) || $newsletter_form_last_name && !preg_match("/^[A-Za-z-'\s]*$/", $newsletter_form_last_name)) {
     $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN LAST NAME');
   }
   $email = $values['email_address'];
@@ -314,11 +314,11 @@ function webform_submission_newsletter_signup_form_validation($form, \Drupal\Cor
 function webform_submission_enquire_form_form_validation($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $values = $form_state->getValues();
   $enquire_form_name = $values['name'];
-  if ((strlen($enquire_form_name) > 35) || !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $enquire_form_name)) {
+  if ((strlen($enquire_form_name) > 35) || !preg_match("/^[A-Za-z-'\s]*$/", $enquire_form_name)) {
     $form_state->setErrorByName('name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN FIRST NAME');
   }
   $enquire_form_last_name = $values['last_name'];
-  if ((strlen($enquire_form_last_name) > 35) || !preg_match("/^[A-Za-z]{1}[A-Za-z- ]{0,35}[\p{L}-]*$/u", $enquire_form_last_name)) {
+  if ((strlen($enquire_form_last_name) > 35) || !preg_match("/^[A-Za-z-'\s]*$/", $enquire_form_last_name)) {
     $form_state->setErrorByName('last_name', 'ONLY UPPERCASE, LOWERCASE, ACCENTED CHARACTERS,SPACES, HYPEN AND MAX 35 CHARACTERS ARE ALLOWED IN LAST NAME');
   }
   $phone_number = $values['enquire_phone_number'];
