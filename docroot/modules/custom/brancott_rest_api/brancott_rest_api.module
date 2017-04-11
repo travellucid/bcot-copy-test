@@ -156,7 +156,7 @@ function brancott_rest_api_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 }
 
 function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
-
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $values = $form_state->getValues();
   $name = $values['name'];
   $last_name = $values['last_name'];
@@ -232,11 +232,12 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   }
   else {
     drupal_get_messages();
-    drupal_set_message(t('<p>Thank you, but the email address that you have used is already registered with us.</p><a class="cta dark" href="/[webform_submission:langcode]/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>'), 'status');
+    drupal_set_message('<p>Thank you, but the email address that you have used is already registered with us.</p><a class="cta dark" href="' . $langcode . '/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>', 'status');
   }
 }
 
 function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $values = $form_state->getValues();
   $name = $values['name'];
   $last_name = $values['last_name'];
@@ -281,14 +282,14 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
     }
     else {
       drupal_get_messages();
-      drupal_set_message(t('<p>Thank you, but the email address that you have used is already registered with us.</p><a class="cta dark" href="/[webform_submission:langcode]/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>'), 'status');
+      drupal_set_message('<p>Thank you, but the email address that you have used is already registered with us.</p><a class="cta dark" href="' . $langcode . '/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>', 'status');
 //      drupal_set_message(t('Thank you, but the email address that you have used is already registered with us.'), 'status');
     }
   }
 }
 
 function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
-
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $values = $form_state->getValues();
   $name = $values['name'];
   $last_name = $values['last_name'];
@@ -333,7 +334,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
   }
   else {
     drupal_get_messages();
-    drupal_set_message('<p>' . t('Thank you, but the email address that you have used is already registered with us.') . '</p><a class="cta dark" href="/[webform_submission:langcode]/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>', 'status');
+    drupal_set_message('<p>Thank you, but the email address that you have used is already registered with us.</p><a class="cta dark" href="' . $langcode . '/our-wines" target="_blank" title="EXPLORE OUR WINES">EXPLORE OUR WINES</a>', 'status');
 //      drupal_set_message(t('Thank you, but the email address that you have used is already registered with us.'), 'status');
   }
 }
