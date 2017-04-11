@@ -115,25 +115,25 @@
 
         {% if fields.field_image_vertical.content %}
             <div class="img-wrapper-horizontal common-margin">
-               {{ image_list_v8[0] }}test{{ image_list_v8[1] }}test1{{ image_list_v8[2] }}test2{{ image_list_v8[3] }}test3
+               
                 {#{% for key, image_horizontal in image_list_v3 %}#}
-                {% for key, image_horizontal in image_list_v3 %}
+                {% for key, image_horizontal in image_list_v8 %}
                     
                     
                     
                     {% if (key < 3) %}
                         {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
-                            <source   media="(max-width: 321px)"  srcset="{{ image_list_v3[key] }}"> 
+                            <source   media="(max-width: 321px)"  srcset="{{ image_list_v8[key] }}"> 
 
                             <source  media="(max-width: 691px)"  srcset=" {{ image_list_v7[key] }}"> 
-                            <source  media="(max-width: 769px)"  srcset="{{ image_list_v3[key] }}"> 
+                            <source  media="(max-width: 769px)"  srcset="{{ image_list_v8[key] }}"> 
 
-                            <source  media="(max-width: 1025px)" srcset="{{ image_list_v3[key] }}">
+                            <source  media="(max-width: 1025px)" srcset="{{ image_list_v8[key] }}">
 
-                            <source  media="(max-width: 1401px)" srcset="{{ image_list_v3[key] }}"> 
+                            <source  media="(max-width: 1401px)" srcset="{{ image_list_v8[key] }}"> 
 
-                            <img  src="{{ image_list_v3[key] }}" alt="{{ alt_list[key] }}"> 
+                            <img  src="{{ image_list_v8[key] }}" alt="{{ alt_list[key] }}"> 
                         </picture>
                     {% endif %}
                 {% endfor %}
