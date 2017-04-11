@@ -53,7 +53,7 @@
                     {% endif %}
                     {% if fields.field_video_youtube_.content %}
                         {% for video in video_list %}
-                            <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel={{ fields.field_suggested_videos.content }}&autoplay=0&showinfo={{ fields.field_video_title.content }}&controls={{ fields.field_player_controls.content }}"></iframe>
+                            <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel={{ fields.field_suggested_videos.content }}&autoplay={{ fields.field_autoplay.content }}&showinfo={{ fields.field_video_title.content }}&controls={{ fields.field_player_controls.content }}"></iframe>
                         {% endfor %}
                     {% endif %}
                 </div>
