@@ -117,11 +117,11 @@
             <div class="img-wrapper-horizontal common-margin">
                
                 {#{% for key, image_horizontal in image_list_v3 %}#}
-                {% for key, image_horizontal in image_list %}
+                {% for key, image_horizontal in image_list_v3 %}
                     
                     
                     
-                    {# {% if (key < 3) %} #}
+                    {% if (key < 3) %}
                         {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
                             <source   media="(max-width: 321px)"  srcset="{{ image_list_v3[key] }}"> 
@@ -135,7 +135,7 @@
 
                             <img  src="{{ image_list_v3[key] }}" alt="{{ alt_list[key] }}"> 
                         </picture>
-                    {# {% endif %} #}
+                    {% endif %}
                 {% endfor %}
             </div>
         {% endif %}
