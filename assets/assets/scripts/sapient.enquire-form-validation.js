@@ -27,7 +27,7 @@ var validationObj = (function($, window, sapient) {
 					
 					filterEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 					filterAlphaNumeric = /^[a-z0-9]+$/i,
-					filterAlphaOnly = /^[a-zA-Z]*$/,
+					filterAlphaOnly = /^[A-Za-z-'\s]*$/,
 					filterNumericOnly = /^\d+$/;	
 				
 
@@ -359,8 +359,15 @@ var validationObj = (function($, window, sapient) {
 				var str= $(this).val().toLowerCase(),
 				$selector = $("."+str);
 				$(".newsletter-form .country-secondary").hide().find("select,input,textarea").removeAttr("required");
-				$selector.find("label").addClass("form-required");
-				$selector.show().find("select,input,textarea").attr("required",true);
+				
+				if(str === "gb" || str === "nz" || str === "fr" || str === "al" || str === "dz" || str === "ao" ||str === "at") {
+					$selector.show();
+					$selector.find("label").removeClass("form-required");
+				}	
+				else{
+					$selector.find("label").addClass("form-required");
+					$selector.show().find("select,input,textarea").attr("required",true);
+				}
 			});
 		},
 
