@@ -9,6 +9,7 @@
 {% set image_list_v7 = fields.field_image_vertical_7.content|split(',') %}
 {% set video_list = fields.field_video_youtube_.content|split(',') %}
 {% set alt_list = fields.field_image_vertical_5.content|split(',') %}
+
 {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
 {% if (fields.field_media_style.content == "vertical_style") %}
 
@@ -114,25 +115,25 @@
 
         {% if fields.field_image_vertical.content %}
             <div class="img-wrapper-horizontal common-margin">
-               
+               {{ image_list[0] }}test{{ image_list[1] }}test1{{ image_list[2] }}test2{{ image_list[3] }}test3
                 {#{% for key, image_horizontal in image_list_v3 %}#}
-                {% for key, image_horizontal in image_list %}
-                    {% set global_style = fields.field_image_vertical_3.content %}
+                {% for key, image_horizontal in image_list_v3 %}
+                    
                     
                     
                     {% if (key < 3) %}
                         {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
-                            <source   media="(max-width: 321px)"  srcset="{{ global_style }}"> 
+                            <source   media="(max-width: 321px)"  srcset="{{ image_list_v3[key] }}"> 
 
                             <source  media="(max-width: 691px)"  srcset=" {{ image_list_v7[key] }}"> 
-                            <source  media="(max-width: 769px)"  srcset="{{ global_style }}"> 
+                            <source  media="(max-width: 769px)"  srcset="{{ image_list_v3[key] }}"> 
 
-                            <source  media="(max-width: 1025px)" srcset="{{ global_style }}">
+                            <source  media="(max-width: 1025px)" srcset="{{ image_list_v3[key] }}">
 
-                            <source  media="(max-width: 1401px)" srcset="{{ global_style }}"> 
+                            <source  media="(max-width: 1401px)" srcset="{{ image_list_v3[key] }}"> 
 
-                            <img  src="{{ global_style }}" alt="{{ alt_list[key] }}"> 
+                            <img  src="{{ image_list_v3[key] }}" alt="{{ alt_list[key] }}"> 
                         </picture>
                     {% endif %}
                 {% endfor %}
