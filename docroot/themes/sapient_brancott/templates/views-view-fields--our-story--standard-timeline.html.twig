@@ -52,7 +52,27 @@
                 {% endif %}
                 {% if fields.field_video_youtube_.content %}
                     {% for video in video_list %}
-                        <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel=0"></iframe>
+                        {% if (fields.field_suggested_videos.content) %}
+                            {% set suggested_videos = fields.field_suggested_videos.content %}
+                        {% else %}
+                            {% set suggested_videos = 0 %}
+                        {% endif %}
+                        {% if (fields.field_autoplay.content) %}
+                            {% set autoplay = fields.field_autoplay.content %}
+                        {% else %}
+                            {% set autoplay = 0 %}
+                        {% endif %}
+                        {% if (fields.field_video_title.content) %}
+                            {% set show_title = fields.field_video_title.content %}
+                        {% else %}
+                            {% set show_title = 0 %}
+                        {% endif %}
+                        {% if (fields.field_player_controls.content) %}
+                            {% set controls = fields.field_player_controls.content %}
+                        {% else %}
+                            {% set controls = 0 %}
+                        {% endif %}
+                        <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel={{ suggested_videos }}&autoplay={{ autoplay }}&showinfo={{ show_title }}&controls={{ controls }}"></iframe>
                     {% endfor %}
                 {% endif %}
             </div>
