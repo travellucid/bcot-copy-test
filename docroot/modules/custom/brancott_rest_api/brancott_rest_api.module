@@ -241,11 +241,12 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
     }
   }
   else {
-    drupal_get_messages();
+    
     $vc = \Drupal::config('brancott_our_wines.settings');
     $webform_duplication_message = $vc->get('newsletter_message');
     //$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
+    drupal_get_messages();
     drupal_set_message(t($message), 'status');
   }
 }
@@ -295,11 +296,12 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
       }
     }
     else {
-      drupal_get_messages();
+      
       $vc = \Drupal::config('brancott_our_wines.settings');
       $webform_duplication_message = $vc->get('tour_experience_message');
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
+      drupal_get_messages();
       drupal_set_message(t($message), 'status');
       
 
@@ -352,11 +354,12 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
     }
   }
   else {
-        drupal_get_messages();
+        
       $vc = \Drupal::config('brancott_our_wines.settings');
       $webform_duplication_message = $vc->get('restaurant_page_message');
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
+      drupal_get_messages();
       drupal_set_message(t($message), 'status');
   }
 }
