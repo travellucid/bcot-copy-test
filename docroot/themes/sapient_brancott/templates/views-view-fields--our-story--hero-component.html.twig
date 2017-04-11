@@ -92,7 +92,7 @@
                 <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
             {% endif %}
             {% if (fields.field_video_youtube_link.content) %}
-                <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel=0"></iframe>
+                <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel={{ fields.field_suggested_videos.content }}autoplay=0&showinfo={{ fields.field_video_title.content }}&controls={{ fields.field_player_controls.content }}"></iframe>
             {% endif %} 
         </div>
     </div>
