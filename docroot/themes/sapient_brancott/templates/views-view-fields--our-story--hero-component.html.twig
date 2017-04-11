@@ -91,6 +91,9 @@
             {% if (fields.field_hero_bottom_description.content) %}
                 <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
             {% endif %}
+            {% if (fields.field_hero_body.content) %}
+                <p class="common-margin">{{ fields.field_hero_body.content }}</p>
+            {% endif %}
             {% if (fields.field_video_youtube_link.content) %}
                 {% if (fields.field_suggested_videos.content) %}
                     {% set suggested_videos = fields.field_suggested_videos.content %}
