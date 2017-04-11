@@ -9,7 +9,7 @@
 {% set image_list_v7 = fields.field_image_vertical_7.content|split(',') %}
 {% set video_list = fields.field_video_youtube_.content|split(',') %}
 {% set alt_list = fields.field_image_vertical_5.content|split(',') %}
-
+{% set image_list_v8 = fields.field_image_vertical_8.content|split(',') %}
 {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
 {% if (fields.field_media_style.content == "vertical_style") %}
 
@@ -115,7 +115,7 @@
 
         {% if fields.field_image_vertical.content %}
             <div class="img-wrapper-horizontal common-margin">
-               {{ image_list[0] }}test{{ image_list[1] }}test1{{ image_list[2] }}test2{{ image_list[3] }}test3
+               {{ image_list_v8[0] }}test{{ image_list_v8[1] }}test1{{ image_list_v8[2] }}test2{{ image_list_v8[3] }}test3
                 {#{% for key, image_horizontal in image_list_v3 %}#}
                 {% for key, image_horizontal in image_list_v3 %}
                     
