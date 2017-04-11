@@ -159,12 +159,9 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   
    $vc = \Drupal::config('brancott_our_wines.settings');
-    $webform_duplication_message = $vc->get('newsletter_message');
-    
-    $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
-    
-   
-    drupal_set_message(t($message), 'status');
+   $webform_duplication_message = $vc->get('newsletter_message');
+    //$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+   $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
     
     
   $values = $form_state->getValues();
@@ -242,10 +239,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   }
   else {
     
-    $vc = \Drupal::config('brancott_our_wines.settings');
-    $webform_duplication_message = $vc->get('newsletter_message');
-    //$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
+    
     drupal_get_messages();
     drupal_set_message(t($message), 'status');
   }
