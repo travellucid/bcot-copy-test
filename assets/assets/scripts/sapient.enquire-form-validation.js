@@ -217,7 +217,9 @@ var validationObj = (function($, window, sapient) {
 						$(this).siblings("label").removeClass("error");
 
 					}		
-				})	
+				})
+
+				
 			});
 		},
 		
@@ -237,24 +239,24 @@ var validationObj = (function($, window, sapient) {
 			})	
 		},
 
+		addCheckboxVal = function() {
+			var $checkedNtRequired = $('.enquire-form  .subscription-checkbox');
+			$.each($checkedNtRequired,function(index){
+				var y = $($checkedNtRequired[index]).siblings("label").html(),
+					x= $($checkedNtRequired[index]).siblings("label").attr('data-original-title');
+				if(x){
+					$($checkedNtRequired[index]).siblings("label").html(y + "" + x)
+				}
+				
+			})
+		},
+
 		resetForm = function() {
 			$(document).ready(function () {
 				for (i = 0; i < document.forms.length; i++) {
 					document.forms[i].reset();
 				}
 			});
-		},
-
-		selectInMac = function() {
-
-			var $select = $(".enquire-form .group select"),
-				mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-			
-			if(mac) {
-				$.each($select,function() {
-					$(this).addClass("mac-specific");
-				})
-			}
 		},
 
 		submitBtnClass = function() {
@@ -438,11 +440,11 @@ var validationObj = (function($, window, sapient) {
 			selectChange: selectChange,
 			submitBtnClass: submitBtnClass,
 			handleBackEndError:  handleBackEndError,
-			selectInMac: selectInMac,
 			inputSelect: inputSelect,
 			textareaOnFocus: textareaOnFocus,
 			textareaOnFocusOut: textareaOnFocusOut,
 			resetForm: resetForm,
+			addCheckboxVal:addCheckboxVal,
 			countrySelector: countrySelector
 		};
 	}
@@ -469,10 +471,10 @@ sapient.validation.textareaOnFocus();
 sapient.validation.textareaOnFocusOut();
 sapient.validation.selectChange();
 sapient.validation.submitBtnClass();
-sapient.validation.selectInMac();
 sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
+sapient.validation.addCheckboxVal();
 $(document).ready(function() {  
 	/*sapient.common.setCountryNewsLetter();*/
 });
