@@ -259,18 +259,6 @@ var validationObj = (function($, window, sapient) {
 			});
 		},
 
-		selectInMac = function() {
-
-			var $select = $(".enquire-form .group select"),
-				mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-			
-			if(mac) {
-				$.each($select,function() {
-					$(this).addClass("mac-specific");
-				})
-			}
-		},
-
 		submitBtnClass = function() {
 
 			$(".enquire-form button.submit-btn").removeClass().addClass("cta dark submit-btn")
@@ -452,7 +440,6 @@ var validationObj = (function($, window, sapient) {
 			selectChange: selectChange,
 			submitBtnClass: submitBtnClass,
 			handleBackEndError:  handleBackEndError,
-			selectInMac: selectInMac,
 			inputSelect: inputSelect,
 			textareaOnFocus: textareaOnFocus,
 			textareaOnFocusOut: textareaOnFocusOut,
@@ -484,7 +471,6 @@ sapient.validation.textareaOnFocus();
 sapient.validation.textareaOnFocusOut();
 sapient.validation.selectChange();
 sapient.validation.submitBtnClass();
-//sapient.validation.selectInMac();
 sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
