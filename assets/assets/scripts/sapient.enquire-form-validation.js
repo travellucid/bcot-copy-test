@@ -240,21 +240,15 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		addCheckboxVal = function() {
-			var $checkedNtRequired = $('.enquire-form  .subscription-checkbox'),
-				interval = setInterval(function() {
-				if($checkedNtRequired.length > 0) {
-					var $checkedNtRequired = $('.enquire-form  .subscription-checkbox');
-					$.each($checkedNtRequired,function(index){
-						var y = $($checkedNtRequired[index]).siblings("label").html(),
-							x= $($checkedNtRequired[index]).siblings("label").attr('data-original-title');
-						if(x){
-							$($checkedNtRequired[index]).siblings("label").html(y + " " + x)
-						}
-						
-					})
-					clearInterval(interval);
-				}	
-			}, 200);		
+			var $checkedNtRequired = $('.enquire-form  .subscription-checkbox');
+			$.each($checkedNtRequired,function(index){
+				var y = $($checkedNtRequired[index]).siblings("label").html(),
+					x= $($checkedNtRequired[index]).siblings("label").attr('data-original-title');
+				if(x){
+					$($checkedNtRequired[index]).siblings("label").html(y + " " + x)
+				}
+				
+			})
 		},
 
 		resetForm = function() {
