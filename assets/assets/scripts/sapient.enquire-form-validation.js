@@ -217,7 +217,9 @@ var validationObj = (function($, window, sapient) {
 						$(this).siblings("label").removeClass("error");
 
 					}		
-				})	
+				})
+
+				
 			});
 		},
 		
@@ -235,6 +237,18 @@ var validationObj = (function($, window, sapient) {
 				}
 				
 			})	
+		},
+
+		addCheckboxVal = function() {
+			var $checkedNtRequired = $('.enquire-form  .subscription-checkbox');
+			$.each($checkedNtRequired,function(index){
+				var y = $($checkedNtRequired[index]).siblings("label").html(),
+					x= $($checkedNtRequired[index]).siblings("label").attr('data-original-title');
+				if(x){
+					$($checkedNtRequired[index]).siblings("label").html(y + "" + x)
+				}
+				
+			})
 		},
 
 		resetForm = function() {
@@ -443,6 +457,7 @@ var validationObj = (function($, window, sapient) {
 			textareaOnFocus: textareaOnFocus,
 			textareaOnFocusOut: textareaOnFocusOut,
 			resetForm: resetForm,
+			addCheckboxVal:addCheckboxVal,
 			countrySelector: countrySelector
 		};
 	}
@@ -473,6 +488,7 @@ sapient.validation.selectInMac();
 sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
+sapient.validation.addCheckboxVal();
 $(document).ready(function() {  
 	/*sapient.common.setCountryNewsLetter();*/
 });
