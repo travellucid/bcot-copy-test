@@ -2022,7 +2022,7 @@ sapient.validation.textareaOnFocus();
 sapient.validation.textareaOnFocusOut();
 sapient.validation.selectChange();
 sapient.validation.submitBtnClass();
-sapient.validation.selectInMac();
+//sapient.validation.selectInMac();
 sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
