@@ -385,3 +385,24 @@ function brancott_check_email_salesforce($email) {
   }
   return $count;
 }
+
+function brancott_rest_api_entity_translation_create(\Drupal\Core\Entity\EntityInterface $translation) {
+  foreach ($translation->getFieldDefinitions() as $field_def) {
+//    kint($field_def->getName()); die;
+    if($field_def->getType() == 'field_collection') {
+      $field_name = $field_def->getName();
+      $count = $translation->$field_name->count();
+      if(!empty($count)) {
+        for($i = 0; $i <= $count; $i ++) {
+          if($translation->$field_name->get(0) != NULL) {
+          $translation->$field_name->removeItem(0);
+          }
+        }
+      }
+    }
+  }
+//  kint($translation->getFieldDefinitions()); die;
+  
+
+  }
+
