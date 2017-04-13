@@ -92,8 +92,8 @@
                 <p class="common-margin">{{ fields.field_hero_bottom_description.content }}</p>
             {% endif %}
             {% if (fields.field_hero_body.content) %}
-               {{ fields.field_hero_body.content }}
-               <p class="common-margin"></p>
+                {{ fields.field_hero_body.content }}
+                <p class="common-margin"></p>
             {% endif %}
             {% if (fields.field_video_youtube_link.content) %}
                 {% if (fields.field_suggested_videos.content) %}
@@ -116,9 +116,24 @@
                 {% else %}
                     {% set controls = 0 %}
                 {% endif %}
-                
-                <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel={{ suggested_videos }}&autoplay={{ autoplay }}&showinfo={{ show_title }}&controls={{ controls }}"></iframe>
-            {% endif %} 
+                {% if (fields.field_looping.content) %}
+                    {% set looping = fields.field_looping.content %}
+                {% else %}
+                    {% set looping = 0 %}
+                {% endif %}
+                {% if (fields.field_autohide.content) %}
+                    {% set autohide = fields.field_autohide.content %}
+                {% else %}
+                    {% set autohide = 0 %}
+                {% endif %}
+                {% if (fields.field_iv_load.content) %}
+                    {% set iv_load = fields.field_iv_load.content %}
+                {% else %}
+                    {% set iv_load = 3 %}
+                {% endif %}
+
+                <iframe class="youtube  common-margin" src="https://www.youtube.com/embed/{{ fields.field_video_youtube_link.content }}?rel={{ suggested_videos }}&autoplay={{ autoplay }}&showinfo={{ show_title }}&controls={{ controls }}&loop={{ looping }}&autohide={{ autohide }}&iv_load_policy={{ iv_load }}"></iframe>
+                {% endif %} 
         </div>
     </div>
 {% endif %} 
