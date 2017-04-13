@@ -35,7 +35,7 @@
                 {% endif %}
             </div>
             <div class="img-wrapper-vertical common-margin">
-            {% if fields.field_image_vertical.content %}
+                {% if fields.field_image_vertical.content %}
                     {% for key, image in image_list %}
                         {#<img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
@@ -74,9 +74,24 @@
                         {% else %}
                             {% set controls = 0 %}
                         {% endif %}
-                        <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel={{ suggested_videos }}&autoplay={{ autoplay }}&showinfo={{ show_title }}&controls={{ controls }}"></iframe>
-                    {% endfor %}
-                {% endif %}
+                        {% if (fields.field_looping.content) %}
+                            {% set looping = fields.field_looping.content %}
+                        {% else %}
+                            {% set looping = 0 %}
+                        {% endif %}
+                        {% if (fields.field_autohide.content) %}
+                            {% set autohide = fields.field_autohide.content %}
+                        {% else %}
+                            {% set autohide = 0 %}
+                        {% endif %}
+                        {% if (fields.field_iv_load.content) %}
+                            {% set iv_load = 1 %}
+                        {% else %}
+                            {% set iv_load = 3 %}
+                        {% endif %}
+                        <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel={{ suggested_videos }}&autoplay={{ autoplay }}&showinfo={{ show_title }}&controls={{ controls }}&loop={{ looping }}&autohide={{ autohide }}&iv_load_policy={{ iv_load }}"></iframe>
+                        {% endfor %}
+                    {% endif %}
             </div>
         </div>
     </div>
@@ -116,12 +131,12 @@
 
         {% if fields.field_image_vertical.content %}
             <div class="img-wrapper-horizontal common-margin">
-               
+
                 {#{% for key, image_horizontal in image_list_v3 %}#}
                 {% for key, image_horizontal in image_list_v8 %}
-                    
-                    
-                    
+
+
+
                     {% if (key < 3) %}
                         {#              <img  src="{{ image_horizontal }} " alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>

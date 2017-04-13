@@ -3,6 +3,7 @@
         <h2 class="header_b"> {{ fields.field_tasting_notes_title.content }} </h2>
     {% endif %}
 
+<<<<<<< HEAD
     {% if (tasting_notes_aroma or tasting_notes_taste) %}
         <picture>
             <source  media="(max-width: 321px)" srcset="{{ fields.field_aroma_and_palate_image.content }}" class="">   
@@ -14,6 +15,19 @@
         </picture> 
         <h3 class="header_f"> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
     {% endif %}
+=======
+{% if (tasting_notes_aroma or tasting_notes_taste) %}
+    <picture>
+        <source  media="(max-width: 321px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x" class="">   
+        <source  media="(max-width: 691px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x " class="">
+        <source  media="(max-width: 769px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x" class="">  
+        <source  media="(max-width: 1281px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x" class=""> 
+        <img src="{{ fields.field_aroma_and_palate_image.content }}" 
+             alt="{{ fields.field_aroma_and_palate_image_1.content }}">
+    </picture> 
+    <h3 class="header_f"> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
+{% endif %}
+>>>>>>> 81f52fec8a812614523df8a6a5eec4056463b645
 
     {% if (tasting_notes_aroma) %}
         <p class="desc-1"> {{ tasting_notes_aroma }} </p>
@@ -23,6 +37,7 @@
         <p class="desc-1"> {{ tasting_notes_taste }} </p>
     {% endif %}
 
+<<<<<<< HEAD
     {% if (tasting_notes_complement) %}
         <picture>
             <source  media="(max-width: 321px)" srcset="{{ fields.field_enjoy_with_image.content }}" class="">   
@@ -34,6 +49,19 @@
         </picture>
         <h3 class="header_f"> {{ fields.field_enjoy_with_subtitle.content }} </h3>
     {% endif %}
+=======
+{% if (tasting_notes_complement) %}
+    <picture>
+        <source  media="(max-width: 321px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x " class="">   
+        <source  media="(max-width: 691px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x" class="">
+        <source  media="(max-width: 769px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x" class="">  
+        <source  media="(max-width: 1281px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x" class=""> 
+        <img src="{{ fields.field_enjoy_with_image.content }}" 
+             alt="{{ fields.field_enjoy_with_image_1.content }}">
+    </picture>
+    <h3 class="header_f"> {{ fields.field_enjoy_with_subtitle.content }} </h3>
+{% endif %}
+>>>>>>> 81f52fec8a812614523df8a6a5eec4056463b645
 
     {% if (tasting_notes_complement) %}
         <p class="desc-2"> {{ tasting_notes_complement }} </p>
