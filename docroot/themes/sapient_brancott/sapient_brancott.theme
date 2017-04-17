@@ -546,8 +546,21 @@ function sapient_brancott_preprocess_menu(&$variables) {
         // Remove links which is not translated to current language.
         if (!array_key_exists($language, $languages)) {
           unset($variables['items'][$key]);
+          continue;
         }
       }
+      
+    foreach ($variables['items'][$key]['below'] as $key_child => &$item_child) {
+      $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item_child['original_link']);
+      if ($menuLinkEntity != NULL) {
+        $languages = $menuLinkEntity->getTranslationLanguages();
+        // Remove links which is not translated to current language.
+        if (!array_key_exists($language, $languages)) {
+          unset($variables['items'][$key]['below'][$key_child]);
+        }
+      }
+    }
+  
     }
   }
 }
