@@ -281,7 +281,9 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
    $api_region_code = $ip_details->region_code;
    $api_city = $ip_details->city;
    $api_zipcode = $ip_details->zip_code;
-   
+   $age_gate_country = $_COOKIE['age_checked'];
+   $age_gate_country = explode(':', $age_gate_country);
+   $age_gate_country =$age_gate_country[0];
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
     if (!$count) {
@@ -303,7 +305,7 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
           "ip" => $api_ip,
-          "ip_country_code" => $api_country_code,
+          "ip_country_code" => $age_gate_country,
           "ip_region_code" => $api_region_code,
            "ip_city" => $api_city,
            "ip_zip_code" => $api_zipcode,
@@ -352,6 +354,9 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
   $api_region_code = $ip_details->region_code;
   $api_city = $ip_details->city;
   $api_zipcode = $ip_details->zip_code;
+  $age_gate_country = $_COOKIE['age_checked'];
+  $age_gate_country = explode(':', $age_gate_country);
+  $age_gate_country =$age_gate_country[0];
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
     if (!$count) {
@@ -373,7 +378,7 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
           "ip" => $api_ip,
-          "ip_country_code" => $api_country_code,
+          "ip_country_code" => $age_gate_country,
           "ip_region_code" => $api_region_code,
           "ip_city" => $api_city,
           "ip_zip_code" => $api_zipcode,
@@ -422,6 +427,10 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $api_region_code = $ip_details->region_code;
   $api_city = $ip_details->city;
   $api_zipcode = $ip_details->zip_code;
+  $age_gate_country = $_COOKIE['age_checked'];
+  $age_gate_country = explode(':', $age_gate_country);
+  $age_gate_country =$age_gate_country[0];
+  print_r($age_gate_country);die;
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
     if (!$count) {
@@ -443,7 +452,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
           "ip" => $api_ip,
-          "ip_country_code" => $api_country_code,
+          "ip_country_code" => $age_gate_country,
           "ip_region_code" => $api_region_code,
           "ip_city" => $api_city,
           "ip_zip_code" => $api_zipcode,
