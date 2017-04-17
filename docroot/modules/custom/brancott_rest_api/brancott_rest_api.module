@@ -113,6 +113,12 @@ function braoncott_rest_api_get_results($wine_id) {
   return $value;
 }
 
+function brancott_ip_details($ip) {
+  $rest_api_ip = new BrancottIpController();
+  $value = $rest_api_ip->getIpDetails($ip);
+  return $value;
+}
+
 function braoncott_rest_api_get_filters() {
   $rest_api_filters = new BrancottRestApiControllerFilters();
   $value = $rest_api_filters->getFilters();
@@ -165,8 +171,9 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
    $webform_duplication_message = $vc->get('newsletter_message');
     //$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
    $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
-    
-    
+   $ip = $_SERVER['REMOTE_ADDR'];
+   $ip_details = brancott_ip_details($ip);
+   print_r($ip_details);die; 
   $values = $form_state->getValues();
   $name = $values['name'];
   $last_name = $values['last_name'];
