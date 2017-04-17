@@ -237,7 +237,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
         "OptInPreference" => $hear_more_from_brancott_estate ? 'true' : '',
         "OptIn_PernodRicard" => $hear_more_from_brands_from_pernod_ricard_group ? 'true' : '',
         "ip" => $api_ip,
-        "ip_country_code" => $api_country_code,
+        "ip_country_code" => $country,
         "ip_region_code" => $api_region_code,
         "ip_city" => $api_city,
         "ip_zip_code" => $api_zipcode,
