@@ -430,7 +430,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $age_gate_country = $_COOKIE['age_checked'];
   $age_gate_country = explode(':', $age_gate_country);
   $age_gate_country =$age_gate_country[0];
-  print_r($age_gate_country);die;
+  //print_r($age_gate_country);die;
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
     if (!$count) {
