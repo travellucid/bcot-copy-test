@@ -173,7 +173,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
    $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
    $ip = $_SERVER['REMOTE_ADDR'];
    $ip_details = brancott_ip_details($ip);
-   print_r($ip_details);die; 
+   //print_r($ip_details);die; 
   $values = $form_state->getValues();
   $name = $values['name'];
   $last_name = $values['last_name'];
