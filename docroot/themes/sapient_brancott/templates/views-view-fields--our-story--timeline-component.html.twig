@@ -23,18 +23,18 @@
                     <p class="">{{ fields.field_timeline_description.content }}</p>
                 {% endif %}
 
-               
-                    {% if fields.field_timeline_subtext_one.content %}
-                         <p class="quote">
+
+                {% if fields.field_timeline_subtext_one.content %}
+                    <p class="quote">
                         {{ fields.field_timeline_subtext_one.content }}</p>
                     {% endif %}
                     {% if fields.field_timeline_subtext_second.content %}
                     <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
                 {% endif %}
             </div>
-            
-                <div class="img-wrapper-vertical common-margin">
-                    {% if fields.field_image_vertical.content %}
+
+            <div class="img-wrapper-vertical common-margin">
+                {% if fields.field_image_vertical.content %}
                     {% for key, image in image_list %}
                         {#<img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
@@ -50,34 +50,49 @@
                             <img  src="{{ image }}" alt="{{ alt_list[key] }}"> 
                         </picture>
                     {% endfor %}
-                    {% endif %}
-                    {% if fields.field_video_youtube_.content %}
-                        {% for video in video_list %}
-                            {% if (fields.field_suggested_videos.content) %}
-                    {% set suggested_videos = fields.field_suggested_videos.content %}
-                {% else %}
-                    {% set suggested_videos = 0 %}
                 {% endif %}
-                {% if (fields.field_autoplay.content) %}
-                    {% set autoplay = fields.field_autoplay.content %}
-                {% else %}
-                    {% set autoplay = 0 %}
-                {% endif %}
-                {% if (fields.field_video_title.content) %}
-                    {% set show_title = fields.field_video_title.content %}
-                {% else %}
-                    {% set show_title = 0 %}
-                {% endif %}
-                {% if (fields.field_player_controls.content) %}
-                    {% set controls = fields.field_player_controls.content %}
-                {% else %}
-                    {% set controls = 0 %}
-                {% endif %}
-                            <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel={{ suggested_videos }}&autoplay={{ autoplay }}&showinfo={{ show_title }}&controls={{ controls }}"></iframe>
+                {% if fields.field_video_youtube_.content %}
+                    {% for video in video_list %}
+                        {% if (fields.field_suggested_videos.content) %}
+                            {% set suggested_videos = fields.field_suggested_videos.content %}
+                        {% else %}
+                            {% set suggested_videos = 0 %}
+                        {% endif %}
+                        {% if (fields.field_autoplay.content) %}
+                            {% set autoplay = fields.field_autoplay.content %}
+                        {% else %}
+                            {% set autoplay = 0 %}
+                        {% endif %}
+                        {% if (fields.field_video_title.content) %}
+                            {% set show_title = fields.field_video_title.content %}
+                        {% else %}
+                            {% set show_title = 0 %}
+                        {% endif %}
+                        {% if (fields.field_player_controls.content) %}
+                            {% set controls = fields.field_player_controls.content %}
+                        {% else %}
+                            {% set controls = 0 %}
+                        {% endif %}
+                        {% if (fields.field_looping.content) %}
+                            {% set looping = fields.field_looping.content %}
+                        {% else %}
+                            {% set looping = 0 %}
+                        {% endif %}
+                        {% if (fields.field_autohide.content) %}
+                            {% set autohide = fields.field_autohide.content %}
+                        {% else %}
+                            {% set autohide = 0 %}
+                        {% endif %}
+                        {% if (fields.field_iv_load.content) %}
+                            {% set iv_load = 1 %}
+                        {% else %}
+                            {% set iv_load = 3 %}
+                        {% endif %}
+                        <iframe class="youtube common-margin" src="https://www.youtube.com/embed/{{ video |trim}}?rel={{ suggested_videos }}&autoplay={{ autoplay }}&showinfo={{ show_title }}&controls={{ controls }}&loop={{ looping }}&autohide={{ autohide }}&iv_load_policy={{ iv_load }}"></iframe>
                         {% endfor %}
                     {% endif %}
-                </div>
-            
+            </div>
+
         </div>
     </div>
 
@@ -96,15 +111,15 @@
                         <p class="common-margin ">{{ fields.field_timeline_description.content }}</p>
                     {% endif %}
                     {% if (fields.field_timeline_subtext_one.content or fields.field_timeline_subtext_second.content) %}
-                    <div class="quote-author">
+                        <div class="quote-author">
 
-                        {% if fields.field_timeline_subtext_one.content %}
-                            <p class="quote ">{{ fields.field_timeline_subtext_one.content }}</p>
-                        {% endif %}
-                        {% if fields.field_timeline_subtext_second.content %}
-                            <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
-                        {% endif %}
-                    </div>
+                            {% if fields.field_timeline_subtext_one.content %}
+                                <p class="quote ">{{ fields.field_timeline_subtext_one.content }}</p>
+                            {% endif %}
+                            {% if fields.field_timeline_subtext_second.content %}
+                                <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div> 
             </div>   
@@ -151,15 +166,15 @@
                         <p class="common-margin ">{{ fields.field_timeline_description.content }}</p>
                     {% endif %}
                     {% if (fields.field_timeline_subtext_one.content or fields.field_timeline_subtext_second.content) %}
-                    <div class="quote-author">
+                        <div class="quote-author">
 
-                        {% if fields.field_timeline_subtext_one.content %}
-                            <p class="quote ">{{ fields.field_timeline_subtext_one.content }}</p>
-                        {% endif %}
-                        {% if fields.field_timeline_subtext_second.content %}
-                            <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
-                        {% endif %}
-                    </div>
+                            {% if fields.field_timeline_subtext_one.content %}
+                                <p class="quote ">{{ fields.field_timeline_subtext_one.content }}</p>
+                            {% endif %}
+                            {% if fields.field_timeline_subtext_second.content %}
+                                <span class="author">{{ fields.field_timeline_subtext_second.content }}</span>
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div> 
             </div>   

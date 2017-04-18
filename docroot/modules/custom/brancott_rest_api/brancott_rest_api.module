@@ -407,15 +407,14 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
         \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
       }
     }
-  }
-  else {
-        
+    else {
       $vc = \Drupal::config('brancott_our_wines.settings');
       $webform_duplication_message = $vc->get('restaurant_page_message');
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
       drupal_get_messages();
       drupal_set_message(t($message), 'status');
+    }
   }
 }
 

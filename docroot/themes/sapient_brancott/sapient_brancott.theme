@@ -10,6 +10,8 @@ use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Menu\MenuLinkInterface;
+use Drupal\menu_link_content\Plugin\Menu\MenuLinkContent;
 
 function sapient_brancott_preprocess_views_view_fields(&$variables) {
 
@@ -254,66 +256,94 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
             $variables['nutritional_alcohol'] = $alcohol_cal;
             $alcohol_info_cal = round(((10 / $alcohol_cal_info) * 150));
             $variables['nutritional_alcohol_cal'] = $alcohol_info_cal;
+            $alcohol_info_cal_us = 10 / $alcohol_cal_info * 150;
+            $alcohol_info_cal_us_round = round(($alcohol_info_cal_us / 150) * 147.868);
+            $variables['nutritional_alcohol_cal_us'] = $alcohol_info_cal_us_round;
           }
           else {
             $variables['nutritional_alcohol'] = '0';
             $variables['nutritional_alcohol_cal'] = '0';
+            $variables['nutritional_alcohol_cal_us'] = '0';
           }
-          $variables['nutritional_info_calories'] = round($details->wineNutritional[0]->calories);
+          
           $calories = $details->wineNutritional[0]->calories;
           if ($calories) {
             $calories_cal = round((($calories) / 150) * $alcohol_cal_info);
             $variables['nutritional_calories'] = $calories_cal;
+            $variables['nutritional_info_calories'] = round($details->wineNutritional[0]->calories);
+            $nutritional_info_cal_us = $details->wineNutritional[0]->calories;
+            $variables['nutritional_info_cal_us_round'] = round(($nutritional_info_cal_us / 150) * 147.868);
           }
           else {
             $variables['nutritional_calories'] = '0';
+            $variables['nutritional_info_cal_us_round'] = '0';
+            $variables['nutritional_info_calories'] = '0';
           }
-          $variables['nutritional_info_fat'] = $details->wineNutritional[0]->fat;
           $fat = $details->wineNutritional[0]->fat;
           if ($fat) {
+            $variables['nutritional_info_fat'] = round($details->wineNutritional[0]->fat);
+            $nutritional_info_fat_us = $details->wineNutritional[0]->fat;
+            $variables['nutritional_info_fat_us_round'] = round(($nutritional_info_fat_us / 150) * 147.868);
             $fat_cal = round((($fat) / 150) * $alcohol_cal_info);
             $variables['nutritional_fat'] = $fat_cal;
           }
           else {
             $variables['nutritional_fat'] = '0';
+            $variables['nutritional_info_fat'] = '0';
+            $variables['nutritional_info_fat_us_round'] = '0';
           }
-          $variables['nutritional_info_saturates'] = $details->wineNutritional[0]->saturates;
+          
           $saturates = $details->wineNutritional[0]->saturates;
           if ($saturates) {
+            $variables['nutritional_info_saturates'] = round($details->wineNutritional[0]->saturates);
+            $nutritional_info_sat_us = $details->wineNutritional[0]->saturates;
+            $variables['nutritional_info_sat_us_round'] = round(($nutritional_info_sat_us / 150) * 147.868);
             $saturates_cal = round((($saturates) / 150) * $alcohol_cal_info);
             $variables['nutritional_saturates'] = $saturates_cal;
           }
           else {
             $variables['nutritional_saturates'] = '0';
+            $variables['nutritional_info_saturates'] = '0';
+            $variables['nutritional_info_sat_us_round'] = '0';
           }
-          $variables['nutritional_info_carbohydrates'] = $details->wineNutritional[0]->carbohydrates;
           $carbohydrates = $details->wineNutritional[0]->carbohydrates;
           if ($carbohydrates) {
+            $variables['nutritional_info_carbohydrates'] = number_format(($carbohydrates), 3);
+            $variables['nutritional_info_carbo_us'] = number_format((($carbohydrates / 150) * 147.868), 3);
             $carbohydrates_cal = number_format(((($carbohydrates) / 150) * $alcohol_cal_info), 3);
             $variables['nutritional_carbohydrates'] = $carbohydrates_cal;
           }
           else {
             $variables['nutritional_carbohydrates'] = '0';
+            $variables['nutritional_info_carbohydrates'] = '0';
+            $variables['nutritional_info_carbo_us'] = '0';
           }
-          $variables['nutritional_info_sugars'] = $details->wineNutritional[0]->sugars;
           $sugars = $details->wineNutritional[0]->sugars;
           if ($sugars) {
+            $variables['nutritional_info_sugars'] = number_format(($sugars), 3);
+            $variables['nutritional_info_sugars_us'] = number_format((($sugars / 150) * 147.868), 3);
             $sugars_cal = number_format(((($sugars) / 150) * $alcohol_cal_info), 3);
             $variables['nutritional_sugars'] = $sugars_cal;
           }
           else {
             $variables['nutritional_sugars'] = '0';
+            $variables['nutritional_info_sugars'] = '0';
+            $variables['nutritional_info_sugars_us'] = '0';
           }
           $nutritional_info_pro = $details->wineNutritional[0]->proteins;
           $nutritional_info_pro_cal = $nutritional_info_pro * 1000;
-          $variables['nutritional_info_proteins'] = round($nutritional_info_pro * 1000);
           $proteins = $details->wineNutritional[0]->proteins;
           if ($proteins) {
+            $variables['nutritional_info_proteins'] = round($nutritional_info_pro * 1000);
+            $nutritional_info_pro_us = $nutritional_info_pro * 1000;
+            $variables['nutritional_info_pro_us_round'] = round(($nutritional_info_pro_us / 150) * 147.868);
             $proteins_cal = round((($nutritional_info_pro_cal) / 150) * $alcohol_cal_info);
             $variables['nutritional_proteins'] = $proteins_cal;
           }
           else {
             $variables['nutritional_proteins'] = '0';
+            $variables['nutritional_info_proteins'] = '0';
+            $variables['nutritional_info_pro_us_round'] = '0';
           }
         }
       }
@@ -503,5 +533,45 @@ function sapient_brancott_preprocess_html(&$variables) {
   }
   $enable_data_layer = \Drupal::config('brancott_our_wines.settings')->get('enable_data_layer');
   $variables['enable_data_layer'] = $enable_data_layer;
+}
+
+function sapient_brancott_preprocess_menu(&$variables) {
+  if ($variables['menu_name'] == 'brancott-header-menu') {
+   $language = Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    foreach ($variables['items'] as $key => &$item) {
+      $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item['original_link']);
+      if ($menuLinkEntity != NULL) {
+        $languages = $menuLinkEntity->getTranslationLanguages();
+        // Remove links which is not translated to current language.
+        if (!array_key_exists($language, $languages)) {
+          unset($variables['items'][$key]);
+          continue;
+        }
+      }
+      
+    foreach ($variables['items'][$key]['below'] as $key_child => &$item_child) {
+      $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item_child['original_link']);
+      if ($menuLinkEntity != NULL) {
+        $languages = $menuLinkEntity->getTranslationLanguages();
+        // Remove links which is not translated to current language.
+        if (!array_key_exists($language, $languages)) {
+          unset($variables['items'][$key]['below'][$key_child]);
+        }
+      }
+    }
+  
+    }
+  }
+}
+
+function sapient_brancott_load_link_entity_by_link(MenuLinkInterface $menuLinkContentPlugin) {
+  $entity = NULL;
+
+  if ($menuLinkContentPlugin instanceof MenuLinkContent) {
+    list($entity_type, $uuid) = explode(':', $menuLinkContentPlugin->getPluginId(), 2);
+    $entity = \Drupal::entityManager()->loadEntityByUuid($entity_type, $uuid);
+  }
+  return $entity;
 }
 

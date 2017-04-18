@@ -1,58 +1,58 @@
 <div class="tasting-notes-content-wrapper">
-{% if (tasting_notes_aroma or tasting_notes_taste or tasting_notes_complement) %}
-    <h2 class="header_b"> {{ fields.field_tasting_notes_title.content }} </h2>
-{% endif %}
+    {% if (tasting_notes_aroma or tasting_notes_taste or tasting_notes_complement) %}
+        <h2 class="header_b"> {{ fields.field_tasting_notes_title.content }} </h2>
+    {% endif %}
 
-{% if (tasting_notes_aroma or tasting_notes_taste) %}
-    <picture>
-        <source  media="(max-width: 321px)" srcset="{{ fields.field_aroma_and_palate_image.content }}" class="">   
-        <source  media="(max-width: 691px)" srcset="{{ fields.field_aroma_and_palate_image_2.content }}" class="">
-        <source  media="(max-width: 769px)" srcset="{{ fields.field_aroma_and_palate_image_2.content }}" class="">  
-        <source  media="(max-width: 1281px)" srcset="{{ fields.field_aroma_and_palate_image_2.content }}" class=""> 
-        <img src="{{ fields.field_aroma_and_palate_image.content }}" 
-             alt="{{ fields.field_aroma_and_palate_image_1.content }}">
-    </picture> 
-    <h3 class="header_f"> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
-{% endif %}
+    {% if (tasting_notes_aroma or tasting_notes_taste) %}
+        <picture>
+            <source  media="(max-width: 321px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x" class="">   
+            <source  media="(max-width: 691px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x " class="">
+            <source  media="(max-width: 769px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x" class="">  
+            <source  media="(max-width: 1281px)" srcset="{{ fields.field_aroma_and_palate_image.content }} 1x, {{ fields.field_aroma_and_palate_image_2.content }} 2x" class=""> 
+            <img src="{{ fields.field_aroma_and_palate_image.content }}" 
+                 alt="{{ fields.field_aroma_and_palate_image_1.content }}">
+        </picture>  
+        <h3 class="header_f"> {{ fields.field_aroma_and_palate_subtitle.content }} </h3>
+    {% endif %}
 
-{% if (tasting_notes_aroma) %}
-    <p class="desc-1"> {{ tasting_notes_aroma }} </p>
-{% endif %}
+    {% if (tasting_notes_aroma) %}
+        <p class="desc-1"> {{ tasting_notes_aroma }} </p>
+    {% endif %}
 
-{% if (tasting_notes_taste) %}
-    <p class="desc-1"> {{ tasting_notes_taste }} </p>
-{% endif %}
+    {% if (tasting_notes_taste) %}
+        <p class="desc-1"> {{ tasting_notes_taste }} </p>
+    {% endif %}
 
-{% if (tasting_notes_complement) %}
-    <picture>
-        <source  media="(max-width: 321px)" srcset="{{ fields.field_enjoy_with_image.content }}" class="">   
-        <source  media="(max-width: 691px)" srcset="{{ fields.field_enjoy_with_image_2.content }}" class="">
-        <source  media="(max-width: 769px)" srcset="{{ fields.field_enjoy_with_image_2.content }}" class="">  
-        <source  media="(max-width: 1281px)" srcset="{{ fields.field_enjoy_with_image_2.content }}" class=""> 
-        <img src="{{ fields.field_enjoy_with_image.content }}" 
-             alt="{{ fields.field_enjoy_with_image_1.content }}">
-    </picture>
-    <h3 class="header_f"> {{ fields.field_enjoy_with_subtitle.content }} </h3>
-{% endif %}
+    {% if (tasting_notes_complement) %}
+        <picture>
+            <source  media="(max-width: 321px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x " class="">   
+            <source  media="(max-width: 691px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x" class="">
+            <source  media="(max-width: 769px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x" class="">  
+            <source  media="(max-width: 1281px)" srcset="{{ fields.field_enjoy_with_image.content }} 1x, {{ fields.field_enjoy_with_image_2.content }} 2x" class=""> 
+            <img src="{{ fields.field_enjoy_with_image.content }}" 
+                 alt="{{ fields.field_enjoy_with_image_1.content }}">
+        </picture>
+        <h3 class="header_f"> {{ fields.field_enjoy_with_subtitle.content }} </h3>
+    {% endif %}
 
-{% if (tasting_notes_complement) %}
-    <p class="desc-2"> {{ tasting_notes_complement }} </p>
-{% endif %}
+    {% if (tasting_notes_complement) %}
+        <p class="desc-2"> {{ tasting_notes_complement }} </p>
+    {% endif %}
 </div>
 <a href="#" class="cta secondary-green watch-video" data-toggle="modal" data-target="#nutritional-info-component">{{ nutritional_cta_new }} </a>
 {% if (fields.field_cta_options_tasting_notes.content == 'external') %}
-        
-        <a href="{{ fields.field_tasting_notes_cta.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_tasting_notes_cta_1.content }}</a>
-        {% endif %}
-        {% if (fields.field_cta_options_tasting_notes.content == 'internal') %}
-            
-        <a href="{{ fields.field_tasting_notes_cta.content }}"  class="cta dark watch-video">{{ fields.field_tasting_notes_cta_1.content }}</a>
-        {% endif %}
-        {% if (fields.field_cta_options_tasting_notes.content == 'buy_now') %}
-            
-        <a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_1.content }}</a>
 
-   {% endif %}
+    <a href="{{ fields.field_tasting_notes_cta.content }}" target="_blank" class="cta dark watch-video">{{ fields.field_tasting_notes_cta_1.content }}</a>
+{% endif %}
+{% if (fields.field_cta_options_tasting_notes.content == 'internal') %}
+
+    <a href="{{ fields.field_tasting_notes_cta.content }}"  class="cta dark watch-video">{{ fields.field_tasting_notes_cta_1.content }}</a>
+{% endif %}
+{% if (fields.field_cta_options_tasting_notes.content == 'buy_now') %}
+
+    <a data-ctbuy-key="{{ fields.field_click.content }}" data-ctbuy-lang="en" href="#" target="_blank" title="Buy Now" class="cta dark watch-video">{{ fields.field_click_1.content }}</a>
+
+{% endif %}
 
 
 <!-- Modal -->
@@ -69,43 +69,91 @@
                     <thead>
                     <th></th>
                     <th>Per 10g of alcohol ({{ nutritional_alcohol }}ml)</th>
-                    <th>Per 150ml serving</th> 
+                    <th>
+                        {% if (current_language == 'en-us') %}
+                            Per 5 fl.oz Serving
+                        {% else %}
+                            Per 150ml serving
+                        {% endif %}
+                    </th> 
                     </thead>
                     <tbody>
                         <tr>
                             <td>Alcohol (g)</td>
                             <td>10</td>
-                            <td>{{ nutritional_alcohol_cal }}</td>
+                            <td>
+                                {% if (current_language == 'en-us') %}
+                                    {{ nutritional_alcohol_cal_us }}
+                                {% else %}
+                                    {{ nutritional_alcohol_cal }}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <td>Calories (Kcal)</td>
                             <td>{{ nutritional_calories }}</td>
-                            <td>{{ nutritional_info_calories }}</td>
+                            <td>
+                                {% if (current_language == 'en-us') %}
+                                    {{ nutritional_info_cal_us_round }}
+                                {% else %}
+                                    {{ nutritional_info_calories }}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <td>Fat (g)</td>
                             <td>{{ nutritional_fat }}</td>
-                            <td>{{ nutritional_info_fat }}</td>
+                            <td>
+                                {% if (current_language == 'en-us') %}
+                                    {{ nutritional_info_fat_us_round }}
+                                {% else %}
+                                    {{ nutritional_info_fat }}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <td>Saturates (g)</td>
                             <td>{{ nutritional_saturates }}</td>
-                            <td>{{ nutritional_info_saturates }}</td>
+                            <td>
+                                {% if (current_language == 'en-us') %}
+                                    {{ nutritional_info_sat_us_round }}
+                                {% else %}
+                                    {{ nutritional_info_saturates }}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <td>Carbohydrates (g)</td>
                             <td>{{ nutritional_carbohydrates }}</td>
-                            <td>{{ nutritional_info_carbohydrates }}</td>
+                            <td>
+                                {% if (current_language == 'en-us') %}
+                                    {{ nutritional_info_carbo_us }}
+                                {% else %}
+                                    {{ nutritional_info_carbohydrates }}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <td>Sugar (g)</td>
                             <td>{{ nutritional_sugars }}</td>
-                            <td>{{ nutritional_info_sugars }}</td>
+                            <td>
+                                {% if (current_language == 'en-us') %}
+                                    {{ nutritional_info_sugars_us }}
+                                {% else %}
+                                    {{ nutritional_info_sugars }}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <td>Proteins (mg)</td>
                             <td>{{ nutritional_proteins }}</td>
-                            <td>{{ nutritional_info_proteins }}</td>
+                            <td>
+                                {% if (current_language == 'en-us') %}
+                                    {{ nutritional_info_pro_us_round }}
+                                {% else %}
+                                    {{ nutritional_info_proteins }}
+                                {% endif %}
+                            </td>
                         </tr>
                     </tbody>
                 </table>

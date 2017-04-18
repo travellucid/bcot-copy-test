@@ -31,3 +31,12 @@ search_results.details:
     _title: 'Get Products'
   requirements:
     _permission: 'access content'
+    
+    
+ip_address.details:
+  path: '/ip-address-details'
+  defaults:
+    _controller: '\Drupal\brancott_rest_api\Controller\BrancottIpController::getIpDetails'
+    _title: 'Get IP Details'
+  requirements:
+    _permission: 'access content'
