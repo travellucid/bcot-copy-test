@@ -90,14 +90,14 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['#validate'][] = 'character_limitation_story';
   }
   if ($form_id == 'menu_link_content_menu_link_content_form') {
-      kint($form['actions']);die;
+      
       $roles = $user->getRoles();
       if($langcode == $def_langcode){
       if ( ! in_array( 'editor_all', $roles ) ){
-         $form['actions']['submit']['#access'] = FALSE;
+         $form['actions']['#access'] = FALSE;
          }
       if ( ! in_array( 'administrator', $roles ) ){
-         $form['actions']['submit']['#access'] = FALSE;
+         $form['actions']['#access'] = FALSE;
          }
     }
   }
