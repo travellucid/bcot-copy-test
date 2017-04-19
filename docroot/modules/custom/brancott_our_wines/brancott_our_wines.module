@@ -91,9 +91,13 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
       $roles = $user->getRoles();
       //kint($roles);
       if ( ! in_array( 'editor_all', $roles ) ||  ! in_array( 'administrator', $roles ) ){
+        echo "normal";
         $form['actions']['submit']['#access'] = FALSE;
         //kint('test');
 
+   }
+   else{
+     echo "admin";
    }
   }
   
