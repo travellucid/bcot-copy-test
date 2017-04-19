@@ -93,10 +93,10 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
       
       $roles = $user->getRoles();
       if($langcode == $def_langcode){
-      if ( ! in_array( 'editor_all', $roles ) ){
+      /*if ( in_array( 'editor', $roles ) ){
          $form['actions']['#access'] = FALSE;
-         }
-      if ( ! in_array( 'administrator', $roles ) ){
+         }*/
+      if ( in_array( 'editor', $roles ) || in_array( 'editor_uk', $roles ) || in_array( 'editor_', $roles ) || in_array( 'editor_canada', $roles ) || in_array( 'editor_australia', $roles ) ){
          $form['actions']['#access'] = FALSE;
          }
     }
