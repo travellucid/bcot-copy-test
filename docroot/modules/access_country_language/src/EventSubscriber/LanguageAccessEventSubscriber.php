@@ -82,7 +82,7 @@ class LanguageAccessEventSubscriber implements EventSubscriberInterface {
       $defaultLanguage = $this->languageManager->getDefaultLanguage();
       $url = Url::fromRouteMatch($this->routeMatch);
       $check_node_add = $url->getRouteName();
-      print_r($check_node_add);die;
+      //print_r($check_node_add);die;
       if ($id != $defaultLanguage->getId() || $check_node_add == 'node.add' || $check_node_add == 'entity.taxonomy_vocabulary.add_form') {
         // Redirect to current route in default language
         $url = Url::fromRouteMatch($this->routeMatch);
