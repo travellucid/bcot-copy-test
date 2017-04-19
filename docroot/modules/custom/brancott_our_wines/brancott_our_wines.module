@@ -89,8 +89,10 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
   }
   if ($form_id == 'menu_link_content_menu_link_content_form') {
       $roles = $user->getRoles();
+      kint($roles);
       if ( ! in_array( 'editor_all', $roles ) ||  ! in_array( 'administrator', $roles ) ){
         $form['actions']['submit']['#access'] = FALSE;
+        kint('test');
 
    }
   }
