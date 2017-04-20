@@ -7,6 +7,12 @@
 {% set image_list_v4 = fields.field_image_vertical_4.content|split(',') %}
 {% set image_list_v6 = fields.field_image_vertical_6.content|split(',') %}
 {% set image_list_v7 = fields.field_image_vertical_7.content|split(',') %}
+{% set image_list_v8 = fields.field_image_vertical_8.content|split(',') %}
+{% set image_list_v9 = fields.field_image_vertical_9.content|split(',') %}
+{% set image_list_v10 = fields.field_image_vertical_10.content|split(',') %}
+{% set image_list_v11 = fields.field_image_vertical_11.content|split(',') %}
+{% set image_list_v12 = fields.field_image_vertical_12.content|split(',') %}
+{% set image_list_v13 = fields.field_image_vertical_13.content|split(',') %}
 {% set video_list = fields.field_video_youtube_.content|split(',') %}
 {% set alt_list = fields.field_image_vertical_5.content|split(',') %}
 {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
@@ -38,14 +44,14 @@
                     {% for key, image in image_list %}
                         {#<img  src="{{ image }}" alt="{{ fields.field_image_vertical_5.content }}"> #}
                         <picture>
-                            <source   media="(max-width: 321px)"  srcset="{{ image_list_v1[key] }}"> 
+                            <source   media="(max-width: 321px)"  srcset="{{ image_list_v1[key] }} 1x, {{ image_list_v12[key] }} 2x"> 
 
-                            <source  media="(max-width: 691px)"  srcset="{{ image_list_v6[key] }}">
-                            <source  media="(max-width: 769px)"  srcset="{{ image_list_v1[key] }}">
+                            <source  media="(max-width: 691px)"  srcset="{{ image_list_v6[key] }} 1x, {{ image_list_v11[key] }} 2x">
+                            <source  media="(max-width: 769px)"  srcset="{{ image_list_v13[key] }} 1x, {{ image_list_v10[key] }} 2x">
+                            <source  media="(max-width: 1281px)" srcset="{{ image_list_v8[key] }} 1x, {{ image_list_v9[key] }} 2x">
+                            {# <source  media="(max-width: 1025px)" srcset="{{ image_list[key] }}"> #}
 
-                            <source  media="(max-width: 1025px)" srcset="{{ image_list[key] }}">
-
-                            <source  media="(max-width: 1401px)" srcset="{{ image }}"> 
+                            {# <source  media="(max-width: 1401px)" srcset="{{ image }}"> #}
 
                             <img  src="{{ image }}" alt="{{ alt_list[key] }}"> 
                         </picture>
