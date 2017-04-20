@@ -1778,17 +1778,25 @@ var validationObj = (function($, window, sapient) {
 		},
 
 		addCheckboxVal = function() {
+			var $anchorBlock = $(".help-block");
 			var	interval = setInterval(function() {
 				var $checkedNtRequired = $('.enquire-form  .subscription-checkbox');
 				if($checkedNtRequired.length > 0) {
 					var $checkedNtRequired = $('.enquire-form  .subscription-checkbox');
 					$.each($checkedNtRequired,function(index){
-						var y = $($checkedNtRequired[index]).siblings("label").html(),
-							x= $($checkedNtRequired[index]).siblings("label").attr('data-original-title');
-						if(x){
-							$($checkedNtRequired[index]).siblings("label").html(y + " " + x)
+						var labelText = $($checkedNtRequired[index]).siblings("label").html(),
+							dataArrText= $($checkedNtRequired[index]).siblings("label").attr('data-original-title');
+						if(dataArrText){
+							$($checkedNtRequired[index]).siblings("label").html(labelText + " " + dataArrText)
 						}
-						
+						else { 
+							var anchorBlockText = $($checkedNtRequired[index]).parent().find(".help-block").html();
+							if(anchorBlockText){
+								$($checkedNtRequired[index]).siblings("label").html(labelText + " " + anchorBlockText)
+								$($checkedNtRequired[index]).parent().find(".help-block").hide();
+							}
+							
+						}
 					})
 					clearInterval(interval);
 				}	
