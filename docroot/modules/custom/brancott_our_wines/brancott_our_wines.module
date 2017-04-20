@@ -23,6 +23,8 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
   $user = \Drupal::currentUser();
   //kint($user);
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $def_langcode = \Drupal::languageManager()->getDefaultLanguage()->getId();
+  
   if ($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form') {
     $form['#validate'][] = 'character_limitation_homepage';
   }
@@ -88,16 +90,17 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['#validate'][] = 'character_limitation_story';
   }
   if ($form_id == 'menu_link_content_menu_link_content_form') {
+      
       $roles = $user->getRoles();
-      print_r($langcode);die;
-      if ( ! in_array( 'editor_all', $roles ) ){
-         $form['actions']['submit']['#access'] = FALSE;
-         }
-      if ( ! in_array( 'administrator', $roles ) ){
-         $form['actions']['submit']['#access'] = FALSE;
+      if($langcode == $def_langcode){
+      /*if ( in_array( 'editor', $roles ) ){
+         $form['actions']['#access'] = FALSE;
+         }*/
+      if ( in_array( 'editor', $roles ) || in_array( 'editor_uk', $roles ) || in_array( 'editor_', $roles ) || in_array( 'editor_canada', $roles ) || in_array( 'editor_australia', $roles ) ){
+         $form['actions']['#access'] = FALSE;
          }
     }
-    
+  }
   
   if ($form_id == 'node_homepage_edit_form' || $form_id == 'node_homepage_form' || $form_id == 'node_our_story_edit_form' or $form_id == 'node_our_story_form' || $form_id == 'node_visit_us_edit_form' or $form_id == 'node_visit_us_form' || $form_id == 'node_private_events_edit_form' or $form_id == 'node_private_events_form' || $form_id == 'node_vineyard_edit_form' or $form_id == 'node_vineyard_form' || $form_id == 'node_tours_and_experiences_edit_form' or $form_id == 'node_tours_and_experiences_form' || $form_id == 'node_wines_edit_form' or $form_id == 'node_wines_form' || $form_id == 'node_restaurant__edit_form' or $form_id == 'node_restaurant__form' || $form_id == 'node_our_wines_edit_form' or $form_id == 'node_our_wines_form' || $form_id == 'node_where_to_buy_edit_form' or $form_id == 'node_where_to_buy_form' || $form_id == 'node_contact_us_edit_form' or $form_id == 'node_contact_us_form' || $form_id == 'node_story_edit_form' or $form_id == 'node_story_form') {
     if (!$user->hasPermission('access language ' . $langcode)) {

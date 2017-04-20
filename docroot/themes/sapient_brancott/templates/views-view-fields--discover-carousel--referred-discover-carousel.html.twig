@@ -1,22 +1,12 @@
 <picture>
     <source  media="(max-width: 321px)" srcset="{{ fields.field_carousel_tile_image_1.content }}">   
-    <source  media="(max-width: 690px)" srcset="{{ fields.field_carousel_tile_image_3.content }}" >   
-    <source  media="(max-width: 769px)" srcset="{{ fields.field_carousel_tile_image.content }}">
-    <source  media="(max-width: 990px)" srcset="{{ fields.field_carousel_tile_image.content}}"> 
-    <source  media="(max-width: 1281px)" srcset="{{ fields.field_carousel_tile_image.content }}"> 
+    <source  media="(max-width: 690px)" srcset="{{ fields.field_carousel_tile_image_3.content }} 1x, {{ fields.field_carousel_tile_image_5.content }} 2x" >   
+    <source  media="(max-width: 769px)" srcset="{{ fields.field_carousel_tile_image.content }} 1x, {{ fields.field_carousel_tile_image_4.content }} 2x">
+    {#<source  media="(max-width: 990px)" srcset="{{ fields.field_carousel_tile_image.content}}"> #}
+    <source  media="(max-width: 1281px)" srcset="{{ fields.field_carousel_tile_image.content }} 1x, {{ fields.field_carousel_tile_image_4.content }} 2x"> 
     <img src="{{ fields.field_carousel_tile_image.content }}" alt="{{ fields.field_carousel_tile_image_2.content }}" />  
 </picture> 
 <div class="inner-container">
     <p class = "header_f">{{ fields.field_title.content }}</p>
     <p>{{ fields.field_carousel_description.content }}</p>
 </div>
-
-
-
-
-
-
-
-
-
-
