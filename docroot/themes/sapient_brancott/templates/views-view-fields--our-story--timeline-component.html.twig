@@ -14,6 +14,7 @@
 {% set image_list_v12 = fields.field_image_vertical_12.content|split(',') %}
 {% set image_list_v13 = fields.field_image_vertical_13.content|split(',') %}
 {% set image_list_v14 = fields.field_image_vertical_14.content|split(',') %}
+{% set image_list_v15 = fields.field_image_vertical_15.content|split(',') %}
 {% set video_list = fields.field_video_youtube_.content|split(',') %}
 {% set alt_list = fields.field_image_vertical_5.content|split(',') %}
 {#{% set image_list_horizontal = fields.field_image_vertical_3.content|split(',') %}#}
@@ -145,10 +146,10 @@
 
                             <source  media="(max-width: 691px)"  srcset=" {{ image_list_v7[key] }}"> 
                             <source  media="(max-width: 769px)"  srcset="{{ image_horizontal }}"> 
+                            <source  media="(max-width: 1281px)" srcset="{{ image_horizontal }} 1x, {{ image_list_v15[key] }} 2x">
+                           {# <source  media="(max-width: 1025px)" srcset="{{ image_horizontal }}"> #}
 
-                            <source  media="(max-width: 1025px)" srcset="{{ image_horizontal }}">
-
-                            <source  media="(max-width: 1401px)" srcset="{{ image_horizontal }}"> 
+                            {#  <source  media="(max-width: 1401px)" srcset="{{ image_horizontal }}"> #}
 
                             <img  src="{{ image_horizontal }}" alt="{{ alt_list[key] }}"> 
                         </picture>
