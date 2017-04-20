@@ -191,6 +191,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
             $query = $con->select('node_field_data', 'n')->distinct();
             $query->fields('n', array('nid'));
             $query->condition('n.nid', $value['target_id'], '=');
+            $query->condition('status', 1);
             //$query->condition('n.langcode', $langcode, '=');
             $new_nid_transtion = $query->execute()->fetchField();
             if ($new_nid_transtion) {
@@ -221,6 +222,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
               continue;
             }
           }
+          print_r($winedetails);exit;
           $variables['winedetails'] = $winedetails;
         }
       }
