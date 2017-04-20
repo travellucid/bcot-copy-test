@@ -254,6 +254,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
       \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
       \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
       \Drupal::logger('brancott_rest_api')->notice('Result Count: ' . count($postResult->results));
+      
     }
     catch (Exception $e) {
       \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
