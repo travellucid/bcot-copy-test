@@ -222,7 +222,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
               continue;
             }
           }
-          print_r($winedetails);exit;
+          
           $variables['winedetails'] = $winedetails;
         }
       }
