@@ -538,7 +538,7 @@ function sapient_brancott_preprocess_html(&$variables) {
 }
 
 function sapient_brancott_preprocess_menu(&$variables) {
-  if ($variables['menu_name'] == 'brancott-header-menu') {
+  if ($variables['menu_name'] == 'brancott-header-menu' || $variables['menu_name'] == 'brancott-header-menu-mobile') {
    $language = Drupal::languageManager()->getCurrentLanguage()->getId();
 
     foreach ($variables['items'] as $key => &$item) {
