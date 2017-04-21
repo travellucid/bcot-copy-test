@@ -740,6 +740,7 @@ function file_save_upload($form_field_name, $validators = array(), $destination 
 
   $files = array();
   foreach ($uploaded_files as $i => $file_info) {
+	  
     // Check for file upload errors and return FALSE for this file if a lower
     // level system error occurred. For a complete list of errors:
     // See http://php.net/manual/features.file-upload.errors.php.
@@ -904,8 +905,8 @@ function file_save_upload($form_field_name, $validators = array(), $destination 
     // If we made it this far it's safe to record this file in the database.
     $file->save();
     $files[$i] = $file;
-  }
-
+  
+}
   // Add files to the cache.
   $upload_cache[$form_field_name] = $files;
 
