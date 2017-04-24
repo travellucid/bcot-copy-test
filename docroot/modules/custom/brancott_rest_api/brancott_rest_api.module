@@ -251,8 +251,8 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
           " PostCode " . $postcode . " Gender " . $gender . " DateOfBirth " . $dob . " FirstName " . $name .
           " LastName " . $last_name . " State " . $state . " Country " . $country . " CampaignCode " . 'Newsletter' .
           " OptInDate " . date("m/d/Y") . " OptInPreference " . $hear_more_from_brancott_estate .
-          " OptIn_PernodRicard " . $hear_more_from_brands_from_pernod_ricard_group). " ip " . $api_ip . " ip_country_code " . $api_country_code .
-            " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode;
+          " OptIn_PernodRicard " . $hear_more_from_brands_from_pernod_ricard_group . " ip " . $api_ip . " ip_country_code " . $api_country_code .
+            " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode);
       \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
       \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
       \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
