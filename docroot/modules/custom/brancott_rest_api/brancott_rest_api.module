@@ -290,9 +290,10 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
    $age_gate_country = $_COOKIE['age_checked'];
    $age_gate_country = explode(':', $age_gate_country);
    $age_gate_country =$age_gate_country[0];
-  // print_r($age_gate_country);echo "test"; print_r($api_country_code);die;
+  
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
+    
     if (!$count) {
       require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
       try {
@@ -368,6 +369,7 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
   
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
+    
     if (!$count) {
       require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
       try {
@@ -404,6 +406,7 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
         \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
         \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
         \Drupal::logger('brancott_rest_api')->notice('Result Count: ' . count($postResult->results));
+        \Drupal::logger('brancott_rest_api')->notice('variable Count: ' . $count);
       }
       catch (Exception $e) {
         \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
