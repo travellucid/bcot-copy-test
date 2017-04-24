@@ -21,7 +21,8 @@ function brancott_our_wines_theme($existing, $type, $theme, $path) {
 
 function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $user = \Drupal::currentUser();
-  //kint($user);
+  $editor_lang = $user->getPreferredLangcode();
+  //kint($editor_lang);die;
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $def_langcode = \Drupal::languageManager()->getDefaultLanguage()->getId();
   
@@ -90,7 +91,7 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['#validate'][] = 'character_limitation_story';
   }
   if ($form_id == 'menu_link_content_menu_link_content_form') {
-     // kint($form['actions']);die;
+      
     $current_path = \Drupal::service('path.current')->getPath();
     $current_path = explode('/' , $current_path);
     $mode = $current_path[6];
@@ -105,6 +106,7 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
       }
          
     }
+    $form['actions']['submit']['#submit'][] = 'default_language_handler';
   }
   if($form_id == menu_link_content_menu_link_content_delete_form ){
           $roles = $user->getRoles();
@@ -136,6 +138,19 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
 }
 
 
+function default_language_handler($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $user = \Drupal::currentUser();
+  $editor_lang = $user->getPreferredLangcode();
+  $roles = $user->getRoles();
+  $values = $form_state->getValues();
+  
+  if ($entity = $form_state->getFormObject()->getEntity()) {
+    if ( in_array( 'editor', $roles ) || in_array( 'editor_uk', $roles ) || in_array( 'editor_', $roles ) || in_array( 'editor_canada', $roles ) || in_array( 'editor_australia', $roles ) ){
+    $entity->set('langcode', $editor_lang);
+    $entity->save();
+    }
+  }
+}
 
 function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
