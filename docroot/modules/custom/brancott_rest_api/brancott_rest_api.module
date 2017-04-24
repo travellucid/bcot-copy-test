@@ -213,8 +213,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
   $hear_more_from_brands_from_pernod_ricard_group = $values['hear_more_from_brands_from_pernod_ricard_group'];
   $count = brancott_check_email_salesforce($email_address);
-  kint($count);
-  kint($country);
+ 
   if (!$count) {
     require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
     try {
