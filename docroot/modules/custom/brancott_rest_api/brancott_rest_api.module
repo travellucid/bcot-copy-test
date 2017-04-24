@@ -165,7 +165,7 @@ function brancott_rest_api_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   }
 }
 
-function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+/*function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   
    $vc = \Drupal::config('brancott_our_wines.settings');
@@ -271,6 +271,95 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
     drupal_get_messages();
     drupal_set_message(t($message), 'status');
   }
+}*/
+
+
+function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  
+   $vc = \Drupal::config('brancott_our_wines.settings');
+   $webform_duplication_message = $vc->get('newsletter_message');
+    //$langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+   $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
+   $ip = $_SERVER['REMOTE_ADDR'];
+   $ip_details = brancott_ip_details($ip);
+   $api_ip = $ip_details->ip;
+   $api_country_code = $ip_details->country_code;
+   $api_region_code = $ip_details->region_code;
+   $api_city = $ip_details->city;
+   $api_zipcode = $ip_details->zip_code;
+   
+  $values = $form_state->getValues();
+  $name = $values['name'];
+  $last_name = $values['last_name'];
+  $email_address = $values['email_address'];
+  $dob = $values['date_of_birth'];
+  $gender = $values['gender'];
+  $postcode = $values['postcode'];
+  $postcode_ca = $values['postcode_canada'];
+  $postcode_us = $values['postcode_us'];
+  $postcode_australia = $values['postcode_australia'];
+  $state = $values['state'];
+  $state_us = $values['state_us'];
+  $state_australia = $values['state_australia'];
+  $country = $values['country'];
+  
+  
+    $count = brancott_check_email_salesforce($email_address);
+    
+    if (!$count) {
+      require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
+      try {
+        $myclient = new ET_Client();
+        $DataExtensionNameForTesting = \Drupal::config('brancott_our_wines.settings')->get('external_key');
+        \Drupal::logger('brancott_rest_api')->notice('Data Extension: ' . $DataExtensionNameForTesting);
+        // Add a row to a DataExtension 
+        \Drupal::logger('brancott_rest_api')->notice("Add a row to a DataExtension  \n");
+        $postDRRow = new ET_DataExtension_Row();
+        $postDRRow->authStub = $myclient;
+        $postDRRow->props = array(
+          "EmailAddress" => $email_address,
+          "FirstName" => $name,
+          "LastName" => $last_name,
+          "CampaignCode" => 'Enquire',
+          "OptInDate" => date("m/d/Y"),
+          "OptInPreference" => 'true',
+          "OptIn_PernodRicard" => '',
+          "Country" => $age_gate_country,
+          "ip" => $api_ip,
+          "ip_country_code" => $api_country_code,
+          "ip_region_code" => $api_region_code,
+           "ip_city" => $api_city,
+           "ip_zip_code" => $api_zipcode,
+        );
+        $postDRRow->CustomerKey = $DataExtensionNameForTesting;
+        \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+            " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Enquire' .
+            " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " Country " . $age_gate_country .  " ip_country_code " . $api_country_code .
+            " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode
+        );
+        $postResult = $postDRRow->post();
+        \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
+        \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
+        \Drupal::logger('brancott_rest_api')->notice('Message: ' . $postResult->message);
+        \Drupal::logger('brancott_rest_api')->notice('Result Count: ' . count($postResult->results));
+      }
+      catch (Exception $e) {
+        \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
+      }
+    }
+    else {
+      
+      $vc = \Drupal::config('brancott_our_wines.settings');
+      $webform_duplication_message = $vc->get('tour_experience_message');
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $message = str_replace("[webform_submission:langcode]",$langcode,$webform_duplication_message);
+      drupal_get_messages();
+      drupal_set_message(t($message), 'status');
+      
+
+    }
+  
 }
 
 function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface $form_state) {
