@@ -352,10 +352,10 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "OptInPreference" => 'true',
           //"OptIn_PernodRicard" => $hear_more_from_brands_from_pernod_ricard_group ? 'true' : '',
           "Country" => $country,
-          //"PostCode" => $postcode,
-          //"Gender" => $gender,
-          //"State" => $state,
-         // "DateOfBirth" => $dob,
+          "PostCode" => $postcode,
+          "Gender" => $gender,
+          "State" => $state,
+          "DateOfBirth" => $dob,
           "ip" => $api_ip,
           "ip_country_code" => $api_country_code,
           "ip_region_code" => $api_region_code,
@@ -363,11 +363,11 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
            "ip_zip_code" => $api_zipcode,
         );
         $postDRRow->CustomerKey = $DataExtensionNameForTesting;
-        /*\Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
+        \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
             " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Newsletter' .
             " OptInDate " . date("m/d/Y") . " OptInPreference " . $hear_more_from_brancott_estate . " PostCode " . $postcode . " Gender " . $gender . " State " . $state . " DateOfBirth " . $dob . " ip " . $api_ip . " Country " . $country .  " ip_country_code " . $api_country_code .
             " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode .  " OptIn_PernodRicard " . $hear_more_from_brands_from_pernod_ricard_group
-        );*/
+        );
         $postResult = $postDRRow->post();
         \Drupal::logger('brancott_rest_api')->notice('Post Status: ' . ($postResult->status ? 'true' : 'false') . "\n");
         \Drupal::logger('brancott_rest_api')->notice('Code: ' . $postResult->code);
