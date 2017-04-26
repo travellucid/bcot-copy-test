@@ -352,7 +352,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => $hear_more_from_brands_from_pernod_ricard_group ? 'true' : '',
           "Country" => $country,
-          //"PostCode" => $postcode,
+          "PostCode" => $postcode,
          // "Gender" => $gender,
           "State" => $state,
           //"DateOfBirth" => $dob,
