@@ -296,7 +296,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $dob = $values['date_of_birth'];
   $t1 = strtotime($dob);
   $d1 = getdate($t1);
-  $first_format = "d/m/Y";
+  $first_format = "Y-m-d";
   $dob = date($first_format, $t1);
        
   
@@ -355,7 +355,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "PostCode" => $postcode,
           "Gender" => $gender,
           "State" => $state,
-          "DateOfBirth" => '1992-12-31',
+          "DateOfBirth" => $dob,
           "ip" => $api_ip,
           "ip_country_code" => $api_country_code,
           "ip_region_code" => $api_region_code,
