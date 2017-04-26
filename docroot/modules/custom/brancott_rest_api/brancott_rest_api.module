@@ -298,7 +298,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $d1 = getdate($t1);
   $first_format = "d/m/Y";
   $dob = date($first_format, $t1);
-
+       
   
   $gender = $values['gender'];
   $postcode = $values['postcode'];
