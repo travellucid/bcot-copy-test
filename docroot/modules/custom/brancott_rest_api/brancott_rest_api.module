@@ -294,6 +294,12 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $last_name = $values['last_name'];
   $email_address = $values['email_address'];
   $dob = $values['date_of_birth'];
+  $t1 = strtotime($dob);
+  $d1 = getdate($t1);
+  $first_format = "d/m/Y";
+  $dob = date($first_format, $t1);
+
+  
   $gender = $values['gender'];
   $postcode = $values['postcode'];
   $postcode_ca = $values['postcode_canada'];
@@ -323,8 +329,10 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
   $hear_more_from_brands_from_pernod_ricard_group = $values['hear_more_from_brands_from_pernod_ricard_group'];
+  
+  
   $count = brancott_check_email_salesforce($email_address);
-    
+  
     if (!$count) {
       require_once(drupal_get_path('module', 'brancott_rest_api') . '/sdk/ET_Client.php');
       try {
@@ -342,8 +350,12 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "CampaignCode" => 'Newsletter',
           "OptInDate" => date("m/d/Y"),
           "OptInPreference" => 'true',
-          "OptIn_PernodRicard" => '',
+          "OptIn_PernodRicard" => $hear_more_from_brands_from_pernod_ricard_group ? 'true' : '',
           "Country" => $country,
+          "PostCode" => $postcode,
+          "Gender" => $gender,
+          "State" => $state,
+          "DateOfBirth" => $dob,
           "ip" => $api_ip,
           "ip_country_code" => $api_country_code,
           "ip_region_code" => $api_region_code,
@@ -353,7 +365,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
         $postDRRow->CustomerKey = $DataExtensionNameForTesting;
         \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
             " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Newsletter' .
-            " OptInDate " . date("m/d/Y") . " OptInPreference " . $hear_more_from_brancott_estate . " ip " . $api_ip . " Country " . $country .  " ip_country_code " . $api_country_code .
+            " OptInDate " . date("m/d/Y") . " OptInPreference " . $hear_more_from_brancott_estate . " PostCode " . $postcode . " Gender " . $gender . " State " . $state . " DateOfBirth " . $dob . " ip " . $api_ip . " Country " . $country .  " ip_country_code " . $api_country_code .
             " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode .  " OptIn_PernodRicard " . $hear_more_from_brands_from_pernod_ricard_group
         );
         $postResult = $postDRRow->post();
@@ -386,6 +398,8 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
   $name = $values['name'];
   $last_name = $values['last_name'];
   $email_address = $values['email_address'];
+  $phone_number = $values['enquire_phone_number'];
+  
   $yes_sign_me_up_to_exclusive_news_events_offers_ = $values['sign_up_field'];
   $ip = $_SERVER['REMOTE_ADDR'];
    $ip_details = brancott_ip_details($ip);
@@ -420,6 +434,7 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
           "Country" => $age_gate_country,
+          "MobilePhone" => $phone_number,
           "ip" => $api_ip,
           "ip_country_code" => $api_country_code,
           "ip_region_code" => $api_region_code,
@@ -429,7 +444,7 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
         $postDRRow->CustomerKey = $DataExtensionNameForTesting;
         \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
             " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Enquire' .
-            " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " Country " . $age_gate_country .  " ip_country_code " . $api_country_code .
+            " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " MobilePhone " . $phone_number . " Country " . $age_gate_country .  " ip_country_code " . $api_country_code .
             " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode
         );
         $postResult = $postDRRow->post();
@@ -462,6 +477,8 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
   $name = $values['name'];
   $last_name = $values['last_name'];
   $email_address = $values['email_address'];
+  $phone_number = $values['enquire_phone_number'];
+  
   $yes_sign_me_up_to_exclusive_news_events_offers_ = $values['yes_i_want_to_receive_news_events_and_offers_from_brancott_estat'];
   $ip = $_SERVER['REMOTE_ADDR'];
   $ip_details = brancott_ip_details($ip);
@@ -496,6 +513,7 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
           "Country" => $age_gate_country,
+          "MobilePhone" => $phone_number,
           "ip" => $api_ip,
           "ip_country_code" => $api_country_code,
           "ip_region_code" => $api_region_code,
@@ -505,7 +523,7 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
         $postDRRow->CustomerKey = $DataExtensionNameForTesting;
         \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
             " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Enquire' .
-            " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " Country " . $age_gate_country . " ip_country_code " . $api_country_code .
+            " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " MobilePhone " . $phone_number . " Country " . $age_gate_country . " ip_country_code " . $api_country_code .
             " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode
         );
         $postResult = $postDRRow->post();
@@ -539,6 +557,8 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $name = $values['name'];
   $last_name = $values['last_name'];
   $email_address = $values['email_address'];
+  $phone_number = $values['enquire_phone_number'];
+  
   $yes_sign_me_up_to_exclusive_news_events_offers_ = $values['yes_sign_me_up_to_exclusive_news_events_offers_'];
   $ip = $_SERVER['REMOTE_ADDR'];
   $ip_details = brancott_ip_details($ip);
@@ -550,7 +570,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $age_gate_country = $_COOKIE['age_checked'];
   $age_gate_country = explode(':', $age_gate_country);
   $age_gate_country =$age_gate_country[0];
-  //print_r($age_gate_country);echo "test"; print_r($api_country_code);die;
+  
   if ($yes_sign_me_up_to_exclusive_news_events_offers_) {
     $count = brancott_check_email_salesforce($email_address);
     if (!$count) {
@@ -569,6 +589,7 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "LastName" => $last_name,
           "CampaignCode" => 'Restaurant',
           "Country" => $age_gate_country,
+          "MobilePhone" => $phone_number,
           "OptInDate" => date("m/d/Y"),
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
@@ -578,11 +599,11 @@ function brancott_restaurant_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "ip_city" => $api_city,
           "ip_zip_code" => $api_zipcode,
         );
-        //kint($postDRRow);die;
+        
         $postDRRow->CustomerKey = $DataExtensionNameForTesting;
         \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
             " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Restaurant' .
-            " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " Country " . $age_gate_country . " ip_country_code " . $api_country_code .
+            " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " Country " . $age_gate_country . " MobilePhone " . $phone_number . " ip_country_code " . $api_country_code .
             " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode
         );
         $postResult = $postDRRow->post();
@@ -633,13 +654,13 @@ function brancott_check_email_salesforce($email) {
   catch (Exception $e) {
     \Drupal::logger('brancott_rest_api')->notice('Caught exception: ' . $e->getMessage());
   }
-  //print_r($count);die;
+  
   return $count;
 }
 
 function brancott_rest_api_entity_translation_create(\Drupal\Core\Entity\EntityInterface $translation) {
   foreach ($translation->getFieldDefinitions() as $field_def) {
-//    kint($field_def->getName()); die;
+
     if($field_def->getType() == 'field_collection') {
       $field_name = $field_def->getName();
       $count = $translation->$field_name->count();
@@ -652,7 +673,7 @@ function brancott_rest_api_entity_translation_create(\Drupal\Core\Entity\EntityI
       }
     }
   }
-//  kint($translation->getFieldDefinitions()); die;
+
   
 
   }
