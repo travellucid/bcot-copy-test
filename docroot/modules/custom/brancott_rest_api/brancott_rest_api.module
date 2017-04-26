@@ -355,7 +355,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
           "PostCode" => $postcode,
           "Gender" => $gender,
           "State" => $state,
-          "DateOfBirth" => $dob,
+          "DateOfBirth" => '25/10/92',
           "ip" => $api_ip,
           "ip_country_code" => $api_country_code,
           "ip_region_code" => $api_region_code,
