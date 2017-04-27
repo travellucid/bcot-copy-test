@@ -301,7 +301,7 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
           "EmailAddress" => $email_address,
           "FirstName" => $name,
           "LastName" => $last_name,
-          "CampaignCode" => 'Enquire',
+          "CampaignCode" => 'Tasting',
           "OptInDate" => date("m/d/Y"),
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
@@ -313,7 +313,7 @@ function brancott_enquire_salesforce($form, \Drupal\Core\Form\FormStateInterface
         );
         $postDRRow->CustomerKey = $DataExtensionNameForTesting;
         \Drupal::logger('brancott_rest_api')->notice('Values entered: ' . " EmailAddress " . $email_address .
-            " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Enquire' .
+            " FirstName " . $name . " LastName " . $last_name . " CampaignCode " . 'Tasting' .
             " OptInDate " . date("m/d/Y") . " OptInPreference " . $yes_sign_me_up_to_exclusive_news_events_offers_ . " ip " . $api_ip . " ip_country_code " . $api_country_code .
             " ip_region_code " . $api_region_code . " ip_city " . $api_city . " ip_zip_code " . $api_zipcode
         );
