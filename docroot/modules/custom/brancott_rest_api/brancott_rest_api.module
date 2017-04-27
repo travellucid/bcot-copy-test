@@ -508,7 +508,7 @@ function brancott_private_events_salesforce($form, \Drupal\Core\Form\FormStateIn
           "EmailAddress" => $email_address,
           "FirstName" => $name,
           "LastName" => $last_name,
-          "CampaignCode" => 'Enquire',
+          "CampaignCode" => 'Private Events',
           "OptInDate" => date("m/d/Y"),
           "OptInPreference" => 'true',
           "OptIn_PernodRicard" => '',
