@@ -31,8 +31,11 @@
 
         <div class="common-margin">
             <div class="quote-author">
-                {% if fields.field_timeline_description.content %}
+                {# {% if fields.field_timeline_description.content %}
                     <p class="">{{ fields.field_timeline_description.content }}</p>
+                {% endif %} #}
+                {% if fields.field_timeline_description_forma.content %}
+                    <p class="">{{ fields.field_timeline_description_forma.content }}</p>
                 {% endif %}
                 {% if fields.field_timeline_subtext_one.content %}
                     <p class="quote">{{ fields.field_timeline_subtext_one.content }}</p>
@@ -115,9 +118,12 @@
             <div class="">
 
                 <div class="common-margin">
-                    {% if fields.field_timeline_description.content %}
+                    {# {% if fields.field_timeline_description.content %}
                         <p class="common-margin ">{{ fields.field_timeline_description.content }}</p>
-                    {% endif %}
+                    {% endif %} #}
+                    {% if fields.field_timeline_description_forma.content %}
+                    <p class="">{{ fields.field_timeline_description_forma.content }}</p>
+                {% endif %}
                     {% if (fields.field_timeline_subtext_one.content or fields.field_timeline_subtext_second.content) %}
                         <div class="quote-author">
 
@@ -175,9 +181,12 @@
             {% endif %}
             <div class="">
                 <div class="common-margin">
-                    {% if fields.field_timeline_description.content %}
+                    {#{% if fields.field_timeline_description.content %}
                         <p class="common-margin ">{{ fields.field_timeline_description.content }}</p>
-                    {% endif %}
+                    {% endif %} #}
+                    {% if fields.field_timeline_description_forma.content %}
+                    <p class="">{{ fields.field_timeline_description_forma.content }}</p>
+                {% endif %}
                     {% if (fields.field_timeline_subtext_one.content or fields.field_timeline_subtext_second.content) %}
                         <div class="quote-author">
 
