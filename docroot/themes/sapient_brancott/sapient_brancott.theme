@@ -571,6 +571,11 @@ function sapient_brancott_preprocess_menu(&$variables) {
           unset($variables['items'][$key]['below'][$key_child]);
         }
       }
+      $translate_status = $variables['items'][$key]['below'][$key_child]->getOption('translate_status');
+      
+         if(empty($translate_status[$language])){
+           unset($variables['items'][$key]['below'][$key_child]);
+      }
     }
   
     }
