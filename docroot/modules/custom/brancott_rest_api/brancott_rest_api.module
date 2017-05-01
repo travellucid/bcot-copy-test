@@ -687,15 +687,15 @@ function brancott_rest_api_form_menu_link_content_form_alter(array &$form, \Drup
   $menu_link_options = $menu_link->link->first()->options ? : [];
   $translated_menu_link = isset($menu_link_options) ? $menu_link_options : [];
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  $form['custom_link_field']['language_specific_link'] = [
-    '#type' => 'textfield',
-    '#title' => t('Language specific link'),
-    '#description' => t('External link for @language.', array("@language" => \Drupal::languageManager()->getCurrentLanguage()->getName())),
-    '#default_value' => isset($translated_menu_link['translate_link'][$lang]) ? $translated_menu_link['translate_link'][$lang] : '',
+  $form['custom_link_field']['language_specific_status'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Language specific status'),
+    '#description' => t('Status for @language.', array("@language" => \Drupal::languageManager()->getCurrentLanguage()->getName())),
+    '#default_value' => isset($translated_menu_link['translate_status'][$lang]) ? $translated_menu_link['translate_status'][$lang] : '',
   ];
-  $form['custom_link_field']['language_links'] = [
+  $form['custom_link_field']['all_language_status'] = [
     '#type' => 'hidden',
-    '#value' => $translated_menu_link['translate_link'],
+    '#value' => $translated_menu_link['all_language_status'],
   ];
 
   $form['actions']['submit']['#submit'][] = 'brancott_rest_api_menu_link_form_submit';
@@ -708,8 +708,8 @@ function brancott_rest_api_menu_link_form_submit($form, \Drupal\Core\Form\FormSt
   $menu_link = $form_state->getFormObject()->getEntity();
   $menu_link_options = $menu_link->link->first()->options;
   $translated_menu_link = isset($menu_link_options) ? $menu_link_options : [];
-  $translated_menu_link['translate_link'] = $form_state->getValue('language_links');
-  $translated_menu_link['translate_link'][\Drupal::languageManager()->getCurrentLanguage()->getId()] = $form_state->getValue('language_specific_link');
+  $translated_menu_link['translate_status'] = $form_state->getValue('all_language_status');
+  $translated_menu_link['translate_status'][\Drupal::languageManager()->getCurrentLanguage()->getId()] = $form_state->getValue('language_specific_status');
   $menu_link->link->first()->options = array_merge($menu_link_options, $translated_menu_link);
   $menu_link->save();
 }
