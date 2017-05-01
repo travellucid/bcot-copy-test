@@ -540,9 +540,14 @@ function sapient_brancott_preprocess_html(&$variables) {
 function sapient_brancott_preprocess_menu(&$variables) {
   if ($variables['menu_name'] == 'brancott-header-menu' || $variables['menu_name'] == 'brancott-header-menu-mobile') {
    $language = Drupal::languageManager()->getCurrentLanguage()->getId();
-    kint($variables['items']);die;
+   // kint($variables['items']);die;
     foreach ($variables['items'] as $key => &$item) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item['original_link']);
+      $translated_link = $item['url']->getOption('translate_status') ? : [];
+      if(!empty($translated_link)){
+        kint($item['url']);die;
+      }
+      
       if ($menuLinkEntity != NULL) {
         $languages = $menuLinkEntity->getTranslationLanguages();
         // Remove links which is not translated to current language.
