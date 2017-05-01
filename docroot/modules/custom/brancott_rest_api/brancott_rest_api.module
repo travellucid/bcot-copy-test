@@ -326,7 +326,8 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
     $postcode = $postcode_ca;
   }
   $country = strlen($country) ? strtoupper($country) : '';
-  
+  print_r($postcode);
+  print_r($state);die;
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
   $hear_more_from_brands_from_pernod_ricard_group = $values['hear_more_from_brands_from_pernod_ricard_group'];
   
