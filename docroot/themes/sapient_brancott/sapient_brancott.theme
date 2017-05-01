@@ -538,14 +538,14 @@ function sapient_brancott_preprocess_html(&$variables) {
 }
 
 function sapient_brancott_preprocess_menu(&$variables) {
-  if ($variables['menu_name'] == 'brancott-header-menu' || $variables['menu_name'] == 'brancott-header-menu-mobile') {
+  if ($variables['menu_name'] == 'brancott-header-menu') {
    $language = Drupal::languageManager()->getCurrentLanguage()->getId();
    // kint($variables['items']);die;
     foreach ($variables['items'] as $key => &$item) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item['original_link']);
       $translate_status = $item['url']->getOption('translate_status');
-      
-        //kint($translate_status);
+      print_r($translate_status);
+        kint($item);
          if(empty($translate_status)){
            unset($variables['items'][$key]);
       }
