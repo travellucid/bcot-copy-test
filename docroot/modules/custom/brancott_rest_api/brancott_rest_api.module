@@ -309,7 +309,10 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $state_us = $values['state_us'];
   $state_australia = $values['state_australia'];
   $country = $values['country'];
-  
+  print_r($postcode);
+  print_r($state);
+  print_r($postcode_australia);
+  print_r($state_australia);die;
   if ($values['country'] == 'au') {
     $state = $state_australia;
   }
@@ -326,8 +329,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
     $postcode = $postcode_ca;
   }
   $country = strlen($country) ? strtoupper($country) : '';
-  print_r($postcode);
-  print_r($state);die;
+  
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
   $hear_more_from_brands_from_pernod_ricard_group = $values['hear_more_from_brands_from_pernod_ricard_group'];
   
