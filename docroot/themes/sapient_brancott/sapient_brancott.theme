@@ -574,10 +574,10 @@ function sapient_brancott_preprocess_menu(&$variables) {
           unset($variables['items'][$key]['below'][$key_child]);
         }
         else{
-          if(empty($translate_status_child[$language])){
-           unset($variables['items'][$key]['below'][$key_child]);
+          
+           print_r($variables['items'][$key]['below'][$key_child]);echo "test";die;
            
-      }
+      
         }
       }
     }die;
