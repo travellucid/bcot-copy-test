@@ -565,7 +565,7 @@ function sapient_brancott_preprocess_menu(&$variables) {
     foreach ($variables['items'][$key]['below'] as $key_child => &$item_child) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item_child['original_link']);
       $translate_status_child = $item_child['url']->getOption('translate_status');
-      //kint($item_child['url']);die;
+      kint($item_child);die;
       if ($menuLinkEntity != NULL) {
         $languages = $menuLinkEntity->getTranslationLanguages();
         // Remove links which is not translated to current language.
