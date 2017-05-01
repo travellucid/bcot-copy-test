@@ -543,10 +543,13 @@ function sapient_brancott_preprocess_menu(&$variables) {
    // kint($variables['items']);die;
     foreach ($variables['items'] as $key => &$item) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item['original_link']);
-      $translated_link = $item['url']->getOption('translate_status') ? : [];
-      if(!empty($translated_link)){
-        kint($item['url']);die;
+      if($translate_status = $item['url']->getOption('translate_status')){
+         if(empty($translate_status)){
+           unset($variables['items'][$key]);
       }
+      }
+      //$translated_link = $item['url']->getOption('translate_status') ? : [];
+      
       
       if ($menuLinkEntity != NULL) {
         $languages = $menuLinkEntity->getTranslationLanguages();
