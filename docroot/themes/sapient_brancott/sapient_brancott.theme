@@ -544,10 +544,10 @@ function sapient_brancott_preprocess_menu(&$variables) {
     foreach ($variables['items'] as $key => &$item) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item['original_link']);
       $translate_status = $item['url']->getOption('translate_status');
-      print_r($translate_status);
-        kint($item);
+      
          if(empty($translate_status)){
            unset($variables['items'][$key]);
+           continue;
       }
      
       //$translated_link = $item['url']->getOption('translate_status') ? : [];
