@@ -546,7 +546,9 @@ function sapient_brancott_preprocess_menu(&$variables) {
       $translate_status = $item['url']->getOption('translate_status');
       
         //kint($translate_status);
-         
+         if(empty($translate_status)){
+           unset($variables['items'][$key]);
+      }
      
       //$translated_link = $item['url']->getOption('translate_status') ? : [];
       
