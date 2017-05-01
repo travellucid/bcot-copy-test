@@ -540,7 +540,7 @@ function sapient_brancott_preprocess_html(&$variables) {
 function sapient_brancott_preprocess_menu(&$variables) {
   if ($variables['menu_name'] == 'brancott-header-menu' || $variables['menu_name'] == 'brancott-header-menu-mobile') {
    $language = Drupal::languageManager()->getCurrentLanguage()->getId();
-
+    kint($variables['items']);
     foreach ($variables['items'] as $key => &$item) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item['original_link']);
       if ($menuLinkEntity != NULL) {
