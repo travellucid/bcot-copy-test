@@ -572,7 +572,7 @@ function sapient_brancott_preprocess_menu(&$variables) {
         }
         else {
 //          print_r($variables['items'][$key]['below'][$key_child]); die;
-          if(isset($variables['items'][$key]['below'][$key_child]->getOption('translate_status'))) {
+          if(isset($variables['items'][$key]['below'][$key_child])) {
           $translate_status_child = $variables['items'][$key]['below'][$key_child]->getOption('translate_status');
           if(empty($translate_status_child[$language])){
            unset($variables['items'][$key]['below'][$key_child]);
