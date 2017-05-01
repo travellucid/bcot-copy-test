@@ -564,8 +564,8 @@ function sapient_brancott_preprocess_menu(&$variables) {
       
     foreach ($variables['items'][$key]['below'] as $key_child => &$item_child) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item_child['original_link']);
-     // $translate_status_child = $item_child['url']->getOption('translate_status');
-     // print_r($item_child['url']);echo "test";
+      $translate_status_child = $item_child['url']->getOption('translate_status');
+      //print_r($item_child['url']);echo "test";
       //kint($item_child);die;
       if ($menuLinkEntity != NULL) {
         $languages = $menuLinkEntity->getTranslationLanguages();
@@ -573,8 +573,14 @@ function sapient_brancott_preprocess_menu(&$variables) {
         if (!array_key_exists($language, $languages)) {
           unset($variables['items'][$key]['below'][$key_child]);
         }
+        else{
+          if(empty($translate_status_child[$language])){
+           unset($variables['items'][$key]['below'][$key_child]);
+           
       }
-    }
+        }
+      }
+    }die;
   
     }
   }
