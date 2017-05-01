@@ -575,9 +575,9 @@ function sapient_brancott_preprocess_menu(&$variables) {
         }
         else{
           
-           print_r($variables['items'][$key]['below'][$key_child]);echo "test";die;
+           kint($variables['items'][$key]['below'][$key_child]);die;
            
-      
+      }
         }
       }
     }die;
