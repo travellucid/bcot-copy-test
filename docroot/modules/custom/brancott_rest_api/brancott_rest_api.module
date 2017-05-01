@@ -309,25 +309,24 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   $state_us = $values['state_us'];
   $state_australia = $values['state_australia'];
   $country = $values['country'];
-  print_r($postcode);
-  print_r($state);
-  print_r($postcode_australia);
-  print_r($state_australia);die;
-  if ($values['country'] == 'au') {
+  
+  if ($values['country'] == 'AU') {
     $state = $state_australia;
   }
-  elseif ($values['country'] == 'us') {
+  elseif ($values['country'] == 'US') {
     $state = $state_us;
   }
-  if ($values['country'] == 'au') {
+  if ($values['country'] == 'AU') {
     $postcode = $postcode_australia;
   }
-  elseif ($values['country'] == 'us') {
+  elseif ($values['country'] == 'US') {
     $postcode = $postcode_us;
   }
-  elseif ($values['country'] == 'ca') {
+  elseif ($values['country'] == 'CA') {
     $postcode = $postcode_ca;
   }
+  print_r($postcode);
+  print_r($state);die;
   $country = strlen($country) ? strtoupper($country) : '';
   
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
