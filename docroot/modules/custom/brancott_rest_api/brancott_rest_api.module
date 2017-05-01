@@ -325,8 +325,7 @@ function brancott_newsletter_salesforce($form, \Drupal\Core\Form\FormStateInterf
   elseif ($values['country'] == 'CA') {
     $postcode = $postcode_ca;
   }
-  print_r($postcode);
-  print_r($state);die;
+  
   $country = strlen($country) ? strtoupper($country) : '';
   
   $hear_more_from_brancott_estate = $values['hear_more_from_brancott_estate'];
