@@ -67,13 +67,13 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
         $range_details = array('bkg_colr' => $bkg_color, 'range_title' => $range_title_api, 'url' => $url, 'range_desc_api' => $range_desc_api, 'botl_1_img' => $wine_botl_1, 'botl_2_img' => $wine_botl_2);
 
         $variables['range_details'] = $range_details;
-        //print_r($range_details);die;
+        
       }
     case 'homepage_components':
       if ($variables['view']->current_display == 'tour_experience_rezdy') {
         $node = \Drupal::routeMatch()->getParameter('node');
         $node_translation = $node->getTranslation($langcode);
-        //kint($node_translation);die;
+        
       }
       if ($variables['view']->current_display == 'common_hero_component') {
         if ($variables['row']->_entity->field_city) {
@@ -461,14 +461,14 @@ function sapient_brancott_preprocess_views_view(&$variables) {
     $query->condition('n.langcode', $langcode, '=');
     $query->condition('n.nid', $nid, '=');
     $new_nid_transtion = $query->execute()->fetchField();
-   // print_r($new_nid_transtion);die;
+   
     $variables['address_heading'] = $new_nid_transtion;
   }
   if ($view_id == 'brancott_sitemap') {
     $curr_node = \Drupal::routeMatch()->getParameter('node');
     $curr_nid = $curr_node->nid->getValue()[0]['value'];
     $node_translation = $curr_node->getTranslation($langcode);
-    //kint($node_translation);die;
+    
     $con = \Drupal\Core\Database\Database::getConnection();
     $query = $con->select('node_field_data', 'n')->distinct();
     //$query->Join('node__field_address_heading', 'h', 'n.langcode = h.langcode');
@@ -476,7 +476,7 @@ function sapient_brancott_preprocess_views_view(&$variables) {
     $query->condition('n.nid', $curr_nid, '=');
     $query->condition('n.langcode', $langcode, '=');
     $sitemap_title = $query->execute()->fetchField();
-     //print_r($sitemap_title);die;
+     
     $variables['current_langcode'] = $langcode;
     $variables['sitemap_title'] = $sitemap_title;
   }
@@ -485,12 +485,13 @@ function sapient_brancott_preprocess_views_view(&$variables) {
 function sapient_brancott_preprocess_page(&$variables) {
   // Define {{ body_class }}  in the template.
   //$vc = $this->config('brancott_our_wines.settings');
+  
   $fb_app_id = \Drupal::config('brancott_our_wines.settings')->get('facebook_app_id');
   //$fb_app_id = $vc->get('facebook_app_id');
   $variables['fb_app_id'] = $fb_app_id;
   //$node = \Drupal\node\Entity\Node::load($variables['node']->id());
   //$languages = $node->getTranslationLanguages();
- // kint($languages);die;
+ 
   if($variables['node']){
     $type = $variables['node']->getType();
     
@@ -538,13 +539,13 @@ function sapient_brancott_preprocess_html(&$variables) {
 }
 
 function sapient_brancott_preprocess_menu(&$variables) {
-  if ($variables['menu_name'] == 'brancott-header-menu') {
+  if ($variables['menu_name'] == 'brancott-header-menu' || $variables['menu_name'] == 'brancott-header-menu-mobile' ) {
    $language = Drupal::languageManager()->getCurrentLanguage()->getId();
-   // kint($variables['items']);die;
+   
     foreach ($variables['items'] as $key => &$item) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item['original_link']);
       $translate_status = $item['url']->getOption('translate_status');
-      
+     
          if(empty($translate_status[$language])){
            unset($variables['items'][$key]);
            continue;
@@ -564,16 +565,20 @@ function sapient_brancott_preprocess_menu(&$variables) {
       
     foreach ($variables['items'][$key]['below'] as $key_child => &$item_child) {
       $menuLinkEntity = sapient_brancott_load_link_entity_by_link($item_child['original_link']);
-      $translate_status_child = $item_child['url']->getOption('translate_status');
-      //print_r($item_child['url']);echo "test";
-      //kint($item_child);die;
+      
+      
       if ($menuLinkEntity != NULL) {
         $languages = $menuLinkEntity->getTranslationLanguages();
         // Remove links which is not translated to current language.
         if (!array_key_exists($language, $languages)) {
           unset($variables['items'][$key]['below'][$key_child]);
         }
-        
+        else {
+          $translate_status_child = $item_child['url']->getOption('translate_status');
+      if(empty($translate_status_child[$language]) || $translate_status_child[$language] == 0) {
+        unset($variables['items'][$key]['below'][$key_child]);
+      }
+        }
         }
       
     }

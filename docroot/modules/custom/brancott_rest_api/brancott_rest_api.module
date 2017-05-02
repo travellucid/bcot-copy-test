@@ -683,6 +683,10 @@ function brancott_rest_api_entity_translation_create(\Drupal\Core\Entity\EntityI
 * Implements hook_form_BASE_FORM_ID_alter().
 */
 function brancott_rest_api_form_menu_link_content_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  
+  $form['enabled']['widget']['value']['#default_value'] = TRUE;
+  $form['enabled']['#access'] = FALSE;
   $menu_link = $form_state->getFormObject()->getEntity();
   $menu_link_options = $menu_link->link->first()->options ? : [];
   $translated_menu_link = isset($menu_link_options) ? $menu_link_options : [];
@@ -690,7 +694,7 @@ function brancott_rest_api_form_menu_link_content_form_alter(array &$form, \Drup
   $form['custom_link_field']['language_specific_status'] = [
     '#type' => 'checkbox',
     '#title' => t('Language specific status'),
-    '#description' => t('Status for @language.', array("@language" => \Drupal::languageManager()->getCurrentLanguage()->getName())),
+    //'#description' => t('Status for @language.', array("@language" => \Drupal::languageManager()->getCurrentLanguage()->getName())),
     '#default_value' => isset($translated_menu_link['translate_status'][$lang]) ? $translated_menu_link['translate_status'][$lang] : '',
   ];
   $form['custom_link_field']['all_language_status'] = [
@@ -714,8 +718,22 @@ function brancott_rest_api_menu_link_form_submit($form, \Drupal\Core\Form\FormSt
   $menu_link->save();
 }
 
+function brancott_rest_api_form_menu_edit_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if($form_id == 'menu_edit_form'){
+    $links = $form['links']['links'];
+    $form['langcode']['#access'] = FALSE;
+    
+    foreach($links as $key => $link){
+      if(is_array($link) && isset($link['enabled'])){
+        
+        $form['links']['links'][$key]['enabled']['#access'] = FALSE;
+      }
+      
+    }
+    
+  }
+}
 
-
-  
-  
  
+
+  
