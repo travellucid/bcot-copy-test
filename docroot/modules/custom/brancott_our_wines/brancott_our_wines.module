@@ -32,6 +32,9 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
       $form['actions'][$action]['#submit'][] = 'cache_cleaner';
     }
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'delete') {
+      $form['actions'][$action]['#submit'][] = 'cache_cleaner2';
+    }
   }
     
   }
@@ -159,7 +162,11 @@ function default_language_handler($form, \Drupal\Core\Form\FormStateInterface $f
 }
 
 function cache_cleaner($form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  print_r('test');die;
+  drupal_flush_all_caches();
+  
+}
+function cache_cleaner2($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  print_r('sallu');die;
   
 }
 function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
