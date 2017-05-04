@@ -737,6 +737,4 @@ function brancott_rest_api_form_menu_edit_form_alter(array &$form, \Drupal\Core\
   }
 }
 
- 
-
   
