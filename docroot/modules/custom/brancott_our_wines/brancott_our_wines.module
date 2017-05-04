@@ -22,13 +22,13 @@ function brancott_our_wines_theme($existing, $type, $theme, $path) {
 function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $user = \Drupal::currentUser();
   $editor_lang = $user->getPreferredLangcode();
-  //kint($editor_lang);die;
+  
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $def_langcode = \Drupal::languageManager()->getDefaultLanguage()->getId();
   
   if ($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form') {
     $form['#validate'][] = 'character_limitation_homepage';
-    kint($form['actions']);die;
+    
     foreach (array_keys($form['actions']) as $action) {
     if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
       $form['actions'][$action]['#submit'][] = 'cache_cleaner';
