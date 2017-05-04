@@ -672,7 +672,7 @@ function character_limitation_homepage($form, \Drupal\Core\Form\FormStateInterfa
   if ($visit_us_desc > 500) {
     $form_state->setErrorByName('field_visit_us_description', 'Max length for this field is 500 characters.');
   }
-  drupal_flush_all_caches();
+  
 }
 
 function character_limitation_tours_and_experiences($form, \Drupal\Core\Form\FormStateInterface $form_state) {
