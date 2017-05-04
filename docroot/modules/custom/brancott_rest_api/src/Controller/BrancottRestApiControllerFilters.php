@@ -24,12 +24,16 @@ class BrancottRestApiControllerFilters extends ControllerBase {
     $cid = $request_type . '_' . $language;
     $cache = \Drupal::cache()->get($cid);
     $lang_explode = explode("-", $language);
-    if ($language == 'en') {
+    if ($language == 'en'){
       $locale = 'row';
+    }
+    elseif($language == 'en-gb'){
+      $locale = 'uk';
     }
     else {
       $locale = $lang_explode[1];
     }
+    
     $data = array();
     $response = $data = $result = null;
     $request_type = 'wine_listing';

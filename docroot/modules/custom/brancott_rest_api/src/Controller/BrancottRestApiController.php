@@ -21,10 +21,13 @@ class BrancottRestApiController extends ControllerBase {
 
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $lang_explode = explode("-", $language);
-
+    print_r($language);die;
 
     if ($language == 'en') {
       $locale = 'row';
+    }
+    elseif($language == 'en-gb'){
+      $locale = 'uk';
     }
     else {
       $locale = $lang_explode[1];

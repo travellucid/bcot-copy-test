@@ -12,9 +12,13 @@
 	   <h2 class="header_b header_sect">{{ fields.field_menu_title.content |upper |raw }}</h2>
 	   <p class="tagline">{{ fields.field_menu_description.content }}</p>
 	   <p class="cta-title">{{ fields.field_menu_pdf_title.content }}</p>
-	   <a href="{{ fields.field_menu_pdf_file.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_menu_cta_text.content }}</a>
+           {% if (fields.field_menu_cta_text.content) %}
+               <a href="{{ fields.field_menu_pdf_file.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_menu_cta_text.content }}</a>
+           {% endif %}
 	   <p class="cta-title">{{ fields.field_tasting_pdf_title.content }}</p>
-	   <a href="{{ fields.field_tasting_pdf.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_tasting_pdf_text.content }}</a>
+           {% if (fields.field_tasting_pdf_text.content) %}
+               <a href="{{ fields.field_tasting_pdf.content }}" class="cta secondary-green visit-all-wine">{{ fields.field_tasting_pdf_text.content }}</a>
+           {% endif %}
 	 </div>
 	<div class="image-wrapper desktop-only">
 	<picture>
@@ -27,3 +31,7 @@
 			</picture>
 	 </div>
 </div>
+
+                        {% if (tasting_notes_aroma) %}
+        <p class="desc-1"> {{ tasting_notes_aroma }} </p>
+    {% endif %}
