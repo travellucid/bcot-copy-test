@@ -737,4 +737,7 @@ function brancott_rest_api_form_menu_edit_form_alter(array &$form, \Drupal\Core\
   }
 }
 
-  
+ function brancott_rest_api_entity_delete(Drupal\Core\Entity\EntityInterface $entity){
+   kint('test');
+   drupal_flush_all_caches();
+ } 
