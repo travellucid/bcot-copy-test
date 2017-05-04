@@ -696,12 +696,12 @@ function brancott_rest_api_form_menu_link_content_form_alter(array &$form, \Drup
     '#type' => 'checkbox',
     '#title' => t('Language specific status'),
     //'#description' => t('Status for @language.', array("@language" => \Drupal::languageManager()->getCurrentLanguage()->getName())),
-  //  '#default_value' => isset($translated_menu_link['translate_status'][$lang]) ? $translated_menu_link['translate_status'][$lang] : '',
-    '#default_value' => $translated_menu_link['translate_status'][$lang],
+    '#default_value' => isset($translated_menu_link['translate_status'][$lang]) ? $translated_menu_link['translate_status'][$lang] : '',
+    //'#default_value' => $translated_menu_link['translate_status'][$lang],
   ];
   $form['custom_link_field']['all_language_status'] = [
     '#type' => 'hidden',
-    '#value' => $translated_menu_link['all_language_status'],
+    '#value' => $translated_menu_link['translate_status'],
   ];
 
   $form['actions']['submit']['#submit'][] = 'brancott_rest_api_menu_link_form_submit';
@@ -737,7 +737,4 @@ function brancott_rest_api_form_menu_edit_form_alter(array &$form, \Drupal\Core\
   }
 }
 
- function brancott_rest_api_entity_delete(Drupal\Core\Entity\EntityInterface $entity){
-   kint('test');
-   drupal_flush_all_caches();
- } 
+ 
