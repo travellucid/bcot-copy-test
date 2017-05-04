@@ -5178,7 +5178,12 @@ require([
         var args=arguments,
             c_code= args[0].toLowerCase(),
             url = window.location.host,
-            final_url = "";
+            final_url = "",
+            pathname = window.location.pathname,
+            subPath; 
+            subPath = pathname.split('/');
+            subPath.splice(1,1);
+            subPath = subPath.join('/');
 
             if(c_code !== 'nz' && c_code !== 'au' && c_code !== 'gb' && c_code !== 'us' && c_code !== 'ca') {
                 final_url="/en";
@@ -5190,7 +5195,7 @@ require([
                 }
             }
         
-       location.href=final_url;
+       location.href=final_url + subPath;
 
 
       $.cookie('age_checked', this.makeAgeCheckCookieValue(), { path: '/' });
