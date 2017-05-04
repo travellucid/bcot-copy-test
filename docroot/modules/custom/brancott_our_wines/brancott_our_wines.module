@@ -28,6 +28,11 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
   
   if ($form_id == 'node_homepage_edit_form' or $form_id == 'node_homepage_form') {
     $form['#validate'][] = 'character_limitation_homepage';
+    foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+      $form['actions'][$action]['#submit'][] = 'cache_cleaner';
+    }
+  }
     
   }
   if ($form_id == 'node_our_story_edit_form' or $form_id == 'node_our_story_form') {
@@ -153,7 +158,10 @@ function default_language_handler($form, \Drupal\Core\Form\FormStateInterface $f
   }
 }
 
-
+function cache_cleaner($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  print_r('test');die;
+  
+}
 function character_limitation_story($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
   $values = $form_state->getValues();
