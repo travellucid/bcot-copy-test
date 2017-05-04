@@ -690,12 +690,14 @@ function brancott_rest_api_form_menu_link_content_form_alter(array &$form, \Drup
   $menu_link = $form_state->getFormObject()->getEntity();
   $menu_link_options = $menu_link->link->first()->options ? : [];
   $translated_menu_link = isset($menu_link_options) ? $menu_link_options : [];
+  
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $form['custom_link_field']['language_specific_status'] = [
     '#type' => 'checkbox',
     '#title' => t('Language specific status'),
     //'#description' => t('Status for @language.', array("@language" => \Drupal::languageManager()->getCurrentLanguage()->getName())),
-    '#default_value' => isset($translated_menu_link['translate_status'][$lang]) ? $translated_menu_link['translate_status'][$lang] : '',
+  //  '#default_value' => isset($translated_menu_link['translate_status'][$lang]) ? $translated_menu_link['translate_status'][$lang] : '',
+    '#default_value' => $translated_menu_link['translate_status'][$lang],
   ];
   $form['custom_link_field']['all_language_status'] = [
     '#type' => 'hidden',
@@ -709,6 +711,7 @@ function brancott_rest_api_form_menu_link_content_form_alter(array &$form, \Drup
 * Submit function for menu add / edit form.
 */
 function brancott_rest_api_menu_link_form_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $values = $form_state->getValues();
   $menu_link = $form_state->getFormObject()->getEntity();
   $menu_link_options = $menu_link->link->first()->options;
   $translated_menu_link = isset($menu_link_options) ? $menu_link_options : [];
