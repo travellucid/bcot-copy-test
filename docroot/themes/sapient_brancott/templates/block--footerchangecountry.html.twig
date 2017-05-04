@@ -41,13 +41,13 @@
             {% endblock %}
             <a href="#" class="region-text">{{ selected_language |upper }}</a >         
 	</div>
-        {% set lang_id = [] %}
+        {#{% set lang_id = [] %}
         {% for translation_language in translation_languages %}
              
              {% set lang_id = lang_id|merge([translation_language]) %}
             {% endfor %}
-            {% set lang_id = lang_id|join(',') %}
-        <div id = "node_translation_languages" data-country = "{{ lang_id }}" data-alpha-only-err = "{{ alpha_only_message }}" data-alpha-numeric-err = "{{ alphanumeric_only_message }}" data-numeric-err = "{{ numeric_only_message }}" data-email-err = "{{ email_message }}" data-is-dst = "{{ daylight }}" style ="display:none">
+            {% set lang_id = lang_id|join(',') %} #}
+        <div id = "node_translation_languages" data-country = "{{ translation_languages }}" data-alpha-only-err = "{{ alpha_only_message }}" data-alpha-numeric-err = "{{ alphanumeric_only_message }}" data-numeric-err = "{{ numeric_only_message }}" data-email-err = "{{ email_message }}" data-is-dst = "{{ daylight }}" style ="display:none">
             
             
         </div>                  

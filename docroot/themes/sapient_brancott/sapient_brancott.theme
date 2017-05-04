@@ -391,7 +391,10 @@ function sapient_brancott_preprocess_block(&$variables) {
     if($node){
       
     $languages = $node->getTranslationLanguages();
+    
     $translation_languages = array_keys($languages);
+    $translation_languages =  implode(",",$translation_languages);
+    
     $variables['translation_languages'] = $translation_languages;
     $variables['daylight'] = date(I);
     $alpha_only_message = \Drupal::config('brancott_our_wines.settings')->get('alpha_only_message');
