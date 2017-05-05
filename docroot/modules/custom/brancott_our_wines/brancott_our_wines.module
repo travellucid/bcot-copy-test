@@ -813,7 +813,7 @@ function brancott_our_wines_node_delete(Drupal\Core\Entity\EntityInterface $enti
   print_r('test');die;
   
 }
-function brancott_our_wines_entity_delete(Drupal\Core\Entity\EntityInterface $entity) {
+
+function brancott_our_wines_node_translation_delete(\Drupal\Core\Entity\EntityInterface $translation){
   print_r('test1');die;
-  
 }
