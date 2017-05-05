@@ -810,10 +810,10 @@ function brancott_our_wines_pathauto_alias_alter(&$alias, array &$context) {
 }
 
 function brancott_our_wines_node_delete(Drupal\Core\Entity\EntityInterface $entity) {
-  print_r('test');die;
+  drupal_flush_all_caches();
   
 }
 
 function brancott_our_wines_node_translation_delete(\Drupal\Core\Entity\EntityInterface $translation){
-  print_r('test1');die;
+  drupal_flush_all_caches();
 }
