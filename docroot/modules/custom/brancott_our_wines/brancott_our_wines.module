@@ -808,3 +808,8 @@ function brancott_our_wines_pathauto_alias_alter(&$alias, array &$context) {
     $context['language'] = \Drupal\Core\Language\Language::LANGCODE_NOT_SPECIFIED;
   }
 }
+
+function brancott_our_wines_node_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  print_r('test');die;
+  
+}
