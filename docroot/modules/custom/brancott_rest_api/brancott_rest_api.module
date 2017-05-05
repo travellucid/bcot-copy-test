@@ -694,7 +694,7 @@ function brancott_rest_api_form_menu_link_content_form_alter(array &$form, \Drup
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $form['custom_link_field']['language_specific_status'] = [
     '#type' => 'checkbox',
-    '#title' => t('Language specific status'),
+    '#title' => t('<b>Language specific status (This must be selected to enable the menu item in your market site</b>)'),
     //'#description' => t('Status for @language.', array("@language" => \Drupal::languageManager()->getCurrentLanguage()->getName())),
     '#default_value' => isset($translated_menu_link['translate_status'][$lang]) ? $translated_menu_link['translate_status'][$lang] : '',
     //'#default_value' => $translated_menu_link['translate_status'][$lang],
