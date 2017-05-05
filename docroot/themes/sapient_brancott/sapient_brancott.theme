@@ -72,7 +72,7 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
     case 'homepage_components':
       if ($variables['view']->current_display == 'tour_experience_rezdy') {
         $node = \Drupal::routeMatch()->getParameter('node');
-       // $node_translation = $node->getTranslation($langcode);
+        $node_translation = $node->getTranslation($langcode);
         
       }
       if ($variables['view']->current_display == 'common_hero_component') {
@@ -455,7 +455,7 @@ function sapient_brancott_preprocess_views_view(&$variables) {
   if ($view_id == 'contact_us_page') {
     $node = \Drupal::routeMatch()->getParameter('node');
     $nid = $node->nid->getValue()[0]['value'];
-   // $node_translation = $node->getTranslation($langcode);
+    $node_translation = $node->getTranslation($langcode);
 
     $con = \Drupal\Core\Database\Database::getConnection();
     $query = $con->select('node_field_data', 'n');
@@ -470,7 +470,7 @@ function sapient_brancott_preprocess_views_view(&$variables) {
   if ($view_id == 'brancott_sitemap') {
     $curr_node = \Drupal::routeMatch()->getParameter('node');
     $curr_nid = $curr_node->nid->getValue()[0]['value'];
-   // $node_translation = $curr_node->getTranslation($langcode);
+    $node_translation = $curr_node->getTranslation($langcode);
     
     $con = \Drupal\Core\Database\Database::getConnection();
     $query = $con->select('node_field_data', 'n')->distinct();
