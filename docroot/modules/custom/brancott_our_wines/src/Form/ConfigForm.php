@@ -258,7 +258,19 @@ class ConfigForm extends FormBase {
       '#default_value' => $vc->get('restaurant_page_message'),
       '#required' => TRUE,
     ];
-
+    
+    $form['region_selector_fieldset'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Region Selector Fieldset'),
+      '#open' => TRUE, // Added
+    );
+   
+    $form['region_selector_fieldset']['region_selector_label'] = [
+      '#type' => 'textfield',
+      '#title' => t('Region Selector Label'),
+      '#default_value' => $vc->get('region_selector_label'),
+      '#required' => TRUE,
+    ];
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
     // to the form. This is not required, but is convention.
@@ -331,6 +343,7 @@ class ConfigForm extends FormBase {
         ->set('tour_experience_message', $form_state->getValue('tour_experience_message'))
         ->set('private_event_message', $form_state->getValue('private_event_message'))
         ->set('restaurant_page_message', $form_state->getValue('restaurant_page_message'))
+        ->set('region_selector_label', $form_state->getValue('region_selector_label'))
         ->save();
     $this->robotostxt($form_state->getValue('robots_txt'));
     drupal_set_message('Settings have been saved.');
