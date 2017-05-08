@@ -347,6 +347,7 @@ class ConfigForm extends FormBase {
         ->save();
     $this->robotostxt($form_state->getValue('robots_txt'));
     drupal_set_message('Settings have been saved.');
+    drupal_flush_all_caches();
   }
 
   
