@@ -90,7 +90,7 @@ class LanguageAccessEventSubscriber implements EventSubscriberInterface {
         $url->setOption('language', $defaultLanguage);
         $roles = $this->account->getRoles();
         if ( in_array( 'editor', $roles ) || in_array( 'editor_uk', $roles ) || in_array( 'editor_', $roles ) || in_array( 'editor_canada', $roles ) || in_array( 'editor_australia', $roles ) ){
-         $response = new RedirectResponse('system/403');
+         $response = new RedirectResponse('/system/403');
          }
          else{
          $response = new RedirectResponse('/404');  
