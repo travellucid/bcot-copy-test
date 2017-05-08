@@ -87,7 +87,7 @@ class LanguageAccessEventSubscriber implements EventSubscriberInterface {
         // Redirect to current route in default language
         $url = Url::fromRouteMatch($this->routeMatch);
         $url->setOption('language', $defaultLanguage);
-        $response = new RedirectResponse('/system/403');
+        $response = new RedirectResponse('/node/351');
         $response->send();
       }
     }
