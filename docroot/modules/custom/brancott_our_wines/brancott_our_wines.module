@@ -41,12 +41,7 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['#validate'][] = 'character_limitation_our_story';
   }
   if ($form_id == 'brancott_our_wines_config_form') {
-    foreach (array_keys($form['actions']) as $action) {
     
-      $form['actions'][$action]['#submit'][] = 'cache_cleaner';
-    
-    
-  }
     
   }
   
