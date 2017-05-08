@@ -88,7 +88,14 @@ class LanguageAccessEventSubscriber implements EventSubscriberInterface {
        // print_r($this->account->getRoles());die;
         $url = Url::fromRouteMatch($this->routeMatch);
         $url->setOption('language', $defaultLanguage);
-        $response = new RedirectResponse('/404');
+        $roles = $this->account->getRoles();
+        if ( in_array( 'editor', $roles ) || in_array( 'editor_uk', $roles ) || in_array( 'editor_', $roles ) || in_array( 'editor_canada', $roles ) || in_array( 'editor_australia', $roles ) ){
+         $response = new RedirectResponse('system/403');
+         }
+         else{
+         $response = new RedirectResponse('/404');  
+         }
+        //$response = new RedirectResponse('/404');
         $response->send();
       }
     }
