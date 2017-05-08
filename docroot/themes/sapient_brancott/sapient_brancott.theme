@@ -499,7 +499,11 @@ function sapient_brancott_preprocess_page(&$variables) {
  
   if($variables['node']){
     $type = $variables['node']->getType();
-    
+    $request = \Drupal::request();
+    if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
+    $title = \Drupal::service('title_resolver')->getTitle($request, $route);
+  }
+  print_r($title);echo "testi";
     if ($type == 'error_page') { 
       $variables['#attached']['library'][] = 'sapient_brancott/header-error-page';
       
