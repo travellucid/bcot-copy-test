@@ -1,0 +1,24 @@
+
+Header Set Cache-Control "max-age=0, no-store"
+Header unset Last-Modified
+Header Set Vary:  "*"
+
+<IfModule mod_expires.c>
+   ExpiresActive on
+   ExpiresDefault  now 
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !maintenance.html
+RewriteCond %{REQUEST_URI} !maintenance-page/assets/.*$
+RewriteCond %{REQUEST_URI} !assets/(.*)$
+RewriteRule ^.*$       /maintenance.html  [L]
+
+RewriteCond %{REQUEST_URI} !maintenance.html
+RewriteCond %{REQUEST_URI} /maintenance-page/assets/(.*)$
+RewriteCond %{DOCUMENT_ROOT}/assets/%1 -f
+RewriteRule ^.*$       /assets/%1  [L]
+
+</IfModule>
+
