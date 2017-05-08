@@ -41,6 +41,8 @@ function brancott_our_wines_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['#validate'][] = 'character_limitation_our_story';
   }
   if ($form_id == 'brancott_our_wines_config_form') {
+       
+      $form['actions'][$action]['#submit'][] = 'cache_cleaner';
     
     
   }
@@ -166,7 +168,7 @@ function default_language_handler($form, \Drupal\Core\Form\FormStateInterface $f
 }
 
 function cache_cleaner($form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  //print_r('test1');die;
+  print_r('test1');die;
   drupal_flush_all_caches();
   
 }
