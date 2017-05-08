@@ -85,10 +85,18 @@ class LanguageAccessEventSubscriber implements EventSubscriberInterface {
       //print_r($check_node_add);die;
       if ($id != $defaultLanguage->getId() || $check_node_add == 'node.add' || $check_node_add == 'entity.taxonomy_vocabulary.add_form') {
         // Redirect to current route in default language
+        if(\Drupal::currentUser()->isAnonymous()){
+          $logged = 0;
+        }
+        else{
+          $logged = 1;
+        }
+        if($logged == 1){
         $url = Url::fromRouteMatch($this->routeMatch);
         $url->setOption('language', $defaultLanguage);
-        $response = new RedirectResponse('/404');
+        $response = new RedirectResponse('/system/403');
         $response->send();
+        }
       }
     }
 
