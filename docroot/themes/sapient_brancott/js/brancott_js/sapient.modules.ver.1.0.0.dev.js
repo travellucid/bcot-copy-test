@@ -563,6 +563,12 @@ var commonObj = (function($, window, sapient) {
 				
 			},
 
+			directToErrorPage =  function() {
+				if((document.title.toLowerCase().indexOf("404") != -1)  && ($(".block-views-blockerror-page-404 .form-group").text().length < 15)) {
+					location.href="/404";
+				}
+			},
+
 			ageGateSetFocusTextBox= function() {
 				$(document).on("change",".age-gate  .date-control #year", function() {
 					if($(".age-gate  .date-control #month").css("width")!='0px') {
@@ -617,6 +623,7 @@ var commonObj = (function($, window, sapient) {
 			setTimeLineEmptySpan: setTimeLineEmptySpan,
 			setCountryNewsLetter: setCountryNewsLetter,
 			getCookie: getCookie,
+			directToErrorPage:directToErrorPage,
 			ageGateSetFocusTextBox: ageGateSetFocusTextBox
 		};
 	}
@@ -650,6 +657,7 @@ sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
 sapient.common.onResize();
 sapient.common.posFindUs();
+sapient.common.directToErrorPage();
 
 $(document).ready(function() {  
 	//sapient.common.ageGateSetFocusTextBox();
