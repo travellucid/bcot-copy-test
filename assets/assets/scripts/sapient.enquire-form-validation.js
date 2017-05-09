@@ -16,8 +16,8 @@ var validationObj = (function($, window, sapient) {
 					selectarr = [],
 					textareaarr = [],
 					msgarr = [],
-					$checked = $('.enquire-form  .subscription-checkbox').filter('[required]:visible'),
-					textarea =$('.enquire-form .other-information textarea').filter('[required]:visible'),
+					$checked = $('.enquire-form  .subscription-checkbox').filter('[required]'),
+					textarea =$('.enquire-form .other-information textarea').filter('[required]'),
 					$email = $('.enquire-form input[type = email]'),
 					$input = $(".enquire-form  .group input").filter('[required]'),
 					$select = $(".enquire-form .group select").filter('[required]'),
@@ -206,7 +206,7 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				$.each($checked,function(index) {
-					if (!$checked.is(':checked')) {						
+					if (!($(checked[index]).is(':checked'))) {						
 						$(this).siblings("label").addClass("change");
 						$(this).siblings("label").addClass("error");
 						event.preventDefault();	
@@ -218,6 +218,7 @@ var validationObj = (function($, window, sapient) {
 
 					}		
 				})
+
 				if(!(event.isDefaultPrevented())) { 
 					sapient.validation.showLoaderOnSubmit();
 				}	
