@@ -589,8 +589,6 @@ var commonObj = (function($, window, sapient) {
 		            cookieFinal,
 		            val; 
 	            subPath = pathname.split('/');
-	            debugger
-	            alert(subPath[1]);
 	            if(value != null) {
 		            if(subPath[1] == 'en-gb'){
 		            	urlFinal = 'uk';
@@ -606,35 +604,26 @@ var commonObj = (function($, window, sapient) {
 		            }
 		            if(subPath[1] == 'en-au'){
 		            	urlFinal = 'au';
-
 		            }
 		            if(subPath[1] == 'en-nz'){
 		            	urlFinal = 'nz';
-
 		            }
 		            if(subPath[1] == 'en'){
 		            	urlFinal = 'en';
-
 		            }
 		            if(subPath[1] == ''){
 		            	urlFinal = 'en';
-
 		            }
-	                
+		            
 	                val= value.toLowerCase().substr(0, 2);
 	                if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
 		            	cookieFinal = val;
-
 		            }
 		            else{
 		            	if(cookieFinal != ''){
 		            		cookieFinal = 'en';
-
 		            	}
 		            }
-		            alert(subPath[1]);
-	                alert(urlFinal);
-	                alert(cookieFinal);
 		            if(cookieFinal != urlFinal){
 	                   document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 						location.reload(true);

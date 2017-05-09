@@ -257,9 +257,8 @@ var commonObj = (function($, window, sapient) {
 		            if(subPath[1] == ''){
 		            	urlFinal = 'en';
 		            }
-
+		            
 	                val= value.toLowerCase().substr(0, 2);
-	                
 	                if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
 		            	cookieFinal = val;
 		            }
