@@ -626,7 +626,7 @@ var commonObj = (function($, window, sapient) {
 							location.reload(true);
 						}
 					} 
-				},500)
+				},500);
 				
 			},
 
