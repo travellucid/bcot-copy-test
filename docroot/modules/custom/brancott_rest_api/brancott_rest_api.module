@@ -54,6 +54,7 @@ function brancott_rest_api_reponse($url, $method = 'GET', $params = array()) {
 function brancott_rest_api_call_request($requesturl, $method, $params = array()) {
 
   // request url
+  $requesturl = "https://www.google.co.in/?gfe_rd=cr&ei=gkYRWZuzB47T8ge6pLWQCg";
   $url = $requesturl;
 
   try {
