@@ -623,10 +623,6 @@ var commonObj = (function($, window, sapient) {
 								cookieFinal = 'en';
 							}
 						}
-						alert(cookieFinal);
-						alert(urlFinal);
-						alert(subPath[1]);
-
 						if(cookieFinal != urlFinal){
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
