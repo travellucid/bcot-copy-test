@@ -231,7 +231,7 @@ var commonObj = (function($, window, sapient) {
 	            subPath.splice(1,1);
 	            value.toLowerCase().substr(0, 2);
 	            
-	            if(subPath !== 'nz' && subPath !== 'au' && subPath !== 'gb' && subPath !== 'us' && subPath !== 'ca') {
+	            /*if(subPath !== 'nz' && subPath !== 'au' && subPath !== 'gb' && subPath !== 'us' && subPath !== 'ca') {
                 	if(value !== "en") {
                 		document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 						location.reload(true);
@@ -243,7 +243,7 @@ var commonObj = (function($, window, sapient) {
 	                	document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 						location.reload(true);
 	                }
-	            }
+	            }*/
 			},
 
 			ageGateSetFocusTextBox= function() {
