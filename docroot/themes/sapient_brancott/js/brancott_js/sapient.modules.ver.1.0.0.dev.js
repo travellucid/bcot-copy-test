@@ -1752,15 +1752,15 @@ var validationObj = (function($, window, sapient) {
 				})
 
 				$.each($checked,function(index) {
-					if (!$checked.is(':checked')) {						
-						$(this).siblings("label").addClass("change");
-						$(this).siblings("label").addClass("error");
+					if (!($($checked[index]).is(':checked'))) {						
+						$($checked[index]).siblings("label").addClass("change");
+						$($checked[index]).siblings("label").addClass("error");
 						event.preventDefault();	
 					} 
 					else {
 
-						$(this).siblings("label").removeClass("change");
-						$(this).siblings("label").removeClass("error");
+						$($checked[index]).siblings("label").removeClass("change");
+						$($checked[index]).siblings("label").removeClass("error");
 
 					}		
 				})
