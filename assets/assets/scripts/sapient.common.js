@@ -211,6 +211,40 @@ var commonObj = (function($, window, sapient) {
 					location.href="/404";
 				}
 			},
+			
+			readCookieByName = function(name) {
+				var nameEQ = name + "=",
+			    	ca = document.cookie.split(';');
+			    for(var i=0;i < ca.length;i++) {
+			        var c = ca[i];
+			        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			    }
+			    return null;
+			},
+
+			callAgeGate = function() {
+				var value = sapient.common.readCookieByName('age_checked'),
+					pathname = window.location.pathname,
+		            subPath; 
+	            subPath = pathname.split('/');
+	            subPath.splice(1,1);
+	            value.toLowerCase().substr(0, 2);
+	            
+	            if(subPath !== 'nz' && subPath !== 'au' && subPath !== 'gb' && subPath !== 'us' && subPath !== 'ca') {
+                	if(value !== "en") {
+                		document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						location.reload(true);
+                	}
+	            } 
+	            else {
+	            	var newValue = "en-" + value;
+	                if(newValue !== subPath) {
+	                	document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						location.reload(true);
+	                }
+	            }
+			},
 
 			ageGateSetFocusTextBox= function() {
 				$(document).on("change",".age-gate  .date-control #year", function() {
@@ -267,6 +301,8 @@ var commonObj = (function($, window, sapient) {
 			setCountryNewsLetter: setCountryNewsLetter,
 			getCookie: getCookie,
 			directToErrorPage:directToErrorPage,
+			readCookieByName:readCookieByName,
+			callAgeGate:callAgeGate,
 			ageGateSetFocusTextBox: ageGateSetFocusTextBox
 		};
 	}
@@ -300,6 +336,7 @@ sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
 sapient.common.onResize();
 sapient.common.posFindUs();
+sapient.common.callAgeGate();
 sapient.common.directToErrorPage();
 
 $(document).ready(function() {  
