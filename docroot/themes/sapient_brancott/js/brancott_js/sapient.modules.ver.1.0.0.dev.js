@@ -586,8 +586,8 @@ var commonObj = (function($, window, sapient) {
 					pathname = window.location.pathname,
 					subPath,
 					x,
-					urlFinal,
-					cookieFinal,
+					urlFinal = "",
+					cookieFinal = "",
 					val; 
 					subPath = pathname.split('/');
 					if(value != null) {
