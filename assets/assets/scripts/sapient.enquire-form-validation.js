@@ -218,8 +218,9 @@ var validationObj = (function($, window, sapient) {
 
 					}		
 				})
-
-				sapient.validation.showLoaderOnSubmit();
+				if(!(event.isDefaultPrevented())) { 
+					sapient.validation.showLoaderOnSubmit();
+				}	
 			});
 		},
 		
