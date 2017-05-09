@@ -232,7 +232,7 @@ var commonObj = (function($, window, sapient) {
 					cookieFinal,
 					val; 
 				subPath = pathname.split('/');
-				/*if(value != null) {
+				if(value != null) {
 					if(subPath[1] == 'en-gb'){
 						urlFinal = 'uk';
 					}
@@ -268,7 +268,7 @@ var commonObj = (function($, window, sapient) {
 						document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 						location.reload(true);
 					}
-				} */
+				} 
 
 				/*if(value != null) {
 					val= value.toLowerCase().substr(0, 2);
