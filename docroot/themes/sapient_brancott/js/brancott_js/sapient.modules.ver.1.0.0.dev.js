@@ -581,56 +581,58 @@ var commonObj = (function($, window, sapient) {
 			},
 
 			callAgeGate = function() {
-				var value = sapient.common.readCookieByName('age_checked'),
+				$( document ).ready(function() {
+				    var value = sapient.common.readCookieByName('age_checked'),
 					pathname = window.location.pathname,
 					subPath,
 					x,
 					urlFinal,
 					cookieFinal,
 					val; 
-				subPath = pathname.split('/');
-				if(value != null) {
-					if(subPath[1] == 'en-gb'){
-						urlFinal = 'uk';
-					}
-					if(subPath[1] == 'en-us'){
-						urlFinal = 'us';
-					}
-					if(subPath[1] == 'en-ca'){
-						urlFinal = 'ca';
-					}
-					if(subPath[1] == 'en-au'){
-						urlFinal = 'au';
-					}
-					if(subPath[1] == 'en-nz'){
-						urlFinal = 'nz';
-					}
-					if(subPath[1] == 'en'){
-						urlFinal = 'en';
-					}
-					if(subPath[1] == ''){
-						urlFinal = 'en';
-					}
-					val= value.toLowerCase().substr(0, 2);
-					
-					if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
-						cookieFinal = val;
-					}
-					else{
-						if(cookieFinal != ''){
-
-							cookieFinal = 'en';
+					subPath = pathname.split('/');
+					if(value != null) {
+						if(subPath[1] == 'en-gb'){
+							urlFinal = 'uk';
 						}
-					}
-					alert(cookieFinal);
-					alert(urlFinal);
-					alert(subPath[1]);
+						if(subPath[1] == 'en-us'){
+							urlFinal = 'us';
+						}
+						if(subPath[1] == 'en-ca'){
+							urlFinal = 'ca';
+						}
+						if(subPath[1] == 'en-au'){
+							urlFinal = 'au';
+						}
+						if(subPath[1] == 'en-nz'){
+							urlFinal = 'nz';
+						}
+						if(subPath[1] == 'en'){
+							urlFinal = 'en';
+						}
+						if(subPath[1] == ''){
+							urlFinal = 'en';
+						}
+						val= value.toLowerCase().substr(0, 2);
+						
+						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
+							cookieFinal = val;
+						}
+						else{
+							if(cookieFinal != ''){
 
-					if(cookieFinal != urlFinal){
-						document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						location.reload(true);
-					}
-				} 
+								cookieFinal = 'en';
+							}
+						}
+						alert(cookieFinal);
+						alert(urlFinal);
+						alert(subPath[1]);
+
+						if(cookieFinal != urlFinal){
+							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							location.reload(true);
+						}
+					} 	
+				});
 
 				/*if(value != null) {
 					val= value.toLowerCase().substr(0, 2);
