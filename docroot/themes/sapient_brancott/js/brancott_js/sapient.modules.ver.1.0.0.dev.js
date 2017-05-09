@@ -563,6 +563,12 @@ var commonObj = (function($, window, sapient) {
 				
 			},
 
+			directToErrorPage =  function() {
+				if((document.title.toLowerCase().indexOf("404") != -1)  && ($(".block-views-blockerror-page-404 .form-group").text().length < 15)) {
+					location.href="/404";
+				}
+			},
+
 			ageGateSetFocusTextBox= function() {
 				$(document).on("change",".age-gate  .date-control #year", function() {
 					if($(".age-gate  .date-control #month").css("width")!='0px') {
@@ -617,6 +623,7 @@ var commonObj = (function($, window, sapient) {
 			setTimeLineEmptySpan: setTimeLineEmptySpan,
 			setCountryNewsLetter: setCountryNewsLetter,
 			getCookie: getCookie,
+			directToErrorPage:directToErrorPage,
 			ageGateSetFocusTextBox: ageGateSetFocusTextBox
 		};
 	}
@@ -650,6 +657,7 @@ sapient.common.setTimeLineEmptySpan();
 sapient.common.closeCookie();
 sapient.common.onResize();
 sapient.common.posFindUs();
+sapient.common.directToErrorPage();
 
 $(document).ready(function() {  
 	//sapient.common.ageGateSetFocusTextBox();
@@ -1757,7 +1765,7 @@ var validationObj = (function($, window, sapient) {
 					}		
 				})
 
-				
+				sapient.validation.showLoaderOnSubmit();
 			});
 		},
 		
@@ -1981,6 +1989,38 @@ var validationObj = (function($, window, sapient) {
 				}
 			});
 
+		},
+		loader =function() {
+			$(".enquire-form .submit-info .loader-wrapper").hide();
+			var dot = $(".enquire-form .submit-info .loader-wrapper .dot"),
+				interval = setInterval(function() {
+			    setTimeout(function(){ 
+			      $(dot[0]).removeClass("hide-dot").addClass("show-dot");
+			    }, 1200/3);
+
+			    setTimeout(function(){ 
+			      $(dot[1]).removeClass("hide-dot").addClass("show-dot");
+			    }, 2240/3);
+
+			    setTimeout(function(){ 
+			      $(dot[2]).removeClass("hide-dot").addClass("show-dot");
+			    }, 1200);
+
+			    $.each(dot,function(index){
+			      $(dot[index]).removeClass("show-dot").addClass("hide-dot")
+			    })
+			}, 1400); 
+		},
+		showLoaderOnSubmit = function () {
+			var interval = setInterval(function() {
+				if(!(window.location.pathname.indexOf("token") != -1)){
+					$(".enquire-form .submit-info .loader-wrapper").show();
+					$(".enquire-form .submit-info .submit-btn").hide();
+				}
+				else{
+					clearInterval(interval)
+				}
+			},200);	
 		};
 
 		return {
@@ -1997,7 +2037,9 @@ var validationObj = (function($, window, sapient) {
 			textareaOnFocusOut: textareaOnFocusOut,
 			resetForm: resetForm,
 			addCheckboxVal:addCheckboxVal,
-			countrySelector: countrySelector
+			countrySelector: countrySelector,
+			showLoaderOnSubmit:showLoaderOnSubmit,
+			loader:loader
 		};
 	}
 
@@ -2027,6 +2069,7 @@ sapient.validation.countrySelector();
 sapient.validation.inputSelect();
 sapient.validation.resetForm();
 sapient.validation.addCheckboxVal();
+sapient.validation.loader();
 $(document).ready(function() {  
 	/*sapient.common.setCountryNewsLetter();*/
 });
