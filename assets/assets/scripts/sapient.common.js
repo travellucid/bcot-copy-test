@@ -224,13 +224,13 @@ var commonObj = (function($, window, sapient) {
 			},
 
 			callAgeGate = function() {
-				$( document ).ready(function() {
-				    var value = sapient.common.readCookieByName('age_checked'),
+				setTimeout(function(){ 
+					var value = sapient.common.readCookieByName('age_checked'),
 					pathname = window.location.pathname,
 					subPath,
 					x,
-					urlFinal = "",
-					cookieFinal = "",
+					urlFinal,
+					cookieFinal,
 					val; 
 					subPath = pathname.split('/');
 					if(value != null) {
@@ -266,16 +266,13 @@ var commonObj = (function($, window, sapient) {
 								cookieFinal = 'en';
 							}
 						}
-						alert(cookieFinal);
-						alert(urlFinal);
-						alert(subPath[1]);
-
 						if(cookieFinal != urlFinal){
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
 						}
-					} 	
-				});
+					} 
+				}, 2000);
+				
 
 				/*if(value != null) {
 					val= value.toLowerCase().substr(0, 2);
