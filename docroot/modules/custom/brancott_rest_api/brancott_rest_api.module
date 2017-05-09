@@ -43,7 +43,7 @@ function brancott_rest_api_reponse($url, $method = 'GET', $params = array()) {
     }
   }
   catch (Exception $e) {
-    //echo $e->getMessage();
+    
     $exception_message = $e->getMessage();
     \Drupal::logger('brancott_rest_api')->notice('Exception Message: ' . $exception_message);
   }
@@ -84,7 +84,7 @@ function brancott_rest_api_call_request($requesturl, $method, $params = array())
     return $response;
   }
   catch (Exception $e) {
-    //echo $e->getMessage();
+   
     $exception_message = $e->getMessage();
     \Drupal::logger('brancott_rest_api')->notice('Exception Message: ' . $exception_message);
   }
