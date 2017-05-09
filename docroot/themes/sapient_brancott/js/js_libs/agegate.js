@@ -5184,6 +5184,9 @@ require([
             subPath = pathname.split('/');
             subPath.splice(1,1);
             subPath = subPath.join('/');
+            if(c_code === "uk") {
+                c_code = "gb";
+            }
 
             if(c_code !== 'nz' && c_code !== 'au' && c_code !== 'gb' && c_code !== 'us' && c_code !== 'ca') {
                 final_url="/en";
