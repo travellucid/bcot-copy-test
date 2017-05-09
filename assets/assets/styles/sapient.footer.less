@@ -28,7 +28,7 @@ footer {
 			position: relative;
 			
 			a.region-text {
-				color: rgba(255,255,255,0.6);
+				color: @white;
 				cursor: pointer;
 				display: block;
 				position: absolute;
@@ -52,7 +52,6 @@ footer {
 				.centerY();
 
 				.region-name {
-					color: @white;
 					margin-left: 5px;
 					&:hover {
 						text-decoration:underline;
@@ -429,4 +428,15 @@ li.wine-club {
 			width: 60%;
 		}
 	}
+}
+@media screen and (max-width: 440px) {
+	footer {
+		div.country-selector-wrapper {
+			.country-selector {				
+				a.region-text {
+					width: 100%;
+				}	
+			}	
+		}
+	}	
 }
