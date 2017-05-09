@@ -571,89 +571,63 @@ var commonObj = (function($, window, sapient) {
 			
 			readCookieByName = function(name) {
 				var nameEQ = name + "=",
-			    	ca = document.cookie.split(';');
-			    for(var i=0;i < ca.length;i++) {
-			        var c = ca[i];
-			        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-			        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-			    }
-			    return null;
+					ca = document.cookie.split(';');
+				for(var i=0;i < ca.length;i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				}
+				return null;
 			},
 
 			callAgeGate = function() {
 				var value = sapient.common.readCookieByName('age_checked'),
 					pathname = window.location.pathname,
-		            subPath,
-		            x,
-		            urlFinal,
-		            cookieFinal,
-		            val; 
-	            subPath = pathname.split('/');
-	            if(value != null) {
-		            if(subPath[1] == 'en-gb'){
-		            	urlFinal = 'uk';
-
-		            }
-		            if(subPath[1] == 'en-us'){
-		            	urlFinal = 'us';
-
-		            }
-		            if(subPath[1] == 'en-ca'){
-		            	urlFinal = 'ca';
-
-		            }
-		            if(subPath[1] == 'en-au'){
-		            	urlFinal = 'au';
-		            }
-		            if(subPath[1] == 'en-nz'){
-		            	urlFinal = 'nz';
-		            }
-		            if(subPath[1] == 'en'){
-		            	urlFinal = 'en';
-		            }
-		            if(subPath[1] == ''){
-		            	urlFinal = 'en';
-		            }
-		            
-	                val= value.toLowerCase().substr(0, 2);
-	                if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
-		            	cookieFinal = val;
-		            }
-		            else{
-		            	if(cookieFinal != ''){
-		            		cookieFinal = 'en';
-		            	}
-		            }
-		            if(cookieFinal != urlFinal){
-	                   document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						location.reload(true);
-		            }
-		        }    
-
-	            /*if(value != null) {
-		            val= value.toLowerCase().substr(0, 2);
-		            if(subPath[1] !== 'en-nz' && subPath[1] !== 'en-au' && subPath[1] !== 'en-gb' && subPath[1] !== 'en-us' && subPath[1] !== 'en-ca') {
-	                	x= "en";
-	                	if(value !== "en") {
-	                		document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+					subPath,
+					urlFinal,
+					cookieFinal,
+					val; 
+				subPath = pathname.split('/');
+				setTimeout(function(){
+					if(value != null) {
+						if(subPath[1] == 'en-gb'){
+							urlFinal = 'uk';
+						}
+						if(subPath[1] == 'en-us'){
+							urlFinal = 'us';
+						}
+						if(subPath[1] == 'en-ca'){
+							urlFinal = 'ca';
+						}
+						if(subPath[1] == 'en-au'){
+							urlFinal = 'au';
+						}
+						if(subPath[1] == 'en-nz'){
+							urlFinal = 'nz';
+						}
+						if(subPath[1] == 'en'){
+							urlFinal = 'en';
+						}
+						if(subPath[1] == ''){
+							urlFinal = 'en';
+						}
+						val= value.toLowerCase().substr(0, 2);
+						
+						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
+							cookieFinal = val;
+						}
+						else{
+							if(cookieFinal != ''){
+								cookieFinal = 'en';
+							}
+						}
+						if(cookieFinal != urlFinal){
+							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
-	                	}
-		            } 
-		            else{
-
-		            	x= subPath[1];
-		            }
-
-		            var y = subPath[1];
-		            y = y.split('-');
-		            if(y != x) {
-		            	if(!(y === "gb" && x === "uk" ))	{
-			            	document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-							location.reload(true);
-						}	
-		            }
-		            
-		        } */
+						}
+					} 
+				},500)
+				
 			},
 
 			ageGateSetFocusTextBox= function() {
