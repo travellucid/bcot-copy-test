@@ -771,3 +771,7 @@ if (isset($_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR']) && file_exists($_SERVER['D
   require $_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR'] . '/cld_devcloud_brancottvanilla_dev_default.inc';
 }
 // </DDSETTINGS>
+
+if (isset($_SERVER['DRUPAL_ENV_NAME']) && file_exists(file_exists($app_root . '/' . $site_path . '/environments/' .  $_SERVER['DRUPAL_ENV_NAME'] . '.inc'))  {
+  require(file_exists($app_root . '/' . $site_path . '/environments/' .  $_SERVER['DRUPAL_ENV_NAME'] . '.inc');
+} 
