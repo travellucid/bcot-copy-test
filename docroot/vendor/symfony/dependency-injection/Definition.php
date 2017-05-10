@@ -47,6 +47,8 @@ class Definition
     protected $arguments;
 
     /**
+     * Constructor.
+     *
      * @param string|null $class     The service class
      * @param array       $arguments An array of arguments to pass to the service constructor
      */
@@ -61,7 +63,7 @@ class Definition
      *
      * @param string|array $factory A PHP function or an array containing a class/Reference and a method to call
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setFactory($factory)
     {
@@ -90,7 +92,7 @@ class Definition
      *
      * @param string $factoryClass The factory class name
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @deprecated since version 2.6, to be removed in 3.0.
      */
@@ -124,7 +126,7 @@ class Definition
      *
      * @param string $factoryMethod The factory method name
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @deprecated since version 2.6, to be removed in 3.0.
      */
@@ -144,7 +146,7 @@ class Definition
      * @param null|string $renamedId The new decorated service id
      * @param int         $priority  The priority of decoration
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @throws InvalidArgumentException In case the decorated service id and the new decorated service id are equals.
      */
@@ -164,7 +166,7 @@ class Definition
     }
 
     /**
-     * Gets the service that this service is decorating.
+     * Gets the service that decorates this service.
      *
      * @return null|array An array composed of the decorated service id, the new id for it and the priority of decoration, null if no service is decorated
      */
@@ -194,7 +196,7 @@ class Definition
      *
      * @param string $factoryService The factory service id
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @deprecated since version 2.6, to be removed in 3.0.
      */
@@ -230,7 +232,7 @@ class Definition
      *
      * @param string $class The service class
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setClass($class)
     {
@@ -254,7 +256,7 @@ class Definition
      *
      * @param array $arguments An array of arguments
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setArguments(array $arguments)
     {
@@ -287,7 +289,7 @@ class Definition
      *
      * @param mixed $argument An argument
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function addArgument($argument)
     {
@@ -302,16 +304,12 @@ class Definition
      * @param int   $index
      * @param mixed $argument
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @throws OutOfBoundsException When the replaced argument does not exist
      */
     public function replaceArgument($index, $argument)
     {
-        if (0 === count($this->arguments)) {
-            throw new OutOfBoundsException('Cannot replace arguments if none have been configured yet.');
-        }
-
         if ($index < 0 || $index > count($this->arguments) - 1) {
             throw new OutOfBoundsException(sprintf('The index "%d" is not in the range [0, %d].', $index, count($this->arguments) - 1));
         }
@@ -354,7 +352,7 @@ class Definition
      *
      * @param array $calls An array of method calls
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setMethodCalls(array $calls = array())
     {
@@ -372,7 +370,7 @@ class Definition
      * @param string $method    The method name to call
      * @param array  $arguments An array of arguments to pass to the method call
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @throws InvalidArgumentException on empty $method param
      */
@@ -391,7 +389,7 @@ class Definition
      *
      * @param string $method The method name to remove
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function removeMethodCall($method)
     {
@@ -438,7 +436,7 @@ class Definition
      *
      * @param array $tags
      *
-     * @return $this
+     * @return Definition the current instance
      */
     public function setTags(array $tags)
     {
@@ -475,7 +473,7 @@ class Definition
      * @param string $name       The tag name
      * @param array  $attributes An array of attributes
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function addTag($name, array $attributes = array())
     {
@@ -501,7 +499,7 @@ class Definition
      *
      * @param string $name The tag name
      *
-     * @return $this
+     * @return Definition
      */
     public function clearTag($name)
     {
@@ -513,7 +511,7 @@ class Definition
     /**
      * Clears the tags for this definition.
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function clearTags()
     {
@@ -527,7 +525,7 @@ class Definition
      *
      * @param string $file A full pathname to include
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setFile($file)
     {
@@ -551,7 +549,7 @@ class Definition
      *
      * @param bool $shared Whether the service must be shared or not
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setShared($shared)
     {
@@ -575,7 +573,7 @@ class Definition
      *
      * @param string $scope Whether the service must be shared or not
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @deprecated since version 2.8, to be removed in 3.0.
      */
@@ -615,7 +613,7 @@ class Definition
      *
      * @param bool $boolean
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setPublic($boolean)
     {
@@ -639,7 +637,7 @@ class Definition
      *
      * @param bool $boolean
      *
-     * @return $this
+     * @return Definition The current instance
      *
      * @deprecated since version 2.7, will be removed in 3.0.
      */
@@ -675,7 +673,7 @@ class Definition
      *
      * @param bool $lazy
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setLazy($lazy)
     {
@@ -700,7 +698,7 @@ class Definition
      *
      * @param bool $boolean
      *
-     * @return $this
+     * @return Definition the current instance
      */
     public function setSynthetic($boolean)
     {
@@ -726,7 +724,7 @@ class Definition
      *
      * @param bool $boolean
      *
-     * @return $this
+     * @return Definition the current instance
      */
     public function setAbstract($boolean)
     {
@@ -753,7 +751,7 @@ class Definition
      * @param bool   $status
      * @param string $template Template message to use if the definition is deprecated
      *
-     * @return $this
+     * @return Definition the current instance
      *
      * @throws InvalidArgumentException When the message template is invalid.
      */
@@ -804,7 +802,7 @@ class Definition
      *
      * @param callable $callable A PHP callable
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setConfigurator($callable)
     {
@@ -828,7 +826,7 @@ class Definition
      *
      * @param string[] $types
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setAutowiringTypes(array $types)
     {
@@ -854,9 +852,9 @@ class Definition
     /**
      * Sets autowired.
      *
-     * @param bool $autowired
+     * @param $autowired
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function setAutowired($autowired)
     {
@@ -880,7 +878,7 @@ class Definition
      *
      * @param string $type
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function addAutowiringType($type)
     {
@@ -894,7 +892,7 @@ class Definition
      *
      * @param string $type
      *
-     * @return $this
+     * @return Definition The current instance
      */
     public function removeAutowiringType($type)
     {
