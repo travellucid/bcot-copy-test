@@ -489,8 +489,7 @@ function sapient_brancott_preprocess_views_view(&$variables) {
 }
 
 function sapient_brancott_preprocess_page(&$variables) {
-  // Define {{ body_class }}  in the template.
-  //$vc = $this->config('brancott_our_wines.settings');
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   
   $fb_app_id = \Drupal::config('brancott_our_wines.settings')->get('facebook_app_id');
   //$fb_app_id = $vc->get('facebook_app_id');
@@ -512,7 +511,7 @@ function sapient_brancott_preprocess_page(&$variables) {
       
       if(!$new_wine_id->id) {
         
-        $url = '/404';
+        $url = '/'.$langcode.'/404';
         $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
         $response->send();
       }
