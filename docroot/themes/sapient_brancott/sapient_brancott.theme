@@ -134,12 +134,13 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           } else {
             $openweatherapi_ttl = $vc->get('openweatherapi_cache_ttl');
             $openweatherapi_key = $openweatherapi_key ? $openweatherapi_key : 'bd4028edc390aa0629042fefed9976ca';
-            $owm = new OpenWeatherMap($openweatherapi_key);
+            /*$owm = new OpenWeatherMap($openweatherapi_key);
             $weather = $owm->getWeather($city, 'metric');
             \Drupal::logger('openweatherapi_cache')->notice('Getting data from API');
             \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: icon ID is ' . $weather->weather->icon);
             \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: temp is ' . $weather->temperature->now);
             \Drupal::logger('openweatherapi_cache')->notice('Getting data from API: unit is ' . $weather->temperature->getUnit());
+			*/
             $current_time = time();
             $cache_time = $openweatherapi_ttl + $current_time;
             \Drupal::cache()->set($cid, $weather, $cache_time);
@@ -148,8 +149,8 @@ function sapient_brancott_preprocess_views_view_fields(&$variables) {
           $basepath = base_path() . $variables['directory'];
 
           $variables['temp_icon'] = $base_url . $basepath . '/css/images\season_icons/' . $icon_id . '.svg';
-          $variables['current_temp'] = round(html_entity_decode($weather->temperature->now));
-          $variables['temp_unit'] = html_entity_decode($weather->temperature->getUnit());
+          //$variables['current_temp'] = round(html_entity_decode($weather->temperature->now));
+          //$variables['temp_unit'] = html_entity_decode($weather->temperature->getUnit());
           $variables['current_date'] = date('j M Y / g:ia');
         }
       }
