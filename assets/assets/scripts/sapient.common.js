@@ -46,12 +46,12 @@ var commonObj = (function($, window, sapient) {
 
 			emptyform = function() {
 				var cacheChecker = document.getElementById("cacheTest");
-				if (cacheChecker) {
+				/*if (cacheChecker) {
 					if (cacheChecker.value.length) {
 						document.location.reload();
 					}
 					cacheChecker.value = "cacheTest";
-				}
+				}*/
 			},
 
 			assignTouchDeviceClass = function(){
