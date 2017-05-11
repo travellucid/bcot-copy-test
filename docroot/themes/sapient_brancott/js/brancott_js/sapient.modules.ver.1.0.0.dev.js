@@ -564,9 +564,9 @@ var commonObj = (function($, window, sapient) {
 			},
 
 			directToErrorPage =  function() {
-				if((document.title.toLowerCase().indexOf("404") != -1)  && ($(".block-views-blockerror-page-404 .form-group").text().length < 15)) {
+				/*if((document.title.toLowerCase().indexOf("404") != -1)  && ($(".block-views-blockerror-page-404 .form-group").text().length < 15)) {
 					location.href="/404";
-				}
+				}*/
 			},
 			
 			readCookieByName = function(name) {
