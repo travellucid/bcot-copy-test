@@ -591,7 +591,7 @@ var commonObj = (function($, window, sapient) {
 					val; 
 					subPath = pathname.split('/');
 					val= value.toLowerCase().substr(0, 2);
-					alert(val);
+					
 					if(value != null) {
 						if(subPath[1] == 'en-gb'){
 							urlFinal = 'uk';
@@ -620,13 +620,15 @@ var commonObj = (function($, window, sapient) {
 							cookieFinal = val;
 						}
 						else{
-							if(cookieFinal != '' && cookieFinal == 'false'){
+							if(cookieFinal != '' && cookieFinal == 'fa'){
 								cookieFinal = urlFinal;
 							}
 							if(cookieFinal != ''){
 								cookieFinal = 'en';
 							}
 						}
+						alert(cookieFinal);
+						alert(urlFinal);
 						if(cookieFinal != urlFinal){
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
