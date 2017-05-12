@@ -590,9 +590,7 @@ var commonObj = (function($, window, sapient) {
 					cookieFinal,
 					val; 
 					subPath = pathname.split('/');
-					val= value.toLowerCase().substr(0, 2);
-					alert(val);
-					/*if(value != null) {
+					if(value != null) {
 						if(subPath[1] == 'en-gb'){
 							urlFinal = 'uk';
 						}
@@ -614,10 +612,10 @@ var commonObj = (function($, window, sapient) {
 						if(subPath[1] == ''){
 							urlFinal = 'en';
 						}
-						
-						
-						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
-							cookieFinal = val;
+						val=value.toLowerCase().split("%");
+
+						if(val[0] == 'nz' || val[0] == 'au' || val[0] == 'ca' || val[0] == 'uk' || val[0] == 'us' ){
+							cookieFinal = val[0];
 						}
 						else{
 							if(cookieFinal != ''){
@@ -628,7 +626,7 @@ var commonObj = (function($, window, sapient) {
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
 						}
-					} */
+					} 
 				}, 2000);
 				
 			},

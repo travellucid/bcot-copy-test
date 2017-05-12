@@ -255,10 +255,10 @@ var commonObj = (function($, window, sapient) {
 						if(subPath[1] == ''){
 							urlFinal = 'en';
 						}
-						val= value.toLowerCase().substr(0, 2);
-						
-						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
-							cookieFinal = val;
+						val=value.toLowerCase().split("%");
+
+						if(val[0] == 'nz' || val[0] == 'au' || val[0] == 'ca' || val[0] == 'uk' || val[0] == 'us' ){
+							cookieFinal = val[0];
 						}
 						else{
 							if(cookieFinal != ''){
