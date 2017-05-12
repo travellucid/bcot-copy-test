@@ -5182,7 +5182,13 @@ require([
             pathname = window.location.pathname,
             subPath; 
             subPath = pathname.split('/');
-            if(!subPath[1] === "user") {
+            if(subPath[1] === "user") {
+                if(subPath[2] === "login") {
+                    subPath.splice(0,1);
+                    subPath.unshift("");
+                }               
+            }
+            else{
                 subPath.splice(1,1);
             }
             subPath = subPath.join('/');
