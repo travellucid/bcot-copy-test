@@ -609,7 +609,7 @@ var commonObj = (function($, window, sapient) {
 						if(subPath[1] == 'en'){
 							urlFinal = 'en';
 						}
-						if(subPath[1] == ''){
+						if((subPath[1] == '') || (subPath[1] != 'en-gb' && subPath[1] != 'en-us' && subPath[1] != 'en-ca' && subPath[1] != 'en-au' && subPath[1] != 'en-nz' && subPath[1] != 'en' )){
 							urlFinal = 'en';
 						}
 						val=value.toLowerCase().split("%");
