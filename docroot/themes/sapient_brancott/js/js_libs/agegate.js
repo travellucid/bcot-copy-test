@@ -5182,7 +5182,9 @@ require([
             pathname = window.location.pathname,
             subPath; 
             subPath = pathname.split('/');
-            subPath.splice(1,1);
+            if(!subPath[1] === "user") {
+                subPath.splice(1,1);
+            }
             subPath = subPath.join('/');
             if(c_code === "uk") {
                 c_code = "gb";
@@ -5197,8 +5199,7 @@ require([
                      final_url="/en";
                 }
             }
-        
-       location.href=final_url + subPath;
+        location.href=final_url + subPath;
 
 
       $.cookie('age_checked', this.makeAgeCheckCookieValue(), { path: '/' });
