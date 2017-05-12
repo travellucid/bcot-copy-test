@@ -618,10 +618,14 @@ var commonObj = (function($, window, sapient) {
 							cookieFinal = val[0];
 						}
 						else{
-							if(cookieFinal != ''){
+							if(val[0] != '' && val[0] =='false'){
+								cookieFinal = urlFinal;
+							}
+							if(val[0] != '' && val[0] !='false'){
 								cookieFinal = 'en';
 							}
 						}
+						alert(cookieFinal);
 						if(cookieFinal != urlFinal){
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
