@@ -590,7 +590,9 @@ var commonObj = (function($, window, sapient) {
 					cookieFinal,
 					val; 
 					subPath = pathname.split('/');
-					if(value != null) {
+					val= value.toLowerCase().substr(0, 2);
+					alert(val);
+					/*if(value != null) {
 						if(subPath[1] == 'en-gb'){
 							urlFinal = 'uk';
 						}
@@ -612,7 +614,7 @@ var commonObj = (function($, window, sapient) {
 						if(subPath[1] == ''){
 							urlFinal = 'en';
 						}
-						val= value.toLowerCase().substr(0, 2);
+						
 						
 						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
 							cookieFinal = val;
@@ -626,7 +628,7 @@ var commonObj = (function($, window, sapient) {
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
 						}
-					} 
+					} */
 				}, 2000);
 				
 			},
