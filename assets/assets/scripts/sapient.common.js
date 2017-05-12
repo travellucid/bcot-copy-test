@@ -260,30 +260,18 @@ var commonObj = (function($, window, sapient) {
 						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
 							cookieFinal = val;
 						}
-
-						if((urlFinal == 'nz' || urlFinal == 'au' || urlFinal == 'ca' || urlFinal == 'uk' || urlFinal == 'us') && (val == 'false')){
-							cookieFinal = urlFinal;
-						}
-						if((urlFinal != 'nz' || urlFinal != 'au' || urlFinal != 'ca' || urlFinal != 'uk' || urlFinal != 'us') && (val == 'false')){
-							cookieFinal = 'en';
-						}
-
-						alert("cookie" + cookieFinal);
-						alert("market" + urlFinal);
-
-
-						/*else{
+						else{
 							if(cookieFinal != ''){
-
 								cookieFinal = 'en';
 							}
-						}*/
+						}
 						if(cookieFinal != urlFinal){
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
 						}
 					} 
 				}, 2000);
+				
 			},
 
 			ageGateSetFocusTextBox= function() {
