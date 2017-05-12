@@ -260,40 +260,30 @@ var commonObj = (function($, window, sapient) {
 						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
 							cookieFinal = val;
 						}
-						else{
+
+						if((urlFinal == 'nz' || urlFinal == 'au' || urlFinal == 'ca' || urlFinal == 'uk' || urlFinal == 'us') && (val == 'false')){
+							cookieFinal = urlFinal;
+						}
+						if((urlFinal != 'nz' || urlFinal != 'au' || urlFinal != 'ca' || urlFinal != 'uk' || urlFinal != 'us') && (val == 'false')){
+							cookieFinal = 'en';
+						}
+
+						alert("cookie" + cookieFinal);
+						alert("market" + urlFinal);
+
+
+						/*else{
 							if(cookieFinal != ''){
 
 								cookieFinal = 'en';
 							}
-						}
+						}*/
 						if(cookieFinal != urlFinal){
 							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							location.reload(true);
 						}
 					} 
 				}, 2000);
-				
-
-				/*if(value != null) {
-					val= value.toLowerCase().substr(0, 2);
-					if(subPath[1] !== 'en-nz' && subPath[1] !== 'en-au' && subPath[1] !== 'en-gb' && subPath[1] !== 'en-us' && subPath[1] !== 'en-ca') {
-						x= "en";
-					} 
-					else{
-
-						x= subPath[1];
-					}
-
-					var y = subPath[1];
-					y = y.split('-');
-					if(y != x) {
-						if(!(y === "gb" && x === "uk" ))	{
-							document.cookie = "age_checked"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-							location.reload(true);
-						}	
-					}
-					
-				}*/
 			},
 
 			ageGateSetFocusTextBox= function() {
