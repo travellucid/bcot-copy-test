@@ -590,6 +590,8 @@ var commonObj = (function($, window, sapient) {
 					cookieFinal,
 					val; 
 					subPath = pathname.split('/');
+					val= value.toLowerCase().substr(0, 2);
+					alert(val);
 					if(value != null) {
 						if(subPath[1] == 'en-gb'){
 							urlFinal = 'uk';
@@ -609,15 +611,18 @@ var commonObj = (function($, window, sapient) {
 						if(subPath[1] == 'en'){
 							urlFinal = 'en';
 						}
-						if(subPath[1] == ''){
+						if((subPath[1] == '') || (subPath[1] != 'en-gb' && subPath[1] != 'en-us' && subPath[1] != 'en-ca' && subPath[1] != 'en-au' && subPath[1] != 'en-nz' && subPath[1] != 'en' )){
 							urlFinal = 'en';
 						}
-						val=value.toLowerCase().split("%");
-
-						if(val[0] == 'nz' || val[0] == 'au' || val[0] == 'ca' || val[0] == 'uk' || val[0] == 'us' ){
-							cookieFinal = val[0];
+						
+						
+						if(val == 'nz' || val == 'au' || val == 'ca' || val == 'uk' || val == 'us' ){
+							cookieFinal = val;
 						}
 						else{
+							if(cookieFinal != '' && cookieFinal == 'false'){
+								cookieFinal = urlFinal;
+							}
 							if(cookieFinal != ''){
 								cookieFinal = 'en';
 							}
